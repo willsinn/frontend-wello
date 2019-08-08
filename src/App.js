@@ -1,14 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
+import { setCurrentUser } from "./actions/index.js";
 
 const App = user => {
   console.log(user);
-  return <div>Hi</div>;
+  return <div>Hi{setCurrentUser()}</div>;
 };
 const mapStateToProps = state => {
   return { user: state.user };
 };
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return { setCurrentUser: setCurrentUser };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
 
 // import React from 'react';
 // import logo from './logo.svg';
