@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { setUser } from "../actions/index.js";
+import { setUser } from "../actions/user.js";
+import UserContainer from "./UserContainer";
 
-const userUrl = "http://localhost:3000/user/1";
+const USER_URL = "http://localhost:3000/user/1";
 
 const UserProjectsContainer = props => {
   useEffect(() => {
-    fetch(userUrl, {
+    fetch(USER_URL, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -19,12 +20,15 @@ const UserProjectsContainer = props => {
         props.setUser({ payload: userData });
       });
   }, []);
-  return <div>Projects,</div>;
+  return (
+    <div>
+      Projects
+      <UserContainer />
+    </div>
+  );
 };
-const mapStateToProps = ({ userReducer: user }) => ({
-  user: user.user
-});
+
 export default connect(
-  mapStateToProps,
+  null,
   { setUser }
 )(UserProjectsContainer);
