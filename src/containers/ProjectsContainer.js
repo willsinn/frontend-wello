@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import ProjectTileList from "../components/ProjectTileList";
 import { connect } from "react-redux";
 import { setProjects } from "../actions/project";
 
@@ -19,6 +20,7 @@ const ProjectsContainer = props => {
   return (
     <div className="project bottom-page container">
       <h1>Projects</h1>
+      <ProjectTileList />
     </div>
   );
 };

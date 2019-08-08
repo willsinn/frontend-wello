@@ -3,7 +3,6 @@ const defaultState = {
   user: {}
 };
 const userReducer = (state = defaultState, action) => {
-  console.log(action);
   switch (action.type) {
     case "SET_USER":
       return { user: action.user.payload };
