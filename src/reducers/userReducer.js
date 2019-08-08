@@ -1,4 +1,4 @@
-import { setUser } from "../actions/user.js";
+import { setUser } from "../actions/user";
 const defaultState = {
   user: {}
 };

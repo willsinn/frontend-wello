@@ -11,9 +11,10 @@ const CreateProjectForm = props => {
         <input
           className="c-p input-box"
           type="text"
-          name="projectName"
+          name="title"
           onChange={handleInputChange}
-          value={inputs.name}
+          value={inputs.projectTitle}
+          required
         />
       </div>
       <div className="c-p form-input">
@@ -21,9 +22,9 @@ const CreateProjectForm = props => {
         <input
           className="c-p input-box"
           type="text"
-          name="projectDescription"
+          name="description"
           onChange={handleInputChange}
-          value={inputs.description}
+          value={inputs.projectDescription}
         />
       </div>
       <button type="submit">Create Project</button>
