@@ -1,10 +1,12 @@
+import { setUser } from "../actions/index.js";
 const defaultState = {
-  user: {}
+  user: null
 };
 const userReducer = (state = defaultState, action) => {
+  console.log(action);
   switch (action.type) {
     case "SET_USER":
-      return { ...state, user: action.payload };
+      return { user: action.user.payload };
     default:
       return state;
   }
