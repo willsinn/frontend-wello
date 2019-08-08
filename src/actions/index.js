@@ -4,7 +4,7 @@ export const fetchCurrentUser = () => {
   return dispatch => {
     fetch(`${ROOT_URL}/users/1`)
       .then(response => response.json())
-      .then(JSONResponse => dispatch(setCurrentUser(JSONResponse.user)));
+      .then(userData => dispatch(setCurrentUser(userData)));
   };
 };
 

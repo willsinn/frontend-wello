@@ -1,16 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setCurrentUser } from "./actions/index.js";
+import { fetchCurrentUser } from "./actions/index.js";
 
-const App = user => {
-  console.log(user);
-  return <div>Hi{setCurrentUser()}</div>;
+const App = props => {
+  return (
+    <div>
+      Hi<button onClick={props.fetchCurrentUser()}>Open app</button>
+    </div>
+  );
 };
 const mapStateToProps = state => {
   return { user: state.user };
 };
 const mapDispatchToProps = dispatch => {
-  return { setCurrentUser: setCurrentUser };
+  return { fetchCurrentUser: fetchCurrentUser };
 };
 export default connect(
   mapStateToProps,
