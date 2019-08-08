@@ -13,8 +13,7 @@ const ProjectsContainer = props => {
     })
       .then(r => r.json())
       .then(projectsData => {
-        console.log(projectsData);
-        debugger;
+        props.setProjects({ type: "SET_PROJECTS", projectsData });
       });
   }, []);
   return (
@@ -23,5 +22,10 @@ const ProjectsContainer = props => {
     </div>
   );
 };
-
-export default ProjectsContainer;
+const mapDispatchToProps = {
+  setProjects
+};
+export default connect(
+  null,
+  mapDispatchToProps
+)(ProjectsContainer);
