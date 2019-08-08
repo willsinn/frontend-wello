@@ -1,24 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
-import { fetchCurrentUser } from "./actions/index.js";
+import UserProjectsContainer from "./containers/UserProjectsContainer";
 
-const App = props => {
+const App = () => {
   return (
     <div>
-      Hi<button onClick={props.fetchCurrentUser()}>Open app</button>
+      <UserProjectsContainer />
     </div>
   );
 };
-const mapStateToProps = state => {
-  return { user: state.user };
-};
-const mapDispatchToProps = dispatch => {
-  return { fetchCurrentUser: fetchCurrentUser };
-};
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+
+export default App;
 
 // import React from 'react';
 // import logo from './logo.svg';
