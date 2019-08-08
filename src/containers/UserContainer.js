@@ -8,7 +8,4 @@ const UserContainer = props => {
   );
 };
 
-const mapStateToProps = ({ userReducer: user }) => ({
-  user: user.user
-});
 export default UserContainer;

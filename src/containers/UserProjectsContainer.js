@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { setUser } from "../actions/user.js";
 import UserContainer from "./UserContainer";
+import ProjectsContainer from "./ProjectsContainer";
 
 const userUrl = "http://localhost:3000/user/1";
 
@@ -22,8 +23,9 @@ const UserProjectsContainer = props => {
   }, []);
   return (
     <div className="user-projects full-page container">
+      HELLO THIS IS APP
       <UserContainer name={currentUser.name} />
-      Projects
+      <ProjectsContainer userId={currentUser.id} />
     </div>
   );
 };
