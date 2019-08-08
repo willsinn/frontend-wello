@@ -1,6 +1,6 @@
 import { setUser } from "../actions/user.js";
 const defaultState = {
-  user: null
+  user: {}
 };
 const userReducer = (state = defaultState, action) => {
   console.log(action);
