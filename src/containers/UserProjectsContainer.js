@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { setUser } from "../actions/user.js";
+import { setUser } from "../actions/user";
 import UserContainer from "./UserContainer";
 import ProjectsContainer from "./ProjectsContainer";
 

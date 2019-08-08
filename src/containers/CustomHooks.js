@@ -5,10 +5,6 @@ const useCreateProjectForm = callback => {
   const handleSubmit = event => {
     if (event) {
       event.preventDefault();
-      console.log(inputs);
-
-      const title = inputs.projectTitle;
-
       fetch("http://localhost:3000/user/1/projects/new", {
         method: "POST",
         headers: {
@@ -23,9 +19,7 @@ const useCreateProjectForm = callback => {
       }).then(setInputs(inputs => ({})));
     }
   };
-  const handleResetForm = () => {
-    console.log(inputs);
-  };
+
   const handleInputChange = event => {
     event.persist();
     setInputs(inputs => ({
