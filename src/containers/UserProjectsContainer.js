@@ -23,6 +23,7 @@ const UserProjectsContainer = props => {
   return (
     <div className="user-projects full-page container">
       <UserContainer name={currentUser.name} />
+      Projects
     </div>
   );
 };
