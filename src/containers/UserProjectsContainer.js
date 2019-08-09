@@ -1,33 +1,14 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React from "react";
 import Toolbar from "./Toolbar";
-import ProjectsContainer from "./ProjectsContainer";
-
-const userUrl = "http://localhost:3000/user/1";
+import ProjectTilesContainer from "./ProjectTilesContainer";
 
 const UserProjectsContainer = props => {
-  const currentUser = props.user;
-  // useEffect(() => {
-  //   fetch(userUrl, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json"
-  //     }
-  //   })
-  //     .then(r => r.json())
-  //     .then(userData => {
-  //       props.setUser({ payload: userData });
-  //     });
-  // }, []);
   return (
     <div className="user-projects full-page container">
       <Toolbar />
-      <ProjectsContainer />
+      <ProjectTilesContainer />
     </div>
   );
 };
-const mapStateToProps = ({ userReducer: user }) => ({
-  user: user.user
-});
-export default connect(mapStateToProps)(UserProjectsContainer);
+
+export default UserProjectsContainer;

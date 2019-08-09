@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CreateProjectForm from "./CreateProjectForm";
-import ProjectsList from "../components/ProjectsList";
+import LeftSidebarProjectsList from "../components/LeftSidebarProjectsList";
 
 const Toolbar = props => {
   const [projects, setShowing] = useState(false);
@@ -21,7 +21,7 @@ const Toolbar = props => {
 
       <div className="tool wrapper">
         <div className="project-list wrapper">
-          {projects ? <ProjectsList /> : null}
+          {projects ? <LeftSidebarProjectsList /> : null}
         </div>
         <div className="form wrapper">
           {" "}

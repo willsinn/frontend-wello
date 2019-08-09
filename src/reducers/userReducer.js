@@ -3,7 +3,6 @@ const defaultState = {
   userId: null
 };
 const userReducer = (state = defaultState, action) => {
-  console.log(state, action);
   switch (action.type) {
     case "SET_USER":
       return {
@@ -11,7 +10,6 @@ const userReducer = (state = defaultState, action) => {
         user: action.payload,
         userId: action.payload.id
       };
-
     default:
       return state;
   }

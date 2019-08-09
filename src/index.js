@@ -10,7 +10,8 @@ import App from "./App";
 import userReducer from "./reducers/userReducer";
 import projectsReducer from "./reducers/projectsReducer";
 import * as serviceWorker from "./serviceWorker";
-import { fetchUser, setUser, setUserId } from "./actions/user";
+import { fetchUser } from "./actions/user";
+import { fetchUserProjects } from "./actions/project";
 
 const rootReducer = combineReducers({
   userReducer: userReducer,
@@ -21,7 +22,9 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 console.log(`%c INITIAL REDUX STORE`, "color: purple", store.getState());
+
 store.dispatch(fetchUser());
+store.dispatch(fetchUserProjects());
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,12 +1,30 @@
 export const setProjects = projectsData => ({
   type: "SET_PROJECTS",
-  projects: projectsData
+  payload: projectsData
 });
 
-export const addNewProject = project => ({
+export const addNewProject = projectData => ({
   type: "ADD_NEW_PROJECT",
-  id: project.id,
-  user_id: project.user_id,
-  title: project.title,
-  description: project.description
+  project: projectData
 });
+
+export const fetchUserProjects = data => {
+  return dispatch => {
+    fetch("http://localhost:3000/user/1/projects", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        console.log(response);
+        if (response.ok) {
+          return response.json();
+        } else {
+          response.throw();
+        }
+      })
+      .then(JSONresponse => dispatch(setProjects(JSONresponse)));
+  };
+};

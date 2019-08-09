@@ -1,22 +1,4 @@
-//
-// export const fetchUser = () => {
-//   return dispatch => {
-//     fetch("http://localhost:3000/user/1", {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Accept: "application/json"
-//       }
-//     })
-//       .then(response => {
-//         console.log(response);
-//         response.json();
-//       })
-//       .then(JSONresponse => dispatch(setUser(JSONresponse)));
-//   };
-// };
 export const fetchUser = data => {
-  console.log("running");
   return dispatch => {
     fetch("http://localhost:3000/user/1", {
       headers: {
@@ -32,9 +14,10 @@ export const fetchUser = data => {
           response.throw();
         }
       })
-      .then(JSONresponse => dispatch(setUser(JSONresponse)));
+      .then(JSONresponse => console.log(JSONresponse));
   };
 };
+
 export const setUser = userData => ({
   type: "SET_USER",
   payload: userData
