@@ -1,33 +1,80 @@
-.App {
-  text-align: center;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.user-projects.full-page {
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.user.right-side {
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.projects.middle-tiles {
+  display: flex;
+  width: 100%;
+  height: 80.5%;
+  flex-direction: row-reverse;
+  position: absolute;
+  bottom: 0;
+}
+
+.top-toolbar {
+  display: flex;
+  justify-content: space-between;
+  min-height: 40px;
+  padding: 4px;
+  background-color: #2196f3;
+  z-index: 15;
+}
+
+.project-list {
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar-btn {
+  height: 37.5px;
+  width: 77.5px;
+}
+
+.create-project.form {
+  min-width: 280px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tool.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.form.wrapper {
+  z-index: 2;
+  border-radius: 2px;
+}
+.project-list.wrapper {
+}
+.project-tiles.container {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.project.tile {
+  height: 80px;
+  display: flex;
+  width: 25%;
+  flex-direction: column;
+  justify-content: space-between;
 }

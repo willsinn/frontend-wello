@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const ProjectTileList = props => {
+const ProjectsList = props => {
   const renderProjects = () => {
     const userProjects = props.projects[0];
 
@@ -18,15 +18,15 @@ const ProjectTileList = props => {
           "Nothings ever set in stone - be water my friend -";
       }
       return (
-        <div>
-          <div>{projectTitle}</div>
-          <div>{projectDescription}</div>
+        <div className="list-item">
+          <div className="project-info">{projectTitle}</div>
+          <div className="project-info">{projectDescription}</div>
         </div>
       );
     });
   };
   return (
-    <div className="project-tiles container">
+    <div className="project-list dropdown">
       <h1>{props.name}</h1>
       {props.projects.length === undefined ? null : <>{renderProjects()}</>}
     </div>
@@ -35,4 +35,4 @@ const ProjectTileList = props => {
 const mapStateToProps = ({ projectsReducer: projects }) => ({
   projects: projects
 });
-export default connect(mapStateToProps)(ProjectTileList);
+export default connect(mapStateToProps)(ProjectsList);

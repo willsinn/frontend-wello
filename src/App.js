@@ -1,5 +1,6 @@
 import React from "react";
 import UserProjectsContainer from "./containers/UserProjectsContainer";
+import "./App.css";
 
 const App = () => {
   return (

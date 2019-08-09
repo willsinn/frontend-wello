@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import ProjectTileList from "../components/ProjectTileList";
 import { connect } from "react-redux";
 import { setProjects } from "../actions/project";
+import ProjectTiles from "../components/ProjectTiles";
 
 const ProjectsContainer = props => {
   useEffect(() => {
@@ -18,9 +18,8 @@ const ProjectsContainer = props => {
       });
   }, []);
   return (
-    <div className="project bottom-page container">
-      <h1>Projects</h1>
-      <ProjectTileList />
+    <div className="projects middle-tiles container">
+      <ProjectTiles />
     </div>
   );
 };
