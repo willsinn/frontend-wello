@@ -10,6 +10,9 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  background-image: url("./images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .user.right-side {
@@ -20,7 +23,7 @@ body {
 .projects.middle-tiles {
   display: flex;
   width: 100vw;
-  height: 80.5%;
+  height: 75%;
   flex-direction: row-reverse;
   position: absolute;
   bottom: 0;
@@ -30,17 +33,25 @@ body {
   display: flex;
   justify-content: space-between;
   min-height: 40px;
-  padding: 4px;
-  background-color: #2196f3;
+  padding: 15px;
 }
 .list-item {
-  height: 60px;
-  width: 250px;
-  border: 1.5px inset white;
+  height: 45px;
+  width: 225px;
+  border: 0.75px solid black;
   border-radius: 2.5px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  background: #2096f3;
+  margin-top: 5.5px;
+  margin-bottom: 5.5px;
+  background: white;
+}
+.project-list-title {
+  height: 100%;
+  font-size: 16px;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 20px;
 }
 .project-list {
   height: inherit;
@@ -48,23 +59,35 @@ body {
   flex-direction: column;
   align-items: center;
   width: 280px;
-  margin-top: 10px;
-  background: #8fc2ea;
-  padding-bottom: 15px;
+  background: #8fc2ea52;
   border: 0.75px solid black;
   border-radius: 4px;
+  padding: 15px 0 15px 0;
+  z-index: 1;
 }
 
 .toolbar-btn {
   height: 37.5px;
   width: 77.5px;
+  border: 2px outset #d3e4eb;
+}
+.toolbar-btn:hover {
+  border: 2px inset white;
+  background-color: #d3e4eb;
 }
 
 .create-project.form {
-  background-image: url("./images/starrycityscape.jpg");
-  background-size: cover;
-  height: 185px;
-  width: 350px;
+  background-color: black;
+  color: white;
+  border: 3px solid white;
+  border-radius: 6px;
+  height: 110px;
+  width: 250px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .tool.wrapper {
@@ -98,13 +121,22 @@ body {
   justify-content: space-between;
   padding: 0;
   margin: 0 1.5% 8px 0;
-  border-radius: 4px;
-  border: 1.5px outset lightblue;
-  background: #2196f352;
+  border-radius: 6px;
+  border: 0.75px solid black;
+  background: white;
 }
 .project-title {
   padding: 10px 0 0 10px;
-  font-size: 26px;
+  font-size: 2em;
   font-weight: bold;
   color: #1a232b;
+}
+.c-p.input-box {
+  height: 30px;
+  font-size: 18px;
+  border-radius: 3px;
+  text-align: center;
+}
+.form-submit {
+  margin-right: 110px;
 }
