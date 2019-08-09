@@ -28,3 +28,20 @@ export const fetchUserProjects = data => {
       .then(JSONresponse => dispatch(setProjects(JSONresponse)));
   };
 };
+export const postNewProject = (newProject, dispatch) => {
+  return dispatch => {
+    fetch("http://localhost:3000/user/1/projects/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        user_id: 1,
+        title: newProject.newProject
+      })
+    })
+      .then(response => response.json())
+      .then(JSONresponse => console.log(JSONresponse));
+  };
+};
