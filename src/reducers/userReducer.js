@@ -1,15 +1,17 @@
-import { setUser, setUserId } from "../actions/user";
 const defaultState = {
-  user: {},
-  id: ""
+  user: null,
+  userId: null
 };
 const userReducer = (state = defaultState, action) => {
-  console.log(action);
+  console.log(state, action);
   switch (action.type) {
     case "SET_USER":
-      return { user: action.user.payload };
-    case "SET_USER_ID":
-      return { id: action.userId };
+      return {
+        ...state,
+        user: action.payload,
+        userId: action.payload.id
+      };
+
     default:
       return state;
   }
