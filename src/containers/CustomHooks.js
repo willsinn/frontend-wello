@@ -13,8 +13,7 @@ const useCreateProjectForm = callback => {
         },
         body: JSON.stringify({
           user_id: 1,
-          title: inputs.title,
-          description: inputs.description
+          title: inputs.title
         })
       }).then(setInputs(inputs => ({})));
     }

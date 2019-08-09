@@ -19,8 +19,7 @@ const ProjectsList = props => {
       }
       return (
         <div className="list-item">
-          <div className="project-info">{projectTitle}</div>
-          <div className="project-info">{projectDescription}</div>
+          <div className="project-list-title">{projectTitle}</div>
         </div>
       );
     });

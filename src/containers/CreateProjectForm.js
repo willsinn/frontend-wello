@@ -17,16 +17,6 @@ const CreateProjectForm = props => {
           required
         />
       </div>
-      <div className="c-p form-input">
-        <label className="c-p input-label">Description</label>
-        <input
-          className="c-p input-box"
-          type="text"
-          name="description"
-          onChange={handleInputChange}
-          value={inputs.projectDescription}
-        />
-      </div>
       <button type="submit">Create Project</button>
     </form>
   );
