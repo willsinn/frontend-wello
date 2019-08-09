@@ -15,10 +15,8 @@ const CreateProjectForm = ({ dispatch }) => {
     if (event) {
       event.preventDefault();
       dispatch(postNewProject({ newProject: input.title }));
-      inputField = "";
     }
   };
-  let inputField = input.projectTitle;
   return (
     <form className="create-project form container" onSubmit={handleSubmit}>
       <div className="c-p form-input">
@@ -27,7 +25,7 @@ const CreateProjectForm = ({ dispatch }) => {
           type="text"
           name="title"
           onChange={handleInputChange}
-          value={inputField}
+          value={input.projectTitle}
           placeholder="Input Project Title"
           required
         />
@@ -38,28 +36,5 @@ const CreateProjectForm = ({ dispatch }) => {
     </form>
   );
 };
-const mapStateToProps = ({ projectsReducer: projects }) => ({
-  projects: projects.projects
-});
+
 export default connect()(CreateProjectForm);
-//
-// fetch("http://localhost:3000/user/1/projects/new", {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//     Accept: "application/json"
-//   },
-//   body: JSON.stringify({
-//     user_id: 1,
-//     title: input.title
-//   })
-// })
-//   .then(response => response.json())
-//   .then(JSONresponse => {
-//     console.log(JSONresponse);
-//     dispatch(
-//       addNewProject({
-//         projectData: JSONresponse
-//       })
-//     );
-//   });

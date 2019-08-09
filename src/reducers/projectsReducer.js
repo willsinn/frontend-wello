@@ -4,7 +4,6 @@ const defaultState = {
 };
 
 const projectsReducer = (state = defaultState, action) => {
-  console.log(state.projects);
   switch (action.type) {
     case "SET_PROJECTS":
       return { ...state, projects: action.payload };
