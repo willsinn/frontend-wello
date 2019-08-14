@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CreateProjectForm from "./CreateProjectForm";
-import LeftSidebarProjectsList from "../components/LeftSidebarProjectsList";
+import AddProjectForm from "./AddProjectForm";
+import SidebarList from "../components/SidebarList";
 
 const NavBar = props => {
   const [projects, setShowing] = useState(false);
@@ -19,8 +19,8 @@ const NavBar = props => {
         </button>
       </div>
 
-      {projects ? <LeftSidebarProjectsList /> : null}
-      {projectForm ? <CreateProjectForm name={props.name} /> : null}
+      {projects ? <SidebarList /> : null}
+      {projectForm ? <AddProjectForm name={props.name} /> : null}
     </div>
   );
 };

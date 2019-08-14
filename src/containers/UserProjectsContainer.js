@@ -1,10 +1,10 @@
 import React from "react";
-import ProjectTilesContainer from "./ProjectTilesContainer";
+import TilesList from "../components/TilesList";
 
 const UserProjectsContainer = props => {
   return (
     <div id="userprojects" className="container">
-      <ProjectTilesContainer />
+      <TilesList />
     </div>
   );
 };

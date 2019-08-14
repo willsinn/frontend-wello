@@ -124,7 +124,7 @@ body {
   overflow-y: scroll;
 }
 
-.project.tile {
+.project-tile {
   height: 95px;
   display: flex;
   width: 200px;

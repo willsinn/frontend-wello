@@ -1,12 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import LeftSidebarProjectsListItem from "./LeftSidebarProjectsListItem";
+import ProjectListItem from "./ProjectListItem";
 
-const LeftSidebarProjectsList = props => {
+const SidebarList = props => {
   const renderItems = () => {
     if (props.projects.length > 0) {
       return [...props.projects].map(project => (
-        <LeftSidebarProjectsListItem key={project.id} project={project} />
+        <li className="list-item">
+          <div className="project-list-title">
+            <ProjectListItem key={project.id} project={project} />
+          </div>
+        </li>
       ));
     }
   };
@@ -15,4 +19,4 @@ const LeftSidebarProjectsList = props => {
 const mapStateToProps = ({ projectsReducer: projects }) => ({
   projects: projects.projects
 });
-export default connect(mapStateToProps)(LeftSidebarProjectsList);
+export default connect(mapStateToProps)(SidebarList);

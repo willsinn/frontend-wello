@@ -4,7 +4,7 @@ import { postNewProject } from "../actions/project";
 
 const initialState = {};
 
-const CreateProjectForm = ({ dispatch }) => {
+const AddProjectForm = ({ dispatch }) => {
   const [input, setInput] = useState(initialState);
   const clearInput = () => {
     setInput({ ...initialState });
@@ -45,4 +45,4 @@ const CreateProjectForm = ({ dispatch }) => {
   );
 };
 
-export default connect()(CreateProjectForm);
+export default connect()(AddProjectForm);

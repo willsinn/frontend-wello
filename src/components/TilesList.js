@@ -1,0 +1,27 @@
+import React from "react";
+import ProjectListItem from "../components/ProjectListItem";
+import { connect } from "react-redux";
+
+const TilesList = props => {
+  const renderTiles = () => {
+    if (props.projects.length > 0) {
+      return [...props.projects].map(project => (
+        <li className="project-tile">
+          <div className="project-title">
+            <ProjectListItem key={project.id} project={project} />
+          </div>
+        </li>
+      ));
+    }
+  };
+  return (
+    <div className="projects middle-tiles container">
+      <ul className="project-tiles container">{renderTiles()}</ul>
+    </div>
+  );
+};
+
+const mapStateToProps = ({ projectsReducer: projects }) => ({
+  projects: projects.projects
+});
+export default connect(mapStateToProps)(TilesList);
