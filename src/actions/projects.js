@@ -30,6 +30,7 @@ export const fetchUserProjects = data => {
 };
 export const postNewProject = (title, dispatch) => {
   return dispatch => {
+    console.log(title);
     fetch("http://localhost:3000/user/1/projects/new", {
       method: "POST",
       headers: {
@@ -38,7 +39,7 @@ export const postNewProject = (title, dispatch) => {
       },
       body: JSON.stringify({
         user_id: 1,
-        title: title.newProject
+        title: title
       })
     })
       .then(response => response.json())

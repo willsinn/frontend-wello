@@ -6,7 +6,7 @@ const WorkspaceItemsContainer = props => {
   return (
     <div id="workspace-items">
       <WorkspaceList />
-      <AddWorkspaceItemForm />
+      <AddWorkspaceItemForm project_id={props.workspace.id} />
     </div>
   );
 };

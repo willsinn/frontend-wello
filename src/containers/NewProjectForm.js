@@ -16,7 +16,7 @@ const NewProjectForm = ({ dispatch }) => {
   const handleSubmit = e => {
     if (e) {
       e.preventDefault();
-      dispatch(postNewProject({ newProject: title }), clearTitle(e));
+      dispatch(postNewProject({ title }), clearTitle(e));
     }
   };
 
