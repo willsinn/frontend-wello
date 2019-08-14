@@ -1,15 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchWorkspace } from "../actions/project";
+import { fetchWorkspace } from "../actions/workspace";
 
 const ProjectListItem = (props, { dispatch }) => {
   const handleClick = e => {
     if (e) {
-      dispatch(fetchWorkspace(props.project));
+      props.dispatch(fetchWorkspace(props.project));
     }
   };
   return (
-    <div onClick={handleClick} className="project-list-item">
+    <div onClick={e => handleClick(e)} className="project-list-item">
       {props.project.title}
     </div>
   );

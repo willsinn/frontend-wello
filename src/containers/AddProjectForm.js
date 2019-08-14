@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postNewProject } from "../actions/project";
+import { postNewProject } from "../actions/projects";
 
 const initialState = { title: "" };
 const AddProjectForm = ({ dispatch }) => {

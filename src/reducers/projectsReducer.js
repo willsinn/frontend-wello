@@ -1,13 +1,11 @@
-import { addNewProject } from "../actions/project";
 const defaultState = {
-  projects: [],
-  project: {}
+  projects: []
 };
 
 const projectsReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_WORKSPACE":
-      return { ...state, project: action.payload };
+      return { ...state, project: action.workspace };
     case "SET_PROJECTS":
       return { ...state, projects: action.payload };
     case "ADD_NEW_PROJECT":
