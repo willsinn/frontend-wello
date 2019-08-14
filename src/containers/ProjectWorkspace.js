@@ -1,7 +1,15 @@
 import React from "react";
 import WorkspaceItemsContainer from "./WorkspaceItemsContainer";
+import { connect } from "react-redux";
+import { deleteProjectWorkspace } from "../actions/projects";
+import { clearWorkspace } from "../actions/workspace";
 
-const ProjectWorkspace = props => {
+const ProjectWorkspace = (props, { dispatch }) => {
+  const handleDelete = e => {
+    props.dispatch(deleteProjectWorkspace(props.workspace));
+    props.dispatch(clearWorkspace());
+  };
+
   return (
     <div id="workspace">
       <div className="project-workspace-control">
@@ -9,7 +17,9 @@ const ProjectWorkspace = props => {
           <div className="pwc-title-top">{props.workspace.title}</div>
           <div className="pwc-title-bottom">
             <button className="pwc-btn">EDIT</button>
-            <button className="pwc-btn">DELETE</button>
+            <button onClick={e => handleDelete(e)} className="pwc-btn">
+              DELETE
+            </button>
           </div>
         </div>
         <div className="pwc-right">
@@ -22,4 +32,5 @@ const ProjectWorkspace = props => {
     </div>
   );
 };
-export default ProjectWorkspace;
+
+export default connect()(ProjectWorkspace);

@@ -3,8 +3,6 @@ const defaultState = {
 };
 
 const workspaceReducer = (state = defaultState, action) => {
-  console.log(state.workspace);
-  console.log(action);
   switch (action.type) {
     case "ADD_WORKSPACE_ITEM":
       return {

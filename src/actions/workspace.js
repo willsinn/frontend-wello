@@ -4,7 +4,6 @@ export const setWorkspace = workspaceData => ({
   type: "SET_WORKSPACE",
   workspace: workspaceData
 });
-
 export const fetchWorkspace = (project, dispatch) => {
   return dispatch => {
     fetch(
@@ -29,8 +28,6 @@ export const addWorkspaceItem = item => ({
 });
 
 export const postWorkspaceItem = (item, dispatch) => {
-  console.log("item obj", item);
-
   return dispatch => {
     fetch(`http://localhost:3000/project/${item.project_id}/items/new`, {
       method: "POST",
