@@ -1,18 +1,27 @@
 import React from "react";
-import UserProjectsContainer from "./containers/UserProjectsContainer";
 import NavBar from "./containers/NavBar";
 import "./App.css";
+import UserProjectsContainer from "./containers/UserProjectsContainer";
+import ProjectWorkspace from "./containers/ProjectWorkspace";
+import { connect } from "react-redux";
 
-const App = () => {
+const App = props => {
+  console.log(props.workspace);
   return (
     <div id="root">
       <NavBar />
-      <UserProjectsContainer />
+      {props.workspace.id !== undefined ? (
+        <ProjectWorkspace />
+      ) : (
+        <UserProjectsContainer />
+      )}
     </div>
   );
 };
-
-export default App;
+const mapStateToProps = ({ workspaceReducer: workspace }) => ({
+  workspace: workspace.workspace
+});
+export default connect(mapStateToProps)(App);
 
 // import React from 'react';
 // import logo from './logo.svg';

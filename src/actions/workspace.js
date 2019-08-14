@@ -2,6 +2,7 @@ export const setWorkspace = workspaceData => ({
   type: "SET_WORKSPACE",
   workspace: workspaceData
 });
+export const clearWorkspace = () => ({ type: "CLEAR_WORKSPACE" });
 export const fetchWorkspace = (project, dispatch) => {
   return dispatch => {
     fetch(
