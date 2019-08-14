@@ -45,3 +45,7 @@ export const postNewProject = (title, dispatch) => {
       .then(JSONresponse => dispatch(addNewProject(JSONresponse)));
   };
 };
+export const fetchWorkspace = (project, dispatch) => {
+  console.log(project);
+  return dispatch => {};
+};

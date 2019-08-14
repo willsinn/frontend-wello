@@ -1,14 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
+import { fetchWorkspace } from "../actions/project";
 
-const ProjectListItem = props => {
+const ProjectListItem = (props, { dispatch }) => {
   const handleClick = e => {
-    console.log(e.target, props.project);
+    if (e) {
+      dispatch(fetchWorkspace(props.project));
+    }
   };
   return (
-    <div onClick={e => handleClick(e)} className="project-list-item">
+    <div onClick={handleClick} className="project-list-item">
       {props.project.title}
     </div>
   );
 };
-
-export default ProjectListItem;
+export default connect()(ProjectListItem);
