@@ -2,9 +2,9 @@ import React from "react";
 
 const LeftSidebarProjectsListItem = props => {
   return (
-    <div className="list-item">
+    <li className="list-item">
       <div className="project-list-title">{props.project.title}</div>
-    </div>
+    </li>
   );
 };
 export default LeftSidebarProjectsListItem;

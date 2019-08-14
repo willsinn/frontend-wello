@@ -1,11 +1,9 @@
 import React from "react";
-import Toolbar from "./Toolbar";
 import ProjectTilesContainer from "./ProjectTilesContainer";
 
 const UserProjectsContainer = props => {
   return (
-    <div className="user-projects full-page container">
-      <Toolbar />
+    <div id="userprojects" className="container">
       <ProjectTilesContainer />
     </div>
   );

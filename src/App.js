@@ -1,10 +1,12 @@
 import React from "react";
 import UserProjectsContainer from "./containers/UserProjectsContainer";
+import NavBar from "./containers/NavBar";
 import "./App.css";
 
 const App = () => {
   return (
-    <div>
+    <div id="root">
+      <NavBar />
       <UserProjectsContainer />
     </div>
   );
