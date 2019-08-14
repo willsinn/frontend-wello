@@ -42,6 +42,6 @@ export const postNewProject = (data, dispatch) => {
       })
     })
       .then(response => response.json())
-      .then(JSONresponse => console.log(JSONresponse));
+      .then(JSONresponse => dispatch(addNewProject(JSONresponse)));
   };
 };
