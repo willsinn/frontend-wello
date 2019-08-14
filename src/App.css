@@ -28,6 +28,9 @@ body {
   position: absolute;
   width: inherit;
 }
+#workspace-items {
+  display: flex;
+}
 .user.right-side {
   display: flex;
   flex-direction: column;
@@ -50,7 +53,7 @@ body {
 }
 .list-item {
   height: 45px;
-  width: 240px;
+  width: 180px;
   border: 0.75px solid black;
   border-radius: 2.5px;
   margin-top: 5.5px;
@@ -69,7 +72,7 @@ body {
 .sidebar-wrapper {
   height: 75vh;
   display: flex;
-  width: 285px;
+  width: 225px;
   background: #8fc2ea52;
   border: 0.75px solid black;
   border-radius: 4px;
@@ -170,4 +173,27 @@ body {
 .project-list-item {
   height: inherit;
   width: inherit;
+}
+
+.project-workspace-control {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 75px;
+  margin-right: 100px;
+  margin-left: 240px;
+}
+.pwc-title-top {
+  font-size: 75px;
+}
+.pwc-title-bottom {
+  display: flex;
+  justify-content: space-evenly;
+}
+.pwc-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.pwc-desc {
+  font-size: 24px;
 }

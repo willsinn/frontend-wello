@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { postNewProject } from "../actions/projects";
 
 const initialState = { title: "" };
-const AddProjectForm = ({ dispatch }) => {
+const NewProjectForm = ({ dispatch }) => {
   const [title, setTitle] = useState(initialState);
   const clearTitle = e => {
     setTitle({ ...initialState });
@@ -42,4 +42,4 @@ const AddProjectForm = ({ dispatch }) => {
   );
 };
 
-export default connect()(AddProjectForm);
+export default connect()(NewProjectForm);

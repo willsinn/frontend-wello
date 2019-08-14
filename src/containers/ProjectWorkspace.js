@@ -1,24 +1,24 @@
 import React from "react";
+import WorkspaceItemsContainer from "./WorkspaceItemsContainer";
 
 const ProjectWorkspace = props => {
   return (
     <div id="workspace">
       <div className="project-workspace-control">
         <div className="pwc-left">
-          <div className="pwc-title-top">
-            <h3 className="pwc-title">{props.workspace.title}</h3>
-          </div>
-          <div className="pwc-bottom">
+          <div className="pwc-title-top">{props.workspace.title}</div>
+          <div className="pwc-title-bottom">
             <button className="pwc-btn">EDIT</button>
             <button className="pwc-btn">DELETE</button>
           </div>
         </div>
         <div className="pwc-right">
-          <h3>
+          <div className="pwc-desc">
             About this board <button className="pwc-btn"> + </button>
-          </h3>
+          </div>
         </div>
       </div>
+      <WorkspaceItemsContainer workspace={props.workspace} />
     </div>
   );
 };

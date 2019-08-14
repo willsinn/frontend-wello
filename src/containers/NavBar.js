@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AddProjectForm from "./AddProjectForm";
+import NewProjectForm from "./NewProjectForm";
 import SidebarList from "../components/SidebarList";
 import { connect } from "react-redux";
 import { clearWorkspace } from "../actions/workspace";
@@ -27,7 +27,7 @@ const NavBar = (props, { dispatch }) => {
       </div>
 
       {projects ? <SidebarList /> : null}
-      {projectForm ? <AddProjectForm name={props.name} /> : null}
+      {projectForm ? <NewProjectForm name={props.name} /> : null}
     </div>
   );
 };
