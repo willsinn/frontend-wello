@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { postNewProject } from "../actions/projects";
+import { setNull } from "../actions/user";
 
 const initialState = { title: "" };
 const NewProjectForm = ({ dispatch }) => {
@@ -16,7 +17,7 @@ const NewProjectForm = ({ dispatch }) => {
   const handleSubmit = e => {
     if (e) {
       e.preventDefault();
-      dispatch(postNewProject({ title }), clearTitle(e));
+      dispatch(postNewProject({ title }), clearTitle(e), dispatch(setNull()));
     }
   };
 

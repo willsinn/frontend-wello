@@ -3,7 +3,7 @@ import NewProjectForm from "./NewProjectForm";
 import SidebarList from "../components/SidebarList";
 import { connect } from "react-redux";
 import { clearWorkspace } from "../actions/workspace";
-import { setTrue, setFalse, setNull } from "../actions/user";
+import { setTrue, setFalse } from "../actions/user";
 
 const NavBar = (props, { dispatch }) => {
   const notActive = () => {
