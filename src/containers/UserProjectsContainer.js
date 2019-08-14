@@ -1,12 +1,18 @@
 import React from "react";
 import TilesList from "../components/TilesList";
+import { connect } from "react-redux";
+import { setNull } from "../actions/user";
 
-const UserProjectsContainer = props => {
+const UserProjectsContainer = ({ dispatch }) => {
   return (
-    <div id="userprojects" className="container">
+    <div
+      onClick={() => dispatch(setNull())}
+      id="userprojects"
+      className="container"
+    >
       <TilesList />
     </div>
   );
 };
 
-export default UserProjectsContainer;
+export default connect()(UserProjectsContainer);

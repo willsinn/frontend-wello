@@ -16,20 +16,18 @@ const NavBar = (props, { dispatch }) => {
   return (
     <div id="navbar">
       <div className="top-navbar">
-        <div className="left-nav">
-          <button
-            className="navbar-btn"
-            onClick={e => props.dispatch(setTrue(e))}
-          >
-            Projects
-          </button>
-          <button
-            className="navbar-btn"
-            onClick={e => props.dispatch(clearWorkspace(e))}
-          >
-            Home
-          </button>
-        </div>
+        <button
+          className="navbar-btn"
+          onClick={e => props.dispatch(setTrue(e))}
+        >
+          Projects
+        </button>
+        <button
+          className="navbar-btn"
+          onClick={e => props.dispatch(clearWorkspace(e))}
+        >
+          Home
+        </button>
         <button
           className="navbar-btn"
           onClick={e => props.dispatch(setFalse(e))}

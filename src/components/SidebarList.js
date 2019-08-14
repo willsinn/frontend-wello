@@ -1,12 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
 import ProjectListItem from "./ProjectListItem";
+import { connect } from "react-redux";
+import { setNull } from "../actions/user";
 
-const SidebarList = props => {
+const SidebarList = (props, { dispatch }) => {
   const renderItems = () => {
     if (props.projects.length > 0) {
       return [...props.projects].map(project => (
-        <li className="list-item">
+        <li onClick={e => props.dispatch(setNull(e))} className="list-item">
           <div className="project-list-title">
             <ProjectListItem key={project.id} project={project} />
           </div>
