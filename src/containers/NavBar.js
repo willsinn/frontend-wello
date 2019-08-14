@@ -13,12 +13,14 @@ const NavBar = (props, { dispatch }) => {
   return (
     <div id="navbar">
       <div className="top-navbar">
-        <button className="navbar-btn" onClick={() => setShowing(!projects)}>
-          Projects
-        </button>
-        <button className="navbar-btn" onClick={e => handleHomeClick(e)}>
-          Home
-        </button>
+        <div className="left-nav">
+          <button className="navbar-btn" onClick={() => setShowing(!projects)}>
+            Projects
+          </button>
+          <button className="navbar-btn" onClick={e => handleHomeClick(e)}>
+            Home
+          </button>
+        </div>
         <button className="navbar-btn" onClick={() => setOpen(!projectForm)}>
           New Project
         </button>

@@ -14,7 +14,11 @@ const SidebarList = props => {
       ));
     }
   };
-  return <ul className="project-list dropdown">{renderItems()}</ul>;
+  return (
+    <div className="sidebar-wrapper">
+      <ul className="sidebar-list dropdown">{renderItems()}</ul>
+    </div>
+  );
 };
 const mapStateToProps = ({ projectsReducer: projects }) => ({
   projects: projects.projects

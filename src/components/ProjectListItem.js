@@ -4,9 +4,7 @@ import { fetchWorkspace } from "../actions/workspace";
 
 const ProjectListItem = (props, { dispatch }) => {
   const handleClick = e => {
-    if (e) {
-      props.dispatch(fetchWorkspace(props.project));
-    }
+    props.dispatch(fetchWorkspace(props.project));
   };
   return (
     <div onClick={e => handleClick(e)} className="project-list-item">

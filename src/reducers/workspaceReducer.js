@@ -3,7 +3,6 @@ const defaultState = {
 };
 
 const workspaceReducer = (state = defaultState, action) => {
-  console.log(action);
   switch (action.type) {
     case "CLEAR_WORKSPACE":
       return { ...state, workspace: defaultState };
