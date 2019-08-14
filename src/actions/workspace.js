@@ -15,8 +15,7 @@ export const fetchWorkspace = (project, dispatch) => {
     )
       .then(response => response.json())
       .then(JSONresponse => {
-        console.log(JSONresponse);
-        dispatch(setWorkspace(JSONresponse));
+        dispatch(setWorkspace({ project: JSONresponse }));
       });
   };
 };

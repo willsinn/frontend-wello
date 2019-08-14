@@ -5,7 +5,7 @@ const defaultState = {
 const workspaceReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_WORKSPACE":
-      return { ...state, projectWorkspace: action.payload };
+      return { ...state, workspace: action.workspace.project };
     default:
       return state;
   }
