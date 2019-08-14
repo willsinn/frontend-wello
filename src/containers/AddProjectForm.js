@@ -2,27 +2,24 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { postNewProject } from "../actions/project";
 
-const initialState = {};
-
+const initialState = { title: "" };
 const AddProjectForm = ({ dispatch }) => {
-  const [input, setInput] = useState(initialState);
-  const clearInput = () => {
-    setInput({ ...initialState });
+  const [title, setTitle] = useState(initialState);
+  const clearTitle = e => {
+    setTitle({ ...initialState });
+    e.target.firstElementChild.firstElementChild.value = "";
   };
-  const handleInputChange = event => {
+  const handleTitleChange = event => {
     event.persist();
-    setInput(input => ({
-      ...input,
-      [event.target.name]: event.target.value
-    }));
+    setTitle(event.target.value);
   };
-  const handleSubmit = event => {
-    if (event) {
-      event.preventDefault();
-      dispatch(postNewProject({ newProject: input.title }, clearInput()));
+  const handleSubmit = e => {
+    if (e) {
+      e.preventDefault();
+      dispatch(postNewProject({ newProject: title }), clearTitle(e));
     }
   };
-  console.log(input.projectTitle);
+
   return (
     <div className="new-project-form">
       <form className="create-project form container" onSubmit={handleSubmit}>
@@ -31,9 +28,9 @@ const AddProjectForm = ({ dispatch }) => {
             className="c-p input-box"
             type="text"
             name="title"
-            onChange={handleInputChange}
-            value={input.projectTitle}
-            placeholder="Input Project Title"
+            onChange={handleTitleChange}
+            value={title.value}
+            placeholder="Input New Project Title"
             required
           />
         </div>
