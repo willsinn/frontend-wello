@@ -1,3 +1,8 @@
+export const setUser = userData => ({
+  type: "SET_USER",
+  payload: userData
+});
+
 export const fetchUser = data => {
   return dispatch => {
     fetch("http://localhost:3000/user/1", {
@@ -18,14 +23,6 @@ export const fetchUser = data => {
   };
 };
 
-export const setUser = userData => ({
-  type: "SET_USER",
-  payload: userData
-});
-
-// this action returns an anonymous function that is handled by
-// redux-thunk (an example middleware). you are guaranteed that
-// you will have access to state and dispatch here.
-// which means, when your request finishes, you can dispatch another action.
-// here we dispatch a NEW action so that the reducer can take the
-// response data, which is found here. called `response`.
+export const setTrue = () => ({ type: "SET_TRUE" });
+export const setFalse = () => ({ type: "SET_FALSE" });
+export const setNull = () => ({ type: "SET_NULL" });

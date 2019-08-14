@@ -9,7 +9,6 @@ const projectsReducer = (state = defaultState, action) => {
       const remainingProjects = [...state.projects].filter(
         project => project.id !== action.project.id
       );
-
       return {
         ...state,
         projects: remainingProjects

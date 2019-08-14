@@ -3,38 +3,46 @@ import NewProjectForm from "./NewProjectForm";
 import SidebarList from "../components/SidebarList";
 import { connect } from "react-redux";
 import { clearWorkspace } from "../actions/workspace";
+import { setTrue, setFalse, setNull } from "../actions/user";
 
 const NavBar = (props, { dispatch }) => {
-  const [projects, setShowing] = useState(false);
-  const [projectForm, setOpen] = useState(false);
-  const handleHomeClick = e => {
-    props.dispatch(clearWorkspace());
+  const notActive = () => {
+    if (props.isActive === null) {
+      return null;
+    } else {
+      return props.isActive ? <SidebarList /> : <NewProjectForm />;
+    }
   };
   return (
     <div id="navbar">
       <div className="top-navbar">
         <div className="left-nav">
-          <button className="navbar-btn" onClick={() => setShowing(!projects)}>
+          <button
+            className="navbar-btn"
+            onClick={e => props.dispatch(setTrue(e))}
+          >
             Projects
           </button>
-          <button className="navbar-btn" onClick={e => handleHomeClick(e)}>
+          <button
+            className="navbar-btn"
+            onClick={e => props.dispatch(clearWorkspace(e))}
+          >
             Home
           </button>
         </div>
-        <button className="navbar-btn" onClick={() => setOpen(!projectForm)}>
+        <button
+          className="navbar-btn"
+          onClick={e => props.dispatch(setFalse(e))}
+        >
           New Project
         </button>
       </div>
-
-      {projects ? <SidebarList /> : null}
-      {projectForm ? <NewProjectForm name={props.name} /> : null}
+      {notActive()}
     </div>
   );
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    // dispatching plain actions
-    clearWorkspace: e => dispatch({ type: "CLEAR_WORKSPACE" })
-  };
-};
-export default connect()(NavBar);
+const mapStateToProps = ({ userReducer: isActive }) => ({
+  isActive: isActive.isActive
+});
+
+export default connect(mapStateToProps)(NavBar);

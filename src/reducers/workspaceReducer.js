@@ -4,6 +4,11 @@ const defaultState = {
 
 const workspaceReducer = (state = defaultState, action) => {
   switch (action.type) {
+    case "TOGGLE_LIST":
+      return {
+        ...state,
+        listOpen: !state.listOpen
+      };
     case "ADD_WORKSPACE_ITEM":
       return {
         ...state,
