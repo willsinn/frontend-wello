@@ -10,9 +10,9 @@ body {
   position: relative;
 }
 #navbar {
-  position: fixed;
   width: inherit;
   z-index: 1;
+  position: absolute;
 }
 
 #userprojects {
@@ -21,8 +21,13 @@ body {
   background-image: url("./images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  position: absolute;
 }
-
+#workspace {
+  height: inherit;
+  position: absolute;
+  width: inherit;
+}
 .user.right-side {
   display: flex;
   flex-direction: column;
@@ -34,7 +39,7 @@ body {
   height: 75%;
   flex-direction: row-reverse;
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
 }
 
 .top-navbar {

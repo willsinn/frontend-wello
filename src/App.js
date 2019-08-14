@@ -8,14 +8,14 @@ import { connect } from "react-redux";
 const App = props => {
   console.log(props.workspace);
   return (
-    <div id="root">
+    <>
       <NavBar />
       {props.workspace.id !== undefined ? (
-        <ProjectWorkspace />
+        <ProjectWorkspace workspace={props.workspace} />
       ) : (
         <UserProjectsContainer />
       )}
-    </div>
+    </>
   );
 };
 const mapStateToProps = ({ workspaceReducer: workspace }) => ({
