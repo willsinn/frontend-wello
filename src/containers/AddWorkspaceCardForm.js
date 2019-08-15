@@ -3,36 +3,29 @@ import { connect } from "react-redux";
 import { postWorkspaceItem } from "../actions/workspace";
 
 const initialState = { objective: "" };
-const AddWorkspaceItemForm = (props, { dispatch }) => {
+const AddWorkspaceCardForm = (props, { dispatch }) => {
   const [objective, setObjective] = useState(initialState);
   const clearState = e => {
+    debugger;
     setObjective({ ...initialState });
+    e.target.firstElementChild.value = "";
   };
   const handleChange = event => {
     event.persist();
     setObjective(event.target.value);
   };
   const handleSubmit = e => {
-    const newItem = {
-      item: {
-        project_id: props.project_id,
-        objective: objective
-      }
-    };
-
     if (e) {
-      console.log(objective);
       e.preventDefault();
       props.dispatch(
         postWorkspaceItem({
-          project_id: props.project_id,
+          workspace: props.workspace,
           objective: objective
-        }),
-        clearState(e)
+        })
       );
+      clearState(e);
     }
   };
-  console.log(objective, props);
   return (
     <div className="new-workspace-item">
       <form onSubmit={handleSubmit} className="item-form">
@@ -51,5 +44,4 @@ const AddWorkspaceItemForm = (props, { dispatch }) => {
     </div>
   );
 };
-const mapDispatchToProps = dispatch => {};
-export default connect()(AddWorkspaceItemForm);
+export default connect()(AddWorkspaceCardForm);

@@ -27,17 +27,19 @@ export const addWorkspaceItem = item => ({
   item: item
 });
 
-export const postWorkspaceItem = (item, dispatch) => {
+export const postWorkspaceItem = (project, dispatch) => {
   return dispatch => {
-    fetch(`http://localhost:3000/project/${item.project_id}/items/new`, {
+    ///// FIX POST HERE!
+    /// FIX BACKEND RELATIONSHIPS
+    fetch(`http://localhost:3000/project/${project.workspace.id}/items/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        project_id: item.project_id,
-        objective: item.objective
+        project_id: project.workspace.id,
+        objective: project.workspace.objective
       })
     })
       .then(response => response.json())

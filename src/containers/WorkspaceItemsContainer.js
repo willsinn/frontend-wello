@@ -1,12 +1,12 @@
 import React from "react";
-import WorkspaceList from "../components/WorkspaceList";
-import AddWorkspaceItemForm from "./AddWorkspaceItemForm";
+import ProjectWorkspaceList from "../components/ProjectWorkspaceList";
+import AddWorkspaceCardForm from "./AddWorkspaceCardForm";
 
 const WorkspaceItemsContainer = props => {
   return (
     <div id="workspace-items">
-      <WorkspaceList />
-      <AddWorkspaceItemForm project_id={props.workspace.id} />
+      <ProjectWorkspaceList />
+      <AddWorkspaceCardForm workspace={props.workspace} />
     </div>
   );
 };

@@ -1,5 +1,7 @@
 const defaultState = {
-  workspace: {}
+  workspace: {
+    items: []
+  }
 };
 
 const workspaceReducer = (state = defaultState, action) => {

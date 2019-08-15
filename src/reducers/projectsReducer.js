@@ -3,7 +3,6 @@ const defaultState = {
 };
 
 const projectsReducer = (state = defaultState, action) => {
-  console.log(action);
   switch (action.type) {
     case "DELETE_PROJECT":
       const remainingProjects = [...state.projects].filter(
