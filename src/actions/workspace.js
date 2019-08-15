@@ -22,11 +22,6 @@ export const fetchWorkspace = (project, dispatch) => {
   };
 };
 
-export const addWorkspaceItem = item => ({
-  type: "ADD_WORKSPACE_ITEM",
-  item: item
-});
-
 export const postWorkspaceItem = (project, dispatch) => {
   return dispatch => {
     fetch(`http://localhost:3000/project/${project.workspace.id}/items/new`, {
@@ -42,6 +37,16 @@ export const postWorkspaceItem = (project, dispatch) => {
     }).then(response => dispatch(fetchWorkspace(project.workspace)));
   };
 };
-export const toggleCardForm = () => ({
-  type: "TOGGLE_CARD_FORM"
-});
+
+export const postNewCard = (item, dispatch) => {
+  return dispatch => {
+    fetch(`http://localhost:3000/item/:id/cards/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({})
+    }).then(response => dispatch(fetchWorkspace()));
+  };
+};
