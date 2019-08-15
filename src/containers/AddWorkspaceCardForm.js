@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { postWorkspaceItem } from "../actions/workspace";
 
 const initialState = { objective: "" };
-const AddWorkspaceCardForm = ({ dispatch }) => {
+const AddWorkspaceCardForm = (props, { dispatch }) => {
   const [objective, setObjective] = useState(initialState);
   const clearState = e => {
     setObjective({ ...initialState });
@@ -16,10 +16,11 @@ const AddWorkspaceCardForm = ({ dispatch }) => {
     setObjective(e.target.value);
   };
   const handleSubmit = e => {
-    debugger;
     if (e) {
       e.preventDefault();
-      dispatch(postWorkspaceItem({ objective }));
+      props.dispatch(
+        postWorkspaceItem({ objective, workspace: props.workspace })
+      );
       clearState(e);
     }
   };

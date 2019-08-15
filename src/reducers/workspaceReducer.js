@@ -5,7 +5,6 @@ const defaultState = {
 };
 
 const workspaceReducer = (state = defaultState, action) => {
-  console.log(state);
   switch (action.type) {
     case "TOGGLE_LIST":
       return {

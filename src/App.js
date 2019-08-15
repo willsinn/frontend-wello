@@ -6,7 +6,6 @@ import ProjectWorkspace from "./containers/ProjectWorkspace";
 import { connect } from "react-redux";
 
 const App = props => {
-  console.log(props.workspace);
   return (
     <>
       <NavBar />

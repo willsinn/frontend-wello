@@ -159,7 +159,7 @@ body {
   height: inherit;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: flex-start;
   overflow-y: auto;
 }

@@ -37,10 +37,8 @@ export const postWorkspaceItem = (project, dispatch) => {
       },
       body: JSON.stringify({
         project_id: project.workspace.id,
-        objective: project.workspace.objective
+        objective: project.objective
       })
-    })
-      .then(response => response.json())
-      .then(JSONresponse => dispatch(addWorkspaceItem(JSONresponse)));
+    }).then(response => dispatch(fetchWorkspace(project.workspace)));
   };
 };
