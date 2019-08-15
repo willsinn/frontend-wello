@@ -13,8 +13,14 @@ const ProjectWorkspaceList = props => {
   };
   return (
     <div className="workspace-list-wrapper">
-      <ul className="workspace-list">{renderCards()}</ul>
-      <AddWorkspaceCardForm workspace={props.workspace} />
+      <ul className="workspace-list">
+        {renderCards()}
+        <li className="wsp-list-item">
+          <div className="wsp-title">
+            <AddWorkspaceCardForm workspace={props.workspace} />
+          </div>
+        </li>
+      </ul>
     </div>
   );
 };

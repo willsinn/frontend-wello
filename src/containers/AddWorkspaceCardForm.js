@@ -34,10 +34,10 @@ const AddWorkspaceCardForm = (props, { dispatch }) => {
           name="objective"
           onChange={handleChange}
           value={objective.value}
-          placeholder="Input New Project Title"
+          placeholder="  Add New List"
           required
         />
-        <button className="n-w form-submit">Aim</button>
+        <button className="n-w form-submit"> Create Card List</button>
       </form>
     </div>
   );

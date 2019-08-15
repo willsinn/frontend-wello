@@ -1,5 +1,6 @@
 import React from "react";
 import WorkspaceItemsContainer from "./WorkspaceItemsContainer";
+import HomeBtn from "../components/HomeBtn";
 import { connect } from "react-redux";
 import { deleteProjectWorkspace } from "../actions/projects";
 import { clearWorkspace } from "../actions/workspace";
@@ -10,7 +11,6 @@ const ProjectWorkspace = (props, { dispatch }) => {
     props.dispatch(clearWorkspace());
   };
 
-  console.log(props.workspace);
   return (
     <div id="workspace">
       <div className="project-workspace-control">
@@ -24,6 +24,9 @@ const ProjectWorkspace = (props, { dispatch }) => {
           </div>
         </div>
         <div className="pwc-right">
+          <div className="pwc-nav">
+            <HomeBtn />
+          </div>
           <div className="pwc-desc">
             About this board <button className="pwc-btn"> + </button>
           </div>

@@ -11,7 +11,7 @@ body {
 }
 #navbar {
   z-index: 1;
-  position: absolute;
+  position: fixed;
 }
 
 #userprojects {
@@ -48,8 +48,9 @@ body {
   align-items: center;
 }
 .card-content {
-  margin-left: 4px;
-  margin-right: 4px;
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+  font-size: 17.5px;
 }
 .wsp-title {
   font-size: 22px;
@@ -75,9 +76,8 @@ body {
 
 .top-navbar {
   display: flex;
-  justify-content: space-between;
   height: 40px;
-  padding: 15px;
+  padding: 10px;
 }
 .list-item {
   height: 45px;
@@ -119,11 +119,11 @@ body {
 .navbar-btn {
   height: 37.5px;
   width: 77.5px;
-  border: 2px outset #d3e4eb;
+  border: 2px outset #9bcff9;
 }
 .navbar-btn:hover {
   border: 2px inset white;
-  background-color: #d3e4eb;
+  background-color: #9bcff9;
 }
 
 .create-project.form {
@@ -195,8 +195,9 @@ body {
 }
 
 .new-project-form {
-  display: inline-block;
-  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .project-list-item {
   height: inherit;
@@ -215,7 +216,7 @@ body {
 }
 .pwc-title-bottom {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 .pwc-right {
   display: flex;
@@ -224,4 +225,42 @@ body {
 }
 .pwc-desc {
   font-size: 24px;
+}
+.pwc-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+.toolbar-btn.form-submit {
+  margin: -10px 50px 0 0;
+  background: none;
+  color: white;
+  font-size: 18px;
+  border: 2px outset white;
+}
+.toolbar-btn.form-submit:hover {
+  border: 2px inset white;
+}
+.item-form {
+  padding-top: 25px;
+  margin: -10.5px -10.5px -10.5px -19px;
+}
+.n-w.form-input {
+  height: 36px;
+  font-size: 15.5px;
+  width: 97.5%;
+}
+.n-w.form-input:hover {
+  border: 1.5px inset black;
+}
+.n-w.form-submit {
+  height: 36px;
+  width: 100%;
+}
+.n-w.form-submit:hover {
+  height: 36px;
+  width: 100%;
+  border-radius: 3.5px;
+  background-color: #9bcff9;
 }

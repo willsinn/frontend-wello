@@ -24,12 +24,6 @@ const NavBar = (props, { dispatch }) => {
         </button>
         <button
           className="navbar-btn"
-          onClick={e => props.dispatch(clearWorkspace(e))}
-        >
-          Home
-        </button>
-        <button
-          className="navbar-btn"
           onClick={e => props.dispatch(setFalse(e))}
         >
           New Project
