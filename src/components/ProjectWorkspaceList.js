@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectWorkspaceItem from "./ProjectWorkspaceItem";
-import AddWorkspaceCardForm from "../containers/AddWorkspaceCardForm";
+import AddWorkspaceItemForm from "../containers/AddWorkspaceItemForm";
 
 const ProjectWorkspaceList = props => {
   console.log(props.workspace.items);
@@ -17,7 +17,7 @@ const ProjectWorkspaceList = props => {
         {renderCards()}
         <li className="wsp-list-item">
           <div className="wsp-title">
-            <AddWorkspaceCardForm workspace={props.workspace} />
+            <AddWorkspaceItemForm workspace={props.workspace} />
           </div>
         </li>
       </ul>

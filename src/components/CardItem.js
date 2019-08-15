@@ -1,10 +1,10 @@
 import React from "react";
 
-const ProjectWorkspaceCard = props => {
+const CardItem = props => {
   return (
     <div className="card-item">
       <div className="card-content"> Card</div>{" "}
     </div>
   );
 };
-export default ProjectWorkspaceCard;
+export default CardItem;
