@@ -1,27 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import NewCardForm from "./NewCardForm";
 import { connect } from "react-redux";
-import { toggleCardForm } from "../actions/workspace";
 
 const AddCardItem = (props, { dispatch }) => {
-  console.log(props.showingForm);
+  const [showing, setShowing] = useState(false);
+  const handleSubmit = () => {
+    setShowing(!showing);
+  };
   return (
     <div className="add-card">
-      {!props.showingForm ? (
+      {!showing ? (
         <button
-          onClick={() => props.dispatch(toggleCardForm())}
+          onClick={() => setShowing(!showing)}
           className="toggle-add-form"
         >
-          {" "}
-          + Add Card Task{" "}
+          + Add Card Task
         </button>
       ) : (
-        <NewCardForm />
+        <NewCardForm handleSubmit={handleSubmit} />
       )}
     </div>
   );
 };
-const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  showingForm: workspace.showingForm
-});
-export default connect(mapStateToProps)(AddCardItem);
+export default connect()(AddCardItem);
