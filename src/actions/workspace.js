@@ -37,16 +37,24 @@ export const postWorkspaceItem = (project, dispatch) => {
     }).then(response => dispatch(fetchWorkspace(project.workspace)));
   };
 };
-
+export const addNewCard = card => ({
+  type: "ADD_NEW_CARD",
+  card
+});
 export const postNewCard = (item, dispatch) => {
   return dispatch => {
-    fetch(`http://localhost:3000/item/:id/cards/new`, {
+    fetch(`http://localhost:3000/item/${item.item.id}/cards/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
-      body: JSON.stringify({})
-    }).then(response => dispatch(fetchWorkspace()));
+      body: JSON.stringify({
+        subject: item.subject,
+        item_id: item.item.id
+      })
+    })
+      .then(response => response.json())
+      .then(JSONresponse => console.log(JSONresponse));
   };
 };

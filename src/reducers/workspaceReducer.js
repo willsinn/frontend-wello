@@ -1,13 +1,14 @@
 const defaultState = {
   workspace: {
-    items: {
-      cards: []
-    }
+    items: {}
   }
 };
 
 const workspaceReducer = (state = defaultState, action) => {
   switch (action.type) {
+    case "ADD_NEW_CARD":
+      console.log(state, action);
+      return { ...state, cards: [...state.workspace.item.cards, action.card] };
     case "CLEAR_WORKSPACE":
       return { ...state, workspace: defaultState };
     case "SET_WORKSPACE":
@@ -15,5 +16,6 @@ const workspaceReducer = (state = defaultState, action) => {
     default:
       return state;
   }
+  console.log(state.workspace);
 };
 export default workspaceReducer;

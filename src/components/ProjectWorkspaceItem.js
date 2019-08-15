@@ -7,7 +7,7 @@ const ProjectWorkspaceItem = props => {
     <li className="wsp-list-item">
       <div className="wsp-title">{props.item.objective}</div>
       <CardItem />
-      <AddCardItem />
+      <AddCardItem item={props.item} />
     </li>
   );
 };

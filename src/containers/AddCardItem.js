@@ -4,9 +4,7 @@ import { connect } from "react-redux";
 
 const AddCardItem = (props, { dispatch }) => {
   const [showing, setShowing] = useState(false);
-  const handleSubmit = () => {
-    setShowing(!showing);
-  };
+  const handleClick = e => {};
   return (
     <div className="add-card">
       {!showing ? (
@@ -17,7 +15,7 @@ const AddCardItem = (props, { dispatch }) => {
           + Add Card Task
         </button>
       ) : (
-        <NewCardForm handleSubmit={handleSubmit} />
+        <NewCardForm handleClick={handleClick} item={props.item} />
       )}
     </div>
   );

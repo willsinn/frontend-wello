@@ -14,7 +14,7 @@ const NewProjectForm = ({ dispatch }) => {
     event.persist();
     setTitle(event.target.value);
   };
-  const handleSubmit = e => {
+  const handleProjectSubmit = e => {
     if (e) {
       e.preventDefault();
       dispatch(postNewProject({ title }), clearTitle(e), dispatch(setNull()));
@@ -23,7 +23,10 @@ const NewProjectForm = ({ dispatch }) => {
 
   return (
     <div className="new-project-form">
-      <form className="create-project form container" onSubmit={handleSubmit}>
+      <form
+        className="create-project form container"
+        onSubmit={handleProjectSubmit}
+      >
         <div className="c-p form-input">
           <input
             className="c-p input-box"
