@@ -1,15 +1,16 @@
 const defaultState = {
   workspace: {
     items: []
-  }
+  },
+  showingForm: false
 };
 
 const workspaceReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "TOGGLE_LIST":
+    case "TOGGLE_CARD_FORM":
       return {
         ...state,
-        listOpen: !state.listOpen
+        showingForm: !state.showingForm
       };
     case "ADD_WORKSPACE_ITEM":
       console.log(state.workspace.items, action);

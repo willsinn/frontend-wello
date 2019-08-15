@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import NewCardForm from "./NewCardForm";
 import { connect } from "react-redux";
+import { toggleCardForm } from "../actions/workspace";
 
 const AddCardItem = (props, { dispatch }) => {
+  console.log(props.showingForm);
   return (
     <div className="add-card">
-      <button className="toggle-add-form"> + Add Card Task </button>
-      <NewCardForm />
+      {!props.showingForm ? (
+        <button
+          onClick={() => props.dispatch(toggleCardForm())}
+          className="toggle-add-form"
+        >
+          {" "}
+          + Add Card Task{" "}
+        </button>
+      ) : (
+        <NewCardForm />
+      )}
     </div>
   );
 };
-export default connect()(AddCardItem);
+const mapStateToProps = ({ workspaceReducer: workspace }) => ({
+  showingForm: workspace.showingForm
+});
+export default connect(mapStateToProps)(AddCardItem);

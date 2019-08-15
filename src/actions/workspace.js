@@ -42,3 +42,6 @@ export const postWorkspaceItem = (project, dispatch) => {
     }).then(response => dispatch(fetchWorkspace(project.workspace)));
   };
 };
+export const toggleCardForm = () => ({
+  type: "TOGGLE_CARD_FORM"
+});
