@@ -29,8 +29,6 @@ export const addWorkspaceItem = item => ({
 
 export const postWorkspaceItem = (project, dispatch) => {
   return dispatch => {
-    ///// FIX POST HERE!
-    /// FIX BACKEND RELATIONSHIPS
     fetch(`http://localhost:3000/project/${project.workspace.id}/items/new`, {
       method: "POST",
       headers: {

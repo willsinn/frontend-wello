@@ -4,6 +4,8 @@ const defaultState = {
   isActive: null
 };
 const userReducer = (state = defaultState, action) => {
+  console.log(state);
+
   switch (action.type) {
     case "SET_NULL":
       return {

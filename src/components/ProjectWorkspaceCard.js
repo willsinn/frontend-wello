@@ -1,7 +1,10 @@
 import React from "react";
 
 const ProjectWorkspaceCard = props => {
-  console.log(props);
-  return <li className="workspace-item"> {props.item.objective} Item </li>;
+  return (
+    <div className="card-item">
+      <div className="card-content"> Card</div>{" "}
+    </div>
+  );
 };
 export default ProjectWorkspaceCard;

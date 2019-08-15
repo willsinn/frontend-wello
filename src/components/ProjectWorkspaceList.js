@@ -1,17 +1,22 @@
 import React from "react";
-import ProjectWorkspaceCard from "./ProjectWorkspaceCard";
-import { connect } from "react-redux";
+import ProjectWorkspaceItem from "./ProjectWorkspaceItem";
+import AddWorkspaceCardForm from "../containers/AddWorkspaceCardForm";
 
 const ProjectWorkspaceList = props => {
-  console.log(props.items);
+  console.log(props.workspace.items);
   const renderCards = () => {
-    if (props.items.length > 0) {
-      return [...props.items].map(item => <ProjectWorkspaceCard item={item} />);
+    if (props.workspace.items.length > 0) {
+      return [...props.workspace.items].map(item => (
+        <ProjectWorkspaceItem item={item} />
+      ));
     }
   };
-  return <ul className="workspace-list">{renderCards()}</ul>;
+  return (
+    <div className="workspace-list-wrapper">
+      <ul className="workspace-list">{renderCards()}</ul>
+      <AddWorkspaceCardForm workspace={props.workspace} />
+    </div>
+  );
 };
-const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  items: workspace.workspace.items
-});
-export default connect(mapStateToProps)(ProjectWorkspaceList);
+
+export default ProjectWorkspaceList;

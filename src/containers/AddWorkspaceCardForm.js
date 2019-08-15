@@ -3,29 +3,27 @@ import { connect } from "react-redux";
 import { postWorkspaceItem } from "../actions/workspace";
 
 const initialState = { objective: "" };
-const AddWorkspaceCardForm = (props, { dispatch }) => {
+const AddWorkspaceCardForm = ({ dispatch }) => {
   const [objective, setObjective] = useState(initialState);
   const clearState = e => {
-    debugger;
     setObjective({ ...initialState });
     e.target.firstElementChild.value = "";
   };
-  const handleChange = event => {
-    event.persist();
-    setObjective(event.target.value);
+  const handleChange = e => {
+    e.persist();
+    console.log(e);
+
+    setObjective(e.target.value);
   };
   const handleSubmit = e => {
+    debugger;
     if (e) {
       e.preventDefault();
-      props.dispatch(
-        postWorkspaceItem({
-          workspace: props.workspace,
-          objective: objective
-        })
-      );
+      dispatch(postWorkspaceItem({ objective }));
       clearState(e);
     }
   };
+  console.log(objective);
   return (
     <div className="new-workspace-item">
       <form onSubmit={handleSubmit} className="item-form">
@@ -38,9 +36,8 @@ const AddWorkspaceCardForm = (props, { dispatch }) => {
           placeholder="Input New Project Title"
           required
         />
-        <button className="n-w form-submit">List Objective</button>
+        <button className="n-w form-submit">Aim</button>
       </form>
-      FORM
     </div>
   );
 };

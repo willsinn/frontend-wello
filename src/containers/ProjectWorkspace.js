@@ -10,6 +10,7 @@ const ProjectWorkspace = (props, { dispatch }) => {
     props.dispatch(clearWorkspace());
   };
 
+  console.log(props.workspace);
   return (
     <div id="workspace">
       <div className="project-workspace-control">

@@ -27,14 +27,43 @@ body {
   position: absolute;
   width: inherit;
 }
-#workspace-items {
-  display: flex;
+#workspace-items-container {
+  position: relative;
 }
 .user.right-side {
   display: flex;
   flex-direction: column;
 }
-
+.workspace-list {
+  display: flex;
+}
+.card-item {
+  height: 36px;
+  width: 91%;
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.card-content {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.wsp-title {
+  font-size: 22px;
+  padding: 10px;
+  margin-left: 10px;
+}
+.wsp-list-item {
+  min-width: 250px;
+  max-height: 100%;
+  list-style-type: none;
+  margin-left: 10px;
+  border: 1.5px solid black;
+  border-radius: 3px;
+}
 .projects.middle-tiles {
   display: flex;
   width: 100vw;
