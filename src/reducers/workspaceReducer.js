@@ -5,21 +5,21 @@ const defaultState = {
 };
 
 const workspaceReducer = (state = defaultState, action) => {
-  console.log(state.workspace.items);
   switch (action.type) {
     case "CLEAR_WORKSPACE":
       return { ...state, workspace: defaultState };
     case "SET_WORKSPACE":
       return { ...state, workspace: action.workspace.project };
     case "ADD_ITEM_CARD":
-      const targetItem = state.workspace.items.filter(
-        item => item.id === action.card.item_id
-      );
-      const newItemCards = [...targetItem[0].cards, action.card];
-      return {
-        ...state,
-        cards: newItemCards[0]
-      };
+      console.log(action);
+      const newItems = [...state.workspace.items].map(item => {
+        if (item.id === action.itemData.id) {
+          return action.itemData;
+        } else {
+          return item;
+        }
+      });
+      return { ...state, items: newItems };
     default:
       return state;
   }

@@ -20,7 +20,6 @@ const NewCardForm = (props, { dispatch }) => {
       clearSubject(e);
     }
   };
-  console.log(props.item);
   return (
     <div className="card-form-wrapper">
       <form onSubmit={handleCardSubmit} className="card-form">

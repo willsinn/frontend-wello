@@ -2,14 +2,16 @@ import React from "react";
 import ProjectWorkspaceItem from "./ProjectWorkspaceItem";
 import AddWorkspaceItemForm from "../containers/AddWorkspaceItemForm";
 import AddCardItem from "../containers/AddCardItem";
+import { connect } from "react-redux";
 
 const ProjectWorkspaceList = props => {
+  console.log(props.workspace.items);
   const renderItems = () => {
-    if (props.workspace.items.length > 0) {
-      return [...props.workspace.items].map(item => (
+    if (props.workspace.items.length !== undefined) {
+      return props.workspace.items.map(item => (
         <li className="wsp-list-item">
           <AddCardItem item={item} />
-          <ProjectWorkspaceItem item={item} />
+          <ProjectWorkspaceItem item={item} cards={item.cards} />
         </li>
       ));
     }
@@ -27,5 +29,7 @@ const ProjectWorkspaceList = props => {
     </div>
   );
 };
-
-export default ProjectWorkspaceList;
+const mapStateToProps = ({ workspaceReducer: workspace }) => ({
+  workspace: workspace.workspace
+});
+export default connect(mapStateToProps)(ProjectWorkspaceList);
