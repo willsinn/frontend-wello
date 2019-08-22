@@ -14,11 +14,8 @@ const NewCardForm = (props, { dispatch }) => {
     setSubject(e.target.value);
   };
   const handleCardSubmit = e => {
-    if (e) {
-      e.preventDefault();
-      props.dispatch(postNewCard({ subject, item: props.item }));
-      clearSubject(e);
-    }
+    e.preventDefault();
+    props.dispatch(postNewCard({ subject, item: props.item }), clearSubject(e));
   };
   return (
     <div className="card-form-wrapper">
@@ -32,11 +29,7 @@ const NewCardForm = (props, { dispatch }) => {
           placeholder=" Card Subject"
           required
         />
-        <button
-          onClick={e => props.handleClick(e)}
-          className="submit-card"
-          type="submit"
-        >
+        <button className="submit-card" type="submit">
           Add Card
         </button>
       </form>

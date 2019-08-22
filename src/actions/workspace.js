@@ -51,7 +51,6 @@ export const fetchItem = (item, dispatch) => {
       }
     })
       .then(response => response.json())
-      // .then(JSONresponse => console.log(JSONresponse));
       .then(JSONresponse => dispatch(addItemCard(JSONresponse)));
   };
 };
@@ -67,6 +66,12 @@ export const postNewCard = (item, dispatch) => {
         subject: item.subject,
         item_id: item.item.id
       })
-    }).then(response => dispatch(fetchItem(item.item)));
+    })
+      .then(response => response.json())
+      .then(JSONresponse => dispatch(addCard(JSONresponse)));
   };
 };
+export const addCard = card => ({
+  type: "ADD_CARD",
+  card: card
+});
