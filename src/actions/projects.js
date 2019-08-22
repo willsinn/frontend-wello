@@ -17,13 +17,7 @@ export const fetchUserProjects = data => {
       },
       body: JSON.stringify(data)
     })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          response.throw();
-        }
-      })
+      .then(response => response.json())
       .then(JSONresponse => dispatch(setProjects(JSONresponse)));
   };
 };

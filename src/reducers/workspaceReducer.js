@@ -1,6 +1,8 @@
 const defaultState = {
   workspace: {
-    items: {}
+    items: {
+      cards: {}
+    }
   }
 };
 
@@ -16,6 +18,5 @@ const workspaceReducer = (state = defaultState, action) => {
     default:
       return state;
   }
-  console.log(state.workspace);
 };
 export default workspaceReducer;

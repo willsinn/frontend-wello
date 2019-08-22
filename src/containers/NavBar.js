@@ -3,7 +3,7 @@ import NewProjectForm from "./NewProjectForm";
 import SidebarList from "../components/SidebarList";
 import { connect } from "react-redux";
 import { clearWorkspace } from "../actions/workspace";
-import { setTrue, setFalse } from "../actions/user";
+import { setTrue, setFalse, setNull } from "../actions/user";
 
 const NavBar = (props, { dispatch }) => {
   const notActive = () => {
@@ -18,13 +18,21 @@ const NavBar = (props, { dispatch }) => {
       <div className="top-navbar">
         <button
           className="navbar-btn"
-          onClick={e => props.dispatch(setTrue(e))}
+          onClick={
+            props.isActive
+              ? e => props.dispatch(setNull(e))
+              : e => props.dispatch(setTrue(e))
+          }
         >
           Projects
         </button>
         <button
           className="navbar-btn"
-          onClick={e => props.dispatch(setFalse(e))}
+          onClick={
+            props.isActive === false
+              ? e => props.dispatch(setNull(e))
+              : e => props.dispatch(setFalse(e))
+          }
         >
           New Project
         </button>
