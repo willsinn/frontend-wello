@@ -1,20 +1,24 @@
 const defaultState = {
   workspace: {
-    items: {
-      cards: {}
-    }
+    items: [{ item: { cards: [{ card: {} }] } }]
   }
 };
 
 const workspaceReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "ADD_NEW_CARD":
-      console.log(state, action);
-      return { ...state, cards: [...state.workspace.item.cards, action.card] };
     case "CLEAR_WORKSPACE":
       return { ...state, workspace: defaultState };
     case "SET_WORKSPACE":
       return { ...state, workspace: action.workspace.project };
+    case "SET_ITEM_CARDS":
+      const newItems = [...state.workspace.items].map(item => {
+        if (item.id === action.itemData.id) {
+          return action.itemData;
+        } else {
+          return item;
+        }
+      });
+      return { ...state, items: newItems };
     default:
       return state;
   }
