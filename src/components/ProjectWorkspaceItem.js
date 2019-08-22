@@ -1,27 +1,19 @@
 import React from "react";
 import CardItem from "./CardItem";
-import AddCardItem from "../containers/AddCardItem";
-import { connect } from "react-redux";
 
 const ProjectWorkspaceItem = props => {
-  console.log(props.workspace.items.cards);
-
   const renderCards = () => {
-    const renderItem = [...props.workspace.items].filter(
-      item => item.id === props.item.id
-    );
-    console.log(renderItem);
+    return props.item.cards.map(card => <CardItem card={card} />);
   };
+  console.log(props.item.cards);
   return (
-    <li className="wsp-list-item">
-      <div className="wsp-title">{props.item.objective}</div>
-      {renderCards()}
-      <CardItem />
-      <AddCardItem item={props.item} />
-    </li>
+    <div className="wsp-title-wrapper">
+      <div className="wsp-title">
+        {props.item.objective}
+        {renderCards()}
+      </div>
+    </div>
   );
 };
-const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  workspace: workspace.workspace
-});
-export default connect(mapStateToProps)(ProjectWorkspaceItem);
+
+export default ProjectWorkspaceItem;

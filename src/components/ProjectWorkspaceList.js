@@ -1,12 +1,16 @@
 import React from "react";
 import ProjectWorkspaceItem from "./ProjectWorkspaceItem";
 import AddWorkspaceItemForm from "../containers/AddWorkspaceItemForm";
+import AddCardItem from "../containers/AddCardItem";
 
 const ProjectWorkspaceList = props => {
   const renderItems = () => {
     if (props.workspace.items.length > 0) {
       return [...props.workspace.items].map(item => (
-        <ProjectWorkspaceItem item={item} />
+        <li className="wsp-list-item">
+          <AddCardItem item={item} />
+          <ProjectWorkspaceItem item={item} />
+        </li>
       ));
     }
   };
