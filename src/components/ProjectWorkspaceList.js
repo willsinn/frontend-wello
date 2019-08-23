@@ -12,6 +12,7 @@ const ProjectWorkspaceList = props => {
         <li className="wsp-list-item">
           <AddCardItem item={item} />
           <ProjectWorkspaceItem item={item} cards={item.cards} />
+          <div className="workspace-item-control">{item.objective}</div>
         </li>
       ));
     }

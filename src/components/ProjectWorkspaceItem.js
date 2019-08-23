@@ -5,13 +5,9 @@ const ProjectWorkspaceItem = props => {
   const renderCards = () => {
     return props.cards.map(card => <CardItem card={card} />);
   };
-  console.log(props.cards.length);
   return (
     <div className="wsp-title-wrapper">
-      <div className="wsp-title">
-        {props.item.objective}
-        {renderCards()}
-      </div>
+      <div className="wsp-title">{renderCards()}</div>
     </div>
   );
 };
