@@ -40,11 +40,10 @@ body {
 }
 .card-item {
   height: 36px;
-  width: 91%;
+  width: 84%;
   border: 1px solid gray;
   border-radius: 3px;
-  margin-left: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
 }
@@ -55,8 +54,9 @@ body {
 }
 .wsp-title {
   font-size: 22px;
-  padding: 10px;
-  margin-left: 10px;
+  padding: 15px;
+  margin-right: 10px;
+  width: 100%;
   height: 100%;
 }
 .wsp-title-wrapper {
@@ -70,13 +70,15 @@ body {
   max-height: 75vh;
   height: 100%;
   list-style-type: none;
-  margin-left: 10px;
+  margin-left: 13px;
   border: 1.5px solid black;
   border-radius: 3px;
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
   position: relative;
+  box-sizing: border-box;
+  box-shadow: -3.5px -2.5px #9bcff9;
 }
 
 .projects.middle-tiles {
@@ -287,7 +289,7 @@ body {
 .add-card {
   display: flex;
   flex-direction: column;
-  border: 1.25px inset lightblue;
+  border: 1.95px inset lightblue;
   width: 98%;
   height: 27.5px;
   justify-content: center;
@@ -313,10 +315,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   background: #64646b21;
-  border: 1.25px outset black;
-  border-radius: 1px;
-  box-sizing: border-box;
-  box-shadow: 0.5px -4.5px 0.5px lightblue;
+  border-top: 1px solid black;
 }
 .toggle-add-form {
   height: 25px;
@@ -327,7 +326,7 @@ body {
   font-size: 14px;
 }
 .toggle-add-form:hover {
-  background-color: lightblue;
+  background-color: #9bcff9;
 }
 
 .add-card-user-input {
@@ -375,9 +374,49 @@ body {
   display: flex;
   min-height: 45px;
   height: 100%;
-  padding-left: 20px;
+  padding-left: 12.5px;
   align-items: center;
-  font-size: 20px;
+  font-size: 1.5em;
   font-weight: bold;
   border-bottom: 1.25px outset black;
+  justify-content: space-between;
+  background: #64646b21;
+}
+.delete-item-btn {
+  font-size: 11.5px;
+  font-weight: bold;
+  padding: 4px;
+  color: white;
+  background: red;
+  border: 1px solid red;
+  border-radius: 1.5px;
+}
+.item-control-name {
+  margin-top: 10px;
+}
+.item-control-delete {
+  margin-bottom: 19px;
+  margin-right: 3px;
+}
+
+.card-delete-btn {
+  margin-left: -14.5px;
+  margin-right: 3px;
+  padding-bottom: 5.5px;
+  height: 27.5px;
+  width: 27.5px;
+  border-style: none;
+  background-color: inherit;
+  font-weight: bold;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.card-delete-btn:hover {
+  background: red;
+  border: 0.75px solid black;
+  border-radius: 12em;
+  color: white;
 }

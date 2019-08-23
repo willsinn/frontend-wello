@@ -3,7 +3,8 @@ import React from "react";
 const CardItem = props => {
   return (
     <div className="card-item">
-      <div className="card-content"> {props.card.subject}</div>
+      <button className="card-delete-btn">-</button>
+      <div className="card-content">{props.card.subject}</div>
     </div>
   );
 };

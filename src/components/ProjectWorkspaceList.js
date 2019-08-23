@@ -2,6 +2,7 @@ import React from "react";
 import ProjectWorkspaceItem from "./ProjectWorkspaceItem";
 import AddWorkspaceItemForm from "../containers/AddWorkspaceItemForm";
 import AddCardItem from "../containers/AddCardItem";
+import ItemDeleteBtn from "./ItemDeleteBtn";
 
 import { connect } from "react-redux";
 
@@ -12,7 +13,12 @@ const ProjectWorkspaceList = props => {
         <li className="wsp-list-item">
           <AddCardItem item={item} />
           <ProjectWorkspaceItem item={item} cards={item.cards} />
-          <div className="workspace-item-control">{item.objective}</div>
+          <div className="workspace-item-control">
+            <span className="item-control-name">{item.objective}</span>
+            <span className="item-control-delete">
+              <ItemDeleteBtn />
+            </span>
+          </div>
         </li>
       ));
     }
