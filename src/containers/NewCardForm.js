@@ -15,7 +15,13 @@ const NewCardForm = (props, { dispatch }) => {
   };
   const handleCardSubmit = e => {
     e.preventDefault();
-    props.dispatch(postNewCard({ subject, item: props.item }), clearSubject(e));
+    props.dispatch(
+      postNewCard(
+        { subject, item: props.item },
+        props.handleSubmitToggle(subject)
+      ),
+      clearSubject(e)
+    );
   };
   return (
     <div className="card-form-wrapper">
@@ -30,7 +36,7 @@ const NewCardForm = (props, { dispatch }) => {
           required
         />
         <button className="submit-card" type="submit">
-          Add Card
+          +
         </button>
       </form>
     </div>
