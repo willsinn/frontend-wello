@@ -42,11 +42,12 @@ body {
 .card-item {
   height: 36px;
   width: 84%;
-  border: 1px solid gray;
   border-radius: 3px;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
+  border: 1.5px outset lightgray;
+  background-color: ghostwhite;
 }
 .card-content {
   margin-left: 7.5px;
@@ -68,6 +69,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  background-color: #64646b21;
 }
 .wsp-list-item {
   min-width: 250px;
@@ -76,15 +78,13 @@ body {
   height: 100%;
   list-style-type: none;
   margin-left: 18px;
-  border: 1.5px solid #9e9e9e;
-  border-radius: 3px;
+  border: 1.75px outset white;
+  border-radius: 4px;
   display: flex;
   flex-direction: column-reverse;
   background: ghostwhite;
   justify-content: flex-end;
   position: relative;
-  box-sizing: border-box;
-  box-shadow: 1px 1px 1.5px#fdfeffba;
 }
 
 .projects.middle-tiles {
@@ -226,7 +226,8 @@ body {
 .project-workspace-control {
   display: flex;
   justify-content: space-between;
-  margin-top: 75px;
+  max-height: 13.5vh;
+  height: 100%;
   margin-right: 100px;
   margin-left: 240px;
 }
@@ -295,8 +296,10 @@ body {
 .add-card {
   display: flex;
   flex-direction: column;
-  border: 1.95px inset lightblue;
-  width: 98%;
+  border: 1px ridge darkgray;
+  border-radius: 3px;
+  margin: 7px 7px;
+  width: 65%;
   height: 27.5px;
   justify-content: center;
   align-self: center;
@@ -314,14 +317,15 @@ body {
 }
 .add-card-wrapper {
   height: 100%;
-  min-height: 60px;
+  min-height: 72.5px;
   width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background: #64646b21;
-  border-top: 1px solid black;
+  border-top: 1.5px ridge white;
+  justify-content: space-between;
+  background: ghostwhite;
 }
 .toggle-add-form {
   height: 25px;
@@ -352,6 +356,7 @@ body {
   width: 100%;
   height: 27.5px;
   display: flex;
+  background-color: inherit;
   align-items: center;
   justify-content: center;
   align-content: center;
@@ -367,7 +372,7 @@ body {
   background: limegreen;
 }
 .card-form-input {
-  width: 200px;
+  width: inherit;
   font-size: 14.5px;
   padding-left: 15px;
 }
@@ -384,18 +389,24 @@ body {
   align-items: center;
   font-size: 1.5em;
   font-weight: bold;
-  border-bottom: 1.25px outset black;
+  font-weight: bold;
+  border-bottom: 1.5px inset white;
   justify-content: space-between;
-  background: #64646b21;
+  background: ghostwhite;
 }
 .delete-item-btn {
   font-size: 11.5px;
   font-weight: bold;
   padding: 4px;
-  color: white;
-  background: red;
-  border: 1px solid black;
+  color: black;
+  background: white;
+  border: 1.6px ridge darkgray;
   border-radius: 4px;
+}
+.delete-item-btn:hover {
+  background-color: red;
+  color: white;
+  border: 1.5px inset white;
 }
 .item-control-name {
   margin-top: 10px;
@@ -406,15 +417,16 @@ body {
 }
 
 .card-delete-btn {
-  margin-left: -14.5px;
+  margin-left: -35px;
   margin-right: 3px;
   padding-bottom: 5.5px;
-  height: 27.5px;
-  width: 27.5px;
+  height: 23.5px;
+  width: 23.5px;
   border-style: none;
-  background-color: inherit;
+  background: #fbfbff21;
+  color: black;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 28px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -422,7 +434,7 @@ body {
 }
 .card-delete-btn:hover {
   background: red;
-  border: 0.65px solid black;
+  border: 1.55px inset ghostwhite;
   border-radius: 12em;
   color: white;
 }
