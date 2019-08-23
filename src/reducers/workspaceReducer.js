@@ -1,7 +1,8 @@
 const defaultState = {
   workspace: {
-    items: [{ item: { cards: {} } }]
-  }
+    items: [{ item: { cards: [] } }]
+  },
+  newCard: {}
 };
 
 const workspaceReducer = (state = defaultState, action) => {
@@ -23,13 +24,7 @@ const workspaceReducer = (state = defaultState, action) => {
     case "SET_WORKSPACE":
       return { ...state, workspace: action.workspace.project };
     case "ADD_CARD":
-      const cardItem = state.workspace.items.find(
-        item => item.id === action.card.item_id
-      );
-      return {
-        ...state,
-        cards: [...cardItem.cards, action.card]
-      };
+      return { ...state, newCard: action.card };
     default:
       return state;
   }

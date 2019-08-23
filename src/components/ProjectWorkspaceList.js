@@ -1,18 +1,21 @@
 import React from "react";
 import ProjectWorkspaceItem from "./ProjectWorkspaceItem";
 import AddWorkspaceItemForm from "../containers/AddWorkspaceItemForm";
-import AddCardItem from "../containers/AddCardItem";
 import ItemDeleteBtn from "./ItemDeleteBtn";
 
 import { connect } from "react-redux";
 
 const ProjectWorkspaceList = props => {
+  console.log(props.workspace.newCard);
   const renderItems = () => {
-    if (props.workspace.items.length !== undefined) {
-      return [...props.workspace.items].map(item => (
+    if (props.workspace.workspace.items.length !== undefined) {
+      return [...props.workspace.workspace.items].map(item => (
         <li className="wsp-list-item">
-          <AddCardItem item={item} />
-          <ProjectWorkspaceItem item={item} cards={item.cards} />
+          <ProjectWorkspaceItem
+            item={item}
+            cards={item.cards}
+            newCard={props.workspace.newCard}
+          />
           <div className="workspace-item-control">
             <span className="item-control-name">{item.objective}</span>
             <span className="item-control-delete">
@@ -37,6 +40,7 @@ const ProjectWorkspaceList = props => {
   );
 };
 const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  workspace: workspace.workspace
+  workspace: workspace
 });
+
 export default connect(mapStateToProps)(ProjectWorkspaceList);

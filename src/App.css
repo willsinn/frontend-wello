@@ -41,7 +41,7 @@ body {
 }
 .card-item {
   height: 36px;
-  width: 84%;
+  width: 100%;
   border-radius: 3px;
   margin-bottom: 12px;
   display: flex;
@@ -56,10 +56,9 @@ body {
 }
 .wsp-title {
   font-size: 22px;
-  padding: 15px 0px 0px 20px;
-  margin-right: 10px;
+  padding: 20px 15px 20px 15px;
   margin-left: 5px;
-  width: inherit;
+  width: 84.5%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -68,7 +67,9 @@ body {
 .wsp-title-wrapper {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  justify-content: space-around;
+  align-items: center;
+  overflow-y: auto;
   background-color: #64646b21;
 }
 .wsp-list-item {
@@ -280,27 +281,27 @@ body {
 }
 .n-w.form-input:hover {
   border: 1.675px solid black;
-  background: limegreen;
 }
 .n-w.form-submit {
   height: 36px;
-  width: 120%;
+  width: 100%;
   margin-top: 9.5px;
   font-size: 14px;
-  border: 1.5px inset black;
+  border: 1.5px outset darkgray;
+  border-radius: 3.5px;
 }
 .n-w.form-submit:hover {
-  border-radius: 3.5px;
   background-color: #9bcff9;
+  border: 1.5px inset white;
 }
 .add-card {
   display: flex;
   flex-direction: column;
-  border: 1px ridge darkgray;
+  border: 1px outset darkgray;
   border-radius: 3px;
   margin: 7px 7px;
   width: 65%;
-  height: 27.5px;
+  height: 100%;
   justify-content: center;
   align-self: center;
 }
@@ -368,8 +369,10 @@ body {
   font-size: 18px;
   height: inherit;
   width: 28px;
+  border: 1px outset darkgray;
 }
 .submit-card:hover {
+  border: 1.5px inset white;
   background: limegreen;
 }
 .card-form-input {
@@ -413,14 +416,13 @@ body {
   margin-top: 10px;
 }
 .item-control-delete {
-  margin-bottom: 19px;
-  margin-right: 3px;
+  margin-bottom: 15px;
+  margin-right: 7.5px;
 }
 
 .card-delete-btn {
-  margin-left: -35px;
-  margin-right: 3px;
-  padding-bottom: 5.5px;
+  margin-left: -26px;
+  margin-right: 5px;
   height: 23.5px;
   width: 23.5px;
   border-style: none;
@@ -434,7 +436,7 @@ body {
   flex-direction: column;
 }
 .card-delete-btn:hover {
-  background: red;
+  background-color: red;
   border: 1.25px inset white;
   border-radius: 12em;
   color: white;

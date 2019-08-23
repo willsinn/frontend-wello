@@ -71,7 +71,23 @@ export const postNewCard = (item, dispatch) => {
       .then(JSONresponse => dispatch(addCard(JSONresponse)));
   };
 };
+
+export const deleteCard = (card, dispatch) => {
+  console.log(card);
+  return dispatch => {
+    fetch(`http://localhost:3000/card/${card}/delete`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: card
+      })
+    }).then(response => console.log(response));
+  };
+};
 export const addCard = card => ({
   type: "ADD_CARD",
-  card: card
+  card
 });

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import NewCardForm from "./NewCardForm";
 import { connect } from "react-redux";
-import { fetchWorkspace } from "../actions/workspace";
 
 const initialState = "";
 const AddCardItem = (props, { dispatch }) => {
@@ -12,7 +11,7 @@ const AddCardItem = (props, { dispatch }) => {
     setSubject(subject);
     setTimeout(() => {
       setSubject(initialState);
-    }, 10000);
+    }, 7000);
   };
   const success = (
     <div className="add-card-text-wrap">
@@ -35,10 +34,7 @@ const AddCardItem = (props, { dispatch }) => {
             Create New Card
           </button>
         ) : (
-          <NewCardForm
-            handleSubmitToggle={handleSubmitToggle}
-            item={props.item}
-          />
+          <NewCardForm item={props.item} handleAddCard={props.handleAddCard} />
         )}
       </div>
     </div>
