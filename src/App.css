@@ -324,6 +324,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   border-top: 1.5px ridge white;
+  border-radius: inherit;
   justify-content: space-between;
   background: ghostwhite;
 }
@@ -434,7 +435,7 @@ body {
 }
 .card-delete-btn:hover {
   background: red;
-  border: 1.55px inset ghostwhite;
+  border: 1.25px inset white;
   border-radius: 12em;
   color: white;
 }
