@@ -6,24 +6,43 @@ import ItemDeleteBtn from "./ItemDeleteBtn";
 import { connect } from "react-redux";
 
 const ProjectWorkspaceList = props => {
-  console.log(props.workspace.newCard);
+  console.log(props.updatedItem);
   const renderItems = () => {
     if (props.workspace.items.length !== undefined) {
-      return [...props.workspace.items].map(item => (
-        <li className="wsp-list-item">
-          <ProjectWorkspaceItem
-            item={item}
-            cards={item.cards}
-            newCard={props.workspace.newCard}
-          />
-          <div className="workspace-item-control">
-            <span className="item-control-name">{item.objective}</span>
-            <span className="item-control-delete">
-              <ItemDeleteBtn />
-            </span>
-          </div>
-        </li>
-      ));
+      return [...props.workspace.items].map(item => {
+        if (
+          props.updatedItem.id !== undefined &&
+          item.id === props.updatedItem.id
+        ) {
+          return (
+            <li className="wsp-list-item">
+              <ProjectWorkspaceItem
+                item={item}
+                updatedItem={props.updatedItem}
+                updatedCards={props.updatedItem.cards}
+              />
+              <div className="workspace-item-control">
+                <span className="item-control-name">{item.objective}</span>
+                <span className="item-control-delete">
+                  <ItemDeleteBtn />
+                </span>
+              </div>
+            </li>
+          );
+        } else {
+          return (
+            <li className="wsp-list-item">
+              <ProjectWorkspaceItem item={item} cards={item.cards} />
+              <div className="workspace-item-control">
+                <span className="item-control-name">{item.objective}</span>
+                <span className="item-control-delete">
+                  <ItemDeleteBtn />
+                </span>
+              </div>
+            </li>
+          );
+        }
+      });
     }
   };
   return (
@@ -40,7 +59,8 @@ const ProjectWorkspaceList = props => {
   );
 };
 const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  workspace: workspace.workspace
+  workspace: workspace.workspace,
+  updatedItem: workspace.updatedItem
 });
 
 export default connect(mapStateToProps)(ProjectWorkspaceList);

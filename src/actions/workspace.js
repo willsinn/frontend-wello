@@ -73,7 +73,7 @@ export const postNewCard = (item, dispatch) => {
       })
     })
       .then(response => response.json())
-      .then(JSONresponse => dispatch(addCard(JSONresponse)));
+      .then(JSONresponse => dispatch(fetchItem({ id: JSONresponse.item_id })));
   };
 };
 

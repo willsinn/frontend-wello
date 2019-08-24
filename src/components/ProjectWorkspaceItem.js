@@ -8,23 +8,22 @@ const ProjectWorkspaceItem = props => {
     const array = cards.filter(card => card.id !== deleted.id);
     setCards(array);
   };
-  const handleAddCard = itemId => {
-    if (props.newCard.item_id !== undefined) {
-      if (itemId === props.newCard.item_id) {
-        const array = [...cards, props.newCard];
-        setCards(array);
-      }
-    }
-  };
   const renderCards = () => {
-    return cards.map(card => (
-      <CardItem card={card} handleDeleteCard={handleDeleteCard} />
-    ));
+    if (Array.isArray(props.updatedCards)) {
+      const newCards = [...props.updatedCards];
+      return newCards.map(card => (
+        <CardItem card={card} handleDeleteCard={handleDeleteCard} />
+      ));
+    } else {
+      return [...props.item.cards].map(card => (
+        <CardItem card={card} handleDeleteCard={handleDeleteCard} />
+      ));
+    }
   };
   return (
     <div className="wsp-title-wrapper">
       <div className="wsp-title">{renderCards()}</div>
-      <AddCardItem item={props.item} handleAddCard={handleAddCard} />
+      <AddCardItem item={props.item} />
     </div>
   );
 };
