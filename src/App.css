@@ -293,9 +293,10 @@ body {
   height: 36px;
   width: 100%;
   margin-top: 9.5px;
-  font-size: 14px;
   border: 1.5px outset darkgray;
   border-radius: 3.5px;
+  font-size: 12px;
+  font-weight: bold;
 }
 .n-w.form-submit:hover {
   background-color: #9bcff9;
@@ -449,4 +450,11 @@ body {
   background-repeat: no-repeat;
   font-style: none;
   color: transparent;
+}
+.exit-edit {
+  height: 20px;
+  width: 20px;
+  background-image: url("./images/exit-editing.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }

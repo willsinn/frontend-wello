@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 const EditingForm = props => {
-  const [input, setInput] = useState(props.value);
+  const [input, setInput] = useState(props["value"]);
   const handleSave = e => {
     if (e) {
     }
@@ -12,8 +12,10 @@ const EditingForm = props => {
   };
   return (
     <form onSubmit={handleSave}>
-      <input type="text" onChange={handleChange} value={input.value} />
-      <button type="submit">save</button>
+      <input type="text" name="input" onChange={handleChange} value={input} />
+      <button value="submit" type="submit">
+        save
+      </button>
     </form>
   );
 };
