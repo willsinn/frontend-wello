@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CardItem from "./CardItem";
-import AddCardItem from "../containers/AddCardItem";
+import AddCardMessage from "../containers/AddCardMessage";
 
 const ProjectWorkspaceItem = props => {
   const [cards, setCards] = useState(props.cards);
@@ -23,7 +23,7 @@ const ProjectWorkspaceItem = props => {
   return (
     <div className="wsp-title-wrapper">
       <div className="wsp-title">{renderCards()}</div>
-      <AddCardItem item={props.item} />
+      <AddCardMessage item={props.item} />
     </div>
   );
 };

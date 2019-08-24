@@ -64,7 +64,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .wsp-title-wrapper {
   display: flex;
@@ -81,13 +81,14 @@ body {
   height: 100%;
   list-style-type: none;
   margin-left: 18px;
-  border: 1.75px outset white;
-  border-radius: 4px;
   display: flex;
   flex-direction: column-reverse;
   background: ghostwhite;
   justify-content: flex-end;
   position: relative;
+  border: 1.5px outset white;
+  border-radius: 3.5px;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
 }
 
 .projects.middle-tiles {
@@ -320,7 +321,6 @@ body {
 }
 .add-card-wrapper {
   height: 100%;
-  min-height: 72.5px;
   width: 100%;
   position: relative;
   display: flex;
@@ -337,7 +337,8 @@ body {
   position: relative;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: bold;
   border: 1.75px inset #e6e3df7a;
 }
 .toggle-add-form:hover {
@@ -345,7 +346,7 @@ body {
 }
 
 .add-card-user-input {
-  padding: 2px;
+  padding: 2.5px 7.5px 2.5px 7.5px;
   background: limegreen;
 }
 .add-card-text-wrap {
@@ -356,32 +357,29 @@ body {
   width: 90%;
 }
 .add-card-message {
-  padding-top: 3.5px;
-  margin-bottom: 3.5px;
+  margin-top: 5px;
   width: 100%;
-  height: 27.5px;
+  height: inherit;
   display: flex;
-  background-color: inherit;
+  background-color: lightgreen;
   align-items: center;
   justify-content: center;
   align-content: center;
   align-self: center;
 }
 .submit-card {
-  border-style: none;
-  font-size: 18px;
-  height: inherit;
-  width: 28px;
-  border: 1px outset darkgray;
+  border: none;
+  font-size: 14px;
+  width: fit-content;
 }
 .submit-card:hover {
-  border: 1.5px inset white;
-  background: limegreen;
+  color: limegreen;
 }
 .card-form-input {
   width: inherit;
-  font-size: 14.5px;
+  font-size: 12.5px;
   padding-left: 15px;
+  border-right: none;
 }
 .new-workspace-item {
   width: 100%;

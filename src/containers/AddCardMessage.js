@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { fetchWorkspace } from "../actions/workspace";
 
 const initialState = "";
-const AddCardItem = (props, { dispatch }) => {
+const AddCardMessage = (props, { dispatch }) => {
   const [showing, setShowing] = useState(false);
   const [subject, setSubject] = useState(initialState);
   const handleSubmitToggle = subject => {
@@ -18,8 +18,7 @@ const AddCardItem = (props, { dispatch }) => {
     <div className="add-card-text-wrap">
       <span> Card </span>
       <span className="add-card-user-input">{subject}</span>
-      <span> added to </span>
-      <span className="add-card-user-input">{props.item.objective}.</span>
+      <span>added to {props.item.objective}.</span>
     </div>
   );
 
@@ -32,7 +31,7 @@ const AddCardItem = (props, { dispatch }) => {
             onClick={() => setShowing(!showing)}
             className="toggle-add-form"
           >
-            Create New Card
+            ADD CARD
           </button>
         ) : (
           <NewCardForm
@@ -44,4 +43,4 @@ const AddCardItem = (props, { dispatch }) => {
     </div>
   );
 };
-export default connect()(AddCardItem);
+export default connect()(AddCardMessage);

@@ -36,7 +36,7 @@ const NewCardForm = (props, { dispatch }) => {
           required
         />
         <button className="submit-card" type="submit">
-          +
+          ✚
         </button>
       </form>
     </div>
