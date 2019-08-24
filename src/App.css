@@ -67,10 +67,11 @@ body {
 .wsp-title-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   overflow-y: auto;
   background-color: #64646b21;
+  position: relative;
 }
 .wsp-list-item {
   min-width: 250px;

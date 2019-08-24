@@ -78,17 +78,16 @@ export const postNewCard = (item, dispatch) => {
 };
 
 export const deleteCard = (card, dispatch) => {
-  console.log(card);
   return dispatch => {
-    fetch(`http://localhost:3000/card/${card}/delete`, {
+    fetch(`http://localhost:3000/cards/delete/${card["id"]}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        id: card
+        id: card["id"]
       })
-    }).then(response => console.log(response));
+    }).then(response => dispatch(fetchItem({ id: card["item_id"] })));
   };
 };

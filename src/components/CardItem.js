@@ -5,7 +5,7 @@ import { deleteCard } from "../actions/workspace";
 const CardItem = (props, { dispatch }) => {
   const handleClick = e => {
     if (e) {
-      props.dispatch(deleteCard(props.card.id));
+      props.dispatch(deleteCard(props.card));
       props.handleDeleteCard(props.card);
     }
   };
