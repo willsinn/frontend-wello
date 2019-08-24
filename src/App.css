@@ -59,17 +59,17 @@ body {
   font-size: 22px;
   padding: 20px 15px 20px 15px;
   margin-left: 5px;
-  max-width: 75%;
+  width: inherit;
   height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  overflow-y: scroll;
 }
 .wsp-title-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: center;
   overflow-y: auto;
   background-color: #cccccce6;
   position: relative;
