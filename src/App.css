@@ -24,9 +24,12 @@ body {
 }
 #workspace {
   height: inherit;
+  width: fit-content;
+  background-image: url(/static/media/mountian-range.f2e8e181.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   position: absolute;
-  width: inherit;
-  background-image: url("./images/mountian-range.jpg");
+  padding-right: 50px;
 }
 #workspace-items-container {
   position: relative;
@@ -199,8 +202,9 @@ body {
   padding: 0;
   margin: 0 1.5% 8px 0;
   border-radius: 6.5px;
-  border: 1.725px outset black;
   background: white;
+  border: 1px solid white;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
 }
 .project-title {
   padding: 10px 0 0 10px;
@@ -346,8 +350,9 @@ body {
 }
 
 .add-card-user-input {
-  padding: 2.5px 7.5px 2.5px 7.5px;
-  background: limegreen;
+  padding: 2.5px 5px 2.5px 5px;
+  margin: 5px -7.5px 5px -7.5px;
+  background: lightgray;
 }
 .add-card-text-wrap {
   position: relative;
@@ -355,13 +360,13 @@ body {
   justify-content: space-evenly;
   align-items: center;
   width: 90%;
+  background-color: green;
 }
 .add-card-message {
   margin-top: 5px;
   width: 100%;
   height: inherit;
   display: flex;
-  background-color: lightgreen;
   align-items: center;
   justify-content: center;
   align-content: center;
@@ -373,7 +378,7 @@ body {
   width: fit-content;
 }
 .submit-card:hover {
-  color: limegreen;
+  color: darkgreen;
 }
 .card-form-input {
   width: inherit;
