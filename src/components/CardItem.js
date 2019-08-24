@@ -12,7 +12,7 @@ const CardItem = (props, { dispatch }) => {
   return (
     <div className="card-item">
       <button onClick={handleClick} className="card-delete-btn">
-        -
+        ✘
       </button>
       <div className="card-content">{props.card.subject}</div>
     </div>

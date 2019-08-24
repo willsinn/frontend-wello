@@ -40,25 +40,26 @@ body {
   width: 100%;
 }
 .card-item {
-  height: 36px;
-  width: 100%;
+  min-height: 42px;
+  height: inherit;
+  width: 175px;
   border-radius: 3px;
   margin-bottom: 12px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   border: 1.5px outset lightgray;
   background-color: ghostwhite;
 }
 .card-content {
-  margin-left: 7.5px;
-  margin-right: 7.5px;
+  margin-left: 5px;
+  margin-right: 5px;
   font-size: 17.5px;
 }
 .wsp-title {
   font-size: 22px;
   padding: 20px 15px 20px 15px;
   margin-left: 5px;
-  width: 84.5%;
+  max-width: 75%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -70,7 +71,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   overflow-y: auto;
-  background-color: #64646b21;
+  background-color: #cccccce6;
   position: relative;
 }
 .wsp-list-item {
@@ -337,6 +338,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 14px;
+  border: 1.75px inset #e6e3df7a;
 }
 .toggle-add-form:hover {
   background-color: #9bcff9;
@@ -422,23 +424,24 @@ body {
 }
 
 .card-delete-btn {
-  margin-left: -26px;
+  margin-left: -30px;
   margin-right: 5px;
-  height: 23.5px;
-  width: 23.5px;
+  height: 25px;
+  width: 25px;
   border-style: none;
-  background: #fbfbff21;
-  color: black;
+  background: #cccccce6;
+  color: #fafaff;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 25px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
 }
 .card-delete-btn:hover {
-  background-color: red;
-  border: 1.25px inset white;
-  border-radius: 12em;
-  color: white;
+  background-image: url("./images/delete-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-style: none;
+  color: transparent;
 }
