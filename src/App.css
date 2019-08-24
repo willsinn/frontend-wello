@@ -316,6 +316,7 @@ body {
   width: 100%;
   display: flex;
   position: relative;
+  border: 1px unset darkgray;
 }
 .card-form-wrapper {
   height: 25px;
@@ -343,7 +344,7 @@ body {
   justify-content: center;
   font-size: 12px;
   font-weight: bold;
-  border: 1.75px inset #e6e3df7a;
+  border: 1px ridge #e6e3df7a;
 }
 .toggle-add-form:hover {
   background-color: #9bcff9;
@@ -384,8 +385,9 @@ body {
   width: inherit;
   font-size: 12.5px;
   padding-left: 15px;
-  border-right: none;
+  border: none;
 }
+
 .new-workspace-item {
   width: 100%;
   display: flex;
