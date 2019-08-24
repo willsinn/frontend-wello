@@ -8,8 +8,8 @@ import { connect } from "react-redux";
 const ProjectWorkspaceList = props => {
   console.log(props.workspace.newCard);
   const renderItems = () => {
-    if (props.workspace.workspace.items.length !== undefined) {
-      return [...props.workspace.workspace.items].map(item => (
+    if (props.workspace.items.length !== undefined) {
+      return [...props.workspace.items].map(item => (
         <li className="wsp-list-item">
           <ProjectWorkspaceItem
             item={item}
@@ -40,7 +40,7 @@ const ProjectWorkspaceList = props => {
   );
 };
 const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  workspace: workspace
+  workspace: workspace.workspace
 });
 
 export default connect(mapStateToProps)(ProjectWorkspaceList);

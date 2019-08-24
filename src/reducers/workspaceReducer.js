@@ -1,6 +1,6 @@
 const defaultState = {
   workspace: {
-    items: [{ item: { cards: [] } }]
+    items: [{ item: { cards: {} } }]
   },
   newCard: {}
 };

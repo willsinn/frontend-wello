@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postNewCard, addCard } from "../actions/workspace";
+import { postNewCard } from "../actions/workspace";
 
 const initialState = { subject: "" };
 const NewCardForm = (props, { dispatch }) => {
@@ -14,12 +14,14 @@ const NewCardForm = (props, { dispatch }) => {
     setSubject(e.target.value);
   };
   const handleCardSubmit = e => {
-    if (e) {
-      e.preventDefault();
-      props.dispatch(postNewCard({ subject, item: props.item }));
-      props.handleAddCard(props.item.id);
-      clearSubject(e);
-    }
+    e.preventDefault();
+    props.dispatch(
+      postNewCard(
+        { subject, item: props.item },
+        props.handleSubmitToggle(subject)
+      ),
+      clearSubject(e)
+    );
   };
   return (
     <div className="card-form-wrapper">

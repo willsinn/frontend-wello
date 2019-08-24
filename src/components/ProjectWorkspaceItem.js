@@ -9,9 +9,11 @@ const ProjectWorkspaceItem = props => {
     setCards(array);
   };
   const handleAddCard = itemId => {
-    if (parseInt(itemId) === props.newCard.item_id) {
-      const array = [...cards, props.newCard];
-      setCards(array);
+    if (props.newCard.item_id !== undefined) {
+      if (itemId === props.newCard.item_id) {
+        const array = [...cards, props.newCard];
+        setCards(array);
+      }
     }
   };
   const renderCards = () => {

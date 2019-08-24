@@ -4,6 +4,15 @@ export const setWorkspace = workspaceData => ({
   type: "SET_WORKSPACE",
   workspace: workspaceData
 });
+export const addCard = card => ({
+  type: "ADD_CARD",
+  card
+});
+
+export const addItemCard = itemData => ({
+  type: "ADD_ITEM_CARD",
+  itemData
+});
 export const fetchWorkspace = (project, dispatch) => {
   return dispatch => {
     fetch(
@@ -38,10 +47,6 @@ export const postWorkspaceItem = (project, dispatch) => {
   };
 };
 
-export const addItemCard = itemData => ({
-  type: "ADD_ITEM_CARD",
-  itemData
-});
 export const fetchItem = (item, dispatch) => {
   return dispatch => {
     fetch(`http://localhost:3000/item/${item.id}`, {
@@ -87,7 +92,3 @@ export const deleteCard = (card, dispatch) => {
     }).then(response => console.log(response));
   };
 };
-export const addCard = card => ({
-  type: "ADD_CARD",
-  card
-});
