@@ -37,7 +37,9 @@ const AddWorkspaceItemForm = (props, { dispatch }) => {
           placeholder="   input new list name"
           required
         />
-        <button className="n-w form-submit">CREATE LIST</button>
+        <button className="n-w form-submit" type="submit">
+          CREATE LIST
+        </button>
       </form>
     </div>
   );

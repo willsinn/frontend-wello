@@ -3,19 +3,21 @@ import { connect } from "react-redux";
 
 const EditingForm = props => {
   const [input, setInput] = useState(props["value"]);
-  const handleSave = e => {
+  const handleSubmit = e => {
     if (e) {
+      e.preventDefault();
+      props.handleSave(input);
     }
   };
   const handleChange = e => {
     e.persist();
+    setInput(e.target.value);
   };
+  console.log(input);
   return (
-    <form onSubmit={handleSave}>
+    <form onSubmit={handleSubmit}>
       <input type="text" name="input" onChange={handleChange} value={input} />
-      <button value="submit" type="submit">
-        save
-      </button>
+      <button type="submit">save</button>
     </form>
   );
 };

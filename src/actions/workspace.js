@@ -91,3 +91,19 @@ export const deleteCard = (card, dispatch) => {
     }).then(response => dispatch(fetchItem({ id: card["item_id"] })));
   };
 };
+
+export const updateCard = (card, dispatch) => {
+  return dispatch => {
+    fetch(`http://localhost:3000/card/update/${card.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: card.id,
+        [card.key]: card.value
+      })
+    }).then(response => console.log(response));
+  };
+};
