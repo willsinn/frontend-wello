@@ -446,6 +446,8 @@ body {
   padding-bottom: -10px;
 }
 .card-delete-btn:hover {
+  transform: rotate(90deg);
+  transform-origin: center;
 }
 .exit-edit {
   height: 20px;
@@ -455,8 +457,8 @@ body {
   background-repeat: no-repeat;
 }
 .c-d-t {
-  transform: rotate(90deg);
+  /* transform: rotate(90deg);
   transform-origin: center;
   margin-bottom: -10px;
-  padding-bottom: 10px;
+  padding-bottom: 10px; */
 }
