@@ -26,3 +26,4 @@ export const fetchUser = data => {
 export const setTrue = () => ({ type: "SET_TRUE" });
 export const setFalse = () => ({ type: "SET_FALSE" });
 export const setNull = () => ({ type: "SET_NULL" });
+export const incrementCounter = () => ({ type: "INCREMENT_COUNTER" });

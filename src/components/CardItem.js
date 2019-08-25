@@ -3,6 +3,7 @@ import EditingForm from "./EditingForm";
 import { connect } from "react-redux";
 import { deleteCard } from "../actions/workspace";
 import { updateCard } from "../actions/workspace";
+import { setError } from "../actions/workspace";
 
 const CardItem = (props, { dispatch }) => {
   const [editing, setEditing] = useState(false);
@@ -24,12 +25,16 @@ const CardItem = (props, { dispatch }) => {
       setEditing(false)
     );
   };
+  const handleSingleEditing = e => {
+    if (e) {
+    }
+  };
   const renderItem = () => (
     <>
       <button onClick={handleDeleteCard} className="card-delete-btn">
         ✘
       </button>
-      <div className="card-content" onClick={() => setEditing(true)}>
+      <div className="card-content" onClick={handleSingleEditing}>
         {value}
       </div>
     </>
@@ -48,4 +53,8 @@ const CardItem = (props, { dispatch }) => {
     <div className="card-item">{!editing ? renderItem() : renderEditing()}</div>
   );
 };
-export default connect()(CardItem);
+const mapStateToProps = ({ workspaceReducer: workspace }) => ({
+  workspace: workspace.workspace,
+  error: workspace.error
+});
+export default connect(mapStateToProps)(CardItem);

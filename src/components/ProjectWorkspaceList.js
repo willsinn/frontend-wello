@@ -6,7 +6,6 @@ import ItemDeleteBtn from "./ItemDeleteBtn";
 import { connect } from "react-redux";
 
 const ProjectWorkspaceList = props => {
-  console.log(props.updatedItem);
   const renderItems = () => {
     if (props.workspace.items.length !== undefined) {
       return [...props.workspace.items].map(item => {

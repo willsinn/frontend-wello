@@ -6,8 +6,8 @@ import { setNull } from "../actions/user";
 const SidebarList = (props, { dispatch }) => {
   const renderItems = () => {
     if (props.projects.length > 0) {
-      return [...props.projects].map(project => (
-        <li onClick={e => props.dispatch(setNull(e))} className="list-item">
+      return props.projects.map(project => (
+        <li className="list-item">
           <div className="project-list-title">
             <ProjectListItem key={project.id} project={project} />
           </div>

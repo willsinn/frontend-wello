@@ -1,3 +1,4 @@
+import { fetchWorkspace } from "./workspace";
 export const setProjects = projectsData => ({
   type: "SET_PROJECTS",
   payload: projectsData

@@ -1,13 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchWorkspace } from "../actions/workspace";
+import { clearWorkspace } from "../actions/workspace";
+import { incrementCounter } from "../actions/user";
 
 const ProjectListItem = (props, { dispatch }) => {
   const handleClick = e => {
-    props.dispatch(fetchWorkspace(props.project));
+    if (e) {
+      props.dispatch(fetchWorkspace(props.project));
+      props.dispatch(incrementCounter());
+    }
   };
   return (
-    <div onClick={e => handleClick(e)} className="project-list-item">
+    <div onClick={handleClick} className="project-list-item">
       {props.project.title}
     </div>
   );

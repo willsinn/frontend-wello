@@ -10,7 +10,10 @@ const App = props => {
     <>
       <NavBar />
       {props.workspace.id !== undefined ? (
-        <ProjectWorkspace workspace={props.workspace} />
+        <ProjectWorkspace
+          workspace={props.workspace}
+          projectId={props.workspace.id}
+        />
       ) : (
         <UserProjectsContainer />
       )}

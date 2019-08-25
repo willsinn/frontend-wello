@@ -1,8 +1,8 @@
 export const clearWorkspace = () => ({ type: "CLEAR_WORKSPACE" });
 
-export const setWorkspace = workspaceData => ({
+export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
-  workspace: workspaceData
+  workspace
 });
 export const addCard = card => ({
   type: "ADD_CARD",

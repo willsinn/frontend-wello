@@ -1,7 +1,8 @@
 const defaultState = {
   user: null,
   userId: null,
-  isActive: null
+  isActive: null,
+  bgCounter: -1
 };
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -26,6 +27,8 @@ const userReducer = (state = defaultState, action) => {
         user: action.payload,
         userId: action.payload.id
       };
+    case "INCREMENT_COUNTER":
+      return { ...state, bgCounter: state.bgCounter + 1 };
     default:
       return state;
   }

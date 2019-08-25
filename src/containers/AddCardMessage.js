@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import NewCardForm from "./NewCardForm";
 import { connect } from "react-redux";
-import { fetchWorkspace } from "../actions/workspace";
 
 const initialState = "";
 const AddCardMessage = (props, { dispatch }) => {
