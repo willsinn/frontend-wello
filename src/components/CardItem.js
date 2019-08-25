@@ -8,6 +8,7 @@ import { setError } from "../actions/workspace";
 const CardItem = (props, { dispatch }) => {
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(props.card.subject);
+  const [menu, setMenu] = useState(false);
   const handleDeleteCard = e => {
     if (e) {
       props.dispatch(deleteCard(props.card));
@@ -25,32 +26,32 @@ const CardItem = (props, { dispatch }) => {
       setEditing(false)
     );
   };
-  const handleSingleEditing = e => {
-    if (e) {
-    }
-  };
-  const renderItem = () => (
-    <>
-      <button onClick={handleDeleteCard} className="card-delete-btn">
-        ✘
-      </button>
-      <div className="card-content" onClick={handleSingleEditing}>
-        {value}
-      </div>
-    </>
+  const renderMenu = () => (
+    <div className="card-content">
+      <button onClick={() => setEditing(true)}>X</button>
+      {value}
+      <button onClick={() => setEditing(true)}>Edit</button>
+    </div>
   );
   const renderEditing = () => {
     return (
       <>
-        <EditingForm value={value} handleSave={handleSave} />
         <button onClick={() => setEditing(false)} className="exit-edit">
           {" "}
         </button>
+        <EditingForm value={value} handleSave={handleSave} />
       </>
     );
   };
   return (
-    <div className="card-item">{!editing ? renderItem() : renderEditing()}</div>
+    <div className="card-item">
+      <div className="card-del-wrap ">
+        <button onClick={() => setMenu(true)} className="card-delete-btn">
+          <span className="c-d-t">...</span>
+        </button>
+      </div>
+      <div>{menu ? renderMenu() : value}</div>
+    </div>
   );
 };
 const mapStateToProps = ({ workspaceReducer: workspace }) => ({

@@ -44,14 +44,15 @@ body {
 }
 .card-item {
   min-height: 42px;
-  height: inherit;
   width: 175px;
   border-radius: 3px;
   margin-bottom: 12px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  align-content: flex-start;
   border: 1.5px outset lightgray;
   background-color: ghostwhite;
+  justify-content: space-between;
 }
 .card-content {
   margin-left: 5px;
@@ -428,28 +429,23 @@ body {
   margin-bottom: 15px;
   margin-right: 7.5px;
 }
-
+.card-del-wrap {
+  height: 100%;
+  width: 25%;
+  margin-left: -39px;
+}
 .card-delete-btn {
-  margin-left: -30px;
-  margin-right: 5px;
-  height: 25px;
-  width: 25px;
-  border-style: none;
-  background: #cccccce6;
-  color: #fafaff;
+  height: 100%;
+  width: 100%;
+  border: 0;
+  background: inherit;
+  color: black;
   font-weight: bold;
-  font-size: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
+  font-size: 27px;
+  position: relative;
+  padding-bottom: -10px;
 }
 .card-delete-btn:hover {
-  background-image: url("./images/delete-icon.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  font-style: none;
-  color: transparent;
 }
 .exit-edit {
   height: 20px;
@@ -457,4 +453,10 @@ body {
   background-image: url("./images/exit-editing.png");
   background-size: cover;
   background-repeat: no-repeat;
+}
+.c-d-t {
+  transform: rotate(90deg);
+  transform-origin: center;
+  margin-bottom: -10px;
+  padding-bottom: 10px;
 }
