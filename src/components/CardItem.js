@@ -3,16 +3,29 @@ import EditingForm from "./EditingForm";
 import { connect } from "react-redux";
 import { deleteCard } from "../actions/workspace";
 import { updateCard } from "../actions/workspace";
-import { setError } from "../actions/workspace";
+import { setEditCard } from "../actions/workspace";
+import { clearEditCard } from "../actions/workspace";
 
 const CardItem = (props, { dispatch }) => {
-  const [editing, setEditing] = useState(false);
+  const [edit, setEdit] = useState();
   const [value, setValue] = useState(props.card.subject);
   const [menu, setMenu] = useState(false);
   const handleDeleteCard = e => {
     if (e) {
       props.dispatch(deleteCard(props.card));
       props.handleDeleteCard(props.card);
+    }
+  };
+  const handleEdit = e => {
+    if (e) {
+      props.dispatch(setEditCard({ card: props.card }));
+      setMenu(!menu);
+    }
+  };
+  const clearEdit = e => {
+    if (e) {
+      props.dispatch(clearEdit());
+      setMenu(!menu);
     }
   };
   const handleSave = input => {
@@ -22,21 +35,21 @@ const CardItem = (props, { dispatch }) => {
         key: "subject",
         value: input
       }),
-      setValue(input),
-      setEditing(false)
+      clearEditCard(),
+      setValue(input)
     );
   };
   const renderMenu = () => (
     <div className="card-content">
-      <button onClick={() => setEditing(true)}>X</button>
       {value}
-      <button onClick={() => setEditing(true)}>Edit</button>
+      <button onClick={handleDeleteCard}>X</button>
+      <button onClick={handleEdit}>Edit</button>
     </div>
   );
   const renderEditing = () => {
     return (
       <>
-        <button onClick={() => setEditing(false)} className="exit-edit">
+        <button onClick={clearEdit} className="exit-edit" name="edit">
           {" "}
         </button>
         <EditingForm value={value} handleSave={handleSave} />
@@ -47,7 +60,7 @@ const CardItem = (props, { dispatch }) => {
     <div className="card-item">
       <div className="card-menu-wrap ">
         <input
-          onClick={() => setMenu(!menu)}
+          onClick={handleEdit}
           type="checkbox"
           id="btnControl"
           value={props.card.id}

@@ -3,7 +3,8 @@ const defaultState = {
     items: [{ item: { cards: {} } }]
   },
   newCard: {},
-  updatedItem: {}
+  updatedItem: {},
+  editingCard: {}
 };
 
 const workspaceReducer = (state = defaultState, action) => {
@@ -15,6 +16,10 @@ const workspaceReducer = (state = defaultState, action) => {
         ...state,
         updatedItem: action.itemData
       };
+    case "CLEAR_EDIT_CARD":
+      return { ...state, editingCard: {} };
+    case "SET_EDIT_CARD":
+      return { ...state, editingCard: action.edit };
     case "CLEAR_WORKSPACE":
       return { ...state, workspace: defaultState };
     case "SET_WORKSPACE":

@@ -13,6 +13,12 @@ export const addItemCard = itemData => ({
   type: "ADD_ITEM_CARD",
   itemData
 });
+export const clearEditCard = () => ({ type: "CLEAR_EDIT_CARD" });
+
+export const setEditCard = card => ({
+  type: "SET_EDIT_CARD",
+  edit: card
+});
 export const fetchWorkspace = (project, dispatch) => {
   return dispatch => {
     fetch(

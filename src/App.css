@@ -432,13 +432,15 @@ body {
   display: none;
 }
 .card-menu-wrap {
-  height: 35px;
-  width: 35px;
+  height: 33.5px;
+  width: 33.5px;
   margin-left: -37.5px;
-  position: relative;
+  position: absolute;
 }
 .card-menu-btn {
   max-height: 25px;
+  max-width: 33.5px;
+  margin-top: 8.5px;
   text-align: center;
   color: black;
   font-weight: bold;
@@ -465,6 +467,7 @@ body {
   transform-origin: center;
   border-radius: 3px;
   background: darkgray;
+  margin-bottom: 5px;
 }
 .btn-text {
   margin-bottom: 12.5px;
