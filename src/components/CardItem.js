@@ -45,10 +45,16 @@ const CardItem = (props, { dispatch }) => {
   };
   return (
     <div className="card-item">
-      <div className="card-del-wrap ">
-        <button onClick={() => setMenu(true)} className="card-delete-btn">
-          <span className="c-d-t">...</span>
-        </button>
+      <div className="card-menu-wrap ">
+        <input
+          onClick={() => setMenu(!menu)}
+          type="checkbox"
+          id="btnControl"
+          value={props.card.id}
+        />
+        <label className="card-menu-btn" for="btnControl">
+          <span className="btn-text">...</span>
+        </label>
       </div>
       <div>{menu ? renderMenu() : value}</div>
     </div>

@@ -52,7 +52,6 @@ body {
   align-content: flex-start;
   border: 1.5px outset lightgray;
   background-color: ghostwhite;
-  justify-content: space-between;
 }
 .card-content {
   margin-left: 5px;
@@ -429,36 +428,51 @@ body {
   margin-bottom: 15px;
   margin-right: 7.5px;
 }
-.card-del-wrap {
-  height: 100%;
-  width: 25%;
-  margin-left: -39px;
+#btnControl {
+  display: none;
 }
-.card-delete-btn {
-  height: 100%;
-  width: 100%;
-  border: 0;
-  background: inherit;
+.card-menu-wrap {
+  height: 35px;
+  width: 35px;
+  margin-left: -37.5px;
+  position: relative;
+}
+.card-menu-btn {
+  max-height: 25px;
+  text-align: center;
   color: black;
   font-weight: bold;
   font-size: 27px;
-  position: relative;
-  padding-bottom: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
 }
-.card-delete-btn:hover {
+.card-menu-btn:hover {
+  border-radius: 3px;
+  background: inherit;
+  background: darkgray;
+}
+
+.card-menu-btn:active {
+  background: inherit;
   transform: rotate(90deg);
   transform-origin: center;
 }
-.exit-edit {
+
+#btnControl:checked + label {
+  transform: rotate(90deg);
+  transform-origin: center;
+  border-radius: 3px;
+  background: darkgray;
+}
+.btn-text {
+  margin-bottom: 12.5px;
+}
+/* .exit-edit {
   height: 20px;
   width: 20px;
   background-image: url("./images/exit-editing.png");
   background-size: cover;
   background-repeat: no-repeat;
-}
-.c-d-t {
-  /* transform: rotate(90deg);
-  transform-origin: center;
-  margin-bottom: -10px;
-  padding-bottom: 10px; */
-}
+} */
