@@ -1,32 +1,36 @@
 import React from "react";
-import ProjectWorkspaceItem from "./ProjectWorkspaceItem";
+import WorkspaceItemCards from "./WorkspaceItemCards";
 import AddWorkspaceItemForm from "../containers/AddWorkspaceItemForm";
 import ItemDeleteBtn from "./ItemDeleteBtn";
 import { connect } from "react-redux";
 
 const ProjectWorkspaceList = props => {
   const mapItems = itemsArray => {
-    return itemsArray.map(item => (
-      <li className="wsp-list-item">
-        <ProjectWorkspaceItem item={item} cards={item.cards} />
-        <div className="workspace-item-control">
-          <span className="item-control-name">{item.objective}</span>
-          <span className="item-control-delete">
-            <ItemDeleteBtn />
-          </span>
-        </div>
-      </li>
-    ));
+    return itemsArray.map(item => {
+      return (
+        <li className="wsp-list-item">
+          <WorkspaceItemCards item={item} cards={item.cards} />
+          <div className="workspace-item-control">
+            <span className="item-control-name">{item.objective}</span>
+            <span className="item-control-delete">
+              <ItemDeleteBtn />
+            </span>
+          </div>
+        </li>
+      );
+    });
   };
   const renderItems = () => {
     if (props.workspace.items.length !== undefined) {
-      const array = [...props.workspace.items];
-      if (props.updatedItem.id === undefined) {
-        return mapItems(array);
-      } else {
-        const updated = [...array, props.updatedItem];
-        return mapItems(updated);
+      const array = props.workspace.items;
+      if (
+        props.updatedItem.id !== undefined &&
+        props.updatedItem.project_id !== props.workspace.id
+      ) {
+        const newArray = [...props.workspace.items, props.updatedItem];
+        return mapItems(newArray);
       }
+      return mapItems(array);
     }
   };
 

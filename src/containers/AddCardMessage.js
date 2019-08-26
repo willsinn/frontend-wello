@@ -34,8 +34,8 @@ const AddCardMessage = (props, { dispatch }) => {
           </button>
         ) : (
           <NewCardForm
-            handleSubmitToggle={handleSubmitToggle}
             item={props.item}
+            handleSubmitToggle={handleSubmitToggle}
           />
         )}
       </div>

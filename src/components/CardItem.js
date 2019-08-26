@@ -3,25 +3,22 @@ import MenuBtn from "./MenuBtn";
 import CardBtns from "./CardBtns";
 import Card from "./Card";
 import EditingForm from "./EditingForm";
-import { deleteCard } from "../actions/workspace";
 import { updateCard } from "../actions/workspace";
 import { toggleEdit } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const CardItem = props => {
   const [render, setRender] = useState(false);
+  const [edit, setEdit] = useState(false);
   const [menu, setMenu] = useState(false);
   const [subject, setSubject] = useState(props.card.subject);
 
   const renderOptions = card => {
     setRender(!render);
-    props.dispatch(toggleEdit());
   };
-  const handleDeleteCard = e => {
-    if (e) {
-      props.dispatch(deleteCard(props.card));
-      props.handleDeleteCard(props.card);
-    }
+  const handleEdit = () => {
+    setEdit(!edit);
+    props.dispatch(toggleEdit());
   };
 
   const handleSave = input => {
@@ -31,8 +28,11 @@ const CardItem = props => {
         key: "subject",
         value: input
       }),
-      toggleEdit(),
-      setSubject(input)
+      props.dispatch(toggleEdit()),
+      setSubject(input),
+      setEdit(!edit),
+      setRender(!render),
+      setMenu(!menu)
     );
   };
   // const renderMenu = () => (
@@ -62,8 +62,19 @@ const CardItem = props => {
         {menu ? (
           <div>
             <MenuBtn card={props.card} renderOptions={renderOptions} />
-            <Card card={props.card} subject={subject} />
-            {render ? <CardBtns /> : null}
+
+            {edit ? (
+              <EditingForm card={props.card} handleSave={handleSave} />
+            ) : (
+              <Card card={props.card} subject={subject} />
+            )}
+            {render ? (
+              <CardBtns
+                card={props.card}
+                handleEdit={handleEdit}
+                handleDeleteCard={props.handleDeleteCard}
+              />
+            ) : null}
           </div>
         ) : (
           <Card card={props.card} subject={subject} />
