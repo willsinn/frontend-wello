@@ -19,7 +19,6 @@ const ProjectWorkspaceList = props => {
     ));
   };
   const renderItems = () => {
-    console.log(props.workspace.items);
     if (props.workspace.items.length !== undefined) {
       const array = [...props.workspace.items];
       if (props.updatedItem.id === undefined) {
@@ -46,8 +45,7 @@ const ProjectWorkspaceList = props => {
 };
 const mapStateToProps = ({ workspaceReducer: workspace }) => ({
   workspace: workspace.workspace,
-  updatedItem: workspace.updatedItem,
-  editingCard: workspace.editingCard
+  updatedItem: workspace.updatedItem
 });
 
 export default connect(mapStateToProps)(ProjectWorkspaceList);

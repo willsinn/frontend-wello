@@ -1,10 +1,10 @@
 const defaultState = {
+  isEditActive: false,
   workspace: {
     items: [{ item: { cards: {} } }]
   },
   newCard: {},
-  updatedItem: {},
-  editingCard: {}
+  updatedItem: {}
 };
 
 const workspaceReducer = (state = defaultState, action) => {
@@ -16,10 +16,8 @@ const workspaceReducer = (state = defaultState, action) => {
         ...state,
         updatedItem: action.itemData
       };
-    case "CLEAR_EDIT_CARD":
-      return { ...state, editingCard: {} };
-    case "SET_EDIT_CARD":
-      return { ...state, editingCard: action.edit };
+    case "TOGGLE_EDIT":
+      return { ...state, isEditActive: !state.isEditActive };
     case "CLEAR_WORKSPACE":
       return { ...state, workspace: defaultState };
     case "SET_WORKSPACE":

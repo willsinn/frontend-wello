@@ -1,31 +1,31 @@
 import React, { useState } from "react";
+import EditBtn from "./EditBtn";
 import EditingForm from "./EditingForm";
-import { connect } from "react-redux";
 import { deleteCard } from "../actions/workspace";
 import { updateCard } from "../actions/workspace";
-import { setEditCard } from "../actions/workspace";
-import { clearEditCard } from "../actions/workspace";
+import { toggleEdit } from "../actions/workspace";
+import { connect } from "react-redux";
 
-const CardItem = (props, { dispatch }) => {
-  const [edit, setEdit] = useState();
+const CardItem = props => {
   const [value, setValue] = useState(props.card.subject);
   const [menu, setMenu] = useState(false);
+  console.log(props.isEditActive);
   const handleDeleteCard = e => {
     if (e) {
       props.dispatch(deleteCard(props.card));
       props.handleDeleteCard(props.card);
     }
   };
-  const handleEdit = e => {
+  const handleClick = e => {
     if (e) {
-      props.dispatch(setEditCard({ card: props.card }));
+      props.handleEditCard(props.card);
       setMenu(!menu);
     }
   };
   const clearEdit = e => {
     if (e) {
-      props.dispatch(clearEdit());
       setMenu(!menu);
+      props.dispatch(clearEdit());
     }
   };
   const handleSave = input => {
@@ -35,7 +35,7 @@ const CardItem = (props, { dispatch }) => {
         key: "subject",
         value: input
       }),
-      clearEditCard(),
+      clearEdit(),
       setValue(input)
     );
   };
@@ -43,7 +43,7 @@ const CardItem = (props, { dispatch }) => {
     <div className="card-content">
       {value}
       <button onClick={handleDeleteCard}>X</button>
-      <button onClick={handleEdit}>Edit</button>
+      <button onClick={clearEdit}>Edit</button>
     </div>
   );
   const renderEditing = () => {
@@ -56,25 +56,20 @@ const CardItem = (props, { dispatch }) => {
       </>
     );
   };
+
   return (
     <div className="card-item">
-      <div className="card-menu-wrap ">
-        <input
-          onClick={handleEdit}
-          type="checkbox"
-          id="btnControl"
-          value={props.card.id}
-        />
-        <label className="card-menu-btn" for="btnControl">
-          <span className="btn-text">...</span>
-        </label>
-      </div>
-      <div>{menu ? renderMenu() : value}</div>
+      <EditBtn
+        card={props.card}
+        editCard={props.editCard}
+        isEditActive={props.isEditActive}
+        handleClick={handleClick}
+      />
+      <div>{props.card.subject}</div>
     </div>
   );
 };
-const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  workspace: workspace.workspace,
-  error: workspace.error
+const mapStateToProps = ({ workspaceReducer: isEditActive }) => ({
+  isEditActive: isEditActive
 });
 export default connect(mapStateToProps)(CardItem);
