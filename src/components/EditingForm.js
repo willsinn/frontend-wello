@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 const EditingForm = props => {
-  const [input, setInput] = useState(props["value"]);
+  const [input, setInput] = useState(props.card.subject);
+  console.log("hi");
   const handleSubmit = e => {
     if (e) {
       e.preventDefault();

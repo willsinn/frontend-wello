@@ -1,8 +1,7 @@
-import React from "react";
-import EditingForm from "./EditingForm";
+import React, { useState } from "react";
 
 const Card = props => {
-  console.log(props.card);
-  return <div className="card">{props.card.subject}</div>;
+  const [subject, setSubject] = useState(props.card.subject);
+  return <div className="card">{subject}</div>;
 };
 export default Card;
