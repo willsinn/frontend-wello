@@ -1,31 +1,21 @@
 import React, { useState } from "react";
 import CardItem from "./CardItem";
 import AddCardMessage from "../containers/AddCardMessage";
-import { toggleEdit } from "../actions/workspace";
+import EditBtn from "./EditBtn";
 import { connect } from "react-redux";
 
-const initialState = {};
-const ProjectWorkspaceItem = (props, { dispatch }) => {
-  const [editCard, setEditCard] = useState(initialState);
+const ProjectWorkspaceItem = props => {
   const [cards, setCards] = useState(props.cards);
   const handleDeleteCard = deleted => {
     const array = cards.filter(card => card.id !== deleted.id);
     setCards(array);
   };
-  const handleEditCard = card => {
-    setEditCard(card);
-    props.dispatch(toggleEdit());
-  };
+
   const renderCards = () => {
     if (Array.isArray(props.cards)) {
       const cardsArray = [...props.cards];
       return cardsArray.map(card => (
-        <CardItem
-          card={card}
-          handleDeleteCard={handleDeleteCard}
-          handleEditCard={handleEditCard}
-          editCard={editCard}
-        />
+        <CardItem card={card} handleDeleteCard={handleDeleteCard} />
       ));
     }
   };
