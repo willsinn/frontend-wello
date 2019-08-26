@@ -6,10 +6,7 @@ import { connect } from "react-redux";
 const CardBtns = (props, { dispatch }) => {
   const handleDelete = e => {
     if (e) {
-      props.dispatch(
-        deleteCard(props.card),
-        props.handleDeleteCard(props.card)
-      );
+      props.dispatch(deleteCard(props.card));
       props.dispatch(toggleEdit());
     }
   };

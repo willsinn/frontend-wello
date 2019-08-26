@@ -69,11 +69,7 @@ const CardItem = props => {
               <Card card={props.card} subject={subject} />
             )}
             {render ? (
-              <CardBtns
-                card={props.card}
-                handleEdit={handleEdit}
-                handleDeleteCard={props.handleDeleteCard}
-              />
+              <CardBtns card={props.card} handleEdit={handleEdit} />
             ) : null}
           </div>
         ) : (

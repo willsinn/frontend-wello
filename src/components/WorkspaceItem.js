@@ -1,24 +1,17 @@
 import React, { useState } from "react";
-import CardItem from "./CardItem";
 import AddCardMessage from "../containers/AddCardMessage";
+import CardsList from "./CardsList";
 import { connect } from "react-redux";
 
-const WorkspaceItemCards = props => {
-  const handleDeleteCard = deleted => {
-    // const array = cards.filter(card => card.id !== deleted.id);
-  };
+const WorkspaceItem = props => {
   const renderCards = () => {
     if (props.item.cards !== undefined) {
       const cards = props.item.cards;
       if (props.item.id === props.updatedItem.id) {
         const updated = props.updatedItem.cards;
-        return updated.map(card => (
-          <CardItem card={card} handleDeleteCard={handleDeleteCard} />
-        ));
+        return <CardsList cards={updated} />;
       }
-      return cards.map(card => (
-        <CardItem card={card} handleDeleteCard={handleDeleteCard} />
-      ));
+      return <CardsList cards={cards} />;
     }
   };
   return (
@@ -32,4 +25,4 @@ const mapStateToProps = ({ workspaceReducer: workspace }) => ({
   workspace: workspace,
   updatedItem: workspace.updatedItem
 });
-export default connect(mapStateToProps)(WorkspaceItemCards);
+export default connect(mapStateToProps)(WorkspaceItem);
