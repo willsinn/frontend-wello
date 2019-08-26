@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import EditBtn from "./EditBtn";
+import MenuBtn from "./MenuBtn";
+import CardBtns from "./CardBtns";
 import Card from "./Card";
 import EditingForm from "./EditingForm";
 import { deleteCard } from "../actions/workspace";
@@ -8,10 +9,12 @@ import { toggleEdit } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const CardItem = props => {
-  const [edit, setEdit] = useState(false);
+  const [render, setRender] = useState(false);
   const [menu, setMenu] = useState(false);
-  const handleEdit = card => {
-    setEdit(!edit);
+  const [subject, setSubject] = useState(props.card.subject);
+
+  const renderOptions = card => {
+    setRender(!render);
     props.dispatch(toggleEdit());
   };
   const handleDeleteCard = e => {
@@ -21,17 +24,17 @@ const CardItem = props => {
     }
   };
 
-  // const handleSave = input => {
-  //   props.dispatch(
-  //     updateCard({
-  //       id: props.card.id,
-  //       key: "subject",
-  //       value: input
-  //     }),
-  //     clearEdit(),
-  //     setValue(input)
-  //   );
-  // };
+  const handleSave = input => {
+    props.dispatch(
+      updateCard({
+        id: props.card.id,
+        key: "subject",
+        value: input
+      }),
+      toggleEdit(),
+      setSubject(input)
+    );
+  };
   // const renderMenu = () => (
   //   <div className="card-content">
   //     {value}
@@ -42,7 +45,7 @@ const CardItem = props => {
   // const renderEditing = () => {
   //   return (
   //     <>
-  //       <button onClick={clearEdit} className="exit-edit" name="edit">
+  //       <button onClick={clearEdit} className="exit-render" name="render">
   //         {" "}
   //       </button>
   //       <EditingForm value={value} handleSave={handleSave} />
@@ -58,15 +61,12 @@ const CardItem = props => {
       >
         {menu ? (
           <div>
-            <EditBtn card={props.card} handleEdit={handleEdit} />
-            {edit ? (
-              <EditingForm card={props.card} />
-            ) : (
-              <Card card={props.card} />
-            )}
+            <MenuBtn card={props.card} renderOptions={renderOptions} />
+            <Card card={props.card} subject={subject} />
+            {render ? <CardBtns /> : null}
           </div>
         ) : (
-          <Card card={props.card} />
+          <Card card={props.card} subject={subject} />
         )}
       </div>
     </div>

@@ -1,10 +1,10 @@
 import React from "react";
 
-const EditBtn = props => {
+const MenuBtn = props => {
   return (
     <div className="card-menu-wrap">
       <input
-        onClick={e => props.handleEdit(e, props.card)}
+        onClick={e => props.renderOptions(e, props.card)}
         type="checkbox"
         id="btnControl"
       />
@@ -15,4 +15,4 @@ const EditBtn = props => {
   );
 };
 
-export default EditBtn;
+export default MenuBtn;

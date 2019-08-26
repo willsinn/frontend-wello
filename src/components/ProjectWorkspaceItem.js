@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import CardItem from "./CardItem";
 import AddCardMessage from "../containers/AddCardMessage";
-import EditBtn from "./EditBtn";
 import { connect } from "react-redux";
 
 const ProjectWorkspaceItem = props => {
