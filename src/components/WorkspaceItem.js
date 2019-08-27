@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import AddCardMessage from "../containers/AddCardMessage";
 import CardsList from "./CardsList";
 import { connect } from "react-redux";

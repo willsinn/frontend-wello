@@ -4,9 +4,9 @@ export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
   workspace
 });
-export const addCard = card => ({
-  type: "ADD_CARD",
-  card
+export const editedText = text => ({
+  type: "EDITED_TEXT",
+  text
 });
 
 export const addItemCard = itemData => ({
@@ -99,6 +99,7 @@ export const deleteCard = (card, dispatch) => {
 
 export const updateCard = (card, dispatch) => {
   return dispatch => {
+    dispatch(editedText(card));
     fetch(`http://localhost:3000/card/update/${card.id}`, {
       method: "PUT",
       headers: {
@@ -109,8 +110,6 @@ export const updateCard = (card, dispatch) => {
         id: card.id,
         [card.key]: card.value
       })
-    })
-      .then(response => response.json())
-      .then(JSONresponse => dispatch(addItemCard(JSONresponse)));
+    });
   };
 };

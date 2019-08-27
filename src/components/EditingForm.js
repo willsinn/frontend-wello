@@ -15,7 +15,6 @@ const EditingForm = props => {
           value: input
         })
       );
-      props.handleSave();
     }
   };
   const handleChange = e => {
@@ -24,12 +23,12 @@ const EditingForm = props => {
   };
   console.log(input);
   return (
-    <div className="card">
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="input" onChange={handleChange} value={input} />
-        <button type="submit">save</button>
-      </form>
-    </div>
+    <form className="edit-form" onSubmit={handleSubmit}>
+      <input type="text" name="input" onChange={handleChange} value={input} />
+      <button onClick={e => props.handleEdit(e)} type="submit">
+        save
+      </button>
+    </form>
   );
 };
 

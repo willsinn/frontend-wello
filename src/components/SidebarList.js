@@ -1,7 +1,6 @@
 import React from "react";
 import ProjectListItem from "./ProjectListItem";
 import { connect } from "react-redux";
-import { setNull } from "../actions/user";
 
 const SidebarList = (props, { dispatch }) => {
   const renderItems = () => {

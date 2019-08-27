@@ -3,14 +3,14 @@ const defaultState = {
   workspace: {
     items: [{ item: { cards: {} } }]
   },
-  newCard: {},
-  updatedItem: {}
+  updatedItem: {},
+  editedCard: {}
 };
 
 const workspaceReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "ADD_CARD":
-      return { ...state, newCard: action.card };
+    case "EDITED_TEXT":
+      return { ...state, editedCard: action.text };
     case "ADD_ITEM_CARD":
       return {
         ...state,

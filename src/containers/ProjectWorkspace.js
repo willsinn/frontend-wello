@@ -12,7 +12,7 @@ const ProjectWorkspace = (props, { dispatch }) => {
   const [index, setIndex] = useState(null);
   const bgs = [Mountians, Lake, Beach];
 
-  useEffect(() => {
+  useEffect((bgs, props) => {
     const count = props.bgCounter;
     const allBGS = bgs.length;
     const trimCount = count % allBGS;
