@@ -479,3 +479,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 } */
+.card {
+  display: flex;
+  justify-content: center;
+}
+.edit {
+  width: 200px;
+  height: 100px;
+}

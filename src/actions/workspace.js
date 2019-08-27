@@ -109,6 +109,8 @@ export const updateCard = (card, dispatch) => {
         id: card.id,
         [card.key]: card.value
       })
-    }).then(response => console.log(response));
+    })
+      .then(response => response.json())
+      .then(JSONresponse => dispatch(addItemCard(JSONresponse)));
   };
 };

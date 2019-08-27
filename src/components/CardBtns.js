@@ -14,7 +14,7 @@ const CardBtns = (props, { dispatch }) => {
   return (
     <div>
       <button onClick={handleDelete}>del</button>
-      <button onClick={e => props.handleEdit(e, props.card)}>edit</button>
+      <button onClick={e => props.handleEdit(e)}>edit</button>
     </div>
   );
 };

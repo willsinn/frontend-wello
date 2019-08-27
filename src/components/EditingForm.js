@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { updateCard } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const EditingForm = props => {
@@ -7,7 +8,14 @@ const EditingForm = props => {
   const handleSubmit = e => {
     if (e) {
       e.preventDefault();
-      props.handleSave(input);
+      props.dispatch(
+        updateCard({
+          id: props.card.id,
+          key: "subject",
+          value: input
+        })
+      );
+      props.handleSave();
     }
   };
   const handleChange = e => {
@@ -16,10 +24,12 @@ const EditingForm = props => {
   };
   console.log(input);
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="input" onChange={handleChange} value={input} />
-      <button type="submit">save</button>
-    </form>
+    <div className="card">
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="input" onChange={handleChange} value={input} />
+        <button type="submit">save</button>
+      </form>
+    </div>
   );
 };
 

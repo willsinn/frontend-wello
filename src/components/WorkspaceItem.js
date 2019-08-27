@@ -4,7 +4,7 @@ import CardsList from "./CardsList";
 import { connect } from "react-redux";
 
 const WorkspaceItem = props => {
-  const renderCards = () => {
+  const updateCards = () => {
     if (props.item.cards !== undefined) {
       const cards = props.item.cards;
       if (props.item.id === props.updatedItem.id) {
@@ -16,7 +16,7 @@ const WorkspaceItem = props => {
   };
   return (
     <div className="wsp-title-wrapper">
-      <div className="wsp-title">{renderCards()}</div>
+      <div className="wsp-title">{updateCards()}</div>
       <AddCardMessage item={props.item} />
     </div>
   );
