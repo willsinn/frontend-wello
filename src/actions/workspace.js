@@ -99,7 +99,6 @@ export const deleteCard = (card, dispatch) => {
 
 export const updateCard = (card, dispatch) => {
   return dispatch => {
-    dispatch(editedText(card));
     fetch(`http://localhost:3000/card/update/${card.id}`, {
       method: "PUT",
       headers: {
@@ -110,6 +109,8 @@ export const updateCard = (card, dispatch) => {
         id: card.id,
         [card.key]: card.value
       })
-    });
+    })
+      .then(response => response.json())
+      .then(JSONresponse => dispatch(editedText(JSONresponse)));
   };
 };

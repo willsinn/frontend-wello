@@ -23,7 +23,7 @@ const MenuBtns = props => {
             type="checkbox"
             id="btnControl"
           />
-          <label className="card-menu-btn" for="btnControl">
+          <label className="card-menu-btn" htmlFor="btnControl">
             <span className="btn-text">...</span>
           </label>
         </div>

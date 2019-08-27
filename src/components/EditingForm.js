@@ -8,12 +8,13 @@ const EditingForm = props => {
   const handleSubmit = e => {
     if (e) {
       e.preventDefault();
-      props.dispatch(
+      return props.dispatch(
         updateCard({
           id: props.card.id,
           key: "subject",
           value: input
-        })
+        }),
+        props.handleEdit(e)
       );
     }
   };
@@ -25,9 +26,7 @@ const EditingForm = props => {
   return (
     <form className="edit-form" onSubmit={handleSubmit}>
       <input type="text" name="input" onChange={handleChange} value={input} />
-      <button onClick={e => props.handleEdit(e)} type="submit">
-        save
-      </button>
+      <button type="submit">save</button>
     </form>
   );
 };

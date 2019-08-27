@@ -23,7 +23,7 @@ const ProjectWorkspace = (props, { dispatch }) => {
     } else {
       setIndex(count);
     }
-  }, []);
+  });
   const handleDelete = e => {
     props.dispatch(deleteProjectWorkspace(props.workspace));
     props.dispatch(clearWorkspace());
