@@ -5,7 +5,11 @@ import Card from "./Card";
 const CardItem = props => {
   const [menu, setMenu] = useState(false);
   return (
-    <div onMouseEnter={e => setMenu(!menu)} onMouseLeave={e => setMenu(!menu)}>
+    <div
+      className="card-editbox"
+      onMouseEnter={e => setMenu(true)}
+      onMouseLeave={e => setMenu(false)}
+    >
       {menu ? <MenuBtns card={props.card} /> : <Card card={props.card} />}
     </div>
   );

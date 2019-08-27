@@ -52,6 +52,7 @@ body {
   align-content: flex-start;
   border: 1.5px outset lightgray;
   background-color: ghostwhite;
+  position: relative;
 }
 .card-content {
   margin-left: 5px;
@@ -336,6 +337,12 @@ body {
   border-radius: inherit;
   justify-content: space-between;
   background: ghostwhite;
+}
+.card-editbox {
+  width: 100%;
+  height: 105%;
+  position: absolute;
+  border: 2px solid black;
 }
 .toggle-add-form {
   height: 25px;

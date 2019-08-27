@@ -24,7 +24,6 @@ const AddWorkspaceItemForm = (props, { dispatch }) => {
       clearState(e);
     }
   };
-  console.log(objective);
   return (
     <div className="new-workspace-item">
       <form onSubmit={handleSubmit} className="item-form">

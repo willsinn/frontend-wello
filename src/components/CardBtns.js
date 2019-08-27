@@ -10,11 +10,16 @@ const CardBtns = (props, { dispatch }) => {
       props.dispatch(toggleEdit());
     }
   };
+  const editClick = e => {
+    if (e) {
+      props.handleEdit(e);
+    }
+  };
 
   return (
     <div className="card">
       <button onClick={handleDelete}>del</button>
-      <button onClick={e => props.handleEdit(e)}>edit</button>
+      <button onClick={editClick}>edit</button>
     </div>
   );
 };
