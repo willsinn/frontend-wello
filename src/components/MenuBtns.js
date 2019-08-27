@@ -28,12 +28,13 @@ const MenuBtns = props => {
           </label>
         </div>
       </div>
-      {!render ? <Card card={props.card} /> : null}
+
       {edit ? (
-        <CardBtns card={props.card} handleEdit={handleEdit} />
-      ) : (
         <EditingForm card={props.card} handleEdit={handleEdit} />
+      ) : (
+        <Card card={props.card} />
       )}
+      {render ? <CardBtns card={props.card} handleEdit={handleEdit} /> : null}
     </div>
   );
 };
