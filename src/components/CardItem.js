@@ -10,7 +10,7 @@ const CardItem = props => {
       onMouseEnter={e => setMenu(true)}
       onMouseLeave={e => setMenu(false)}
     >
-      {menu ? <MenuBtns card={props.card} /> : <Card card={props.card} />}
+      {menu ? <MenuBtns card={props.card} /> : <div>{props.card.subject}</div>}
     </div>
   );
 };
