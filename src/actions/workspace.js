@@ -4,14 +4,22 @@ export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
   workspace
 });
+export const setItems = items => ({
+  type: "SET_ITEMS",
+  items
+});
 export const editedText = text => ({
   type: "EDITED_TEXT",
   text
 });
 
-export const addItemCard = itemData => ({
-  type: "ADD_ITEM_CARD",
-  itemData
+export const updateItem = item => ({
+  type: "UPDATE_ITEM",
+  item
+});
+export const addItem = item => ({
+  type: "ADD_ITEM",
+  item
 });
 export const clearEdit = () => ({ type: "CLEAR_EDIT" });
 
@@ -48,7 +56,9 @@ export const postWorkspaceItem = (project, dispatch) => {
         project_id: project.workspace.id,
         objective: project.objective
       })
-    }).then(response => dispatch(fetchWorkspace(project.workspace)));
+    })
+      .then(response => response.json())
+      .then(JSONresponse => dispatch(addItem(JSONresponse)));
   };
 };
 
@@ -61,7 +71,7 @@ export const fetchItem = (item, dispatch) => {
       }
     })
       .then(response => response.json())
-      .then(JSONresponse => dispatch(addItemCard(JSONresponse)));
+      .then(JSONresponse => dispatch(updateItem(JSONresponse)));
   };
 };
 export const postNewCard = (item, dispatch) => {
@@ -111,6 +121,6 @@ export const updateCard = (card, dispatch) => {
       })
     })
       .then(response => response.json())
-      .then(JSONresponse => dispatch(editedText(JSONresponse)));
+      .then(JSONresponse => dispatch(fetchItem({ id: JSONresponse.item_id })));
   };
 };

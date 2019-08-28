@@ -2,35 +2,32 @@ import React from "react";
 import WorkspaceItem from "./WorkspaceItem";
 import AddWorkspaceItemForm from "../containers/AddWorkspaceItemForm";
 import ItemDeleteBtn from "./ItemDeleteBtn";
+import { setItems } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const ProjectWorkspaceList = props => {
-  const mapItems = itemsArray => {
-    return itemsArray.map(item => {
-      return (
-        <li className="wsp-list-item">
-          <WorkspaceItem item={item} />
-          <div className="workspace-item-control">
-            <span className="item-control-name">{item.objective}</span>
-            <span className="item-control-delete">
-              <ItemDeleteBtn />
-            </span>
-          </div>
-        </li>
-      );
-    });
-  };
+  const mapItems = array =>
+    props.items.map(item => (
+      <li
+        key={`project${item.id}${props.workspace.id}`}
+        className="wsp-list-item"
+      >
+        <WorkspaceItem item={item} />
+        <div className="workspace-item-control">
+          <span className="item-control-name">{item.objective}</span>
+          <span className="item-control-delete">
+            <ItemDeleteBtn />
+          </span>
+        </div>
+      </li>
+    ));
   const renderItems = () => {
+    if (props.items.length !== 0) {
+      return mapItems(props.items);
+    }
     if (props.workspace.items.length !== undefined) {
-      const array = props.workspace.items;
-      if (
-        props.updatedItem.id !== undefined &&
-        props.updatedItem.project_id !== props.workspace.id
-      ) {
-        const newArray = [...props.workspace.items, props.updatedItem];
-        return mapItems(newArray);
-      }
-      return mapItems(array);
+      props.dispatch(setItems(props.workspace.items));
+      return mapItems(props.workspace.items);
     }
   };
 
@@ -49,7 +46,7 @@ const ProjectWorkspaceList = props => {
 };
 const mapStateToProps = ({ workspaceReducer: workspace }) => ({
   workspace: workspace.workspace,
-  updatedItem: workspace.updatedItem
+  items: workspace.items
 });
 
 export default connect(mapStateToProps)(ProjectWorkspaceList);

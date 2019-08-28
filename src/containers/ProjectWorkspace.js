@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import WorkspaceItemsContainer from "./WorkspaceItemsContainer";
+import ProjectWorkspaceList from "../components/ProjectWorkspaceList";
 import HomeBtn from "../components/HomeBtn";
 import { connect } from "react-redux";
 import { deleteProjectWorkspace } from "../actions/projects";
@@ -49,7 +49,10 @@ const ProjectWorkspace = (props, { dispatch }) => {
           </div>
         </div>
       </div>
-      <WorkspaceItemsContainer workspace={props.workspace} />
+      <ProjectWorkspaceList
+        key={props.workspace.id}
+        workspace={props.workspace}
+      />
     </div>
   );
 };

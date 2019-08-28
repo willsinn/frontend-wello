@@ -4,25 +4,37 @@ import CardsList from "./CardsList";
 import { connect } from "react-redux";
 
 const WorkspaceItem = props => {
-  const updateCards = () => {
-    if (props.item.cards !== undefined) {
-      const cards = props.item.cards;
-      if (props.item.id === props.updatedItem.id) {
-        const updated = props.updatedItem.cards;
-        return <CardsList cards={updated} />;
-      }
-      return <CardsList cards={cards} />;
-    }
-  };
+  // const updateCards = () => {
+  //   // if (props.updatedItem.id === undefined) {
+  //   console.log(props.item);
+  //   return (
+  //
+  //
+  //   // } else if (props.updatedItem.id !== undefined) {
+  //   //   if (props.item.id !== props.updatedItem.id) {
+  //   //     return <CardsList key={`one${props.item.id}`} item={props.item} />;
+  //   //   }
+  //   //   console.log(props.updatedItem, props.item);
+  //   //   if (props.item.id === props.updatedItem.id) {
+  //   //     return (
+  //   //       <CardsList
+  //   //         key={`one${props.updatedItem.id}`}
+  //   //         item={props.updatedItem}
+  //   //       />
+  //   //     );
+  //   //   }
+  //   // }
+  // };
   return (
     <div className="wsp-title-wrapper">
-      <div className="wsp-title">{updateCards()}</div>
-      <AddCardMessage item={props.item} />
+      <CardsList
+        key={`one${props.item.id}`}
+        item={props.item}
+        cards={props.item.cards}
+      />
+      <AddCardMessage key={props.item.id} item={props.item} />
     </div>
   );
 };
-const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  workspace: workspace,
-  updatedItem: workspace.updatedItem
-});
-export default connect(mapStateToProps)(WorkspaceItem);
+
+export default WorkspaceItem;

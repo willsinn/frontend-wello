@@ -3,15 +3,14 @@ import CardItem from "./CardItem";
 import { connect } from "react-redux";
 
 const CardsList = props => {
-  return props.cards.map(card => {
-    const editCard = props.editedCard;
-    if (editCard.id === card.id) {
-      return <CardItem card={editCard} />;
-    }
-    return <CardItem card={card} />;
-  });
+  const renderCards = () => {
+    return props.cards.map(card => <CardItem key={card.id} card={card} />);
+  };
+
+  return <div className="wsp-title">{renderCards()}</div>;
 };
-const mapStateToProps = ({ workspaceReducer: editedCard }) => ({
-  editedCard: editedCard.editedCard
+const mapStateToProps = ({ workspaceReducer: newCard }) => ({
+  newCard: newCard.newCard,
+  editedCard: newCard.editedCard
 });
 export default connect(mapStateToProps)(CardsList);

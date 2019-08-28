@@ -1,9 +1,9 @@
 const defaultState = {
   isEditActive: false,
-  workspace: {
-    items: [{ item: { cards: {} } }]
-  },
+  workspace: {},
+  items: [],
   updatedItem: {},
+  newCard: {},
   editedCard: {}
 };
 
@@ -11,10 +11,28 @@ const workspaceReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "EDITED_TEXT":
       return { ...state, editedCard: action.text };
-    case "ADD_ITEM_CARD":
+
+    case "SET_ITEMS":
       return {
         ...state,
-        updatedItem: action.itemData
+        items: action.items
+      };
+    case "ADD_ITEM":
+      console.log(action);
+      return {
+        ...state,
+        items: [...state.items, action.item]
+      };
+    case "UPDATE_ITEM":
+      const newItems = state.items.map(item => {
+        if (item.id === action.item.id) {
+          return action.item;
+        }
+        return item;
+      });
+      return {
+        ...state,
+        items: newItems
       };
     case "TOGGLE_EDIT":
       return { ...state, isEditActive: !state.isEditActive };
