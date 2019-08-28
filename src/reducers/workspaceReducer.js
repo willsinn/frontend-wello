@@ -34,7 +34,12 @@ const workspaceReducer = (state = defaultState, action) => {
         ...state,
         items: newItems
       };
-
+    case "DELETE_ITEM":
+      const itemsLeft = state.items.filter(item => item.id !== action.item.id);
+      return {
+        ...state,
+        items: itemsLeft
+      };
     default:
       return state;
   }

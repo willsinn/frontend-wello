@@ -471,6 +471,10 @@ body {
 
 .card {
   position: absolute;
+  left: 15px;
+  width: inherit;
+  overflow-x: hidden;
+  display: flex;
 }
 
 .card-btns {
@@ -530,6 +534,7 @@ body {
 .card-item {
   min-height: 42px;
   width: 175px;
+  max-width: 100%;
   border-radius: 3px;
   margin-bottom: 12px;
   display: flex;

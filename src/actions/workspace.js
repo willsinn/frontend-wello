@@ -9,6 +9,10 @@ export const setItems = items => ({
   items
 });
 
+export const deleteItem = item => ({
+  type: "DELETE_ITEM",
+  item
+});
 export const updateItem = item => ({
   type: "UPDATE_ITEM",
   item
@@ -58,6 +62,21 @@ export const postWorkspaceItem = (project, dispatch) => {
     })
       .then(response => response.json())
       .then(JSONresponse => dispatch(addItem(JSONresponse)));
+  };
+};
+export const deleteWorkspaceItem = (item, dispatch) => {
+  return dispatch => {
+    dispatch(deleteItem(item));
+    fetch(`http://localhost:3000/items/delete/${item.id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: item.id
+      })
+    });
   };
 };
 
