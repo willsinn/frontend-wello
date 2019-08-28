@@ -1,12 +1,13 @@
 import React from "react";
 import ProjectListItem from "./ProjectListItem";
 import { connect } from "react-redux";
+import { setNull } from "../actions/user";
 
 const SidebarList = (props, { dispatch }) => {
   const renderItems = () => {
     if (props.projects.length > 0) {
       return props.projects.map(project => (
-        <li className="list-item">
+        <li key={project.id} className="list-item">
           <div className="project-list-title">
             <ProjectListItem key={project.id} project={project} />
           </div>
@@ -16,7 +17,12 @@ const SidebarList = (props, { dispatch }) => {
   };
   return (
     <div className="sidebar-wrapper">
-      <ul className="sidebar-list dropdown">{renderItems()}</ul>
+      <ul
+        className="sidebar-list dropdown"
+        onMouseLeave={() => props.dispatch(setNull())}
+      >
+        {renderItems()}
+      </ul>
     </div>
   );
 };

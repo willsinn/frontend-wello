@@ -8,11 +8,6 @@ export const setItems = items => ({
   type: "SET_ITEMS",
   items
 });
-export const editedText = text => ({
-  type: "EDITED_TEXT",
-  text
-});
-
 export const updateItem = item => ({
   type: "UPDATE_ITEM",
   item
@@ -22,7 +17,6 @@ export const addItem = item => ({
   item
 });
 export const clearEdit = () => ({ type: "CLEAR_EDIT" });
-
 export const toggleEdit = () => ({
   type: "TOGGLE_EDIT"
 });

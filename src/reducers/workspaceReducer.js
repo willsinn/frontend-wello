@@ -1,17 +1,11 @@
 const defaultState = {
   isEditActive: false,
   workspace: {},
-  items: [],
-  updatedItem: {},
-  newCard: {},
-  editedCard: {}
+  items: []
 };
 
 const workspaceReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "EDITED_TEXT":
-      return { ...state, editedCard: action.text };
-
     case "SET_ITEMS":
       return {
         ...state,
@@ -40,7 +34,6 @@ const workspaceReducer = (state = defaultState, action) => {
       return { ...state, workspace: defaultState };
     case "SET_WORKSPACE":
       return { ...state, workspace: action.workspace.project };
-
     default:
       return state;
   }

@@ -6,9 +6,9 @@ const TilesList = props => {
   const renderTiles = () => {
     if (props.projects.length > 0) {
       return [...props.projects].map(project => (
-        <li className="project-tile">
+        <li key={project.id} className="project-tile">
           <div className="project-title">
-            <ProjectListItem key={project.id} project={project} />
+            <ProjectListItem project={project} />
           </div>
         </li>
       ));

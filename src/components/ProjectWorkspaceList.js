@@ -21,6 +21,7 @@ const ProjectWorkspaceList = props => {
         </div>
       </li>
     ));
+
   const renderItems = () => {
     if (props.items.length !== 0) {
       return mapItems(props.items);
