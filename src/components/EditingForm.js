@@ -25,8 +25,16 @@ const EditingForm = props => {
   console.log(input);
   return (
     <form className="edit-form" onSubmit={handleSubmit}>
-      <input type="text" name="input" onChange={handleChange} value={input} />
-      <button type="submit">save</button>
+      <input
+        className="n-w form-input"
+        type="text"
+        name="input"
+        onChange={handleChange}
+        value={input}
+      />
+      <button className="card-save-btn" type="submit">
+        save
+      </button>
     </form>
   );
 };

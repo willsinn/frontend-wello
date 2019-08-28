@@ -1,6 +1,5 @@
 import React from "react";
 import { deleteCard } from "../actions/workspace";
-import { toggleEdit } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const CardBtns = (props, { dispatch }) => {
@@ -17,8 +16,12 @@ const CardBtns = (props, { dispatch }) => {
 
   return (
     <div className="card-btns">
-      <button onClick={handleDelete}>del</button>
-      <button onClick={editClick}>edit</button>
+      <button className="card-edit-btn" onClick={editClick}>
+        edit
+      </button>
+      <button className="card-del-btn" onClick={handleDelete}>
+        del
+      </button>
     </div>
   );
 };

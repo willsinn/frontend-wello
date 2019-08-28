@@ -42,4 +42,8 @@ const AddCardMessage = (props, { dispatch }) => {
     </div>
   );
 };
+const mapStateToProps = ({ workspaceReducer: workspace }) => ({
+  error: workspace.error
+});
+
 export default connect()(AddCardMessage);

@@ -277,7 +277,7 @@ body {
   border-radius: 3px;
 }
 .n-w.form-input:hover {
-  border: 1.675px solid black;
+  background-color: #9bcff9;
 }
 .n-w.form-submit {
   height: 36px;
@@ -475,12 +475,58 @@ body {
 
 .card-btns {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  left: 70px;
+  top: 0;
+  height: 100%;
 }
 .card-item:hover {
-  border: 2px ridge black;
+  border: 1.75px inset darkgray;
   position: relative;
 }
-
+.edit-form {
+  display: flex;
+  position: relative;
+}
+.card-save-btn {
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 3px;
+  top: 0;
+  right: 0;
+}
+.card-save-btn:hover {
+  background-color: green;
+  border: 1px inset white;
+  color: white;
+}
+.card-edit-btn {
+  border: 1px solid darkgray;
+  border-radius: 3px;
+  font-weight: bold;
+  top: -3px;
+  right: 0;
+  position: relative;
+}
+.card-edit-btn:hover {
+  background-color: green;
+  border: 1px inset white;
+  color: white;
+}
+.card-del-btn {
+  border: 1px solid darkgray;
+  font-weight: bold;
+  border-radius: 3px;
+  position: relative;
+  bottom: -3px;
+  right: 0;
+}
+.card-del-btn:hover {
+  background-color: red;
+  border: 1px inset white;
+  color: white;
+}
 .card-item {
   min-height: 42px;
   width: 175px;
