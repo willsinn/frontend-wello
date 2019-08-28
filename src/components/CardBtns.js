@@ -17,7 +17,7 @@ const CardBtns = (props, { dispatch }) => {
   };
 
   return (
-    <div className="card">
+    <div className="card-btns">
       <button onClick={handleDelete}>del</button>
       <button onClick={editClick}>edit</button>
     </div>

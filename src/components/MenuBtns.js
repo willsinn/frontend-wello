@@ -17,14 +17,12 @@ const MenuBtns = props => {
     }
   };
   return (
-    <div className="card">
-      <div className="card-btns">
-        <div className="card-menu-wrap">
-          <input onClick={handleClick} type="checkbox" id="btnControl" />
-          <label className="card-menu-btn" htmlFor="btnControl">
-            <span className="btn-text">...</span>
-          </label>
-        </div>
+    <div className="render-highlight">
+      <div className="card-menu-wrap">
+        <input onClick={handleClick} type="checkbox" id="btnControl" />
+        <label className="card-menu-btn" htmlFor="btnControl">
+          <span className="btn-text">...</span>
+        </label>
       </div>
 
       {edit ? (

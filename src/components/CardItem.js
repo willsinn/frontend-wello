@@ -6,7 +6,7 @@ const CardItem = props => {
   const [menu, setMenu] = useState(false);
   return (
     <div
-      className="card-editbox"
+      className="card-item"
       onMouseEnter={e => setMenu(true)}
       onMouseLeave={e => setMenu(false)}
     >

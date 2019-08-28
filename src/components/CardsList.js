@@ -6,17 +6,9 @@ const CardsList = props => {
   return props.cards.map(card => {
     const editCard = props.editedCard;
     if (editCard.id === card.id) {
-      return (
-        <div className="card-item">
-          <CardItem card={editCard} />
-        </div>
-      );
+      return <CardItem card={editCard} />;
     }
-    return (
-      <div className="card-item">
-        <CardItem card={card} />
-      </div>
-    );
+    return <CardItem card={card} />;
   });
 };
 const mapStateToProps = ({ workspaceReducer: editedCard }) => ({

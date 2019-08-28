@@ -53,6 +53,7 @@ body {
   border: 1.5px outset lightgray;
   background-color: ghostwhite;
   position: relative;
+  justify-content: center;
 }
 .card-content {
   margin-left: 5px;
@@ -338,12 +339,7 @@ body {
   justify-content: space-between;
   background: ghostwhite;
 }
-.card-editbox {
-  width: 100%;
-  height: 105%;
-  position: absolute;
-  border: 2px solid black;
-}
+
 .toggle-add-form {
   height: 25px;
   display: flex;
@@ -441,7 +437,7 @@ body {
 .card-menu-wrap {
   height: 33.5px;
   width: 33.5px;
-  margin-right: -37.5px;
+  margin-right: -60px;
   position: absolute;
 }
 .card-menu-btn {
@@ -456,6 +452,10 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 3px;
+  -webkit-transition-property: width height background-color font-size left top
+    transform -webkit-transform color;
+  -webkit-transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease-in-out;
 }
 .card-menu-btn:hover {
   border-radius: 3px;
@@ -488,10 +488,25 @@ body {
 } */
 .card {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: inherit;
+  height: inherit;
+  align-items: flex-start;
 }
-.edit {
-  width: 100%;
-  height: 100%;
+
+.card-btns {
+  display: flex;
+  flex-direction: column;
+}
+.card-item:hover {
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+}
+.render-highlight {
+  display: flex;
+  width: inherit;
+  height: inherit;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
 }
