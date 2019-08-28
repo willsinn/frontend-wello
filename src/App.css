@@ -42,19 +42,7 @@ body {
   display: flex;
   width: 100%;
 }
-.card-item {
-  min-height: 42px;
-  width: 175px;
-  border-radius: 3px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  align-content: flex-start;
-  border: 1.5px outset lightgray;
-  background-color: ghostwhite;
-  position: relative;
-  justify-content: center;
-}
+
 .card-content {
   margin-left: 5px;
   margin-right: 5px;
@@ -435,78 +423,74 @@ body {
   display: none;
 }
 .card-menu-wrap {
-  height: 33.5px;
-  width: 33.5px;
-  margin-right: -60px;
+  height: 22px;
+  width: 25px;
   position: absolute;
+  left: 3px;
+  top: 0;
+  z-index: 10;
 }
+
 .card-menu-btn {
-  max-height: 25px;
-  max-width: 33.5px;
-  margin-top: 8.5px;
-  text-align: center;
+  max-height: 17.5px;
+  max-width: 26px;
   color: black;
   font-weight: bold;
-  font-size: 27px;
+  font-size: 21px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 3px;
-  -webkit-transition-property: width height background-color font-size left top
-    transform -webkit-transform color;
+  -webkit-transition-property: width height background-color font-size center
+    left transform -webkit-transform color;
   -webkit-transition-duration: 0.25s;
   -webkit-transition-timing-function: ease-in-out;
 }
 .card-menu-btn:hover {
   border-radius: 3px;
   background: inherit;
-  background: darkgray;
+  border: 1px solid darkgray;
 }
 
 .card-menu-btn:active {
   background: inherit;
   transform: rotate(90deg);
-  transform-origin: center;
+  transform-origin: center left;
 }
 
 #btnControl:checked + label {
   transform: rotate(90deg);
-  transform-origin: center;
+  transform-origin: center left;
   border-radius: 3px;
-  background: darkgray;
-  margin-bottom: 5px;
+  border: 1px solid darkgray;
+  background: white;
 }
 .btn-text {
   margin-bottom: 12.5px;
 }
-/* .exit-edit {
-  height: 20px;
-  width: 20px;
-  background-image: url("./images/exit-editing.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-} */
+
 .card {
-  display: flex;
-  width: inherit;
-  height: inherit;
-  align-items: flex-start;
+  position: absolute;
 }
 
 .card-btns {
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 .card-item:hover {
-  border: 2px solid black;
-  display: flex;
-  align-items: center;
-}
-.render-highlight {
-  display: flex;
-  width: inherit;
-  height: inherit;
+  border: 2px ridge black;
   position: relative;
+}
+
+.card-item {
+  min-height: 42px;
+  width: 175px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+  display: flex;
   align-items: center;
-  justify-content: space-between;
+  align-content: flex-start;
+  border: 1.5px outset lightgray;
+  background-color: ghostwhite;
+  justify-content: center;
+  position: relative;
 }

@@ -12,11 +12,13 @@ const CardItem = props => {
 
   const handleRender = e => {
     setRender(!render);
+    if (edit === true) {
+      setEdit(false);
+    }
   };
   const handleEdit = e => {
     setEdit(true);
     setRender(false);
-    setMenu(false);
   };
   const handleSave = input => {
     setSubject(input);

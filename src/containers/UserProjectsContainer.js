@@ -6,7 +6,7 @@ import { setNull } from "../actions/user";
 const UserProjectsContainer = ({ dispatch }) => {
   return (
     <div
-      onClick={() => dispatch(setNull())}
+      onClick={e => dispatch(setNull())}
       id="userprojects"
       className="container"
     >
