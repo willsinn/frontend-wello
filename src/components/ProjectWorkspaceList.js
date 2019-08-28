@@ -16,7 +16,7 @@ const ProjectWorkspaceList = props => {
         <div className="workspace-item-control">
           <span className="item-control-name">{item.objective}</span>
           <span className="item-control-delete">
-            <ItemDeleteBtn item={item} />
+            <ItemDeleteBtn item={item} workspace={props.workspace} />
           </span>
         </div>
       </li>
