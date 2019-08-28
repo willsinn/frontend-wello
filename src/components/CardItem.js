@@ -6,17 +6,48 @@ import CardBtns from "./CardBtns";
 
 const CardItem = props => {
   const [menu, setMenu] = useState(false);
-  // when you hover menu shows (menu state)
-  // clicking menu button renders buttons --- phase in buttons (renderState)
-  // clicking edit renders editing form --- swap out card (editState)
+  const [render, setRender] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [subject, setSubject] = useState(props.card.subject);
+
+  const handleRender = e => {
+    setRender(!render);
+  };
+  const handleEdit = e => {
+    setEdit(true);
+    setRender(false);
+    setMenu(false);
+  };
+  const handleSave = input => {
+    setSubject(input);
+    setEdit(false);
+    setMenu(false);
+    setRender(false);
+  };
+  const handleMouseLeave = e => {
+    if (e) {
+      setMenu(false);
+      setEdit(false);
+      setRender(false);
+    }
+  };
   return (
     <div
       className="card-item"
       onMouseEnter={e => setMenu(true)}
-      onMouseLeave={e => setMenu(false)}
+      onMouseLeave={handleMouseLeave}
     >
-      {menu ? <MenuBtns card={props.card} /> : null}
-      <Card card={props.card} />
+      {menu ? <MenuBtns card={props.card} handleRender={handleRender} /> : null}
+      {edit ? (
+        <EditingForm
+          card={props.card}
+          subject={subject}
+          handleSave={handleSave}
+        />
+      ) : (
+        <Card card={props.card} subject={subject} />
+      )}
+      {render ? <CardBtns card={props.card} handleEdit={handleEdit} /> : null}
     </div>
   );
 };

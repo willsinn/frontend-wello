@@ -6,6 +6,12 @@ const defaultState = {
 
 const workspaceReducer = (state = defaultState, action) => {
   switch (action.type) {
+    case "TOGGLE_EDIT":
+      return { ...state, isEditActive: !state.isEditActive };
+    case "CLEAR_WORKSPACE":
+      return { ...state, workspace: defaultState };
+    case "SET_WORKSPACE":
+      return { ...state, workspace: action.workspace.project };
     case "SET_ITEMS":
       return {
         ...state,
@@ -28,12 +34,7 @@ const workspaceReducer = (state = defaultState, action) => {
         ...state,
         items: newItems
       };
-    case "TOGGLE_EDIT":
-      return { ...state, isEditActive: !state.isEditActive };
-    case "CLEAR_WORKSPACE":
-      return { ...state, workspace: defaultState };
-    case "SET_WORKSPACE":
-      return { ...state, workspace: action.workspace.project };
+
     default:
       return state;
   }

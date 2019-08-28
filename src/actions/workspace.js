@@ -8,6 +8,7 @@ export const setItems = items => ({
   type: "SET_ITEMS",
   items
 });
+
 export const updateItem = item => ({
   type: "UPDATE_ITEM",
   item
@@ -15,6 +16,10 @@ export const updateItem = item => ({
 export const addItem = item => ({
   type: "ADD_ITEM",
   item
+});
+export const setCards = cards => ({
+  type: "SET_CARDS",
+  cards
 });
 export const clearEdit = () => ({ type: "CLEAR_EDIT" });
 export const toggleEdit = () => ({
@@ -113,8 +118,6 @@ export const updateCard = (card, dispatch) => {
         id: card.id,
         [card.key]: card.value
       })
-    })
-      .then(response => response.json())
-      .then(JSONresponse => dispatch(fetchItem({ id: JSONresponse.item_id })));
+    }).then(response => console.log(response));
   };
 };

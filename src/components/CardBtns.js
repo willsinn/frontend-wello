@@ -7,7 +7,6 @@ const CardBtns = (props, { dispatch }) => {
   const handleDelete = e => {
     if (e) {
       props.dispatch(deleteCard(props.card));
-      props.dispatch(toggleEdit());
     }
   };
   const editClick = e => {

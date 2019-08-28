@@ -3,7 +3,7 @@ import { updateCard } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const EditingForm = props => {
-  const [input, setInput] = useState(props.card.subject);
+  const [input, setInput] = useState(props.subject);
   console.log("hi");
   const handleSubmit = e => {
     if (e) {
@@ -14,7 +14,7 @@ const EditingForm = props => {
           key: "subject",
           value: input
         }),
-        props.handleEdit(e)
+        props.handleSave(input)
       );
     }
   };

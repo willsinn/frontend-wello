@@ -6,11 +6,7 @@ import { connect } from "react-redux";
 const WorkspaceItem = props => {
   return (
     <div className="wsp-title-wrapper">
-      <CardsList
-        key={`one${props.item.id}`}
-        item={props.item}
-        cards={props.item.cards}
-      />
+      <CardsList key={`one${props.item.id}`} item={props.item} />
       <AddCardMessage key={props.item.id} item={props.item} />
     </div>
   );
