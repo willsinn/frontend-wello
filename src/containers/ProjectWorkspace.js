@@ -12,18 +12,21 @@ const ProjectWorkspace = (props, { dispatch }) => {
   const [index, setIndex] = useState(null);
   const bgs = [Mountians, Lake, Beach];
 
-  useEffect(() => {
-    const count = props.bgCounter;
-    const allBGS = bgs.length;
-    const trimCount = count % allBGS;
-    if (count === allBGS) {
-      setIndex(0);
-    } else if (count > allBGS) {
-      setIndex(trimCount);
-    } else {
-      setIndex(count);
-    }
-  });
+  useEffect(
+    () => {
+      const count = props.bgCounter;
+      const allBGS = bgs.length;
+      const trimCount = count % allBGS;
+      if (count === allBGS) {
+        setIndex(0);
+      } else if (count > allBGS) {
+        setIndex(trimCount);
+      } else {
+        setIndex(count);
+      }
+    },
+    [props.bgCounter, bgs.length]
+  );
   const handleDelete = e => {
     props.dispatch(deleteProjectWorkspace(props.workspace));
     props.dispatch(clearWorkspace());
