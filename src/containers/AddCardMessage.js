@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import NewCardForm from "./NewCardForm";
-import { connect } from "react-redux";
 
 const initialState = "";
-const AddCardMessage = (props, { dispatch }) => {
+const AddCardMessage = props => {
   const [showing, setShowing] = useState(false);
   const [subject, setSubject] = useState(initialState);
   const handleSubmitToggle = subject => {
@@ -42,8 +41,5 @@ const AddCardMessage = (props, { dispatch }) => {
     </div>
   );
 };
-const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  error: workspace.error
-});
 
-export default connect()(AddCardMessage);
+export default AddCardMessage;

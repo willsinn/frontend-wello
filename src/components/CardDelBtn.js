@@ -2,7 +2,7 @@ import React from "react";
 import { deleteCard } from "../actions/workspace";
 import { connect } from "react-redux";
 
-const DelCardBtn = (props, { dispatch }) => {
+const CardDelBtn = (props, { dispatch }) => {
   const handleDelete = e => {
     if (e) {
       props.dispatch(deleteCard(props.card));
@@ -15,4 +15,4 @@ const DelCardBtn = (props, { dispatch }) => {
   );
 };
 
-export default connect()(DelCardBtn);
+export default connect()(CardDelBtn);

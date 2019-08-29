@@ -1,5 +1,5 @@
 import React from "react";
-import DelCardBtn from "./DelCardBtn";
+import CardDelBtn from "./CardDelBtn";
 
 const CardBtns = props => {
   const editClick = e => {
@@ -13,7 +13,7 @@ const CardBtns = props => {
       <button className="card-edit-btn" onClick={editClick}>
         edit
       </button>
-      <DelCardBtn card={props.card} />
+      <CardDelBtn card={props.card} />
     </div>
   );
 };
