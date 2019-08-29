@@ -11,8 +11,6 @@ const AddWorkspaceItemForm = (props, { dispatch }) => {
   };
   const handleChange = e => {
     e.persist();
-    console.log(e);
-
     setObjective(e.target.value);
   };
   const handleSubmit = e => {

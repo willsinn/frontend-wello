@@ -1,7 +1,7 @@
 import React from "react";
 import WorkspaceItem from "./WorkspaceItem";
 import AddWorkspaceItemForm from "../containers/AddWorkspaceItemForm";
-import ItemMenuBtn from "./ItemMenuBtn";
+import WorkspaceControl from "./WorkspaceControl";
 import { setItems } from "../actions/workspace";
 import { connect } from "react-redux";
 
@@ -13,7 +13,7 @@ const WorkspaceList = props => {
         className="wsp-list-item"
       >
         <WorkspaceItem item={item} workspace={props.workspace} />
-        <ItemMenuBtn item={item} workspace={props.workspace} />
+        <WorkspaceControl item={item} workspace={props.workspace} />
       </li>
     ));
 
