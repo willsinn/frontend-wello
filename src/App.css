@@ -442,8 +442,8 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 2px;
-  -webkit-transition-property: width height background-color font-size transform -webkit-transform
-    color;
+  -webkit-transition-property: width height background-color font-size transform
+    rotate -webkit-transform color;
   -webkit-transition-duration: 0.225s;
   -webkit-transition-timing-function: ease-in-out;
 }
