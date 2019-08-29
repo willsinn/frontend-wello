@@ -441,33 +441,38 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 3px;
-  -webkit-transition-property: width height background-color font-size center
-    left transform -webkit-transform color;
-  -webkit-transition-duration: 0.25s;
+  border-radius: 2px;
+  -webkit-transition-property: width height background-color font-size transform -webkit-transform
+    color;
+  -webkit-transition-duration: 0.225s;
   -webkit-transition-timing-function: ease-in-out;
 }
 .card-menu-btn:hover {
-  border-radius: 3px;
-  background: inherit;
+  border-radius: 2px;
+  background: #9bcff9;
   border: 1px solid darkgray;
 }
 
 .card-menu-btn:active {
-  background: inherit;
+  background: white;
   transform: rotate(90deg);
   transform-origin: center left;
+  border: 1px solid darkgray;
 }
 
 #btnControl:checked + label {
   transform: rotate(90deg);
   transform-origin: center left;
-  border-radius: 3px;
+  border-radius: 2px;
   border: 1px solid darkgray;
   background: white;
 }
-.btn-text {
-  margin-bottom: 12.5px;
+#btnControl:checked + label:hover {
+  background: #9bcff9;
+}
+.card-menu-btn-text {
+  position: relative;
+  top: -5px;
 }
 
 .card {
@@ -497,7 +502,7 @@ body {
 .card-save-btn {
   position: absolute;
   border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 2px;
   top: 0;
   right: 0;
 }
@@ -508,7 +513,7 @@ body {
 }
 .card-edit-btn {
   border: 1px solid darkgray;
-  border-radius: 3px;
+  border-radius: 2px;
   font-weight: bold;
   top: -3px;
   right: 0;
@@ -522,7 +527,7 @@ body {
 .card-del-btn {
   border: 1px solid darkgray;
   font-weight: bold;
-  border-radius: 3px;
+  border-radius: 2px;
   position: relative;
   bottom: -3px;
   right: 0;
@@ -547,10 +552,46 @@ body {
   position: relative;
 }
 .item-menu {
-  height: 300px;
-  width: 150px;
+  height: 120px;
+  width: 120px;
   position: absolute;
   border: 1px solid black;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.dropdown-btn-text {
+  height: inherit;
+  width: inherit;
+  font-weight: bold;
+  background-color: inherit;
+  display: flex;
+  font-size: 20px;
+  display: flex;
+  border-style: none;
+  border-radius: 2px;
+  -webkit-transition-property: -webkit-transform color;
+  -webkit-transition-duration: 0.15s;
+  -webkit-transition-timing-function: ease-in-out;
+}
+.dropdown-btn-text:hover {
+  border: 1px inset darkgray;
+  background-color: #9bcff9;
+}
+.dropdown-btn-text span {
+  position: relative;
+  top: -8px;
+}
+.item-menu-btn {
+  display: flex;
+}
+.dropdown-ctrl-btn {
+  display: flex;
+  max-width: 30px;
+  max-height: 22.5px;
+  position: relative;
+  bottom: 10px;
+  right: 7.5px;
+  background: inherit;
 }

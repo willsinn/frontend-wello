@@ -11,7 +11,7 @@ const CardMenuBtn = props => {
       <div className="card-menu">
         <input onClick={handleClick} type="checkbox" id="btnControl" />
         <label className="card-menu-btn" htmlFor="btnControl">
-          <span className="btn-text">...</span>
+          <span className="card-menu-btn-text">...</span>
         </label>
       </div>
     </div>

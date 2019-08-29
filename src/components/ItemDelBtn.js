@@ -6,6 +6,7 @@ const ItemDelBtn = (props, { dispatch }) => {
   const handleClick = e => {
     if (e) {
       props.dispatch(deleteWorkspaceItem(props.item));
+      props.closeDropdown(e);
     }
   };
   return (
