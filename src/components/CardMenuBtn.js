@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-const MenuBtns = props => {
+const CardMenuBtn = props => {
   const handleClick = e => {
     if (e) {
       props.handleRender(e);
@@ -18,4 +18,4 @@ const MenuBtns = props => {
   );
 };
 
-export default MenuBtns;
+export default CardMenuBtn;

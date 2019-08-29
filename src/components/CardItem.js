@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MenuBtns from "./MenuBtns";
+import CardMenuBtn from "./CardMenuBtn";
 import Card from "./Card";
 import EditingForm from "./EditingForm";
 import CardBtns from "./CardBtns";
@@ -39,7 +39,9 @@ const CardItem = props => {
       onMouseEnter={e => setMenu(true)}
       onMouseLeave={handleMouseLeave}
     >
-      {menu ? <MenuBtns card={props.card} handleRender={handleRender} /> : null}
+      {menu ? (
+        <CardMenuBtn card={props.card} handleRender={handleRender} />
+      ) : null}
       {edit ? (
         <EditingForm
           card={props.card}
