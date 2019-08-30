@@ -137,6 +137,8 @@ body {
 
 .navbar-btn {
   height: 37.5px;
+  -webkit-transition-duration: 0.25s; /* Safari */
+  transition-duration: 0.25s;
   width: 77.5px;
   border: 2px outset #9bcff9;
 }
@@ -276,6 +278,8 @@ body {
   width: 100%;
   border: 1.75px ridge darkgray;
   border-radius: 3px;
+  -webkit-transition-duration: 0.25s; /* Safari */
+  transition-duration: 0.25s;
 }
 .n-w.form-input:hover {
   background-color: #9bcff9;
@@ -288,6 +292,8 @@ body {
   border-radius: 3.5px;
   font-size: 12px;
   font-weight: bold;
+  -webkit-transition-duration: 0.25s; /* Safari */
+  transition-duration: 0.25s;
 }
 .n-w.form-submit:hover {
   background-color: #9bcff9;
@@ -338,6 +344,8 @@ body {
   font-size: 12px;
   font-weight: bold;
   border: 1px ridge #e6e3df7a;
+  -webkit-transition-duration: 0.25s; /* Safari */
+  transition-duration: 0.25s;
 }
 .toggle-add-form:hover {
   background-color: #9bcff9;
@@ -571,9 +579,9 @@ body {
   display: flex;
   border-style: none;
   border-radius: 2px;
-  -webkit-transition-property: -webkit-transform color;
-  -webkit-transition-duration: 0.15s;
-  -webkit-transition-timing-function: ease-in-out;
+  outline: none;
+  -webkit-transition-duration: 0.25s; /* Safari */
+  transition-duration: 0.25s;
 }
 .dropdown-btn-text:hover {
   border: 1px inset darkgray;
