@@ -636,30 +636,32 @@ body {
   height: 25px;
   background-color: inherit;
   border-style: none;
-}
-.list-action-btn:hover {
-  border: 1px inset darkgray;
-  background-color: #9bcff9;
   -webkit-transition-duration: 0.25s; /* Safari */
   transition-duration: 0.25s;
-  border-style: none;
+}
+.list-action-btn:hover {
+  border-top: 0.75px solid ghostwhite;
+  border-top: 0.75px solid ghostwhite;
+
+  background-color: lightgray;
 }
 .item-menu-form-input {
   height: 36px;
-  font-size: 16.5px;
-  width: fit-content;
+  font-size: 20px;
+  width: 75%;
   border-style: none;
   border-radius: 3px;
-  transition-duration: 0.25s;
+  padding-left: 7.5px;
   display: flex;
-  -webkit-transition-duration: 0.25s; /* Safari */
-  transition-duration: 0.25s;
+  transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s; /* Safari */
+  transition-duration: 0.1s;
 }
 /* .item-menu-edit-form {
   position: relative;
 } */
 .item-menu-form-input:hover {
-  background-color: #9bcff9;
+  background-color: lightgray;
 }
 .item-edit-save {
   top: 0;
