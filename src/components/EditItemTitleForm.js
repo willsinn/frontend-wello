@@ -21,7 +21,6 @@ const EditItemTitleForm = props => {
     e.persist();
     setInput(e.target.value);
   };
-  console.log(input);
   return (
     <form
       className="item-menu-edit-form"

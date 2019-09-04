@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 const EditingForm = props => {
   const [input, setInput] = useState(props.subject);
-  console.log("hi");
   const handleSubmit = e => {
     if (e) {
       e.preventDefault();
@@ -22,7 +21,6 @@ const EditingForm = props => {
     e.persist();
     setInput(e.target.value);
   };
-  console.log(input);
   return (
     <form className="edit-form" onSubmit={handleSubmit}>
       <input

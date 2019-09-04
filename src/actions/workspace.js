@@ -136,7 +136,8 @@ export const updateCard = (card, dispatch) => {
         id: card.id,
         [card.key]: card.value
       })
-    }).then(response => console.log(response));
+    });
+    // .then(response => console.log(response));
   };
 };
 export const updateItemTitle = (item, dispatch) => {

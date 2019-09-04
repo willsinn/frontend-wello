@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ItemDelBtn from "./ItemDelBtn";
 
 const ItemDropdownMenu = props => {
@@ -7,10 +7,7 @@ const ItemDropdownMenu = props => {
       props.closeDropdown(e);
     }
   };
-  const handleToggleBtns = e => {
-    if (e) {
-    }
-  };
+
   return (
     <div className="item-menu">
       <div className="item-menu-close-wrapper">
