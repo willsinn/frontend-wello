@@ -152,6 +152,8 @@ export const updateItemTitle = (item, dispatch) => {
         id: item.id,
         [item.key]: item.value
       })
-    }).then(response => console.log(response));
+    })
+      .then(response => response.json())
+      .then(JSONresponse => dispatch(fetchItem({ id: item.id })));
   };
 };

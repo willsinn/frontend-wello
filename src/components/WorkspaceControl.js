@@ -23,13 +23,13 @@ const WorkspaceControl = props => {
     }
   };
   return (
-    <div className="workspace-item-control" onMouseLeave={handleSave}>
+    <div className="workspace-item-control">
       {!editing ? (
         <WorkspaceItemTitle item={props.item} />
       ) : (
         <EditItemTitleForm
           item={props.item}
-          subject={props.item.objective}
+          objective={props.item.objective}
           handleSave={handleSave}
         />
       )}

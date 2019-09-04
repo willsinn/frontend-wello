@@ -18,6 +18,7 @@ const WorkspaceList = props => {
     ));
 
   const renderItems = () => {
+    console.log(props.items);
     if (props.items.length !== 0) {
       return mapItems(props.items);
     }
