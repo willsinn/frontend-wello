@@ -1,7 +1,6 @@
 import React from "react";
 import AddCardMessage from "../containers/AddCardMessage";
 import CardsList from "./CardsList";
-import { connect } from "react-redux";
 
 const WorkspaceItem = props => {
   return (
