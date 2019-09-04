@@ -407,20 +407,7 @@ body {
   justify-content: space-between;
   background: ghostwhite;
 }
-.delete-item-btn {
-  font-size: 11.5px;
-  font-weight: bold;
-  padding: 4px;
-  color: black;
-  background: white;
-  border: 1.6px ridge darkgray;
-  border-radius: 4px;
-}
-.delete-item-btn:hover {
-  background-color: red;
-  color: white;
-  border: 1.5px inset white;
-}
+
 .item-control-name {
   margin-top: 10px;
 }
@@ -506,15 +493,13 @@ body {
 }
 .card-save-btn {
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid darkgray;
   border-radius: 2px;
   top: 0;
   right: 0;
 }
 .card-save-btn:hover {
-  background-color: green;
-  border: 1px inset white;
-  color: white;
+  background-color: #9bcff9;
 }
 .card-edit-btn {
   border: 1px solid darkgray;
@@ -525,9 +510,7 @@ body {
   position: relative;
 }
 .card-edit-btn:hover {
-  background-color: green;
-  border: 1px inset white;
-  color: white;
+  background-color: #9bcff9;
 }
 .card-del-btn {
   border: 1px solid darkgray;
@@ -538,9 +521,7 @@ body {
   right: 0;
 }
 .card-del-btn:hover {
-  background-color: red;
-  border: 1px inset white;
-  color: white;
+  background-color: #9bcff9;
 }
 .card-item {
   min-height: 42px;
@@ -562,7 +543,7 @@ body {
   position: absolute;
   border: 1px solid black;
   top: 20px;
-  right: -100px;
+  right: -150px;
   background: ghostwhite;
   display: flex;
   flex-direction: column;
@@ -649,10 +630,17 @@ body {
   color: #9bcff9;
   border-style: none;
 }
-.item-edit-btn {
+.list-action-btn {
   width: 100%;
   text-align: left;
   height: 25px;
   background-color: inherit;
+  border-style: none;
+}
+.list-action-btn:hover {
+  border: 1px inset darkgray;
+  background-color: #9bcff9;
+  -webkit-transition-duration: 0.25s; /* Safari */
+  transition-duration: 0.25s;
   border-style: none;
 }

@@ -27,8 +27,8 @@ const ItemDropdownMenu = props => {
         <p className="item-menu-p">List Actions</p>
       </div>
       <div className="item-menu-btn edit">
-        <button onClick={handleEdit} className="item-edit-btn">
-          <span>Update List Name</span>
+        <button onClick={handleEdit} className="list-action-btn">
+          <span>Update List Title</span>
         </button>
       </div>
 

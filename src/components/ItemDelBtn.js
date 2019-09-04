@@ -10,8 +10,8 @@ const ItemDelBtn = (props, { dispatch }) => {
     }
   };
   return (
-    <button onClick={handleClick} className="delete-item-btn">
-      DELETE
+    <button onClick={handleClick} className="list-action-btn">
+      Delete Project List
     </button>
   );
 };
