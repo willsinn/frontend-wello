@@ -17,12 +17,21 @@ const WorkspaceControl = props => {
       setEditing(true);
     }
   };
+  const handleSave = e => {
+    if (e) {
+      setEditing(false);
+    }
+  };
   return (
-    <div className="workspace-item-control">
+    <div className="workspace-item-control" onMouseLeave={handleSave}>
       {!editing ? (
         <WorkspaceItemTitle item={props.item} />
       ) : (
-        <EditItemTitleForm item={props.item} subject={props.item.objective} />
+        <EditItemTitleForm
+          item={props.item}
+          subject={props.item.objective}
+          handleSave={handleSave}
+        />
       )}
       <div className="dropdown-ctrl-btn">
         <button

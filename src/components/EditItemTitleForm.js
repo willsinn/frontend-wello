@@ -25,7 +25,7 @@ const EditItemTitleForm = props => {
   return (
     <form className="item-menu-edit-form" onSubmit={handleSubmit}>
       <input
-        className="item-menu form-input"
+        className="item-menu-form-input"
         type="text"
         name="input"
         onChange={handleChange}

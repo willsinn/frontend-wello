@@ -644,17 +644,23 @@ body {
   transition-duration: 0.25s;
   border-style: none;
 }
-.item-menu.form-input {
+.item-menu-form-input {
   height: 36px;
   font-size: 16.5px;
   width: fit-content;
-  border: none;
+  border-style: none;
   border-radius: 3px;
   transition-duration: 0.25s;
   display: flex;
+  -webkit-transition-duration: 0.25s; /* Safari */
+  transition-duration: 0.25s;
 }
-.item-menu-edit-form {
+/* .item-menu-edit-form {
   position: relative;
+} */
+.item-menu-form-input:hover {
+  background-color: #9bcff9;
 }
 .item-edit-save {
+  top: 0;
 }
