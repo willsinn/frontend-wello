@@ -557,8 +557,8 @@ body {
   position: relative;
 }
 .item-menu {
-  height: 75px;
-  width: 120px;
+  height: 100px;
+  width: 150px;
   position: absolute;
   border: 1px solid black;
   top: 20px;
@@ -566,6 +566,7 @@ body {
   background: antiquewhite;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   z-index: 11;
 }
 .dropdown-btn-text {
@@ -606,4 +607,17 @@ body {
   bottom: 10px;
   right: 7.5px;
   background: inherit;
+}
+.item-menu-p {
+  font-size: 17px;
+  margin: 0;
+  height: fit-content;
+}
+.item-menu-btn.close {
+  display: flex;
+  justify-content: space-between;
+}
+.item-menu-close-wrapper {
+  display: flex;
+  height: fit-content;
 }

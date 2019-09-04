@@ -18,13 +18,14 @@ const ItemDropdownMenu = props => {
   };
   return (
     <div className="item-menu">
-      <div className="item-menu-btn close">
-        <button onClick={handleClose} className="drop-btn-txt">
-          <span>✖︎</span>
-          <span>LIST ACTIONS</span>
-        </button>
+      <div className="item-menu-close-wrapper">
+        <div className="item-menu-btn close">
+          <button onClick={handleClose} className="drop-btn-txt">
+            <span>✖︎</span>
+          </button>
+        </div>
+        <p className="item-menu-p">LIST ACTIONS</p>
       </div>
-
       <div className="item-menu-btn edit">
         <button onClick={handleEdit} className="drop-btn-txt">
           <span>EDIT TITLE</span>
