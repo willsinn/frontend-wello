@@ -20,13 +20,7 @@ const ItemDropdownMenu = props => {
     <div className="item-menu">
       <div className="item-menu-btn">
         <button onClick={handleClose} className="drop-btn-txt">
-          <span>X</span>
-        </button>
-      </div>
-
-      <div className="item-menu-btn">
-        <button onClick={handleToggleBtns} className="drop-btn-txt">
-          <span>TOGGLE CARD BUTTONS</span>
+          <span>✖︎</span>
         </button>
       </div>
 
