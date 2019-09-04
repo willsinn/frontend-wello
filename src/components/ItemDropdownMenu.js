@@ -11,11 +11,6 @@ const ItemDropdownMenu = props => {
     if (e) {
     }
   };
-  const handleEdit = e => {
-    if (e) {
-      props.closeDropdown(e);
-    }
-  };
   return (
     <div className="item-menu">
       <div className="item-menu-close-wrapper">
@@ -27,7 +22,7 @@ const ItemDropdownMenu = props => {
         <p className="item-menu-p">List Actions</p>
       </div>
       <div className="item-menu-btn edit">
-        <button onClick={handleEdit} className="list-action-btn">
+        <button onClick={props.handleEdit} className="list-action-btn">
           <span>Update List Title</span>
         </button>
       </div>
