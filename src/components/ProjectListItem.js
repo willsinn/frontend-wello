@@ -1,11 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchWorkspace } from "../actions/workspace";
+import { clearWorkspace } from "../actions/workspace";
 import { incrementCounter } from "../actions/user";
 
 const ProjectListItem = (props, { dispatch }) => {
   const handleClick = e => {
     if (e) {
+      props.dispatch(clearWorkspace());
       props.dispatch(fetchWorkspace(props.project));
       props.dispatch(incrementCounter());
     }

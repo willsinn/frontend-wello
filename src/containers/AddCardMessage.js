@@ -33,6 +33,7 @@ const AddCardMessage = props => {
           </button>
         ) : (
           <NewCardForm
+            key={props.item.id}
             item={props.item}
             handleSubmitToggle={handleSubmitToggle}
           />

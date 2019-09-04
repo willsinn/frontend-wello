@@ -9,7 +9,7 @@ const workspaceReducer = (state = defaultState, action) => {
     case "TOGGLE_EDIT":
       return { ...state, isEditActive: !state.isEditActive };
     case "CLEAR_WORKSPACE":
-      return { ...state, workspace: defaultState };
+      return { ...state, workspace: defaultState, items: [] };
     case "SET_WORKSPACE":
       return { ...state, workspace: action.workspace.project };
     case "SET_ITEMS":
@@ -24,12 +24,17 @@ const workspaceReducer = (state = defaultState, action) => {
         items: [...state.items, action.item]
       };
     case "UPDATE_ITEM":
-      const newItems = state.items.map(item => {
-        if (item.id === action.item.id) {
-          return action.item;
-        }
-        return item;
-      });
+      let newItems;
+      if (state.workspace.id === action.item.project_id) {
+        newItems = state.items.map(item => {
+          if (item.id === action.item.id) {
+            return action.item;
+          }
+          return item;
+        });
+      } else {
+        newItems = state.items;
+      }
       return {
         ...state,
         items: newItems

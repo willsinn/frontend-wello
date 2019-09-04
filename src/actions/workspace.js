@@ -1,5 +1,4 @@
 export const clearWorkspace = () => ({ type: "CLEAR_WORKSPACE" });
-
 export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
   workspace

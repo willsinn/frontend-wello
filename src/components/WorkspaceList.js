@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 
 const WorkspaceList = props => {
   const mapItems = array =>
-    props.items.map(item => (
+    array.map(item => (
       <li
         key={`project${item.id}${props.workspace.id}`}
         className="wsp-list-item"
@@ -18,9 +18,9 @@ const WorkspaceList = props => {
     ));
 
   const renderItems = () => {
-    console.log(props.items);
     if (props.items.length !== 0) {
-      return mapItems(props.items);
+      const items = props.items;
+      return mapItems(items);
     }
     if (props.workspace.items.length !== undefined) {
       props.dispatch(setItems(props.workspace.items));
