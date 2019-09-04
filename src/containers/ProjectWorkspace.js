@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import WorkspaceList from "../components/WorkspaceList";
 import HomeBtn from "../components/HomeBtn";
+import WorkspaceMenuBtns from "../components/WorkspaceMenuBtns";
 import { connect } from "react-redux";
-import { deleteProjectWorkspace } from "../actions/projects";
-import { clearWorkspace } from "../actions/workspace";
 import Mountians from "../images/mountianrange.jpg";
 import Lake from "../images/lake.jpg";
 import Beach from "../images/beach.jpg";
 
-const ProjectWorkspace = (props, { dispatch }) => {
+const ProjectWorkspace = props => {
   const [index, setIndex] = useState(null);
   const bgs = [Mountians, Lake, Beach];
 
@@ -27,22 +26,14 @@ const ProjectWorkspace = (props, { dispatch }) => {
     },
     [props.bgCounter, bgs.length]
   );
-  const handleDelete = e => {
-    props.dispatch(deleteProjectWorkspace(props.workspace));
-    props.dispatch(clearWorkspace());
-  };
+
   return (
     <div id="workspace" style={{ backgroundImage: `url('${bgs[index]}')` }}>
       <div className="project-workspace-control">
         <div className="pwc-left">
           <div className="pwc-title-top">{props.workspace.title}</div>
-          <div className="pwc-title-bottom">
-            <button className="pwc-btn">EDIT</button>
-            <button onClick={e => handleDelete(e)} className="pwc-btn">
-              DELETE
-            </button>
-          </div>
         </div>
+        <WorkspaceMenuBtns workspace={props.workspace} />
         <div className="pwc-right">
           <div className="pwc-nav">
             <HomeBtn />
