@@ -558,7 +558,7 @@ body {
 }
 .item-menu {
   height: 100px;
-  width: 150px;
+  width: 175px;
   position: absolute;
   border: 1px solid black;
   top: 20px;
@@ -620,4 +620,7 @@ body {
 .item-menu-close-wrapper {
   display: flex;
   height: fit-content;
+  border-bottom: 1px outset darkgray;
+  width: 95%;
+  align-self: center;
 }
