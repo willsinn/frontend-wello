@@ -424,10 +424,7 @@ body {
 .item-control-name {
   margin-top: 10px;
 }
-.item-control-delete {
-  margin-bottom: 15px;
-  margin-right: 7.5px;
-}
+
 #btnControl {
   display: none;
 }
@@ -560,7 +557,7 @@ body {
   position: relative;
 }
 .item-menu {
-  height: 120px;
+  height: 75px;
   width: 120px;
   position: absolute;
   border: 1px solid black;
@@ -592,6 +589,11 @@ body {
 .dropdown-btn-text span {
   position: relative;
   top: -8px;
+}
+.item-menu-btn {
+  display: flex;
+  height: 25px;
+  justify-content: center;
 }
 .item-menu-btn {
   display: flex;
