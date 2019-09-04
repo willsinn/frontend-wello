@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ItemDropdownMenu from "./ItemDropdownMenu";
 import WorkspaceItemTitle from "./WorkspaceItemTitle";
+import EditItemTitleForm from "./EditItemTitleForm";
 
 const WorkspaceControl = props => {
   const [dropdown, setDropdown] = useState(false);
@@ -18,7 +19,11 @@ const WorkspaceControl = props => {
   };
   return (
     <div className="workspace-item-control">
-      <WorkspaceItemTitle item={props.item} />
+      {!editing ? (
+        <WorkspaceItemTitle item={props.item} />
+      ) : (
+        <EditItemTitleForm item={props.item} subject={props.item.objective} />
+      )}
       <div className="dropdown-ctrl-btn">
         <button
           className="dropdown-btn-text"

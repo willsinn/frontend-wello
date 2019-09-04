@@ -644,3 +644,17 @@ body {
   transition-duration: 0.25s;
   border-style: none;
 }
+.item-menu.form-input {
+  height: 36px;
+  font-size: 16.5px;
+  width: fit-content;
+  border: none;
+  border-radius: 3px;
+  transition-duration: 0.25s;
+  display: flex;
+}
+.item-menu-edit-form {
+  position: relative;
+}
+.item-edit-save {
+}

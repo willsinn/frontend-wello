@@ -140,3 +140,18 @@ export const updateCard = (card, dispatch) => {
     }).then(response => console.log(response));
   };
 };
+export const updateItemTitle = (item, dispatch) => {
+  return dispatch => {
+    fetch(`http://localhost:3000/item/update/${item.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: item.id,
+        [item.key]: item.value
+      })
+    }).then(response => console.log(response));
+  };
+};
