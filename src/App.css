@@ -563,10 +563,13 @@ body {
   border: 1px solid black;
   top: 20px;
   right: -100px;
-  background: antiquewhite;
+  background: ghostwhite;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  border: 1.25px solid lightgray;
+  border-radius: 3.5px;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
   z-index: 11;
 }
 .dropdown-btn-text {
@@ -594,11 +597,12 @@ body {
 .item-menu-btn {
   display: flex;
   height: 25px;
-  justify-content: center;
 }
 .item-menu-btn {
   display: flex;
+  height: 25px;
 }
+
 .dropdown-ctrl-btn {
   display: flex;
   max-width: 30px;
@@ -615,7 +619,7 @@ body {
 }
 .item-menu-btn.close {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .item-menu-close-wrapper {
   display: flex;
@@ -623,4 +627,32 @@ body {
   border-bottom: 1px outset darkgray;
   width: 95%;
   align-self: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  height: 25px;
+  background-color: inherit;
+  border-style: none;
+  left: -5px;
+  top: -5px;
+  -webkit-transition-duration: 0.25s; /* Safari */
+  transition-duration: 0.25s;
+}
+
+.close-btn:hover {
+  border: 1px inset darkgray;
+  color: #9bcff9;
+  border-style: none;
+}
+.item-edit-btn {
+  width: 100%;
+  text-align: left;
+  height: 25px;
+  background-color: inherit;
+  border-style: none;
 }

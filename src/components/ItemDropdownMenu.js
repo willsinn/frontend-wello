@@ -20,15 +20,15 @@ const ItemDropdownMenu = props => {
     <div className="item-menu">
       <div className="item-menu-close-wrapper">
         <div className="item-menu-btn close">
-          <button onClick={handleClose} className="drop-btn-txt">
+          <button onClick={handleClose} className="close-btn">
             <span>✖︎</span>
           </button>
         </div>
-        <p className="item-menu-p">LIST ACTIONS</p>
+        <p className="item-menu-p">List Actions</p>
       </div>
       <div className="item-menu-btn edit">
-        <button onClick={handleEdit} className="drop-btn-txt">
-          <span>EDIT TITLE</span>
+        <button onClick={handleEdit} className="item-edit-btn">
+          <span>Update List Name</span>
         </button>
       </div>
 
