@@ -233,7 +233,7 @@ body {
 
 .project-workspace-control {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   max-height: 13.5vh;
   height: 100%;
   margin-right: 100px;
@@ -675,4 +675,11 @@ body {
 }
 .item-edit-save {
   top: 0;
+}
+.app-name {
+  font-family: cursive;
+  position: relative;
+  font-size: 38px;
+  font-weight: bold;
+  color: white;
 }
