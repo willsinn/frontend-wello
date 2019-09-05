@@ -145,7 +145,7 @@ body {
   font-weight: bold;
   border: 2px solid white;
   font-family: none;
-  border-radius: 2px;
+  border-radius: 2.75px;
   background: #8fc2ea52;
   color: white;
 }
@@ -241,11 +241,15 @@ body {
   position: relative;
 }
 .pwc-title-top {
-  font-size: 75px;
+  font-size: 48px;
+  position: relative;
+  top: 20px;
+  left: -25px;
 }
-.pwc-title-bottom {
+.pwc-title-right {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 .pwc-right {
   display: flex;
