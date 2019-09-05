@@ -38,9 +38,6 @@ const ProjectWorkspace = props => {
           <div className="pwc-nav">
             <HomeBtn />
           </div>
-          <div className="pwc-desc">
-            About this board <button className="pwc-btn"> + </button>
-          </div>
         </div>
       </div>
       <WorkspaceList key={props.workspace.id} workspace={props.workspace} />

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { deleteProjectWorkspace } from "../actions/projects";
 import { clearWorkspace } from "../actions/workspace";
 
 const WorkspaceMenuBtns = (props, { dispatch }) => {
-  const [menu, setMenu] = useState(false);
-
   const handleDelete = e => {
     props.dispatch(deleteProjectWorkspace(props.workspace));
     props.dispatch(clearWorkspace());
