@@ -97,6 +97,8 @@ body {
   display: flex;
   height: 40px;
   padding: 10px;
+  width: 35vw;
+  justify-content: space-evenly;
 }
 .list-item {
   height: 45px;
@@ -136,15 +138,21 @@ body {
 }
 
 .navbar-btn {
-  height: 37.5px;
+  height: 40.5px;
   -webkit-transition-duration: 0.25s; /* Safari */
   transition-duration: 0.25s;
-  width: 77.5px;
-  border: 2px outset #9bcff9;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid white;
+  font-family: none;
+  border-radius: 2px;
+  background: #8fc2ea52;
+  color: white;
 }
 .navbar-btn:hover {
   border: 2px inset white;
   background-color: #9bcff9;
+  color: black;
 }
 
 .create-project.form {
@@ -225,7 +233,7 @@ body {
 
 .project-workspace-control {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   max-height: 13.5vh;
   height: 100%;
   margin-right: 100px;
