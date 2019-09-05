@@ -35,6 +35,7 @@ const NavBar = (props, { dispatch }) => {
         >
           New Project
         </button>
+        <h1>Wello</h1>
       </div>
       {notActive()}
     </div>

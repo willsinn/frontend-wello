@@ -12,16 +12,9 @@ const WorkspaceMenuBtns = (props, { dispatch }) => {
   };
   return (
     <div className="pwc-title-bottom">
-      <button onClick={() => setMenu(!menu)}>Workspace Actions</button>
-
-      {menu ? (
-        <div>
-          <button className="pwc-btn">Update Workspace Name</button>
-          <button onClick={e => handleDelete(e)} className="pwc-btn">
-            Delete Workspace
-          </button>
-        </div>
-      ) : null}
+      <button onClick={e => handleDelete(e)} className="pwc-btn">
+        Delete Workspace
+      </button>
     </div>
   );
 };
