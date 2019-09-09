@@ -9,19 +9,26 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import userReducer from "./reducers/userReducer";
 import projectsReducer from "./reducers/projectsReducer";
+import workspaceReducer from "./reducers/workspaceReducer";
+
 import * as serviceWorker from "./serviceWorker";
 import { fetchUser } from "./actions/user";
-import { fetchUserProjects } from "./actions/project";
+import { fetchUserProjects } from "./actions/projects";
 
 const rootReducer = combineReducers({
   userReducer: userReducer,
-  projectsReducer: projectsReducer
+  projectsReducer: projectsReducer,
+  workspaceReducer: workspaceReducer
 });
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
-console.log(`%c INITIAL REDUX STORE`, "color: purple", store.getState());
+console.log(
+  `%c INITIAL REDUX STORE`,
+  "color: purple",
+  store.getState(workspaceReducer)
+);
 
 store.dispatch(fetchUser());
 store.dispatch(fetchUserProjects());

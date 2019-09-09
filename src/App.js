@@ -1,40 +1,26 @@
 import React from "react";
-import UserProjectsContainer from "./containers/UserProjectsContainer";
+import NavBar from "./containers/NavBar";
 import "./App.css";
+import UserProjectsContainer from "./containers/UserProjectsContainer";
+import ProjectWorkspace from "./containers/ProjectWorkspace";
+import { connect } from "react-redux";
 
-const App = () => {
+const App = props => {
   return (
-    <div>
-      <UserProjectsContainer />
-    </div>
+    <>
+      <NavBar />
+      {props.workspace.id !== undefined ? (
+        <ProjectWorkspace
+          workspace={props.workspace}
+          projectId={props.workspace.id}
+        />
+      ) : (
+        <UserProjectsContainer />
+      )}
+    </>
   );
 };
-
-export default App;
-
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-//
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-//
-// export default App;
+const mapStateToProps = ({ workspaceReducer: workspace }) => ({
+  workspace: workspace.workspace
+});
+export default connect(mapStateToProps)(App);

@@ -1,14 +1,18 @@
 import React from "react";
-import Toolbar from "./Toolbar";
-import ProjectTilesContainer from "./ProjectTilesContainer";
+import TilesList from "../components/TilesList";
+import { connect } from "react-redux";
+import { setNull } from "../actions/user";
 
-const UserProjectsContainer = props => {
+const UserProjectsContainer = ({ dispatch }) => {
   return (
-    <div className="user-projects full-page container">
-      <Toolbar />
-      <ProjectTilesContainer />
+    <div
+      onClick={e => dispatch(setNull())}
+      id="userprojects"
+      className="container"
+    >
+      <TilesList />
     </div>
   );
 };
 
-export default UserProjectsContainer;
+export default connect()(UserProjectsContainer);
