@@ -10,7 +10,7 @@ export const addNewProject = projectData => ({
 
 export const fetchUserProjects = data => {
   return dispatch => {
-    fetch("https://backend-wello.herokuapp.com/user/1/projects", {
+    fetch("http://localhost:3000/user/1/projects", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
@@ -24,7 +24,7 @@ export const fetchUserProjects = data => {
 export const postNewProject = (title, dispatch) => {
   return dispatch => {
     console.log(title);
-    fetch("https://backend-wello.herokuapp.com/user/1/projects/new", {
+    fetch("http://localhost:3000/user/1/projects/new", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,15 +45,12 @@ export const deleteProject = project => ({
 });
 export const deleteProjectWorkspace = (workspace, dispatch) => {
   return dispatch => {
-    fetch(
-      `https://backend-wello.herokuapp.com/project/delete/${workspace.id}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ id: workspace.id, user_id: workspace.user_id })
-      }
-    ).then(response => dispatch(deleteProject(workspace)));
+    fetch(`http://localhost:3000/project/delete/${workspace.id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ id: workspace.id, user_id: workspace.user_id })
+    }).then(response => dispatch(deleteProject(workspace)));
   };
 };

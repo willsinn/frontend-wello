@@ -31,9 +31,7 @@ export const toggleEdit = () => ({
 export const fetchWorkspace = (project, dispatch) => {
   return dispatch => {
     fetch(
-      `https://backend-wello.herokuapp.com/user/${project.user_id}/project/${
-        project.id
-      }`,
+      `http://localhost:3000/user/${project.user_id}/project/${project.id}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -50,22 +48,17 @@ export const fetchWorkspace = (project, dispatch) => {
 
 export const postWorkspaceItem = (project, dispatch) => {
   return dispatch => {
-    fetch(
-      `https://backend-wello.herokuapp.com/project/${
-        project.workspace.id
-      }/items/new`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          project_id: project.workspace.id,
-          objective: project.objective
-        })
-      }
-    )
+    fetch(`http://localhost:3000/project/${project.workspace.id}/items/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        project_id: project.workspace.id,
+        objective: project.objective
+      })
+    })
       .then(response => response.json())
       .then(JSONresponse => dispatch(addItem(JSONresponse)));
   };
@@ -73,7 +66,7 @@ export const postWorkspaceItem = (project, dispatch) => {
 export const deleteWorkspaceItem = (item, dispatch) => {
   return dispatch => {
     dispatch(deleteItem(item));
-    fetch(`https://backend-wello.herokuapp.com/items/delete/${item.id}`, {
+    fetch(`http://localhost:3000/items/delete/${item.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +81,7 @@ export const deleteWorkspaceItem = (item, dispatch) => {
 
 export const fetchItem = (item, dispatch) => {
   return dispatch => {
-    fetch(`https://backend-wello.herokuapp.com/item/${item.id}`, {
+    fetch(`http://localhost:3000/item/${item.id}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
@@ -100,20 +93,17 @@ export const fetchItem = (item, dispatch) => {
 };
 export const postNewCard = (item, dispatch) => {
   return dispatch => {
-    fetch(
-      `https://backend-wello.herokuapp.com/item/${item.item.id}/cards/new`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          subject: item.subject,
-          item_id: item.item.id
-        })
-      }
-    )
+    fetch(`http://localhost:3000/item/${item.item.id}/cards/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        subject: item.subject,
+        item_id: item.item.id
+      })
+    })
       .then(response => response.json())
       .then(JSONresponse => dispatch(fetchItem({ id: JSONresponse.item_id })));
   };
@@ -121,7 +111,7 @@ export const postNewCard = (item, dispatch) => {
 
 export const deleteCard = (card, dispatch) => {
   return dispatch => {
-    fetch(`https://backend-wello.herokuapp.com/cards/delete/${card["id"]}`, {
+    fetch(`http://localhost:3000/cards/delete/${card["id"]}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -136,7 +126,7 @@ export const deleteCard = (card, dispatch) => {
 
 export const updateCard = (card, dispatch) => {
   return dispatch => {
-    fetch(`https://backend-wello.herokuapp.com/card/update/${card.id}`, {
+    fetch(`http://localhost:3000/card/update/${card.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -152,7 +142,7 @@ export const updateCard = (card, dispatch) => {
 };
 export const updateItemTitle = (item, dispatch) => {
   return dispatch => {
-    fetch(`https://backend-wello.herokuapp.com/item/update/${item.id}`, {
+    fetch(`http://localhost:3000/item/update/${item.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
