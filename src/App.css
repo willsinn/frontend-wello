@@ -7,11 +7,16 @@ body {
 #root {
   height: 100vh;
   width: 100vw;
-  position: relative;
 }
 #navbar {
-  z-index: 1;
-  position: fixed;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.32);
+  height: 32px;
+  line-height: 20px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
 #userprojects {
@@ -23,13 +28,21 @@ body {
   position: absolute;
 }
 #workspace {
-  height: inherit;
-  width: fit-content;
-  min-width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  /* overflow-x: auto;
+  overflow-y: hidden; */
+  padding-bottom: 8px;
   position: absolute;
-  padding-right: 50px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
 }
 #workspace-items-container {
   position: relative;
@@ -57,13 +70,13 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 .wsp-title-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   background-color: #cccccce6;
   position: relative;
 }
@@ -93,12 +106,9 @@ body {
   bottom: 30px;
 }
 
-.top-navbar {
-  display: flex;
-  height: 40px;
-  padding: 10px;
-  width: 35vw;
-  justify-content: space-evenly;
+.left-navbar {
+}
+.right-navbar {
 }
 .list-item {
   height: 45px;
@@ -130,7 +140,7 @@ body {
   z-index: 1;
 }
 .sidebar-list {
-  overflow: auto;
+  /* overflow: auto; */
   list-style-type: none;
   padding: 0;
   margin-left: 10px;
@@ -148,6 +158,7 @@ body {
   border-radius: 2.75px;
   background: #8fc2ea52;
   color: white;
+  margin: 2px;
 }
 .navbar-btn:hover {
   border: 2px inset white;
@@ -190,7 +201,7 @@ body {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .project-tile {
@@ -240,26 +251,26 @@ body {
   margin-left: 240px;
   position: relative;
 }
-.pwc-title-top {
+.board-ops .title-top {
   font-size: 48px;
   position: relative;
   top: 20px;
   left: -25px;
 }
-.pwc-title-right {
+.board-ops .title-right {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.pwc-right {
+.board-ops .right {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.pwc-desc {
+.board-ops .desc {
   font-size: 24px;
 }
-.pwc-nav {
+.board-ops .nav {
   position: fixed;
   top: 0;
   right: 0;
@@ -484,7 +495,7 @@ body {
   position: absolute;
   left: 15px;
   width: inherit;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   display: flex;
 }
 
@@ -683,7 +694,7 @@ body {
 .app-name {
   font-family: cursive;
   position: relative;
-  font-size: 38px;
+  font-size: 28px;
   font-weight: bold;
   color: white;
 }

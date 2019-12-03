@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import WorkspaceList from "../components/WorkspaceList";
-import HomeBtn from "../components/HomeBtn";
 import WorkspaceMenuBtns from "../components/WorkspaceMenuBtns";
 import { connect } from "react-redux";
 import Mountians from "../images/mountianrange.jpg";
@@ -30,14 +29,12 @@ const ProjectWorkspace = props => {
   return (
     <div id="workspace" style={{ backgroundImage: `url('${bgs[index]}')` }}>
       <div className="project-workspace-control">
-        <div className="pwc-left">
-          <div className="pwc-title-top">{props.workspace.title}</div>
+        <div className="board-ops left">
+          <div className="board-ops title-top">{props.workspace.title}</div>
         </div>
         <WorkspaceMenuBtns workspace={props.workspace} />
-        <div className="pwc-right">
-          <div className="pwc-nav">
-            <HomeBtn />
-          </div>
+        <div className="board-ops right">
+          <div className="board-ops nav" />
         </div>
       </div>
       <WorkspaceList key={props.workspace.id} workspace={props.workspace} />
