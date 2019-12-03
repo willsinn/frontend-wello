@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { postNewCard } from "../actions/workspace";
 
 const initialState = { subject: "" };
-const NewCardForm = (props, { dispatch }) => {
+const AddCardItem = (props, { dispatch }) => {
   const [subject, setSubject] = useState(initialState);
   const clearSubject = e => {
     setSubject({ ...initialState });
@@ -42,4 +42,4 @@ const NewCardForm = (props, { dispatch }) => {
     </div>
   );
 };
-export default connect()(NewCardForm);
+export default connect()(AddCardItem);

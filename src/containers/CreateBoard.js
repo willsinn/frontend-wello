@@ -4,7 +4,7 @@ import { postNewProject } from "../actions/projects";
 import { setNull } from "../actions/user";
 
 const initialState = { title: "" };
-const NewProjectForm = ({ dispatch }) => {
+const CreateBoard = ({ dispatch }) => {
   const [title, setTitle] = useState(initialState);
   const clearTitle = e => {
     setTitle({ ...initialState });
@@ -46,4 +46,4 @@ const NewProjectForm = ({ dispatch }) => {
   );
 };
 
-export default connect()(NewProjectForm);
+export default connect()(CreateBoard);
