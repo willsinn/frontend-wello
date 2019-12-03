@@ -5,7 +5,7 @@ import WorkspaceControl from "./WorkspaceControl";
 import { setItems } from "../actions/workspace";
 import { connect } from "react-redux";
 
-const WorkspaceList = props => {
+const Boards = props => {
   const mapItems = array =>
     array.map(item => (
       <li
@@ -46,4 +46,4 @@ const mapStateToProps = ({ workspaceReducer: workspace }) => ({
   items: workspace.items
 });
 
-export default connect(mapStateToProps)(WorkspaceList);
+export default connect(mapStateToProps)(Boards);
