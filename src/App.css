@@ -18,6 +18,10 @@ body {
   justify-content: space-between;
   align-items: center;
   min-width: 412px;
+  color: #fff;
+  overflow: hidden;
+  padding: 4px;
+  z-index: 10;
 }
 
 #userprojects {
@@ -149,24 +153,49 @@ body {
 }
 
 .navbar-btn {
-  height: 40.5px;
-  -webkit-transition-duration: 0.25s; /* Safari */
-  transition-duration: 0.25s;
-  font-size: 18px;
-  font-weight: bold;
-  border: 2px solid white;
-  font-family: none;
-  border-radius: 2.75px;
-  background: #8fc2ea52;
-  color: white;
-  margin: 2px;
-}
-.navbar-btn:hover {
-  border: 2px inset white;
-  background-color: #9bcff9;
-  color: black;
+  background-color: hsla(0, 0%, 100%, 0.3);
+  border-radius: 3px;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: hsla(0, 0%, 100%, 0.5);
+  float: left;
+  font-size: 13px;
+  height: 32px;
+  line-height: 19px;
+  margin: 0;
+  outline: none;
+  padding-left: 8px;
+  padding-right: 30px;
+  transition: width 0.15s;
+  width: 180px;
 }
 
+.navbar-btn:hover {
+  box-sizing: border-box;
+  background-color: hsla(0, 0%, 100%, 0.5);
+  float: left;
+  font-size: 13px;
+  height: 32px;
+  line-height: 19px;
+  margin: 0;
+  outline: none;
+  padding-left: 8px;
+  padding-right: 30px;
+  transition: width 0.15s;
+  width: 180px;
+}
+.navbar-btn.home {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+}
+.navbar-btn.home:hover {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
 .create-project.form {
   background-color: black;
   color: white;
@@ -698,4 +727,14 @@ body {
   font-size: 28px;
   font-weight: bold;
   color: white;
+}
+.home-icon {
+  background-size: contain;
+  background-color: transparent;
+  opacity: 1;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  right: 4.5px;
+  bottom: 1px;
 }
