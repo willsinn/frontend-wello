@@ -14,33 +14,35 @@ const NavBar = (props, { dispatch }) => {
     }
   };
   return (
-    <div id="navbar">
-      <div className="left-navbar">
-        <HomeBtn />
-        <button
-          className="navbar-btn"
-          onClick={
-            props.isActive
-              ? e => props.dispatch(setNull(e))
-              : e => props.dispatch(setTrue(e))
-          }
-        >
-          Boards
-        </button>
-        <span className="app-name">Wello</span>
-      </div>
-      {notActive()}
-      <div className="right-navbar">
-        <button
-          className="navbar-btn"
-          onClick={
-            props.isActive === false
-              ? e => props.dispatch(setNull(e))
-              : e => props.dispatch(setFalse(e))
-          }
-        >
-          +
-        </button>
+    <div className="nav-wrap">
+      <div id="navbar">
+        <div className="left-navbar">
+          <HomeBtn />
+          <button
+            className="navbar-btn"
+            onClick={
+              props.isActive
+                ? e => props.dispatch(setNull(e))
+                : e => props.dispatch(setTrue(e))
+            }
+          >
+            Boards
+          </button>
+          <span className="app-name">Wello</span>
+        </div>
+        {notActive()}
+        <div className="right-navbar">
+          <button
+            className="navbar-btn"
+            onClick={
+              props.isActive === false
+                ? e => props.dispatch(setNull(e))
+                : e => props.dispatch(setFalse(e))
+            }
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
   );

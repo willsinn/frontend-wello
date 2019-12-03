@@ -22,9 +22,11 @@ body {
   overflow: hidden;
   padding: 4px;
   z-index: 10;
-  position: fixed;
+  position: relative;
 }
-
+.nav-wrap {
+  position: relative;
+}
 #userprojects {
   height: inherit;
   width: inherit;
@@ -135,15 +137,14 @@ body {
   margin-left: 20px;
 }
 .sidebar-wrapper {
-  height: 75vh;
   display: flex;
   width: 250px;
   background: #8fc2ea52;
   border: 0.75px solid black;
   border-radius: 4px;
   padding: 0;
-  margin-top: -7.5px;
-  z-index: 1;
+  position: fixed;
+  top: 42px;
 }
 .sidebar-list {
   /* overflow: auto; */
@@ -229,7 +230,7 @@ body {
 }
 .project-tiles.container {
   width: 80%;
-  height: inherit;
+  height: 50%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -271,7 +272,8 @@ body {
   justify-content: space-between;
 }
 .project-list-item {
-  height: inherit;
+  height: 36px;
+  min-height: 36px;
   width: inherit;
 }
 
