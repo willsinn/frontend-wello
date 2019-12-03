@@ -2,7 +2,7 @@ import React from "react";
 import ProjectListItem from "../components/ProjectListItem";
 import { connect } from "react-redux";
 
-const TilesList = props => {
+const BoardsTiled = props => {
   const renderTiles = () => {
     if (props.projects.length > 0) {
       return [...props.projects].map(project => (
@@ -24,4 +24,4 @@ const TilesList = props => {
 const mapStateToProps = ({ projectsReducer: projects }) => ({
   projects: projects.projects
 });
-export default connect(mapStateToProps)(TilesList);
+export default connect(mapStateToProps)(BoardsTiled);

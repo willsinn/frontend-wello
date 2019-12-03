@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import WorkspaceList from "../components/WorkspaceList";
+import Boards from "../components/Boards";
+import HomeBtn from "../components/HomeBtn";
 import WorkspaceMenuBtns from "../components/WorkspaceMenuBtns";
 import { connect } from "react-redux";
 import Mountians from "../images/mountianrange.jpg";
 import Lake from "../images/lake.jpg";
 import Beach from "../images/beach.jpg";
 
-const ProjectWorkspace = props => {
+const Board = props => {
   const [index, setIndex] = useState(null);
   const bgs = [Mountians, Lake, Beach];
 
@@ -37,7 +38,7 @@ const ProjectWorkspace = props => {
           <div className="board-ops nav" />
         </div>
       </div>
-      <WorkspaceList key={props.workspace.id} workspace={props.workspace} />
+      <Boards key={props.workspace.id} workspace={props.workspace} />
     </div>
   );
 };
@@ -45,4 +46,4 @@ const mapStateToProps = ({ userReducer: user }) => ({
   user: user,
   bgCounter: user.bgCounter
 });
-export default connect(mapStateToProps)(ProjectWorkspace);
+export default connect(mapStateToProps)(Board);

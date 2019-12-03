@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./containers/NavBar";
 import "./App.css";
-import UserProjectsContainer from "./containers/UserProjectsContainer";
+import HomePage from "./containers/HomePage";
 import Board from "./containers/Board";
 import { connect } from "react-redux";
 
@@ -12,7 +12,7 @@ const App = props => {
       {props.workspace.id !== undefined ? (
         <Board workspace={props.workspace} projectId={props.workspace.id} />
       ) : (
-        <UserProjectsContainer />
+        <HomePage />
       )}
     </>
   );
