@@ -1,15 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
-import { setNull } from "../actions/user";
 
-const Notifications = (props, { dispatch }) => {
+const NotificationsMenu = props => {
   return (
     <div className="notifications right-popup">
       <div className="popup-header title">
         <div className="popup-header label">Notifications</div>
         <div className="popup-header close">
           <button>
-            <span onClick={e => props.dispatch(setNull(e))}>×</span>
+            <span onClick={e => props.close(e)}>×</span>
           </button>
         </div>
       </div>
@@ -21,8 +19,5 @@ const Notifications = (props, { dispatch }) => {
     </div>
   );
 };
-const mapStateToProps = ({ userReducer: isActive }) => ({
-  isActive: isActive.isActive
-});
 
-export default connect(mapStateToProps)(Notifications);
+export default NotificationsMenu;
