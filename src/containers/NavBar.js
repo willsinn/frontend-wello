@@ -11,17 +11,19 @@ const NavBar = props => {
   const closeRightnav = e => {
     setRightnav("");
   };
-
+  const closeLeftnav = e => {
+    setSidebar(false);
+  };
   return (
     <div className="nav-wrap">
       <div id="navbar">
         <div className="left-navbar">
-          <HomeBtn />
+          <HomeBtn close={closeRightnav} />
           <button className="navbar-btn" onClick={e => setSidebar(!sidebar)}>
             Boards
           </button>
         </div>
-        {!sidebar ? null : <SidebarList />}
+        {!sidebar ? null : <SidebarList close={closeLeftnav} />}
         {(() => {
           switch (rightnav) {
             case "create":

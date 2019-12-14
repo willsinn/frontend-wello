@@ -1,7 +1,6 @@
 import React from "react";
 import ProjectListItem from "./ProjectListItem";
 import { connect } from "react-redux";
-import { setNull } from "../actions/user";
 
 const SidebarList = (props, { dispatch }) => {
   const renderItems = () => {
@@ -17,10 +16,7 @@ const SidebarList = (props, { dispatch }) => {
   };
   return (
     <div className="sidebar-wrapper">
-      <ul
-        className="sidebar-list dropdown"
-        onMouseLeave={() => props.dispatch(setNull())}
-      >
+      <ul className="sidebar-list dropdown" onMouseLeave={e => props.close(e)}>
         {renderItems()}
       </ul>
     </div>

@@ -5,13 +5,12 @@ import { clearWorkspace } from "../actions/workspace";
 const HomeBtn = (props, { dispatch }) => (
   <a
     className="navbar-btn home"
-    onClick={e => props.dispatch(clearWorkspace(e))}
+    onClick={e => props.dispatch(clearWorkspace(e), props.close(e))}
   >
     <img
       className="home-icon"
       src={require("../images/home-icon.png")}
       alt="home"
-      backgroundColor="inherit"
       opacity="1"
     />
   </a>
