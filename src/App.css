@@ -807,5 +807,27 @@ body {
 }
 .close {
   position: absolute;
-  left: 245px;
+  left: 240px;
+}
+.popup-header.close button span {
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: bottom;
+  background: transparent;
+  color: #6b778c;
+}
+.popup-header.close button span:hover {
+  color: #172b4d;
+}
+.popup-header.close button {
+  margin: 0;
+  top: 0;
+  border: 0;
+  border-style: none;
+  text-decoration: none;
+  outline: 0;
 }

@@ -7,7 +7,11 @@ const CreateMenu = (props, { dispatch }) => {
     <div className="new-board popup">
       <div className="popup-header title">
         <div className="popup-header label">Create</div>
-        <div className="popup-header close">X</div>
+        <div className="popup-header close">
+          <button>
+            <span>X</span>
+          </button>
+        </div>
       </div>
       <div className="popup new-option">
         <div className="new-option title">
