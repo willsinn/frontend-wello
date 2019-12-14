@@ -759,7 +759,6 @@ body {
   outline: 0;
   overflow: hidden;
 }
-
 .popup.new-option {
   color: black;
   background-color: transparent;
@@ -779,7 +778,12 @@ body {
   outline: 0;
   position: relative;
 }
-
+.popup-header.title {
+  margin-bottom: 8px;
+  padding: 0 12px;
+  position: relative;
+  text-align: center;
+}
 .popup.new-option:hover {
   background-color: transparent;
   border: none;
@@ -793,4 +797,8 @@ body {
   background-repeat: no-repeat;
   height: 16px;
   width: 16px;
+  padding-right: 4px;
+}
+.title {
+  display: flex;
 }

@@ -3,8 +3,8 @@ import React from "react";
 const CreateMenu = () => {
   return (
     <div className="new-board popup">
-      <div className="popup-header">
-        <div className="popup-header title">Create</div>
+      <div className="popup-header title">
+        <div className="popup-header label">Create</div>
         <div className="popup-header close">X</div>
       </div>
       <div className="popup new-option">
