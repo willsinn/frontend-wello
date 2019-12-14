@@ -22,26 +22,32 @@ const CreateBoard = ({ dispatch }) => {
   };
 
   return (
-    <div className="new-project-form">
-      <form
-        className="create-project form container"
-        onSubmit={handleProjectSubmit}
-      >
-        <div className="c-p form-input">
-          <input
-            className="c-p input-box"
-            type="text"
-            name="title"
-            onChange={handleTitleChange}
-            value={title.value}
-            placeholder="Input New Project Title"
-            required
-          />
-        </div>
-        <button className="toolbar-btn form-submit" type="submit">
-          Create Project
-        </button>
-      </form>
+    <div className="new-board popup">
+      <div className="popup-header">
+        <div className="popup-header title">Create</div>
+        <div className="popup-header close">X</div>
+      </div>
+      <div className="new-project-form">
+        <form
+          className="create-project form container"
+          onSubmit={handleProjectSubmit}
+        >
+          <div className="c-p form-input">
+            <input
+              className="c-p input-box"
+              type="text"
+              name="title"
+              onChange={handleTitleChange}
+              value={title.value}
+              placeholder="Input New Project Title"
+              required
+            />
+          </div>
+          <button className="toolbar-btn form-submit" type="submit">
+            Create Project
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

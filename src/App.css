@@ -201,17 +201,6 @@ body {
   line-height: 32px;
 }
 .create-project.form {
-  background-color: black;
-  color: white;
-  border: 3px solid white;
-  border-radius: 6px;
-  height: 110px;
-  width: 250px;
-  margin-right: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .nav.wrapper {
@@ -267,9 +256,6 @@ body {
 }
 
 .new-project-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 .project-list-item {
   height: 36px;
@@ -742,4 +728,33 @@ body {
   position: relative;
   right: 4.5px;
   bottom: 1px;
+}
+.popup-header {
+  border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+  box-sizing: border-box;
+  color: #5e6c84;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 40px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0 32px;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.new-board.popup {
+  position: fixed;
+  top: 44px;
+  right: 4px;
+  width: 304px;
+  box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
+  background-color: #fff;
+  border-radius: 3px;
+  box-sizing: border-box;
+  outline: 0;
+  overflow: hidden;
 }
