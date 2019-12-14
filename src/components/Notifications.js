@@ -14,8 +14,7 @@ const Notifications = (props, { dispatch }) => {
         </div>
       </div>
       <div className="popup new-option">
-        <div className="new-option title">
-          <div className="main-icon" />
+        <div className="all-nots title">
           <div>View All</div>
         </div>
       </div>
