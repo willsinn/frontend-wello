@@ -4,10 +4,8 @@ import NotificationsMenu from "../components/NotificationsMenu";
 import ProfileMenu from "../components/ProfileMenu";
 import SidebarList from "../components/SidebarList";
 import HomeBtn from "../components/HomeBtn";
-import { connect } from "react-redux";
-import { setTrue, setFalse, setNull } from "../actions/user";
 
-const NavBar = (props, { dispatch }) => {
+const NavBar = props => {
   const [sidebar, setSidebar] = useState(false);
   const [rightnav, setRightnav] = useState("");
   const closeRightnav = e => {
@@ -57,8 +55,5 @@ const NavBar = (props, { dispatch }) => {
     </div>
   );
 };
-const mapStateToProps = ({ userReducer: isActive }) => ({
-  isActive: isActive.isActive
-});
 
-export default connect(mapStateToProps)(NavBar);
+export default NavBar;
