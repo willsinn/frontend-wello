@@ -28,9 +28,12 @@ const NavBar = (props, { dispatch }) => {
           >
             Boards
           </button>
-          <span className="app-name">Wello</span>
         </div>
         {notActive()}
+        <div className="mid-nav-title">
+          {" "}
+          <span className="app-name">Wello</span>
+        </div>
         <div className="right-navbar">
           <button
             className="navbar-btn"
