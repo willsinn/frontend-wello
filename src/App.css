@@ -115,8 +115,38 @@ body {
 }
 
 .left-navbar {
+  display: flex;
+}
+.mid-nav-title {
+  display: flex;
+  align-items: center;
+}
+.nav-icon {
+  background-image: url("./images/nav-icon.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 22px;
+  width: 22px;
+  padding-right: 4px;
 }
 .right-navbar {
+  position: relative;
+  height: 32px;
+  right: 14px;
+}
+.right-navbar .navbar-btn {
+  box-shadow: none;
+  width: 32px;
+  height: 32px;
+  font-size: 29px;
+  font-weight: 200;
+}
+.right-navbar .navbar-btn:hover {
+  background-color: hsla(0, 0%, 100%, 0.2);
+  box-shadow: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
 }
 .list-item {
   height: 45px;
@@ -161,31 +191,28 @@ body {
   box-shadow: none;
   box-sizing: border-box;
   color: hsla(0, 0%, 100%, 0.5);
-  float: left;
   font-size: 18px;
   height: 32px;
   line-height: 32px;
   margin: 0;
   outline: none;
-  padding-left: 8px;
-  padding-right: 30px;
   transition: width 0.15s;
   width: 125px;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
     Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-btn:hover {
   box-sizing: border-box;
   background-color: hsla(0, 0%, 100%, 0.5);
-  float: left;
   height: 32px;
   line-height: 19px;
   margin: 0;
   outline: none;
-  padding-left: 8px;
-  padding-right: 30px;
   transition: width 0.15s;
   width: 125px;
 }
@@ -723,11 +750,8 @@ body {
   background-size: contain;
   background-color: transparent;
   opacity: 1;
-  width: 32px;
-  height: 32px;
-  position: relative;
-  right: 4.5px;
-  bottom: 1px;
+  width: 25px;
+  height: 25px;
 }
 .popup-header {
   border-bottom: 1px solid rgba(9, 30, 66, 0.13);
