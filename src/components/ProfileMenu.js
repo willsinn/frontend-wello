@@ -1,15 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
-import { setNull } from "../actions/user";
 
-const ProfileMenu = (props, { dispatch }) => {
+const ProfileMenu = props => {
   return (
     <div className="new-board right-popup">
       <div className="popup-header title">
         <div className="popup-header label">William Sinn</div>
         <div className="popup-header close">
           <button>
-            <span onClick={e => props.dispatch(setNull(e))}>×</span>
+            <span onClick={e => props.close(e)}>×</span>
           </button>
         </div>
       </div>
@@ -22,8 +20,4 @@ const ProfileMenu = (props, { dispatch }) => {
     </div>
   );
 };
-const mapStateToProps = ({ userReducer: isActive }) => ({
-  isActive: isActive.isActive
-});
-
-export default connect(mapStateToProps)(ProfileMenu);
+export default ProfileMenu;

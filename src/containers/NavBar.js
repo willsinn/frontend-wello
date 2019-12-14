@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CreateMenu from "../components/CreateMenu";
-import Notifications from "../components/Notifications";
+import NotificationsMenu from "../components/NotificationsMenu";
 import ProfileMenu from "../components/ProfileMenu";
 import SidebarList from "../components/SidebarList";
 import HomeBtn from "../components/HomeBtn";
@@ -29,7 +29,7 @@ const NavBar = (props, { dispatch }) => {
             case "create":
               return <CreateMenu close={closeRightnav} />;
             case "noti":
-              return <Notifications close={closeRightnav} />;
+              return <NotificationsMenu close={closeRightnav} />;
             case "prof":
               return <ProfileMenu close={closeRightnav} />;
             default:
