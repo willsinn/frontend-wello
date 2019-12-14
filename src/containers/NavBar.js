@@ -1,5 +1,5 @@
 import React from "react";
-import CreateBoard from "./CreateBoard";
+import CreateMenu from "../components/CreateMenu";
 import SidebarList from "../components/SidebarList";
 import HomeBtn from "../components/HomeBtn";
 import { connect } from "react-redux";
@@ -10,7 +10,7 @@ const NavBar = (props, { dispatch }) => {
     if (props.isActive === null) {
       return null;
     } else {
-      return props.isActive ? <SidebarList /> : <CreateBoard />;
+      return props.isActive ? <SidebarList /> : <CreateMenu />;
     }
   };
   return (

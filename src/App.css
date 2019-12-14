@@ -733,7 +733,8 @@ body {
   border-bottom: 1px solid rgba(9, 30, 66, 0.13);
   box-sizing: border-box;
   color: #5e6c84;
-  display: block;
+  display: flex;
+  justify-content: flex-end;
   font-size: 14px;
   font-weight: 400;
   height: 40px;
@@ -757,4 +758,39 @@ body {
   box-sizing: border-box;
   outline: 0;
   overflow: hidden;
+}
+
+.popup.new-option {
+  color: black;
+  background-color: transparent;
+  border: none;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  color: #172b4d;
+  display: block;
+  height: 100%;
+  padding: 6px 12px;
+  text-align: left;
+  text-decoration: none;
+  width: fit-content;
+  transition: none;
+  margin: 0;
+  outline: 0;
+  position: relative;
+}
+
+.popup.new-option:hover {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: #172b4d;
+  background: #e4f0f6;
+}
+.main-icon {
+  background-image: url("./images/main-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
 }
