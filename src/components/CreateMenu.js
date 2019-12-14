@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+import { setNull } from "../actions/user";
 
-const CreateMenu = () => {
+const CreateMenu = (props, { dispatch }) => {
   return (
     <div className="new-board popup">
       <div className="popup-header title">
@@ -22,5 +24,8 @@ const CreateMenu = () => {
     </div>
   );
 };
+const mapStateToProps = ({ userReducer: isActive }) => ({
+  isActive: isActive.isActive
+});
 
-export default CreateMenu;
+export default connect(mapStateToProps)(CreateMenu);
