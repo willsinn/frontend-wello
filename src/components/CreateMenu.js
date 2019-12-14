@@ -4,7 +4,7 @@ import { setNull } from "../actions/user";
 
 const CreateMenu = (props, { dispatch }) => {
   return (
-    <div className="new-board popup">
+    <div className="new-board right-popup">
       <div className="popup-header title">
         <div className="popup-header label">Create</div>
         <div className="popup-header close">

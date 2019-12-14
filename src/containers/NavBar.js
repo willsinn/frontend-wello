@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import CreateMenu from "../components/CreateMenu";
+import Notifications from "../components/Notifications";
 import SidebarList from "../components/SidebarList";
 import HomeBtn from "../components/HomeBtn";
 import { connect } from "react-redux";
 import { setTrue, setFalse, setNull } from "../actions/user";
 
 const NavBar = (props, { dispatch }) => {
+  const [sidebar, setSidebar] = useState(false);
   const notActive = () => {
     if (props.isActive === null) {
       return null;
     } else {
-      return props.isActive ? <SidebarList /> : <CreateMenu />;
+      return props.isActive ? <Notifications /> : <CreateMenu />;
     }
   };
   return (
@@ -18,17 +20,11 @@ const NavBar = (props, { dispatch }) => {
       <div id="navbar">
         <div className="left-navbar">
           <HomeBtn />
-          <button
-            className="navbar-btn"
-            onClick={
-              props.isActive
-                ? e => props.dispatch(setNull(e))
-                : e => props.dispatch(setTrue(e))
-            }
-          >
+          <button className="navbar-btn" onClick={e => setSidebar(!sidebar)}>
             Boards
           </button>
         </div>
+        {!sidebar ? null : <SidebarList />}
         {notActive()}
         <div className="mid-nav-title">
           <div className="nav-icon" />
@@ -44,6 +40,17 @@ const NavBar = (props, { dispatch }) => {
             }
           >
             +
+          </button>
+          <button
+            className="navbar-btn"
+            onClick={
+              props.isActive === true
+                ? e => props.dispatch(setNull(e))
+                : e => props.dispatch(setTrue(e))
+            }
+          >
+            <div className="not-icon" />
+            <div />
           </button>
         </div>
       </div>
