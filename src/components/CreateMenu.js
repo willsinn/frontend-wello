@@ -9,7 +9,7 @@ const CreateMenu = (props, { dispatch }) => {
         <div className="popup-header label">Create</div>
         <div className="popup-header close">
           <button>
-            <span>X</span>
+            <span onClick={e => props.dispatch(setNull(e))}>×</span>
           </button>
         </div>
       </div>
