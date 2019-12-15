@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { setPage } from "../actions/user";
 
-const page = "page";
 const ProfileMenu = (props, { dispatch }) => {
   return (
     <div className="new-board right-popup">

@@ -8,6 +8,8 @@ import "./App.css";
 
 const App = props => {
   // console.log(props.activePg);
+  // console.log(props.workspace);
+
   return (
     <>
       <NavBar />
@@ -26,10 +28,12 @@ const App = props => {
     </>
   );
 };
-// const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-//   workspace: workspace.workspace
-// });
-const mapStateToProps = ({ userReducer: activePg }) => ({
-  activePg: activePg.activePg
+
+const mapStateToProps = ({
+  userReducer: activePg,
+  workspaceReducer: workspace
+}) => ({
+  activePg: activePg.activePg,
+  workspace: workspace.workspace
 });
 export default connect(mapStateToProps)(App);
