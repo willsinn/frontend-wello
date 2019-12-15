@@ -14,13 +14,12 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
-      <div class="tabbed-pane-nav">
+      <div class="tabbed-pane-nav u-clearfix js-nav">
         <ul>
           <li class="tabbed-pane-nav-item">
             <a
               class="tabbed-pane-nav-item-button js-member-profile"
               data-tab="profile"
-              href="/williamsinn1"
             >
               Profile and Visibility
             </a>
@@ -29,7 +28,6 @@ const ProfilePage = () => {
             <a
               class="tabbed-pane-nav-item-button js-member-activity active"
               data-tab="cards"
-              href="/williamsinn1/activity"
             >
               Activity
             </a>
@@ -38,7 +36,6 @@ const ProfilePage = () => {
             <a
               class="tabbed-pane-nav-item-button js-member-cards"
               data-tab="cards"
-              href="/williamsinn1/cards"
             >
               Cards
             </a>
@@ -47,7 +44,6 @@ const ProfilePage = () => {
             <a
               class="tabbed-pane-nav-item-button js-member-account"
               data-tab="settings"
-              href="/williamsinn1/account"
             >
               Settings
             </a>

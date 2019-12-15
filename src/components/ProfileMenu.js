@@ -4,7 +4,7 @@ import { setPage } from "../actions/user";
 
 const ProfileMenu = (props, { dispatch }) => {
   return (
-    <div className="new-board right-popup">
+    <div className="board right-popup">
       <div className="popup-header title">
         <div className="popup-header label">William Sinn</div>
         <div className="popup-header close">
@@ -13,16 +13,44 @@ const ProfileMenu = (props, { dispatch }) => {
           </button>
         </div>
       </div>
-      <div className="popup new-option">
-        <div className="new-option title">
-          <div className="main-icon" />
-          <div
+      <ul>
+        <li class="popup option-item">
+          <a
             onClick={e => props.dispatch(setPage("profile"), props.close(e))}
+            class="option-title js-member-profile"
+            data-tab="profile"
           >
-            View Profile
-          </div>
-        </div>
-      </div>
+            <span>Profile and Visibility</span>
+          </a>
+        </li>
+        <li class="popup option-item">
+          <a
+            onClick={e => props.dispatch(setPage("profile"), props.close(e))}
+            class="option-title js-member-activity active"
+            data-tab="cards"
+          >
+            <span> Activity</span>
+          </a>
+        </li>
+        <li class="popup option-item">
+          <a
+            onClick={e => props.dispatch(setPage("profile"), props.close(e))}
+            class="option-title js-member-cards"
+            data-tab="cards"
+          >
+            <span>Cards</span>
+          </a>
+        </li>
+        <li class="popup option-item">
+          <a
+            onClick={e => props.dispatch(setPage("profile"), props.close(e))}
+            class="option-title js-member-account"
+            data-tab="settings"
+          >
+            <span> Settings</span>
+          </a>
+        </li>
+      </ul>
     </div>
   );
 };
