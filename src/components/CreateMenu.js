@@ -17,7 +17,7 @@ const CreateMenu = props => {
           <div>Create Board...</div>
         </div>
         <div className="new-option desc">
-          <span>
+          <span onClick={e => props.close(e)}>
             A board is made up of cards ordered on lists. Use it to manage
             projects, track information, or organize anything.
           </span>

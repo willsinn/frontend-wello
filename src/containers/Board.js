@@ -33,9 +33,8 @@ const Board = props => {
         <div className="board-ops left">
           <div className="board-ops title-top">{props.workspace.title}</div>
         </div>
-        <WorkspaceMenuBtns workspace={props.workspace} />
         <div className="board-ops right">
-          <div className="board-ops nav" />
+          <WorkspaceMenuBtns workspace={props.workspace} />
         </div>
       </div>
       <Boards key={props.workspace.id} workspace={props.workspace} />

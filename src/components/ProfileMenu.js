@@ -16,7 +16,9 @@ const ProfileMenu = (props, { dispatch }) => {
       <div className="popup new-option">
         <div className="new-option title">
           <div className="main-icon" />
-          <div onClick={e => props.dispatch(setPage("profile"))}>
+          <div
+            onClick={e => props.dispatch(setPage("profile"), props.close(e))}
+          >
             View Profile
           </div>
         </div>

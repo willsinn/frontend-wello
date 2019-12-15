@@ -13,7 +13,7 @@ const NotificationsMenu = props => {
       </div>
       <div className="popup new-option">
         <div className="all-nots title">
-          <div>View All</div>
+          <div onClick={e => props.close(e)}>View All</div>
         </div>
       </div>
     </div>
