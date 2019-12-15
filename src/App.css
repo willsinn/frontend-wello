@@ -935,6 +935,13 @@ ul {
   position: relative;
   text-align: center;
 }
+
+.tabbed-pane-nav-item:active {
+  background-color: #f4f5f7;
+  border-bottom: 1px solid #dfe1e6;
+  position: relative;
+  text-align: center;
+}
 .tabbed-pane-nav-item {
   display: inline-block;
   text-align: -webkit-match-parent;
@@ -989,4 +996,9 @@ ul {
   padding: 0 12px;
   position: relative;
   text-align: center;
+}
+.u-clearfix:after {
+  clear: both;
+  content: "";
+  display: table;
 }
