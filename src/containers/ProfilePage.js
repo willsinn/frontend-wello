@@ -6,9 +6,9 @@ const ProfilePage = () => {
       <div className="tabbed-profile-header">
         <div className="tabbed-profile-header wrapper">
           <div className="profile-nicknames">
-            <span className="profile-initials">WS</span>
-            <span className="profile-">WILL SINN</span>
-            <span className="profile-">@WILL-SINN</span>
+            <span className="user-initials">WS</span>
+            <span className="user-fullname">William Sinn</span>
+            <span className="user-handle">@WilliamSinn1</span>
           </div>
         </div>
       </div>
