@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { setPage } from "../actions/user";
 import { incrementCounter } from "../actions/user";
 import { fetchWorkspace } from "../actions/workspace";
-
 import { clearWorkspace } from "../actions/workspace";
+
 const ProjectListItem = (props, { dispatch }) => {
   const handleClick = e => {
     if (e) {

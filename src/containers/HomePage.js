@@ -3,7 +3,7 @@ import HomeTiles from "../components/HomeTiles";
 
 const HomePage = props => {
   return (
-    <div onClick id="userprojects" className="container">
+    <div id="userprojects" className="container">
       <HomeTiles />
     </div>
   );

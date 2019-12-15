@@ -5,15 +5,16 @@ import { connect } from "react-redux";
 const HomeTiles = props => {
   const renderTiles = () => {
     if (props.projects.length > 0) {
-      return [...props.projects].map(project => (
+      return props.projects.map(project => (
         <li key={project.id} className="project-tile">
           <div className="project-title">
-            <ProjectListItem project={project} />
+            <ProjectListItem key={project.id} project={project} />
           </div>
         </li>
       ));
     }
   };
+
   return (
     <div className="projects middle-tiles container">
       <ul className="project-tiles container">{renderTiles()}</ul>

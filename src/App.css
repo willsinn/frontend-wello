@@ -293,7 +293,7 @@ body {
 .project-list-item {
   height: 36px;
   min-height: 36px;
-  width: inherit;
+  color: black;
 }
 
 .project-workspace-control {
