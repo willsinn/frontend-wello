@@ -7,12 +7,12 @@ import { connect } from "react-redux";
 import "./App.css";
 
 const App = props => {
-  console.log(props.activePg["activePg"]);
+  // console.log(props.activePg);
   return (
     <>
       <NavBar />
       {(() => {
-        switch (props.activePg["activePg"]) {
+        switch (props.activePg) {
           case "home":
             return <HomePage />;
           case "board":

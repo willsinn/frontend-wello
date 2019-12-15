@@ -12,9 +12,12 @@ const userReducer = (state = defaultState, action) => {
         user: action.payload,
         userId: action.payload.id
       };
-
+    case "SET_PAGE":
+      console.log(action);
+      return { ...state, activePg: action.page };
     case "INCREMENT_COUNTER":
       return { ...state, bgCounter: state.bgCounter + 1 };
+
     default:
       return state;
   }

@@ -1,6 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
+import { setPage } from "../actions/user";
 
-const ProfileMenu = props => {
+const page = "page";
+const ProfileMenu = (props, { dispatch }) => {
   return (
     <div className="new-board right-popup">
       <div className="popup-header title">
@@ -14,10 +17,12 @@ const ProfileMenu = props => {
       <div className="popup new-option">
         <div className="new-option title">
           <div className="main-icon" />
-          <div>View Profile</div>
+          <div onClick={e => props.dispatch(setPage("profile"))}>
+            View Profile
+          </div>
         </div>
       </div>
     </div>
   );
 };
-export default ProfileMenu;
+export default connect()(ProfileMenu);
