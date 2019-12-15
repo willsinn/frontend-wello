@@ -14,7 +14,7 @@ const ProfileMenu = props => {
       <div className="popup new-option">
         <div className="new-option title">
           <div className="main-icon" />
-          <div>Create Board...</div>
+          <div>View Profile</div>
         </div>
       </div>
     </div>

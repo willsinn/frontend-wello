@@ -1,23 +1,35 @@
 import React from "react";
 import NavBar from "./containers/NavBar";
-import "./App.css";
 import HomePage from "./containers/HomePage";
+import ProfilePage from "./containers/ProfilePage";
 import Board from "./containers/Board";
 import { connect } from "react-redux";
+import "./App.css";
 
 const App = props => {
+  console.log(props.activePg["activePg"]);
   return (
     <>
       <NavBar />
-      {props.workspace.id !== undefined ? (
-        <Board workspace={props.workspace} projectId={props.workspace.id} />
-      ) : (
-        <HomePage />
-      )}
+      {(() => {
+        switch (props.activePg["activePg"]) {
+          case "home":
+            return <HomePage />;
+          case "board":
+            return <Board />;
+          case "profile":
+            return <ProfilePage />;
+          default:
+            return <HomePage />;
+        }
+      })()}
     </>
   );
 };
-const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  workspace: workspace.workspace
+// const mapStateToProps = ({ workspaceReducer: workspace }) => ({
+//   workspace: workspace.workspace
+// });
+const mapStateToProps = ({ userReducer: activePg }) => ({
+  activePg: activePg.activePg
 });
 export default connect(mapStateToProps)(App);
