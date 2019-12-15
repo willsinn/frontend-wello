@@ -43,14 +43,13 @@ const NavBar = props => {
         </div>
         <div className="right-navbar">
           <button className="navbar-btn" onClick={e => setRightnav("create")}>
-            +
+            <span className="create-icon">+</span>
           </button>
           <button className="navbar-btn" onClick={e => setRightnav("noti")}>
-            <div className="not-icon" />
-            <div />
+            <span className="not-icon" />
           </button>
           <button className="navbar-btn" onClick={e => setRightnav("prof")}>
-            <div className="prof-icon">W.S.</div>
+            <span className="prof-icon">W.S.</span>
           </button>
         </div>
       </div>

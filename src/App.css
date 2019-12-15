@@ -132,8 +132,9 @@ body {
 .right-navbar {
   position: relative;
   height: 32px;
-  right: 14px;
+  right: 24px;
   display: flex;
+  width: fit-content;
 }
 .right-navbar .navbar-btn {
   box-shadow: none;
@@ -195,7 +196,7 @@ body {
   box-shadow: none;
   box-sizing: border-box;
   color: hsla(0, 0%, 100%, 0.5);
-  font-size: 18px;
+  font-size: 20px;
   height: 32px;
   line-height: 32px;
   margin: 0;
@@ -873,10 +874,14 @@ body {
   opacity: 1;
 } */
 .not-icon {
-  background-image: url("./images/not-icon.png");
+  background: url("./images/notify-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
   height: 28px;
   width: 28px;
   padding-right: 4px;
+}
+
+.prof-icon {
+  font-size: 20px;
 }
