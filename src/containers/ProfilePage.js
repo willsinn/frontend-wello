@@ -5,7 +5,11 @@ const ProfilePage = () => {
     <div className="profile-page">
       <div className="tabbed-profile-header">
         <div className="tabbed-profile-header wrapper">
-          <div className="profile-nicknames">WILL SINN, @WILL-SINN</div>
+          <div className="profile-nicknames">
+            <span className="profile-initials">WS</span>
+            <span className="profile-">WILL SINN</span>
+            <span className="profile-">@WILL-SINN</span>
+          </div>
         </div>
       </div>
     </div>
