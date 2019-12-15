@@ -1,10 +1,10 @@
 import React from "react";
-import BoardsTiled from "../components/BoardsTiled";
+import HomeTiles from "../components/HomeTiles";
 
 const HomePage = props => {
   return (
     <div onClick id="userprojects" className="container">
-      <BoardsTiled />
+      <HomeTiles />
     </div>
   );
 };

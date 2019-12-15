@@ -22,6 +22,7 @@ const Boards = props => {
       const items = props.items;
       return mapItems(items);
     }
+    console.log(props);
     if (props.workspace.items.length !== undefined) {
       props.dispatch(setItems(props.workspace.items));
       return mapItems(props.workspace.items);

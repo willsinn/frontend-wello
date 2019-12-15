@@ -18,7 +18,7 @@ const App = props => {
           case "home":
             return <HomePage />;
           case "board":
-            return <Board />;
+            return <Board workspace={props.workspace} />;
           case "profile":
             return <ProfilePage />;
           default:
