@@ -48,9 +48,20 @@ const NavBar = props => {
           <button className="navbar-btn" onClick={e => setRightnav("noti")}>
             <span className="not-icon" />
           </button>
-          <button className="navbar-btn" onClick={e => setRightnav("prof")}>
-            <span className="prof-icon">W.S.</span>
-          </button>
+          <div onClick={e => setRightnav("prof")}>
+            <span
+              className="user-initials"
+              style={{
+                height: "32px",
+                width: "32px",
+                lineHeight: "32px",
+                fontSize: "14px",
+                margin: "0"
+              }}
+            >
+              WS
+            </span>
+          </div>
         </div>
       </div>
     </div>
