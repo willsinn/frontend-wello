@@ -1,6 +1,9 @@
 import React from "react";
 
 const ProfilePage = () => {
+  const selectTabStyle = {
+    "background-color": "transparent"
+  };
   return (
     <>
       <div className="profile-page">
@@ -20,6 +23,7 @@ const ProfilePage = () => {
             <a
               class="tabbed-pane-nav-item-button js-member-profile"
               data-tab="profile"
+              style={selectTabStyle}
             >
               Profile and Visibility
             </a>
