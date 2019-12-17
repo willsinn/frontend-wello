@@ -1,4 +1,5 @@
 import React from "react";
+import About from "../components/About";
 
 const ProfilePage = () => {
   const selectTabStyle = {
@@ -54,6 +55,7 @@ const ProfilePage = () => {
           </li>
         </ul>
       </div>
+      <About />
     </>
   );
 };

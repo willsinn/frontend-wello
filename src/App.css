@@ -991,3 +991,11 @@ ul {
   position: relative;
   text-align: center;
 }
+.about {
+  width: 100%;
+  max-width: 530px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
