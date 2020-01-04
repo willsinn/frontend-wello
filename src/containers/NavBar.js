@@ -20,7 +20,7 @@ const NavBar = props => {
         <div className="left-navbar">
           <HomeBtn close={closeRightnav} />
           <button className="navbar-btn" onClick={e => setSidebar(!sidebar)}>
-            Boards
+            <span className="nav-icon" />
           </button>
         </div>
         {!sidebar ? null : <SidebarList close={closeLeftnav} />}

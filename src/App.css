@@ -163,15 +163,32 @@ ul {
   display: flex;
   width: fit-content;
 }
-.right-navbar .navbar-btn {
+/* .right-navbar .navbar-btn {
   box-shadow: none;
   width: 32px;
   height: 32px;
   font-size: 30px;
   font-weight: 200;
   margin-left: 4px;
+} */
+.right-navbar .left-navbar .navbar-btn {
+  background-color: hsla(0, 0%, 100%, 0.2);
+  font-size: 20px;
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-family: trellicons;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: bottom;
 }
-.right-navbar .navbar-btn:hover {
+.right-navbar .left-navbar .navbar-btn:hover {
   background-color: hsla(0, 0%, 100%, 0.2);
   box-shadow: none;
   color: #fff;
@@ -229,14 +246,14 @@ ul {
   margin: 0;
   outline: none;
   transition: width 0.15s;
-  width: 125px;
+  width: 32px;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
     Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 900;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  margin-right: 4px;
 }
 
 .navbar-btn:hover {
@@ -247,7 +264,7 @@ ul {
   margin: 0;
   outline: none;
   transition: width 0.15s;
-  width: 125px;
+  width: 32px;
 }
 .navbar-btn.home {
   width: 32px;
