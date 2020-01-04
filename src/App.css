@@ -308,12 +308,21 @@ ul {
   position: relative;
   transition: padding 0.1s ease-in;
   background: rgba(0, 0, 0, 0.24);
+  display: flex;
 }
 .board-ops .title-top {
-  font-size: 48px;
-  position: relative;
-  top: 20px;
-  left: -25px;
+  background: transparent;
+  cursor: default;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #fff;
+  padding: 0;
+  text-decoration: none;
+  max-width: calc(100% - 24px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .board-ops .title-right {
   display: flex;
