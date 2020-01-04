@@ -23,7 +23,7 @@ ul {
   height: 100vh;
   width: 100vw;
 }
-#navbar {
+/* #navbar {
   padding: 4px;
   background: rgba(0, 0, 0, 0.32);
   height: 32px;
@@ -38,9 +38,21 @@ ul {
   padding: 4px;
   z-index: 10;
   position: relative;
-}
+} */
 .nav-wrap {
   position: relative;
+}
+#navbar {
+  height: 32px;
+  position: relative;
+  background: #026aa7;
+  overflow: hidden;
+  padding: 4px;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 40px;
+  justify-content: space-between;
 }
 #userprojects {
   height: inherit;
