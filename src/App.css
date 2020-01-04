@@ -307,8 +307,8 @@ ul {
   padding: 8px 4px 4px 8px;
   position: relative;
   transition: padding 0.1s ease-in;
-  background: rgba(0, 0, 0, 0.24);
   display: flex;
+  justify-content: space-between;
 }
 .board-ops .title-top {
   background: transparent;
@@ -319,10 +319,6 @@ ul {
   color: #fff;
   padding: 0;
   text-decoration: none;
-  max-width: calc(100% - 24px);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .board-ops .title-right {
   display: flex;
