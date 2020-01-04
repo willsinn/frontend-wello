@@ -261,7 +261,6 @@ ul {
   background-color: hsla(0, 0%, 100%, 0.5);
   height: 32px;
   line-height: 19px;
-  margin: 0;
   outline: none;
   transition: width 0.15s;
   width: 32px;
