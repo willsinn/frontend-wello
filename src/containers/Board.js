@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Boards from "../components/Boards";
 import HomeBtn from "../components/HomeBtn";
-import WorkspaceMenuBtns from "../components/WorkspaceMenuBtns";
+import DelBoardBtn from "../components/DelBoardBtn";
 import { connect } from "react-redux";
 import Mountians from "../images/mountianrange.jpg";
 import Lake from "../images/lake.jpg";
@@ -42,12 +42,12 @@ const Board = props => {
               {props.workspace.title}
             </span>
             <button className="navbar-btn">
-              <span className="fav-star-icon" />
+              <span className="fav-star-icon icon" />
             </button>
           </div>
         </div>
         <div className="board-ops right">
-          <WorkspaceMenuBtns workspace={props.workspace} />
+          <DelBoardBtn workspace={props.workspace} />
         </div>
       </div>
       <Boards key={props.workspace.id} workspace={props.workspace} />

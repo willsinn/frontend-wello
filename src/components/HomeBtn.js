@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { setPage } from "../actions/user";
 
 const HomeBtn = (props, { dispatch }) => (
-  <a className="navbar-btn home" onClick={e => props.dispatch(setPage("home"))}>
+  <a className="navbar-btn" onClick={e => props.dispatch(setPage("home"))}>
     <img
-      className="home-icon"
+      className="icon"
       src={require("../images/home-icon.png")}
       alt="home"
       opacity="1"

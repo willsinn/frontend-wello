@@ -13,6 +13,8 @@ textarea {
 }
 body {
   margin: auto;
+  width: 100vw;
+  overflow: hidden;
 }
 ul {
   list-style: none;
@@ -21,9 +23,7 @@ ul {
 }
 #root {
   height: 100vh;
-  width: 100vw;
 }
-
 .nav-wrap {
   position: relative;
 }
@@ -119,14 +119,7 @@ ul {
   display: flex;
   align-items: center;
 }
-.nav-icon {
-  background-image: url("./images/nav-icon.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 22px;
-  width: 22px;
-  padding-right: 4px;
-}
+
 .right-navbar {
   display: flex;
 }
@@ -757,13 +750,6 @@ ul {
   font-weight: bold;
   color: white;
 }
-.home-icon {
-  background-size: contain;
-  background-color: transparent;
-  opacity: 1;
-  width: 18px;
-  height: 18px;
-}
 .popup-header {
   border-bottom: 1px solid rgba(9, 30, 66, 0.13);
   box-sizing: border-box;
@@ -804,14 +790,6 @@ ul {
   text-align: center;
 }
 
-.main-icon {
-  background-image: url("./images/main-icon.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 16px;
-  width: 16px;
-  padding-right: 4px;
-}
 .title {
   display: flex;
 }
@@ -850,20 +828,7 @@ ul {
 .notifications.right-popup {
   width: 420px;
 }
-/* .wrap {
-  background: transparent;
-  opacity: 1;
-} */
-.noti-icon {
-  background-color: transparent;
-  opacity: 1;
-  width: 18px;
-  height: 18px;
-}
 
-.prof-icon {
-  font-size: 20px;
-}
 .tabbed-profile-header {
   background-color: #f4f5f7;
   height: 152px;
@@ -905,6 +870,8 @@ ul {
   overflow: hidden;
   white-space: nowrap;
   margin-right: 10px;
+}
+.user-initials:hover {
 }
 .user-fullname {
   font-size: 24px;
@@ -989,20 +956,37 @@ ul {
   align-items: center;
   margin: auto;
 }
+
+.board-ops.right {
+  padding-right: 20px;
+}
+
+/*
+  ICON BUTTONS
+*/
+.icon {
+  background-color: transparent;
+  background-size: contain;
+  width: 18px;
+  height: 18px;
+}
+.prof-icon {
+  font-size: 20px;
+}
 .fav-star-icon {
   background-image: url("./images/fav-star-icon.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 18px;
-  width: 18px;
 }
 .del-icon {
   background-image: url("./images/delete-icon.png");
+}
+.home-icon {
+  background-size: contain;
+}
+.nav-icon {
+  background-image: url("./images/nav-icon.jpg");
   background-size: contain;
   background-repeat: no-repeat;
-  height: 18px;
-  width: 18px;
-}
-.board-ops.right {
-  padding-right: 20px;
+  height: 22px;
+  width: 22px;
+  padding-right: 4px;
 }

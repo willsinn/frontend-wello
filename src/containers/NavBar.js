@@ -44,7 +44,7 @@ const NavBar = props => {
         <div className="right-navbar">
           <a className="navbar-btn" onClick={e => setRightnav("create")}>
             <img
-              className="noti-icon"
+              className="icon"
               src={require("../images/add-new-icon.png")}
               alt="create"
               opacity="1"
@@ -52,7 +52,7 @@ const NavBar = props => {
           </a>
           <a className="navbar-btn" onClick={e => setRightnav("noti")}>
             <img
-              className="noti-icon"
+              className="icon"
               src={require("../images/notify-icon.png")}
               alt="noti"
               opacity="1"
