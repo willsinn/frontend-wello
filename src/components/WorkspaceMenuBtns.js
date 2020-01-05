@@ -9,11 +9,9 @@ const WorkspaceMenuBtns = (props, { dispatch }) => {
     props.dispatch(clearWorkspace());
   };
   return (
-    <div className="pwc-title-right">
-      <button onClick={e => handleDelete(e)} className="navbar-btn">
-        Delete Workspace
-      </button>
-    </div>
+    <button onClick={e => handleDelete(e)} className="navbar-btn">
+      <span className="del-icon" />
+    </button>
   );
 };
 

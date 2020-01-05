@@ -1001,3 +1001,13 @@ ul {
   height: 18px;
   width: 18px;
 }
+.del-icon {
+  background-image: url("./images/delete-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 18px;
+  width: 18px;
+}
+.board-ops.right {
+  padding-right: 20px;
+}
