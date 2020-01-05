@@ -42,9 +42,14 @@ const NavBar = props => {
           <div className="app-name"> Wello</div>
         </div>
         <div className="right-navbar">
-          <button className="navbar-btn" onClick={e => setRightnav("create")}>
-            <span className="create-icon">+</span>
-          </button>
+          <a className="navbar-btn" onClick={e => setRightnav("create")}>
+            <img
+              className="noti-icon"
+              src={require("../images/add-new-icon.png")}
+              alt="create"
+              opacity="1"
+            />
+          </a>
           <a className="navbar-btn" onClick={e => setRightnav("noti")}>
             <img
               className="noti-icon"
