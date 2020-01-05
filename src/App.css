@@ -128,11 +128,7 @@ ul {
   padding-right: 4px;
 }
 .right-navbar {
-  position: relative;
-  height: 32px;
-  right: 24px;
   display: flex;
-  width: fit-content;
 }
 
 .right-navbar .left-navbar .navbar-btn {
@@ -765,8 +761,8 @@ ul {
   background-size: contain;
   background-color: transparent;
   opacity: 1;
-  width: 25px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
 }
 .popup-header {
   border-bottom: 1px solid rgba(9, 30, 66, 0.13);
@@ -858,12 +854,11 @@ ul {
   background: transparent;
   opacity: 1;
 } */
-.not-icon {
-  background: url("./images/notify-icon.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 28px;
-  width: 28px;
+.noti-icon {
+  background-color: transparent;
+  opacity: 1;
+  width: 18px;
+  height: 18px;
 }
 
 .prof-icon {

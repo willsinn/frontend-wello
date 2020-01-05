@@ -45,9 +45,14 @@ const NavBar = props => {
           <button className="navbar-btn" onClick={e => setRightnav("create")}>
             <span className="create-icon">+</span>
           </button>
-          <button className="navbar-btn" onClick={e => setRightnav("noti")}>
-            <span className="not-icon" />
-          </button>
+          <a className="navbar-btn" onClick={e => setRightnav("noti")}>
+            <img
+              className="noti-icon"
+              src={require("../images/notify-icon.png")}
+              alt="noti"
+              opacity="1"
+            />
+          </a>
           <div onClick={e => setRightnav("prof")}>
             <span
               className="user-initials"
