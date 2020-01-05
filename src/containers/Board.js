@@ -32,7 +32,15 @@ const Board = props => {
       <div className="board-header">
         <div className="board-ops left">
           <div className="board-ops title-top">
-            <span>{props.workspace.title} </span>
+            <span
+              className="b-name"
+              style={{
+                paddingLeft: "12px",
+                paddingRight: "12px"
+              }}
+            >
+              {props.workspace.title}
+            </span>
             <button className="navbar-btn">
               <span className="fav-star-icon" />
             </button>
