@@ -42,23 +42,23 @@ const NavBar = props => {
           <div className="app-name"> Wello</div>
         </div>
         <div className="right-navbar">
-          <a className="navbar-btn" onClick={e => setRightnav("create")}>
+          <button className="navbar-btn" onClick={e => setRightnav("create")}>
             <img
               className="icon"
               src={require("../images/add-new-icon.png")}
               alt="create"
               opacity="1"
             />
-          </a>
-          <a className="navbar-btn" onClick={e => setRightnav("noti")}>
+          </button>
+          <button className="navbar-btn" onClick={e => setRightnav("noti")}>
             <img
               className="icon"
               src={require("../images/notify-icon.png")}
               alt="noti"
               opacity="1"
             />
-          </a>
-          <div onClick={e => setRightnav("prof")}>
+          </button>
+          <button onClick={e => setRightnav("prof")}>
             <span
               className="user-initials"
               style={{
@@ -71,7 +71,7 @@ const NavBar = props => {
             >
               WS
             </span>
-          </div>
+          </button>
         </div>
       </div>
     </div>
