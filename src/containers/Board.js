@@ -31,7 +31,12 @@ const Board = props => {
     <div id="workspace" style={{ backgroundImage: `url('${bgs[index]}')` }}>
       <div className="board-header">
         <div className="board-ops left">
-          <div className="board-ops title-top">{props.workspace.title}</div>
+          <div className="board-ops title-top">
+            <span>{props.workspace.title} </span>
+            <button className="navbar-btn">
+              <span />
+            </button>
+          </div>
         </div>
         <div className="board-ops right">
           <WorkspaceMenuBtns workspace={props.workspace} />

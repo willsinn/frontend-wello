@@ -319,6 +319,7 @@ ul {
   color: #fff;
   padding: 0;
   text-decoration: none;
+  display: flex;
 }
 .board-ops .title-right {
   display: flex;
