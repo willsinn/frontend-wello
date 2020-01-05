@@ -995,3 +995,10 @@ ul {
   align-items: center;
   margin: auto;
 }
+.fav-star-icon {
+  background-image: url("./images/fav-star-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 18px;
+  width: 18px;
+}

@@ -34,7 +34,7 @@ const Board = props => {
           <div className="board-ops title-top">
             <span>{props.workspace.title} </span>
             <button className="navbar-btn">
-              <span />
+              <span className="fav-star-icon" />
             </button>
           </div>
         </div>
