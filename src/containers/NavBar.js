@@ -58,7 +58,7 @@ const NavBar = props => {
               opacity="1"
             />
           </button>
-          <button onClick={e => setRightnav("prof")}>
+          <div onClick={e => setRightnav("prof")}>
             <span
               className="user-initials"
               style={{
@@ -71,7 +71,7 @@ const NavBar = props => {
             >
               WS
             </span>
-          </button>
+          </div>
         </div>
       </div>
     </div>
