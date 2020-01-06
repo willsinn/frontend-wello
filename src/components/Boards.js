@@ -8,13 +8,15 @@ import { connect } from "react-redux";
 const Boards = props => {
   const mapItems = array =>
     array.map(item => (
-      <li
-        key={`project${item.id}${props.workspace.id}`}
-        className="wsp-list-item"
-      >
-        <WorkspaceItem item={item} workspace={props.workspace} />
-        <WorkspaceControl item={item} workspace={props.workspace} />
-      </li>
+      <div className="board-item">
+        <li
+          key={`project${item.id}${props.workspace.id}`}
+          className="wsp-list-item"
+        >
+          <WorkspaceItem item={item} workspace={props.workspace} />
+          <WorkspaceControl item={item} workspace={props.workspace} />
+        </li>
+      </div>
     ));
 
   const renderItems = () => {
@@ -30,15 +32,13 @@ const Boards = props => {
   };
 
   return (
-    <div className="workspace-list-wrapper">
-      <ul className="workspace-list">
-        {renderItems()}
-        <li className="wsp-list-item">
-          <div className="wsp-title">
-            <AddCard workspace={props.workspace} />
-          </div>
-        </li>
-      </ul>
+    <div className="boards-list">
+      {renderItems()}
+      <div className="wsp-list-item">
+        <div className="wsp-title">
+          <AddCard workspace={props.workspace} />
+        </div>
+      </div>
     </div>
   );
 };
