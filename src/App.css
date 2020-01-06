@@ -59,6 +59,9 @@ ul {
   display: flex;
   flex-direction: column;
 }
+.boards-list:first-child {
+  margin-left: 8px;
+}
 .boards-list {
   display: flex;
   width: 100%;
@@ -81,28 +84,16 @@ ul {
   flex-direction: column;
   /* overflow-y: auto; */
 }
-.wsp-title-wrapper {
+
+.wsp-list-item {
+  background-color: #ebecf0;
+  border-radius: 3px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  /* overflow-y: auto; */
-  background-color: #cccccce6;
+  max-height: 100%;
   position: relative;
-}
-.wsp-list-item {
-  min-width: 250px;
-  max-width: 250px;
-  max-height: 75vh;
-  list-style-type: none;
-  margin-left: 18px;
-  display: flex;
-  flex-direction: column-reverse;
-  background: ghostwhite;
-  justify-content: flex-end;
-  position: relative;
-  border: 1.5px outset white;
-  border-radius: 3.5px;
-  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
+  white-space: normal;
 }
 .board-item {
   width: 272px;
@@ -482,7 +473,6 @@ ul {
 .workspace-item-control {
   display: flex;
   min-height: 45px;
-  height: 100%;
   padding-left: 12.5px;
   align-items: center;
   font-size: 1.5em;

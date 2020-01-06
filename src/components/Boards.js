@@ -9,13 +9,8 @@ const Boards = props => {
   const mapItems = array =>
     array.map(item => (
       <div className="board-item">
-        <li
-          key={`project${item.id}${props.workspace.id}`}
-          className="wsp-list-item"
-        >
-          <WorkspaceItem item={item} workspace={props.workspace} />
-          <WorkspaceControl item={item} workspace={props.workspace} />
-        </li>
+        <WorkspaceItem item={item} workspace={props.workspace} />
+        <WorkspaceControl item={item} workspace={props.workspace} />
       </div>
     ));
 
