@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 const Boards = props => {
   const mapItems = array =>
     array.map(item => (
-      <div className="board-item">
+      <div className="board-item" key={item.id}>
         <WorkspaceItem item={item} workspace={props.workspace} />
         <WorkspaceControl item={item} workspace={props.workspace} />
       </div>
