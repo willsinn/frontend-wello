@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { postWorkspaceItem } from "../actions/workspace";
 
 const initialState = { objective: "" };
-const AddCard = (props, { dispatch }) => {
+const AddBoardItem = (props, { dispatch }) => {
   const [objective, setObjective] = useState(initialState);
   const clearState = e => {
     setObjective({ ...initialState });
@@ -41,4 +41,4 @@ const AddCard = (props, { dispatch }) => {
     </div>
   );
 };
-export default connect()(AddCard);
+export default connect()(AddBoardItem);
