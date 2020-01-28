@@ -1,16 +1,19 @@
 import React from "react";
-import WorkspaceItem from "./WorkspaceItem";
+import BoardItemCard from "./BoardItemCard";
+import CardsList from "./CardsList";
+import AddCardMessage from "../containers/AddCardMessage";
 import AddCard from "../containers/AddCard";
 import WorkspaceControl from "./WorkspaceControl";
 import { setItems } from "../actions/workspace";
 import { connect } from "react-redux";
 
-const Boards = props => {
+const BoardItemDeck = props => {
   const mapItems = array =>
     array.map(item => (
       <div className="board-item" key={item.id}>
-        <WorkspaceItem item={item} workspace={props.workspace} />
-        <WorkspaceControl item={item} workspace={props.workspace} />
+        <BoardItemCard item={item} workspace={props.workspace} />
+        <CardsList key={`one${item.id}`} item={item} />
+        <AddCardMessage key={item.id} item={item} />
       </div>
     ));
 
@@ -42,4 +45,4 @@ const mapStateToProps = ({ workspaceReducer: workspace }) => ({
   items: workspace.items
 });
 
-export default connect(mapStateToProps)(Boards);
+export default connect(mapStateToProps)(BoardItemDeck);

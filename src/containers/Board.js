@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Boards from "../components/Boards";
+import BoardItemDeck from "../components/BoardItemDeck";
 import HomeBtn from "../components/HomeBtn";
 import DelBoardBtn from "../components/DelBoardBtn";
 import { connect } from "react-redux";
@@ -50,7 +50,7 @@ const Board = props => {
           <DelBoardBtn workspace={props.workspace} />
         </div>
       </div>
-      <Boards key={props.workspace.id} workspace={props.workspace} />
+      <BoardItemDeck key={props.workspace.id} workspace={props.workspace} />
     </div>
   );
 };
