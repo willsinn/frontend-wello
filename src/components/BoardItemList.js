@@ -14,11 +14,7 @@ const BoardItemList = props => {
   return (
     <div className="boards-list">
       {renderItems()}
-      <div className="wsp-list-item">
-        <div className="wsp-title">
-          <AddBoardItem workspace={props.workspace} />
-        </div>
-      </div>
+      <AddBoardItem workspace={props.workspace} />
     </div>
   );
 };
