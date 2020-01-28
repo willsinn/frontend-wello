@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ItemDropdownMenu from "./ItemDropdownMenu";
-import WorkspaceItemTitle from "./WorkspaceItemTitle";
 import EditItemTitleForm from "./EditItemTitleForm";
 const BoardItemCard = props => {
   const [dropdown, setDropdown] = useState(false);
@@ -24,7 +23,7 @@ const BoardItemCard = props => {
   return (
     <div className="workspace-item-control">
       {!editing ? (
-        <WorkspaceItemTitle item={props.item} />
+        <span>{props.item.objective}</span>
       ) : (
         <EditItemTitleForm
           item={props.item}
