@@ -1,7 +1,7 @@
 import React from "react";
 
 const AddNewBoard = props => {
-  return <div className="card">{props.subject}</div>;
+  return <div>CREATE NEW BOARD</div>;
 };
 
 export default AddNewBoard;

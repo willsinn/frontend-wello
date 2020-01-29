@@ -1,8 +1,10 @@
 import React from "react";
+import AddNewBoard from "./AddNewBoard";
 
 const PlusDropdown = props => {
   return (
     <div className="new-board right-popup">
+      <AddNewBoard />
       <div className="popup-header title">
         <div className="popup-header label">Create</div>
         <div className="popup-header close">
