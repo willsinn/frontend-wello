@@ -1,6 +1,6 @@
 import React from "react";
 
-const NotificationsMenu = props => {
+const NoteDropdown = props => {
   return (
     <div className="notifications right-popup">
       <div className="popup-header title">
@@ -20,4 +20,4 @@ const NotificationsMenu = props => {
   );
 };
 
-export default NotificationsMenu;
+export default NoteDropdown;

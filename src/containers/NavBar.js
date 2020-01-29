@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CreateMenu from "../components/CreateMenu";
-import NotificationsMenu from "../components/NotificationsMenu";
-import ProfileMenu from "../components/ProfileMenu";
+import PlusDropdown from "../components/PlusDropdown";
+import NoteDropdown from "../components/NoteDropdown";
+import ProfileDropdown from "../components/ProfileDropdown";
 import SidebarList from "../components/SidebarList";
 import HomeBtn from "../components/HomeBtn";
 
@@ -27,11 +27,11 @@ const NavBar = props => {
         {(() => {
           switch (rightnav) {
             case "create":
-              return <CreateMenu close={closeRightnav} />;
+              return <PlusDropdown close={closeRightnav} />;
             case "noti":
-              return <NotificationsMenu close={closeRightnav} />;
+              return <NoteDropdown close={closeRightnav} />;
             case "prof":
-              return <ProfileMenu close={closeRightnav} />;
+              return <ProfileDropdown close={closeRightnav} />;
             default:
               return null;
           }

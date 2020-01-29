@@ -1,6 +1,6 @@
 import React from "react";
 
-const CreateMenu = props => {
+const PlusDropdown = props => {
   return (
     <div className="new-board right-popup">
       <div className="popup-header title">
@@ -27,4 +27,4 @@ const CreateMenu = props => {
   );
 };
 
-export default CreateMenu;
+export default PlusDropdown;

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import BoardItemList from "../components/BoardItemList";
 import HomeBtn from "../components/HomeBtn";
 import DelBoardBtn from "../components/DelBoardBtn";
-import { connect } from "react-redux";
 import Mountians from "../images/mountianrange.jpg";
 import Lake from "../images/lake.jpg";
 import Beach from "../images/beach.jpg";
+import { connect } from "react-redux";
 
 const Board = props => {
   const [index, setIndex] = useState(null);

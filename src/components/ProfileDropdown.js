@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { setPage } from "../actions/user";
 
-const ProfileMenu = (props, { dispatch }) => {
+const ProfileDropdown = (props, { dispatch }) => {
   return (
     <div className="board right-popup">
       <div className="popup-header title">
@@ -54,4 +54,4 @@ const ProfileMenu = (props, { dispatch }) => {
     </div>
   );
 };
-export default connect()(ProfileMenu);
+export default connect()(ProfileDropdown);
