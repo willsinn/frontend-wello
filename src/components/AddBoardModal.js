@@ -1,9 +1,16 @@
 import React from "react";
+import NewBoardForm from "./NewBoardForm";
 
 const AddNewBoard = props => {
+  console.log(props.active);
   return (
-    <div className="add-board-modal">
-      <div className="new-board-form"> Form here </div> CREATE NEW BOARD
+    <div
+      className="add-board-modal"
+      style={props.active ? { display: "block" } : { display: "none" }}
+    >
+      <div className="modal-content">
+        <NewBoardForm />
+      </div>
     </div>
   );
 };
