@@ -1,38 +1,45 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postWorkspaceItem } from "../actions/workspace";
+import { postNewProject } from "../actions/projects";
 
-const initialFullname = { fullname: "" };
+const initialTitle = { title: "" };
 const initialTeam = { team: "" };
 
 const NewBoardForm = (props, { dispatch }) => {
-  const [fullname, setFullname] = useState(initialFullname);
+  const [title, setTitle] = useState(initialTitle);
   const [team, setTeam] = useState(initialTeam);
 
   const handleChange = e => {
-    if (e.target.name === "fullname") {
+    if (e.target.name === "title") {
       e.persist(e.target.value);
-      setFullname(e.target.value);
+      setTitle(e.target.value);
     }
     if (e.target.name === "team") {
       e.persist(e.target.value);
       setTeam(e.target.value);
     }
   };
-  console.log(fullname);
+
+  const handleSubmit = e => {
+    if (e) {
+      e.preventDefault();
+      return props.dispatch(postNewProject({ title: title }));
+    }
+  };
+  console.log(title);
   return (
-    <form className="board-form">
+    <form className="board-form" onSubmit={handleSubmit}>
       <input
         autoComplete="off"
         autoCorrect="off"
         spellCheck="false"
         type="text"
-        name="fullname"
+        name="title"
         onChange={handleChange}
         className="new-board-input"
         placeholder="Add board title"
         data-test-id="create-board-full-name"
-        value={fullname.value}
+        value={title.value}
       />
       <input
         autoComplete="off"
@@ -40,7 +47,7 @@ const NewBoardForm = (props, { dispatch }) => {
         spellCheck="false"
         type="text"
         name="team"
-        onChange={e => handleChange(e)}
+        onChange={handleChange}
         className="new-board-input"
         placeholder="add team name"
         data-test-id="create-board-title-input"
@@ -53,4 +60,4 @@ const NewBoardForm = (props, { dispatch }) => {
   );
 };
 
-export default NewBoardForm;
+export default connect()(NewBoardForm);
