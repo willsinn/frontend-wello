@@ -2,6 +2,7 @@ import React from "react";
 import NewBoardForm from "./NewBoardForm";
 
 const AddNewBoard = props => {
+  console.log(props.active);
   return (
     <div
       className="add-board-modal"

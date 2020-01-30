@@ -1017,3 +1017,6 @@ ul {
   padding: 10px 10px 10px 16px;
   position: relative;
 }
+.board-form {
+  color: black;
+}
