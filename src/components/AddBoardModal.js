@@ -9,7 +9,7 @@ const AddNewBoard = props => {
       style={props.active ? { display: "block" } : { display: "none" }}
     >
       <div className="modal-content">
-        <NewBoardForm />
+        <NewBoardForm active={props.active} closeModal={props.closeModal} />
       </div>
     </div>
   );

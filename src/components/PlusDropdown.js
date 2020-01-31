@@ -3,14 +3,18 @@ import AddBoardModal from "./AddBoardModal";
 
 const PlusDropdown = props => {
   const [active, setActive] = useState(false);
+  const closeModal = e => {
+    setActive(false);
+    props.closeRightnav(e);
+  };
   return (
     <div className="new-board right-modal">
-      <AddBoardModal active={active} />
+      <AddBoardModal active={active} closeModal={closeModal} />
       <div className="modal-header title">
         <div className="modal-header label">Create</div>
         <div className="modal-header close">
           <button>
-            <span onClick={e => props.close(e)}>×</span>
+            <span onClick={e => props.closeRightnav(e)}>×</span>
           </button>
         </div>
       </div>

@@ -27,11 +27,11 @@ const NavBar = props => {
         {(() => {
           switch (rightnav) {
             case "create":
-              return <PlusDropdown close={closeRightnav} />;
+              return <PlusDropdown closeRightnav={closeRightnav} />;
             case "noti":
-              return <NoteDropdown close={closeRightnav} />;
+              return <NoteDropdown closeRightnav={closeRightnav} />;
             case "prof":
-              return <ProfileDropdown close={closeRightnav} />;
+              return <ProfileDropdown closeRightnav={closeRightnav} />;
             default:
               return null;
           }

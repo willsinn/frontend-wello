@@ -19,11 +19,16 @@ const NewBoardForm = (props, { dispatch }) => {
       setTeam(e.target.value);
     }
   };
+  const resetForm = e => {
+    setTitle(initialTitle);
+    props.closeModal(e);
+  };
 
   const handleSubmit = e => {
     if (e) {
       e.preventDefault();
-      return props.dispatch(postNewProject({ title: title }));
+      props.dispatch(postNewProject({ title: title }));
+      resetForm(e);
     }
   };
   console.log(title);
