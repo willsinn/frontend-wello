@@ -974,6 +974,10 @@ ul {
 .prof-icon {
   font-size: 20px;
 }
+.main-icon {
+  background-image: url("./images/main-icon.png");
+  display: flex;
+}
 .fav-star-icon {
   background-image: url("./images/fav-star-icon.png");
 }
@@ -1040,5 +1044,30 @@ ul {
 }
 .modal.close-btn {
   position: relative;
-  margin-right: -10px;
+  margin-right: -20px;
+}
+.create-board-btn:hover {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: #172b4d;
+  background: rgba(9, 30, 66, 0.04);
+}
+.create-board-btn {
+  background-color: transparent;
+  border: none;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  color: #172b4d;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 6px 12px;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+  transition: none;
+  margin: 0;
+  outline: 0;
 }
