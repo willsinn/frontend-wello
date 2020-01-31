@@ -40,7 +40,7 @@ const NewBoardForm = (props, { dispatch }) => {
         type="text"
         name="title"
         onChange={handleChange}
-        className="new-board-input"
+        className="new-board input"
         placeholder="Add board title"
         data-test-id="create-board-full-name"
         value={title.value}
@@ -52,7 +52,7 @@ const NewBoardForm = (props, { dispatch }) => {
         type="text"
         name="team"
         onChange={handleChange}
-        className="new-board-input"
+        className="new-board input"
         placeholder="add team name"
         data-test-id="create-board-title-input"
         value={team.value}
