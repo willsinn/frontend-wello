@@ -23,17 +23,23 @@ const NavBar = props => {
             <span className="nav-icon" />
           </button>
         </div>
+
         {!sidebar ? null : <SidebarList close={closeLeftnav} />}
+
         {(() => {
           switch (rightnav) {
             case "create":
               return <PlusDropdown closeRightnav={closeRightnav} />;
+              break;
             case "noti":
               return <NoteDropdown closeRightnav={closeRightnav} />;
+              break;
             case "prof":
               return <ProfileDropdown closeRightnav={closeRightnav} />;
+              break;
             default:
               return null;
+              break;
           }
         })()}
 

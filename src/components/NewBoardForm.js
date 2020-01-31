@@ -31,7 +31,6 @@ const NewBoardForm = (props, { dispatch }) => {
       resetForm(e);
     }
   };
-  console.log(title);
   return (
     <form className="board-form" onSubmit={handleSubmit}>
       <input
