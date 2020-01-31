@@ -9,10 +9,10 @@ const AddBoardModal = props => {
       onClick={e => props.closeModal(e)}
     >
       <div className="modal-content" onClick>
+        <NewBoardForm active={props.active} closeModal={props.closeModal} />
         <button className="modal close-btn" onClick={e => props.closeModal(e)}>
           <span>x</span>
         </button>
-        <NewBoardForm active={props.active} closeModal={props.closeModal} />
       </div>
     </div>
   );

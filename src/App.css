@@ -1015,11 +1015,14 @@ ul {
   box-sizing: border-box;
   color: #fff;
   padding: 10px 10px 10px 16px;
+  display: flex;
+  justify-content: space-between;
   position: relative;
   background-position: 50%;
 }
 .board-form {
   color: black;
+  width: 90%;
 }
 
 .input {
@@ -1033,17 +1036,9 @@ ul {
   text-shadow: none;
   display: inline-block;
   text-align: start;
+  width: inherit;
 }
-/*
-.new-board.input {
-  background-color: #0079bf;
-  background-size: cover;
-  background-position: 50%;
-  border-radius: 3px;
-  box-sizing: border-box;
-  color: #fff;
-  height: 96px;
-  padding: 10px 10px 10px 16px;
+.modal.close-btn {
   position: relative;
-  width: 296px;
-} */
+  margin-right: -10px;
+}
