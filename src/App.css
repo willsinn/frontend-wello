@@ -26,9 +26,6 @@ ul {
   width: 100vw;
 }
 
-.nav-wrap {
-  position: relative;
-}
 #navbar {
   height: 32px;
   position: relative;
@@ -1044,7 +1041,7 @@ ul {
 }
 .modal.close-btn {
   position: relative;
-  margin-right: -20px;
+  margin-right: -10px;
 }
 .create-board-btn:hover {
   background-color: transparent;
