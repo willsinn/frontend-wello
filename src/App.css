@@ -1025,6 +1025,9 @@ ul {
 .board-form {
   color: black;
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .input {
@@ -1073,4 +1076,9 @@ ul {
 .submit-new-board-btn {
   width: 65px;
   border-radius: 2px;
+  position: relative;
+  top: 40px;
+}
+.new-board.input {
+  border: 2px;
 }
