@@ -57,7 +57,7 @@ const NewBoardForm = (props, { dispatch }) => {
         data-test-id="create-board-title-input"
         value={team.value}
       />
-      <button type="submit" className="new-board-input">
+      <button type="submit" className="submit-new-board-btn">
         Create
       </button>
     </form>

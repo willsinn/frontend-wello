@@ -779,6 +779,7 @@ ul {
 }
 .new-board {
   width: 304px;
+  border-radius: 2px;
 }
 
 .modal-header.title {
@@ -1067,4 +1068,9 @@ ul {
   transition: none;
   margin: 0;
   outline: 0;
+}
+
+.submit-new-board-btn {
+  width: 65px;
+  border-radius: 2px;
 }
