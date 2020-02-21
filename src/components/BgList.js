@@ -5,16 +5,11 @@ const BgList = props => {
   const renderBgs = () => {
     if (props.solids.length > 0) {
       return props.solids.map(solid => {
-        return (
-          <li>
-            Hi
-            <BoardBg solid={solid} />
-          </li>
-        );
+        return <BoardBg solid={solid} />;
       });
     }
   };
-  return <ul>{renderBgs()}</ul>;
+  return <div>{renderBgs()}</div>;
 };
 
 export default BgList;
