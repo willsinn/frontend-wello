@@ -1008,7 +1008,7 @@ ul {
 }
 .modal-content {
   width: 296px;
-  height: 80px;
+  height: 96px;
   background-color: #0079bf;
   margin: 40px auto;
   padding: 20px;
@@ -1025,6 +1025,7 @@ ul {
 .board-form {
   color: black;
   width: 90%;
+  position: relative;
 }
 
 .input {
@@ -1074,11 +1075,31 @@ ul {
   width: 65px;
   border-radius: 2px;
   position: relative;
-  top: 40px;
+  top: -54px;
 }
 .new-board.input {
   border: 2px;
   margin-top: 4px;
 }
+.board-bg-palette {
+  position: relative;
+  right: -276px;
+  top: -62px;
+  width: 100px;
+  height: 96px;
+}
+.bg-list {
+  border: 1px solid white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0 0 0 8px;
+}
 .bg-option {
+  width: 28px;
+  height: 28px;
+  color: white;
 }

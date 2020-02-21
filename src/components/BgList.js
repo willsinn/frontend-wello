@@ -9,7 +9,7 @@ const BgList = props => {
       });
     }
   };
-  return <div>{renderBgs()}</div>;
+  return <div className="bg-list">{renderBgs()}</div>;
 };
 
 export default BgList;

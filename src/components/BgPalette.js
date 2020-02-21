@@ -4,7 +4,7 @@ import BgList from "./BgList";
 const solids = ["blue", "pink", "yellow"];
 const BgPalette = props => {
   return (
-    <div>
+    <div className="board-bg-palette">
       <BgList solids={solids} />
     </div>
   );
