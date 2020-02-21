@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import BoardColorPalette from "./BoardColorPalette";
+import BgPalette from "./BgPalette";
 import { connect } from "react-redux";
 import { postNewProject } from "../actions/projects";
 
@@ -58,7 +58,7 @@ const NewBoardForm = (props, { dispatch }) => {
         data-test-id="create-board-title-input"
         value={team.value}
       />
-      <BoardColorPalette />
+      <BgPalette />
       <button type="submit" className="submit-new-board-btn">
         Create
       </button>

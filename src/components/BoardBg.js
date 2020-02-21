@@ -1,6 +1,6 @@
 import React from "react";
 
-const BgChoice = props => {
+const BoardBg = props => {
   return (
     <div>
       <div>Palette 1</div>
@@ -12,4 +12,4 @@ const BgChoice = props => {
   );
 };
 
-export default BgChoice;
+export default BoardBg;

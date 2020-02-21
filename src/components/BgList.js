@@ -1,15 +1,8 @@
 import React from "react";
+import BoardBg from "./BoardBg";
 
 const BgList = props => {
-  return (
-    <div>
-      <div>Palette 1</div>
-      <div>Palette 1</div>
-      <div>Palette 1</div>
-      <div>Palette 1</div>
-      <div>Palette 1</div>
-    </div>
-  );
+  return <BoardBg />;
 };
 
 export default BgList;
