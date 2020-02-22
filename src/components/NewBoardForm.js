@@ -33,36 +33,52 @@ const NewBoardForm = (props, { dispatch }) => {
     }
   };
   return (
-    <form className="board-form" onSubmit={handleSubmit}>
-      <input
-        autoComplete="off"
-        autoCorrect="off"
-        spellCheck="false"
-        type="text"
-        name="title"
-        onChange={handleChange}
-        className="new-board input"
-        placeholder="Add board title"
-        data-test-id="create-board-full-name"
-        value={title.value}
-      />
-      <input
-        autoComplete="off"
-        autoCorrect="off"
-        spellCheck="false"
-        type="text"
-        name="team"
-        onChange={handleChange}
-        className="new-board input"
-        placeholder="add team name"
-        data-test-id="create-board-title-input"
-        value={team.value}
-      />
+    <>
+      <form className="board-form" onSubmit={e => handleSubmit(e)}>
+        <input
+          autoComplete="off"
+          autoCorrect="off"
+          spellCheck="false"
+          type="text"
+          name="title"
+          onChange={handleChange}
+          className="new-board input"
+          placeholder="Add board title"
+          data-test-id="create-board-full-name"
+          value={title.value}
+        />
+        <input
+          autoComplete="off"
+          autoCorrect="off"
+          spellCheck="false"
+          type="text"
+          name="team"
+          onChange={handleChange}
+          className="new-board input"
+          placeholder="add team name"
+          data-test-id="create-board-title-input"
+          value={team.value}
+        />
+        {title.length === undefined || title.length === 0 ? (
+          <button
+            type="submit"
+            className="disabled submit-new-board-btn"
+            disabled
+          >
+            Create Board
+          </button>
+        ) : (
+          <button
+            type="submit"
+            style={{ background: "green", transition: ".5s" }}
+            className="submit-new-board-btn"
+          >
+            Create Board
+          </button>
+        )}
+      </form>
       <BgPalette handleChangeBg={props.handleChangeBg} />
-      <button type="submit" className="submit-new-board-btn">
-        Create
-      </button>
-    </form>
+    </>
   );
 };
 
