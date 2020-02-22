@@ -15,7 +15,7 @@ const solids = [
 const BgPalette = props => {
   return (
     <div className="board-bg-palette">
-      <BgList solids={solids} />
+      <BgList solids={solids} handleChangeBg={props.handleChangeBg} />
     </div>
   );
 };

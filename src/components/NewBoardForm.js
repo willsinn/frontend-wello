@@ -58,7 +58,7 @@ const NewBoardForm = (props, { dispatch }) => {
         data-test-id="create-board-title-input"
         value={team.value}
       />
-      <BgPalette />
+      <BgPalette handleChangeBg={props.handleChangeBg} />
       <button type="submit" className="submit-new-board-btn">
         Create
       </button>
