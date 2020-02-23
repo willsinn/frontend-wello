@@ -5,7 +5,13 @@ const BgList = props => {
   const renderBgs = () => {
     if (props.solids.length > 0) {
       return props.solids.map(solid => {
-        return <BoardBg solid={solid} handleChangeBg={props.handleChangeBg} />;
+        return (
+          <BoardBg
+            solid={solid}
+            handleChangeBg={props.handleChangeBg}
+            key={`bg-data-${solid}`}
+          />
+        );
       });
     }
   };
