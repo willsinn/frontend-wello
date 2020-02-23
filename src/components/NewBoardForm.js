@@ -9,6 +9,7 @@ const initialTeam = { team: "" };
 const NewBoardForm = (props, { dispatch }) => {
   const [title, setTitle] = useState(initialTitle);
   const [team, setTeam] = useState(initialTeam);
+  const [background, setBackground] = useState("lightblue");
 
   const handleChange = e => {
     if (e.target.name === "title") {
@@ -18,6 +19,11 @@ const NewBoardForm = (props, { dispatch }) => {
     if (e.target.name === "team") {
       e.persist(e.target.value);
       setTeam(e.target.value);
+    }
+  };
+  const handleChangeBg = e => {
+    if (e) {
+      setBackground(e.target.value);
     }
   };
   const resetForm = e => {
@@ -33,7 +39,7 @@ const NewBoardForm = (props, { dispatch }) => {
     }
   };
   return (
-    <>
+    <div className="modal-content" style={{ background: `${background}` }}>
       <form className="board-form" onSubmit={e => handleSubmit(e)}>
         <input
           autoComplete="off"
@@ -77,8 +83,8 @@ const NewBoardForm = (props, { dispatch }) => {
           </button>
         )}
       </form>
-      <BgPalette handleChangeBg={props.handleChangeBg} />
-    </>
+      <BgPalette handleChangeBg={handleChangeBg} />
+    </div>
   );
 };
 
