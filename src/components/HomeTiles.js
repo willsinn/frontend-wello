@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 const HomeTiles = props => {
   const renderTiles = () => {
     if (props.projects.length > 0) {
+      console.log(props.projects);
       return props.projects.map(project => (
         <li key={project.id} className="project-tile">
           <div className="project-title">

@@ -32,7 +32,9 @@ export const postNewBoard = (newBoard, dispatch) => {
       },
       body: JSON.stringify({
         user_id: 1,
-        title: newBoard.title
+        title: newBoard.title,
+        background: newBoard.background,
+        team_name: newBoard.team
       })
     })
       .then(response => response.json())
