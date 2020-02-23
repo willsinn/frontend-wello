@@ -6,6 +6,7 @@ import { postNewBoard } from "../actions/projects";
 const initialTitle = "";
 const initialTeam = "";
 const initialBackground = "lightblue";
+
 const NewBoardForm = (props, { dispatch }) => {
   const [title, setTitle] = useState(initialTitle);
   const [team, setTeam] = useState(initialTeam);
@@ -28,6 +29,8 @@ const NewBoardForm = (props, { dispatch }) => {
   };
   const resetForm = e => {
     setTitle(initialTitle);
+    setTitle(initialTeam);
+    setTitle(initialBackground);
     props.closeModal(e);
   };
 
@@ -35,7 +38,7 @@ const NewBoardForm = (props, { dispatch }) => {
     if (e) {
       e.preventDefault();
       console.log(title, background);
-      props.dispatch(postNewBoard({ board: title, background, team }));
+      props.dispatch(postNewBoard({ title, background, team }));
       resetForm(e);
     }
   };
