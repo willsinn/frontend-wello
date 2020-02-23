@@ -4,7 +4,7 @@ const defaultState = {
 
 const boardsReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "DELETE_PROJECT":
+    case "DELETE_BOARD":
       const remainingBoards = [...state.boards].filter(
         board => board.id !== action.board.id
       );
@@ -12,9 +12,9 @@ const boardsReducer = (state = defaultState, action) => {
         ...state,
         boards: remainingBoards
       };
-    case "SET_PROJECTS":
+    case "SET_BOARDS":
       return { ...state, boards: action.payload };
-    case "ADD_NEW_PROJECT":
+    case "ADD_NEW_BOARDS":
       return { ...state, boards: [...state.boards, action.board] };
     default:
       return state;

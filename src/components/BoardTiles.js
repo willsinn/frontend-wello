@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 const BoardTiles = props => {
   const renderTiles = () => {
     if (props.boards.length > 0) {
-      console.log(props.boards);
       return props.boards.map(board => (
         <li key={board.id} className="board-tile">
           <div className="board-title">

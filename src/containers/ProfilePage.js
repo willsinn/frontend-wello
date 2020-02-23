@@ -21,37 +21,37 @@ const ProfilePage = () => {
       <div class="tabbed-pane-nav u-clearfix js-nav">
         <ul>
           <li class="tabbed-pane-nav-item">
-            <a
+            <button
               class="tabbed-pane-nav-item-button js-member-profile"
               data-tab="profile"
               style={selectTabStyle}
             >
               Profile and Visibility
-            </a>
+            </button>
           </li>
           <li class="tabbed-pane-nav-item">
-            <a
+            <button
               class="tabbed-pane-nav-item-button js-member-activity active"
               data-tab="cards"
             >
               Activity
-            </a>
+            </button>
           </li>
           <li class="tabbed-pane-nav-item">
-            <a
+            <button
               class="tabbed-pane-nav-item-button js-member-cards"
               data-tab="cards"
             >
               Cards
-            </a>
+            </button>
           </li>
           <li class="tabbed-pane-nav-item">
-            <a
+            <button
               class="tabbed-pane-nav-item-button js-member-account"
               data-tab="settings"
             >
               Settings
-            </a>
+            </button>
           </li>
         </ul>
       </div>

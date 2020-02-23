@@ -1,14 +1,14 @@
-export const setProjects = projectsData => ({
-  type: "SET_PROJECTS",
-  payload: projectsData
+export const setBoards = boardsData => ({
+  type: "SET_BOARDS",
+  payload: boardsData
 });
 
-export const addNewProject = projectData => ({
-  type: "ADD_NEW_PROJECT",
-  project: projectData
+export const addNewBoard = boardData => ({
+  type: "ADD_NEW_BOARD",
+  board: boardData
 });
 
-export const fetchUserProjects = data => {
+export const fetchUserBoards = data => {
   return dispatch => {
     fetch("http://localhost:3000/user/1/projects", {
       headers: {
@@ -18,7 +18,7 @@ export const fetchUserProjects = data => {
       body: JSON.stringify(data)
     })
       .then(response => response.json())
-      .then(JSONresponse => dispatch(setProjects(JSONresponse)));
+      .then(JSONresponse => dispatch(setBoards(JSONresponse)));
   };
 };
 export const postNewBoard = (newBoard, dispatch) => {
@@ -38,14 +38,14 @@ export const postNewBoard = (newBoard, dispatch) => {
       })
     })
       .then(response => response.json())
-      .then(JSONresponse => dispatch(addNewProject(JSONresponse)));
+      .then(JSONresponse => dispatch(addNewBoard(JSONresponse)));
   };
 };
-export const deleteProject = project => ({
-  type: "DELETE_PROJECT",
-  project: project
+export const deleteBoard = board => ({
+  type: "DELETE_BOARD",
+  board: board
 });
-export const deleteProjectWorkspace = (workspace, dispatch) => {
+export const deleteBoardWorkspace = (workspace, dispatch) => {
   return dispatch => {
     fetch(`http://localhost:3000/project/delete/${workspace.id}`, {
       method: "POST",
@@ -53,6 +53,6 @@ export const deleteProjectWorkspace = (workspace, dispatch) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ id: workspace.id, user_id: workspace.user_id })
-    }).then(response => dispatch(deleteProject(workspace)));
+    }).then(response => dispatch(deleteBoard(workspace)));
   };
 };

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import BoardItemList from "../components/BoardItemList";
-import HomeBtn from "../components/HomeBtn";
 import DelBoardBtn from "../components/DelBoardBtn";
 import Mountians from "../images/mountianrange.jpg";
 import Lake from "../images/lake.jpg";

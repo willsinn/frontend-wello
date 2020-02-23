@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BgPalette from "./BgPalette";
 import { connect } from "react-redux";
-import { postNewBoard } from "../actions/projects";
+import { postNewBoard } from "../actions/boards";
 
 const initialTitle = "";
 const initialTeam = "";

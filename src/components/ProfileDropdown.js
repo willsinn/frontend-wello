@@ -15,40 +15,40 @@ const ProfileDropdown = (props, { dispatch }) => {
       </div>
       <ul>
         <li class="popup option-item">
-          <a
+          <button
             onClick={e => props.dispatch(setPage("profile"), props.close(e))}
             class="option-title js-member-profile"
             data-tab="profile"
           >
             <span>Profile and Visibility</span>
-          </a>
+          </button>
         </li>
         <li class="popup option-item">
-          <a
+          <button
             onClick={e => props.dispatch(setPage("profile"), props.close(e))}
             class="option-title js-member-activity active"
             data-tab="cards"
           >
             <span> Activity</span>
-          </a>
+          </button>
         </li>
         <li class="popup option-item">
-          <a
+          <button
             onClick={e => props.dispatch(setPage("profile"), props.close(e))}
             class="option-title js-member-cards"
             data-tab="cards"
           >
             <span>Cards</span>
-          </a>
+          </button>
         </li>
         <li class="popup option-item">
-          <a
+          <button
             onClick={e => props.dispatch(setPage("profile"), props.close(e))}
             class="option-title js-member-account"
             data-tab="settings"
           >
             <span> Settings</span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>

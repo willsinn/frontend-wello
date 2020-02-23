@@ -10,10 +10,10 @@ import App from "./App";
 import userReducer from "./reducers/userReducer";
 import boardsReducer from "./reducers/boardsReducer";
 import workspaceReducer from "./reducers/workspaceReducer";
-
 import * as serviceWorker from "./serviceWorker";
+import { fetchUserBoards } from "./actions/boards";
+
 import { fetchUser } from "./actions/user";
-import { fetchUserProjects } from "./actions/projects";
 
 const rootReducer = combineReducers({
   userReducer: userReducer,
@@ -31,7 +31,7 @@ console.log(
 );
 
 store.dispatch(fetchUser());
-store.dispatch(fetchUserProjects());
+store.dispatch(fetchUserBoards());
 
 ReactDOM.render(
   <Provider store={store}>
