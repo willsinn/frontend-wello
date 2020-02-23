@@ -5,9 +5,7 @@ const BoardBg = props => {
     <div className="bg-tile">
       <button
         className="bg-btn"
-        onClick={e => {
-          props.handleChangeBg(e);
-        }}
+        onClick={e => props.handleChangeBg(e)}
         style={{ background: `${props.solid}` }}
         value={props.solid}
       />

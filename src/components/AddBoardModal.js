@@ -7,12 +7,10 @@ const AddBoardModal = props => {
       className="add-board-modal"
       style={props.active ? { display: "block" } : { display: "none" }}
     >
-      <div className="modal-wrap">
-        <NewBoardForm active={props.active} closeModal={props.closeModal} />
-        <button className="modal close-btn" onClick={e => props.closeModal(e)}>
-          <span>x</span>
-        </button>
-      </div>
+      <NewBoardForm active={props.active} closeModal={props.closeModal} />
+      <button className="modal close-btn" onClick={e => props.closeModal(e)}>
+        <span>x</span>
+      </button>
     </div>
   );
 };

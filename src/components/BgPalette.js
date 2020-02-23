@@ -10,7 +10,7 @@ const solids = [
   "purple",
   "red",
   "white",
-  "brown"
+  "orange"
 ];
 const BgPalette = props => {
   return (

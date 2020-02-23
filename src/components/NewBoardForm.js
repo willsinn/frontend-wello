@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import BgPalette from "./BgPalette";
 import { connect } from "react-redux";
-import { postNewProject } from "../actions/projects";
+import { postNewBoard } from "../actions/projects";
 
-const initialTitle = { title: "" };
-const initialTeam = { team: "" };
-
+const initialTitle = "";
+const initialTeam = "";
+const initialBackground = "lightblue";
 const NewBoardForm = (props, { dispatch }) => {
   const [title, setTitle] = useState(initialTitle);
   const [team, setTeam] = useState(initialTeam);
-  const [background, setBackground] = useState("lightblue");
+  const [background, setBackground] = useState(initialBackground);
 
   const handleChange = e => {
     if (e.target.name === "title") {
@@ -34,7 +34,8 @@ const NewBoardForm = (props, { dispatch }) => {
   const handleSubmit = e => {
     if (e) {
       e.preventDefault();
-      props.dispatch(postNewProject({ title: title }));
+      console.log(title, background);
+      props.dispatch(postNewBoard({ board: title, background, team }));
       resetForm(e);
     }
   };
