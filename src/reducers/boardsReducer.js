@@ -14,7 +14,7 @@ const boardsReducer = (state = defaultState, action) => {
       };
     case "SET_BOARDS":
       return { ...state, boards: action.payload };
-    case "ADD_NEW_BOARDS":
+    case "ADD_NEW_BOARD":
       return { ...state, boards: [...state.boards, action.board] };
     default:
       return state;
