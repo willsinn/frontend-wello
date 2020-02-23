@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import userReducer from "./userReducer";
-import projectsReducer from "./projectsReducer";
+import boardsReducer from "./boardsReducer";
 import workspaceReducer from "./workspaceReducer";
 
 export default combineReducers({
   userReducer,
-  projectsReducer,
+  boardsReducer,
   workspaceReducer
 });

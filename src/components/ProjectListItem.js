@@ -9,14 +9,14 @@ const ProjectListItem = (props, { dispatch }) => {
   const handleClick = e => {
     if (e) {
       props.dispatch(clearWorkspace());
-      props.dispatch(fetchWorkspace(props.project));
+      props.dispatch(fetchWorkspace(props.board));
       props.dispatch(incrementCounter());
       props.dispatch(setPage("board"));
     }
   };
   return (
-    <div onClick={handleClick} className="project-list-item">
-      {props.project.title}
+    <div onClick={handleClick} className="board-list-item">
+      {props.board.title}
     </div>
   );
 };

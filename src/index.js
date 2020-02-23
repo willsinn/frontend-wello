@@ -8,7 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./App";
 import userReducer from "./reducers/userReducer";
-import projectsReducer from "./reducers/projectsReducer";
+import boardsReducer from "./reducers/boardsReducer";
 import workspaceReducer from "./reducers/workspaceReducer";
 
 import * as serviceWorker from "./serviceWorker";
@@ -17,7 +17,7 @@ import { fetchUserProjects } from "./actions/projects";
 
 const rootReducer = combineReducers({
   userReducer: userReducer,
-  projectsReducer: projectsReducer,
+  boardsReducer: boardsReducer,
   workspaceReducer: workspaceReducer
 });
 const store = createStore(

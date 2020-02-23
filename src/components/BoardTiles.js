@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 
 const BoardTiles = props => {
   const renderTiles = () => {
-    if (props.projects.length > 0) {
-      console.log(props.projects);
-      return props.projects.map(project => (
-        <li key={project.id} className="board-tile">
+    if (props.boards.length > 0) {
+      console.log(props.boards);
+      return props.boards.map(board => (
+        <li key={board.id} className="board-tile">
           <div className="board-title">
-            <ProjectListItem key={project.id} project={project} />
+            <ProjectListItem key={board.id} board={board} />
           </div>
         </li>
       ));
@@ -23,7 +23,7 @@ const BoardTiles = props => {
   );
 };
 
-const mapStateToProps = ({ projectsReducer: projects }) => ({
-  projects: projects.projects
+const mapStateToProps = ({ boardsReducer: boards }) => ({
+  boards: boards.boards
 });
 export default connect(mapStateToProps)(BoardTiles);
