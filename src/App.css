@@ -268,7 +268,7 @@ ul {
   border: 1px solid white;
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
 }
-.board-title {
+.board-list-item {
   padding: 10px 0 0 10px;
   font-size: 2em;
   font-weight: bold;
@@ -283,11 +283,6 @@ ul {
   text-align: center;
 }
 
-.project-list-item {
-  height: 36px;
-  min-height: 36px;
-  color: black;
-}
 .board-header {
   height: auto;
   padding: 8px 4px 4px 8px;

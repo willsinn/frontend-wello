@@ -11,9 +11,7 @@ const BoardTiles = props => {
           className="board-tile"
           style={{ background: `${board.background}` }}
         >
-          <div className="board-title">
-            <ProjectListItem key={board.id} board={board} />
-          </div>
+          <ProjectListItem key={board.id} board={board} />
         </li>
       ));
     }

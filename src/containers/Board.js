@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import BoardItemList from "../components/BoardItemList";
 import DelBoardBtn from "../components/DelBoardBtn";
 import { connect } from "react-redux";
 
 const Board = props => {
-  const [index, setIndex] = useState(null);
-
   return (
     <div id="workspace" style={{ background: `${props.workspace.background}` }}>
       <div className="board-header">

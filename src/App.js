@@ -8,7 +8,7 @@ import "./App.css";
 
 const App = props => {
   // console.log(props.activePg);
-  console.log(props.workspace);
+  //console.log(props.workspace);
 
   return (
     <>
