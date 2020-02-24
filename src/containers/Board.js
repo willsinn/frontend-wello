@@ -1,33 +1,13 @@
 import React, { useState, useEffect } from "react";
 import BoardItemList from "../components/BoardItemList";
 import DelBoardBtn from "../components/DelBoardBtn";
-import Mountians from "../images/mountianrange.jpg";
-import Lake from "../images/lake.jpg";
-import Beach from "../images/beach.jpg";
 import { connect } from "react-redux";
 
 const Board = props => {
   const [index, setIndex] = useState(null);
-  const bgs = [Mountians, Lake, Beach];
-
-  useEffect(
-    () => {
-      const count = props.bgCounter;
-      const allBGS = bgs.length;
-      const trimCount = count % allBGS;
-      if (count === allBGS) {
-        setIndex(0);
-      } else if (count > allBGS) {
-        setIndex(trimCount);
-      } else {
-        setIndex(count);
-      }
-    },
-    [props.bgCounter, bgs.length]
-  );
 
   return (
-    <div id="workspace" style={{ backgroundImage: `url('${bgs[index]}')` }}>
+    <div id="workspace" style={{ background: `${props.workspace.background}` }}>
       <div className="board-header">
         <div className="board-ops left">
           <div className="board-ops title-top">
