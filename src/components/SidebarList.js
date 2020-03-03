@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 
 const SidebarList = (props, { dispatch }) => {
   const renderItems = () => {
-    if (props.projects.length > 0) {
-      return props.projects.map(project => (
-        <li key={project.id} className="list-item">
-          <div className="project-list-title">
-            <ProjectListItem key={project.id} project={project} />
+    if (props.boards.length > 0) {
+      return props.boards.map(board => (
+        <li key={board.id} className="list-item">
+          <div className="board-list-title">
+            <ProjectListItem key={board.id} board={board} />
           </div>
         </li>
       ));
@@ -22,7 +22,7 @@ const SidebarList = (props, { dispatch }) => {
     </div>
   );
 };
-const mapStateToProps = ({ projectsReducer: projects }) => ({
-  projects: projects.projects
+const mapStateToProps = ({ boardsReducer: boards }) => ({
+  boards: boards.boards
 });
 export default connect(mapStateToProps)(SidebarList);
