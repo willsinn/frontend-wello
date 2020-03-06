@@ -6,7 +6,11 @@ const SidebarList = (props, { dispatch }) => {
   const renderItems = () => {
     if (props.boards.length > 0) {
       return props.boards.map(board => (
-        <li key={board.id} className="list-item">
+        <li
+          key={board.id}
+          className="list-item"
+          style={{ background: `${board.background}` }}
+        >
           <div className="board-list-title">
             <ProjectListItem key={board.id} board={board} />
           </div>
