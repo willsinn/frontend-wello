@@ -3,7 +3,6 @@ import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
 import Cityscape from "../images/cityscape.jpg";
 import Beach from "../images/beach.jpg";
-
 import { connect } from "react-redux";
 import { setPage } from "../actions/user";
 import { fetchWorkspace } from "../actions/workspace";
