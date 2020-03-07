@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectListItem from "./ProjectListItem";
+import BoardItem from "./BoardItem";
 import { connect } from "react-redux";
 
 const SidebarList = (props, { dispatch }) => {
@@ -11,7 +11,7 @@ const SidebarList = (props, { dispatch }) => {
           className="sidebar-li"
           style={{ background: `${board.background}` }}
         >
-          <ProjectListItem key={board.id} board={board} />
+          <BoardItem key={board.id} board={board} />
         </li>
       ));
     }

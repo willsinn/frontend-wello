@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectListItem from "../components/ProjectListItem";
+import BoardItem from "../components/BoardItem";
 import { connect } from "react-redux";
 
 const BoardTiles = props => {
@@ -11,7 +11,7 @@ const BoardTiles = props => {
           className="board-tile"
           style={{ background: `${board.background}` }}
         >
-          <ProjectListItem key={board.id} board={board} />
+          <BoardItem key={board.id} board={board} />
         </li>
       ));
     }

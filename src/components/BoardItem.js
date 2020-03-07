@@ -5,7 +5,7 @@ import { incrementCounter } from "../actions/user";
 import { fetchWorkspace } from "../actions/workspace";
 import { clearWorkspace } from "../actions/workspace";
 
-const ProjectListItem = (props, { dispatch }) => {
+const BoardItem = (props, { dispatch }) => {
   const handleClick = e => {
     if (e) {
       props.dispatch(clearWorkspace());
@@ -20,4 +20,4 @@ const ProjectListItem = (props, { dispatch }) => {
     </div>
   );
 };
-export default connect()(ProjectListItem);
+export default connect()(BoardItem);
