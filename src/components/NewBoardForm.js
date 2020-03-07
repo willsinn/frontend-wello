@@ -73,7 +73,6 @@ const NewBoardForm = (props, { dispatch }) => {
         return { backgroundImage: `url(${Iceland})` };
     }
   };
-  console.log(background);
   return (
     <div className="modal-content" style={selectBg()}>
       <form className="board-form" onSubmit={e => handleSubmit(e)}>

@@ -14,7 +14,6 @@ import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 
 const Board = props => {
-  console.log(props.workspace);
   const renderBoardBg = () => {
     switch (props.workspace.background) {
       case "lake":

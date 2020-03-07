@@ -24,11 +24,6 @@ const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
-console.log(
-  `%c INITIAL REDUX STORE`,
-  "color: purple",
-  store.getState(workspaceReducer)
-);
 
 store.dispatch(fetchUser());
 store.dispatch(fetchUserBoards());
