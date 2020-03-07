@@ -6,12 +6,13 @@ import { connect } from "react-redux";
 
 const CardList = props => {
   const renderItems = () => {
-    if (props.workspace.items.length > 0) {
-      return props.workspace.items.map(item => {
-        return <CardItem item={item} workspace={props.workspace} />;
+    if (props.workspace.cards.length > 0) {
+      return props.workspace.cards.map(card => {
+        return <CardItem card={card} workspace={props.workspace} />;
       });
     }
   };
+  console.log(props.workspace);
   return (
     <div className="boards-list">
       {renderItems()}
@@ -20,8 +21,7 @@ const CardList = props => {
   );
 };
 const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  workspace: workspace.workspace,
-  items: workspace.items
+  workspace: workspace.workspace
 });
 
 export default connect(mapStateToProps)(CardList);

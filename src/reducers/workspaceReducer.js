@@ -1,7 +1,7 @@
 const defaultState = {
   isEditActive: false,
   workspace: {},
-  items: []
+  cards: []
 };
 
 const workspaceReducer = (state = defaultState, action) => {
@@ -9,41 +9,41 @@ const workspaceReducer = (state = defaultState, action) => {
     case "TOGGLE_EDIT":
       return { ...state, isEditActive: !state.isEditActive };
     case "CLEAR_WORKSPACE":
-      return { ...state, workspace: defaultState, items: [] };
+      return { ...state, workspace: defaultState, cards: [] };
     case "SET_WORKSPACE":
       return { ...state, workspace: action.workspace.board };
-    case "SET_ITEMS":
+    case "SET_CARDS":
       return {
         ...state,
-        items: action.items
+        cards: action.cards
       };
-    case "ADD_ITEM":
+    case "ADD_CARD":
       console.log(action);
       return {
         ...state,
-        items: [...state.items, action.item]
+        cards: [...state.cards, action.card]
       };
-    case "UPDATE_ITEM":
+    case "UPDATE_CARD":
       let newItems;
-      if (state.workspace.id === action.item.board_id) {
-        newItems = state.items.map(item => {
-          if (item.id === action.item.id) {
-            return action.item;
+      if (state.workspace.id === action.card.board_id) {
+        newItems = state.cards.map(card => {
+          if (card.id === action.card.id) {
+            return action.card;
           }
-          return item;
+          return card;
         });
       } else {
-        newItems = state.items;
+        newItems = state.cards;
       }
       return {
         ...state,
-        items: newItems
+        cards: newItems
       };
-    case "DELETE_ITEM":
-      const itemsLeft = state.items.filter(item => item.id !== action.item.id);
+    case "DELETE_CARD":
+      const cardsLeft = state.cards.filter(card => card.id !== action.card.id);
       return {
         ...state,
-        items: itemsLeft
+        cards: cardsLeft
       };
     default:
       return state;
