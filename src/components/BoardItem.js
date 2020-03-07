@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setPage } from "../actions/user";
-import { incrementCounter } from "../actions/user";
 import { fetchWorkspace } from "../actions/workspace";
 import { clearWorkspace } from "../actions/workspace";
 
@@ -10,7 +9,6 @@ const BoardItem = (props, { dispatch }) => {
     if (e) {
       props.dispatch(clearWorkspace());
       props.dispatch(fetchWorkspace(props.board));
-      props.dispatch(incrementCounter());
       props.dispatch(setPage("board"));
     }
   };

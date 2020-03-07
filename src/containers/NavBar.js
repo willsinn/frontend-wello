@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PlusDropdown from "../components/PlusDropdown";
 import NoteDropdown from "../components/NoteDropdown";
 import ProfileDropdown from "../components/ProfileDropdown";
-import SidebarList from "../components/SidebarList";
+import SideBoardList from "../components/SideBoardList";
 import HomeBtn from "../components/HomeBtn";
 
 const NavBar = props => {
@@ -24,7 +24,7 @@ const NavBar = props => {
           </button>
         </div>
 
-        {!sidebar ? null : <SidebarList close={closeLeftnav} />}
+        {!sidebar ? null : <SideBoardList close={closeLeftnav} />}
 
         {(() => {
           switch (rightnav) {

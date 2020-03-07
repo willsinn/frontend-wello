@@ -12,7 +12,6 @@ const userReducer = (state = defaultState, action) => {
         userId: action.payload.id
       };
     case "SET_PAGE":
-      console.log(action);
       return { ...state, activePg: action.page };
     default:
       return state;
