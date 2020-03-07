@@ -6,13 +6,7 @@ const TiledBoardList = props => {
   const renderTiles = () => {
     if (props.boards.length > 0) {
       return props.boards.map(board => (
-        <li
-          key={board.id}
-          className="board-tile"
-          style={{ background: `${board.background}` }}
-        >
-          <BoardItem key={board.id} board={board} />
-        </li>
+        <BoardItem key={board.id} board={board} />
       ));
     }
   };
