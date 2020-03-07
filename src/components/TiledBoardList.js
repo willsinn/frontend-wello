@@ -15,7 +15,7 @@ const TiledBoardList = props => {
 
   return (
     <div className="board middle-tiles container">
-      <ul className="board-tiles container">{renderTiles()}</ul>
+      <ul className="board-tiles-ul">{renderTiles()}</ul>
     </div>
   );
 };

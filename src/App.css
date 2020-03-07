@@ -246,7 +246,7 @@ ul {
   border: 0;
   background: inherit;
 }
-.board-tiles.container {
+.board-tiles-ul {
   width: 80%;
   height: 50%;
   display: flex;
