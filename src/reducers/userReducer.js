@@ -1,7 +1,6 @@
 const defaultState = {
   user: null,
   userId: null,
-  bgCounter: -1,
   activePg: ""
 };
 const userReducer = (state = defaultState, action) => {
@@ -15,9 +14,6 @@ const userReducer = (state = defaultState, action) => {
     case "SET_PAGE":
       console.log(action);
       return { ...state, activePg: action.page };
-    case "INCREMENT_COUNTER":
-      return { ...state, bgCounter: state.bgCounter + 1 };
-
     default:
       return state;
   }

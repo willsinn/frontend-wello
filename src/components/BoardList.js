@@ -4,7 +4,7 @@ import AddBoardItem from "../containers/AddBoardItem";
 import { setItems } from "../actions/workspace";
 import { connect } from "react-redux";
 
-const BoardItemList = props => {
+const BoardList = props => {
   const renderItems = () => {
     if (props.items.length !== 0) {
       return <BoardItemDeck items={props.items} workspace={props.workspace} />;
@@ -23,4 +23,4 @@ const mapStateToProps = ({ workspaceReducer: workspace }) => ({
   items: workspace.items
 });
 
-export default connect(mapStateToProps)(BoardItemList);
+export default connect(mapStateToProps)(BoardList);

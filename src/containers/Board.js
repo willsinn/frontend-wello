@@ -1,5 +1,5 @@
 import React from "react";
-import BoardItemList from "../components/BoardItemList";
+import BoardList from "../components/BoardList";
 import DelBoardBtn from "../components/DelBoardBtn";
 import { connect } from "react-redux";
 
@@ -27,12 +27,11 @@ const Board = props => {
           <DelBoardBtn workspace={props.workspace} />
         </div>
       </div>
-      <BoardItemList key={props.workspace.id} workspace={props.workspace} />
+      <BoardList key={props.workspace.id} workspace={props.workspace} />
     </div>
   );
 };
 const mapStateToProps = ({ userReducer: user }) => ({
-  user: user,
-  bgCounter: user.bgCounter
+  user: user
 });
 export default connect(mapStateToProps)(Board);
