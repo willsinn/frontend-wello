@@ -1,5 +1,5 @@
 import React from "react";
-import BoardList from "../components/BoardList";
+import CardList from "../components/CardList";
 import DelBoardBtn from "../components/DelBoardBtn";
 
 import Lake from "../images/lake.jpg";
@@ -61,7 +61,7 @@ const Board = props => {
           <DelBoardBtn workspace={props.workspace} />
         </div>
       </div>
-      <BoardList key={props.workspace.id} workspace={props.workspace} />
+      <CardList key={props.workspace.id} workspace={props.workspace} />
     </div>
   );
 };
