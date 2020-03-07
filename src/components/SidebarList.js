@@ -2,12 +2,17 @@ import React from "react";
 import BoardItem from "./BoardItem";
 import { connect } from "react-redux";
 
-const SideBoardList = (props, { dispatch }) => {
+const SidebarList = (props, { dispatch }) => {
   const renderItems = () => {
     if (props.boards.length > 0) {
       return props.boards.map(board => (
         <li className="sidebar-li">
-          <BoardItem key={board.id} board={board} />
+          <BoardItem
+            key={board.id}
+            board={board}
+            sidebar={props.sidebar}
+            closeSidebar={props.closeSidebar}
+          />
         </li>
       ));
     }
@@ -21,4 +26,4 @@ const SideBoardList = (props, { dispatch }) => {
 const mapStateToProps = ({ boardsReducer: boards }) => ({
   boards: boards.boards
 });
-export default connect(mapStateToProps)(SideBoardList);
+export default connect(mapStateToProps)(SidebarList);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PlusDropdown from "../components/PlusDropdown";
 import NoteDropdown from "../components/NoteDropdown";
 import ProfileDropdown from "../components/ProfileDropdown";
-import SideBoardList from "../components/SideBoardList";
+import SidebarList from "../components/SidebarList";
 import HomeBtn from "../components/HomeBtn";
 import AddBoardModal from "../components/AddBoardModal";
 
@@ -14,7 +14,7 @@ const NavBar = props => {
   const closeRightnav = e => {
     setRightnav("");
   };
-  const closeLeftnav = e => {
+  const closeSidebar = e => {
     setSidebar(false);
   };
   const closeModal = e => {
@@ -34,7 +34,9 @@ const NavBar = props => {
           </button>
         </div>
 
-        {!sidebar ? null : <SideBoardList close={closeLeftnav} />}
+        {!sidebar ? null : (
+          <SidebarList sidebar={sidebar} closeSidebar={closeSidebar} />
+        )}
         {(() => {
           switch (rightnav) {
             case "create":
