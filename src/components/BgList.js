@@ -8,6 +8,7 @@ const BgList = props => {
         return (
           <BoardBg
             bg={bg}
+            background={props.background}
             handleChangeBg={props.handleChangeBg}
             key={`bg-data-${bg}`}
           />

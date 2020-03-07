@@ -32,14 +32,26 @@ const BoardBg = props => {
         return { backgroundImage: `url(${Iceland})` };
     }
   };
+
   return (
     <div className="bg-tile">
-      <button
-        className="bg-btn"
-        onClick={e => props.handleChangeBg(e)}
-        style={renderBgOption()}
-        value={props.bg}
-      />
+      {props.bg === props.background ? (
+        <button
+          className="selected-background"
+          onClick={e => props.handleChangeBg(e)}
+          style={renderBgOption()}
+          value={props.bg}
+        >
+          <span className="bg-check-marker">✓</span>{" "}
+        </button>
+      ) : (
+        <button
+          className="bg-btn"
+          onClick={e => props.handleChangeBg(e)}
+          style={renderBgOption()}
+          value={props.bg}
+        />
+      )}
     </div>
   );
 };

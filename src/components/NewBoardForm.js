@@ -119,7 +119,7 @@ const NewBoardForm = (props, { dispatch }) => {
           </button>
         )}
       </form>
-      <BgPalette handleChangeBg={handleChangeBg} />
+      <BgPalette background={background} handleChangeBg={handleChangeBg} />
     </div>
   );
 };

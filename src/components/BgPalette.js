@@ -15,7 +15,11 @@ const bgs = [
 const BgPalette = props => {
   return (
     <div className="board-bg-palette">
-      <BgList bgs={bgs} handleChangeBg={props.handleChangeBg} />
+      <BgList
+        bgs={bgs}
+        background={props.background}
+        handleChangeBg={props.handleChangeBg}
+      />
     </div>
   );
 };
