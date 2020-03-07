@@ -8,19 +8,17 @@ const SidebarList = (props, { dispatch }) => {
       return props.boards.map(board => (
         <li
           key={board.id}
-          className="list-item"
+          className="sidebar-li"
           style={{ background: `${board.background}` }}
         >
-          <div className="board-list-title">
-            <ProjectListItem key={board.id} board={board} />
-          </div>
+          <ProjectListItem key={board.id} board={board} />
         </li>
       ));
     }
   };
   return (
     <div className="sidebar-wrapper">
-      <ul className="sidebar-list dropdown" onMouseLeave={e => props.close(e)}>
+      <ul className="sidebar-ul" onMouseLeave={e => props.close(e)}>
         {renderItems()}
       </ul>
     </div>

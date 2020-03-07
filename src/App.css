@@ -149,14 +149,13 @@ ul {
   font-size: 30px;
   margin-left: 4px;
 }
-.list-item {
-  height: 45px;
+.sidebar-li {
+  height: 32px;
   min-width: 225px;
   border: 0.75px solid black;
   border-radius: 2.5px;
   margin-top: 5.5px;
   margin-bottom: 5.5px;
-  background: white;
 }
 .project-list-title {
   height: 100%;
@@ -177,14 +176,13 @@ ul {
   position: fixed;
   top: 42px;
 }
-.sidebar-list {
+.sidebar-ul {
   /* overflow: auto; */
   list-style-type: none;
   padding: 0;
   margin-left: 10px;
   margin-right: 10px;
 }
-
 .navbar-btn {
   background-color: hsla(0, 0%, 100%, 0.3);
   border-radius: 3px;
@@ -270,7 +268,7 @@ ul {
 }
 .board-list-item {
   padding: 8px 0 0 8px;
-
+  height: 100%;
   line-height: 20px;
   font-size: 14px;
   font-weight: bold;
