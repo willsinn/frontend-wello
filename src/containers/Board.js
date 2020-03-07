@@ -38,9 +38,8 @@ const Board = props => {
         return { background: "blue" };
     }
   };
-  console.log(props.workspace);
   return (
-    <div id="workspace" style={renderBoardBg()}>
+    <div id="board" style={renderBoardBg()}>
       <div className="board-header">
         <div className="board-ops left">
           <div className="board-ops title-top">
@@ -62,7 +61,9 @@ const Board = props => {
           <DelBoardBtn workspace={props.workspace} />
         </div>
       </div>
-      <CardList key={props.workspace.id} workspace={props.workspace} />
+      <div className="board-body">
+        <CardList key={props.workspace.id} workspace={props.workspace} />
+      </div>
     </div>
   );
 };

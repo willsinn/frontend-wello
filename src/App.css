@@ -38,11 +38,14 @@ ul {
   min-height: 40px;
   justify-content: space-between;
 }
-#workspace {
+#board {
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
+  overflow-y: auto;
+  outline: none;
 }
 #workspace-items-container {
   position: relative;
@@ -58,15 +61,20 @@ ul {
   display: flex;
   flex-direction: column;
 }
-.boards-list:first-child {
-  margin-left: 8px;
+.board-content-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
-.boards-list {
-  display: flex;
-  width: 100%;
+.board-content {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 0;
+  transition: margin 0.1s ease-in;
 }
-
 .card-content {
   margin-left: 5px;
   margin-right: 5px;
@@ -263,11 +271,30 @@ ul {
 
 .board-header {
   height: auto;
+  background: hsla(0, 0%, 100%, 0.24);
+  line-height: 20px;
   padding: 8px 4px 4px 8px;
   position: relative;
   transition: padding 0.1s ease-in;
   display: flex;
   justify-content: space-between;
+}
+.board-body {
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 100%, 0.24) 0,
+    hsla(0, 0%, 100%, 0.24) 48px,
+    hsla(0, 0%, 100%, 0) 80px,
+    hsla(0, 0%, 100%, 0)
+  );
+  position: relative;
+  flex-grow: 1;
+  color: #172b4d;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
+    Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
 }
 .board-ops .title-top {
   background: transparent;
@@ -433,12 +460,6 @@ ul {
   padding-left: 15px;
   border: none;
 }
-
-.new-workspace-item {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
 .workspace-item-control {
   display: flex;
   min-height: 45px;
@@ -511,13 +532,24 @@ ul {
   position: relative;
   top: -5px;
 }
-
-.card {
-  position: absolute;
-  left: 15px;
-  width: inherit;
-  /* overflow-x: hidden; */
+.card-item-wrap {
+  width: 272px;
+  margin: 0 4px;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.card-item {
+  background-color: #ebecf0;
+  border-radius: 3px;
+  box-sizing: border-box;
   display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  position: relative;
+  white-space: normal;
 }
 
 .card-btns {
@@ -1160,4 +1192,8 @@ ul {
   position: relative;
   top: 8px;
   left: 12px;
+}
+.board-cards {
+  display: flex;
+  width: 272px;
 }

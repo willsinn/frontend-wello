@@ -1,8 +1,7 @@
 import React from "react";
 
 const CardItem = props => {
-  console.log(props.card, props.workspace);
-  return <div className="card">{props.card.goal}</div>;
+  return <div className="card-item">{props.card.goal}</div>;
 };
 
 export default CardItem;

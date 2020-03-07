@@ -8,15 +8,27 @@ const CardList = props => {
   const renderItems = () => {
     if (props.workspace.cards.length > 0) {
       return props.workspace.cards.map(card => {
-        return <CardItem card={card} workspace={props.workspace} />;
+        return (
+          <div
+            className="card-item-wrap"
+            key={`board-${props.workspace.id}-${card.id}`}
+          >
+            <CardItem card={card} workspace={props.workspace} />
+          </div>
+        );
       });
     }
   };
-  console.log(props.workspace);
   return (
-    <div className="boards-list">
-      {renderItems()}
-      <AddBoardItem workspace={props.workspace} />
+    <div className="board-content-wrap">
+      <div className="board-content">
+        <div className="board-cards">
+          {renderItems()}
+          <div className="card-item-wrap">
+            <AddBoardItem workspace={props.workspace} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

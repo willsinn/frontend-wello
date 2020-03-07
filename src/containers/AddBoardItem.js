@@ -21,7 +21,7 @@ const AddBoardItem = (props, { dispatch }) => {
     }
   };
   return (
-    <div className="new-workspace-item">
+    <div className="card-item">
       <form onSubmit={handleSubmit} className="item-form">
         <input
           className="n-w form-input"
