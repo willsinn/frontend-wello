@@ -14,9 +14,9 @@ import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 
 const Board = props => {
-  console.log(props);
+  console.log(props.workspace);
   const renderBoardBg = () => {
-    switch (props.workspace.board.background) {
+    switch (props.workspace.background) {
       case "lake":
         return { backgroundImage: `url(${Lake})` };
       case "mountians":
@@ -36,7 +36,7 @@ const Board = props => {
       case "iceland":
         return { backgroundImage: `url(${Iceland})` };
       default:
-        return { backgroundImage: `url(${Iceland})` };
+        return { background: "blue" };
     }
   };
   return (

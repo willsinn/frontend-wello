@@ -48,6 +48,9 @@ ul {
 }
 #workspace {
   height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 #workspace-items-container {
   position: relative;
