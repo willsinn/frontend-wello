@@ -995,13 +995,13 @@ ul {
 .modal-content {
   width: 296px;
   height: 96px;
-  margin: 40px auto;
+  margin: 44px auto;
   padding: 20px;
   border: none;
   border-radius: 3px;
   box-sizing: border-box;
   color: #fff;
-  padding: 10px 10px 10px 16px;
+  padding: 10px 10px 10px 24px;
   display: flex;
   justify-content: space-between;
   position: relative;
