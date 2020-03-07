@@ -1,10 +1,12 @@
 import React from "react";
-import TiledBoardList from "../components/TiledBoardList";
+import PersonalBoardList from "../components/PersonalBoardList";
 
 const HomePage = props => {
   return (
-    <div id="userprojects" className="container">
-      <TiledBoardList />
+    <div className="home-page">
+      <h2>Starred</h2>
+      <PersonalBoardList />
+      <h2>Team Boards</h2>
     </div>
   );
 };

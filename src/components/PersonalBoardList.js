@@ -2,7 +2,7 @@ import React from "react";
 import BoardItem from "../components/BoardItem";
 import { connect } from "react-redux";
 
-const TiledBoardList = props => {
+const PersonalBoardList = props => {
   const renderTiles = () => {
     if (props.boards.length > 0) {
       return props.boards.map(board => (
@@ -14,9 +14,9 @@ const TiledBoardList = props => {
       ));
     }
   };
-
   return (
-    <div className="board middle-tiles container">
+    <div className="personal-boards">
+      <h2 className="personal-tiles">Personal</h2>
       <ul className="board-tiles-ul">{renderTiles()}</ul>
     </div>
   );
@@ -25,4 +25,4 @@ const TiledBoardList = props => {
 const mapStateToProps = ({ boardsReducer: boards }) => ({
   boards: boards.boards
 });
-export default connect(mapStateToProps)(TiledBoardList);
+export default connect(mapStateToProps)(PersonalBoardList);
