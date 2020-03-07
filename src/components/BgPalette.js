@@ -1,9 +1,5 @@
 import React from "react";
 import BgList from "./BgList";
-import Lake from "../images/lake.jpg";
-import Mountians from "../images/mountians.jpg";
-import Cityscape from "../images/cityscape.jpg";
-import Beach from "../images/beach.jpg";
 
 const bgs = [
   "lake",

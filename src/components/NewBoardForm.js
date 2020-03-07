@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import BgPalette from "./BgPalette";
+import Lake from "../images/lake.jpg";
+import Mountians from "../images/mountians.jpg";
+import Cityscape from "../images/cityscape.jpg";
+import Beach from "../images/beach.jpg";
 import { connect } from "react-redux";
 import { postNewBoard } from "../actions/boards";
 
@@ -42,8 +46,17 @@ const NewBoardForm = (props, { dispatch }) => {
       resetForm(e);
     }
   };
+  const handleBg = () => {
+    switch (background) {
+      case "lake":
+        return { backgroundImage: `url(${Lake})` };
+      default:
+        return { backgroundImage: `url(${Lake})` };
+    }
+  };
+  console.log(background);
   return (
-    <div className="modal-content" style={{ background: `${background}` }}>
+    <div className="modal-content" style={handleBg()}>
       <form className="board-form" onSubmit={e => handleSubmit(e)}>
         <input
           autoComplete="off"
