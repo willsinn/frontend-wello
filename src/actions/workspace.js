@@ -28,35 +28,32 @@ export const clearEdit = () => ({ type: "CLEAR_EDIT" });
 export const toggleEdit = () => ({
   type: "TOGGLE_EDIT"
 });
-export const fetchWorkspace = (project, dispatch) => {
+export const fetchWorkspace = (board, dispatch) => {
   return dispatch => {
-    fetch(
-      `http://localhost:3000/user/${project.user_id}/project/${project.id}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        }
+    fetch(`http://localhost:3000/user/${board.user_id}/board/${board.id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
       }
-    )
+    })
       .then(response => response.json())
       .then(JSONresponse => {
-        dispatch(setWorkspace({ project: JSONresponse }));
+        dispatch(setWorkspace({ board: JSONresponse }));
       });
   };
 };
 
-export const postWorkspaceItem = (project, dispatch) => {
+export const postWorkspaceItem = (board, dispatch) => {
   return dispatch => {
-    fetch(`http://localhost:3000/project/${project.workspace.id}/items/new`, {
+    fetch(`http://localhost:3000/board/${board.workspace.id}/items/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        project_id: project.workspace.id,
-        objective: project.objective
+        board_id: board.workspace.id,
+        objective: board.objective
       })
     })
       .then(response => response.json())

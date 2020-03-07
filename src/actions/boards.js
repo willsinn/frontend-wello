@@ -10,7 +10,7 @@ export const addNewBoard = boardData => ({
 
 export const fetchUserBoards = data => {
   return dispatch => {
-    fetch("http://localhost:3000/user/1/projects", {
+    fetch("http://localhost:3000/user/1/boards", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
@@ -24,7 +24,7 @@ export const fetchUserBoards = data => {
 export const postNewBoard = (newBoard, dispatch) => {
   return dispatch => {
     console.log(newBoard);
-    fetch("http://localhost:3000/user/1/projects/new", {
+    fetch("http://localhost:3000/user/1/boards/new", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export const deleteBoard = board => ({
 });
 export const deleteBoardWorkspace = (workspace, dispatch) => {
   return dispatch => {
-    fetch(`http://localhost:3000/project/delete/${workspace.id}`, {
+    fetch(`http://localhost:3000/board/delete/${workspace.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
