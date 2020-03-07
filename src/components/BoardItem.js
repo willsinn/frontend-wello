@@ -21,7 +21,7 @@ const BoardItem = (props, { dispatch }) => {
       props.dispatch(setPage("board"));
     }
   };
-  const renderBoardBg = () => {
+  const renderBg = () => {
     switch (props.board.background) {
       case "lake":
         return { backgroundImage: `url(${Lake})` };
@@ -46,7 +46,7 @@ const BoardItem = (props, { dispatch }) => {
     }
   };
   return (
-    <div style={renderBoardBg()} onClick={handleClick} className="board-item">
+    <div style={renderBg()} onClick={handleClick} className="board-item">
       {props.board.title}
     </div>
   );
