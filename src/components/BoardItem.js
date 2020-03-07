@@ -47,7 +47,7 @@ const BoardItem = (props, { dispatch }) => {
   };
   return (
     <div style={renderBg()} onClick={handleClick} className="board-item">
-      {props.board.title}
+      <span className="board-name">{props.board.title}</span>
     </div>
   );
 };

@@ -41,10 +41,6 @@ ul {
 #userprojects {
   height: inherit;
   width: inherit;
-  background-image: url("./images/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
 }
 #workspace {
   height: 100%;
@@ -98,15 +94,15 @@ ul {
   height: 100%;
   width: 100%;
   border-radius: 3px;
-  border: 1px solid white;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  /* box-sizing: border-box;
-  display: inline-block;
-  vertical-align: top;
-  white-space: nowrap; */
+  color: white;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 900;
+  position: relative;
 }
 .board.middle-tiles {
   display: flex;
@@ -159,7 +155,6 @@ ul {
 .sidebar-li {
   height: 32px;
   min-width: 225px;
-  border: 0.75px solid black;
   margin-top: 5.5px;
   margin-bottom: 5.5px;
 }
@@ -261,8 +256,8 @@ ul {
 .board-tile {
   height: 100px;
   width: 200px;
-  padding: 0;
   margin: 0 2% 2% 0;
+  position: relative;
 }
 .c-p.input-box {
   height: 30px;
@@ -1158,4 +1153,16 @@ ul {
   font-weight: 600;
   font-size: 16px;
   position: absolute;
+}
+.tile-content-wrapper {
+  height: 100%;
+  width: 100%;
+  margin: 4%;
+  padding: 8px;
+  position: relative;
+}
+.board-name {
+  position: relative;
+  top: 8px;
+  left: 12px;
 }

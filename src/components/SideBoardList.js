@@ -14,9 +14,7 @@ const SideBoardList = (props, { dispatch }) => {
   };
   return (
     <div className="sidebar-wrapper">
-      <ul className="sidebar-ul" onMouseLeave={e => props.close(e)}>
-        {renderItems()}
-      </ul>
+      <ul className="sidebar-ul">{renderItems()}</ul>
     </div>
   );
 };
