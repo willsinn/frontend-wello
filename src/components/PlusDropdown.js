@@ -1,15 +1,8 @@
-import React, { useState } from "react";
-import AddBoardModal from "./AddBoardModal";
+import React from "react";
 
 const PlusDropdown = props => {
-  const [active, setActive] = useState(false);
-  const closeModal = e => {
-    setActive(false);
-    props.closeRightnav(e);
-  };
   return (
     <div className="new-board right-modal">
-      <AddBoardModal active={active} closeModal={closeModal} />
       <div className="modal-header title">
         <div className="modal-header label">Create</div>
         <div className="modal-header close">
@@ -19,7 +12,7 @@ const PlusDropdown = props => {
         </div>
       </div>
       <div className="create-board">
-        <button className="create-board-btn" onClick={e => setActive(true)}>
+        <button className="create-board-btn" onClick={e => props.openModal(e)}>
           <div style={{ display: "flex" }}>
             <span className="icon main-icon" />
             <span> Create Board...</span>

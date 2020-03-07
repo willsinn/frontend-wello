@@ -4,15 +4,26 @@ import NoteDropdown from "../components/NoteDropdown";
 import ProfileDropdown from "../components/ProfileDropdown";
 import SideBoardList from "../components/SideBoardList";
 import HomeBtn from "../components/HomeBtn";
+import AddBoardModal from "../components/AddBoardModal";
 
 const NavBar = props => {
   const [sidebar, setSidebar] = useState(false);
   const [rightnav, setRightnav] = useState("");
+  const [modal, setModal] = useState(false);
+
   const closeRightnav = e => {
     setRightnav("");
   };
   const closeLeftnav = e => {
     setSidebar(false);
+  };
+  const closeModal = e => {
+    setModal(false);
+    props.closeRightnav(e);
+  };
+  const openModal = e => {
+    setRightnav("");
+    setModal(true);
   };
   return (
     <div className="nav-wrap">
@@ -25,11 +36,15 @@ const NavBar = props => {
         </div>
 
         {!sidebar ? null : <SideBoardList close={closeLeftnav} />}
-
         {(() => {
           switch (rightnav) {
             case "create":
-              return <PlusDropdown closeRightnav={closeRightnav} />;
+              return (
+                <PlusDropdown
+                  closeRightnav={closeRightnav}
+                  openModal={openModal}
+                />
+              );
             case "noti":
               return <NoteDropdown closeRightnav={closeRightnav} />;
             case "prof":
@@ -38,6 +53,8 @@ const NavBar = props => {
               return null;
           }
         })()}
+
+        <AddBoardModal modal={modal} closeModal={closeModal} />
 
         <div className="mid-nav-title">
           <div className="nav-icon" />

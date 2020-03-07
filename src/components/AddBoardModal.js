@@ -5,9 +5,9 @@ const AddBoardModal = props => {
   return (
     <div
       className="add-board-modal"
-      style={props.active ? { display: "block" } : { display: "none" }}
+      style={props.modal ? { display: "block" } : { display: "none" }}
     >
-      <NewBoardForm active={props.active} closeModal={props.closeModal} />
+      <NewBoardForm modal={props.modal} closeModal={props.closeModal} />
       <button className="modal close-btn" onClick={e => props.closeModal(e)}>
         <span>x</span>
       </button>
