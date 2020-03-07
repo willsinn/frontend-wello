@@ -19,7 +19,6 @@ const NavBar = props => {
   };
   const closeModal = e => {
     setModal(false);
-    props.closeRightnav(e);
   };
   const openModal = e => {
     setRightnav("");

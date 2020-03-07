@@ -119,6 +119,9 @@ const NewBoardForm = (props, { dispatch }) => {
           </button>
         )}
       </form>
+      <button className="modal close-btn" onClick={e => props.closeModal(e)}>
+        <span>x</span>
+      </button>
       <BgPalette background={background} handleChangeBg={handleChangeBg} />
     </div>
   );

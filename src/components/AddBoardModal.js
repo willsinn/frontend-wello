@@ -8,9 +8,6 @@ const AddBoardModal = props => {
       style={props.modal ? { display: "block" } : { display: "none" }}
     >
       <NewBoardForm modal={props.modal} closeModal={props.closeModal} />
-      <button className="modal close-btn" onClick={e => props.closeModal(e)}>
-        <span>x</span>
-      </button>
     </div>
   );
 };
