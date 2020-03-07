@@ -2,16 +2,15 @@ import React from "react";
 import BgList from "./BgList";
 
 const bgs = [
+  "iceland",
   "lake",
   "mountians",
   "cityscape",
   "beach",
-  "green",
-  "gray",
-  "purple",
-  "red",
-  "white",
-  "orange"
+  "autumn",
+  "waterfall",
+  "city",
+  "meadow"
 ];
 const BgPalette = props => {
   return (

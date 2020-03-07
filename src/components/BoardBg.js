@@ -2,53 +2,44 @@ import React, { useState } from "react";
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
 import Cityscape from "../images/cityscape.jpg";
+import City from "../images/city.jpeg";
+import Iceland from "../images/iceland.jpg";
+import Meadow from "../images/meadow.jpg";
+import Waterfall from "../images/waterfall.jpeg";
 import Beach from "../images/beach.jpg";
+import Autumn from "../images/autumn.jpg";
 
 const BoardBg = props => {
+  const renderBgOption = () => {
+    switch (props.bg) {
+      case "lake":
+        return { backgroundImage: `url(${Lake})` };
+      case "mountians":
+        return { backgroundImage: `url(${Mountians})` };
+      case "cityscape":
+        return { backgroundImage: `url(${Cityscape})` };
+      case "beach":
+        return { backgroundImage: `url(${Beach})` };
+      case "autumn":
+        return { backgroundImage: `url(${Autumn})` };
+      case "waterfall":
+        return { backgroundImage: `url(${Waterfall})` };
+      case "city":
+        return { backgroundImage: `url(${City})` };
+      case "meadow":
+        return { backgroundImage: `url(${Meadow})` };
+      default:
+        return { backgroundImage: `url(${Iceland})` };
+    }
+  };
   return (
     <div className="bg-tile">
-      {(() => {
-        switch (props.bg) {
-          case "lake":
-            return (
-              <button
-                className="bg-btn"
-                onClick={e => props.handleChangeBg(e)}
-                style={{ backgroundImage: `url(${Lake})` }}
-                value={props.bg}
-              />
-            );
-          case "mountians":
-            return (
-              <button
-                className="bg-btn"
-                onClick={e => props.handleChangeBg(e)}
-                style={{ backgroundImage: `url(${Mountians})` }}
-                value={props.bg}
-              />
-            );
-          case "cityscape":
-            return (
-              <button
-                className="bg-btn"
-                onClick={e => props.handleChangeBg(e)}
-                style={{ backgroundImage: `url(${Cityscape})` }}
-                value={props.bg}
-              />
-            );
-          case "beach":
-            return (
-              <button
-                className="bg-btn"
-                onClick={e => props.handleChangeBg(e)}
-                style={{ backgroundImage: `url(${Beach})` }}
-                value={props.bg}
-              />
-            );
-          default:
-            return <button />;
-        }
-      })()}
+      <button
+        className="bg-btn"
+        onClick={e => props.handleChangeBg(e)}
+        style={renderBgOption()}
+        value={props.bg}
+      />
     </div>
   );
 };

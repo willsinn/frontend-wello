@@ -14,7 +14,7 @@ import { postNewBoard } from "../actions/boards";
 
 const initialTitle = "";
 const initialTeam = "";
-const initialBackground = "lightblue";
+const initialBackground = "iceland";
 
 const NewBoardForm = (props, { dispatch }) => {
   const [title, setTitle] = useState(initialTitle);
@@ -61,8 +61,16 @@ const NewBoardForm = (props, { dispatch }) => {
         return { backgroundImage: `url(${Cityscape})` };
       case "beach":
         return { backgroundImage: `url(${Beach})` };
+      case "autumn":
+        return { backgroundImage: `url(${Autumn})` };
+      case "waterfall":
+        return { backgroundImage: `url(${Waterfall})` };
+      case "city":
+        return { backgroundImage: `url(${City})` };
+      case "meadow":
+        return { backgroundImage: `url(${Meadow})` };
       default:
-        return { background: "blue" };
+        return { backgroundImage: `url(${Iceland})` };
     }
   };
   console.log(background);

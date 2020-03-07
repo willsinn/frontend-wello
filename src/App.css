@@ -1007,7 +1007,9 @@ ul {
   display: flex;
   justify-content: space-between;
   position: relative;
-  background-position: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .board-form {
   color: black;
