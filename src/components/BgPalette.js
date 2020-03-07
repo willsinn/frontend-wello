@@ -1,11 +1,11 @@
 import React from "react";
 import BgList from "./BgList";
 
-const solids = [
-  "blue",
-  "pink",
-  "yellow",
-  "green",
+const bgs = [
+  "Lake",
+  "Mountians",
+  "Cityscape",
+  "Beach",
   "gray",
   "purple",
   "red",
@@ -15,7 +15,7 @@ const solids = [
 const BgPalette = props => {
   return (
     <div className="board-bg-palette">
-      <BgList solids={solids} handleChangeBg={props.handleChangeBg} />
+      <BgList bgs={bgs} handleChangeBg={props.handleChangeBg} />
     </div>
   );
 };

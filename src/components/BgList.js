@@ -3,13 +3,13 @@ import BoardBg from "./BoardBg";
 
 const BgList = props => {
   const renderBgs = () => {
-    if (props.solids.length > 0) {
-      return props.solids.map(solid => {
+    if (props.bgs.length > 0) {
+      return props.bgs.map(bg => {
         return (
           <BoardBg
-            solid={solid}
+            bg={bg}
             handleChangeBg={props.handleChangeBg}
-            key={`bg-data-${solid}`}
+            key={`bg-data-${bg}`}
           />
         );
       });
