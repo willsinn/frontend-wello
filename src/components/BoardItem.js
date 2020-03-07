@@ -14,11 +14,13 @@ const BoardItem = (props, { dispatch }) => {
     }
   };
   return (
-    <li className="board-tile" style={{ backgroundImage: `url(${Lake})` }}>
-      <div onClick={handleClick} className="board-list-item">
-        {props.board.title}
-      </div>
-    </li>
+    <div
+      style={{ backgroundImage: `url(${Lake})` }}
+      onClick={handleClick}
+      className="board-item"
+    >
+      {props.board.title}
+    </div>
   );
 };
 export default connect()(BoardItem);
