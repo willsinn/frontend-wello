@@ -3,7 +3,12 @@ import BgPalette from "./BgPalette";
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
 import Cityscape from "../images/cityscape.jpg";
+import City from "../images/city.jpeg";
+import Iceland from "../images/iceland.jpg";
+import Meadow from "../images/meadow.jpg";
+import Waterfall from "../images/waterfall.jpeg";
 import Beach from "../images/beach.jpg";
+import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 import { postNewBoard } from "../actions/boards";
 
