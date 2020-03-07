@@ -46,17 +46,23 @@ const NewBoardForm = (props, { dispatch }) => {
       resetForm(e);
     }
   };
-  const handleBg = () => {
+  const selectBg = () => {
     switch (background) {
       case "lake":
         return { backgroundImage: `url(${Lake})` };
+      case "mountians":
+        return { backgroundImage: `url(${Mountians})` };
+      case "cityscape":
+        return { backgroundImage: `url(${Cityscape})` };
+      case "beach":
+        return { backgroundImage: `url(${Beach})` };
       default:
-        return { backgroundImage: `url(${Lake})` };
+        return { background: "blue" };
     }
   };
   console.log(background);
   return (
-    <div className="modal-content" style={handleBg()}>
+    <div className="modal-content" style={selectBg()}>
       <form className="board-form" onSubmit={e => handleSubmit(e)}>
         <input
           autoComplete="off"
