@@ -38,6 +38,7 @@ const Board = props => {
         return { background: "blue" };
     }
   };
+  console.log(props.workspace);
   return (
     <div id="workspace" style={renderBoardBg()}>
       <div className="board-header">

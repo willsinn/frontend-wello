@@ -11,7 +11,7 @@ const workspaceReducer = (state = defaultState, action) => {
     case "CLEAR_WORKSPACE":
       return { ...state, workspace: defaultState, items: [] };
     case "SET_WORKSPACE":
-      return { ...state, workspace: action.workspace.project };
+      return { ...state, workspace: action.workspace.board };
     case "SET_ITEMS":
       return {
         ...state,
@@ -25,7 +25,7 @@ const workspaceReducer = (state = defaultState, action) => {
       };
     case "UPDATE_ITEM":
       let newItems;
-      if (state.workspace.id === action.item.project_id) {
+      if (state.workspace.id === action.item.board_id) {
         newItems = state.items.map(item => {
           if (item.id === action.item.id) {
             return action.item;

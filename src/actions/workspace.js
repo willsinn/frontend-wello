@@ -30,7 +30,7 @@ export const toggleEdit = () => ({
 });
 export const fetchWorkspace = (board, dispatch) => {
   return dispatch => {
-    fetch(`http://localhost:3000/user/${board.user_id}/board/${board.id}`, {
+    fetch(`http://localhost:3000/user/1/board/${board.id}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
