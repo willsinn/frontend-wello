@@ -268,16 +268,18 @@ ul {
   border-radius: 3px;
   text-align: center;
 }
-
 .board-header {
-  height: auto;
-  background: hsla(0, 0%, 100%, 0.24);
+  position: fixed;
+  width: 100%;
   line-height: 20px;
-  padding: 8px 4px 4px 8px;
-  position: relative;
-  transition: padding 0.1s ease-in;
   display: flex;
   justify-content: space-between;
+  padding: 8px;
+}
+.board-header-wrap {
+  height: 48px;
+  position: relative;
+  transition: padding 0.1s ease-in;
 }
 .board-body {
   background: linear-gradient(

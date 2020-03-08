@@ -40,25 +40,27 @@ const Board = props => {
   };
   return (
     <div id="board" style={renderBoardBg()}>
-      <div className="board-header">
-        <div className="board-ops left">
-          <div className="board-ops title-top">
-            <span
-              className="b-name"
-              style={{
-                paddingLeft: "12px",
-                paddingRight: "12px"
-              }}
-            >
-              {props.workspace.title}
-            </span>
-            <button className="navbar-btn">
-              <span className="fav-star-icon icon" />
-            </button>
+      <div className="board-header-wrap">
+        <div className="board-header">
+          <div className="board-ops left">
+            <div className="board-ops title-top">
+              <span
+                className="b-name"
+                style={{
+                  paddingLeft: "12px",
+                  paddingRight: "12px"
+                }}
+              >
+                {props.workspace.title}
+              </span>
+              <button className="navbar-btn">
+                <span className="fav-star-icon icon" />
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="board-ops right">
-          <DelBoardBtn workspace={props.workspace} />
+          <div className="board-ops right">
+            <DelBoardBtn workspace={props.workspace} />
+          </div>
         </div>
       </div>
       <div className="board-body">
