@@ -1240,7 +1240,6 @@ ul {
   transition-property: transform, width;
   transition-duration: 0.1s;
   transition-timing-function: ease-in;
-  /* transform: translateX(339px); */
   height: 100vh;
   width: 339px;
 }
