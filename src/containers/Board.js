@@ -1,6 +1,6 @@
 import React from "react";
 import CardList from "../components/CardList";
-import DelBoardBtn from "../components/DelBoardBtn";
+import BoardMenu from "./BoardMenu";
 
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
@@ -59,7 +59,7 @@ const Board = props => {
             </div>
           </div>
           <div className="board-ops right">
-            <DelBoardBtn workspace={props.workspace} />
+            <BoardMenu workspace={props.workspace} />
           </div>
         </div>
       </div>

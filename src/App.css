@@ -1199,3 +1199,28 @@ ul {
   display: flex;
   width: 272px;
 }
+.show-menu-btn {
+  width: 100%;
+  display: flex;
+}
+.board-header-btn {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: white;
+  border-radius: 3px;
+  cursor: default;
+  font-size: 14px;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 4px 4px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  text-decoration: none;
+}
+.icon-sm {
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  width: 20px;
+}
