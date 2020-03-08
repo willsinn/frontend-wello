@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import CardItem from "./CardItem";
 import AddBoardItem from "../containers/AddBoardItem";
-import { setCards } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const CardList = props => {

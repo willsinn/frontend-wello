@@ -3,10 +3,6 @@ export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
   workspace
 });
-export const setCards = cards => ({
-  type: "SET_CARDS",
-  cards
-});
 
 export const deleteCard = card => ({
   type: "DELETE_CARD",
@@ -55,11 +51,7 @@ export const postWorkspaceCard = (board, dispatch) => {
         board_id: board.workspace.id,
         goal: board.goal
       })
-    })
-      .then(response => response.json())
-      .then(JSONresponse => {
-        dispatch(addCard(JSONresponse));
-      });
+    });
   };
 };
 export const deleteWorkspaceCard = (card, dispatch) => {
