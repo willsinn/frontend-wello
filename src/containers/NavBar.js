@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import PlusDropdown from "../components/PlusDropdown";
 import NoteDropdown from "../components/NoteDropdown";
 import ProfileDropdown from "../components/ProfileDropdown";
-import SidebarList from "../components/SidebarList";
+import SideDropdownList from "../components/SideDropdownList";
 import HomeBtn from "../components/HomeBtn";
 import AddBoardModal from "../components/AddBoardModal";
 
 const NavBar = props => {
-  const [sidebar, setSidebar] = useState(false);
+  const [sidelist, setSidelist] = useState(false);
   const [rightnav, setRightnav] = useState("");
   const [modal, setModal] = useState(false);
 
   const closeRightnav = e => {
     setRightnav("");
   };
-  const closeSidebar = e => {
-    setSidebar(false);
+  const closeSidelist = e => {
+    setSidelist(false);
   };
   const closeModal = e => {
     setModal(false);
@@ -29,13 +29,13 @@ const NavBar = props => {
       <div id="navbar">
         <div className="left-navbar">
           <HomeBtn close={closeRightnav} />
-          <button className="navbar-btn" onClick={e => setSidebar(!sidebar)}>
+          <button className="navbar-btn" onClick={e => setSidelist(!sidelist)}>
             <span className="nav-icon" />
           </button>
         </div>
 
-        {!sidebar ? null : (
-          <SidebarList sidebar={sidebar} closeSidebar={closeSidebar} />
+        {!sidelist ? null : (
+          <SideDropdownList sidelist={sidelist} closeSidelist={closeSidelist} />
         )}
         {(() => {
           switch (rightnav) {

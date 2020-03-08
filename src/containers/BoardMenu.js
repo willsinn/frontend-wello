@@ -8,7 +8,7 @@ const BoardMenu = props => {
         <span className="icon-sm">...</span>
         <span>Show Menu</span>
       </button>
-      <div className="board-menu">
+      <div className="board-sidebar-menu">
         <DelBoardBtn workspace={props.workspace} />
       </div>
     </div>

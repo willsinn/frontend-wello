@@ -20,8 +20,8 @@ const BoardItem = (props, { dispatch }) => {
       props.dispatch(fetchWorkspace(props.board));
       props.dispatch(setPage("board"));
     }
-    if (props.sidebar) {
-      props.closeSidebar(e);
+    if (props.sidelist) {
+      props.closeSidelist(e);
     }
   };
   const renderBg = () => {

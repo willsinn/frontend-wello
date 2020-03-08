@@ -1203,8 +1203,11 @@ ul {
   width: 100%;
   display: flex;
 }
+.board-header-btn:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+}
 .board-header-btn {
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.25);
   color: white;
   border-radius: 3px;
   cursor: default;
@@ -1217,6 +1220,7 @@ ul {
   justify-content: space-evenly;
   align-content: center;
   text-decoration: none;
+  border: none;
 }
 .icon-sm {
   height: 20px;
