@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import CardItem from "./CardItem";
 import AddBoardItem from "../containers/AddBoardItem";
-import { setItems } from "../actions/workspace";
+import { setCards } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const CardList = props => {
+  const [deck, setDeck] = useState(props.workspace.cards);
+  const updateDeck = e => {
+    setDeck([...deck, { goal: e.target.value }]);
+  };
   const renderItems = () => {
-    if (props.workspace.cards.length > 0) {
-      return props.workspace.cards.map(card => {
+    if (deck.length > 0) {
+      return deck.map(card => {
         return (
           <div
             className="card-item-wrap"
@@ -25,7 +29,7 @@ const CardList = props => {
         <div className="board-cards">
           {renderItems()}
           <div className="card-item-wrap">
-            <AddBoardItem workspace={props.workspace} />
+            <AddBoardItem workspace={props.workspace} updateDeck={updateDeck} />
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ const Board = props => {
       case "iceland":
         return { backgroundImage: `url(${Iceland})` };
       default:
-        return { background: "blue" };
+        return;
     }
   };
   return (
