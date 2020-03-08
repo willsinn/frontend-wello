@@ -6,7 +6,7 @@ const SideDropdownList = (props, { dispatch }) => {
   const renderItems = () => {
     if (props.boards.length > 0) {
       return props.boards.map(board => (
-        <li className="sidebar-li">
+        <li className="sidelist-li">
           <BoardItem
             key={board.id}
             board={board}
@@ -18,8 +18,8 @@ const SideDropdownList = (props, { dispatch }) => {
     }
   };
   return (
-    <div className="sidebar-wrapper">
-      <ul className="sidebar-ul">{renderItems()}</ul>
+    <div className="sidelist-wrapper">
+      <ul className="sidelist-ul">{renderItems()}</ul>
     </div>
   );
 };
