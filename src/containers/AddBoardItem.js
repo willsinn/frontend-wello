@@ -17,6 +17,7 @@ const AddBoardItem = (props, { dispatch }) => {
     if (e) {
       e.preventDefault();
       props.dispatch(postWorkspaceCard({ goal, workspace: props.workspace }));
+      props.updateDeck(goal);
       clearState(e);
     }
   };

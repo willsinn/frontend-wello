@@ -6,8 +6,19 @@ import { connect } from "react-redux";
 
 const CardList = props => {
   const [deck, setDeck] = useState(props.workspace.cards);
-  const updateDeck = e => {
-    setDeck([...deck, { goal: e.target.value }]);
+  const updateDeck = newGoal => {
+    const newCard = deck[deck.length - 1];
+    const newDeck = [
+      ...deck,
+      {
+        id: parseInt(newCard.id + 1),
+        goal: newGoal,
+        summary: null,
+        board_id: parseInt(props.workspace.id),
+        tasks: []
+      }
+    ];
+    setDeck(newDeck);
   };
   const renderItems = () => {
     if (deck.length > 0) {
@@ -23,6 +34,7 @@ const CardList = props => {
       });
     }
   };
+  console.log(deck);
   return (
     <div className="board-content-wrap">
       <div className="board-content">
