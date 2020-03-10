@@ -19,16 +19,18 @@ const BoardMenu = props => {
         <div className="board-menu-container">
           <div className="board-menu-sidebar-content">
             <div class="board-menu-header-content">
-              <h3 class="board-menu-header-title js-board-menu-title-text">
+              <h3 class="board-menu-header-title board-menu-title-text">
                 Menu
               </h3>
               <button
                 className="board-menu-close-btn"
                 onClick={e => setSidebar(false)}
               >
-                x
+                ×
               </button>
             </div>
+            <hr class="board-menu-header-divider" />
+
             <DelBoardBtn workspace={props.workspace} />
           </div>
         </div>
