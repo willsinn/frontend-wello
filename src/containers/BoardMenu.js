@@ -15,21 +15,31 @@ const BoardMenu = props => {
         <span className="icon-sm">...</span>
         <span>Show Menu</span>
       </button>
+
       <div className="board-menu" style={renderSidebar()}>
         <div className="board-menu-container">
           <div className="board-menu-sidebar-content">
             <div class="board-menu-header-content">
-              <h3 class="board-menu-header-title board-menu-title-text">
+              <h3 class="board-menu-header-title js-board-menu-title-text">
                 Menu
               </h3>
               <button
                 className="board-menu-close-btn"
                 onClick={e => setSidebar(false)}
               >
-                ×
+                x
               </button>
             </div>
-            <hr class="board-menu-header-divider" />
+
+            <div className="board-menu-content">
+              <ul>
+                <li>About This Board</li>
+                <li>Change Background</li>
+                <li>Search Cards</li>
+              </ul>
+
+              <div className="board-activity-logs">What you did.</div>
+            </div>
 
             <DelBoardBtn workspace={props.workspace} />
           </div>
