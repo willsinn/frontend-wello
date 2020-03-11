@@ -1320,8 +1320,9 @@ button {
   margin: 0;
 }
 .board-menu-nav-list {
-  margin: 4px 0;
+  margin: 0;
   width: 100%;
+  max-width: 279px;
 }
 .board-menu-nav-btn {
   border-radius: 3px;

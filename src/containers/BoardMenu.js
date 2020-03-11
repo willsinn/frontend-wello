@@ -34,12 +34,9 @@ const BoardMenu = props => {
             <hr />
             <div className="board-menu-content">
               <BoardMenuNavList />
-              <hr />
-
               <DelBoardBtn workspace={props.workspace} />
+              <hr />
             </div>
-
-            <hr />
           </div>
         </div>
       </div>
