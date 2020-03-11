@@ -31,8 +31,15 @@ const BoardMenu = props => {
                 x
               </button>
             </div>
-            <BoardMenuNavList />
-            <DelBoardBtn workspace={props.workspace} />
+            <hr />
+            <div className="board-menu-content">
+              <BoardMenuNavList />
+              <hr />
+
+              <DelBoardBtn workspace={props.workspace} />
+            </div>
+
+            <hr />
           </div>
         </div>
       </div>

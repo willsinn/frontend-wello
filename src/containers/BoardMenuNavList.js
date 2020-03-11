@@ -2,14 +2,17 @@ import React, { useState } from "react";
 
 const BoardMenuNavList = () => {
   return (
-    <div className="board-menu-content">
-      <ul>
-        <li>About This Board</li>
-        <li>Change Background</li>
-        <li>Search Cards</li>
-      </ul>
-      <div className="board-activity-logs">What you did.</div>
-    </div>
+    <ul className="board-menu-nav-list">
+      <li className="board-menu-nav-item">
+        <span className="board-menu-nav-btn">About This Board</span>
+      </li>
+      <li className="board-menu-nav-item">
+        <span className="board-menu-nav-btn">Change Background</span>
+      </li>
+      <li className="board-menu-nav-item">
+        <span className="board-menu-nav-btn">Search Cards</span>
+      </li>
+    </ul>
   );
 };
 export default BoardMenuNavList;

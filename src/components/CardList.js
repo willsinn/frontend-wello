@@ -33,7 +33,6 @@ const CardList = props => {
       });
     }
   };
-  console.log(deck);
   return (
     <div className="board-content-wrap">
       <div className="board-content">

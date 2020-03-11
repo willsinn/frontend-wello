@@ -29,6 +29,14 @@ hr {
   padding: 0;
   width: 100%;
 }
+button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
 #root {
   height: 100vh;
   width: 100vw;
@@ -1310,4 +1318,32 @@ hr {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
     Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
   margin: 0;
+}
+.board-menu-nav-list {
+  margin: 4px 0;
+  width: 100%;
+}
+.board-menu-nav-btn {
+  border-radius: 3px;
+  display: block;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 6px 6px 40px;
+  position: relative;
+}
+.board-menu-nav-btn:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  color: #091e42;
+  outline: 0;
+}
+.board-menu-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 12px 6px 12px 12px;
+  width: 100%;
+  height: 100%;
 }
