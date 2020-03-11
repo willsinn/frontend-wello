@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BoardMenuNavList from "./BoardMenuNavList";
 import DelBoardBtn from "../components/DelBoardBtn";
 
 const BoardMenu = props => {
@@ -30,17 +31,7 @@ const BoardMenu = props => {
                 x
               </button>
             </div>
-
-            <div className="board-menu-content">
-              <ul>
-                <li>About This Board</li>
-                <li>Change Background</li>
-                <li>Search Cards</li>
-              </ul>
-
-              <div className="board-activity-logs">What you did.</div>
-            </div>
-
+            <BoardMenuNavList />
             <DelBoardBtn workspace={props.workspace} />
           </div>
         </div>
