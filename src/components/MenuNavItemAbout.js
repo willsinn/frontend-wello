@@ -1,7 +1,7 @@
 import React from "react";
 
 const MenuNavItemAbout = props => {
-  return <div>Menu Nav Item</div>;
+  return <div>About the app and its creators</div>;
 };
 
 export default MenuNavItemAbout;
