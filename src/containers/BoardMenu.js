@@ -26,13 +26,33 @@ const BoardMenu = props => {
         {(() => {
           switch (content) {
             case "about":
-              return <MenuNavItemAbout />;
+              return (
+                <MenuNavItemAbout
+                  setSidebar={setSidebar}
+                  setContent={setContent}
+                />
+              );
             case "bg":
-              return <MenuNavItemBackground />;
+              return (
+                <MenuNavItemBackground
+                  setSidebar={setSidebar}
+                  setContent={setContent}
+                />
+              );
             case "search":
-              return <MenuNavItemSearch />;
+              return (
+                <MenuNavItemSearch
+                  setSidebar={setSidebar}
+                  setContent={setContent}
+                />
+              );
             case "more":
-              return <MenuNavItemMore />;
+              return (
+                <MenuNavItemMore
+                  setSidebar={setSidebar}
+                  setContent={setContent}
+                />
+              );
             default:
               return (
                 <BoardMenuNavList
