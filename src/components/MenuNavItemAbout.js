@@ -5,12 +5,15 @@ const MenuNavItemAbout = props => {
     <div className="board-menu-container">
       <div className="board-menu-sidebar-content">
         <div class="board-menu-header-content">
-          <h3 class="board-menu-header-title js-board-menu-title-text">Menu</h3>
+          <button onClick={e => props.setContent("")}>〈</button>
+          <h3 class="board-menu-header-title js-board-menu-title-text">
+            About This Board
+          </h3>
           <button
             className="board-menu-close-btn"
-            onClick={e => props.setSidebar(false)}
+            onClick={e => props.resetClosedSidebar(e)}
           >
-            x
+            ✕
           </button>
         </div>
         <hr />

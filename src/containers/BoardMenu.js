@@ -11,7 +11,12 @@ const BoardMenu = props => {
   const renderSidebar = () => {
     return !sidebar ? { transform: "translateX(339px)" } : null;
   };
-  console.log("content state", content);
+  const resetClosedSidebar = e => {
+    if (e) {
+      setSidebar(false);
+      setContent("");
+    }
+  };
   return (
     <div className="board-sidebar">
       <button
@@ -30,6 +35,7 @@ const BoardMenu = props => {
                 <MenuNavItemAbout
                   setSidebar={setSidebar}
                   setContent={setContent}
+                  resetClosedSidebar={resetClosedSidebar}
                 />
               );
             case "bg":
@@ -37,6 +43,7 @@ const BoardMenu = props => {
                 <MenuNavItemBackground
                   setSidebar={setSidebar}
                   setContent={setContent}
+                  resetClosedSidebar={resetClosedSidebar}
                 />
               );
             case "search":
@@ -44,6 +51,7 @@ const BoardMenu = props => {
                 <MenuNavItemSearch
                   setSidebar={setSidebar}
                   setContent={setContent}
+                  resetClosedSidebar={resetClosedSidebar}
                 />
               );
             case "more":
@@ -51,6 +59,7 @@ const BoardMenu = props => {
                 <MenuNavItemMore
                   setSidebar={setSidebar}
                   setContent={setContent}
+                  resetClosedSidebar={resetClosedSidebar}
                 />
               );
             default:
