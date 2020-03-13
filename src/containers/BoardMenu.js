@@ -18,26 +18,7 @@ const BoardMenu = props => {
       </button>
 
       <div className="board-menu" style={renderSidebar()}>
-        <div className="board-menu-container">
-          <div className="board-menu-sidebar-content">
-            <div class="board-menu-header-content">
-              <h3 class="board-menu-header-title js-board-menu-title-text">
-                Menu
-              </h3>
-              <button
-                className="board-menu-close-btn"
-                onClick={e => setSidebar(false)}
-              >
-                x
-              </button>
-            </div>
-            <hr />
-            <div className="board-menu-content">
-              <BoardMenuNavList />
-              <hr />
-            </div>
-          </div>
-        </div>
+        <BoardMenuNavList setSidebar={setSidebar} />
       </div>
     </div>
   );
