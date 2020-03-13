@@ -27,12 +27,12 @@ const BoardMenu = props => {
           switch (content) {
             case "about":
               return <MenuNavItemAbout />;
-            case "about":
-              return <MenuNavItemAbout />;
-            case "about":
-              return <MenuNavItemAbout />;
-            case "about":
-              return <MenuNavItemAbout />;
+            case "bg":
+              return <MenuNavItemBackground />;
+            case "search":
+              return <MenuNavItemSearch />;
+            case "more":
+              return <MenuNavItemMore />;
             default:
               return (
                 <BoardMenuNavList

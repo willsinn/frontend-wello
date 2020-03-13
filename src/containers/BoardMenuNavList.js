@@ -27,7 +27,7 @@ const BoardMenuNavList = props => {
             </li>
             <li
               className="board-menu-nav-item"
-              onClick={e => props.setContent("bgs")}
+              onClick={e => props.setContent("bg")}
             >
               <span className="board-menu-nav-btn">
                 <span className="board-menu-nav-icon">🏀</span>
