@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BoardMenuNavList from "./BoardMenuNavList";
 import DelBoardBtn from "../components/DelBoardBtn";
+import MenuNavItemAbout from "../components/MenuNavItemAbout";
 
 const BoardMenu = props => {
   const [sidebar, setSidebar] = useState(false);
@@ -8,6 +9,7 @@ const BoardMenu = props => {
   const renderSidebar = () => {
     return !sidebar ? { transform: "translateX(339px)" } : null;
   };
+  console.log("content state", content);
   return (
     <div className="board-sidebar">
       <button
@@ -19,7 +21,19 @@ const BoardMenu = props => {
       </button>
 
       <div className="board-menu" style={renderSidebar()}>
-        <BoardMenuNavList setSidebar={setSidebar} setContent={setContent} />
+        {(() => {
+          switch (content) {
+            case "about":
+              return <MenuNavItemAbout />;
+            default:
+              return (
+                <BoardMenuNavList
+                  setSidebar={setSidebar}
+                  setContent={setContent}
+                />
+              );
+          }
+        })()}
       </div>
     </div>
   );
