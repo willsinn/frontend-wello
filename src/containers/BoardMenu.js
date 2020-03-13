@@ -4,6 +4,7 @@ import DelBoardBtn from "../components/DelBoardBtn";
 
 const BoardMenu = props => {
   const [sidebar, setSidebar] = useState(false);
+  const [content, setContent] = useState("");
   const renderSidebar = () => {
     return !sidebar ? { transform: "translateX(339px)" } : null;
   };
@@ -18,7 +19,7 @@ const BoardMenu = props => {
       </button>
 
       <div className="board-menu" style={renderSidebar()}>
-        <BoardMenuNavList setSidebar={setSidebar} />
+        <BoardMenuNavList setSidebar={setSidebar} setContent={setContent} />
       </div>
     </div>
   );
