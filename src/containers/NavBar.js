@@ -30,7 +30,7 @@ const NavBar = props => {
         <div className="left-navbar">
           <HomeBtn close={closeRightnav} />
           <button className="navbar-btn" onClick={e => setSidelist(!sidelist)}>
-            <span className="nav-icon" />
+            <span className="wello-icon-white" />
           </button>
         </div>
 
@@ -58,7 +58,7 @@ const NavBar = props => {
         <AddBoardModal modal={modal} closeModal={closeModal} />
 
         <div className="mid-nav-title">
-          <div className="nav-icon" />
+          <div className="wello-icon-white" />
           <div className="app-name"> Wello</div>
         </div>
         <div className="right-navbar">

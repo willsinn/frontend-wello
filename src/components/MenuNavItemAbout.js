@@ -6,7 +6,7 @@ const MenuNavItemAbout = props => {
       <div className="board-menu-sidebar-content">
         <div className="board-menu-header-content">
           <button onClick={e => props.setContent("")}>〈</button>
-          <h3 class="board-menu-header-title js-board-menu-title-text">
+          <h3 className="board-menu-header-title js-board-menu-title-text">
             About This Board
           </h3>
           <button

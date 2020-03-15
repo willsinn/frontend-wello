@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const BoardMenuNavList = props => {
   return (
@@ -23,7 +23,7 @@ const BoardMenuNavList = props => {
               onClick={e => props.setContent("about")}
             >
               <span className="board-menu-nav-btn">
-                <span className="board-menu-nav-icon">🏀</span>
+                <div className="nav-icon board-menu-icon" />
                 <span>About This Board</span>
               </span>
             </li>

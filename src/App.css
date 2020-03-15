@@ -1004,14 +1004,23 @@ button {
 .home-icon {
   background-size: contain;
 }
-.nav-icon {
-  background-image: url("./images/nav-icon.jpg");
+.wello-icon-white {
+  background-image: url("./images/wello-icon-white.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   height: 22px;
   width: 22px;
   padding-right: 4px;
 }
+.wello-icon-black {
+  /* background-image: url("./images/wello-icon-black.jpg"); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  font-size: 20px;
+}
+
 .add-board-modal {
   position: fixed;
   z-index: 80;
