@@ -4,8 +4,10 @@ const BoardMenuNavList = props => {
   return (
     <div className="board-menu-container">
       <div className="board-menu-sidebar-content">
-        <div class="board-menu-header-content">
-          <h3 class="board-menu-header-title js-board-menu-title-text">Menu</h3>
+        <div className="board-menu-header-content">
+          <h3 className="board-menu-header-title js-board-menu-title-text">
+            Menu
+          </h3>
           <button
             className="board-menu-close-btn"
             onClick={e => props.setSidebar(false)}
