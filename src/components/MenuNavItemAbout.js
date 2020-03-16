@@ -22,7 +22,12 @@ const MenuNavItemAbout = props => {
           </button>
         </div>
         <hr />
-        <div className="board-menu-content" />
+        <div className="board-menu-content">
+          <ul className="board-menu-nav-list">
+            <li className="board-menu-nav-item">MADE BY ROB</li>
+            <li className="board-menu-nav-item">DESCRIPTION</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

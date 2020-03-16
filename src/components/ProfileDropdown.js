@@ -7,16 +7,18 @@ const ProfileDropdown = (props, { dispatch }) => {
     <div className="board right-popup">
       <div className="popup-header title">
         <div className="popup-header label">William Sinn</div>
-        <div className="popup-header close">
+        <div className="popup-header closeRightnav">
           <button>
-            <span onClick={e => props.close(e)}>×</span>
+            <span onClick={e => props.closeRightnav(e)}>×</span>
           </button>
         </div>
       </div>
       <ul>
         <li class="popup option-item">
           <button
-            onClick={e => props.dispatch(setPage("profile"), props.close(e))}
+            onClick={e =>
+              props.dispatch(setPage("profile"), props.closeRightnav(e))
+            }
             class="option-title js-member-profile"
             data-tab="profile"
           >
@@ -25,7 +27,9 @@ const ProfileDropdown = (props, { dispatch }) => {
         </li>
         <li class="popup option-item">
           <button
-            onClick={e => props.dispatch(setPage("profile"), props.close(e))}
+            onClick={e =>
+              props.dispatch(setPage("profile"), props.closeRightnav(e))
+            }
             class="option-title js-member-activity active"
             data-tab="cards"
           >
@@ -34,7 +38,9 @@ const ProfileDropdown = (props, { dispatch }) => {
         </li>
         <li class="popup option-item">
           <button
-            onClick={e => props.dispatch(setPage("profile"), props.close(e))}
+            onClick={e =>
+              props.dispatch(setPage("profile"), props.closeRightnav(e))
+            }
             class="option-title js-member-cards"
             data-tab="cards"
           >
@@ -43,7 +49,9 @@ const ProfileDropdown = (props, { dispatch }) => {
         </li>
         <li class="popup option-item">
           <button
-            onClick={e => props.dispatch(setPage("profile"), props.close(e))}
+            onClick={e =>
+              props.dispatch(setPage("profile"), props.closeRightnav(e))
+            }
             class="option-title js-member-account"
             data-tab="settings"
           >
