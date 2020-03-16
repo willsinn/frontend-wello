@@ -88,7 +88,7 @@ const BoardMenuNavList = props => {
               onClick={e => props.setContent("more")}
             >
               <span className="board-menu-nav-btn">
-                <span className="board-menu-nav-icon">...</span>
+                <div className="dots-icon-gray">...</div>
                 <span>Show More</span>
               </span>
             </li>

@@ -1349,7 +1349,7 @@ button {
   display: block;
   font-weight: 600;
   line-height: 20px;
-  padding: 6px 6px 6px 40px;
+  padding: 8px 6px 8px 40px;
   position: relative;
   width: 90%;
 }
@@ -1393,4 +1393,14 @@ button {
   position: absolute;
   top: 2px;
   right: 6px;
+}
+.dots-icon-gray {
+  width: 20px;
+  height: 20px;
+  font-weight: 900;
+  font-size: 16px;
+  color: #000000cc;
+  position: absolute;
+  top: 4px;
+  left: 14px;
 }
