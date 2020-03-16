@@ -44,7 +44,7 @@ const BoardMenuNavList = props => {
             className="board-menu-close-btn"
             onClick={e => props.setSidebar(false)}
           >
-            x
+            <span className="close-text">✕</span>
           </button>
         </div>
         <hr />

@@ -25,9 +25,9 @@ hr {
   background-color: rgba(9, 30, 66, 0.13);
   border: 0;
   height: 1px;
-  margin: 16px 0;
+  margin: auto;
   padding: 0;
-  width: 100%;
+  width: 90%;
 }
 button {
   background-color: Transparent;
@@ -1377,4 +1377,11 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+.close-text {
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  top: 2px;
+  right: 6px;
 }
