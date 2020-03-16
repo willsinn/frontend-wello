@@ -11,7 +11,7 @@ import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 
 const BoardMenuNavList = props => {
-  const renderBgOption = () => {
+  const renderCurrBg = () => {
     switch (props.currBg) {
       case "lake":
         return { backgroundImage: `url(${Lake})` };
@@ -69,9 +69,9 @@ const BoardMenuNavList = props => {
               <span className="board-menu-nav-btn">
                 <div
                   className="current-board-bg bg-btn"
-                  style={renderBgOption()}
+                  style={renderCurrBg()}
                 />
-                <span>Change Background</span>
+                <div>Change Background</div>
               </span>
             </li>
             <li
