@@ -93,8 +93,8 @@ const BoardMenuNavList = props => {
                 <span>More</span>
               </span>
             </li>
+            <hr style={{ margin: "16px" }} />
           </ul>
-          <hr style={{ margin: "16px" }} />
           <MenuActivityList />
         </div>
       </div>

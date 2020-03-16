@@ -1396,6 +1396,36 @@ button {
   top: 2px;
   right: 6px;
 }
+.board-menu-back-btn {
+  position: absolute;
+  font-size: 28px;
+  top: 8px;
+  left: 8px;
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: bottom;
+  border: none;
+  color: #42526e;
+  background: transparent;
+}
+.board-menu-back-btn:hover {
+  color: #091e42;
+  outline: 0;
+}
+.back-text {
+  font-size: 22px;
+  font-weight: 400;
+  top: 2px;
+  left: 6px;
+}
 .dots-icon-gray {
   width: 20px;
   height: 20px;
