@@ -27,9 +27,10 @@ const MenuNavItemAbout = props => {
             <li className="board-menu-nav-item">
               <span className="norm-item-content">
                 <div className="user-profile-icon" />
-                <div> Made By</div>
+                <div> Made By </div>
               </span>
             </li>
+
             <li className="board-menu-nav-item">
               <span className="norm-item-content">
                 <div className="about-user-initials">
@@ -37,10 +38,17 @@ const MenuNavItemAbout = props => {
                     <span className="initials-wrap menu-icon menu-initials">
                       WS
                     </span>
-                    <div> William Sinn</div>
-                    <div> @William_Sinn_1</div>
+                    <div> William Sinn </div>
+                    <div> @William_Sinn_1 </div>
                   </span>
                 </div>
+              </span>
+            </li>
+
+            <li className="board-menu-nav-item">
+              <span className="norm-item-content">
+                <div className="desc-icon" />
+                <div> Description </div>
               </span>
             </li>
             <li className="board-menu-nav-item">DESCRIPTION</li>

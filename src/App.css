@@ -1041,6 +1041,19 @@ button {
   background-repeat: no-repeat;
   height: 20px;
   width: 20px;
+  padding-left: 8px;
+  position: relative;
+  left: -4px;
+}
+.desc-icon {
+  background-image: url("./images/desc-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  padding: 4px;
+  position: relative;
+  left: -8px;
 }
 .add-board-modal {
   position: fixed;
@@ -1480,6 +1493,9 @@ button {
 .norm-item-content {
   height: 100%;
   width: 90%;
+  line-height: 20px;
   display: flex;
-  padding: 6px;
+  align-items: center;
+  position: relative;
+  font-weight: 600;
 }
