@@ -79,7 +79,7 @@ const BoardMenuNavList = props => {
               onClick={e => props.setContent("search")}
             >
               <span className="board-menu-nav-btn">
-                <span className="board-menu-nav-icon">🏀</span>
+                <div className="search-icon-gray" />
                 <span>Search Cards</span>
               </span>
             </li>
