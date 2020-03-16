@@ -5,6 +5,7 @@ import MenuNavItemAbout from "../components/MenuNavItemAbout";
 import MenuNavItemBackground from "../components/MenuNavItemBackground";
 import MenuNavItemSearch from "../components/MenuNavItemSearch";
 import MenuNavItemMore from "./MenuNavItemMore";
+
 const BoardMenu = props => {
   const [sidebar, setSidebar] = useState(false);
   const [content, setContent] = useState("");
@@ -17,6 +18,7 @@ const BoardMenu = props => {
       setContent("");
     }
   };
+  console.log(props.workspace.background);
   return (
     <div className="board-sidebar">
       <button
@@ -67,6 +69,7 @@ const BoardMenu = props => {
                 <BoardMenuNavList
                   setSidebar={setSidebar}
                   setContent={setContent}
+                  currBg={props.workspace.background}
                 />
               );
           }

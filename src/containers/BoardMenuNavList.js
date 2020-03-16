@@ -1,6 +1,38 @@
 import React from "react";
 
+import Lake from "../images/lake.jpg";
+import Mountians from "../images/mountians.jpg";
+import Cityscape from "../images/cityscape.jpg";
+import City from "../images/city.jpeg";
+import Iceland from "../images/iceland.jpg";
+import Meadow from "../images/meadow.jpg";
+import Waterfall from "../images/waterfall.jpeg";
+import Beach from "../images/beach.jpg";
+import Autumn from "../images/autumn.jpg";
+
 const BoardMenuNavList = props => {
+  const renderBgOption = () => {
+    switch (props.currBg) {
+      case "lake":
+        return { backgroundImage: `url(${Lake})` };
+      case "mountians":
+        return { backgroundImage: `url(${Mountians})` };
+      case "cityscape":
+        return { backgroundImage: `url(${Cityscape})` };
+      case "beach":
+        return { backgroundImage: `url(${Beach})` };
+      case "autumn":
+        return { backgroundImage: `url(${Autumn})` };
+      case "waterfall":
+        return { backgroundImage: `url(${Waterfall})` };
+      case "city":
+        return { backgroundImage: `url(${City})` };
+      case "meadow":
+        return { backgroundImage: `url(${Meadow})` };
+      default:
+        return { backgroundImage: `url(${Iceland})` };
+    }
+  };
   return (
     <div className="board-menu-container">
       <div className="board-menu-sidebar-content">
@@ -35,7 +67,10 @@ const BoardMenuNavList = props => {
               onClick={e => props.setContent("bg")}
             >
               <span className="board-menu-nav-btn">
-                <span className="board-menu-nav-icon">🏀</span>
+                <div
+                  className="current-board-bg bg-btn"
+                  style={renderBgOption()}
+                />
                 <span>Change Background</span>
               </span>
             </li>
