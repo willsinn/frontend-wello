@@ -56,7 +56,7 @@ const BoardMenuNavList = props => {
               onClick={e => props.setContent("about")}
             >
               <span className="board-menu-nav-btn">
-                <div className="wello-icon-gray" />
+                <div className="wello-icon-gray menu-icon" />
                 <div>About This Board</div>
                 <div className="board-option-summary">
                   Add a description to your board.
