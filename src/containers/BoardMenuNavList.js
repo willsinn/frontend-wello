@@ -1,4 +1,5 @@
 import React from "react";
+import MenuActivityList from "../components/MenuActivityList";
 
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
@@ -79,7 +80,7 @@ const BoardMenuNavList = props => {
               onClick={e => props.setContent("search")}
             >
               <span className="board-menu-nav-btn">
-                <div className="search-icon-gray" />
+                <div className="search-icon-gray menu-icon" />
                 <span>Search Cards</span>
               </span>
             </li>
@@ -88,12 +89,13 @@ const BoardMenuNavList = props => {
               onClick={e => props.setContent("more")}
             >
               <span className="board-menu-nav-btn">
-                <div className="dots-icon-gray">...</div>
-                <span>Show More</span>
+                <div className="dots-icon-gray menu-icon">...</div>
+                <span>More</span>
               </span>
             </li>
           </ul>
-          <hr />
+          <hr style={{ margin: "16px" }} />
+          <MenuActivityList />
         </div>
       </div>
     </div>

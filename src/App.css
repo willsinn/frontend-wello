@@ -1004,6 +1004,15 @@ button {
 .home-icon {
   background-size: contain;
 }
+.menu-icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 6px;
+  left: 12px;
+}
 .wello-icon-white {
   background-image: url("./images/wello-icon-white.jpg");
   background-size: contain;
@@ -1016,21 +1025,14 @@ button {
   background-image: url("./images/wello-icon-gray.png");
   background-size: contain;
   background-repeat: no-repeat;
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  top: 6px;
-  left: 12px;
+}
+.bullet-pt-icon-gray {
+  background-image: url("./images/bullet-pt-icon-gray.png");
 }
 .search-icon-gray {
   background-image: url("./images/search-icon-gray.png");
   background-size: contain;
   background-repeat: no-repeat;
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  top: 6px;
-  left: 12px;
 }
 .add-board-modal {
   position: fixed;
@@ -1403,4 +1405,31 @@ button {
   position: absolute;
   top: 4px;
   left: 14px;
+}
+.menu-initials {
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  margin: 0px;
+  align-items: center;
+  background-color: #dfe1e6;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0;
+  border-radius: 100%;
+  box-sizing: border-box;
+  color: #172b4d;
+  display: inline-flex;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
+    Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 700;
+  justify-content: center;
+  opacity: 1;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.board-menu-nav-btn.activity-item:hover {
+  background-color: rgba(0, 0, 0, 0);
 }
