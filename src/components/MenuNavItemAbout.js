@@ -24,7 +24,25 @@ const MenuNavItemAbout = props => {
         <hr />
         <div className="board-menu-content">
           <ul className="board-menu-nav-list">
-            <li className="board-menu-nav-item">MADE BY ROB</li>
+            <li className="board-menu-nav-item">
+              <span className="norm-item-content">
+                <div className="user-profile-icon" />
+                <div> Made By</div>
+              </span>
+            </li>
+            <li className="board-menu-nav-item">
+              <span className="norm-item-content">
+                <div className="about-user-initials">
+                  <span className="menu-icon board-menu-nav-btn activity-item">
+                    <span className="initials-wrap menu-icon menu-initials">
+                      WS
+                    </span>
+                    <div> William Sinn</div>
+                    <div> @William_Sinn_1</div>
+                  </span>
+                </div>
+              </span>
+            </li>
             <li className="board-menu-nav-item">DESCRIPTION</li>
           </ul>
         </div>
