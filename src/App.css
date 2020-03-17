@@ -619,20 +619,7 @@ button {
 .card-del-btn:hover {
   background-color: #9bcff9;
 }
-.card-item {
-  min-height: 42px;
-  width: 175px;
-  max-width: 100%;
-  border-radius: 3px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  align-content: flex-start;
-  border: 1.5px outset lightgray;
-  background-color: ghostwhite;
-  justify-content: center;
-  position: relative;
-}
+
 .item-menu {
   height: 100px;
   width: 175px;
