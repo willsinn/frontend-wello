@@ -286,6 +286,7 @@ button {
 }
 .board-header {
   position: fixed;
+  height: 100%;
   width: 100%;
   line-height: 20px;
   display: flex;
@@ -296,6 +297,7 @@ button {
   height: 48px;
   position: relative;
   transition: padding 0.1s ease-in;
+  z-index: 1;
 }
 .board-body {
   background: linear-gradient(
