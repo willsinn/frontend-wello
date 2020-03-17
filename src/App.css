@@ -553,6 +553,7 @@ button {
 }
 .card-item-wrap {
   width: 272px;
+  min-width: 266px;
   margin: 0 4px;
   height: 100%;
   box-sizing: border-box;
@@ -569,6 +570,7 @@ button {
   max-height: 100%;
   position: relative;
   white-space: normal;
+  max-width: 100%;
 }
 
 .card-btns {
