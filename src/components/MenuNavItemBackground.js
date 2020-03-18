@@ -1,6 +1,18 @@
 import React from "react";
 import BgPalette from "./BgPalette";
 
+const bgs = [
+  "iceland",
+  "lake",
+  "mountians",
+  "cityscape",
+  "beach",
+  "autumn",
+  "waterfall",
+  "city",
+  "meadow"
+];
+
 const MenuNavItemBackground = props => {
   console.log(props.bgs);
   return (
@@ -14,7 +26,7 @@ const MenuNavItemBackground = props => {
             <span className="back-text">←</span>
           </button>
           <h3 className="board-menu-header-title js-board-menu-title-text">
-            About This Board
+            Change Background
           </h3>
           <button
             className="board-menu-close-btn"
