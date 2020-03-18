@@ -1,6 +1,5 @@
 import React from "react";
 import BgTile from "./BgTile";
-import { connect } from "react-redux";
 
 const BgList = props => {
   const renderBgs = () => {

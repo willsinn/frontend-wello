@@ -1,13 +1,4 @@
 import React from "react";
-import Lake from "../images/lake.jpg";
-import Mountians from "../images/mountians.jpg";
-import Cityscape from "../images/cityscape.jpg";
-import City from "../images/city.jpeg";
-import Iceland from "../images/iceland.jpg";
-import Meadow from "../images/meadow.jpg";
-import Waterfall from "../images/waterfall.jpeg";
-import Beach from "../images/beach.jpg";
-import Autumn from "../images/autumn.jpg";
 
 const MenuNavItemBackground = props => {
   const renderBgOptions = () => {
@@ -53,7 +44,5 @@ const MenuNavItemBackground = props => {
     </div>
   );
 };
-const mapStateToProps = ({ boardsReducer: bgs }) => ({
-  bgs: bgs.bgs
-});
+
 export default MenuNavItemBackground;
