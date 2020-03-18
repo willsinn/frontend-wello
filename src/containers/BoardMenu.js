@@ -18,7 +18,6 @@ const BoardMenu = props => {
       setContent("");
     }
   };
-  console.log(props.workspace.background, props.bgOptions);
   return (
     <div className="board-sidebar">
       <button

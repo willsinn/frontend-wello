@@ -8,7 +8,10 @@ const MenuNavItemBackground = props => {
           key={`bg-${bgOption}-${props.workspace.id}`}
           className="board-bg-select"
         >
-          <span className="menu-bg-tile">
+          <span
+            onClick={e => props.changeBackground(bgOption)}
+            className="menu-bg-tile"
+          >
             <div className="photo-option-bg" style={props.findBg(bgOption)} />
           </span>
         </li>

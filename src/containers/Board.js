@@ -26,18 +26,20 @@ const bgs = [
 ];
 
 const Board = props => {
-  const [background, setBackground] = useState("default");
+  const [background, setBackground] = useState("");
   const renderBoardBg = () => {
-    if (background === "default") {
+    if (background === "") {
       return findBg(props.workspace.background);
     } else {
       return findBg(background);
     }
   };
-  const changeBackground = e => {
-    setBackground(e.target.value);
+  const changeBackground = bgOption => {
+    setBackground(bgOption);
   };
   const bgOptions = bgs.filter(bg => bg !== props.workspace.background);
+  console.log(background);
+
   const findBg = bgKey => {
     switch (bgKey) {
       case "lake":

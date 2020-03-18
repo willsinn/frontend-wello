@@ -1504,14 +1504,13 @@ button {
   position: relative;
   text-align: left;
   vertical-align: top;
-  width: 46%;
+  width: 47%;
   height: inherit;
   z-index: 1;
 }
 .bg-menu-tile {
   background-color: #dfe1e6;
   border-radius: 8px;
-  background-size: contain;
   display: block;
   overflow: hidden;
   position: relative;
@@ -1519,6 +1518,7 @@ button {
 }
 .photo-option-bg {
   height: 86px;
+  background-size: cover;
   border-radius: 8px;
   top: 0;
   right: 0;
