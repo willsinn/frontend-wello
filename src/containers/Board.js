@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CardList from "../components/CardList";
 import BoardMenu from "./BoardMenu";
 
@@ -14,27 +14,39 @@ import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 
 const Board = props => {
+  const [activeBg, setActiveBg] = useState("");
   const renderBoardBg = () => {
     switch (props.workspace.background) {
       case "lake":
+        setActiveBg("lake");
         return { backgroundImage: `url(${Lake})` };
       case "mountians":
+        setActiveBg("mountians");
+
         return { backgroundImage: `url(${Mountians})` };
       case "cityscape":
+        setActiveBg("cityscape");
         return { backgroundImage: `url(${Cityscape})` };
       case "beach":
+        setActiveBg();
         return { backgroundImage: `url(${Beach})` };
       case "autumn":
+        setActiveBg();
         return { backgroundImage: `url(${Autumn})` };
       case "waterfall":
+        setActiveBg();
         return { backgroundImage: `url(${Waterfall})` };
       case "city":
+        setActiveBg();
         return { backgroundImage: `url(${City})` };
       case "meadow":
+        setActiveBg();
         return { backgroundImage: `url(${Meadow})` };
       case "iceland":
+        setActiveBg();
         return { backgroundImage: `url(${Iceland})` };
       default:
+        setActiveBg();
         return;
     }
   };
