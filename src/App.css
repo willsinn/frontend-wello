@@ -1493,31 +1493,33 @@ button {
 .menu-background-tiles-container {
 }
 .board-bg-list {
-  height: 100px;
+  height: 100%;
+  width: 100%;
 }
 .board-bg-select {
   border-radius: 8px;
   box-sizing: border-box;
   display: inline-block;
-  padding: 0 4px 8px;
+  padding: 8px 4px 4px;
   position: relative;
   text-align: left;
   vertical-align: top;
-  width: 50%;
+  width: 46%;
   height: inherit;
   z-index: 1;
 }
 .bg-menu-tile {
   background-color: #dfe1e6;
-  background-size: cover;
   border-radius: 8px;
+  background-size: contain;
   display: block;
   overflow: hidden;
   position: relative;
   width: 100%;
 }
 .photo-option-bg {
-  height: 96px;
+  height: 86px;
+  border-radius: 8px;
   top: 0;
   right: 0;
   bottom: 0;
