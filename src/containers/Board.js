@@ -13,40 +13,52 @@ import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 
+const bgs = [
+  "iceland",
+  "lake",
+  "mountians",
+  "cityscape",
+  "beach",
+  "autumn",
+  "waterfall",
+  "city",
+  "meadow"
+];
+
 const Board = props => {
-  const [activeBg, setActiveBg] = useState("");
+  const [background, setBackground] = useState("default");
   const renderBoardBg = () => {
-    switch (props.workspace.background) {
+    if (background === "default") {
+      return findBg(props.workspace.background);
+    } else {
+      return findBg(background);
+    }
+  };
+  const changeBackground = e => {
+    setBackground(e.target.value);
+  };
+  const bgOptions = bgs.filter(bg => bg !== props.workspace.background);
+  const findBg = bgKey => {
+    switch (bgKey) {
       case "lake":
-        setActiveBg("lake");
         return { backgroundImage: `url(${Lake})` };
       case "mountians":
-        setActiveBg("mountians");
-
         return { backgroundImage: `url(${Mountians})` };
       case "cityscape":
-        setActiveBg("cityscape");
         return { backgroundImage: `url(${Cityscape})` };
       case "beach":
-        setActiveBg();
         return { backgroundImage: `url(${Beach})` };
       case "autumn":
-        setActiveBg();
         return { backgroundImage: `url(${Autumn})` };
       case "waterfall":
-        setActiveBg();
         return { backgroundImage: `url(${Waterfall})` };
       case "city":
-        setActiveBg();
         return { backgroundImage: `url(${City})` };
       case "meadow":
-        setActiveBg();
         return { backgroundImage: `url(${Meadow})` };
       case "iceland":
-        setActiveBg();
         return { backgroundImage: `url(${Iceland})` };
       default:
-        setActiveBg();
         return;
     }
   };
@@ -71,7 +83,12 @@ const Board = props => {
             </div>
           </div>
           <div className="board-ops right">
-            <BoardMenu workspace={props.workspace} />
+            <BoardMenu
+              workspace={props.workspace}
+              findBg={findBg}
+              bgOptions={bgOptions}
+              changeBackground={changeBackground}
+            />
           </div>
         </div>
       </div>

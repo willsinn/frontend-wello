@@ -18,6 +18,7 @@ const BoardMenu = props => {
       setContent("");
     }
   };
+  console.log(props.workspace.background, props.bgOptions);
   return (
     <div className="board-sidebar">
       <button
@@ -45,6 +46,9 @@ const BoardMenu = props => {
                   setSidebar={setSidebar}
                   setContent={setContent}
                   resetClosedSidebar={resetClosedSidebar}
+                  findBg={props.findBg}
+                  bgOptions={props.bgOptions}
+                  changeBackground={props.changeBackground}
                 />
               );
             case "search":

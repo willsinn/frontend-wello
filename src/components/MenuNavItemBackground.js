@@ -1,20 +1,12 @@
 import React from "react";
-import BgPalette from "./BgPalette";
-
-const bgs = [
-  "iceland",
-  "lake",
-  "mountians",
-  "cityscape",
-  "beach",
-  "autumn",
-  "waterfall",
-  "city",
-  "meadow"
-];
 
 const MenuNavItemBackground = props => {
-  console.log(props.bgs);
+  const renderBgOptions = () => {
+    return props.bgOptions.map(bgOption => {
+      return <div style={props.findBg(bgOption)} />;
+    });
+  };
+
   return (
     <div className="board-menu-container">
       <div className="board-menu-sidebar-content">
@@ -38,7 +30,7 @@ const MenuNavItemBackground = props => {
         <hr />
         <div className="board-menu-content">
           <div className="menu-background-tiles-container">
-            <BgPalette />
+            {renderBgOptions()}
           </div>
         </div>
       </div>
