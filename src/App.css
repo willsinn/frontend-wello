@@ -1376,7 +1376,7 @@ button {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  flex: 1 auto;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 12px 6px 12px 12px;
@@ -1491,4 +1491,35 @@ button {
   font-weight: 600;
 }
 .menu-background-tiles-container {
+}
+.board-bg-list {
+  height: 100px;
+}
+.board-bg-select {
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0 4px 8px;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+  width: 50%;
+  height: inherit;
+  z-index: 1;
+}
+.bg-menu-tile {
+  background-color: #dfe1e6;
+  background-size: cover;
+  border-radius: 8px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.photo-option-bg {
+  height: 96px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

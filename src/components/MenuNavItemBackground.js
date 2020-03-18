@@ -1,9 +1,27 @@
 import React from "react";
+import Lake from "../images/lake.jpg";
+import Mountians from "../images/mountians.jpg";
+import Cityscape from "../images/cityscape.jpg";
+import City from "../images/city.jpeg";
+import Iceland from "../images/iceland.jpg";
+import Meadow from "../images/meadow.jpg";
+import Waterfall from "../images/waterfall.jpeg";
+import Beach from "../images/beach.jpg";
+import Autumn from "../images/autumn.jpg";
 
 const MenuNavItemBackground = props => {
   const renderBgOptions = () => {
     return props.bgOptions.map(bgOption => {
-      return <div style={props.findBg(bgOption)} />;
+      return (
+        <li
+          key={`bg-${bgOption}-${props.workspace.id}`}
+          className="board-bg-select"
+        >
+          <span className="menu-bg-tile">
+            <div className="photo-option-bg" style={props.findBg(bgOption)} />
+          </span>
+        </li>
+      );
     });
   };
 
@@ -29,9 +47,7 @@ const MenuNavItemBackground = props => {
         </div>
         <hr />
         <div className="board-menu-content">
-          <div className="menu-background-tiles-container">
-            {renderBgOptions()}
-          </div>
+          <ul className="board-bgs-list">{renderBgOptions()}</ul>
         </div>
       </div>
     </div>

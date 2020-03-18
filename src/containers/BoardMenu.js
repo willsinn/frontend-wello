@@ -43,6 +43,7 @@ const BoardMenu = props => {
             case "bg":
               return (
                 <MenuNavItemBackground
+                  workspace={props.workspace}
                   setSidebar={setSidebar}
                   setContent={setContent}
                   resetClosedSidebar={resetClosedSidebar}
