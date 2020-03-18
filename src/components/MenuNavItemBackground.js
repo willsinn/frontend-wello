@@ -1,7 +1,8 @@
 import React from "react";
-import BgList from "./BgList";
+import BgPalette from "./BgPalette";
 
 const MenuNavItemBackground = props => {
+  console.log(props.bgs);
   return (
     <div className="board-menu-container">
       <div className="board-menu-sidebar-content">
@@ -25,13 +26,14 @@ const MenuNavItemBackground = props => {
         <hr />
         <div className="board-menu-content">
           <div className="menu-background-tiles-container">
-            <div className="">Photos</div>
-            <div className="">Colors</div>
+            <BgPalette />
           </div>
         </div>
       </div>
     </div>
   );
 };
-
+const mapStateToProps = ({ boardsReducer: bgs }) => ({
+  bgs: bgs.bgs
+});
 export default MenuNavItemBackground;

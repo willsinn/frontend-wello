@@ -10,7 +10,7 @@ import Waterfall from "../images/waterfall.jpeg";
 import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 
-const BoardBg = props => {
+const BgTile = props => {
   const renderBgOption = () => {
     switch (props.bg) {
       case "lake":
@@ -57,4 +57,4 @@ const BoardBg = props => {
   );
 };
 
-export default BoardBg;
+export default BgTile;

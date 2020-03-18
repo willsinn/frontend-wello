@@ -1,5 +1,16 @@
 const defaultState = {
-  boards: []
+  boards: [],
+  bgs: [
+    "iceland",
+    "lake",
+    "mountians",
+    "cityscape",
+    "beach",
+    "autumn",
+    "waterfall",
+    "city",
+    "meadow"
+  ]
 };
 
 const boardsReducer = (state = defaultState, action) => {
