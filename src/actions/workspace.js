@@ -38,7 +38,24 @@ export const fetchWorkspace = (board, dispatch) => {
       });
   };
 };
-
+export const updateBoard = (board, dispatch) => {
+  console.log(board);
+  return dispatch => {
+    fetch(`http://localhost:3000/board/update/${board.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: board.id,
+        [board.key]: board.value
+      })
+    })
+      .then(response => response.json())
+      .then(JSONresponse => dispatch(fetchWorkspace({ id: board.id })));
+  };
+};
 export const postWorkspaceCard = (board, dispatch) => {
   return dispatch => {
     fetch(`http://localhost:3000/board/${board.workspace.id}/cards/new`, {
@@ -129,22 +146,5 @@ export const updateTask = (task, dispatch) => {
       })
     });
     // .then(response => console.log(response));
-  };
-};
-export const updateCardTitle = (card, dispatch) => {
-  return dispatch => {
-    fetch(`http://localhost:3000/card/update/${card.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        id: card.id,
-        [card.key]: card.value
-      })
-    })
-      .then(response => response.json())
-      .then(JSONresponse => dispatch(fetchCard({ id: card.id })));
   };
 };

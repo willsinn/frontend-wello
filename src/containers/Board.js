@@ -12,6 +12,7 @@ import Waterfall from "../images/waterfall.jpeg";
 import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
+import { updateBoard } from "../actions/workspace";
 
 const bgs = [
   "iceland",
@@ -25,7 +26,7 @@ const bgs = [
   "meadow"
 ];
 
-const Board = props => {
+const Board = (props, { dispatch }) => {
   const [background, setBackground] = useState("");
   const renderBoardBg = () => {
     if (background === "") {
@@ -36,6 +37,7 @@ const Board = props => {
   };
   const changeBackground = bgOption => {
     setBackground(bgOption);
+    props.dispatch(updateBoard({ workspace, background: `${background}` }));
   };
   const bgOptions = bgs.filter(bg => bg !== props.workspace.background);
   console.log(background);
