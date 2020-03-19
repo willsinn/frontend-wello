@@ -39,9 +39,9 @@ export const fetchWorkspace = (board, dispatch) => {
   };
 };
 export const updateBoard = (board, dispatch) => {
-  console.log(board);
+  console.log(board.value);
   return dispatch => {
-    fetch(`http://localhost:3000/board/update/${board.id}`, {
+    fetch("http://localhost:3001/user/1/board/update/" + `${board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -49,11 +49,9 @@ export const updateBoard = (board, dispatch) => {
       },
       body: JSON.stringify({
         id: board.id,
-        [board.key]: board.value
+        background: board.value
       })
-    })
-      .then(response => response.json())
-      .then(JSONresponse => dispatch(fetchWorkspace({ id: board.id })));
+    });
   };
 };
 export const postWorkspaceCard = (board, dispatch) => {

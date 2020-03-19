@@ -37,7 +37,7 @@ const Board = (props, { dispatch }) => {
   };
   const changeBackground = bgOption => {
     setBackground(bgOption);
-    props.dispatch(updateBoard({ workspace, background: `${background}` }));
+    props.dispatch(updateBoard(props.workspace, background));
   };
   const bgOptions = bgs.filter(bg => bg !== props.workspace.background);
   console.log(background);
