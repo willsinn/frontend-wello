@@ -966,9 +966,16 @@ button {
   align-items: center;
   margin: auto;
 }
+.board-ops.left {
+  width: 50%;
+  padding-right: 20px;
+}
 
 .board-ops.right {
-  padding-right: 20px;
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 50%;
 }
 
 /*
