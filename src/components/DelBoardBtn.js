@@ -13,7 +13,7 @@ const DelBoardBtn = (props, { dispatch }) => {
       <li onClick={e => handleDelete(e)} className="board-menu-nav-item">
         <span className="board-menu-nav-btn">
           <div className="del-icon menu-icon" />
-          <span className="">Delete Board </span>
+          <span className="">Delete Board...</span>
         </span>
       </li>
     </ul>
