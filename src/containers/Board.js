@@ -25,7 +25,6 @@ const bgs = [
   "city",
   "meadow"
 ];
-
 const Board = (props, { dispatch }) => {
   const [background, setBackground] = useState("");
   const renderBoardBg = () => {
@@ -36,8 +35,18 @@ const Board = (props, { dispatch }) => {
     }
   };
   const changeBackground = bgOption => {
+    props.dispatch(
+      updateBoard({
+        id: props.workspace.id,
+        user_id: props.workspace.user_id,
+        title: props.workspace.title,
+        board_desc: props.workspace.board_desc,
+        background: bgOption,
+        team_name: props.workspace.team_name,
+        cards: props.workspace.cards
+      })
+    );
     setBackground(bgOption);
-    props.dispatch(updateBoard(props.workspace, background));
   };
   const bgOptions = bgs.filter(bg => bg !== props.workspace.background);
   console.log(background);

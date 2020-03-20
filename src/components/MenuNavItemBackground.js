@@ -18,7 +18,6 @@ const MenuNavItemBackground = props => {
       );
     });
   };
-
   return (
     <div className="board-menu-container">
       <div className="board-menu-sidebar-content">

@@ -39,9 +39,9 @@ export const fetchWorkspace = (board, dispatch) => {
   };
 };
 export const updateBoard = (board, dispatch) => {
-  console.log(board.value);
+  console.log(board);
   return dispatch => {
-    fetch("http://localhost:3001/user/1/board/update/" + `${board.id}`, {
+    fetch("http://localhost:3001/user/1/board/1/update/", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
