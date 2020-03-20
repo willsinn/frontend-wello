@@ -1,4 +1,6 @@
 import React from "react";
+import DelBoardBtn from "../components/DelBoardBtn";
+import BoardShareLink from "../components/BoardShareLink";
 
 const MenuNavItemMore = props => {
   return (
@@ -23,8 +25,18 @@ const MenuNavItemMore = props => {
         </div>
         <hr />
         <div className="board-menu-content">
-          <div className="">Delete Board</div>
-          <div className="">Link to Friend</div>
+          <DelBoardBtn />
+          <div
+            style={{ paddingTop: "10px", paddingBottom: "10px", width: "100%" }}
+          >
+            <hr />
+          </div>
+          <BoardShareLink />
+          <div
+            style={{ paddingTop: "10px", paddingBottom: "10px", width: "100%" }}
+          >
+            <hr />
+          </div>
         </div>
       </div>
     </div>

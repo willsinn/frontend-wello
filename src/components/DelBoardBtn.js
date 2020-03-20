@@ -9,9 +9,13 @@ const DelBoardBtn = (props, { dispatch }) => {
     props.dispatch(clearWorkspace());
   };
   return (
-    <button onClick={e => handleDelete(e)} className="navbar-btn">
-      <span className="del-icon icon" />
-    </button>
+    <ul className="board-menu-nav-list">
+      <li onClick={e => handleDelete(e)} className="board-menu-nav-item">
+        <button className="board-menu-nav-btn">
+          <span className="">Delete Board </span>
+        </button>
+      </li>
+    </ul>
   );
 };
 
