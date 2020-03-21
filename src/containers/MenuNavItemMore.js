@@ -26,7 +26,7 @@ const MenuNavItemMore = props => {
         </div>
         <hr />
         <div className="board-menu-content">
-          <DelBoardBtn />
+          <DelBoardBtn board={props.board} />
           <div
             style={{ paddingTop: "10px", paddingBottom: "10px", width: "100%" }}
           >

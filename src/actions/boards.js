@@ -45,15 +45,16 @@ export const deleteBoard = board => ({
   type: "DELETE_BOARD",
   board: board
 });
-export const deleteBoardWorkspace = (workspace, dispatch) => {
-  console.log(workspace);
+export const deleteBoardWorkspace = (board, dispatch) => {
+  console.log(board.id, board);
   return dispatch => {
-    fetch(`http://localhost:3000/board/delete/${workspace.id}`, {
+    fetch(`http://localhost:3000/user/1/board/${board.id}/delete`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Accept: "application/json"
       },
-      body: JSON.stringify({ id: workspace.id, user_id: workspace.user_id })
-    }).then(response => dispatch(deleteBoard(workspace)));
+      body: JSON.stringify({ board_id: `${board.id}` })
+    }).then(response => dispatch(deleteBoard(board)));
   };
 };

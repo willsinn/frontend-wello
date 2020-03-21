@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import BoardMenuNavList from "./BoardMenuNavList";
-import DelBoardBtn from "../components/DelBoardBtn";
 import MenuNavItemAbout from "../components/MenuNavItemAbout";
 import MenuNavItemBackground from "../components/MenuNavItemBackground";
 import MenuNavItemSearch from "../components/MenuNavItemSearch";
@@ -64,6 +63,7 @@ const BoardMenu = props => {
                 <MenuNavItemMore
                   setSidebar={setSidebar}
                   setContent={setContent}
+                  workspace={props.workspace}
                   resetClosedSidebar={resetClosedSidebar}
                 />
               );
