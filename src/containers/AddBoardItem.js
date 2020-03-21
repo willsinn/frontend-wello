@@ -22,10 +22,14 @@ const AddBoardItem = (props, { dispatch }) => {
     }
   };
   return (
-    <div className="card-item">
-      <form onSubmit={handleSubmit} className="item-form">
+    <div className="card-item idle-add-card-item">
+      <form onSubmit={handleSubmit}>
+        <span class="placeholder">
+          <span class="icon-sm icon-add" />
+          Add another list
+        </span>
         <input
-          className="n-w form-input"
+          className="card-item-wrap card-item add-card-input"
           type="text"
           name="goal"
           onChange={handleChange}
