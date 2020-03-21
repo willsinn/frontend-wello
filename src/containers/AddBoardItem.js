@@ -30,7 +30,7 @@ const AddBoardItem = (props, { dispatch }) => {
           name="goal"
           onChange={handleChange}
           value={goal.value}
-          placeholder="   input new list name"
+          placeholder="input new list name"
           required
         />
         <button className="n-w form-submit" type="submit">

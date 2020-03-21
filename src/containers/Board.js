@@ -104,9 +104,9 @@ const Board = (props, { dispatch }) => {
             />
           </div>
         </div>
-      </div>
-      <div className="board-body">
-        <CardList key={props.workspace.id} workspace={props.workspace} />
+        <div className="board-body">
+          <CardList key={props.workspace.id} workspace={props.workspace} />
+        </div>
       </div>
     </div>
   );
