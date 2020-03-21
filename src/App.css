@@ -581,7 +581,7 @@ button {
 }
 .placeholder {
   color: #fff;
-  display: block;
+  display: flex;
   padding: 6px 8px;
 }
 .card-item:first-child {
@@ -998,6 +998,9 @@ button {
 .main-icon {
   background-image: url("./images/main-icon.png");
   display: flex;
+}
+.add-new-icon {
+  background-image: url("./images/plus-white.png");
 }
 .fav-star-icon {
   background-image: url("./images/fav-star-icon.png");

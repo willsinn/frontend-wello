@@ -43,7 +43,7 @@ const CardList = props => {
             <div className="card-item-wrap" onClick={e => setActive(true)}>
               <div className="card-item idle-add-card-item">
                 <span class="placeholder">
-                  <span class="icon-sm icon-add" />
+                  <div class="add-new-icon icon" />
                   Add another list
                 </span>
               </div>
