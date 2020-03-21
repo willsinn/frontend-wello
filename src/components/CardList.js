@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 const CardList = props => {
   const [deck, setDeck] = useState(props.workspace.cards);
+  const [active, setActive] = useState(false);
   const updateDeck = newGoal => {
     const newCard = deck[deck.length - 1];
     const newDeck = [
@@ -39,8 +40,15 @@ const CardList = props => {
         <div className="board-cards">
           {renderItems()}
           <div className="card-item-wrap">
-            <AddBoardItem workspace={props.workspace} updateDeck={updateDeck} />
+            <div className="card-item idle-add-card-item">
+              <span class="placeholder">
+                <span class="icon-sm icon-add" />
+                Add another list
+              </span>
+            </div>
           </div>
+
+          <AddBoardItem workspace={props.workspace} updateDeck={updateDeck} />
         </div>
       </div>
     </div>
