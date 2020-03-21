@@ -5,8 +5,8 @@ import { clearWorkspace } from "../actions/workspace";
 
 const DelBoardBtn = (props, { dispatch }) => {
   const handleDelete = e => {
-    props.dispatch(deleteBoardWorkspace(props.workspace));
     props.dispatch(clearWorkspace());
+    props.dispatch(deleteBoardWorkspace(props.board));
   };
   return (
     <ul className="board-menu-nav-list">

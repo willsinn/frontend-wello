@@ -3,6 +3,7 @@ import DelBoardBtn from "../components/DelBoardBtn";
 import BoardShareLink from "../components/BoardShareLink";
 
 const MenuNavItemMore = props => {
+  console.log(props);
   return (
     <div className="board-menu-container">
       <div className="board-menu-sidebar-content">

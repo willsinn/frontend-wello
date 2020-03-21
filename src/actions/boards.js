@@ -46,6 +46,7 @@ export const deleteBoard = board => ({
   board: board
 });
 export const deleteBoardWorkspace = (workspace, dispatch) => {
+  console.log(workspace);
   return dispatch => {
     fetch(`http://localhost:3000/board/delete/${workspace.id}`, {
       method: "POST",
