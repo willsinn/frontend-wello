@@ -39,16 +39,18 @@ const CardList = props => {
       <div className="board-content">
         <div className="board-cards">
           {renderItems()}
-          <div className="card-item-wrap">
-            <div className="card-item idle-add-card-item">
-              <span class="placeholder">
-                <span class="icon-sm icon-add" />
-                Add another list
-              </span>
+          {!active ? (
+            <div className="card-item-wrap" onClick={e => setActive(true)}>
+              <div className="card-item idle-add-card-item">
+                <span class="placeholder">
+                  <span class="icon-sm icon-add" />
+                  Add another list
+                </span>
+              </div>
             </div>
-          </div>
-
-          <AddBoardItem workspace={props.workspace} updateDeck={updateDeck} />
+          ) : (
+            <AddBoardItem workspace={props.workspace} updateDeck={updateDeck} />
+          )}
         </div>
       </div>
     </div>
