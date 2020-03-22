@@ -22,7 +22,10 @@ const AddBoardItem = (props, { dispatch }) => {
     }
   };
   return (
-    <div className="card-item-wrap" style={{ backgroundColor: "white" }}>
+    <div
+      className="card-item-wrap"
+      style={{ backgroundColor: "white", paddingRight: "8px" }}
+    >
       <div className="card-item">
         <form onSubmit={handleSubmit}>
           <input
