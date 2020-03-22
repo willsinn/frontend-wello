@@ -1540,3 +1540,14 @@ button {
   bottom: 0;
   left: 0;
 }
+.add-list-btn {
+  min-height: 32px;
+  height: 32px;
+  background-color: #5aac44;
+  box-shadow: none;
+  border: none;
+  color: #fff;
+  margin-top: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
