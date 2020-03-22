@@ -550,6 +550,7 @@ button {
   width: 272px;
   margin: 0 4px;
   height: 100%;
+  border-radius: 3px;
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
@@ -587,9 +588,9 @@ button {
 .card-item-wrap:first-child {
   margin-left: 8px;
 }
-/* .card-item:last-child {
+.card-item:last-child {
   margin-right: 8px;
-} */
+}
 .card-btns {
   position: relative;
   display: flex;
@@ -1547,6 +1548,7 @@ button {
   box-shadow: none;
   border: none;
   color: #fff;
+  border-radius: 3px;
   margin-top: 0;
   padding-top: 4px;
   padding-bottom: 4px;
