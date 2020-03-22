@@ -44,7 +44,7 @@ const AddBoardItem = (props, { dispatch }) => {
             onClick={e => props.handleCloseForm(e)}
             className="close-add-btn"
           >
-            x
+            ✕
           </button>
         </form>
       </div>

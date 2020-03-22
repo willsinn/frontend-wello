@@ -1552,4 +1552,16 @@ button {
   margin-top: 0;
   padding-top: 4px;
   padding-bottom: 4px;
+  margin: 0 4px 4px 4px;
+}
+.close-add-btn {
+  min-height: 32px;
+  height: 32px;
+  font-size: 17px;
+  font-weight: 900;
+  margin-top: 0;
+  color: gray;
+}
+.close-add-btn:hover {
+  color: black;
 }
