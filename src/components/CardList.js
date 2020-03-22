@@ -6,6 +6,9 @@ import { connect } from "react-redux";
 const CardList = props => {
   const [deck, setDeck] = useState(props.workspace.cards);
   const [active, setActive] = useState(false);
+  const handleCloseForm = e => {
+    setActive(false);
+  };
   const updateDeck = newGoal => {
     const newCard = deck[deck.length - 1];
     const newDeck = [
@@ -49,7 +52,11 @@ const CardList = props => {
               </div>
             </div>
           ) : (
-            <AddBoardItem workspace={props.workspace} updateDeck={updateDeck} />
+            <AddBoardItem
+              workspace={props.workspace}
+              updateDeck={updateDeck}
+              handleCloseForm={handleCloseForm}
+            />
           )}
         </div>
       </div>

@@ -37,6 +37,13 @@ const AddBoardItem = (props, { dispatch }) => {
           <button className="n-w form-submit" type="submit">
             CREATE LIST
           </button>
+          <button
+            onClick={e => props.handleCloseForm(e)}
+            className="n-w form-submit"
+            type="submit"
+          >
+            x
+          </button>
         </form>
       </div>
     </div>
