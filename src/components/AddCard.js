@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { postWorkspaceCard } from "../actions/workspace";
 
 const initialState = { goal: "" };
-const AddBoardItem = (props, { dispatch }) => {
+const AddCard = (props, { dispatch }) => {
   const [goal, setGoal] = useState(initialState);
   const clearState = e => {
     setGoal({ ...initialState });
@@ -22,10 +22,7 @@ const AddBoardItem = (props, { dispatch }) => {
     }
   };
   return (
-    <div
-      className="card-item-wrap space-right"
-      style={{ backgroundColor: "white" }}
-    >
+    <div className="card-item-wrap">
       <div className="card-item">
         <form onSubmit={handleSubmit}>
           <input
@@ -51,4 +48,4 @@ const AddBoardItem = (props, { dispatch }) => {
     </div>
   );
 };
-export default connect()(AddBoardItem);
+export default connect()(AddCard);

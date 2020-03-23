@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Card from "../containers/Card";
-import AddBoardCard from "./AddBoardCard";
+import AddCard from "./AddCard";
 import { connect } from "react-redux";
 
 const CardList = props => {
@@ -59,7 +59,7 @@ const CardList = props => {
               </div>
             </div>
           ) : (
-            <AddBoardCard
+            <AddCard
               workspace={props.workspace}
               updateDeck={updateDeck}
               handleCloseForm={handleCloseForm}
