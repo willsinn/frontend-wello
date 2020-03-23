@@ -2,8 +2,8 @@ import React from "react";
 
 const AddTask = props => {
   return (
-    <div className="card-item-wrap">
-      <div className="card-item">
+    <div className="task-item-wrap">
+      <div className="task-item card-item">
         <form onSubmit>
           <input
             className="add-card-input"

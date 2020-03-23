@@ -10,6 +10,7 @@ const CardList = props => {
     setAddCard(false);
   };
   const updateDeck = newGoal => {
+    console.log(deck);
     const newCard = deck[deck.length - 1];
     const newDeck = [
       ...deck,
