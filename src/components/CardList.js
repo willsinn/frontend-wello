@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CardItem from "./CardItem";
-import AddBoardItem from "../containers/AddBoardItem";
+import CardItem from "../containers/CardItem";
+import AddBoardItem from "./AddBoardItem";
 import { connect } from "react-redux";
 
 const CardList = props => {
