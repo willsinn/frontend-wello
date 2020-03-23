@@ -1580,7 +1580,7 @@ button {
   flex: 0 0 auto;
   padding: 10px 8px;
   position: relative;
-  min-height: 20px;
+  max-height: 20px;
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -1589,9 +1589,8 @@ button {
 .card-text {
   font-weight: 600;
   margin: 0 0 8px;
-  font-size: 20px;
-  line-height: 24px;
-  overflow: hidden;
+  font-size: 18px;
+  line-height: 20px;
 }
 .edit-card-title {
   overflow: hidden;
@@ -1622,7 +1621,7 @@ button {
   color: #5e6c84;
   display: block;
   flex: 1 0 auto;
-  margin: 2px 0 8px 8px;
+  margin: 2px 8px 8px 8px;
   padding: 4px 8px;
   position: relative;
   text-decoration: none;
@@ -1630,6 +1629,7 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: auto;
 }
 
 .open-task-composer:hover {
