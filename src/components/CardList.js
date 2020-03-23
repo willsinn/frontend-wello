@@ -27,12 +27,11 @@ const CardList = props => {
     if (deck.length > 0) {
       return deck.map(card => {
         return (
-          <div
-            className="card-item-wrap"
+          <CardItem
             key={`board-${props.workspace.id}-${card.id}`}
-          >
-            <CardItem card={card} workspace={props.workspace} />
-          </div>
+            card={card}
+            workspace={props.workspace}
+          />
         );
       });
     }
