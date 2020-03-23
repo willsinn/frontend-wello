@@ -1,7 +1,7 @@
 import React from "react";
 import TaskList from "../components/TaskList";
 
-const CardItem = props => {
+const Card = props => {
   return (
     <div className="card-item-wrap">
       <div className="card-item">
@@ -40,4 +40,4 @@ const CardItem = props => {
   );
 };
 
-export default CardItem;
+export default Card;

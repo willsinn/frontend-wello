@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CardItem from "../containers/CardItem";
-import AddBoardItem from "./AddBoardItem";
+import Card from "../containers/Card";
+import AddBoardCard from "./AddBoardCard";
 import { connect } from "react-redux";
 
 const CardList = props => {
@@ -27,7 +27,7 @@ const CardList = props => {
     if (deck.length > 0) {
       return deck.map(card => {
         return (
-          <CardItem
+          <Card
             key={`board-${props.workspace.id}-${card.id}`}
             card={card}
             workspace={props.workspace}
@@ -59,7 +59,7 @@ const CardList = props => {
               </div>
             </div>
           ) : (
-            <AddBoardItem
+            <AddBoardCard
               workspace={props.workspace}
               updateDeck={updateDeck}
               handleCloseForm={handleCloseForm}
