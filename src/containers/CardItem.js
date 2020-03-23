@@ -1,4 +1,5 @@
 import React from "react";
+import TaskList from "../components/TaskList";
 
 const CardItem = props => {
   return (
@@ -18,7 +19,7 @@ const CardItem = props => {
               </span>
             </span>
           </div>
-          <div className="card-task-list" />
+          <TaskList card={props.card} />
           <div className="task-composer">
             <span className="open-task-composer">
               <span
