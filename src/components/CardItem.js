@@ -10,7 +10,12 @@ const CardItem = props => {
               <h2 className="card-text">{props.card.goal}</h2>
             </span>
             <span className="card-icon">
-              <span className="icon-sm">...</span>
+              <span
+                className="icon-sm"
+                style={{ position: "relative", right: "-9px", top: "1px" }}
+              >
+                ...
+              </span>
             </span>
           </div>
           <div className="card-task-list" />
