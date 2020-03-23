@@ -6,10 +6,12 @@ const CardItem = props => {
       <div className="card-item">
         <div className="card-item-content">
           <div className="card-item-header">
-            <span className="editing-target">
-              <h2>{props.card.goal}</h2>
+            <span className="edit-card-title">
+              <h2 className="card-text">{props.card.goal}</h2>
             </span>
-            <span>...</span>
+            <span className="card-icon">
+              <span className="icon-sm">...</span>
+            </span>
           </div>
           <div className="card-task-list" />
           <div className="add-card-task-item" />

@@ -1563,3 +1563,42 @@ button {
 .close-add-btn:hover {
   color: black;
 }
+.card-item-content {
+  background-color: #ebecf0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  width: 100%;
+  position: relative;
+  white-space: normal;
+}
+.card-item-header {
+  flex: 0 0 auto;
+  padding: 10px 8px;
+  position: relative;
+  min-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+}
+.card-text {
+  font-weight: 600;
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 24px;
+  overflow: hidden;
+}
+.edit-card-title {
+  overflow: hidden;
+}
+
+.card-icon {
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  width: 20px;
+  background-color: blue;
+}
