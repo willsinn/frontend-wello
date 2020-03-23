@@ -1613,3 +1613,26 @@ button {
   color: #172b4d;
   text-decoration: none;
 }
+.task-composer {
+  min-height: 38px;
+  max-height: 38px;
+}
+.open-task-composer {
+  border-radius: 3px;
+  color: #5e6c84;
+  display: block;
+  flex: 1 0 auto;
+  margin: 2px 0 8px 8px;
+  padding: 4px 8px;
+  position: relative;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.open-task-composer:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  color: #172b4d;
+}

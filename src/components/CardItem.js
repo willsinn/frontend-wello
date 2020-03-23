@@ -19,7 +19,20 @@ const CardItem = props => {
             </span>
           </div>
           <div className="card-task-list" />
-          <div className="add-card-task-item" />
+          <div className="task-composer">
+            <span className="open-task-composer">
+              <span
+                style={{
+                  fontSize: "22px",
+                  fontWeight: "300",
+                  padding: "0 4px"
+                }}
+              >
+                +
+              </span>
+              Add another task
+            </span>
+          </div>
         </div>
       </div>
     </div>
