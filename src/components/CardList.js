@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 
 const CardList = props => {
   const [deck, setDeck] = useState(props.workspace.cards);
-  const [active, setActive] = useState(false);
+  const [addCard, setAddCard] = useState(false);
   const handleCloseForm = e => {
-    setActive(false);
+    setAddCard(false);
   };
   const updateDeck = newGoal => {
     const newCard = deck[deck.length - 1];
@@ -41,8 +41,8 @@ const CardList = props => {
       <div className="board-content">
         <div className="board-cards">
           {renderItems()}
-          {!active ? (
-            <div className="card-item-wrap" onClick={e => setActive(true)}>
+          {!addCard ? (
+            <div className="card-item-wrap" onClick={e => setAddCard(true)}>
               <div className="card-item idle-add-card-item">
                 <span className="placeholder">
                   <span

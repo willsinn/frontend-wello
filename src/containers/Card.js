@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import TaskList from "../components/TaskList";
+import AddTask from "../components/AddTask";
 
 const Card = props => {
+  const [addTask, setAddTask] = useState(false);
+
   return (
     <div className="card-item-wrap">
       <div className="card-item">
@@ -20,20 +23,24 @@ const Card = props => {
             </span>
           </div>
           <TaskList card={props.card} />
-          <div className="task-composer">
-            <span className="open-task-composer">
-              <span
-                style={{
-                  fontSize: "22px",
-                  fontWeight: "300",
-                  padding: "0 4px"
-                }}
-              >
-                +
+          {!addTask ? (
+            <div className="task-composer" onClick={e => setAddTask(true)}>
+              <span className="open-task-composer">
+                <span
+                  style={{
+                    fontSize: "22px",
+                    fontWeight: "300",
+                    padding: "0 4px"
+                  }}
+                >
+                  +
+                </span>
+                Add another task
               </span>
-              Add another task
-            </span>
-          </div>
+            </div>
+          ) : (
+            <AddTask card={props.card} />
+          )}
         </div>
       </div>
     </div>
