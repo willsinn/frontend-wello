@@ -10,7 +10,7 @@ const AddTask = props => {
             type="text"
             name="goal"
             value=""
-            placeholder="input new task name"
+            placeholder="Enter note for this task..."
             required
           />
           <button onClick className="add-list-btn" type="submit">
