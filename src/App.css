@@ -584,6 +584,7 @@ button {
   color: #fff;
   display: flex;
   padding: 6px 8px;
+  display: flex;
 }
 .card-item-wrap:first-child {
   margin-left: 8px;
