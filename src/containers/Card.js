@@ -4,7 +4,9 @@ import AddTask from "../components/AddTask";
 
 const Card = props => {
   const [addTask, setAddTask] = useState(false);
-
+  const handleCloseTaskForm = e => {
+    setAddTask(false);
+  };
   return (
     <div className="card-item-wrap">
       <div className="card-item">
@@ -39,7 +41,10 @@ const Card = props => {
               </span>
             </div>
           ) : (
-            <AddTask card={props.card} />
+            <AddTask
+              handleCloseTaskForm={handleCloseTaskForm}
+              card={props.card}
+            />
           )}
         </div>
       </div>
