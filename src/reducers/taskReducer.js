@@ -6,10 +6,8 @@ const taskReducer = (state = defaultState, action) => {
     case "SET_TASK":
       return {
         ...state,
-        task: action.payload,
-        cardId: action.payload.id
+        task: action.payload
       };
-
     default:
       return state;
   }
