@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const initialState = { note: "" };
-
 const AddTask = props => {
   const [note, setNote] = useState(initialState);
   const clearState = e => {
