@@ -10,7 +10,7 @@ import App from "./App";
 import userReducer from "./reducers/userReducer";
 import boardsReducer from "./reducers/boardsReducer";
 import workspaceReducer from "./reducers/workspaceReducer";
-import cardReducer from "./reducers/cardReducer";
+import taskReducer from "./reducers/taskReducer";
 
 import * as serviceWorker from "./serviceWorker";
 import { fetchUserBoards } from "./actions/boards";
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   userReducer: userReducer,
   boardsReducer: boardsReducer,
   workspaceReducer: workspaceReducer,
-  cardReducer: cardReducer
+  taskReducer: taskReducer
 });
 const store = createStore(
   rootReducer,
