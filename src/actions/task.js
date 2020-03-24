@@ -9,7 +9,7 @@ export const fetchTask = (task, dispatch) => {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(task)
     })
       .then(response => response.json())
       .then(JSONresponse => dispatch(setTask(JSONresponse)));
@@ -17,6 +17,7 @@ export const fetchTask = (task, dispatch) => {
 };
 
 export const postNewCardTask = (card, dispatch) => {
+  console.log(card);
   return dispatch => {
     fetch(`http://localhost:3000/card/${card.card.id}/tasks/new`, {
       method: "POST",
@@ -30,6 +31,6 @@ export const postNewCardTask = (card, dispatch) => {
       })
     })
       .then(response => response.json())
-      .then(JSONresponse => dispatch(fetchCard({ id: JSONresponse.card_id })));
+      .then(JSONresponse => dispatch(fetchTask({ id: JSONresponse.card_id })));
   };
 };

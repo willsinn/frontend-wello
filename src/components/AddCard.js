@@ -13,7 +13,7 @@ const AddCard = (props, { dispatch }) => {
     e.persist();
     setGoal(e.target.value);
   };
-  const handleSubmit = e => {
+  const handleSubmitCard = e => {
     if (e) {
       e.preventDefault();
       props.dispatch(postWorkspaceCard({ goal, workspace: props.workspace }));
@@ -24,7 +24,7 @@ const AddCard = (props, { dispatch }) => {
   return (
     <div className="card-item-wrap">
       <div className="card-item">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmitCard}>
           <input
             className="add-card-input"
             type="text"

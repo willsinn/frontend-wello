@@ -587,7 +587,6 @@ button {
 .card-item-wrap:first-child {
   margin-left: 8px;
 }
-
 .card-btns {
   position: relative;
   display: flex;
@@ -596,44 +595,13 @@ button {
   top: 0;
   height: 100%;
 }
-
 .edit-form {
   display: flex;
   position: relative;
 }
-.card-save-btn {
-  position: absolute;
-  border: 1px solid darkgray;
-  border-radius: 2px;
-  top: 0;
-  right: 0;
-}
-.card-save-btn:hover {
-  background-color: #9bcff9;
-}
-.card-edit-btn {
-  border: 1px solid darkgray;
-  border-radius: 2px;
-  font-weight: bold;
-  top: -3px;
-  right: 0;
-  position: relative;
-}
-.card-edit-btn:hover {
-  background-color: #9bcff9;
-}
-.card-del-btn {
-  border: 1px solid darkgray;
-  font-weight: bold;
-  border-radius: 2px;
-  position: relative;
-  bottom: -3px;
-  right: 0;
-}
 .card-del-btn:hover {
   background-color: #9bcff9;
 }
-
 .item-menu {
   height: 100px;
   width: 175px;
@@ -680,7 +648,6 @@ button {
   display: flex;
   height: 25px;
 }
-
 .dropdown-ctrl-btn {
   display: flex;
   max-width: 25px;
@@ -720,7 +687,6 @@ button {
   left: -5px;
   top: -5px;
 }
-
 .close-btn:hover {
   border: 1px inset darkgray;
   color: #9bcff9;
@@ -737,8 +703,6 @@ button {
 }
 .list-action-btn:hover {
   border-top: 0.75px solid ghostwhite;
-  border-top: 0.75px solid ghostwhite;
-
   background-color: lightgray;
 }
 .item-menu-form-input {

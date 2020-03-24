@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { postNewCardTask } from "../actions/task";
 
 const initialState = { note: "" };
-const AddTask = props => {
+const AddTask = (props, { dispatch }) => {
   const [note, setNote] = useState(initialState);
   const clearState = e => {
     setNote({ ...initialState });
@@ -11,11 +13,17 @@ const AddTask = props => {
     e.persist();
     setNote(e.target.value);
   };
-  console.log(note);
+  const handleSubmitTask = e => {
+    if (e) {
+      e.preventDefault();
+      props.dispatch(postNewCardTask({ note, card: props.card }));
+      clearState(e);
+    }
+  };
   return (
     <div className="task-item-wrap">
       <div className="task-item card-item">
-        <form onSubmit>
+        <form onSubmit={handleSubmitTask}>
           <input
             className="add-card-input"
             type="text"
@@ -25,7 +33,7 @@ const AddTask = props => {
             placeholder="Enter note for this task..."
             required
           />
-          <button onClick className="add-list-btn" type="submit">
+          <button className="add-list-btn" type="submit">
             Add Task
           </button>
           <button
@@ -40,4 +48,4 @@ const AddTask = props => {
   );
 };
 
-export default AddTask;
+export default connect()(AddTask);
