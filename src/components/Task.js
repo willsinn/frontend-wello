@@ -1,7 +1,7 @@
 import React from "react";
 
 const Task = props => {
-  return <div className="task-item"> Card of {props.card.goal}</div>;
+  return <div className="task-item"> Card of {props.task.note}</div>;
 };
 
 export default Task;

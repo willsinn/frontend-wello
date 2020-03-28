@@ -8,8 +8,7 @@ export const fetchTask = (task, dispatch) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
-      },
-      body: JSON.stringify(task)
+      }
     })
       .then(response => response.json())
       .then(JSONresponse => dispatch(setTask(JSONresponse)));
@@ -17,7 +16,7 @@ export const fetchTask = (task, dispatch) => {
 };
 
 export const postNewCardTask = (card, dispatch) => {
-  console.log(card);
+  // console.log(card, card.note);
   return dispatch => {
     fetch(`http://localhost:3000/card/${card.card.id}/tasks/new`, {
       method: "POST",
@@ -26,7 +25,7 @@ export const postNewCardTask = (card, dispatch) => {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        subject: card.subject,
+        note: card.note,
         card_id: card.card.id
       })
     })
