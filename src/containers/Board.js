@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CardList from "../components/CardList";
 import BoardMenu from "./BoardMenu";
+import QuickTaskEditor from "../components/QuickTaskEditor";
 
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
@@ -35,6 +36,7 @@ const Board = (props, { dispatch }) => {
     }
   };
   const changeBackground = bgOption => {
+    console.log(bgOption, props.workspace.background);
     props.dispatch(
       updateBoard({
         id: props.workspace.id,
@@ -49,7 +51,7 @@ const Board = (props, { dispatch }) => {
     setBackground(bgOption);
   };
   const bgOptions = bgs.filter(bg => bg !== props.workspace.background);
-  console.log(background);
+  console.log(props.workspace.background);
 
   const findBg = bgKey => {
     switch (bgKey) {
@@ -77,6 +79,7 @@ const Board = (props, { dispatch }) => {
   };
   return (
     <div id="board" style={renderBoardBg()}>
+      <QuickTaskEditor />
       <div className="board-header-wrap">
         <div className="board-header">
           <div className="board-ops left">
