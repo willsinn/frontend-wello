@@ -1,5 +1,5 @@
 import React from "react";
-import Task from "./Task";
+import Task from "../containers/Task";
 
 const TaskList = props => {
   const renderTasks = () => {
