@@ -24,7 +24,10 @@ const Card = props => {
               </span>
             </span>
           </div>
-          <TaskList card={props.card} />
+          <TaskList
+            card={props.card}
+            renderQuickEditor={props.renderQuickEditor}
+          />
           {!addTask ? (
             <div className="task-composer" onClick={e => setAddTask(true)}>
               <span className="open-task-composer">

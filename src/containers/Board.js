@@ -28,7 +28,7 @@ const bgs = [
 ];
 const Board = (props, { dispatch }) => {
   const [background, setBackground] = useState("");
-  const [activeEdit, setActiveEdit] = useState(false);
+  const [editor, setEditor] = useState(false);
   const renderBoardBg = () => {
     if (background === "") {
       return findBg(props.workspace.background);
@@ -51,7 +51,9 @@ const Board = (props, { dispatch }) => {
     setBackground(bgOption);
   };
   const bgOptions = bgs.filter(bg => bg !== props.workspace.background);
-  const handleActiveEditing = () => {};
+  const renderQuickEditor = e => {
+    setEditor(true);
+  };
   const findBg = bgKey => {
     switch (bgKey) {
       case "lake":
@@ -78,7 +80,7 @@ const Board = (props, { dispatch }) => {
   };
   return (
     <div id="board" style={renderBoardBg()}>
-      {activeEdit ? <QuickTaskEditor /> : null}
+      {editor ? <QuickTaskEditor /> : null}
       <div className="board-header-wrap">
         <div className="board-header">
           <div className="board-ops left">
@@ -108,7 +110,11 @@ const Board = (props, { dispatch }) => {
         </div>
       </div>
       <div className="board-body">
-        <CardList key={props.workspace.id} workspace={props.workspace} />
+        <CardList
+          key={props.workspace.id}
+          workspace={props.workspace}
+          renderQuickEditor={renderQuickEditor}
+        />
       </div>
     </div>
   );

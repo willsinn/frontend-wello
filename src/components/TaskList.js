@@ -5,7 +5,14 @@ const TaskList = props => {
   const renderTasks = () => {
     if (props.card.tasks.length > 0) {
       return props.card.tasks.map(task => {
-        return <Task key={task.id} task={task} card={props.card.id} />;
+        return (
+          <Task
+            key={task.id}
+            task={task}
+            card={props.card.id}
+            renderQuickEditor={props.renderQuickEditor}
+          />
+        );
       });
     }
   };

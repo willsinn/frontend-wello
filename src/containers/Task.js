@@ -5,7 +5,12 @@ const Task = props => {
     <div className="task-item task-item-details">
       <div className="task-item-note">
         <span>{props.task.note}</span>
-        <span className="edit-task-item-btn">edit</span>
+        <span
+          className="edit-task-item-btn"
+          onClick={e => props.renderQuickEditor(e)}
+        >
+          edit
+        </span>
       </div>
       <div>
         <span>Desc</span>
