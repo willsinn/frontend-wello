@@ -3,7 +3,6 @@ export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
   workspace
 });
-
 export const deleteCard = card => ({
   type: "DELETE_CARD",
   card
