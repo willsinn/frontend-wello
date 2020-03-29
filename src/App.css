@@ -1606,7 +1606,7 @@ button {
   cursor: pointer;
   display: block;
   margin-bottom: 8px;
-  min-width: 240px;
+  max-width: 300px;
   min-height: 20px;
   position: relative;
   text-decoration: none;
@@ -1627,4 +1627,12 @@ button {
   padding: 0 4px;
   z-index: 1;
   min-height: 0;
+}
+.task-item-note {
+  position: relative;
+}
+.edit-task-item-btn {
+  position: absolute;
+  top: 0;
+  right: 5px;
 }
