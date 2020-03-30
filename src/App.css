@@ -1643,6 +1643,24 @@ button {
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 100;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.6);
+}
+.close-quick-editor-icon {
+  color: hsla(0, 0%, 100%, 0.6);
+  padding: 9px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition-property: transform, color;
+  transition-duration: 0.15s;
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+  font-size: 24px;
+}
+.close-quick-editor-icon:hover {
+  color: #fff;
+  cursor: pointer;
+  transform: scale(1.2);
 }

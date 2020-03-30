@@ -54,6 +54,9 @@ const Board = (props, { dispatch }) => {
   const renderQuickEditor = e => {
     setEditor(true);
   };
+  const closeQuickEditor = e => {
+    setEditor(false);
+  };
   const findBg = bgKey => {
     switch (bgKey) {
       case "lake":
@@ -80,7 +83,7 @@ const Board = (props, { dispatch }) => {
   };
   return (
     <div id="board" style={renderBoardBg()}>
-      {editor ? <QuickTaskEditor /> : null}
+      {editor ? <QuickTaskEditor closeQuickEditor={closeQuickEditor} /> : null}
       <div className="board-header-wrap">
         <div className="board-header">
           <div className="board-ops left">
