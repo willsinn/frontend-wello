@@ -17,6 +17,7 @@ const QuickTaskEditor = props => {
       clearState(e);
     }
   };
+  console.log(note);
   return (
     <div className="quick-task-editor">
       <span
