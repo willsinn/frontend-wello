@@ -29,6 +29,7 @@ const bgs = [
 const Board = (props, { dispatch }) => {
   const [background, setBackground] = useState("");
   const [editor, setEditor] = useState(false);
+  const [editNote, setEditNote] = useState("");
   const renderBoardBg = () => {
     if (background === "") {
       return findBg(props.workspace.background);
@@ -51,11 +52,13 @@ const Board = (props, { dispatch }) => {
     setBackground(bgOption);
   };
   const bgOptions = bgs.filter(bg => bg !== props.workspace.background);
-  const renderQuickEditor = e => {
+  const renderQuickEditor = (e, taskNote) => {
+    setEditNote(`${taskNote}`);
     setEditor(true);
   };
   const closeQuickEditor = e => {
     setEditor(false);
+    setEditNote("");
   };
   const findBg = bgKey => {
     switch (bgKey) {
@@ -83,7 +86,12 @@ const Board = (props, { dispatch }) => {
   };
   return (
     <div id="board" style={renderBoardBg()}>
-      {editor ? <QuickTaskEditor closeQuickEditor={closeQuickEditor} /> : null}
+      {editor ? (
+        <QuickTaskEditor
+          editNote={editNote}
+          closeQuickEditor={closeQuickEditor}
+        />
+      ) : null}
       <div className="board-header-wrap">
         <div className="board-header">
           <div className="board-ops left">

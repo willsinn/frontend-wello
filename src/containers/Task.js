@@ -7,7 +7,7 @@ const Task = props => {
         <span>{props.task.note}</span>
         <span
           className="edit-task-item-btn"
-          onClick={e => props.renderQuickEditor(e)}
+          onClick={e => props.renderQuickEditor(e, props.task.note)}
         >
           edit
         </span>
