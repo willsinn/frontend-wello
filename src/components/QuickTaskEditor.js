@@ -10,7 +10,9 @@ const QuickTaskEditor = props => {
         ✕
       </span>
       <div className="quick-edit-wrap">
-        <div className="quick-edit-task">Hi its the QuickTaskEditor</div>
+        <div className="quick-edit-task">
+          <div className="quick-edit-details">Hi its the QuickTaskEditor</div>
+        </div>
       </div>
     </div>
   );

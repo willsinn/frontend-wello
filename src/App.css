@@ -1673,6 +1673,13 @@ button {
   height: 124px;
   background: white;
   border-radius: 3px;
-  margin-top: 22.5%;
-  
+  margin-top: 205px;
+}
+.quick-edit-details {
+  overflow: hidden;
+  padding: 6px 8px 2px;
+  position: relative;
+  z-index: 10;
+  color: black;
+  text-align: left;
 }
