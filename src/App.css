@@ -1664,3 +1664,15 @@ button {
   cursor: pointer;
   transform: scale(1.2);
 }
+.quick-edit-wrap {
+  text-align: center;
+}
+.quick-edit-task {
+  display: inline-block;
+  width: 256px;
+  height: 124px;
+  background: white;
+  border-radius: 3px;
+  margin-top: 22.5%;
+  
+}
