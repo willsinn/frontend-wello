@@ -1633,8 +1633,16 @@ button {
 }
 .edit-task-item-btn {
   position: absolute;
+  color: gray;
   top: 0;
-  right: 5px;
+  right: 0;
+  transform: rotate(90deg);
+  border-radius: 3px;
+  padding: 4px 8px;
+}
+.edit-task-item-btn:hover {
+  background-color: #ebecf0;
+  color: black;
 }
 .quick-task-editor {
   bottom: 0;
