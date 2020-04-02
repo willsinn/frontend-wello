@@ -35,14 +35,3 @@ const ItemDropdownMenu = props => {
   );
 };
 export default ItemDropdownMenu;
-
-// const btns = ["X", "TOGGLE DEL-CARDS", "EDIT TITLE"];
-// const renderBtns = () =>
-//   btns.map(btn => {
-//     console.log(btn);
-//     return (
-//       <div className="item-menu-btn">
-//         <button className="drop-btn-txt">{btn}</button>
-//       </div>
-//     );
-//   });

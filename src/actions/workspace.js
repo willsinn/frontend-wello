@@ -3,157 +3,133 @@ export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
   workspace
 });
-export const setItems = items => ({
-  type: "SET_ITEMS",
-  items
+export const deleteCard = card => ({
+  type: "DELETE_CARD",
+  card
 });
-
-export const deleteItem = item => ({
-  type: "DELETE_ITEM",
-  item
+export const updateCard = card => ({
+  type: "UPDATE_CARD",
+  card
 });
-export const updateItem = item => ({
-  type: "UPDATE_ITEM",
-  item
+export const addCard = card => ({
+  type: "ADD_CARD",
+  card
 });
-export const addItem = item => ({
-  type: "ADD_ITEM",
-  item
-});
-export const setCards = cards => ({
-  type: "SET_CARDS",
-  cards
+export const setTasks = tasks => ({
+  type: "SET_TASKS",
+  tasks
 });
 export const clearEdit = () => ({ type: "CLEAR_EDIT" });
 export const toggleEdit = () => ({
   type: "TOGGLE_EDIT"
 });
-export const fetchWorkspace = (project, dispatch) => {
+export const fetchWorkspace = (board, dispatch) => {
   return dispatch => {
-    fetch(
-      `http://localhost:3000/user/${project.user_id}/project/${project.id}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        }
+    fetch(`http://localhost:3000/user/1/board/${board.id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
       }
-    )
+    })
       .then(response => response.json())
       .then(JSONresponse => {
-        dispatch(setWorkspace({ project: JSONresponse }));
+        dispatch(setWorkspace({ board: JSONresponse }));
       });
   };
 };
-
-export const postWorkspaceItem = (project, dispatch) => {
+export const updateBoard = (board, dispatch) => {
+  console.log(board);
   return dispatch => {
-    fetch(`http://localhost:3000/project/${project.workspace.id}/items/new`, {
-      method: "POST",
+    fetch("http://localhost:3000/user/1/board/1/update", {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        project_id: project.workspace.id,
-        objective: project.objective
+        id: board.id,
+        user_id: board.user_id,
+        title: board.title,
+        board_desc: board.board_desc,
+        background: board.background,
+        team_name: board.team_name,
+        cards: board.cards
       })
-    })
-      .then(response => response.json())
-      .then(JSONresponse => dispatch(addItem(JSONresponse)));
+    });
   };
 };
-export const deleteWorkspaceItem = (item, dispatch) => {
+export const postWorkspaceCard = (board, dispatch) => {
   return dispatch => {
-    dispatch(deleteItem(item));
-    fetch(`http://localhost:3000/items/delete/${item.id}`, {
+    fetch(`http://localhost:3000/board/${board.workspace.id}/cards/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        id: item.id
+        board_id: board.workspace.id,
+        goal: board.goal
+      })
+    });
+  };
+};
+export const deleteWorkspaceCard = (card, dispatch) => {
+  return dispatch => {
+    dispatch(deleteCard(card));
+    fetch(`http://localhost:3000/cards/delete/${card.id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: card.id
       })
     });
   };
 };
 
-export const fetchItem = (item, dispatch) => {
+export const fetchCard = (card, dispatch) => {
   return dispatch => {
-    fetch(`http://localhost:3000/item/${item.id}`, {
+    fetch(`http://localhost:3000/card/${card.id}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       }
     })
       .then(response => response.json())
-      .then(JSONresponse => dispatch(updateItem(JSONresponse)));
+      .then(JSONresponse => dispatch(updateCard(JSONresponse)));
   };
 };
-export const postNewCard = (item, dispatch) => {
+
+export const deleteTask = (task, dispatch) => {
   return dispatch => {
-    fetch(`http://localhost:3000/item/${item.item.id}/cards/new`, {
+    fetch(`http://localhost:3000/tasks/delete/${task["id"]}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        subject: item.subject,
-        item_id: item.item.id
+        id: task["id"]
       })
-    })
-      .then(response => response.json())
-      .then(JSONresponse => dispatch(fetchItem({ id: JSONresponse.item_id })));
+    }).then(response => dispatch(fetchCard({ id: task["task_id"] })));
   };
 };
 
-export const deleteCard = (card, dispatch) => {
+export const updateTask = (task, dispatch) => {
   return dispatch => {
-    fetch(`http://localhost:3000/cards/delete/${card["id"]}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        id: card["id"]
-      })
-    }).then(response => dispatch(fetchItem({ id: card["item_id"] })));
-  };
-};
-
-export const updateCard = (card, dispatch) => {
-  return dispatch => {
-    fetch(`http://localhost:3000/card/update/${card.id}`, {
+    fetch(`http://localhost:3000/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        id: card.id,
-        [card.key]: card.value
+        id: task.id,
+        [task.key]: task.value
       })
     });
     // .then(response => console.log(response));
-  };
-};
-export const updateItemTitle = (item, dispatch) => {
-  return dispatch => {
-    fetch(`http://localhost:3000/item/update/${item.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        id: item.id,
-        [item.key]: item.value
-      })
-    })
-      .then(response => response.json())
-      .then(JSONresponse => dispatch(fetchItem({ id: item.id })));
   };
 };
