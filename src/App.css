@@ -1691,3 +1691,17 @@ button {
   color: black;
   text-align: left;
 }
+.quick-edit-textarea {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  resize: none;
+  height: 90px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: -1px;
+  -webkit-appearance: none;
+  display: block;
+}

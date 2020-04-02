@@ -30,8 +30,15 @@ const QuickTaskEditor = props => {
         <div className="quick-edit-task">
           <div className="quick-edit-details">
             <form onSubmit={handleSubmitTask}>
-              <input
-                className="quick-edit-input add-card-input"
+              <textarea
+                dir="auto"
+                style={{
+                  overflow: "hidden",
+                  overflowWrap: "break-word",
+                  resize: "none",
+                  height: "90px"
+                }}
+                className="quick-edit-textarea"
                 type="text"
                 name="note"
                 onChange={handleChange}
