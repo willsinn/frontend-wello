@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import CardList from "../components/CardList";
 import BoardMenu from "./BoardMenu";
-import QuickTaskEditor from "../components/QuickTaskEditor";
 
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
@@ -28,8 +27,7 @@ const bgs = [
 ];
 const Board = (props, { dispatch }) => {
   const [background, setBackground] = useState("");
-  const [editor, setEditor] = useState(false);
-  const [editNote, setEditNote] = useState("");
+
   const renderBoardBg = () => {
     if (background === "") {
       return findBg(props.workspace.background);
@@ -52,14 +50,7 @@ const Board = (props, { dispatch }) => {
     setBackground(bgOption);
   };
   const bgOptions = bgs.filter(bg => bg !== props.workspace.background);
-  const renderQuickEditor = (e, taskNote) => {
-    setEditNote(`${taskNote}`);
-    setEditor(true);
-  };
-  const closeQuickEditor = e => {
-    setEditor(false);
-    setEditNote("");
-  };
+
   const findBg = bgKey => {
     switch (bgKey) {
       case "lake":
@@ -86,12 +77,6 @@ const Board = (props, { dispatch }) => {
   };
   return (
     <div id="board" style={renderBoardBg()}>
-      {editor ? (
-        <QuickTaskEditor
-          editNote={editNote}
-          closeQuickEditor={closeQuickEditor}
-        />
-      ) : null}
       <div className="board-header-wrap">
         <div className="board-header">
           <div className="board-ops left">
@@ -121,11 +106,7 @@ const Board = (props, { dispatch }) => {
         </div>
       </div>
       <div className="board-body">
-        <CardList
-          key={props.workspace.id}
-          workspace={props.workspace}
-          renderQuickEditor={renderQuickEditor}
-        />
+        <CardList key={props.workspace.id} workspace={props.workspace} />
       </div>
     </div>
   );

@@ -1,14 +1,31 @@
 import React, { useState } from "react";
 import TaskList from "../components/TaskList";
 import AddTask from "../components/AddTask";
+import QuickTaskEditor from "../components/QuickTaskEditor";
 
 const Card = props => {
   const [addTask, setAddTask] = useState(false);
+  const [editor, setEditor] = useState(false);
+  const [editNote, setEditNote] = useState("");
   const handleCloseTaskForm = e => {
     setAddTask(false);
   };
+  const closeQuickEditor = e => {
+    setEditor(false);
+    setEditNote("");
+  };
+  const renderQuickEditor = (e, taskNote) => {
+    setEditNote(`${taskNote}`);
+    setEditor(true);
+  };
   return (
     <div className="card-item-wrap">
+      {editor ? (
+        <QuickTaskEditor
+          editNote={editNote}
+          closeQuickEditor={closeQuickEditor}
+        />
+      ) : null}
       <div className="card-item">
         <div className="card-item-content">
           <div className="card-item-header">
@@ -24,10 +41,7 @@ const Card = props => {
               </span>
             </span>
           </div>
-          <TaskList
-            card={props.card}
-            renderQuickEditor={props.renderQuickEditor}
-          />
+          <TaskList card={props.card} renderQuickEditor={renderQuickEditor} />
           {!addTask ? (
             <div className="task-composer" onClick={e => setAddTask(true)}>
               <span className="open-task-composer">

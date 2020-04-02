@@ -32,7 +32,6 @@ const CardList = props => {
             key={`board-${props.workspace.id}-${card.id}`}
             card={card}
             workspace={props.workspace}
-            renderQuickEditor={props.renderQuickEditor}
           />
         );
       });
