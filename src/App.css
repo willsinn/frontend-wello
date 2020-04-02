@@ -679,6 +679,7 @@ button {
 }
 .close-btn {
   position: absolute;
+  color: lightgray;
   font-size: 16px;
   font-weight: bold;
   height: 25px;
@@ -689,7 +690,7 @@ button {
 }
 .close-btn:hover {
   border: 1px inset darkgray;
-  color: #9bcff9;
+  color: #fff;
   border-style: none;
 }
 .list-action-btn {
