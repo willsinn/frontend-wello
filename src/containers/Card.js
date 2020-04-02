@@ -20,13 +20,13 @@ const Card = props => {
   };
   return (
     <div className="card-item-wrap">
-      {editor ? (
-        <QuickTaskEditor
-          editNote={editNote}
-          closeQuickEditor={closeQuickEditor}
-        />
-      ) : null}
       <div className="card-item">
+        {editor ? (
+          <QuickTaskEditor
+            editNote={editNote}
+            closeQuickEditor={closeQuickEditor}
+          />
+        ) : null}
         <div className="card-item-content">
           <div className="card-item-header">
             <span className="edit-card-title">

@@ -1654,6 +1654,7 @@ button {
   top: 0;
   z-index: 10;
   background: rgba(0, 0, 0, 0.6);
+  text-align: center;
 }
 .close-quick-editor-icon {
   color: hsla(0, 0%, 100%, 0.6);
@@ -1673,9 +1674,7 @@ button {
   cursor: pointer;
   transform: scale(1.2);
 }
-.quick-edit-wrap {
-  text-align: center;
-}
+
 .quick-edit-task {
   display: inline-block;
   width: 256px;
@@ -1705,4 +1704,15 @@ button {
   margin: -1px;
   -webkit-appearance: none;
   display: block;
+}
+.save-task-note {
+  box-shadow: none;
+  border: none;
+  color: #fff;
+  background-color: #5aac44;
+  padding: 6px 24px 6px 24px;
+  border-radius: 3px;
+  margin-top: 40px;
+  position: fixed;
+  margin-left: -8px;
 }

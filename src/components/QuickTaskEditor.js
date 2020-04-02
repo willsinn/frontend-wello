@@ -26,30 +26,28 @@ const QuickTaskEditor = props => {
       >
         ✕
       </span>
-      <div className="quick-edit-wrap">
-        <div className="quick-edit-task">
-          <div className="quick-edit-details">
-            <form onSubmit={handleSubmitTask}>
-              <textarea
-                dir="auto"
-                style={{
-                  overflow: "hidden",
-                  overflowWrap: "break-word",
-                  resize: "none",
-                  height: "90px"
-                }}
-                className="quick-edit-textarea"
-                type="text"
-                name="note"
-                onChange={handleChange}
-                value={note}
-                required
-              />
-              <button className="add-list-btn" type="submit">
-                Save
-              </button>
-            </form>
-          </div>
+      <div className="quick-edit-task">
+        <div className="quick-edit-details">
+          <form onSubmit={handleSubmitTask}>
+            <textarea
+              dir="auto"
+              style={{
+                overflow: "hidden",
+                overflowWrap: "break-word",
+                resize: "none",
+                height: "90px"
+              }}
+              className="quick-edit-textarea"
+              type="text"
+              name="note"
+              onChange={handleChange}
+              value={note}
+              required
+            />
+            <button className="save-task-note" type="submit">
+              Save
+            </button>
+          </form>
         </div>
       </div>
     </div>
