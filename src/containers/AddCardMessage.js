@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NewCardForm from "./NewCardForm";
+import AddCardItem from "./AddCardItem";
 
 const initialState = "";
 const AddCardMessage = props => {
@@ -32,7 +32,7 @@ const AddCardMessage = props => {
             ADD CARD
           </button>
         ) : (
-          <NewCardForm
+          <AddCardItem
             key={props.item.id}
             item={props.item}
             handleSubmitToggle={handleSubmitToggle}

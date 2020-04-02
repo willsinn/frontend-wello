@@ -2,7 +2,10 @@ export const setUser = userData => ({
   type: "SET_USER",
   payload: userData
 });
-
+export const setPage = page => ({
+  type: "SET_PAGE",
+  page
+});
 export const fetchUser = data => {
   return dispatch => {
     fetch("https://backend-wello.herokuapp.com/user/1", {
@@ -22,8 +25,3 @@ export const fetchUser = data => {
     // .then(JSONresponse => console.log(JSONresponse));
   };
 };
-
-export const setTrue = () => ({ type: "SET_TRUE" });
-export const setFalse = () => ({ type: "SET_FALSE" });
-export const setNull = () => ({ type: "SET_NULL" });
-export const incrementCounter = () => ({ type: "INCREMENT_COUNTER" });

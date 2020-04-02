@@ -8,30 +8,28 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./App";
 import userReducer from "./reducers/userReducer";
-import projectsReducer from "./reducers/projectsReducer";
+import boardsReducer from "./reducers/boardsReducer";
 import workspaceReducer from "./reducers/workspaceReducer";
+import taskReducer from "./reducers/taskReducer";
 
 import * as serviceWorker from "./serviceWorker";
+import { fetchUserBoards } from "./actions/boards";
+
 import { fetchUser } from "./actions/user";
-import { fetchUserProjects } from "./actions/projects";
 
 const rootReducer = combineReducers({
   userReducer: userReducer,
-  projectsReducer: projectsReducer,
-  workspaceReducer: workspaceReducer
+  boardsReducer: boardsReducer,
+  workspaceReducer: workspaceReducer,
+  taskReducer: taskReducer
 });
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
-console.log(
-  `%c INITIAL REDUX STORE`,
-  "color: purple",
-  store.getState(workspaceReducer)
-);
 
 store.dispatch(fetchUser());
-store.dispatch(fetchUserProjects());
+store.dispatch(fetchUserBoards());
 
 ReactDOM.render(
   <Provider store={store}>
