@@ -4,29 +4,14 @@ import AddCard from "./AddCard";
 import { connect } from "react-redux";
 
 const CardList = props => {
-  const [cardList, setCardList] = useState(props.workspace.cards);
   const [addCard, setAddCard] = useState(false);
   const handleCloseForm = e => {
     setAddCard(false);
   };
-  const updateCardList = newGoal => {
-    console.log(cardList);
-    const newCard = cardList[cardList.length - 1];
-    const newCardList = [
-      ...cardList,
-      {
-        id: parseInt(newCard.id + 1),
-        goal: newGoal,
-        summary: null,
-        board_id: parseInt(props.workspace.id),
-        tasks: []
-      }
-    ];
-    setCardList(newCardList);
-  };
+
   const renderItems = () => {
-    if (cardList.length > 0) {
-      return cardList.map(card => {
+    if (props.workspace.cards.length > 0) {
+      return props.workspace.cards.map(card => {
         return (
           <Card
             key={`board-${props.workspace.id}-${card.id}`}
@@ -62,7 +47,6 @@ const CardList = props => {
           ) : (
             <AddCard
               workspace={props.workspace}
-              updateCardList={updateCardList}
               handleCloseForm={handleCloseForm}
             />
           )}

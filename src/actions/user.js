@@ -8,7 +8,7 @@ export const setPage = page => ({
 });
 export const fetchUser = data => {
   return dispatch => {
-    fetch("https://backend-wello.herokuapp.com/user/1", {
+    fetch("http://localhost:3000/user/1", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"

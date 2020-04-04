@@ -68,9 +68,12 @@ export const postWorkspaceCard = (board, dispatch) => {
       },
       body: JSON.stringify({
         board_id: board.workspace.id,
-        goal: board.goal
+        goal: board.goal,
+        card_desc: ""
       })
-    });
+    })
+      .then(response => response.json())
+      .then(JSONresponse => dispatch(addCard(JSONresponse)));
   };
 };
 export const deleteWorkspaceCard = (card, dispatch) => {
