@@ -24,8 +24,8 @@ const AddTask = (props, { dispatch }) => {
     <div className="task-item-wrap">
       <div className="task-item card-item">
         <form onSubmit={handleSubmitTask}>
-          <input
-            className="add-card-input"
+          <textarea
+            className="add-task-textarea"
             type="text"
             name="note"
             onChange={handleChange}

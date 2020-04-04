@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import TaskList from "../components/TaskList";
-import AddTask from "../components/AddTask";
 import QuickTaskEditor from "../components/QuickTaskEditor";
 
 const Card = props => {
-  const [addTask, setAddTask] = useState(false);
   const [editor, setEditor] = useState(false);
   const [editNote, setEditNote] = useState("");
-  const handleCloseTaskForm = e => {
-    setAddTask(false);
-  };
+
   const closeQuickEditor = e => {
     setEditor(false);
     setEditNote("");
@@ -42,27 +38,6 @@ const Card = props => {
             </span>
           </div>
           <TaskList card={props.card} renderQuickEditor={renderQuickEditor} />
-          {!addTask ? (
-            <div className="task-composer" onClick={e => setAddTask(true)}>
-              <span className="open-task-composer">
-                <span
-                  style={{
-                    fontSize: "22px",
-                    fontWeight: "300",
-                    padding: "0 4px"
-                  }}
-                >
-                  +
-                </span>
-                Add another task
-              </span>
-            </div>
-          ) : (
-            <AddTask
-              handleCloseTaskForm={handleCloseTaskForm}
-              card={props.card}
-            />
-          )}
         </div>
       </div>
     </div>
