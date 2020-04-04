@@ -658,25 +658,7 @@ button {
   background: inherit;
   position: absolute;
 }
-.item-menu-p {
-  font-size: 17px;
-  margin: 0;
-  height: fit-content;
-}
-.item-menu-btn.close {
-  display: flex;
-  justify-content: center;
-}
-.item-menu-close-wrapper {
-  display: flex;
-  height: fit-content;
-  border-bottom: 1px outset darkgray;
-  width: 95%;
-  align-self: center;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
+
 .close-btn {
   position: absolute;
   color: lightgray;
@@ -1120,6 +1102,7 @@ button {
   color: #a5adba;
 }
 .submit-new-board-btn {
+  background-color: white;
   color: #a5adba;
   width: 109px;
   height: 32px;
@@ -1618,6 +1601,7 @@ button {
   overflow: hidden;
   padding: 6px 8px 2px;
   position: relative;
+  min-height: 60px;
 }
 .task-list {
   flex: 1 1 auto;

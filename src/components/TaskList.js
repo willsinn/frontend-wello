@@ -17,12 +17,7 @@ const TaskList = props => {
     }
   };
   console.log(props.card);
-  return (
-    <div className="task-list">
-      List Here: --->
-      {renderTasks()}
-    </div>
-  );
+  return <div className="task-list">{renderTasks()}</div>;
 };
 
 export default TaskList;
