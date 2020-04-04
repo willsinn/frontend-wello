@@ -1096,13 +1096,23 @@ button {
   margin: 0;
   outline: 0;
 }
-.disabled.submit-new-board-btn:hover {
+.disabled-submit-new-board-btn:hover {
   background-color: white;
   color: #a5adba;
 }
-.submit-new-board-btn {
+.disabled-submit-new-board-btn {
   background-color: white;
   color: #a5adba;
+  width: 109px;
+  height: 32px;
+  border-radius: 2px;
+  position: relative;
+  margin-top: 8px;
+  bottom: -38px;
+}
+.submit-new-board-btn {
+  background-color: #5aac44;
+  color: #fff;
   width: 109px;
   height: 32px;
   border-radius: 2px;
