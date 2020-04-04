@@ -1509,6 +1509,9 @@ button {
   padding-bottom: 4px;
   margin: 0 4px 4px 4px;
 }
+.add-list-btn:hover {
+  background-color: #61bd4f;
+}
 .close-add-btn {
   min-height: 32px;
   height: 32px;

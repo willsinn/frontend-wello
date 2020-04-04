@@ -4,16 +4,16 @@ import AddCard from "./AddCard";
 import { connect } from "react-redux";
 
 const CardList = props => {
-  const [deck, setDeck] = useState(props.workspace.cards);
+  const [cardList, setCardList] = useState(props.workspace.cards);
   const [addCard, setAddCard] = useState(false);
   const handleCloseForm = e => {
     setAddCard(false);
   };
-  const updateDeck = newGoal => {
-    console.log(deck);
-    const newCard = deck[deck.length - 1];
-    const newDeck = [
-      ...deck,
+  const updateCardList = newGoal => {
+    console.log(cardList);
+    const newCard = cardList[cardList.length - 1];
+    const newCardList = [
+      ...cardList,
       {
         id: parseInt(newCard.id + 1),
         goal: newGoal,
@@ -22,11 +22,11 @@ const CardList = props => {
         tasks: []
       }
     ];
-    setDeck(newDeck);
+    setCardList(newCardList);
   };
   const renderItems = () => {
-    if (deck.length > 0) {
-      return deck.map(card => {
+    if (cardList.length > 0) {
+      return cardList.map(card => {
         return (
           <Card
             key={`board-${props.workspace.id}-${card.id}`}
@@ -62,7 +62,7 @@ const CardList = props => {
           ) : (
             <AddCard
               workspace={props.workspace}
-              updateDeck={updateDeck}
+              updateCardList={updateCardList}
               handleCloseForm={handleCloseForm}
             />
           )}

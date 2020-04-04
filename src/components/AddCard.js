@@ -17,7 +17,7 @@ const AddCard = (props, { dispatch }) => {
     if (e) {
       e.preventDefault();
       props.dispatch(postWorkspaceCard({ goal, workspace: props.workspace }));
-      props.updateDeck(goal);
+      props.updateCardList(goal);
       clearState(e);
     }
   };
