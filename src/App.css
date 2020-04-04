@@ -1708,3 +1708,6 @@ button {
   position: fixed;
   margin-left: -8px;
 }
+.save-task-note:hover {
+  background-color: #61bd4f;
+}
