@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postWorkspaceCard } from "../actions/workspace";
+import { postNewCard } from "../actions/workspace";
 
 const initialState = { goal: "" };
 const AddCard = (props, { dispatch }) => {
@@ -16,7 +16,7 @@ const AddCard = (props, { dispatch }) => {
   const handleSubmitCard = e => {
     if (e) {
       e.preventDefault();
-      props.dispatch(postWorkspaceCard({ goal, workspace: props.workspace }));
+      props.dispatch(postNewCard({ goal, workspace: props.workspace }));
       clearState(e);
     }
   };

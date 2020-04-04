@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postNewCardTask } from "../actions/task";
+import { postNewTask } from "../actions/workspace";
 
 const initialState = { note: "" };
 const AddTask = (props, { dispatch }) => {
@@ -16,7 +16,7 @@ const AddTask = (props, { dispatch }) => {
   const handleSubmitTask = e => {
     if (e) {
       e.preventDefault();
-      props.dispatch(postNewCardTask({ note, card: props.card }));
+      props.dispatch(postNewTask({ note, card: props.card }));
       clearState(e);
     }
   };

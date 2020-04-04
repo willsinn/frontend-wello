@@ -1,7 +1,8 @@
 const defaultState = {
   isEditActive: false,
   workspace: {},
-  cards: []
+  cards: [],
+  tasks: []
 };
 
 const workspaceReducer = (state = defaultState, action) => {
@@ -48,6 +49,8 @@ const workspaceReducer = (state = defaultState, action) => {
         ...state,
         cards: cardsLeft
       };
+    case "ADD_TASK":
+      return state;
     default:
       return state;
   }

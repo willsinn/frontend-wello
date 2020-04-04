@@ -4,6 +4,8 @@ const defaultState = {
 const taskReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_TASK":
+      console.log(action.payload);
+
       return {
         ...state,
         task: action.payload
