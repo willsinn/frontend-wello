@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const Task = props => {
   const [visible, setVisible] = useState(false);
-  console.log(visible);
   return (
     <div
       className="task-item task-item-details"

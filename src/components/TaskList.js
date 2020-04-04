@@ -21,7 +21,6 @@ const TaskList = props => {
       });
     }
   };
-  console.log(props.card);
   return (
     <div className="task-list">
       {renderTasks()}

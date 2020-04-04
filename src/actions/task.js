@@ -25,8 +25,8 @@ export const postNewCardTask = (card, dispatch) => {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        note: card.note,
-        card_id: card.card.id
+        card_id: card.card.id,
+        note: card.note
       })
     })
       .then(response => response.json())
