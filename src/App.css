@@ -1614,8 +1614,6 @@ button {
 .task-list {
   flex: 1 1 auto;
   margin-bottom: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
   margin: 0 4px;
   padding: 0 4px;
   z-index: 1;
@@ -1710,4 +1708,15 @@ button {
 }
 .save-task-note:hover {
   background-color: #61bd4f;
+}
+.add-task-textarea {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  border: 1px solid transparent;
+  padding: 6px 8px 2px;
+  margin-bottom: 7px;
+  width: 232px;
+  height: 54px;
+  display: block;
 }

@@ -22,28 +22,26 @@ const AddTask = (props, { dispatch }) => {
   };
   return (
     <div className="task-item-wrap">
-      <div className="task-item card-item">
-        <form onSubmit={handleSubmitTask}>
-          <textarea
-            className="add-task-textarea"
-            type="text"
-            name="note"
-            onChange={handleChange}
-            value={note.value}
-            placeholder="Enter note for this task..."
-            required
-          />
-          <button className="add-list-btn" type="submit">
-            Add Task
-          </button>
-          <button
-            onClick={e => props.handleCloseTaskForm(e)}
-            className="close-add-btn"
-          >
-            ✕
-          </button>
-        </form>
-      </div>
+      <form onSubmit={handleSubmitTask}>
+        <textarea
+          className="add-task-textarea"
+          type="text"
+          name="note"
+          onChange={handleChange}
+          value={note.value}
+          placeholder="Enter note for this task..."
+          required
+        />
+        <button className="add-list-btn" type="submit">
+          Add Task
+        </button>
+        <button
+          onClick={e => props.handleCloseTaskForm(e)}
+          className="close-add-btn"
+        >
+          ✕
+        </button>
+      </form>
     </div>
   );
 };
