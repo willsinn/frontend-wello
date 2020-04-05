@@ -64,8 +64,19 @@ const workspaceReducer = (state = defaultState, action) => {
           return card;
         }
       });
-      console.log(updatedCards);
-      return state;
+      return {
+        ...state,
+        workspace: {
+          id: state.workspace.id,
+          user_id: state.workspace.user_id,
+          title: state.workspace.title,
+          board_desc: state.workspace.board_desc,
+          background: state.workspace.background,
+          team_name: state.workspace.team_name,
+          cards: updateCardTasks
+        }
+      };
+
     default:
       return state;
   }
