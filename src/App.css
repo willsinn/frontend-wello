@@ -1509,9 +1509,6 @@ button {
   padding-bottom: 4px;
   margin: 0 4px 4px 4px;
 }
-.add-list-btn:hover {
-  background-color: #61bd4f;
-}
 .close-add-btn {
   min-height: 32px;
   height: 32px;
@@ -1532,7 +1529,6 @@ button {
   width: 100%;
   position: relative;
   white-space: normal;
-  z-index: 0;
 }
 .card-item-header {
   flex: 0 0 auto;

@@ -4,17 +4,17 @@ import { setPage } from "../actions/user";
 
 const ProfileDropdown = (props, { dispatch }) => {
   return (
-    <div className="board right-popup">
-      <div className="popup-header title">
-        <div className="popup-header label">William Sinn</div>
-        <div className="popup-header closeRightnav">
+    <div className="new-board right-modal">
+      <div className="modal-header title">
+        <div className="modal-header label">William Sinn (williamsinn1)</div>
+        <div className="modal-header close">
           <button>
             <span onClick={e => props.closeRightnav(e)}>×</span>
           </button>
         </div>
       </div>
       <ul>
-        <li className="popup option-item">
+        <li className="option-item">
           <button
             onClick={e =>
               props.dispatch(setPage("profile"), props.closeRightnav(e))
@@ -25,7 +25,7 @@ const ProfileDropdown = (props, { dispatch }) => {
             <span>Profile and Visibility</span>
           </button>
         </li>
-        <li className="popup option-item">
+        <li className="option-item">
           <button
             onClick={e =>
               props.dispatch(setPage("profile"), props.closeRightnav(e))
@@ -36,7 +36,7 @@ const ProfileDropdown = (props, { dispatch }) => {
             <span> Activity</span>
           </button>
         </li>
-        <li className="popup option-item">
+        <li className="option-item">
           <button
             onClick={e =>
               props.dispatch(setPage("profile"), props.closeRightnav(e))
@@ -47,7 +47,7 @@ const ProfileDropdown = (props, { dispatch }) => {
             <span>Cards</span>
           </button>
         </li>
-        <li className="popup option-item">
+        <li className="option-item">
           <button
             onClick={e =>
               props.dispatch(setPage("profile"), props.closeRightnav(e))
