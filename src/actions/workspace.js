@@ -15,9 +15,9 @@ export const addCard = card => ({
   type: "ADD_CARD",
   card
 });
-export const setTasks = tasks => ({
-  type: "SET_TASKS",
-  tasks
+export const addTask = task => ({
+  type: "ADD_TASK",
+  task
 });
 export const clearEdit = () => ({ type: "CLEAR_EDIT" });
 export const toggleEdit = () => ({
@@ -150,6 +150,6 @@ export const postNewTask = (card, dispatch) => {
       })
     })
       .then(response => response.json())
-      .then(JSONresponse => console.log(JSONresponse));
+      .then(JSONresponse => dispatch(addTask(JSONresponse)));
   };
 };

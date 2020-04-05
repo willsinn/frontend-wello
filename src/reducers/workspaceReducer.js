@@ -50,6 +50,11 @@ const workspaceReducer = (state = defaultState, action) => {
         cards: cardsLeft
       };
     case "ADD_TASK":
+      const targetCard = state.workspace.cards.filter(
+        card => card.id === action.task.card_id
+      );
+      console.log(targetCard);
+      debugger;
       return state;
     default:
       return state;
