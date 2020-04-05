@@ -50,11 +50,21 @@ const workspaceReducer = (state = defaultState, action) => {
         cards: cardsLeft
       };
     case "ADD_TASK":
-      const targetCard = state.workspace.cards.filter(
-        card => card.id === action.task.card_id
-      );
-      console.log(targetCard);
-      debugger;
+      const updatedCards = state.workspace.cards.map(card => {
+        if (card.id === action.task.card_id) {
+          const updatedCard = {
+            id: card.id,
+            goal: card.goal,
+            card_desc: card.card_desc,
+            board_id: card.board_id,
+            tasks: [...card.tasks, action.task]
+          };
+          return updatedCard;
+        } else {
+          return card;
+        }
+      });
+      console.log(updatedCards);
       return state;
     default:
       return state;
