@@ -299,13 +299,6 @@ button {
   z-index: 1;
 }
 .board-body {
-  background: linear-gradient(
-    180deg,
-    hsla(0, 0%, 100%, 0.24) 0,
-    hsla(0, 0%, 100%, 0.24) 48px,
-    hsla(0, 0%, 100%, 0) 80px,
-    hsla(0, 0%, 100%, 0)
-  );
   position: relative;
   flex-grow: 1;
   color: #172b4d;
