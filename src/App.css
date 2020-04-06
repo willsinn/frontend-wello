@@ -314,6 +314,7 @@ button {
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
+  z-index: 0;
 }
 .board-ops .title-top {
   background: transparent;
