@@ -14,7 +14,7 @@ const Card = props => {
     setEditNote(`${taskNote}`);
     setEditor(true);
   };
-  console.log(props.cardMenu);
+  console.log(props.cardMenu, props.actionCard);
   return (
     <div className="card-item-wrap">
       <div className="card-item">
@@ -41,7 +41,9 @@ const Card = props => {
                 ...
               </span>
             </span>
-            {props.cardMenu ? <div>Hi This is the card menu</div> : null}
+            {props.cardMenu && props.actionCard.id === props.card.id ? (
+              <div>Hi This is the card menu</div>
+            ) : null}
           </div>
           <TaskList card={props.card} renderQuickEditor={renderQuickEditor} />
         </div>

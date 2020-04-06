@@ -6,15 +6,15 @@ import { connect } from "react-redux";
 const CardList = props => {
   const [addCard, setAddCard] = useState(false);
   const [cardMenu, setCardMenu] = useState(false);
+  const [actionCard, setActionCard] = useState({});
   const handleCloseCardForm = e => {
     setAddCard(false);
   };
   const handleCloseCardMenu = e => {
     setCardMenu(false);
   };
-  const handleOpenCardMenu = (e, card) => {
-    console.log(card);
-    handleCloseCardMenu(e);
+  const handleOpenCardMenu = (e, targCard) => {
+    setActionCard(targCard);
     setCardMenu(true);
   };
   const renderItems = () => {
@@ -26,6 +26,7 @@ const CardList = props => {
             card={card}
             workspace={props.workspace}
             cardMenu={cardMenu}
+            actionCard={actionCard}
             handleCloseCardMenu={handleCloseCardMenu}
             handleOpenCardMenu={handleOpenCardMenu}
           />
