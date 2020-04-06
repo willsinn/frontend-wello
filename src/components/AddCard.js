@@ -18,6 +18,7 @@ const AddCard = (props, { dispatch }) => {
       e.preventDefault();
       props.dispatch(postNewCard({ goal, workspace: props.workspace }));
       clearState(e);
+      props.handleCloseCardForm(e);
     }
   };
   return (
@@ -37,7 +38,7 @@ const AddCard = (props, { dispatch }) => {
             Add List
           </button>
           <button
-            onClick={e => props.handleCloseForm(e)}
+            onClick={e => props.handleCloseCardForm(e)}
             className="close-add-btn"
           >
             ✕

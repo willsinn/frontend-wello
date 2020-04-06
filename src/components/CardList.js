@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 const CardList = props => {
   const [addCard, setAddCard] = useState(false);
-  const handleCloseForm = e => {
+  const handleCloseCardForm = e => {
     setAddCard(false);
   };
 
@@ -47,7 +47,7 @@ const CardList = props => {
           ) : (
             <AddCard
               workspace={props.workspace}
-              handleCloseForm={handleCloseForm}
+              handleCloseCardForm={handleCloseCardForm}
             />
           )}
         </div>
