@@ -14,6 +14,7 @@ const Card = props => {
     setEditNote(`${taskNote}`);
     setEditor(true);
   };
+  console.log(props.cardMenu);
   return (
     <div className="card-item-wrap">
       <div className="card-item">
@@ -28,7 +29,11 @@ const Card = props => {
             <span className="edit-card-title">
               <h2 className="card-text">{props.card.goal}</h2>
             </span>
-            <span className="card-icon">
+
+            <span
+              onClick={e => props.handleOpenCardMenu(e, props.card)}
+              className="card-icon"
+            >
               <span
                 className="icon-sm"
                 style={{ position: "relative", right: "-9px", top: "1px" }}
@@ -36,6 +41,7 @@ const Card = props => {
                 ...
               </span>
             </span>
+            {props.cardMenu ? <div>Hi This is the card menu</div> : null}
           </div>
           <TaskList card={props.card} renderQuickEditor={renderQuickEditor} />
         </div>

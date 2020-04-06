@@ -5,10 +5,18 @@ import { connect } from "react-redux";
 
 const CardList = props => {
   const [addCard, setAddCard] = useState(false);
+  const [cardMenu, setCardMenu] = useState(false);
   const handleCloseCardForm = e => {
     setAddCard(false);
   };
-
+  const handleCloseCardMenu = e => {
+    setCardMenu(false);
+  };
+  const handleOpenCardMenu = (e, card) => {
+    console.log(card);
+    handleCloseCardMenu(e);
+    setCardMenu(true);
+  };
   const renderItems = () => {
     if (props.workspace.cards.length > 0) {
       return props.workspace.cards.map(card => {
@@ -17,6 +25,9 @@ const CardList = props => {
             key={`board-${props.workspace.id}-${card.id}`}
             card={card}
             workspace={props.workspace}
+            cardMenu={cardMenu}
+            handleCloseCardMenu={handleCloseCardMenu}
+            handleOpenCardMenu={handleOpenCardMenu}
           />
         );
       });
