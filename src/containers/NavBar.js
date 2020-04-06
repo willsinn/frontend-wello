@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PlusDropdown from "../components/PlusDropdown";
-import NoteDropdown from "../components/NoteDropdown";
+import NotificationsDropdown from "../components/NotificationsDropdown";
 import ProfileDropdown from "../components/ProfileDropdown";
 import SideDropdownList from "../components/SideDropdownList";
 import HomeBtn from "../components/HomeBtn";
@@ -47,7 +47,7 @@ const NavBar = props => {
                 />
               );
             case "noti":
-              return <NoteDropdown closeRightnav={closeRightnav} />;
+              return <NotificationsDropdown closeRightnav={closeRightnav} />;
             case "prof":
               return <ProfileDropdown closeRightnav={closeRightnav} />;
             default:
