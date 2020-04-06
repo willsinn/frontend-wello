@@ -830,6 +830,7 @@ button {
   overflow: hidden;
   white-space: nowrap;
   margin-right: 10px;
+  cursor: pointer;
 }
 .user-initials:hover {
 }
