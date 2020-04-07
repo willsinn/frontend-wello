@@ -49,7 +49,7 @@ const Card = ({
               </span>
             </span>
             {cardMenu && actionCard.id === card.id ? (
-              <div>Hi This is the card menu</div>
+              <div className="card-menu-popup">Hi This is the card menu</div>
             ) : null}
           </div>
           <TaskList card={card} renderQuickEditor={renderQuickEditor} />
