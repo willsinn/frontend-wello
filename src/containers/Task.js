@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Task = props => {
+const Task = ({ task, card, renderQuickEditor }) => {
   const [visible, setVisible] = useState(false);
   return (
     <div
@@ -9,11 +9,11 @@ const Task = props => {
       onMouseLeave={e => setVisible(false)}
     >
       <div className="task-item-note">
-        <span>{props.task.note}</span>
+        <span>{task.note}</span>
         {visible ? (
           <span
             className="edit-task-item-btn"
-            onClick={e => props.renderQuickEditor(e, props.task.note)}
+            onClick={e => renderQuickEditor(e, task.note)}
           >
             ✎
           </span>
