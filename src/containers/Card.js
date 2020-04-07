@@ -49,7 +49,34 @@ const Card = ({
               </span>
             </span>
             {cardMenu && actionCard.id === card.id ? (
-              <div className="card-menu-popup">Hi This is the card menu</div>
+              <div className="card-menu-modal">
+                <ul>
+                  <li className="option-item">
+                    <button
+                      className="option-title js-member-profile"
+                      data-tab="profile"
+                    >
+                      <span>Add Card...</span>
+                    </button>
+                  </li>
+                  <li className="option-item">
+                    <button
+                      className="option-title js-member-activity active"
+                      data-tab="cards"
+                    >
+                      <span>Copy List...</span>
+                    </button>
+                  </li>
+                  <li className="option-item">
+                    <button
+                      className="option-title js-member-cards"
+                      data-tab="cards"
+                    >
+                      <span>Archive List...</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
             ) : null}
           </div>
           <TaskList card={card} renderQuickEditor={renderQuickEditor} />
