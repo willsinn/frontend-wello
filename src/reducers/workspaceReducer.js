@@ -17,12 +17,13 @@ const workspaceReducer = (state = defaultState, action) => {
       return {
         ...state,
         workspace: {
-          id: state.workspace.id,
-          user_id: state.workspace.user_id,
-          title: state.workspace.title,
-          board_desc: state.workspace.board_desc,
-          background: state.workspace.background,
-          team_name: state.workspace.team_name,
+          // id: state.workspace.id,
+          // user_id: state.workspace.user_id,
+          // title: state.workspace.title,
+          // board_desc: state.workspace.board_desc,
+          // background: state.workspace.background,
+          // team_name: state.workspace.team_name,
+          ...state.workspace,
           cards: [...state.workspace.cards, action.card]
         }
       };
@@ -54,10 +55,11 @@ const workspaceReducer = (state = defaultState, action) => {
       const updateCardTasks = state.workspace.cards.map(card => {
         if (card.id === action.task.card_id) {
           const updatedCard = {
-            id: card.id,
-            goal: card.goal,
-            card_desc: card.card_desc,
-            board_id: card.board_id,
+            // id: card.id,
+            // goal: card.goal,
+            // card_desc: card.card_desc,
+            // board_id: card.board_id,
+            ...card,
             tasks: [...card.tasks, action.task]
           };
           return updatedCard;

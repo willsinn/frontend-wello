@@ -67,8 +67,17 @@ const CardList = props => {
     </div>
   );
 };
-const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  workspace: workspace.workspace
-});
 
-export default connect(mapStateToProps)(CardList);
+const mapStateToProps = state => {
+  return {
+    cards: state.workspaceReducer.workspace.cards
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CardList);

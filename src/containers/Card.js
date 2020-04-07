@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import TaskList from "../components/TaskList";
 import QuickTaskEditor from "../components/QuickTaskEditor";
 
-const Card = props => {
+const Card = ({
+  card,
+  workspace,
+  cardMenu,
+  actionCard,
+  handleCloseCardMenu,
+  handleOpenCardMenu
+}) => {
   const [editor, setEditor] = useState(false);
   const [editNote, setEditNote] = useState("");
 
@@ -14,7 +21,7 @@ const Card = props => {
     setEditNote(`${taskNote}`);
     setEditor(true);
   };
-  console.log(props.cardMenu, props.actionCard);
+  console.log(cardMenu, actionCard);
   return (
     <div className="card-item-wrap">
       <div className="card-item">
@@ -27,11 +34,11 @@ const Card = props => {
         <div className="card-item-content">
           <div className="card-item-header">
             <span className="edit-card-title">
-              <h2 className="card-text">{props.card.goal}</h2>
+              <h2 className="card-text">{card.goal}</h2>
             </span>
 
             <span
-              onClick={e => props.handleOpenCardMenu(e, props.card)}
+              onClick={e => handleOpenCardMenu(e, card)}
               className="card-icon"
             >
               <span
@@ -41,11 +48,11 @@ const Card = props => {
                 ...
               </span>
             </span>
-            {props.cardMenu && props.actionCard.id === props.card.id ? (
+            {cardMenu && actionCard.id === card.id ? (
               <div>Hi This is the card menu</div>
             ) : null}
           </div>
-          <TaskList card={props.card} renderQuickEditor={renderQuickEditor} />
+          <TaskList card={card} renderQuickEditor={renderQuickEditor} />
         </div>
       </div>
     </div>

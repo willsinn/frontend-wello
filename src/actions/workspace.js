@@ -136,7 +136,7 @@ export const updateTask = (task, dispatch) => {
     // .then(response => console.log(response));
   };
 };
-export const postNewTask = (card, dispatch) => {
+export const postNewTask = (card, callback) => {
   return dispatch => {
     fetch(`http://localhost:3000/card/${card.card.id}/tasks/new`, {
       method: "POST",
@@ -150,6 +150,9 @@ export const postNewTask = (card, dispatch) => {
       })
     })
       .then(response => response.json())
-      .then(JSONresponse => dispatch(addTask(JSONresponse)));
+      .then(JSONresponse => {
+        dispatch(addTask(JSONresponse));
+        callback();
+      });
   };
 };

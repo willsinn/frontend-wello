@@ -16,9 +16,13 @@ const AddTask = (props, { dispatch }) => {
   const handleSubmitTask = e => {
     if (e) {
       e.preventDefault();
-      props.dispatch(postNewTask({ note, card: props.card }));
+      props.dispatch(
+        postNewTask({ note, card: props.card }, () =>
+          props.handleCloseTaskForm(e)
+        )
+      );
       clearState(e);
-      props.handleCloseTaskForm(e);
+      //props.handleCloseTaskForm(e)
     }
   };
   return (
