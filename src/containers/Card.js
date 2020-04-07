@@ -21,7 +21,7 @@ const Card = ({
     setEditNote(`${taskNote}`);
     setEditor(true);
   };
-  console.log(cardMenu, actionCard);
+  // console.log(cardMenu, actionCard);
   return (
     <div className="card-item-wrap">
       <div className="card-item">
