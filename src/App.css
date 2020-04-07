@@ -264,13 +264,13 @@ button {
   background: inherit;
 }
 .board-tiles-ul {
-  width: 80%;
-  height: 50%;
+  width: 100%;
+  height: 70%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  /* overflow-y: auto; */
+  overflow-y: auto;
 }
 .board-tile {
   height: 100px;
