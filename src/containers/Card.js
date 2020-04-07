@@ -50,6 +50,14 @@ const Card = ({
             </span>
             {cardMenu && actionCard.id === card.id ? (
               <div className="card-menu-modal">
+                <div className="modal-header title">
+                  <div className="modal-header label">List Actions</div>
+                  <div className="modal-header close">
+                    <button>
+                      <span onClick={e => handleCloseCardMenu(e)}>×</span>
+                    </button>
+                  </div>
+                </div>
                 <ul>
                   <li className="option-item">
                     <button
