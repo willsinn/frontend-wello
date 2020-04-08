@@ -3,7 +3,7 @@ import Card from "../containers/Card";
 import AddCard from "./AddCard";
 import { connect } from "react-redux";
 
-const CardList = props => {
+const CardList = ({ workspace }) => {
   const [addCard, setAddCard] = useState(false);
   const [cardMenu, setCardMenu] = useState(false);
   const [actionCard, setActionCard] = useState({});
@@ -17,14 +17,15 @@ const CardList = props => {
     setActionCard(targCard);
     setCardMenu(true);
   };
-  const renderItems = () => {
-    if (props.workspace.cards.length > 0) {
-      return props.workspace.cards.map(card => {
+  console.log(workspace);
+  const renderCards = () => {
+    if (workspace.cards.length > 0) {
+      return workspace.cards.map(card => {
         return (
           <Card
-            key={`board-${props.workspace.id}-${card.id}`}
+            key={`board-${workspace.id}-${card.id}`}
             card={card}
-            workspace={props.workspace}
+            workspace={workspace}
             cardMenu={cardMenu}
             actionCard={actionCard}
             handleCloseCardMenu={handleCloseCardMenu}
@@ -38,7 +39,7 @@ const CardList = props => {
     <div className="board-content-wrap">
       <div className="board-content">
         <div className="board-cards">
-          {renderItems()}
+          {renderCards()}
           {!addCard ? (
             <div className="card-item-wrap" onClick={e => setAddCard(true)}>
               <div className="card-item idle-add-card-item">
@@ -58,7 +59,7 @@ const CardList = props => {
             </div>
           ) : (
             <AddCard
-              workspace={props.workspace}
+              workspace={workspace}
               handleCloseCardForm={handleCloseCardForm}
             />
           )}
