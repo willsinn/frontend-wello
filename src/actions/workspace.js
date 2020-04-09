@@ -120,7 +120,7 @@ export const deleteTask = (task, dispatch) => {
   };
 };
 
-export const updateTask = (task, dispatch) => {
+export const updateTask = task => {
   return dispatch => {
     fetch(`http://localhost:3000/task/update/${task.id}`, {
       method: "PUT",
@@ -131,6 +131,22 @@ export const updateTask = (task, dispatch) => {
       body: JSON.stringify({
         id: task.id,
         [task.key]: task.value
+      })
+    });
+    // .then(response => console.log(response));
+  };
+};
+export const archiveTask = task => {
+  return dispatch => {
+    fetch(`http://localhost:3000/task/update/${task.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: task.id,
+        archived: true
       })
     });
     // .then(response => console.log(response));
