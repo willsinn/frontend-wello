@@ -1637,7 +1637,7 @@ button {
   bottom: 0;
   color: #fff;
   left: 0;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
   z-index: 10;
