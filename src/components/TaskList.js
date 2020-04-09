@@ -22,14 +22,19 @@ const TaskList = ({ card }) => {
   const renderTasks = () => {
     if (card.tasks.length > 0) {
       return card.tasks.map(task => {
-        return (
-          <Task
-            key={task.id}
-            task={task}
-            card={card.id}
-            renderQuickEditor={renderQuickEditor}
-          />
-        );
+        console.log(task.archived);
+        if (!task.archived) {
+          return (
+            <Task
+              key={task.id}
+              task={task}
+              card={card.id}
+              renderQuickEditor={renderQuickEditor}
+            />
+          );
+        } else {
+          return;
+        }
       });
     }
   };

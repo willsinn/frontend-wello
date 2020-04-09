@@ -43,7 +43,7 @@ const BgTile = props => {
           style={renderBgOption()}
           value={props.bg}
         >
-          <span className="bg-check-marker">✓</span>{" "}
+          <span className="bg-check-marker">✓</span>
         </button>
       ) : (
         <button
