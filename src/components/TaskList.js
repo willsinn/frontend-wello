@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
+import QuickTaskEditor from "../components/QuickTaskEditor";
 
-const TaskList = ({ card, editNote, closeQuickEditor, renderQuickEditor }) => {
+const TaskList = ({ card }) => {
   const [addTask, setAddTask] = useState(false);
+  const [editor, setEditor] = useState(false);
+  const [editNote, setEditNote] = useState("");
+
+  const closeQuickEditor = e => {
+    setEditor(false);
+    setEditNote("");
+  };
+  const renderQuickEditor = (e, taskNote) => {
+    setEditNote(`${taskNote}`);
+    setEditor(true);
+  };
   const handleCloseTaskForm = e => {
     setAddTask(false);
   };
@@ -23,6 +35,12 @@ const TaskList = ({ card, editNote, closeQuickEditor, renderQuickEditor }) => {
   };
   return (
     <div className="task-list">
+      {editor ? (
+        <QuickTaskEditor
+          editNote={editNote}
+          closeQuickEditor={closeQuickEditor}
+        />
+      ) : null}
       {renderTasks()}
       {!addTask ? (
         <div className="task-composer" onClick={e => setAddTask(true)}>

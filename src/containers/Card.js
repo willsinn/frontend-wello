@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import TaskList from "../components/TaskList";
-import QuickTaskEditor from "../components/QuickTaskEditor";
 
 const Card = ({
   card,
@@ -10,27 +9,10 @@ const Card = ({
   handleCloseCardMenu,
   handleOpenCardMenu
 }) => {
-  const [editor, setEditor] = useState(false);
-  const [editNote, setEditNote] = useState("");
-
-  const closeQuickEditor = e => {
-    setEditor(false);
-    setEditNote("");
-  };
-  const renderQuickEditor = (e, taskNote) => {
-    setEditNote(`${taskNote}`);
-    setEditor(true);
-  };
   // console.log(cardMenu, actionCard);
   return (
     <div className="card-item-wrap">
       <div className="card-item">
-        {editor ? (
-          <QuickTaskEditor
-            editNote={editNote}
-            closeQuickEditor={closeQuickEditor}
-          />
-        ) : null}
         <div className="card-item-content">
           <div className="card-item-header">
             <span className="edit-card-title">
@@ -87,7 +69,7 @@ const Card = ({
               </div>
             ) : null}
           </div>
-          <TaskList card={card} renderQuickEditor={renderQuickEditor} />
+          <TaskList card={card} />
         </div>
       </div>
     </div>
