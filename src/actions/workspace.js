@@ -58,7 +58,7 @@ export const updateBoard = (board, dispatch) => {
     });
   };
 };
-export const postNewCard = (board, dispatch) => {
+export const postNewCard = (board, callback) => {
   return dispatch => {
     fetch(`http://localhost:3000/board/${board.workspace.id}/cards/new`, {
       method: "POST",
@@ -74,6 +74,7 @@ export const postNewCard = (board, dispatch) => {
     })
       .then(response => response.json())
       .then(JSONresponse => dispatch(addCard(JSONresponse)));
+    callback();
   };
 };
 export const deleteWorkspaceCard = (card, dispatch) => {
