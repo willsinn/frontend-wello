@@ -120,6 +120,7 @@ export const deleteTask = (task, dispatch) => {
   };
 };
 export const archiveCard = card => {
+  debugger;
   return dispatch => {
     fetch(`http://localhost:3000/card/update/${card.id}`, {
       method: "PUT",

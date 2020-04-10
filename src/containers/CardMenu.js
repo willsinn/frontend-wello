@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { archiveCard } from "../actions/workspace";
 
-const CardMenu = ({ card, handleCloseCardMenu }) => {
+const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
   return (
     <div className="card-menu-modal">
       <div className="modal-header title">
@@ -28,7 +28,11 @@ const CardMenu = ({ card, handleCloseCardMenu }) => {
           </button>
         </li>
         <li className="option-item">
-          <button className="option-title js-member-cards" data-tab="cards">
+          <button
+            onClick={e => archiveCard(card)}
+            className="option-title js-member-cards"
+            data-tab="cards"
+          >
             <span>Archive List...</span>
           </button>
         </li>
