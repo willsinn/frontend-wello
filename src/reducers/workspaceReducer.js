@@ -1,5 +1,4 @@
 const defaultState = {
-  isEditActive: false,
   workspace: {},
   cards: [],
   tasks: []
@@ -23,21 +22,9 @@ const workspaceReducer = (state = defaultState, action) => {
       };
 
     case "UPDATE_CARD":
-      let newItems;
-      if (state.workspace.id === action.card.board_id) {
-        newItems = state.cards.map(card => {
-          if (card.id === action.card.id) {
-            return action.card;
-          }
-          return card;
-        });
-      } else {
-        newItems = state.cards;
-      }
-      return {
-        ...state,
-        cards: newItems
-      };
+      console.log(action.card);
+      debugger;
+      return {};
     case "DELETE_CARD":
       const cardsLeft = state.cards.filter(card => card.id !== action.card.id);
       return {

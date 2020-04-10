@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { postNewCard } from "../actions/workspace";
 
 const initialState = { goal: "" };
-const AddCard = (props, { dispatch }) => {
+const AddCard = ({ workspace, handleCloseCardForm, dispatch }) => {
   const [goal, setGoal] = useState(initialState);
   const clearState = e => {
     setGoal({ ...initialState });
@@ -16,9 +16,12 @@ const AddCard = (props, { dispatch }) => {
   const handleSubmitCard = e => {
     if (e) {
       e.preventDefault();
-      props.dispatch(postNewCard({ goal, workspace: props.workspace }));
+      dispatch(
+        postNewCard({ goal, workspace: workspace }, () =>
+          handleCloseCardForm(e)
+        )
+      );
       clearState(e);
-      props.handleCloseCardForm(e);
     }
   };
   return (
@@ -38,7 +41,7 @@ const AddCard = (props, { dispatch }) => {
             Add List
           </button>
           <button
-            onClick={e => props.handleCloseCardForm(e)}
+            onClick={e => handleCloseCardForm(e)}
             className="close-add-btn"
           >
             ✕

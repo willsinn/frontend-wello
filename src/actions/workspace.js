@@ -119,8 +119,7 @@ export const deleteTask = (task, dispatch) => {
     }).then(response => dispatch(fetchCard({ id: task["task_id"] })));
   };
 };
-export const archiveCard = card => {
-  debugger;
+export const archiveCard = (card, dispatch) => {
   return dispatch => {
     fetch(`http://localhost:3000/card/update/${card.id}`, {
       method: "PUT",
@@ -140,7 +139,6 @@ export const archiveCard = card => {
   };
 };
 export const updateTask = task => {
-  debugger;
   return dispatch => {
     fetch(`http://localhost:3000/task/update/${task.id}`, {
       method: "PUT",
