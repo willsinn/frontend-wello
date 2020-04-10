@@ -119,7 +119,22 @@ export const deleteTask = (task, dispatch) => {
     }).then(response => dispatch(fetchCard({ id: task["task_id"] })));
   };
 };
-
+export const archiveCard = card => {
+  return dispatch => {
+    fetch(`http://localhost:3000/card/update/${card.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: card.id,
+        archived: true
+      })
+    });
+    // .then(response => console.log(response));
+  };
+};
 export const updateTask = task => {
   debugger;
   return dispatch => {
