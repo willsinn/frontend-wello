@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import TaskList from "../components/TaskList";
+import CardMenu from "./CardMenu";
+import { connect } from "react-redux";
+import { archiveCard } from "../actions/workspace";
 
 const Card = ({
   card,
@@ -31,42 +34,7 @@ const Card = ({
               </span>
             </span>
             {cardMenu && actionCard.id === card.id ? (
-              <div className="card-menu-modal">
-                <div className="modal-header title">
-                  <div className="modal-header label">List Actions</div>
-                  <div className="modal-header close">
-                    <button>
-                      <span onClick={e => handleCloseCardMenu(e)}>×</span>
-                    </button>
-                  </div>
-                </div>
-                <ul>
-                  <li className="option-item">
-                    <button
-                      className="option-title js-member-profile"
-                      data-tab="profile"
-                    >
-                      <span>Add Card...</span>
-                    </button>
-                  </li>
-                  <li className="option-item">
-                    <button
-                      className="option-title js-member-activity active"
-                      data-tab="cards"
-                    >
-                      <span>Copy List...</span>
-                    </button>
-                  </li>
-                  <li className="option-item">
-                    <button
-                      className="option-title js-member-cards"
-                      data-tab="cards"
-                    >
-                      <span>Archive List...</span>
-                    </button>
-                  </li>
-                </ul>
-              </div>
+              <CardMenu handleCloseCardMenu={handleCloseCardMenu} />
             ) : null}
           </div>
           <TaskList card={card} />
