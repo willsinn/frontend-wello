@@ -33,7 +33,7 @@ const Card = ({
               </span>
             </span>
             {cardMenu && actionCard.id === card.id ? (
-              <CardMenu handleCloseCardMenu={handleCloseCardMenu} />
+              <CardMenu card={card} handleCloseCardMenu={handleCloseCardMenu} />
             ) : null}
           </div>
           <TaskList card={card} />

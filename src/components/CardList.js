@@ -21,17 +21,22 @@ const CardList = ({ workspace }) => {
   const renderCards = () => {
     if (workspace.cards.length > 0) {
       return workspace.cards.map(card => {
-        return (
-          <Card
-            key={`board-${workspace.id}-${card.id}`}
-            card={card}
-            workspace={workspace}
-            cardMenu={cardMenu}
-            actionCard={actionCard}
-            handleCloseCardMenu={handleCloseCardMenu}
-            handleOpenCardMenu={handleOpenCardMenu}
-          />
-        );
+        console.log(card);
+        if (!card.archived) {
+          return (
+            <Card
+              key={`board-${workspace.id}-${card.id}`}
+              card={card}
+              workspace={workspace}
+              cardMenu={cardMenu}
+              actionCard={actionCard}
+              handleCloseCardMenu={handleCloseCardMenu}
+              handleOpenCardMenu={handleOpenCardMenu}
+            />
+          );
+        } else {
+          return null;
+        }
       });
     }
   };

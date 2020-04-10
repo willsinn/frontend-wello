@@ -22,9 +22,7 @@ const TaskList = ({ card }) => {
   const renderTasks = () => {
     if (card.tasks.length > 0) {
       return card.tasks.map(task => {
-        console.log(task.archived);
-        debugger;
-        if (task.archived) {
+        if (!task.archived) {
           return (
             <Task
               key={task.id}

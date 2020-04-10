@@ -131,8 +131,7 @@ export const archiveCard = card => {
         id: card.id,
         archived: true
       })
-    });
-    // .then(response => console.log(response));
+    }).then(response => console.log(response));
   };
 };
 export const updateTask = task => {

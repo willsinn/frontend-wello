@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { archiveCard } from "../actions/workspace";
 
-const CardMenu = ({ handleCloseCardMenu }) => {
+const CardMenu = ({ card, handleCloseCardMenu }) => {
   return (
     <div className="card-menu-modal">
       <div className="modal-header title">
