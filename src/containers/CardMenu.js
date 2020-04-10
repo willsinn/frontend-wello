@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { archiveCard } from "../actions/workspace";
 
 const CardMenu = ({ handleCloseCardMenu }) => {
   return (
@@ -34,4 +36,4 @@ const CardMenu = ({ handleCloseCardMenu }) => {
     </div>
   );
 };
-export default CardMenu;
+export default connect()(CardMenu);

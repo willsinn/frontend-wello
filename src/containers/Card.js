@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import TaskList from "../components/TaskList";
 import CardMenu from "./CardMenu";
 import { connect } from "react-redux";
-import { archiveCard } from "../actions/workspace";
 
 const Card = ({
   card,
