@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { postNewTask } from "../actions/workspace";
 
 const initialState = { note: "" };
-const AddTask = (props, { dispatch }) => {
+const AddTask = ({ card, dispatch, handleCloseTaskForm }) => {
   const [note, setNote] = useState(initialState);
   const clearState = e => {
     setNote({ ...initialState });
@@ -16,13 +16,9 @@ const AddTask = (props, { dispatch }) => {
   const handleSubmitTask = e => {
     if (e) {
       e.preventDefault();
-      props.dispatch(
-        postNewTask({ note, card: props.card }, () =>
-          props.handleCloseTaskForm(e)
-        )
-      );
+      dispatch(postNewTask({ note, card: card }, () => handleCloseTaskForm(e)));
       clearState(e);
-      //props.handleCloseTaskForm(e)
+      //handleCloseTaskForm(e)
     }
   };
   return (
@@ -40,10 +36,7 @@ const AddTask = (props, { dispatch }) => {
         <button className="add-list-btn" type="submit">
           Add Task
         </button>
-        <button
-          onClick={e => props.handleCloseTaskForm(e)}
-          className="close-add-btn"
-        >
+        <button onClick={e => handleCloseTaskForm(e)} className="close-add-btn">
           ✕
         </button>
       </form>

@@ -17,11 +17,9 @@ const CardList = ({ workspace }) => {
     setActionCard(targCard);
     setCardMenu(true);
   };
-  console.log(workspace);
   const renderCards = () => {
     if (workspace.cards.length > 0) {
       return workspace.cards.map(card => {
-        console.log(card);
         if (!card.archived) {
           return (
             <Card
