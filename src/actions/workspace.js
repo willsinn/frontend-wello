@@ -121,6 +121,7 @@ export const deleteTask = (task, dispatch) => {
 };
 
 export const updateTask = task => {
+  debugger;
   return dispatch => {
     fetch(`http://localhost:3000/task/update/${task.id}`, {
       method: "PUT",

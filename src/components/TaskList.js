@@ -23,7 +23,8 @@ const TaskList = ({ card }) => {
     if (card.tasks.length > 0) {
       return card.tasks.map(task => {
         console.log(task.archived);
-        if (!task.archived) {
+        debugger;
+        if (task.archived) {
           return (
             <Task
               key={task.id}
@@ -33,7 +34,7 @@ const TaskList = ({ card }) => {
             />
           );
         } else {
-          return;
+          return null;
         }
       });
     }
