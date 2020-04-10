@@ -132,7 +132,11 @@ export const archiveCard = card => {
         id: card.id,
         archived: true
       })
-    }).then(response => console.log(response));
+    })
+      .then(response => response.json())
+      .then(JSONresponse => {
+        dispatch(updateCard(JSONresponse));
+      });
   };
 };
 export const updateTask = task => {
