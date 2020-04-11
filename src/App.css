@@ -52,7 +52,6 @@ button {
   background: #026aa7;
   overflow: hidden;
   padding: 4px;
-  z-index: 3;
   box-sizing: border-box;
   display: flex;
   min-height: 40px;
@@ -299,7 +298,6 @@ button {
   height: 48px;
   position: relative;
   transition: padding 0.1s ease-in;
-  z-index: 1;
 }
 .board-body {
   position: relative;
@@ -1646,7 +1644,7 @@ button {
 .close-quick-editor-icon {
   color: hsla(0, 0%, 100%, 0.6);
   padding: 9px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   transition-property: transform, color;

@@ -1,7 +1,5 @@
 const defaultState = {
-  workspace: {},
-  cards: [],
-  tasks: []
+  workspace: {}
 };
 
 const workspaceReducer = (state = defaultState, action) => {
