@@ -7,8 +7,8 @@ export const deleteCard = card => ({
   type: "DELETE_CARD",
   card
 });
-export const updateCard = card => ({
-  type: "UPDATE_CARD",
+export const archivedCard = card => ({
+  type: "ARCHIVED_CARD",
   card
 });
 export const addCard = card => ({
@@ -136,7 +136,7 @@ export const archiveCard = (card, dispatch) => {
     })
       .then(response => response.json())
       .then(JSONresponse => {
-        dispatch(updateCard(JSONresponse));
+        dispatch(archivedCard(JSONresponse));
       });
   };
 };
