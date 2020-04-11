@@ -39,12 +39,24 @@ const TaskList = ({ card }) => {
   };
   return (
     <div className="task-list">
+      {editor ? <div className="quick-task-editor" /> : null}
       {editor ? (
-        <QuickTaskEditor
-          editNote={editNote}
-          closeQuickEditor={closeQuickEditor}
-        />
+        <div style={{ position: "absolute", zIndex: "100", top: "150px" }}>
+          <div style={{ position: "relative" }}>
+            <div
+              className="close-quick-editor-icon"
+              onClick={e => closeQuickEditor(e)}
+            >
+              ✕
+            </div>
+          </div>
+          <QuickTaskEditor
+            editNote={editNote}
+            closeQuickEditor={closeQuickEditor}
+          />
+        </div>
       ) : null}
+
       {renderTasks()}
       {!addTask ? (
         <div className="task-composer" onClick={e => setAddTask(true)}>

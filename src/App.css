@@ -1637,12 +1637,11 @@ button {
   bottom: 0;
   color: #fff;
   left: 0;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   background: rgba(0, 0, 0, 0.6);
-  text-align: center;
 }
 .close-quick-editor-icon {
   color: hsla(0, 0%, 100%, 0.6);
@@ -1669,7 +1668,6 @@ button {
   height: 124px;
   background: white;
   border-radius: 3px;
-  margin-top: 205px;
 }
 .quick-edit-details {
   overflow: hidden;
