@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import TaskList from "../components/TaskList";
 import CardMenu from "./CardMenu";
-import { connect } from "react-redux";
 
 const Card = ({
   card,

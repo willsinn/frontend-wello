@@ -21,10 +21,18 @@ const workspaceReducer = (state = defaultState, action) => {
         }
       };
 
-    case "ARCHIVED_CARD":
-      console.log(action.card);
-      debugger;
-      return {};
+    case "UPDATE_ARCHIVED_CARD":
+      const updateArchived = state.workspace.cards.map(card => {
+        if (card.id === action.card.id) {
+          return action.card;
+        } else {
+          return card;
+        }
+      });
+      return {
+        ...state,
+        workspace: { ...state.workspace, cards: updateArchived }
+      };
     case "DELETE_CARD":
       const cardsLeft = state.cards.filter(card => card.id !== action.card.id);
       return {

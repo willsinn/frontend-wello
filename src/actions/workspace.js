@@ -7,8 +7,8 @@ export const deleteCard = card => ({
   type: "DELETE_CARD",
   card
 });
-export const archivedCard = card => ({
-  type: "ARCHIVED_CARD",
+export const updateArchivedCard = card => ({
+  type: "UPDATE_ARCHIVED_CARD",
   card
 });
 export const addCard = card => ({
@@ -100,9 +100,7 @@ export const fetchCard = (card, dispatch) => {
         "Content-Type": "application/json",
         Accept: "application/json"
       }
-    })
-      .then(response => response.json())
-      .then(JSONresponse => dispatch(updateCard(JSONresponse)));
+    });
   };
 };
 
@@ -136,7 +134,7 @@ export const archiveCard = (card, dispatch) => {
     })
       .then(response => response.json())
       .then(JSONresponse => {
-        dispatch(archivedCard(JSONresponse));
+        dispatch(updateArchivedCard(JSONresponse));
       });
   };
 };
