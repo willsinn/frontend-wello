@@ -11,7 +11,6 @@ const Card = ({
   handleCloseCardMenu,
   handleOpenCardMenu
 }) => {
-  // console.log(cardMenu, actionCard);
   return (
     <div className="card-item-wrap">
       <div className="card-item">

@@ -29,7 +29,7 @@ const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
         </li>
         <li className="option-item">
           <button
-            onClick={e => archiveCard(card)}
+            onClick={e => dispatch(archiveCard(card))}
             className="option-title js-member-cards"
             data-tab="cards"
           >
