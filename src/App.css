@@ -1612,7 +1612,6 @@ button {
   margin-bottom: 0;
   margin: 0 4px;
   padding: 0 4px;
-  z-index: 1;
   min-height: 0;
 }
 .task-item-note {
