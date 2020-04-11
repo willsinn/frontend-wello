@@ -13,7 +13,7 @@ const Task = ({ task, card, renderQuickEditor }) => {
         {visible ? (
           <span
             className="edit-task-item-btn"
-            onClick={e => renderQuickEditor(e, task.note)}
+            onClick={e => renderQuickEditor(e, task)}
           >
             ✎
           </span>

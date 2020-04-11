@@ -738,6 +738,7 @@ button {
   box-sizing: border-box;
   outline: 0;
   overflow: hidden;
+  z-index: 1;
 }
 .new-board {
   width: 304px;

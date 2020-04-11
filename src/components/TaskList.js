@@ -6,14 +6,14 @@ import QuickTaskEditor from "../components/QuickTaskEditor";
 const TaskList = ({ card }) => {
   const [addTask, setAddTask] = useState(false);
   const [editor, setEditor] = useState(false);
-  const [editNote, setEditNote] = useState("");
+  const [editTask, setEditTask] = useState({});
 
   const closeQuickEditor = e => {
     setEditor(false);
-    setEditNote("");
+    setEditTask("");
   };
-  const renderQuickEditor = (e, taskNote) => {
-    setEditNote(`${taskNote}`);
+  const renderQuickEditor = (e, task) => {
+    setEditTask(task);
     setEditor(true);
   };
   const handleCloseTaskForm = e => {
@@ -51,7 +51,7 @@ const TaskList = ({ card }) => {
             </div>
           </div>
           <QuickTaskEditor
-            editNote={editNote}
+            editTask={editTask}
             closeQuickEditor={closeQuickEditor}
           />
         </div>

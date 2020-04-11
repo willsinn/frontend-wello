@@ -20,7 +20,6 @@ const CardList = ({ workspace }) => {
   const renderCards = () => {
     if (workspace && workspace.cards && workspace.cards.length > 0) {
       return workspace.cards.map(card => {
-        console.log(card.archived);
         if (!card.archived) {
           return (
             <Card

@@ -19,28 +19,37 @@ const QuickTaskEditor = ({ editNote, closeQuickEditor }) => {
   };
   console.log(note);
   return (
-    <div className="quick-edit-task">
-      <div className="quick-edit-details">
-        <form onSubmit={handleSubmitTask}>
-          <textarea
-            dir="auto"
-            style={{
-              overflow: "hidden",
-              overflowWrap: "break-word",
-              resize: "none",
-              height: "90px"
-            }}
-            className="quick-edit-textarea"
-            type="text"
-            name="note"
-            onChange={handleChange}
-            value={note}
-            required
-          />
-          <button className="save-task-note" type="submit">
-            Save
-          </button>
-        </form>
+    <div className="quick-task-editor">
+      <div className="quick-edit-task">
+        <div className="quick-edit-details">
+          <form onSubmit={handleSubmitTask}>
+            <textarea
+              dir="auto"
+              style={{
+                overflow: "hidden",
+                overflowWrap: "break-word",
+                resize: "none",
+                height: "90px"
+              }}
+              className="quick-edit-textarea"
+              type="text"
+              name="note"
+              onChange={handleChange}
+              value={note}
+              required
+            />
+            <button className="save-task-note" type="submit">
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+      <div className="quick-task-editor-buttons">
+        <button>Hi</button>
+        <button>Hi</button>
+        <button>Hi</button>
+        <button>Hi</button>
+        <button>Hi</button>
       </div>
     </div>
   );
