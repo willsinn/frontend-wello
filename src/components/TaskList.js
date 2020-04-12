@@ -41,14 +41,12 @@ const TaskList = ({ card }) => {
     <div className="task-list">
       {editor ? <div className="quick-task-editor" /> : null}
       {editor ? (
-        <div style={{ position: "absolute", zIndex: "100", top: "150px" }}>
-          <div style={{ position: "relative" }}>
-            <div
-              className="close-quick-editor-icon"
-              onClick={e => closeQuickEditor(e)}
-            >
-              ✕
-            </div>
+        <div className="quick-task-editor-wrapper">
+          <div
+            className="close-quick-editor-icon"
+            onClick={e => closeQuickEditor(e)}
+          >
+            ✕
           </div>
           <QuickTaskEditor
             editTask={editTask}

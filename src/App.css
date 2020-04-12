@@ -1742,3 +1742,8 @@ button {
   text-decoration: none;
   border: none;
 }
+.quick-task-editor-wrapper {
+  position: absolute;
+  z-index: 100;
+  top: 75px;
+}
