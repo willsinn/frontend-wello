@@ -1658,7 +1658,7 @@ button {
 }
 
 .quick-edit-task {
-  display: inline-block;
+  display: flex;
   width: 256px;
   height: 124px;
   background: white;
@@ -1667,10 +1667,10 @@ button {
 .quick-edit-details {
   overflow: hidden;
   padding: 6px 8px 2px;
-  position: relative;
   z-index: 10;
   color: black;
   text-align: left;
+  width: 100%;
 }
 .quick-edit-textarea {
   overflow: hidden;
@@ -1746,4 +1746,10 @@ button {
   position: absolute;
   z-index: 100;
   top: 75px;
+}
+.quick-task-editor-buttons {
+  position: absolute;
+  top: 0;
+  right: -96px;
+  width: max-content;
 }

@@ -43,11 +43,8 @@ const QuickTaskEditor = ({ editTask, closeQuickEditor }) => {
         </form>
       </div>
       <div className="quick-task-editor-buttons">
-        <button className="quick-task-edit-btn">Hi</button>
-        <button className="quick-task-edit-btn">Hi</button>
-        <button className="quick-task-edit-btn">Hi</button>
-        <button className="quick-task-edit-btn">Hi</button>
-        <button className="quick-task-edit-btn">Hi</button>
+        <button className="quick-task-edit-btn">Edit Label</button>
+        <button className="quick-task-edit-btn">Archive</button>
       </div>
     </div>
   );
