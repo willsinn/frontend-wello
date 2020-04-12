@@ -19,10 +19,7 @@ const BoardMenu = props => {
   };
   return (
     <div className="board-sidebar">
-      <button
-        onClick={e => setSidebar(true)}
-        className="show-menu-btn board-header-btn"
-      >
+      <button onClick={e => setSidebar(true)} className="board-header-btn">
         <span className="icon-sm">...</span>
         <span>Show Menu</span>
       </button>

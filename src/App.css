@@ -1216,10 +1216,7 @@ button {
   display: flex;
   width: 272px;
 }
-.show-menu-btn {
-  width: 100%;
-  display: flex;
-}
+
 .board-header-btn:hover {
   background-color: rgba(0, 0, 0, 0.35);
 }
@@ -1724,4 +1721,24 @@ button {
   left: 232px;
   top: 42px;
   z-index: 70;
+}
+.quick-task-edit-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+.quick-task-edit-btn {
+  background: rgba(0, 0, 0, 0.6);
+  color: #e6e6e6;
+  border-radius: 3px;
+  cursor: default;
+  font-size: 14px;
+  padding: 0 10px;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 4px 4px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  text-decoration: none;
+  border: none;
 }
