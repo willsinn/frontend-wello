@@ -8,9 +8,9 @@ export const updateArchivedCard = card => ({
   type: "UPDATE_ARCHIVED_CARD",
   card
 });
-export const updateArchivedTask = card => ({
+export const updateArchivedTask = task => ({
   type: "UPDATE_ARCHIVED_TASK",
-  card
+  task
 });
 export const addCard = card => ({
   type: "ADD_CARD",
