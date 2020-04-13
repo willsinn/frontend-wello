@@ -155,6 +155,7 @@ export const updateTask = task => {
   };
 };
 export const archiveTask = task => {
+  debugger;
   return dispatch => {
     fetch(`http://localhost:3000/task/update/${task.id}`, {
       method: "PUT",

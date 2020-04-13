@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { archiveTask } from "../actions/workspace";
+import { connect } from "react-redux";
 
 const initialState = { note: "" };
-const QuickTaskEditor = ({ editTask, closeQuickEditor }) => {
+const QuickTaskEditor = ({ editTask, closeQuickEditor, dispatch }) => {
   const [note, setNote] = useState(editTask.note);
   const clearState = e => {
     setNote({ ...initialState });
@@ -44,10 +46,15 @@ const QuickTaskEditor = ({ editTask, closeQuickEditor }) => {
       </div>
       <div className="quick-task-editor-buttons">
         <button className="quick-task-edit-btn">Edit Label</button>
-        <button className="quick-task-edit-btn">Archive</button>
+        <button
+          onClick={e => dispatch(archiveTask(editTask))}
+          className="quick-task-edit-btn"
+        >
+          Archive
+        </button>
       </div>
     </div>
   );
 };
 
-export default QuickTaskEditor;
+export default connect()(QuickTaskEditor);
