@@ -52,7 +52,6 @@ const workspaceReducer = (state = defaultState, action) => {
     case "UPDATE_ARCHIVED_TASK":
       const updateArchivedTask = state.workspace.cards.map(card => {
         if (card.id === action.card.id) {
-          return action.card;
           const updateTasks = card.tasks.map(task => {
             if (task.id === action.task.id) {
               return action.task;
@@ -60,6 +59,7 @@ const workspaceReducer = (state = defaultState, action) => {
               return task;
             }
           });
+          return updateTasks;
         } else {
           return card;
         }
