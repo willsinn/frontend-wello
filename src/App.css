@@ -1694,7 +1694,7 @@ button {
   padding: 6px 24px 6px 24px;
   border-radius: 3px;
   margin-top: 40px;
-  position: fixed;
+  position: absolute;
   margin-left: -8px;
 }
 .save-task-note:hover {
