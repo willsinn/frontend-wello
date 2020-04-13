@@ -20,7 +20,7 @@ const TaskList = ({ card }) => {
     setAddTask(false);
   };
   const renderTasks = () => {
-    if (card.tasks.length > 0) {
+    if (card && card.tasks && card.tasks.length > 0) {
       return card.tasks.map(task => {
         if (!task.archived) {
           return (
