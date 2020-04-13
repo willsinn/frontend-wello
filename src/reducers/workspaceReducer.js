@@ -50,6 +50,7 @@ const workspaceReducer = (state = defaultState, action) => {
         workspace: { ...state.workspace, cards: updateArchived }
       };
     case "UPDATE_ARCHIVED_TASK":
+      console.log(action.task);
       debugger;
       return {};
     default:
