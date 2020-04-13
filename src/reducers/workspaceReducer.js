@@ -50,23 +50,27 @@ const workspaceReducer = (state = defaultState, action) => {
         workspace: { ...state.workspace, cards: updateArchivedCard }
       };
     case "UPDATE_ARCHIVED_TASK":
-      const updateArchivedTask = state.workspace.cards.map(card => {
-        if (card.id === action.card.id) {
-          const updateTasks = card.tasks.map(task => {
+      const updateArchivedCardTask = state.workspace.cards.map(card => {
+        if (card.id === action.task.card_id) {
+          const updatedTasks = card.tasks.map(task => {
             if (task.id === action.task.id) {
               return action.task;
             } else {
               return task;
             }
           });
-          return updateTasks;
+          const updatedCard = {
+            ...card,
+            tasks: updatedTasks
+          };
+          return updatedCard;
         } else {
           return card;
         }
       });
       return {
         ...state,
-        workspace: { ...state.workspace, cards: updateArchivedTask }
+        workspace: { ...state.workspace, cards: updateArchivedCardTask }
       };
     default:
       return state;
