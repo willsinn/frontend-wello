@@ -3,12 +3,13 @@ export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
   workspace
 });
-export const deleteCard = card => ({
-  type: "DELETE_CARD",
-  card
-});
+
 export const updateArchivedCard = card => ({
   type: "UPDATE_ARCHIVED_CARD",
+  card
+});
+export const updateArchivedTask = card => ({
+  type: "UPDATE_ARCHIVED_TASK",
   card
 });
 export const addCard = card => ({
@@ -77,21 +78,6 @@ export const postNewCard = (board, callback) => {
     callback();
   };
 };
-export const deleteWorkspaceCard = (card, dispatch) => {
-  return dispatch => {
-    dispatch(deleteCard(card));
-    fetch(`http://localhost:3000/cards/delete/${card.id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        id: card.id
-      })
-    });
-  };
-};
 
 export const fetchCard = (card, dispatch) => {
   return dispatch => {
@@ -104,22 +90,7 @@ export const fetchCard = (card, dispatch) => {
   };
 };
 
-export const deleteTask = (task, dispatch) => {
-  return dispatch => {
-    fetch(`http://localhost:3000/tasks/delete/${task["id"]}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        id: task["id"]
-      })
-    }).then(response => dispatch(fetchCard({ id: task["task_id"] })));
-  };
-};
 export const archiveCard = (card, dispatch) => {
-  console.log(card.id);
   return dispatch => {
     fetch(`http://localhost:3000/card/update/${card.id}`, {
       method: "PUT",
@@ -138,24 +109,7 @@ export const archiveCard = (card, dispatch) => {
       });
   };
 };
-export const updateTask = task => {
-  return dispatch => {
-    fetch(`http://localhost:3000/task/update/${task.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        id: task.id,
-        [task.key]: task.value
-      })
-    });
-    // .then(response => console.log(response));
-  };
-};
 export const archiveTask = task => {
-  debugger;
   return dispatch => {
     fetch(`http://localhost:3000/task/update/${task.id}`, {
       method: "PUT",
@@ -167,8 +121,11 @@ export const archiveTask = task => {
         id: task.id,
         archived: true
       })
-    });
-    // .then(response => console.log(response));
+    })
+      .then(response => response.json())
+      .then(JSONresponse => {
+        dispatch(updateArchivedTask(JSONresponse));
+      });
   };
 };
 export const postNewTask = (card, callback) => {
