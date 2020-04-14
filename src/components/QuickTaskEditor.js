@@ -45,7 +45,7 @@ const QuickTaskEditor = ({ editTask, closeQuickEditor, dispatch }) => {
         </form>
       </div>
       <div className="quick-task-editor-buttons">
-        <button className="quick-task-edit-btn">Edit Label</button>
+        <button className="quick-task-edit-btn"> Edit Label</button>
         <button
           onClick={e =>
             dispatch(archiveTask(editTask, () => closeQuickEditor(e)))
