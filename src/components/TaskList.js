@@ -10,7 +10,7 @@ const TaskList = ({ card }) => {
 
   const closeQuickEditor = e => {
     setEditor(false);
-    setEditTask("");
+    setEditTask({});
   };
   const renderQuickEditor = (e, task) => {
     setEditTask(task);

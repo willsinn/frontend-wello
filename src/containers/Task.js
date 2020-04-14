@@ -19,9 +19,6 @@ const Task = ({ task, card, renderQuickEditor }) => {
           </span>
         ) : null}
       </div>
-      <div>
-        <span>Desc</span>
-      </div>
     </div>
   );
 };

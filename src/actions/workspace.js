@@ -38,7 +38,7 @@ export const fetchWorkspace = (board, dispatch) => {
       });
   };
 };
-export const updateBoard = (board, dispatch) => {
+export const updateBoard = board => {
   console.log(board);
   return dispatch => {
     fetch("http://localhost:3000/user/1/board/1/update", {
@@ -109,7 +109,7 @@ export const archiveCard = (card, dispatch) => {
       });
   };
 };
-export const archiveTask = task => {
+export const archiveTask = (task, callback) => {
   return dispatch => {
     fetch(`http://localhost:3000/task/update/${task.id}`, {
       method: "PUT",
@@ -125,6 +125,7 @@ export const archiveTask = task => {
       .then(response => response.json())
       .then(JSONresponse => {
         dispatch(updateArchivedTask(JSONresponse));
+        callback();
       });
   };
 };
