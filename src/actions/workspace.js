@@ -90,7 +90,7 @@ export const fetchCard = (card, dispatch) => {
   };
 };
 
-export const archiveCard = (card, dispatch) => {
+export const updateCardGoal = (card, dispatch) => {
   return dispatch => {
     fetch(`http://localhost:3000/card/update/${card.id}`, {
       method: "PUT",
@@ -101,6 +101,26 @@ export const archiveCard = (card, dispatch) => {
       body: JSON.stringify({
         id: card.id,
         archived: true
+      })
+    })
+      .then(response => response.json())
+      .then(JSONresponse => {
+        dispatch(updateArchivedCard(JSONresponse));
+      });
+  };
+};
+export const archiveCard = (card, goal) => {
+  debugger;
+  return dispatch => {
+    fetch(`http://localhost:3000/card/update/${card.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: card.id,
+        goal: goal
       })
     })
       .then(response => response.json())

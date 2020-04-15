@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import TaskList from "../components/TaskList";
 import CardMenu from "./CardMenu";
+import { connect } from "react-redux";
 
+const initialState = { goal: "" };
 const Card = ({
   card,
   workspace,
   cardMenu,
   actionCard,
   handleCloseCardMenu,
-  handleOpenCardMenu
+  handleOpenCardMenu,
+  dispatch
 }) => {
   const [editCard, setEditCard] = useState({});
   return (
