@@ -8,8 +8,8 @@ export const updateArchivedCard = card => ({
   type: "UPDATE_ARCHIVED_CARD",
   card
 });
-export const updateArchivedTask = task => ({
-  type: "UPDATE_ARCHIVED_TASK",
+export const updateTask = task => ({
+  type: "UPDATE_TASK",
   task
 });
 export const addCard = card => ({
@@ -144,7 +144,7 @@ export const archiveTask = (task, callback) => {
     })
       .then(response => response.json())
       .then(JSONresponse => {
-        dispatch(updateArchivedTask(JSONresponse));
+        dispatch(updateTask(JSONresponse));
         callback();
       });
   };
@@ -166,7 +166,7 @@ export const updateTaskNote = (task, note) => {
     })
       .then(response => response.json())
       .then(JSONresponse => {
-        dispatch(updateArchivedTask(JSONresponse));
+        dispatch(updateTask(JSONresponse));
       });
   };
 };
