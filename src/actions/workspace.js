@@ -150,9 +150,8 @@ export const archiveTask = (task, callback) => {
   };
 };
 
-export const updateTaskNote = (task, callback) => {
+export const updateTaskNote = (task, note) => {
   console.log(task);
-  debugger;
   return dispatch => {
     fetch(`http://localhost:3000/task/update/${task.id}`, {
       method: "PUT",
@@ -162,13 +161,12 @@ export const updateTaskNote = (task, callback) => {
       },
       body: JSON.stringify({
         id: task.id,
-        archived: true
+        note: note
       })
     })
       .then(response => response.json())
       .then(JSONresponse => {
         dispatch(updateArchivedTask(JSONresponse));
-        callback();
       });
   };
 };

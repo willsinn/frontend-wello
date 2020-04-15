@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { archiveTask } from "../actions/workspace";
+import { archiveTask, updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const initialState = { note: "" };
@@ -15,8 +15,10 @@ const QuickTaskEditor = ({ editTask, closeQuickEditor, dispatch }) => {
   };
   const handleSubmitTask = e => {
     if (e) {
+      dispatch(updateTaskNote(editTask, note));
       e.preventDefault();
       clearState(e);
+      closeQuickEditor(e);
     }
   };
   console.log(note);
