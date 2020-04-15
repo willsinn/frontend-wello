@@ -109,6 +109,26 @@ export const archiveCard = (card, dispatch) => {
       });
   };
 };
+export const postNewTask = (card, callback) => {
+  return dispatch => {
+    fetch(`http://localhost:3000/card/${card.card.id}/tasks/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        card_id: card.card.id,
+        note: card.note
+      })
+    })
+      .then(response => response.json())
+      .then(JSONresponse => {
+        dispatch(addTask(JSONresponse));
+        callback();
+      });
+  };
+};
 export const archiveTask = (task, callback) => {
   return dispatch => {
     fetch(`http://localhost:3000/task/update/${task.id}`, {
@@ -129,22 +149,25 @@ export const archiveTask = (task, callback) => {
       });
   };
 };
-export const postNewTask = (card, callback) => {
+
+export const updateTaskNote = (task, callback) => {
+  console.log(task);
+  debugger;
   return dispatch => {
-    fetch(`http://localhost:3000/card/${card.card.id}/tasks/new`, {
-      method: "POST",
+    fetch(`http://localhost:3000/task/update/${task.id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        card_id: card.card.id,
-        note: card.note
+        id: task.id,
+        archived: true
       })
     })
       .then(response => response.json())
       .then(JSONresponse => {
-        dispatch(addTask(JSONresponse));
+        dispatch(updateArchivedTask(JSONresponse));
         callback();
       });
   };
