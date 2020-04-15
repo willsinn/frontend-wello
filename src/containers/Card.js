@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TaskList from "../components/TaskList";
 import CardMenu from "./CardMenu";
 
@@ -10,13 +10,20 @@ const Card = ({
   handleCloseCardMenu,
   handleOpenCardMenu
 }) => {
+  const [editCard, setEditCard] = useState({});
   return (
     <div className="card-item-wrap">
       <div className="card-item">
         <div className="card-item-content">
           <div className="card-item-header">
             <span className="edit-card-title">
-              <h2 className="card-text">{card.goal}</h2>
+              {editCard.id === undefined ? (
+                <h2 className="card-text" onClick={e => setEditCard(card)}>
+                  {card.goal}
+                </h2>
+              ) : (
+                <input />
+              )}
             </span>
 
             <span
