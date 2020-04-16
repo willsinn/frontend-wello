@@ -16,6 +16,10 @@ const Card = ({
 }) => {
   const [editCard, setEditCard] = useState({});
   const [goal, setGoal] = useState(initialState);
+  const handleCardCloseEdit = () => {
+    setEditCard({});
+    setGoal("");
+  };
   const handleCardGoalEdit = () => {
     setEditCard(card);
     setGoal(card.goal);
@@ -37,7 +41,7 @@ const Card = ({
   };
   console.log(goal);
   return (
-    <div className="card-item-wrap">
+    <div className="card-item-wrap" onMouseLeave={e => handleCardCloseEdit()}>
       <div className="card-item">
         <div className="card-item-content">
           <div className="card-item-header">
