@@ -85,4 +85,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default connect()(Card);
