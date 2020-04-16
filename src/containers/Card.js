@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TaskList from "../components/TaskList";
 import CardMenu from "./CardMenu";
 import { connect } from "react-redux";
+import { updateCardGoal } from "../actions/workspace";
 
 const initialState = { goal: "" };
 const Card = ({
@@ -14,6 +15,27 @@ const Card = ({
   dispatch
 }) => {
   const [editCard, setEditCard] = useState({});
+  const [goal, setGoal] = useState(initialState);
+  const handleCardGoalEdit = () => {
+    setEditCard(card);
+    setGoal(card.goal);
+  };
+  const clearState = e => {
+    setGoal({ ...initialState });
+    e.target.firstElementChild.value = "";
+  };
+  const handleChange = e => {
+    e.persist();
+    setGoal(e.target.value);
+  };
+  const handleSubmitCard = e => {
+    if (e) {
+      e.preventDefault();
+      dispatch(updateCardGoal({ editCard }));
+      clearState(e);
+    }
+  };
+  console.log(goal);
   return (
     <div className="card-item-wrap">
       <div className="card-item">
@@ -21,11 +43,19 @@ const Card = ({
           <div className="card-item-header">
             <span className="edit-card-title">
               {editCard.id === undefined ? (
-                <h2 className="card-text" onClick={e => setEditCard(card)}>
+                <h2 className="card-text" onClick={e => handleCardGoalEdit()}>
                   {card.goal}
                 </h2>
               ) : (
-                <input />
+                <form onSubmit={handleSubmitCard}>
+                  <input
+                    type="text"
+                    name="goal"
+                    onChange={handleChange}
+                    value={goal}
+                    required
+                  />
+                </form>
               )}
             </span>
 
