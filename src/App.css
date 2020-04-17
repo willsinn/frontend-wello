@@ -1530,10 +1530,9 @@ button {
   padding: 10px 8px;
   position: relative;
   max-height: 20px;
-  display: flex;
   justify-content: space-between;
   align-content: center;
-  width: 80%;
+  width: 212px;
 }
 .card-text {
   font-weight: 600;
@@ -1756,4 +1755,11 @@ button {
   top: 0;
   right: -96px;
   width: max-content;
+}
+.edit-card-input {
+  height: 20px;
+  font-size: 16.5px;
+  border: 2px solid blue;
+  border-radius: 3px;
+  width: 100%;
 }

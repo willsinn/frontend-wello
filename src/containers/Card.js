@@ -54,6 +54,7 @@ const Card = ({
               ) : (
                 <form onSubmit={handleSubmitCard}>
                   <input
+                    className="edit-card-input"
                     type="text"
                     name="goal"
                     onChange={handleChange}
