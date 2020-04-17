@@ -4,8 +4,8 @@ export const setWorkspace = workspace => ({
   workspace
 });
 
-export const updateArchivedCard = card => ({
-  type: "UPDATE_ARCHIVED_CARD",
+export const updateCard = card => ({
+  type: "UPDATE_CARD",
   card
 });
 export const updateTask = task => ({
@@ -39,7 +39,6 @@ export const fetchWorkspace = (board, dispatch) => {
   };
 };
 export const updateBoard = board => {
-  console.log(board);
   return dispatch => {
     fetch("http://localhost:3000/user/1/board/1/update", {
       method: "PUT",
@@ -91,7 +90,6 @@ export const fetchCard = (card, dispatch) => {
 };
 
 export const updateCardGoal = (card, goal) => {
-  debugger;
   return dispatch => {
     fetch(`http://localhost:3000/card/update/${card.id}`, {
       method: "PUT",
@@ -101,12 +99,12 @@ export const updateCardGoal = (card, goal) => {
       },
       body: JSON.stringify({
         id: card.id,
-        archived: true
+        goal: goal
       })
     })
       .then(response => response.json())
       .then(JSONresponse => {
-        dispatch(updateArchivedCard(JSONresponse));
+        dispatch(updateCard(JSONresponse));
       });
   };
 };
@@ -125,7 +123,7 @@ export const archiveCard = card => {
     })
       .then(response => response.json())
       .then(JSONresponse => {
-        dispatch(updateArchivedCard(JSONresponse));
+        dispatch(updateCard(JSONresponse));
       });
   };
 };

@@ -26,6 +26,7 @@ const Card = ({
   };
   const clearState = e => {
     setGoal({ ...initialState });
+    setEditCard({});
     e.target.firstElementChild.value = "";
   };
   const handleChange = e => {
@@ -35,7 +36,7 @@ const Card = ({
   const handleSubmitCard = e => {
     if (e) {
       e.preventDefault();
-      dispatch(updateCardGoal({ editCard }));
+      dispatch(updateCardGoal(editCard, goal));
       clearState(e);
     }
   };
