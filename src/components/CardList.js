@@ -3,38 +3,38 @@ import Card from "../containers/Card";
 import AddCard from "./AddCard";
 import { connect } from "react-redux";
 
-const CardList = props => {
-  const [deck, setDeck] = useState(props.workspace.cards);
+const CardList = ({ workspace }) => {
   const [addCard, setAddCard] = useState(false);
-  const handleCloseForm = e => {
+  const [cardMenu, setCardMenu] = useState(false);
+  const [actionCard, setActionCard] = useState({});
+  const handleCloseCardForm = e => {
     setAddCard(false);
   };
-  const updateDeck = newGoal => {
-    console.log(deck);
-    const newCard = deck[deck.length - 1];
-    const newDeck = [
-      ...deck,
-      {
-        id: parseInt(newCard.id + 1),
-        goal: newGoal,
-        summary: null,
-        board_id: parseInt(props.workspace.id),
-        tasks: []
-      }
-    ];
-    setDeck(newDeck);
+  const handleCloseCardMenu = e => {
+    setCardMenu(false);
   };
-  const renderItems = () => {
-    if (deck.length > 0) {
-      return deck.map(card => {
-        return (
-          <Card
-            key={`board-${props.workspace.id}-${card.id}`}
-            card={card}
-            workspace={props.workspace}
-            renderQuickEditor={props.renderQuickEditor}
-          />
-        );
+  const handleOpenCardMenu = (e, targCard) => {
+    setActionCard(targCard);
+    setCardMenu(true);
+  };
+  const renderCards = () => {
+    if (workspace && workspace.cards && workspace.cards.length > 0) {
+      return workspace.cards.map(card => {
+        if (!card.archived) {
+          return (
+            <Card
+              key={`board-${workspace.id}-${card.id}`}
+              card={card}
+              workspace={workspace}
+              cardMenu={cardMenu}
+              actionCard={actionCard}
+              handleCloseCardMenu={handleCloseCardMenu}
+              handleOpenCardMenu={handleOpenCardMenu}
+            />
+          );
+        } else {
+          return null;
+        }
       });
     }
   };
@@ -42,7 +42,7 @@ const CardList = props => {
     <div className="board-content-wrap">
       <div className="board-content">
         <div className="board-cards">
-          {renderItems()}
+          {renderCards()}
           {!addCard ? (
             <div className="card-item-wrap" onClick={e => setAddCard(true)}>
               <div className="card-item idle-add-card-item">
@@ -62,9 +62,8 @@ const CardList = props => {
             </div>
           ) : (
             <AddCard
-              workspace={props.workspace}
-              updateDeck={updateDeck}
-              handleCloseForm={handleCloseForm}
+              workspace={workspace}
+              handleCloseCardForm={handleCloseCardForm}
             />
           )}
         </div>
@@ -72,8 +71,17 @@ const CardList = props => {
     </div>
   );
 };
-const mapStateToProps = ({ workspaceReducer: workspace }) => ({
-  workspace: workspace.workspace
-});
 
-export default connect(mapStateToProps)(CardList);
+const mapStateToProps = state => {
+  return {
+    cards: state.workspaceReducer.workspace.cards
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CardList);

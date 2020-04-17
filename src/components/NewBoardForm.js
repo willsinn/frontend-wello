@@ -103,17 +103,13 @@ const NewBoardForm = (props, { dispatch }) => {
         {title.length === undefined || title.length === 0 ? (
           <button
             type="submit"
-            className="disabled submit-new-board-btn"
+            className="disabled-submit-new-board-btn"
             disabled
           >
             Create Board
           </button>
         ) : (
-          <button
-            type="submit"
-            style={{ background: "green", transition: ".5s" }}
-            className="submit-new-board-btn"
-          >
+          <button type="submit" className="submit-new-board-btn">
             Create Board
           </button>
         )}

@@ -3,21 +3,22 @@ export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
   workspace
 });
-export const deleteCard = card => ({
-  type: "DELETE_CARD",
-  card
-});
+
 export const updateCard = card => ({
   type: "UPDATE_CARD",
   card
+});
+export const updateTask = task => ({
+  type: "UPDATE_TASK",
+  task
 });
 export const addCard = card => ({
   type: "ADD_CARD",
   card
 });
-export const setTasks = tasks => ({
-  type: "SET_TASKS",
-  tasks
+export const addTask = task => ({
+  type: "ADD_TASK",
+  task
 });
 export const clearEdit = () => ({ type: "CLEAR_EDIT" });
 export const toggleEdit = () => ({
@@ -37,8 +38,7 @@ export const fetchWorkspace = (board, dispatch) => {
       });
   };
 };
-export const updateBoard = (board, dispatch) => {
-  console.log(board);
+export const updateBoard = board => {
   return dispatch => {
     fetch("http://localhost:3000/user/1/board/1/update", {
       method: "PUT",
@@ -58,7 +58,7 @@ export const updateBoard = (board, dispatch) => {
     });
   };
 };
-export const postWorkspaceCard = (board, dispatch) => {
+export const postNewCard = (board, callback) => {
   return dispatch => {
     fetch(`http://localhost:3000/board/${board.workspace.id}/cards/new`, {
       method: "POST",
@@ -68,24 +68,13 @@ export const postWorkspaceCard = (board, dispatch) => {
       },
       body: JSON.stringify({
         board_id: board.workspace.id,
-        goal: board.goal
+        goal: board.goal,
+        card_desc: ""
       })
-    });
-  };
-};
-export const deleteWorkspaceCard = (card, dispatch) => {
-  return dispatch => {
-    dispatch(deleteCard(card));
-    fetch(`http://localhost:3000/cards/delete/${card.id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        id: card.id
-      })
-    });
+    })
+      .then(response => response.json())
+      .then(JSONresponse => dispatch(addCard(JSONresponse)));
+    callback();
   };
 };
 
@@ -96,28 +85,69 @@ export const fetchCard = (card, dispatch) => {
         "Content-Type": "application/json",
         Accept: "application/json"
       }
-    })
-      .then(response => response.json())
-      .then(JSONresponse => dispatch(updateCard(JSONresponse)));
+    });
   };
 };
 
-export const deleteTask = (task, dispatch) => {
+export const updateCardGoal = (card, goal) => {
   return dispatch => {
-    fetch(`http://localhost:3000/tasks/delete/${task["id"]}`, {
+    fetch(`http://localhost:3000/card/update/${card.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: card.id,
+        goal: goal
+      })
+    })
+      .then(response => response.json())
+      .then(JSONresponse => {
+        dispatch(updateCard(JSONresponse));
+      });
+  };
+};
+export const archiveCard = card => {
+  return dispatch => {
+    fetch(`http://localhost:3000/card/update/${card.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: card.id,
+        archived: true
+      })
+    })
+      .then(response => response.json())
+      .then(JSONresponse => {
+        dispatch(updateCard(JSONresponse));
+      });
+  };
+};
+export const postNewTask = (card, callback) => {
+  return dispatch => {
+    fetch(`http://localhost:3000/card/${card.card.id}/tasks/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        id: task["id"]
+        card_id: card.card.id,
+        note: card.note
       })
-    }).then(response => dispatch(fetchCard({ id: task["task_id"] })));
+    })
+      .then(response => response.json())
+      .then(JSONresponse => {
+        dispatch(addTask(JSONresponse));
+        callback();
+      });
   };
 };
-
-export const updateTask = (task, dispatch) => {
+export const archiveTask = (task, callback) => {
   return dispatch => {
     fetch(`http://localhost:3000/task/update/${task.id}`, {
       method: "PUT",
@@ -127,9 +157,34 @@ export const updateTask = (task, dispatch) => {
       },
       body: JSON.stringify({
         id: task.id,
-        [task.key]: task.value
+        archived: true
       })
-    });
-    // .then(response => console.log(response));
+    })
+      .then(response => response.json())
+      .then(JSONresponse => {
+        dispatch(updateTask(JSONresponse));
+        callback();
+      });
+  };
+};
+
+export const updateTaskNote = (task, note) => {
+  console.log(task);
+  return dispatch => {
+    fetch(`http://localhost:3000/task/update/${task.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: task.id,
+        note: note
+      })
+    })
+      .then(response => response.json())
+      .then(JSONresponse => {
+        dispatch(updateTask(JSONresponse));
+      });
   };
 };

@@ -1,7 +1,5 @@
 const defaultState = {
-  isEditActive: false,
-  workspace: {},
-  cards: []
+  workspace: {}
 };
 
 const workspaceReducer = (state = defaultState, action) => {
@@ -13,34 +11,66 @@ const workspaceReducer = (state = defaultState, action) => {
     case "SET_WORKSPACE":
       return { ...state, workspace: action.workspace.board };
     case "ADD_CARD":
-      const newCards = [...state.cards, action.card];
-      console.log(newCards, state.cards);
-
       return {
         ...state,
-        cards: [newCards]
+        workspace: {
+          ...state.workspace,
+          cards: [...state.workspace.cards, action.card]
+        }
       };
     case "UPDATE_CARD":
-      let newItems;
-      if (state.workspace.id === action.card.board_id) {
-        newItems = state.cards.map(card => {
-          if (card.id === action.card.id) {
-            return action.card;
-          }
+      const updatedCard = state.workspace.cards.map(card => {
+        if (card.id === action.card.id) {
+          return action.card;
+        } else {
           return card;
-        });
-      } else {
-        newItems = state.cards;
-      }
+        }
+      });
       return {
         ...state,
-        cards: newItems
+        workspace: { ...state.workspace, cards: updatedCard }
       };
-    case "DELETE_CARD":
-      const cardsLeft = state.cards.filter(card => card.id !== action.card.id);
+    case "ADD_TASK":
+      const addNewTask = state.workspace.cards.map(card => {
+        if (card.id === action.task.card_id) {
+          const updatedCard = {
+            ...card,
+            tasks: [...card.tasks, action.task]
+          };
+          return updatedCard;
+        } else {
+          return card;
+        }
+      });
       return {
         ...state,
-        cards: cardsLeft
+        workspace: {
+          ...state.workspace,
+          cards: addNewTask
+        }
+      };
+    case "UPDATE_TASK":
+      const updateArchivedCardTask = state.workspace.cards.map(card => {
+        if (card.id === action.task.card_id) {
+          const updatedTasks = card.tasks.map(task => {
+            if (task.id === action.task.id) {
+              return action.task;
+            } else {
+              return task;
+            }
+          });
+          const updatedCard = {
+            ...card,
+            tasks: updatedTasks
+          };
+          return updatedCard;
+        } else {
+          return card;
+        }
+      });
+      return {
+        ...state,
+        workspace: { ...state.workspace, cards: updateArchivedCardTask }
       };
     default:
       return state;

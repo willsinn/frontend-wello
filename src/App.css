@@ -52,7 +52,6 @@ button {
   background: #026aa7;
   overflow: hidden;
   padding: 4px;
-  z-index: 3;
   box-sizing: border-box;
   display: flex;
   min-height: 40px;
@@ -113,7 +112,6 @@ button {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  max-height: 100%;
   position: relative;
   white-space: normal;
 }
@@ -144,7 +142,10 @@ button {
 .right-navbar {
   display: flex;
 }
-
+.nav-wrap {
+  position: relative;
+  z-index: 1;
+}
 .right-navbar .left-navbar .navbar-btn {
   background-color: hsla(0, 0%, 100%, 0.2);
   font-size: 20px;
@@ -189,12 +190,13 @@ button {
 .sidelist-wrapper {
   display: flex;
   width: 250px;
-  background: #8fc2ea52;
+  background-color: #fff;
   border: 0.75px solid black;
-  border-radius: 4px;
+  border-radius: 3px;
   padding: 0;
   position: fixed;
   top: 42px;
+  left: 0;
 }
 .sidelist-ul {
   /* overflow: auto; */
@@ -264,13 +266,13 @@ button {
   background: inherit;
 }
 .board-tiles-ul {
-  width: 80%;
-  height: 50%;
+  width: 100%;
+  height: 70%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  /* overflow-y: auto; */
+  overflow-y: auto;
 }
 .board-tile {
   height: 100px;
@@ -296,16 +298,8 @@ button {
   height: 48px;
   position: relative;
   transition: padding 0.1s ease-in;
-  z-index: 1;
 }
 .board-body {
-  background: linear-gradient(
-    180deg,
-    hsla(0, 0%, 100%, 0.24) 0,
-    hsla(0, 0%, 100%, 0.24) 48px,
-    hsla(0, 0%, 100%, 0) 80px,
-    hsla(0, 0%, 100%, 0)
-  );
   position: relative;
   flex-grow: 1;
   color: #172b4d;
@@ -314,6 +308,7 @@ button {
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
+  z-index: 0;
 }
 .board-ops .title-top {
   background: transparent;
@@ -560,7 +555,6 @@ button {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  max-height: 100%;
   min-width: 268px;
   position: relative;
   white-space: normal;
@@ -658,27 +652,10 @@ button {
   background: inherit;
   position: absolute;
 }
-.item-menu-p {
-  font-size: 17px;
-  margin: 0;
-  height: fit-content;
-}
-.item-menu-btn.close {
-  display: flex;
-  justify-content: center;
-}
-.item-menu-close-wrapper {
-  display: flex;
-  height: fit-content;
-  border-bottom: 1px outset darkgray;
-  width: 95%;
-  align-self: center;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
+
 .close-btn {
   position: absolute;
+  color: lightgray;
   font-size: 16px;
   font-weight: bold;
   height: 25px;
@@ -689,7 +666,7 @@ button {
 }
 .close-btn:hover {
   border: 1px inset darkgray;
-  color: #9bcff9;
+  color: #fff;
   border-style: none;
 }
 .list-action-btn {
@@ -761,6 +738,7 @@ button {
   box-sizing: border-box;
   outline: 0;
   overflow: hidden;
+  z-index: 1;
 }
 .new-board {
   width: 304px;
@@ -854,6 +832,7 @@ button {
   overflow: hidden;
   white-space: nowrap;
   margin-right: 10px;
+  cursor: pointer;
 }
 .user-initials:hover {
 }
@@ -995,6 +974,7 @@ button {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
 .bullet-pt-icon-gray {
   background-image: url("./images/bullet-pt-icon-gray.png");
 }
@@ -1114,12 +1094,23 @@ button {
   margin: 0;
   outline: 0;
 }
-.disabled.submit-new-board-btn:hover {
+.disabled-submit-new-board-btn:hover {
   background-color: white;
   color: #a5adba;
 }
-.submit-new-board-btn {
+.disabled-submit-new-board-btn {
+  background-color: white;
   color: #a5adba;
+  width: 109px;
+  height: 32px;
+  border-radius: 2px;
+  position: relative;
+  margin-top: 8px;
+  bottom: -38px;
+}
+.submit-new-board-btn {
+  background-color: #5aac44;
+  color: #fff;
   width: 109px;
   height: 32px;
   border-radius: 2px;
@@ -1226,10 +1217,7 @@ button {
   display: flex;
   width: 272px;
 }
-.show-menu-btn {
-  width: 100%;
-  display: flex;
-}
+
 .board-header-btn:hover {
   background-color: rgba(0, 0, 0, 0.35);
 }
@@ -1533,7 +1521,6 @@ button {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  max-height: 100%;
   width: 100%;
   position: relative;
   white-space: normal;
@@ -1543,16 +1530,16 @@ button {
   padding: 10px 8px;
   position: relative;
   max-height: 20px;
-  display: flex;
   justify-content: space-between;
   align-content: center;
-  width: 80%;
+  width: 214px;
 }
 .card-text {
   font-weight: 600;
   margin: 0 0 8px;
   font-size: 18px;
   line-height: 20px;
+  cursor: pointer;
 }
 .edit-card-title {
   overflow: hidden;
@@ -1617,15 +1604,13 @@ button {
   overflow: hidden;
   padding: 6px 8px 2px;
   position: relative;
+  min-height: 60px;
 }
 .task-list {
   flex: 1 1 auto;
   margin-bottom: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
   margin: 0 4px;
   padding: 0 4px;
-  z-index: 1;
   min-height: 0;
 }
 .task-item-note {
@@ -1651,13 +1636,13 @@ button {
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   background: rgba(0, 0, 0, 0.6);
 }
 .close-quick-editor-icon {
   color: hsla(0, 0%, 100%, 0.6);
   padding: 9px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   transition-property: transform, color;
@@ -1672,22 +1657,111 @@ button {
   cursor: pointer;
   transform: scale(1.2);
 }
-.quick-edit-wrap {
-  text-align: center;
-}
+
 .quick-edit-task {
-  display: inline-block;
+  display: flex;
   width: 256px;
   height: 124px;
   background: white;
   border-radius: 3px;
-  margin-top: 205px;
 }
 .quick-edit-details {
   overflow: hidden;
   padding: 6px 8px 2px;
-  position: relative;
   z-index: 10;
   color: black;
   text-align: left;
+  width: 100%;
+}
+.quick-edit-textarea {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  resize: none;
+  height: 90px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: -1px;
+  -webkit-appearance: none;
+  display: block;
+}
+.save-task-note {
+  box-shadow: none;
+  border: none;
+  color: #fff;
+  background-color: #5aac44;
+  padding: 6px 24px 6px 24px;
+  border-radius: 3px;
+  margin-top: 40px;
+  position: absolute;
+  margin-left: -8px;
+}
+.save-task-note:hover {
+  background-color: #61bd4f;
+}
+.add-task-textarea {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  border: 1px solid transparent;
+  padding: 6px 8px 2px;
+  margin-bottom: 7px;
+  width: 232px;
+  height: 54px;
+  display: block;
+}
+.card-menu-modal {
+  width: 304px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
+  position: absolute;
+  left: 232px;
+  top: 42px;
+  z-index: 70;
+}
+.quick-task-edit-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  position: relative;
+  right: -8px;
+}
+.quick-task-edit-btn {
+  background: rgba(0, 0, 0, 0.6);
+  color: #e6e6e6;
+  border-radius: 3px;
+  cursor: default;
+  font-size: 14px;
+  padding: 0 10px;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 4px 4px 8px;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  text-decoration: none;
+  border: none;
+}
+.quick-task-editor-wrapper {
+  position: absolute;
+  z-index: 100;
+  top: 75px;
+}
+.quick-task-editor-buttons {
+  position: absolute;
+  top: 0;
+  right: -96px;
+  width: max-content;
+}
+.edit-card-input {
+  position: relative;
+  top: -2px;
+  height: 20px;
+  font-size: 17px;
+  border: 2px solid blue;
+  border-radius: 3px;
+  width: 100%;
 }

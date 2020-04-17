@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postWorkspaceCard } from "../actions/workspace";
+import { postNewCard } from "../actions/workspace";
 
 const initialState = { goal: "" };
-const AddCard = (props, { dispatch }) => {
+const AddCard = ({ workspace, handleCloseCardForm, dispatch }) => {
   const [goal, setGoal] = useState(initialState);
   const clearState = e => {
     setGoal({ ...initialState });
@@ -16,8 +16,11 @@ const AddCard = (props, { dispatch }) => {
   const handleSubmitCard = e => {
     if (e) {
       e.preventDefault();
-      props.dispatch(postWorkspaceCard({ goal, workspace: props.workspace }));
-      props.updateDeck(goal);
+      dispatch(
+        postNewCard({ goal, workspace: workspace }, () =>
+          handleCloseCardForm(e)
+        )
+      );
       clearState(e);
     }
   };
@@ -38,7 +41,7 @@ const AddCard = (props, { dispatch }) => {
             Add List
           </button>
           <button
-            onClick={e => props.handleCloseForm(e)}
+            onClick={e => handleCloseCardForm(e)}
             className="close-add-btn"
           >
             ✕

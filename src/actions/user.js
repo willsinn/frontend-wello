@@ -14,13 +14,14 @@ export const fetchUser = data => {
         Accept: "application/json"
       },
       body: JSON.stringify(data)
-    }).then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        response.throw();
-      }
     });
+    // .then(response => {
+    //   if (response.ok) {
+    //     return response.json();
+    //   } else {
+    //     response.throw();
+    //   }
+    // });
     // .then(JSONresponse => console.log(JSONresponse));
   };
 };

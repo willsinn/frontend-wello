@@ -1,21 +1,74 @@
 import React, { useState } from "react";
 import TaskList from "../components/TaskList";
-import AddTask from "../components/AddTask";
+import CardMenu from "./CardMenu";
+import { connect } from "react-redux";
+import { updateCardGoal } from "../actions/workspace";
 
-const Card = props => {
-  const [addTask, setAddTask] = useState(false);
-  const handleCloseTaskForm = e => {
-    setAddTask(false);
+const initialState = { goal: "" };
+const Card = ({
+  card,
+  workspace,
+  cardMenu,
+  actionCard,
+  handleCloseCardMenu,
+  handleOpenCardMenu,
+  dispatch
+}) => {
+  const [editCard, setEditCard] = useState({});
+  const [goal, setGoal] = useState(initialState);
+  const handleCardCloseEdit = () => {
+    setEditCard({});
+    setGoal("");
   };
+  const handleCardGoalEdit = () => {
+    setEditCard(card);
+    setGoal(card.goal);
+  };
+  const clearState = e => {
+    setGoal({ ...initialState });
+    setEditCard({});
+    e.target.firstElementChild.value = "";
+  };
+  const handleChange = e => {
+    e.persist();
+    setGoal(e.target.value);
+  };
+  const handleSubmitCard = e => {
+    if (e) {
+      e.preventDefault();
+      dispatch(updateCardGoal(editCard, goal));
+      clearState(e);
+    }
+  };
+  console.log(goal);
   return (
-    <div className="card-item-wrap">
+    <div className="card-item-wrap" onMouseLeave={e => handleCardCloseEdit()}>
       <div className="card-item">
         <div className="card-item-content">
           <div className="card-item-header">
             <span className="edit-card-title">
-              <h2 className="card-text">{props.card.goal}</h2>
+              {editCard.id === undefined ? (
+                <h2 className="card-text" onClick={e => handleCardGoalEdit()}>
+                  {card.goal}
+                </h2>
+              ) : (
+                <form onSubmit={handleSubmitCard}>
+                  <input
+                    className="edit-card-input"
+                    type="text"
+                    name="goal"
+                    onChange={handleChange}
+                    value={goal}
+                    required
+                  />
+                </form>
+              )}
             </span>
-            <span className="card-icon">
+
+            <span
+              onClick={e => handleOpenCardMenu(e, card)}
+              className="card-icon"
+            >
               <span
                 className="icon-sm"
                 style={{ position: "relative", right: "-9px", top: "1px" }}
@@ -23,36 +76,15 @@ const Card = props => {
                 ...
               </span>
             </span>
+            {cardMenu && actionCard.id === card.id ? (
+              <CardMenu card={card} handleCloseCardMenu={handleCloseCardMenu} />
+            ) : null}
           </div>
-          <TaskList
-            card={props.card}
-            renderQuickEditor={props.renderQuickEditor}
-          />
-          {!addTask ? (
-            <div className="task-composer" onClick={e => setAddTask(true)}>
-              <span className="open-task-composer">
-                <span
-                  style={{
-                    fontSize: "22px",
-                    fontWeight: "300",
-                    padding: "0 4px"
-                  }}
-                >
-                  +
-                </span>
-                Add another task
-              </span>
-            </div>
-          ) : (
-            <AddTask
-              handleCloseTaskForm={handleCloseTaskForm}
-              card={props.card}
-            />
-          )}
+          <TaskList card={card} />
         </div>
       </div>
     </div>
   );
 };
 
-export default Card;
+export default connect()(Card);
