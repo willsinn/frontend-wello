@@ -110,7 +110,7 @@ export const updateCardGoal = (card, goal) => {
       });
   };
 };
-export const archiveCard = (card, dispatch) => {
+export const archiveCard = card => {
   return dispatch => {
     fetch(`http://localhost:3000/card/update/${card.id}`, {
       method: "PUT",
