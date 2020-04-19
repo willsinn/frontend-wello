@@ -118,8 +118,10 @@ const Board = ({workspace,
     } <
     /span> <
     button className = "navbar-btn" >
-    <
-    span className = "fav-star-icon icon" onClick={e=> dispatch(starredBoard(workspace))} / >
+    {(workspace.starred)?(<span>★</span>):
+      (<
+      span onClick={e=> dispatch(starredBoard(workspace))} >☆</span>)}
+
     <
     /button> < /
     div > <

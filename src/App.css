@@ -943,9 +943,9 @@ button {
 .add-new-icon {
   background-image: url("./images/plus-white.png");
 }
-.fav-star-icon {
+/* .fav-star-icon {
   background-image: url("./images/fav-star-icon.png");
-}
+} */
 .del-icon {
   background-image: url("./images/delete-icon.png");
 }
