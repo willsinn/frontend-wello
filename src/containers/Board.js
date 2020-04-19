@@ -31,33 +31,25 @@ const bgs = [
   "city",
   "meadow"
 ];
-const Board = (props, {
+const Board = ({workspace,
   dispatch
 }) => {
   const [background, setBackground] = useState("");
 
   const renderBoardBg = () => {
     if (background === "") {
-      return findBg(props.workspace.background);
+      return findBg(workspace.background);
     } else {
       return findBg(background);
     }
   };
   const changeBackground = bgOption => {
-    props.dispatch(
-      updateBoardBackground({
-        id: props.workspace.id,
-        user_id: props.workspace.user_id,
-        title: props.workspace.title,
-        board_desc: props.workspace.board_desc,
-        background: bgOption,
-        team_name: props.workspace.team_name,
-        cards: props.workspace.cards
-      })
+    dispatch(
+      updateBoardBackground(workspace, bgOption)
     );
     setBackground(bgOption);
   };
-  const bgOptions = bgs.filter(bg => bg !== props.workspace.background);
+  const bgOptions = bgs.filter(bg => bg !== workspace.background);
 
   const findBg = bgKey => {
     switch (bgKey) {
@@ -122,7 +114,7 @@ const Board = (props, {
         paddingRight: "12px"
       }
     } > {
-      props.workspace.title
+      workspace.title
     } <
     /span> <
     button className = "navbar-btn" >
@@ -135,7 +127,7 @@ const Board = (props, {
     div className = "board-ops right" >
     <
     BoardMenu workspace = {
-      props.workspace
+      workspace
     }
     findBg = {
       findBg
@@ -153,10 +145,10 @@ const Board = (props, {
     div className = "board-body" >
     <
     CardList key = {
-      props.workspace.id
+      workspace.id
     }
     workspace = {
-      props.workspace
+      workspace
     }
     /> < /
     div > <
