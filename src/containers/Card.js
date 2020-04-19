@@ -40,7 +40,6 @@ const Card = ({
       clearState(e);
     }
   };
-  console.log(goal);
   return (
     <div className="card-item-wrap" onMouseLeave={e => handleCardCloseEdit()}>
       <div className="card-item">

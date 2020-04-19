@@ -21,7 +21,6 @@ const QuickTaskEditor = ({ editTask, closeQuickEditor, dispatch }) => {
       closeQuickEditor(e);
     }
   };
-  console.log(note);
   return (
     <div className="quick-edit-task">
       <div className="quick-edit-details">
