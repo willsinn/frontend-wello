@@ -17,8 +17,8 @@ import {
   connect
 } from "react-redux";
 import {
-  updateBoardBackground
-} from "../actions/workspace";
+  updateBoardBackground, starredBoard
+} from "../actions/boards";
 
 const bgs = [
   "iceland",
@@ -118,8 +118,10 @@ const Board = ({workspace,
     } <
     /span> <
     button className = "navbar-btn" >
-    <
-    span className = "fav-star-icon icon" / >
+    {(workspace.starred)?(<span>★</span>):
+      (<
+      span onClick={e=> dispatch(starredBoard(workspace))} >☆</span>)}
+
     <
     /button> < /
     div > <
