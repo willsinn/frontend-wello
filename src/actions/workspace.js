@@ -5,7 +5,10 @@ export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
   workspace
 });
-
+export const updateBoard = board => ({
+  type: "UPDATE_BOARD",
+  board
+});
 export const updateCard = card => ({
   type: "UPDATE_CARD",
   card
