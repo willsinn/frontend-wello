@@ -44,7 +44,7 @@ export const fetchWorkspace = (board, dispatch) => {
       });
   };
 };
-export const updateBoard = board => {
+export const updateBoardBackground = board => {
   return dispatch => {
     fetch("http://localhost:3000/user/1/board/1/update", {
       method: "PUT",
@@ -74,12 +74,7 @@ export const starredBoard = board => {
       },
       body: JSON.stringify({
         id: board.id,
-        user_id: board.user_id,
-        title: board.title,
-        board_desc: board.board_desc,
-        background: board.background,
-        team_name: board.team_name,
-        cards: board.cards
+        starred: true
       })
     });
   }

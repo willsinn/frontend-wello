@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, {
+  useState
+} from "react";
 import CardList from "../components/CardList";
 import BoardMenu from "./BoardMenu";
 
@@ -11,8 +13,12 @@ import Meadow from "../images/meadow.jpg";
 import Waterfall from "../images/waterfall.jpeg";
 import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
-import { connect } from "react-redux";
-import { updateBoard } from "../actions/workspace";
+import {
+  connect
+} from "react-redux";
+import {
+  updateBoardBackground
+} from "../actions/workspace";
 
 const bgs = [
   "iceland",
@@ -25,7 +31,9 @@ const bgs = [
   "city",
   "meadow"
 ];
-const Board = (props, { dispatch }) => {
+const Board = (props, {
+  dispatch
+}) => {
   const [background, setBackground] = useState("");
 
   const renderBoardBg = () => {
@@ -37,7 +45,7 @@ const Board = (props, { dispatch }) => {
   };
   const changeBackground = bgOption => {
     props.dispatch(
-      updateBoard({
+      updateBoardBackground({
         id: props.workspace.id,
         user_id: props.workspace.user_id,
         title: props.workspace.title,
@@ -54,64 +62,110 @@ const Board = (props, { dispatch }) => {
   const findBg = bgKey => {
     switch (bgKey) {
       case "lake":
-        return { backgroundImage: `url(${Lake})` };
+        return {
+          backgroundImage: `url(${Lake})`
+        };
       case "mountians":
-        return { backgroundImage: `url(${Mountians})` };
+        return {
+          backgroundImage: `url(${Mountians})`
+        };
       case "cityscape":
-        return { backgroundImage: `url(${Cityscape})` };
+        return {
+          backgroundImage: `url(${Cityscape})`
+        };
       case "beach":
-        return { backgroundImage: `url(${Beach})` };
+        return {
+          backgroundImage: `url(${Beach})`
+        };
       case "autumn":
-        return { backgroundImage: `url(${Autumn})` };
+        return {
+          backgroundImage: `url(${Autumn})`
+        };
       case "waterfall":
-        return { backgroundImage: `url(${Waterfall})` };
+        return {
+          backgroundImage: `url(${Waterfall})`
+        };
       case "city":
-        return { backgroundImage: `url(${City})` };
+        return {
+          backgroundImage: `url(${City})`
+        };
       case "meadow":
-        return { backgroundImage: `url(${Meadow})` };
+        return {
+          backgroundImage: `url(${Meadow})`
+        };
       case "iceland":
-        return { backgroundImage: `url(${Iceland})` };
+        return {
+          backgroundImage: `url(${Iceland})`
+        };
       default:
         return;
     }
   };
-  return (
-    <div id="board" style={renderBoardBg()}>
-      <div className="board-header-wrap">
-        <div className="board-header">
-          <div className="board-ops left">
-            <div className="board-ops title-top">
-              <span
-                className="b-name"
-                style={{
-                  paddingLeft: "12px",
-                  paddingRight: "12px"
-                }}
-              >
-                {props.workspace.title}
-              </span>
-              <button className="navbar-btn">
-                <span className="fav-star-icon icon" />
-              </button>
-            </div>
-          </div>
-          <div className="board-ops right">
-            <BoardMenu
-              workspace={props.workspace}
-              findBg={findBg}
-              bgOptions={bgOptions}
-              changeBackground={changeBackground}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="board-body">
-        <CardList key={props.workspace.id} workspace={props.workspace} />
-      </div>
-    </div>
+  return ( <
+    div id = "board"
+    style = {
+      renderBoardBg()
+    } >
+    <
+    div className = "board-header-wrap" >
+    <
+    div className = "board-header" >
+    <
+    div className = "board-ops left" >
+    <
+    div className = "board-ops title-top" >
+    <
+    span className = "b-name"
+    style = {
+      {
+        paddingLeft: "12px",
+        paddingRight: "12px"
+      }
+    } > {
+      props.workspace.title
+    } <
+    /span> <
+    button className = "navbar-btn" >
+    <
+    span className = "fav-star-icon icon" / >
+    <
+    /button> < /
+    div > <
+    /div> <
+    div className = "board-ops right" >
+    <
+    BoardMenu workspace = {
+      props.workspace
+    }
+    findBg = {
+      findBg
+    }
+    bgOptions = {
+      bgOptions
+    }
+    changeBackground = {
+      changeBackground
+    }
+    /> < /
+    div > <
+    /div> < /
+    div > <
+    div className = "board-body" >
+    <
+    CardList key = {
+      props.workspace.id
+    }
+    workspace = {
+      props.workspace
+    }
+    /> < /
+    div > <
+    /div>
   );
 };
-const mapStateToProps = ({ userReducer: user }) => ({
+const mapStateToProps = ({
+  userReducer: user
+}) => ({
   user: user
 });
 export default connect(mapStateToProps)(Board);
