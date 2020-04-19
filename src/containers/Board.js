@@ -18,7 +18,7 @@ import {
 } from "react-redux";
 import {
   updateBoardBackground, starredBoard
-} from "../actions/workspace";
+} from "../actions/boards";
 
 const bgs = [
   "iceland",

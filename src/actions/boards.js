@@ -2,7 +2,10 @@ export const setBoards = boardsData => ({
   type: "SET_BOARDS",
   payload: boardsData
 });
-
+export const updateBoard = board => ({
+  type: "UPDATE_BOARD",
+  board
+});
 export const addNewBoard = boardData => ({
   type: "ADD_NEW_BOARD",
   board: boardData
@@ -57,4 +60,40 @@ export const deleteBoardWorkspace = (board, dispatch) => {
       body: JSON.stringify({ board_id: `${board.id}` })
     }).then(response => dispatch(deleteBoard(board)));
   };
+};
+export const updateBoardBackground = (board, background) => {
+  return dispatch => {
+    fetch(`http://localhost:3000/board/${board.id}/update`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: board.id,
+        background: background
+      })
+    }).then(response => response.json())
+    .then(JSONresponse => {
+      dispatch(updateBoard(JSONresponse));
+    });
+  }
+};
+export const starredBoard = board => {
+  return dispatch => {
+    fetch(`http://localhost:3000/board/${board.id}/update`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        id: board.id,
+        starred: true
+      })
+    }).then(response => response.json())
+    .then(JSONresponse => {
+      dispatch(updateBoard(JSONresponse));
+    });
+  }
 };
