@@ -63,6 +63,7 @@ export const updateBoardBackground = (board, background) => {
   }
 };
 export const starredBoard = board => {
+  debugger;
   return dispatch => {
     fetch(`http://localhost:3000/board/${board.id}/update`, {
       method: "PUT",
