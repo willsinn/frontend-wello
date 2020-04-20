@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
-const Task = ({ task, card, renderQuickEditor }) => {
+const Task = ({ task, card, editor, renderQuickEditor }) => {
   const [visible, setVisible] = useState(false);
   const [window, setWindow] = useState(false);
-  const handleRenderQuickEditor = () => {};
+  const handleRenderQuickEditor = (e) => {
+    renderQuickEditor(e, task);
+  };
+  console.log(editor);
+
   return (
     <div
       className="task-item task-item-details"
@@ -11,12 +15,12 @@ const Task = ({ task, card, renderQuickEditor }) => {
       onMouseLeave={(e) => setVisible(false)}
     >
       {window ? <div className="task-window">Hi Im task Window</div> : null}
-      <div className="task-item-note">
-        <span onClick={(e) => setWindow(true)}>{task.note}</span>
+      <div onClick={(e) => setWindow(true)} className="task-item-note">
+        <span>{task.note}</span>
         {visible ? (
           <span
             className="edit-task-item-btn"
-            onClick={(e) => renderQuickEditor(e, task)}
+            onClick={handleRenderQuickEditor}
           >
             ✎
           </span>

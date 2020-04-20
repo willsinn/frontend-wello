@@ -8,7 +8,7 @@ const TaskList = ({ card }) => {
   const [editor, setEditor] = useState(false);
   const [editTask, setEditTask] = useState({});
 
-  const closeQuickEditor = e => {
+  const closeQuickEditor = (e) => {
     setEditor(false);
     setEditTask({});
   };
@@ -16,18 +16,19 @@ const TaskList = ({ card }) => {
     setEditTask(task);
     setEditor(true);
   };
-  const handleCloseTaskForm = e => {
+  const handleCloseTaskForm = (e) => {
     setAddTask(false);
   };
   const renderTasks = () => {
     if (card && card.tasks && card.tasks.length > 0) {
-      return card.tasks.map(task => {
+      return card.tasks.map((task) => {
         if (!task.archived) {
           return (
             <Task
               key={task.id}
               task={task}
               card={card.id}
+              editor={editor}
               renderQuickEditor={renderQuickEditor}
             />
           );
@@ -39,12 +40,11 @@ const TaskList = ({ card }) => {
   };
   return (
     <div className="task-list">
-      {editor ? <div className="quick-task-editor" /> : null}
       {editor ? (
         <div className="quick-task-editor-wrapper">
           <div
             className="close-quick-editor-icon"
-            onClick={e => closeQuickEditor(e)}
+            onClick={(e) => closeQuickEditor(e)}
           >
             ✕
           </div>
@@ -57,13 +57,13 @@ const TaskList = ({ card }) => {
 
       {renderTasks()}
       {!addTask ? (
-        <div className="task-composer" onClick={e => setAddTask(true)}>
+        <div className="task-composer" onClick={(e) => setAddTask(true)}>
           <span className="open-task-composer">
             <span
               style={{
                 fontSize: "22px",
                 fontWeight: "300",
-                padding: "0 4px"
+                padding: "0 4px",
               }}
             >
               +
