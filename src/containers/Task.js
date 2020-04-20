@@ -10,7 +10,7 @@ const Task = ({ task, card, renderQuickEditor }) => {
       onMouseEnter={(e) => setVisible(true)}
       onMouseLeave={(e) => setVisible(false)}
     >
-      {window ? <div>Hi Im task Window</div> : null}
+      {window ? <div className="task-window">Hi Im task Window</div> : null}
       <div className="task-item-note">
         <span>{task.note}</span>
         {visible ? (

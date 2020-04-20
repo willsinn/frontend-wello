@@ -1765,3 +1765,11 @@ button {
   border-radius: 3px;
   width: 100%;
 }
+.task-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+}
