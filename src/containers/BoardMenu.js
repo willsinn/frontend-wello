@@ -5,13 +5,13 @@ import MenuNavItemBackground from "../components/MenuNavItemBackground";
 import MenuNavItemSearch from "../components/MenuNavItemSearch";
 import MenuNavItemMore from "./MenuNavItemMore";
 
-const BoardMenu = props => {
+const BoardMenu = (props) => {
   const [sidebar, setSidebar] = useState(false);
   const [content, setContent] = useState("");
   const renderSidebar = () => {
     return !sidebar ? { transform: "translateX(339px)" } : null;
   };
-  const resetClosedSidebar = e => {
+  const resetClosedSidebar = (e) => {
     if (e) {
       setSidebar(false);
       setContent("");
@@ -19,7 +19,7 @@ const BoardMenu = props => {
   };
   return (
     <div className="board-sidebar">
-      <button onClick={e => setSidebar(true)} className="board-header-btn">
+      <button onClick={(e) => setSidebar(true)} className="board-header-btn">
         <span className="icon-sm">...</span>
         <span>Show Menu</span>
       </button>
