@@ -11,8 +11,9 @@ import Meadow from "../images/meadow.jpg";
 import Waterfall from "../images/waterfall.jpeg";
 import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
+
 import { connect } from "react-redux";
-import { updateBoardBackground } from "../actions/workspace";
+import { updateBoardBackground, starredBoard } from "../actions/boards";
 
 const bgs = [
   "iceland",
@@ -83,6 +84,7 @@ const Board = ({ workspace, dispatch }) => {
         return;
     }
   };
+
   return (
     <div id="board" style={renderBoardBg()}>
       <div className="board-header-wrap">
@@ -99,7 +101,13 @@ const Board = ({ workspace, dispatch }) => {
                 {workspace.title}
               </span>
               <button className="navbar-btn">
-                <span className="fav-star-icon icon" />
+                {workspace.starred ? (
+                  <span>★</span>
+                ) : (
+                  <span onClick={(e) => dispatch(starredBoard(workspace))}>
+                    ☆
+                  </span>
+                )}
               </button>
             </div>
           </div>

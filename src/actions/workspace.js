@@ -5,10 +5,10 @@ export const setWorkspace = workspace => ({
   type: "SET_WORKSPACE",
   workspace
 });
-export const updateBoard = board => ({
-  type: "UPDATE_BOARD",
-  board
-});
+// export const updateBoard = board => ({
+//   type: "UPDATE_BOARD",
+//   board
+// });
 export const updateCard = card => ({
   type: "UPDATE_CARD",
   card
@@ -47,36 +47,39 @@ export const fetchWorkspace = (board, dispatch) => {
       });
   };
 };
-export const updateBoardBackground = (board, background) => {
-  return dispatch => {
-    fetch(`http://localhost:3000/board/${board.id}/update`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        id: board.id,
-        background: background
-      })
-    });
-  }
-};
-export const starredBoard = board => {
-  return dispatch => {
-    fetch(`http://localhost:3000/board/${board.id}/update`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        id: board.id,
-        starred: true
-      })
-    });
-  }
-};
+// export const updateBoardBackground = (board, background) => {
+//   return dispatch => {
+//     fetch(`http://localhost:3000/board/${board.id}/update`, {
+//       method: "PUT",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Accept: "application/json"
+//       },
+//       body: JSON.stringify({
+//         id: board.id,
+//         background: background
+//       })
+//     });
+//   }
+// };
+// export const starredBoard = board => {
+//   return dispatch => {
+//     fetch(`http://localhost:3000/board/${board.id}/update`, {
+//       method: "PUT",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Accept: "application/json"
+//       },
+//       body: JSON.stringify({
+//         id: board.id,
+//         starred: true
+//       })
+//     }).then(response => response.json())
+//     .then(JSONresponse => {
+//       dispatch(updateBoard(JSONresponse));
+//     });
+//   }
+// };
 export const postNewCard = (board, callback) => {
   return dispatch => {
     fetch(`http://localhost:3000/board/${board.workspace.id}/cards/new`, {
