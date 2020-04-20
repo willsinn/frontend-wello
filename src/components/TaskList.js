@@ -6,15 +6,20 @@ import QuickTaskEditor from "../components/QuickTaskEditor";
 const TaskList = ({ card }) => {
   const [addTask, setAddTask] = useState(false);
   const [editor, setEditor] = useState(false);
+  const [window, setWindow] = useState(false);
   const [editTask, setEditTask] = useState({});
 
   const closeQuickEditor = (e) => {
     setEditor(false);
     setEditTask({});
   };
-  const renderQuickEditor = (e, task) => {
+  const handleRenderQuickEditor = (task) => {
     setEditTask(task);
     setEditor(true);
+  };
+  const handleRenderTaskWindow = (task) => {
+    console.log("task-window", task);
+    setWindow(true);
   };
   const handleCloseTaskForm = (e) => {
     setAddTask(false);
@@ -29,7 +34,8 @@ const TaskList = ({ card }) => {
               task={task}
               card={card.id}
               editor={editor}
-              renderQuickEditor={renderQuickEditor}
+              handleRenderTaskWindow={handleRenderTaskWindow}
+              handleRenderQuickEditor={handleRenderQuickEditor}
             />
           );
         } else {
@@ -54,6 +60,8 @@ const TaskList = ({ card }) => {
           />
         </div>
       ) : null}
+
+      {window ? <div className="task-window">Hi Im task Window</div> : null}
 
       {renderTasks()}
       {!addTask ? (
