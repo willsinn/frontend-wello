@@ -16,7 +16,12 @@ const Task = ({
       onMouseLeave={(e) => setVisible(false)}
     >
       <div className="task-item-note">
-        <span onClick={(e) => handleRenderTaskWindow(task)}>{task.note}</span>
+        <div
+          className="open-task-window"
+          onClick={(e) => handleRenderTaskWindow(task)}
+        >
+          {task.note}
+        </div>
         {visible ? (
           <span
             className="edit-task-item-btn"

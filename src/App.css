@@ -1745,6 +1745,10 @@ button {
   text-decoration: none;
   border: none;
 }
+.open-task-window {
+  width: 100%;
+  min-width: 60px;
+}
 .quick-task-editor-wrapper {
   position: absolute;
   z-index: 100;

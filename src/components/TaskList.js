@@ -49,8 +49,6 @@ const TaskList = ({ card }) => {
     }
   };
 
-  console.log("target task", editTask);
-
   return (
     <div className="task-list">
       {editor && !window ? <div className="quick-task-editor" /> : null}
