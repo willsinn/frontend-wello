@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
+import TaskWindow from "../components/TaskWindow";
 import QuickTaskEditor from "../components/QuickTaskEditor";
 
 const TaskList = ({ card }) => {
@@ -69,17 +70,7 @@ const TaskList = ({ card }) => {
       ) : null}
 
       {window && !editor ? (
-        <div className="window-modal">
-          <div className="task-window">
-            Hi Im task Window
-            <div
-              className="close-task-window"
-              onClick={(e) => handleCloseWindow()}
-            >
-              ✕
-            </div>
-          </div>
-        </div>
+        <TaskWindow editTask={editTask} handleCloseWindow={handleCloseWindow} />
       ) : null}
 
       {renderTasks()}

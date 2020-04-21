@@ -1747,7 +1747,7 @@ button {
 }
 .open-task-window {
   width: 100%;
-  min-width: 60px;
+  min-height: 60px;
 }
 .quick-task-editor-wrapper {
   position: absolute;
