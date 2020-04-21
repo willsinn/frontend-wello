@@ -13,15 +13,17 @@ const TaskList = ({ card }) => {
     setEditTask(task);
     setEditor(true);
   };
-  const closeQuickEditor = () => {
-    setEditor(false);
+  const handleCloseQuickEditor = () => {
     setEditTask({});
-  };
-  const closeTaskWindow = () => {
-    setWindow(false);
+    setEditor(false);
   };
   const handleRenderTaskWindow = (task) => {
+    setEditTask(task);
     setWindow(true);
+  };
+  const handleCloseTaskWindow = () => {
+    setEditTask({});
+    setWindow(false);
   };
   const handleCloseTaskForm = (e) => {
     setAddTask(false);
@@ -54,13 +56,13 @@ const TaskList = ({ card }) => {
         <div className="quick-task-editor-wrapper">
           <div
             className="close-quick-editor-icon"
-            onClick={(e) => closeQuickEditor()}
+            onClick={(e) => handleCloseQuickEditor()}
           >
             ✕
           </div>
           <QuickTaskEditor
             editTask={editTask}
-            closeQuickEditor={closeQuickEditor}
+            handleCloseQuickEditor={handleCloseQuickEditor}
           />
         </div>
       ) : null}
@@ -71,7 +73,7 @@ const TaskList = ({ card }) => {
             Hi Im task Window
             <div
               className="close-task-window"
-              onClick={(e) => closeTaskWindow()}
+              onClick={(e) => handleCloseTaskWindow()}
             >
               ✕
             </div>
