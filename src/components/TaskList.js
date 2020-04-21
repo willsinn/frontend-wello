@@ -9,7 +9,9 @@ const TaskList = ({ card }) => {
   const [editor, setEditor] = useState(false);
   const [window, setWindow] = useState(false);
   const [editTask, setEditTask] = useState({});
-
+  const handleUpdateEditTask = () => {
+    debugger;
+  };
   const handleRenderQuickEditor = (task) => {
     setEditTask(task);
     setEditor(true);
@@ -70,7 +72,11 @@ const TaskList = ({ card }) => {
       ) : null}
 
       {window && !editor ? (
-        <TaskWindow editTask={editTask} handleCloseWindow={handleCloseWindow} />
+        <TaskWindow
+          editTask={editTask}
+          handleCloseWindow={handleCloseWindow}
+          handleUpdateEditTask={handleUpdateEditTask}
+        />
       ) : null}
 
       {renderTasks()}

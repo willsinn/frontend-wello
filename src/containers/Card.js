@@ -12,7 +12,7 @@ const Card = ({
   actionCard,
   handleCloseCardMenu,
   handleOpenCardMenu,
-  dispatch
+  dispatch,
 }) => {
   const [editCard, setEditCard] = useState({});
   const [goal, setGoal] = useState(initialState);
@@ -24,16 +24,16 @@ const Card = ({
     setEditCard(card);
     setGoal(card.goal);
   };
-  const clearState = e => {
+  const clearState = (e) => {
     setGoal({ ...initialState });
     setEditCard({});
     e.target.firstElementChild.value = "";
   };
-  const handleChange = e => {
+  const handleChange = (e) => {
     e.persist();
     setGoal(e.target.value);
   };
-  const handleSubmitCard = e => {
+  const handleSubmitCard = (e) => {
     if (e) {
       e.preventDefault();
       dispatch(updateCardGoal(editCard, goal));
@@ -41,13 +41,13 @@ const Card = ({
     }
   };
   return (
-    <div className="card-item-wrap" onMouseLeave={e => handleCardCloseEdit()}>
+    <div className="card-item-wrap" onMouseLeave={(e) => handleCardCloseEdit()}>
       <div className="card-item">
         <div className="card-item-content">
           <div className="card-item-header">
             <span className="edit-card-title">
               {editCard.id === undefined ? (
-                <h2 className="card-text" onClick={e => handleCardGoalEdit()}>
+                <h2 className="card-text" onClick={(e) => handleCardGoalEdit()}>
                   {card.goal}
                 </h2>
               ) : (
@@ -65,7 +65,7 @@ const Card = ({
             </span>
 
             <span
-              onClick={e => handleOpenCardMenu(e, card)}
+              onClick={(e) => handleOpenCardMenu(e, card)}
               className="card-icon"
             >
               <span
