@@ -4,9 +4,11 @@ const TaskWindow = ({ editTask, handleCloseWindow }) => {
   return (
     <div className="window-modal">
       <div className="task-window">
-        Hi Im task Window
         <div className="close-task-window" onClick={(e) => handleCloseWindow()}>
           ✕
+        </div>
+        <div className="task-detail-window">
+          <div className="task-window-header">{editTask.note}</div>
         </div>
       </div>
     </div>
