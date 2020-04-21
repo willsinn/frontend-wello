@@ -1788,3 +1788,6 @@ button {
   overflow: hidden;
   position: relative;
 }
+.close-task-window {
+  cursor: pointer;
+}

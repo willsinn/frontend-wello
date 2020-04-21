@@ -9,16 +9,18 @@ const TaskList = ({ card }) => {
   const [window, setWindow] = useState(false);
   const [editTask, setEditTask] = useState({});
 
-  const closeQuickEditor = (e) => {
-    setEditor(false);
-    setEditTask({});
-  };
   const handleRenderQuickEditor = (task) => {
     setEditTask(task);
     setEditor(true);
   };
+  const closeQuickEditor = () => {
+    setEditor(false);
+    setEditTask({});
+  };
+  const closeTaskWindow = () => {
+    setWindow(false);
+  };
   const handleRenderTaskWindow = (task) => {
-    console.log("task-window", task);
     setWindow(true);
   };
   const handleCloseTaskForm = (e) => {
@@ -46,13 +48,13 @@ const TaskList = ({ card }) => {
   };
   return (
     <div className="task-list">
-      {editor ? <div className="quick-task-editor" /> : null}
+      {editor && !window ? <div className="quick-task-editor" /> : null}
 
-      {editor ? (
+      {editor && !window ? (
         <div className="quick-task-editor-wrapper">
           <div
             className="close-quick-editor-icon"
-            onClick={(e) => closeQuickEditor(e)}
+            onClick={(e) => closeQuickEditor()}
           >
             ✕
           </div>
@@ -65,7 +67,15 @@ const TaskList = ({ card }) => {
 
       {window && !editor ? (
         <div className="window-modal">
-          <div className="task-window">Hi Im task Window</div>
+          <div className="task-window">
+            Hi Im task Window
+            <div
+              className="close-task-window"
+              onClick={(e) => closeTaskWindow()}
+            >
+              ✕
+            </div>
+          </div>
         </div>
       ) : null}
 
