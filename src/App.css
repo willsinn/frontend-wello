@@ -1773,6 +1773,15 @@ button {
   bottom: 0;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
 }
 .task-window {
+  width: 768px;
+  height: 800px;
+  background-color: #f4f5f7;
+  border-radius: 2px;
+  margin: 48px 0 80px;
+  overflow: hidden;
+  position: relative;
 }
