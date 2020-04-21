@@ -32,12 +32,11 @@ const TaskWindow = ({
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
+      handleUpdateEditTask(note);
       dispatch(updateTaskNote(task, note));
       clearState(e);
     }
   };
-  console.log(task, note, editTask.note);
-
   return (
     <div className="window-modal">
       <div className="task-window">
@@ -45,23 +44,24 @@ const TaskWindow = ({
           ✕
         </div>
         <div className="task-detail-window">
-          <div className="task-window-header">{editTask.note}</div>
-          {task.id === undefined ? (
-            <h2 className="card-text" onClick={(e) => handleNoteEdit()}>
-              {editTask.note}
-            </h2>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <input
-                className="edit-card-input"
-                type="text"
-                name="note"
-                onChange={handleChange}
-                value={note}
-                required
-              />
-            </form>
-          )}
+          <div className="task-window-header">
+            {task.id === undefined ? (
+              <h2 className="card-text" onClick={(e) => handleNoteEdit()}>
+                {editTask.note}
+              </h2>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <input
+                  className="edit-card-input"
+                  type="text"
+                  name="note"
+                  onChange={handleChange}
+                  value={note}
+                  required
+                />
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </div>

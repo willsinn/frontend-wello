@@ -9,8 +9,8 @@ const TaskList = ({ card }) => {
   const [editor, setEditor] = useState(false);
   const [window, setWindow] = useState(false);
   const [editTask, setEditTask] = useState({});
-  const handleUpdateEditTask = () => {
-    debugger;
+  const handleUpdateEditTask = (note) => {
+    setEditTask({ ...editTask, note });
   };
   const handleRenderQuickEditor = (task) => {
     setEditTask(task);
