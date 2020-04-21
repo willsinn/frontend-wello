@@ -46,6 +46,8 @@ const TaskList = ({ card }) => {
   };
   return (
     <div className="task-list">
+      {editor ? <div className="quick-task-editor" /> : null}
+
       {editor ? (
         <div className="quick-task-editor-wrapper">
           <div
@@ -61,7 +63,11 @@ const TaskList = ({ card }) => {
         </div>
       ) : null}
 
-      {window ? <div className="task-window">Hi Im task Window</div> : null}
+      {window && !editor ? (
+        <div className="window-modal">
+          <div className="task-window">Hi Im task Window</div>
+        </div>
+      ) : null}
 
       {renderTasks()}
       {!addTask ? (

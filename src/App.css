@@ -1765,7 +1765,7 @@ button {
   border-radius: 3px;
   width: 100%;
 }
-.task-window {
+.window-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -1773,4 +1773,6 @@ button {
   bottom: 0;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.6);
+}
+.task-window {
 }
