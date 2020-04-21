@@ -21,7 +21,7 @@ const TaskList = ({ card }) => {
     setEditTask(task);
     setWindow(true);
   };
-  const handleCloseTaskWindow = () => {
+  const handleCloseWindow = () => {
     setEditTask({});
     setWindow(false);
   };
@@ -48,6 +48,9 @@ const TaskList = ({ card }) => {
       });
     }
   };
+
+  console.log("target task", editTask);
+
   return (
     <div className="task-list">
       {editor && !window ? <div className="quick-task-editor" /> : null}
@@ -73,7 +76,7 @@ const TaskList = ({ card }) => {
             Hi Im task Window
             <div
               className="close-task-window"
-              onClick={(e) => handleCloseTaskWindow()}
+              onClick={(e) => handleCloseWindow()}
             >
               ✕
             </div>
