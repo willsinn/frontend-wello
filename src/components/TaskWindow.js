@@ -28,7 +28,7 @@ const TaskWindow = ({
     setNote(e.target.value);
   };
   const handleSave = () => {
-    if (editTask.note === note) {
+    if (editTask.note === note || task.id === undefined) {
       clearState();
     } else {
       handleUpdateEditTask(note);
@@ -53,9 +53,9 @@ const TaskWindow = ({
         <div className="task-detail-window">
           <div className="task-window-header">
             {task.id === undefined ? (
-              <h2 className="card-text" onClick={(e) => handleNoteEdit()}>
+              <h1 className="card-text" onClick={(e) => handleNoteEdit()}>
                 {editTask.note}
-              </h2>
+              </h1>
             ) : (
               <form className="edit-note-form" onSubmit={handleSubmit}>
                 <input

@@ -1831,3 +1831,6 @@ button {
   height: 277px;
   width: 100%;
 }
+.desc-header {
+  margin: 12px 40px 8px 56px;
+}
