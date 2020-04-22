@@ -1828,5 +1828,6 @@ button {
   z-index: 1;
 }
 .task-window-body {
-  height: 100px;
+  height: 540px;
+  width: 100%;
 }

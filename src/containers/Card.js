@@ -29,8 +29,12 @@ const Card = ({
     setGoal(e.target.value);
   };
   const handleSave = () => {
-    dispatch(updateCardGoal(editCard, goal));
-    clearState();
+    if (editCard.goal === goal || editCard.id === undefined) {
+      clearState();
+    } else {
+      dispatch(updateCardGoal(editCard, goal));
+      clearState();
+    }
   };
   const handleSubmitCard = (e) => {
     if (e) {
