@@ -1834,3 +1834,10 @@ button {
 .desc-header {
   margin: 12px 40px 8px 56px;
 }
+.task-window-text {
+  color: #5e6c84;
+}
+.task-window-list-name {
+  font-weight: 500;
+  border-bottom: 1px solid #5e6c84;
+}

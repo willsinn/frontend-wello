@@ -73,6 +73,7 @@ const TaskList = ({ card }) => {
 
       {window && !editor ? (
         <TaskWindow
+          cardGoal={card.goal}
           editTask={editTask}
           handleCloseWindow={handleCloseWindow}
           handleUpdateEditTask={handleUpdateEditTask}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-const WindowDescription = (props) => {
+const TaskWindowDescription = (props) => {
   return (
     <div className="task-window-desc">
       <div className="desc-header">
@@ -11,4 +11,4 @@ const WindowDescription = (props) => {
     </div>
   );
 };
-export default connect()(WindowDescription);
+export default connect()(TaskWindowDescription);

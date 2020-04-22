@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import WindowDescription from "./WindowDescription";
+import TaskWindowDescription from "./TaskWindowDescription";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const initialState = { note: "" };
 
 const TaskWindow = ({
+  cardGoal,
   editTask,
   handleCloseWindow,
   handleUpdateEditTask,
@@ -21,7 +22,6 @@ const TaskWindow = ({
   const clearState = (e) => {
     setNote({ ...initialState });
     setTask({});
-    // e.target.firstElementChild.value = "";
   };
   const handleChange = (e) => {
     e.persist();
@@ -68,9 +68,13 @@ const TaskWindow = ({
                 />
               </form>
             )}
+            <div className="task-window-text">
+              <span>in list </span>
+              <span className="task-window-list-name">{cardGoal}</span>
+            </div>
           </div>
           <div className="task-window-body" onClick={handleSave}>
-            <WindowDescription />
+            <TaskWindowDescription />
           </div>
         </div>
       </div>
