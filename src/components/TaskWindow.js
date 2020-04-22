@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import WindowDescription from "./WindowDescription";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 
@@ -68,7 +69,9 @@ const TaskWindow = ({
               </form>
             )}
           </div>
-          <div className="task-window-body" onClick={handleSave}></div>
+          <div className="task-window-body" onClick={handleSave}>
+            <WindowDescription />
+          </div>
         </div>
       </div>
     </div>
