@@ -27,9 +27,13 @@ const TaskWindow = ({
     setNote(e.target.value);
   };
   const handleSave = () => {
-    handleUpdateEditTask(note);
-    dispatch(updateTaskNote(task, note));
-    clearState();
+    if (editTask.note === note) {
+      clearState();
+    } else {
+      handleUpdateEditTask(note);
+      dispatch(updateTaskNote(task, note));
+      clearState();
+    }
   };
   const handleSubmit = (e) => {
     if (e) {
