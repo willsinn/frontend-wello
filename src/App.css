@@ -1768,6 +1768,7 @@ button {
   border: 2px solid blue;
   border-radius: 3px;
   width: 100%;
+  font-weight: 600;
 }
 .window-modal {
   position: fixed;
@@ -1816,11 +1817,12 @@ button {
 .task-detail-window {
   min-height: 600px;
 }
-.edit-task-note {
-  width: 80%;
+.edit-note-form {
+  width: 98%;
 }
 .task-window-header {
   margin: 12px 40px 8px 56px;
+  padding-top: 12px;
   min-height: 32px;
   position: relative;
   z-index: 1;

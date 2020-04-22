@@ -50,9 +50,9 @@ const TaskWindow = ({
                 {editTask.note}
               </h2>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form className="edit-note-form" onSubmit={handleSubmit}>
                 <input
-                  className="edit-input edit-task-note"
+                  className="edit-input"
                   type="text"
                   name="note"
                   onChange={handleChange}
