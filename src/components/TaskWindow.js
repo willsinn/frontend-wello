@@ -12,10 +12,7 @@ const TaskWindow = ({
 }) => {
   const [task, setTask] = useState({});
   const [note, setNote] = useState(initialState);
-  const handleCloseEdit = () => {
-    setTask({});
-    setNote("");
-  };
+
   const handleNoteEdit = () => {
     setTask(editTask);
     setNote(editTask.note);
@@ -23,11 +20,16 @@ const TaskWindow = ({
   const clearState = (e) => {
     setNote({ ...initialState });
     setTask({});
-    e.target.firstElementChild.value = "";
+    // e.target.firstElementChild.value = "";
   };
   const handleChange = (e) => {
     e.persist();
     setNote(e.target.value);
+  };
+  const handleSave = () => {
+    handleUpdateEditTask(note);
+    dispatch(updateTaskNote(task, note));
+    clearState();
   };
   const handleSubmit = (e) => {
     if (e) {
@@ -62,7 +64,7 @@ const TaskWindow = ({
               </form>
             )}
           </div>
-          <div className="task-window-body"></div>
+          <div className="task-window-body" onClick={handleSave}></div>
         </div>
       </div>
     </div>

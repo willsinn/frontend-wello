@@ -16,10 +16,6 @@ const Card = ({
 }) => {
   const [editCard, setEditCard] = useState({});
   const [goal, setGoal] = useState(initialState);
-  const handleCardCloseEdit = () => {
-    setEditCard({});
-    setGoal("");
-  };
   const handleCardGoalEdit = () => {
     setEditCard(card);
     setGoal(card.goal);
@@ -27,11 +23,14 @@ const Card = ({
   const clearState = (e) => {
     setGoal({ ...initialState });
     setEditCard({});
-    e.target.firstElementChild.value = "";
   };
   const handleChange = (e) => {
     e.persist();
     setGoal(e.target.value);
+  };
+  const handleSave = () => {
+    dispatch(updateCardGoal(editCard, goal));
+    clearState();
   };
   const handleSubmitCard = (e) => {
     if (e) {
@@ -41,7 +40,7 @@ const Card = ({
     }
   };
   return (
-    <div className="card-item-wrap" onMouseLeave={(e) => handleCardCloseEdit()}>
+    <div className="card-item-wrap" onMouseLeave={handleSave}>
       <div className="card-item">
         <div className="card-item-content">
           <div className="card-item-header">
