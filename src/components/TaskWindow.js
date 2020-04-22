@@ -52,7 +52,7 @@ const TaskWindow = ({
             ) : (
               <form onSubmit={handleSubmit}>
                 <input
-                  className="edit-card-input"
+                  className="edit-input edit-task-note"
                   type="text"
                   name="note"
                   onChange={handleChange}
@@ -62,6 +62,7 @@ const TaskWindow = ({
               </form>
             )}
           </div>
+          <div className="task-window-body"></div>
         </div>
       </div>
     </div>

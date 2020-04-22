@@ -1760,7 +1760,7 @@ button {
   right: -96px;
   width: max-content;
 }
-.edit-card-input {
+.edit-input {
   position: relative;
   top: -2px;
   height: 20px;
@@ -1784,7 +1784,6 @@ button {
 }
 .task-window {
   width: 768px;
-  height: 800px;
   background-color: #f4f5f7;
   border-radius: 2px;
   margin: 48px 8px 80px;
@@ -1817,9 +1816,14 @@ button {
 .task-detail-window {
   min-height: 600px;
 }
+.edit-task-note {
+  width: 80%;
+}
 .task-window-header {
   margin: 12px 40px 8px 56px;
   min-height: 32px;
   position: relative;
   z-index: 1;
+}
+.task-window-body {
 }
