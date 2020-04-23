@@ -1540,9 +1540,11 @@ button {
 .card-text {
   font-weight: 600;
   margin: 0 0 8px;
-  font-size: 1.75em;
+  font-size: 1.15em;
   line-height: 20px;
   cursor: pointer;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .edit-card-title {
   overflow: hidden;
@@ -1835,7 +1837,7 @@ button {
   width: 100%;
 }
 .module-header {
-  margin: 12px 40px 8px 40px;
+  margin: 12px 40px 6px 40px;
   display: flex;
 }
 .module-title {
@@ -1872,6 +1874,8 @@ button {
 }
 .edit-desc-btn:hover {
   background-color: rgba(9, 30, 66, 0.08);
+  box-shadow: none;
+  border: none;
 }
 .desc-placeholder {
   background-color: rgba(9, 30, 66, 0.04);
@@ -1883,4 +1887,9 @@ button {
   padding: 8px 12px;
   text-decoration: none;
   margin-left: 40px;
+}
+.desc-placeholder:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  box-shadow: none;
+  border: none;
 }

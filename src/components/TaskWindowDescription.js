@@ -11,9 +11,10 @@ const TaskWindowDescription = ({ taskDesc }) => {
           <button className="edit-desc-btn">Edit</button>
         </div>
       </div>
-
-      <div className="desc-placeholder">
-        <p>Add a more detailed description...</p>
+      <div className="module-body">
+        <div className="desc-placeholder">
+          <p>Add a more detailed description...</p>
+        </div>
       </div>
     </div>
   );

@@ -53,7 +53,11 @@ const TaskWindow = ({
         <div className="task-detail-window">
           <div className="task-window-header">
             {task.id === undefined ? (
-              <h1 className="card-text" onClick={(e) => handleNoteEdit()}>
+              <h1
+                className="card-text"
+                style={{ fontSize: "1.70em", minHeight: "24px" }}
+                onClick={(e) => handleNoteEdit()}
+              >
                 {editTask.note}
               </h1>
             ) : (
