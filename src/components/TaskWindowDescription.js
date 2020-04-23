@@ -36,7 +36,7 @@ const TaskWindowDescription = ({ task, dispatch }) => {
 
       {!editable ? (
         <div className="module-body" onClick={(e) => setEditable(true)}>
-          {!task.task_desc ? (
+          {!desc ? (
             <div className="desc-placeholder">
               <p>Add a more detailed description...</p>
             </div>
