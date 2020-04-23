@@ -53,34 +53,37 @@ const TaskWindow = ({
         </div>
         <div className="task-detail-window">
           <div className="task-window-header">
-            {task.id === undefined ? (
-              <h1
-                className="card-text"
-                style={{ fontSize: "1.70em", minHeight: "24px" }}
-                onClick={(e) => handleNoteEdit()}
-              >
-                {editTask.note}
-              </h1>
-            ) : (
-              <form className="edit-note-form" onSubmit={handleSubmit}>
-                <input
-                  className="edit-input"
-                  type="text"
-                  name="note"
-                  onChange={handleChange}
-                  value={note}
-                  required
-                />
-              </form>
-            )}
+            <div>
+              {task.id === undefined ? (
+                <h1
+                  className="card-text"
+                  style={{ fontSize: "1.70em", minHeight: "22px", margin: "0" }}
+                  onClick={(e) => handleNoteEdit()}
+                >
+                  {editTask.note}
+                </h1>
+              ) : (
+                <form className="edit-note-form" onSubmit={handleSubmit}>
+                  <input
+                    className="edit-input"
+                    style={{ fontSize: "1.7em" }}
+                    type="text"
+                    name="note"
+                    onChange={handleChange}
+                    value={note}
+                    required
+                  />
+                </form>
+              )}
+            </div>
             <div className="task-window-text">
               <span>in list </span>
               <span className="task-window-list-name">{cardGoal}</span>
             </div>
           </div>
           <div className="task-window-body" onClick={handleSave}>
-            <TaskWindowDescription task={editTask} taskDesc={task.desc} />
-            <TaskChecklist />
+            <TaskWindowDescription task={editTask} />
+            <TaskChecklist task={editTask} />
           </div>
         </div>
       </div>
