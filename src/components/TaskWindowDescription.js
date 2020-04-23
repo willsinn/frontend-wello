@@ -13,6 +13,7 @@ const TaskWindowDescription = ({ taskDesc }) => {
       e.preventDefault();
     }
   };
+  console.log(desc);
 
   return (
     <div className="task-window-desc">
@@ -35,7 +36,7 @@ const TaskWindowDescription = ({ taskDesc }) => {
         </div>
       ) : (
         <div className="editing">
-          <form>
+          <form className="description-form">
             <textarea
               className="description-field"
               placeholder="Add a more detailed description…"

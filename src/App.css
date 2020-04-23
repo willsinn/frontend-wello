@@ -1902,19 +1902,22 @@ button {
   width: 100%;
   margin-left: 40px;
 }
+.description-form {
+  border-radius: 3px;
+  border-color: rgba(9, 30, 66, 0.13);
+}
 .description-field {
   overflow: hidden;
+  border-radius: 3px;
   overflow-wrap: break-word;
   resize: none;
   height: 108px;
   min-height: 108px;
   background: #fff;
   box-shadow: none;
-  border-color: rgba(9, 30, 66, 0.13);
   color: #172b4d;
   box-sizing: border-box;
   -webkit-appearance: none;
-  border-radius: 3px;
   display: block;
   line-height: 20px;
   margin-bottom: 12px;
