@@ -27,9 +27,11 @@ const TaskWindowDescription = ({ task, dispatch }) => {
     <div className="task-window-desc">
       <div className="module-header">
         <h3 className="module-title">Description</h3>
-        <div className="editable-desc">
-          <button className="edit-desc-btn">Edit</button>
-        </div>
+        {desc && !editable ? (
+          <div className="editable-desc" onClick={(e) => setEditable(true)}>
+            <button className="edit-desc-btn">Edit</button>
+          </div>
+        ) : null}
       </div>
 
       {!editable ? (
