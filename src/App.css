@@ -1857,6 +1857,7 @@ button {
   padding: 0 8px 8px 16px;
   position: relative;
   width: 552px;
+  min-width: 552px;
   z-index: 0;
 }
 .editable-desc {
@@ -1892,4 +1893,32 @@ button {
   background-color: rgba(9, 30, 66, 0.08);
   box-shadow: none;
   border: none;
+}
+.editing {
+  display: block;
+  float: left;
+  padding-bottom: 9px;
+  z-index: 50;
+  width: 100%;
+  margin-left: 40px;
+}
+.description-field {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  resize: none;
+  height: 108px;
+  min-height: 108px;
+  background: #fff;
+  box-shadow: none;
+  border-color: rgba(9, 30, 66, 0.13);
+  color: #172b4d;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  display: block;
+  line-height: 20px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border: none;
+  width: 90%;
 }

@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 const TaskWindowDescription = ({ taskDesc }) => {
-  const [desc, setDesc] = useState({});
-  console.log(desc);
-
+  const [editable, setEditable] = useState({});
   return (
     <div className="task-window-desc">
       <div className="module-header">
@@ -14,8 +12,8 @@ const TaskWindowDescription = ({ taskDesc }) => {
         </div>
       </div>
 
-      {desc ? (
-        <div className="module-body" onClick={(e) => setDesc("")}>
+      {editable ? (
+        <div className="module-body" onClick={(e) => setEditable("")}>
           {!taskDesc ? (
             <div className="desc-placeholder">
               <p>Add a more detailed description...</p>
@@ -25,7 +23,14 @@ const TaskWindowDescription = ({ taskDesc }) => {
           )}
         </div>
       ) : (
-        console.log("exists")
+        <div className="editing">
+          <form>
+            <textarea
+              className="description-field"
+              placeholder="Add a more detailed description…"
+            />
+          </form>
+        </div>
       )}
     </div>
   );
