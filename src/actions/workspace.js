@@ -126,6 +126,7 @@ export const postNewTask = (card, callback) => {
       body: JSON.stringify({
         card_id: card.card.id,
         note: card.note,
+        task_desc: "",
       }),
     })
       .then((response) => response.json())
@@ -157,7 +158,6 @@ export const archiveTask = (task, callback) => {
 };
 
 export const updateTaskNote = (task, note) => {
-  console.log(task);
   return (dispatch) => {
     fetch(`http://localhost:3000/task/update/${task.id}`, {
       method: "PUT",
@@ -168,6 +168,25 @@ export const updateTaskNote = (task, note) => {
       body: JSON.stringify({
         id: task.id,
         note: note,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => {
+        dispatch(updateTask(JSONresponse));
+      });
+  };
+};
+export const saveTaskDesc = (task, desc) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/task/update/${task.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        id: task.id,
+        task_desc: desc,
       }),
     })
       .then((response) => response.json())

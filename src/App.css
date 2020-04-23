@@ -1925,3 +1925,6 @@ button {
   border: none;
   width: 90%;
 }
+.curr-desc {
+  margin: 0 0 8px 40px;
+}

@@ -78,7 +78,7 @@ const TaskWindow = ({
             </div>
           </div>
           <div className="task-window-body" onClick={handleSave}>
-            <TaskWindowDescription taskDesc={task.desc} />
+            <TaskWindowDescription task={editTask} taskDesc={task.desc} />
           </div>
         </div>
       </div>

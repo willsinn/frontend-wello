@@ -1,19 +1,23 @@
 import React, { useState } from "react";
+import { saveTaskDesc } from "../actions/workspace";
+
 import { connect } from "react-redux";
 
-const TaskWindowDescription = ({ taskDesc }) => {
-  const [desc, setDesc] = useState(taskDesc);
+const TaskWindowDescription = ({ task, dispatch }) => {
+  const [desc, setDesc] = useState(task.task_desc);
   const [editable, setEditable] = useState(false);
   const handleChange = (e) => {
     e.persist(e);
     setDesc(e.target.value);
   };
-  const handleSave = (e) => {
+  const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
+      dispatch(saveTaskDesc(task, desc));
+      setEditable(false);
     }
   };
-  console.log(desc);
+  console.log(task, desc);
 
   return (
     <div className="task-window-desc">
@@ -26,17 +30,17 @@ const TaskWindowDescription = ({ taskDesc }) => {
 
       {!editable ? (
         <div className="module-body" onClick={(e) => setEditable(true)}>
-          {!taskDesc ? (
+          {!task.task_desc ? (
             <div className="desc-placeholder">
               <p>Add a more detailed description...</p>
             </div>
           ) : (
-            { taskDesc }
+            <p className="curr-desc">{task.task_desc}</p>
           )}
         </div>
       ) : (
         <div className="editing">
-          <form className="description-form">
+          <form className="description-form" onSubmit={handleSubmit}>
             <textarea
               className="description-field"
               placeholder="Add a more detailed description…"
@@ -46,7 +50,7 @@ const TaskWindowDescription = ({ taskDesc }) => {
               onChange={(e) => handleChange(e)}
             />
           </form>
-          <button onClick={(e) => handleSave()}>Save</button>
+          <button onClick={handleSubmit}>Save</button>
         </div>
       )}
     </div>
