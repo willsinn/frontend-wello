@@ -1833,6 +1833,7 @@ button {
 }
 .desc-header {
   margin: 12px 40px 8px 56px;
+  display: flex;
 }
 .task-window-text {
   color: #5e6c84;
@@ -1840,4 +1841,20 @@ button {
 .task-window-list-name {
   font-weight: 500;
   border-bottom: 1px solid #5e6c84;
+}
+.editable-desc {
+  margin: 0 0 0 8px;
+  display: flex;
+  align-items: center;
+}
+.edit-desc-btn {
+  padding: 6px 12px;
+  background-color: rgba(9, 30, 66, 0.04);
+  box-shadow: none;
+  border: none;
+  height: 32px;
+  border-radius: 3px;
+}
+.edit-desc-btn:hover {
+  background-color: rgba(9, 30, 66, 0.08);
 }
