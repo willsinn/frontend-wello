@@ -1502,7 +1502,6 @@ button {
   border: none;
   color: #fff;
   border-radius: 3px;
-  margin-top: 0;
   padding-top: 4px;
   padding-bottom: 4px;
   margin: 0 4px 4px 4px;
@@ -1510,7 +1509,7 @@ button {
 .close-add-btn {
   min-height: 32px;
   height: 32px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 900;
   margin-top: 0;
   color: gray;
@@ -1920,7 +1919,7 @@ button {
   -webkit-appearance: none;
   display: block;
   line-height: 20px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   padding: 8px 12px;
   border: none;
   width: 90%;

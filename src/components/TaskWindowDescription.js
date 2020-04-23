@@ -17,6 +17,10 @@ const TaskWindowDescription = ({ task, dispatch }) => {
       setEditable(false);
     }
   };
+  const handleExitEditable = (e) => {
+    setEditable(false);
+    setDesc(task.task_desc);
+  };
   console.log(task, desc);
 
   return (
@@ -40,17 +44,30 @@ const TaskWindowDescription = ({ task, dispatch }) => {
         </div>
       ) : (
         <div className="editing">
-          <form className="description-form" onSubmit={handleSubmit}>
-            <textarea
-              className="description-field"
-              placeholder="Add a more detailed description…"
-              type="text"
-              name="desc"
-              value={desc}
-              onChange={(e) => handleChange(e)}
-            />
-          </form>
-          <button onClick={handleSubmit}>Save</button>
+          <div>
+            <form className="description-form" onSubmit={handleSubmit}>
+              <textarea
+                className="description-field"
+                placeholder="Add a more detailed description…"
+                type="text"
+                name="desc"
+                value={desc}
+                onChange={(e) => handleChange(e)}
+              />
+            </form>
+          </div>
+          <div>
+            <button
+              className="add-list-btn"
+              style={{ paddingLeft: "12px", paddingRight: "12px", margin: "0" }}
+              onClick={handleSubmit}
+            >
+              Save
+            </button>
+            <button className="close-add-btn" onClick={handleExitEditable}>
+              ✕
+            </button>
+          </div>
         </div>
       )}
     </div>
