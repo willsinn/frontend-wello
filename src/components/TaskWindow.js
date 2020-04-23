@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TaskWindowDescription from "./TaskWindowDescription";
+import TaskChecklist from "./TaskChecklist";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 
@@ -79,6 +80,7 @@ const TaskWindow = ({
           </div>
           <div className="task-window-body" onClick={handleSave}>
             <TaskWindowDescription task={editTask} taskDesc={task.desc} />
+            <TaskChecklist />
           </div>
         </div>
       </div>

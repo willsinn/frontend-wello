@@ -39,7 +39,7 @@ const TaskWindowDescription = ({ task, dispatch }) => {
               <p>Add a more detailed description...</p>
             </div>
           ) : (
-            <p className="curr-desc">{task.task_desc}</p>
+            <p className="curr-desc">{desc}</p>
           )}
         </div>
       ) : (
