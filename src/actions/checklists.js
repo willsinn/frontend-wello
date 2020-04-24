@@ -61,8 +61,7 @@ export const saveChecklistTitle = (checklist, title) => {
 export const deleteChecklist = (checklist) => {
   return (dispatch) => {
     dispatch(removeChecklist(checklist));
-
-    fetch(`http://localhost:3000/task_checklists/${checklist.id}/destroy`, {
+    fetch(`http://localhost:3000/task_checklists/${checklist.id}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

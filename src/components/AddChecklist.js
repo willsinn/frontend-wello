@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { postNewChecklist } from "../actions/checklists";
 import { connect } from "react-redux";
 
-const AddChecklist = ({ task, closePopup, dispatch }) => {
+const AddChecklist = (props, { task, closePopup, dispatch }) => {
   const [title, setTitle] = useState("Checklist");
   const handleChange = (e) => {
     e.persist();
@@ -11,7 +11,7 @@ const AddChecklist = ({ task, closePopup, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(postNewChecklist(task, title));
+      props.dispatch(postNewChecklist(task, title));
       setTitle("Checklist");
       closePopup();
     }

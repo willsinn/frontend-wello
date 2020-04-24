@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import EditChecklist from "./EditChecklist";
+import { deleteChecklist } from "../actions/checklists";
+import { connect } from "react-redux";
 
 const Checklist = ({
   del,
@@ -9,7 +11,12 @@ const Checklist = ({
   handleCloseEditing,
   handleConfirmDelete,
   handleCancelDelete,
+  dispatch,
 }) => {
+  const handleDelete = (e) => {
+    dispatch(deleteChecklist(checklist, dispatch));
+    handleCancelDelete(e);
+  };
   return (
     <div className="checklist">
       <div className="task-window-desc">
@@ -48,7 +55,7 @@ const Checklist = ({
                 Delete {checklist.title}?
               </span>
               <button
-                onClick={(e) => handleCancelDelete()}
+                onClick={(e) => handleCancelDelete(e)}
                 className="side-close-btn"
               >
                 ✕
@@ -68,7 +75,10 @@ const Checklist = ({
                       Deleting a checklist is permanent and there is no way to
                       get it back.
                     </p>
-                    <button className="del-checklist-btn">
+                    <button
+                      className="del-checklist-btn"
+                      onClick={(e) => handleDelete()}
+                    >
                       Delete Checklist
                     </button>
                   </div>
@@ -82,4 +92,4 @@ const Checklist = ({
   );
 };
 
-export default Checklist;
+export default connect()(Checklist);
