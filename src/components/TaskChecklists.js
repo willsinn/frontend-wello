@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import Checklist from "./Checklist";
+import { deleteChecklist } from "../actions/checklists";
 import { connect } from "react-redux";
 
 const TaskChecklists = (props, { task, dispatch }) => {
   const [editChecklist, setEditChecklist] = useState({});
   const [del, setDel] = useState({});
-  const handleDelete = (checklist) => {
+  const handleConfirmDelete = (checklist) => {
     setDel(checklist);
+  };
+  const handleCancelDelete = () => {
+    setDel({});
+  };
+  const handleDelete = (checklist) => {
+    dispatch(deleteChecklist(checklist));
+    setDel({});
   };
   const handleCloseEditing = () => {
     setEditChecklist({});
@@ -25,7 +33,8 @@ const TaskChecklists = (props, { task, dispatch }) => {
           editChecklist={editChecklist}
           handleEditTitle={handleEditTitle}
           handleCloseEditing={handleCloseEditing}
-          handleDelete={handleDelete}
+          handleConfirmDelete={handleConfirmDelete}
+          handleCancelDelete={handleCancelDelete}
         />
       );
     });

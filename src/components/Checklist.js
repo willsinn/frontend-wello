@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import EditChecklist from "./EditChecklist";
-import { deleteChecklist } from "../actions/checklists";
-import { connect } from "react-redux";
 
 const Checklist = ({
   del,
@@ -9,8 +7,8 @@ const Checklist = ({
   editChecklist,
   handleEditTitle,
   handleCloseEditing,
-  handleDelete,
-  dispatch,
+  handleConfirmDelete,
+  handleCancelDelete,
 }) => {
   return (
     <div className="checklist">
@@ -32,27 +30,56 @@ const Checklist = ({
               <button className="sidebar-btn">Hide Completed Items</button>
               <button
                 className="sidebar-btn"
-                onClick={(e) => handleDelete(checklist)}
+                onClick={(e) => handleConfirmDelete(checklist)}
               >
                 Delete
               </button>
             </div>
           </div>
         )}
-        <div className="no-back">
-          {del.id && del.id === checklist.id ? (
-            <div
-              className="side-popover"
-              style={{ top: "248px", right: "2em" }}
-            >
-              <div>Are you sure you wanna delete {del.title}</div>
-            </div>
-          ) : null}
-        </div>
+
         <div className="module-body"></div>
       </div>
+      {del.id && del.id === checklist.id ? (
+        <div className="side-popover" style={{ top: "248px", right: "4em" }}>
+          <div className="no-back">
+            <div className="side-popover-header">
+              <span className="side-popover-header-title">
+                Delete {checklist.title}?
+              </span>
+              <button
+                onClick={(e) => handleCancelDelete()}
+                className="side-close-btn"
+              >
+                ✕
+              </button>
+              <div></div>
+              <div className="side-popover-body">
+                <div>
+                  <div
+                    style={{
+                      height: "110px",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <p>
+                      Deleting a checklist is permanent and there is no way to
+                      get it back.
+                    </p>
+                    <button className="del-checklist-btn">
+                      Delete Checklist
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
 
-export default connect()(Checklist);
+export default Checklist;
