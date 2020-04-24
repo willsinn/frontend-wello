@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import EditChecklist from "./EditChecklist";
 
-const Checklist = ({ checklist, editChecklist, handleEditTitle }) => {
+const Checklist = ({
+  checklist,
+  editChecklist,
+  handleEditTitle,
+  handleCloseEditing,
+}) => {
   return (
     <div className="checklist">
       <div className="task-window-desc">
         {editChecklist.id && checklist.id === editChecklist.id ? (
-          <EditChecklist checklist={checklist} />
+          <EditChecklist
+            checklist={checklist}
+            handleCloseEditing={handleCloseEditing}
+          />
         ) : (
           <div className="module-header" style={{ margin: "0 0 4px 40px" }}>
             <h3

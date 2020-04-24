@@ -3,7 +3,7 @@ import { saveTaskDesc } from "../actions/workspace";
 
 import { connect } from "react-redux";
 
-const EditChecklist = ({ checklist, dispatch }) => {
+const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
   const [title, setTitle] = useState(checklist.title);
   const [editable, setEditable] = useState(false);
   const handleChange = (e) => {
@@ -24,10 +24,14 @@ const EditChecklist = ({ checklist, dispatch }) => {
 
   return (
     <div className="editing">
-      <div>
-        <form className="description-form" onSubmit={handleSubmit}>
+      <div style={{ margin: "4px 0" }}>
+        <form
+          className="description-form"
+          style={{ height: "54px" }}
+          onSubmit={handleSubmit}
+        >
           <textarea
-            className="description-field"
+            className="edit-checklist"
             placeholder="Add a more detailed description…"
             type="text"
             name="desc"
@@ -44,7 +48,11 @@ const EditChecklist = ({ checklist, dispatch }) => {
         >
           Save
         </button>
-        <button className="close-add-btn" onClick={handleExitEditable}>
+        <button
+          className="close-add-btn"
+          style={{ paddingLeft: "12px" }}
+          onClick={handleCloseEditing}
+        >
           ✕
         </button>
       </div>
