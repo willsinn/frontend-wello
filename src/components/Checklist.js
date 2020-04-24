@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import EditChecklist from "./EditChecklist";
+import { deleteChecklist } from "../actions/checklists";
+import { connect } from "react-redux";
 
 const Checklist = ({
   checklist,
   editChecklist,
   handleEditTitle,
   handleCloseEditing,
+  dispatch,
 }) => {
+  const [del, setDel] = useState(false);
   return (
     <div className="checklist">
       <div className="task-window-desc">
@@ -35,4 +39,4 @@ const Checklist = ({
   );
 };
 
-export default Checklist;
+export default connect()(Checklist);
