@@ -47,7 +47,9 @@ const TaskWindow = ({
       clearState(e);
     }
   };
-  console.log(sidebtn);
+  const closePopup = () => {
+    setSidebtn("");
+  };
 
   return (
     <div className="window-modal">
@@ -120,7 +122,7 @@ const TaskWindow = ({
                       </button>
                     </div>
                     <div className="side-popover-body">
-                      <AddChecklist task={editTask} />
+                      <AddChecklist task={editTask} closePopup={closePopup} />
                     </div>
                   </div>
                 </div>
