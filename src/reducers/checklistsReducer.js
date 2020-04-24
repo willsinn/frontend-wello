@@ -6,8 +6,7 @@ const checklistsReducer = (state = defaultState, action) => {
     case "SET_LISTS":
       return { ...state, boards: action.payload };
     case "ADD_LIST":
-      debugger;
-      return { ...state, boards: action.payload };
+      return { ...state, checklists: [...state.checklists, action.checklist] };
     default:
       return state;
   }

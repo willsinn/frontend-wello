@@ -16,7 +16,7 @@ export const postNewChecklist = (task, title) => {
       },
       body: JSON.stringify({
         task_id: task.id,
-        title: title,
+        title: `${title}`,
       }),
     })
       .then((response) => response.json())
@@ -25,3 +25,7 @@ export const postNewChecklist = (task, title) => {
       });
   };
 };
+
+// fetch(`http://localhost:3000/task/1/task_checklists`)
+//   .then((response) => response.json())
+//   .then((JSONresponse) => console.log(JSONresponse));

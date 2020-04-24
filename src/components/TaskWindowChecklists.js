@@ -1,6 +1,8 @@
 import React from "react";
 
-const TaskChecklist = (props) => {
+import { connect } from "react-redux";
+
+const TaskWindowChecklists = ({ task, dispatch }) => {
   return (
     <div className="task-window-desc">
       <div className="module-header">
@@ -10,4 +12,4 @@ const TaskChecklist = (props) => {
   );
 };
 
-export default TaskChecklist;
+export default TaskWindowChecklists;
