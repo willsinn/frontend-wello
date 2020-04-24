@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 
 const TaskChecklists = (props, { task, dispatch }) => {
   const [editChecklist, setEditChecklist] = useState({});
+  const [del, setDel] = useState({});
+  const handleDelete = (checklist) => {
+    setDel(checklist);
+  };
   const handleCloseEditing = () => {
     setEditChecklist({});
   };
@@ -16,10 +20,12 @@ const TaskChecklists = (props, { task, dispatch }) => {
       return (
         <Checklist
           key={checklist.id}
+          del={del}
           checklist={checklist}
           editChecklist={editChecklist}
           handleEditTitle={handleEditTitle}
           handleCloseEditing={handleCloseEditing}
+          handleDelete={handleDelete}
         />
       );
     });

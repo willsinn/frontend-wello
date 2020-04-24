@@ -1848,6 +1848,7 @@ button {
   text-align: center;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 .module-title {
   font-weight: 525;
@@ -1998,8 +1999,10 @@ button {
   overflow: hidden;
   position: fixed;
   width: 304px;
+  max-height: 172px;
+  min-height: 168px;
   z-index: 70;
-  height: 174px;
+  top: 215px;
 }
 .side-popover-header {
   text-align: center;
