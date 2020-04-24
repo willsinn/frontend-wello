@@ -25,7 +25,10 @@ export const postNewChecklist = (task, title) => {
       });
   };
 };
-
-// fetch(`http://localhost:3000/task/1/task_checklists`)
-//   .then((response) => response.json())
-//   .then((JSONresponse) => console.log(JSONresponse));
+export const fetchTaskChecklists = (task) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/task/${task.id}/task_checklists`)
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(setLists(JSONresponse)));
+  };
+};

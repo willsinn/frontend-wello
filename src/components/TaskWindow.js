@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TaskWindowDescription from "./TaskWindowDescription";
-import TaskWindowChecklists from "./TaskWindowChecklists";
+import TaskChecklists from "./TaskChecklists";
 import AddChecklist from "./AddChecklist";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
@@ -95,7 +95,7 @@ const TaskWindow = ({
           <div className="task-window-body" onClick={handleSave}>
             <div className="body-right-window">
               <TaskWindowDescription task={editTask} />
-              <TaskWindowChecklists task={editTask} />
+              <TaskChecklists task={editTask} />
             </div>
             <div className="task-window-sidebar">
               <h3 className="sidebar-title">add to task</h3>
