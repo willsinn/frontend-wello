@@ -22,7 +22,6 @@ export const postNewChecklist = (task, title) => {
       .then((response) => response.json())
       .then((JSONresponse) => {
         dispatch(addList(JSONresponse));
-        callback();
       });
   };
 };

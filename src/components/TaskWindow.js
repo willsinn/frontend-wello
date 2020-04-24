@@ -98,7 +98,14 @@ const TaskWindow = ({
             <div className="task-window-sidebar">
               <h3 className="sidebar-title">add to task</h3>
 
-              {sidebtn === "label" ? (
+              <div
+                className="sidebar-btn"
+                onClick={(e) => setSidebtn("labels")}
+              >
+                Labels
+              </div>
+
+              {sidebtn === "checklist" ? (
                 <div className="side-popover">
                   <div className="no-back">
                     <div className="side-popover-header">
@@ -113,15 +120,11 @@ const TaskWindow = ({
                       </button>
                     </div>
                     <div className="side-popover-body">
-                      <AddChecklist />
+                      <AddChecklist task={editTask} />
                     </div>
                   </div>
                 </div>
               ) : null}
-              <div className="sidebar-btn" onClick={(e) => setSidebtn("label")}>
-                Labels
-              </div>
-
               <div
                 className="sidebar-btn"
                 onClick={(e) => setSidebtn("checklist")}
