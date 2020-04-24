@@ -44,6 +44,9 @@ button {
   overflow: hidden;
   outline: none;
 }
+.no-back {
+  background: transparent;
+}
 #root {
   height: 100vh;
   width: 100vw;
@@ -1939,6 +1942,7 @@ button {
   overflow: hidden;
   z-index: 10;
   height: 100%;
+  position: relative;
 }
 .body-right-window {
   width: 504px;
@@ -1982,4 +1986,43 @@ button {
   line-height: 20px;
   margin-bottom: -4px;
   margin-left: -4px;
+}
+.side-popover {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
+  overflow: hidden;
+  position: fixed;
+  width: 304px;
+  z-index: 70;
+  height: 228px;
+}
+.side-popover-header {
+  text-align: center;
+}
+.side-popover-header-title {
+  box-sizing: border-box;
+  color: #5e6c84;
+  display: block;
+  line-height: 40px;
+  border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+  margin: 0 12px;
+  overflow: hidden;
+  padding: 0 32px;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 1;
+}
+.side-close-btn {
+  color: #6b778c;
+  padding: 10px 12px 10px 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+.side-close-btn:hover {
+  color: #172b4d;
 }

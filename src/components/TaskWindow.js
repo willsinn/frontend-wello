@@ -15,6 +15,7 @@ const TaskWindow = ({
 }) => {
   const [task, setTask] = useState({});
   const [note, setNote] = useState(initialState);
+  const [sidebtn, setSidebtn] = useState("");
 
   const handleNoteEdit = () => {
     setTask(editTask);
@@ -45,6 +46,8 @@ const TaskWindow = ({
       clearState(e);
     }
   };
+  console.log(sidebtn);
+
   return (
     <div className="window-modal">
       <div className="task-window">
@@ -93,8 +96,35 @@ const TaskWindow = ({
             </div>
             <div className="task-window-sidebar">
               <h3 className="sidebar-title">add to task</h3>
-              <div className="sidebar-btn">Labels</div>
-              <div className="sidebar-btn">Checklist</div>
+
+              {sidebtn === "label" ? (
+                <div className="side-popover">
+                  <div className="no-back">
+                    <div className="side-popover-header">
+                      <span className="side-popover-header-title">
+                        Add Checklist
+                      </span>
+                      <button
+                        onClick={(e) => setSidebtn("")}
+                        className="side-close-btn"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                    <div className="side-popover-body"></div>
+                  </div>
+                </div>
+              ) : null}
+              <div className="sidebar-btn" onClick={(e) => setSidebtn("label")}>
+                Labels
+              </div>
+
+              <div
+                className="sidebar-btn"
+                onClick={(e) => setSidebtn("checklist")}
+              >
+                Checklist
+              </div>
             </div>
           </div>
         </div>
