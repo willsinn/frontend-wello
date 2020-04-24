@@ -1844,7 +1844,9 @@ button {
 }
 .module-header {
   margin: 12px 40px 6px 40px;
+  align-items: center;
   display: flex;
+  justify-content: space-between;
 }
 .module-title {
   font-weight: 525;
@@ -1936,7 +1938,7 @@ button {
 }
 .task-window-sidebar {
   float: right;
-  padding: 0 16px 8px 8px;
+  padding: 0 8px 8px 8px;
   margin: 0 8px;
   width: 168px;
   overflow: hidden;
@@ -2075,4 +2077,11 @@ button {
   transition-property: background-color, border-color, box-shadow;
   transition-duration: 85ms;
   transition-timing-function: ease;
+}
+.module-btns {
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  width: 242px;
+  justify-content: space-between;
 }

@@ -4,10 +4,12 @@ const Checklist = ({ checklist }) => {
   return (
     <div className="checklist">
       <div className="task-window-desc">
-        <div className="module-header">
+        <div className="module-header" style={{ margin: "0 0 4px 40px" }}>
           <h3 className="module-title">{checklist.title}</h3>
-          <button>Hide Completed Items</button>
-          <button>Delete</button>
+          <div className="module-btns">
+            <button className="sidebar-btn">Hide Completed Items</button>
+            <button className="sidebar-btn">Delete</button>
+          </div>
         </div>
         <div className="module-body"></div>
       </div>
