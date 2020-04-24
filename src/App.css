@@ -1786,6 +1786,7 @@ button {
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
 }
 .task-window {
   width: 768px;
@@ -1825,15 +1826,18 @@ button {
   width: 98%;
 }
 .task-window-header {
-  margin: 12px 40px 8px 56px;
+  margin: 12px 40px 8px 72px;
   padding-top: 12px;
   min-height: 32px;
   position: relative;
   z-index: 1;
 }
 .task-window-body {
-  height: 277px;
+  height: 600px;
+  min-height: 600px;
   width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 .module-header {
   margin: 12px 40px 6px 40px;
@@ -1926,4 +1930,17 @@ button {
 }
 .curr-desc {
   margin: 0 0 8px 40px;
+}
+.task-window-sidebar {
+  float: right;
+  padding: 0 16px 8px 8px;
+  width: 168px;
+  overflow: hidden;
+  z-index: 10;
+  background-color: blue;
+  height: 100%;
+}
+.body-right-window {
+  width: 504px;
+  max-width: 504px;
 }

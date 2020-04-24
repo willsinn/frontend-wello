@@ -82,8 +82,11 @@ const TaskWindow = ({
             </div>
           </div>
           <div className="task-window-body" onClick={handleSave}>
-            <TaskWindowDescription task={editTask} />
-            <TaskChecklist task={editTask} />
+            <div className="body-right-window">
+              <TaskWindowDescription task={editTask} />
+              <TaskChecklist task={editTask} />
+            </div>
+            <div className="task-window-sidebar"></div>
           </div>
         </div>
       </div>
