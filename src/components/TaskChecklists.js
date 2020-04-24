@@ -1,11 +1,11 @@
 import React from "react";
-import TaskChecklistItem from "./TaskChecklistItem";
+import Checklist from "./Checklist";
 import { connect } from "react-redux";
 
 const TaskChecklists = (props, { task, dispatch }) => {
   const renderChecklists = () => {
     return props.checklists.map((checklist) => {
-      return <TaskChecklistItem key={checklist.id} checklist={checklist} />;
+      return <Checklist key={checklist.id} checklist={checklist} />;
     });
   };
   return <div>{renderChecklists()}</div>;
