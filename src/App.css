@@ -1826,7 +1826,7 @@ button {
   width: 98%;
 }
 .task-window-header {
-  margin: 12px 40px 8px 72px;
+  margin: 12px 40px 8px 56px;
   padding-top: 12px;
   min-height: 32px;
   position: relative;
@@ -1837,7 +1837,7 @@ button {
   min-height: 600px;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .module-header {
   margin: 12px 40px 6px 40px;
@@ -1925,8 +1925,8 @@ button {
   line-height: 20px;
   margin-bottom: 8px;
   padding: 8px 12px;
-  border: none;
-  width: 90%;
+  border: 2px solid blue;
+  width: 92%;
 }
 .curr-desc {
   margin: 0 0 8px 40px;

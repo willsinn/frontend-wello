@@ -57,7 +57,12 @@ const TaskWindow = ({
               {task.id === undefined ? (
                 <h1
                   className="card-text"
-                  style={{ fontSize: "1.70em", minHeight: "22px", margin: "0" }}
+                  style={{
+                    fontSize: "1.70em",
+                    minHeight: "28px",
+                    height: "28px",
+                    margin: "0",
+                  }}
                   onClick={(e) => handleNoteEdit()}
                 >
                   {editTask.note}
