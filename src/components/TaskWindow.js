@@ -91,7 +91,11 @@ const TaskWindow = ({
               <TaskWindowDescription task={editTask} />
               <TaskChecklist task={editTask} />
             </div>
-            <div className="task-window-sidebar"></div>
+            <div className="task-window-sidebar">
+              <h3 className="sidebar-title">add to task</h3>
+              <div className="sidebar-btn">Labels</div>
+              <div className="sidebar-btn">Checklist</div>
+            </div>
           </div>
         </div>
       </div>

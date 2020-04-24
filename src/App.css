@@ -1789,7 +1789,7 @@ button {
   overflow-y: scroll;
 }
 .task-window {
-  width: 800px;
+  width: 768px;
   background-color: #f4f5f7;
   border-radius: 2px;
   margin: 48px 8px 80px;
@@ -1934,13 +1934,52 @@ button {
 .task-window-sidebar {
   float: right;
   padding: 0 16px 8px 8px;
+  margin: 0 8px;
   width: 168px;
   overflow: hidden;
   z-index: 10;
-  background-color: blue;
   height: 100%;
 }
 .body-right-window {
   width: 504px;
   max-width: 504px;
+}
+.sidebar-btn {
+  background-color: rgba(9, 30, 66, 0.04);
+  box-shadow: none;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 32px;
+  margin-top: 8px;
+  max-width: 300px;
+  overflow: hidden;
+  padding: 6px 12px;
+  position: relative;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  white-space: nowrap;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 85ms;
+  transition-timing-function: ease;
+}
+.sidebar-btn:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  box-shadow: none;
+  border: none;
+}
+.sidebar-title {
+  color: #5e6c84;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 16px;
+  margin-top: 16px;
+  text-transform: uppercase;
+  line-height: 20px;
+  margin-bottom: -4px;
+  margin-left: -4px;
 }
