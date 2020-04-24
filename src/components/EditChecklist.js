@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { saveTaskDesc } from "../actions/workspace";
-
+import { saveChecklistTitle } from "../actions/checklists";
 import { connect } from "react-redux";
 
 const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
   const [title, setTitle] = useState(checklist.title);
-  const [editable, setEditable] = useState(false);
   const handleChange = (e) => {
     e.persist(e);
     setTitle(e.target.value);
@@ -13,13 +11,9 @@ const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(saveTaskDesc(checklist, title));
-      setEditable(false);
+      dispatch(saveChecklistTitle(checklist, title));
+      handleCloseEditing();
     }
-  };
-  const handleExitEditable = (e) => {
-    setEditable(false);
-    setTitle(checklist.title);
   };
 
   return (
