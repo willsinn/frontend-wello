@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TaskWindowDescription from "./TaskWindowDescription";
 import TaskChecklist from "./TaskChecklist";
+import AddChecklist from "./AddChecklist";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 
@@ -111,7 +112,9 @@ const TaskWindow = ({
                         ✕
                       </button>
                     </div>
-                    <div className="side-popover-body"></div>
+                    <div className="side-popover-body">
+                      <AddChecklist />
+                    </div>
                   </div>
                 </div>
               ) : null}

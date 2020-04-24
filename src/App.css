@@ -2014,6 +2014,7 @@ button {
   text-overflow: ellipsis;
   white-space: nowrap;
   z-index: 1;
+  margin-bottom: 8px;
 }
 .side-close-btn {
   color: #6b778c;
@@ -2025,4 +2026,30 @@ button {
 }
 .side-close-btn:hover {
   color: #172b4d;
+}
+.id-checklist {
+  font-weight: 700;
+  color: #5e6c84;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  display: block;
+}
+.side-popover-body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 12px 12px;
+  justify-content: center;
+  display: flex;
+}
+.add-checklist {
+  width: 230px;
+  max-width: 230px;
+}
+.add-checklist-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
