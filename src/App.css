@@ -1845,6 +1845,7 @@ button {
 .module-header {
   margin: 12px 40px 6px 40px;
   align-items: center;
+  text-align: center;
   display: flex;
   justify-content: space-between;
 }
