@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import EditChecklist from "./EditChecklist";
 
 const Checklist = ({ checklist, editChecklist, handleEditTitle }) => {
   return (
     <div className="checklist">
       <div className="task-window-desc">
         {editChecklist.id && checklist.id === editChecklist.id ? (
-          <textarea />
+          <EditChecklist checklist={checklist} />
         ) : (
           <div className="module-header" style={{ margin: "0 0 4px 40px" }}>
             <h3
