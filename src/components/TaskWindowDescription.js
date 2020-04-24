@@ -21,7 +21,6 @@ const TaskWindowDescription = ({ task, dispatch }) => {
     setEditable(false);
     setDesc(task.task_desc);
   };
-  console.log(task, desc);
 
   return (
     <div className="task-window-desc">

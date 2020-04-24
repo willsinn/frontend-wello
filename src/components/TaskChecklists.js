@@ -3,13 +3,12 @@ import TaskChecklistItem from "./TaskChecklistItem";
 import { connect } from "react-redux";
 
 const TaskChecklists = (props, { task, dispatch }) => {
-  console.log(props.checklists);
   const renderChecklists = () => {
     return props.checklists.map((checklist) => {
-      return <TaskChecklistItem checklist={checklist} />;
+      return <TaskChecklistItem key={checklist.id} checklist={checklist} />;
     });
   };
-  return <div>{renderChecklists}</div>;
+  return <div>{renderChecklists()}</div>;
 };
 
 const mapStateToProps = (state) => {
