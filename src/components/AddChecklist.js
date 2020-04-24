@@ -5,8 +5,8 @@ const AddChecklist = () => {
     <div className="add-checklist">
       <form className="add-checklist-form">
         <label for="id-checklist">Title</label>
-        <input />
-        <button>Add</button>
+        <input className="add-checklist-input" />
+        <button className="checklist-btn add-list-btn">Add</button>
       </form>
     </div>
   );
