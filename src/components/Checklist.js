@@ -45,6 +45,11 @@ const Checklist = ({
           </div>
         )}
 
+        <div className="checklist-progress">
+          <span className="checklist-progress-percentage"></span>
+          <div className="checklist-progress-bar"></div>
+        </div>
+
         <div className="module-body"></div>
       </div>
       {del.id && del.id === checklist.id ? (
