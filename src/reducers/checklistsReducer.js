@@ -1,3 +1,5 @@
+import { updateChecklist } from "../actions/checklists";
+
 const defaultState = {
   checklists: [],
   items: [],
@@ -25,17 +27,20 @@ const checklistsReducer = (state = defaultState, action) => {
       );
       return { ...state, checklists: remainingLists };
     case "ADD_LIST_ITEM":
-      const targetChecklist = state.checklists.filter(
-        (checklist) => checklist.id === action.item.task_checklist_id
-      );
-      console.log(targetChecklist, action.checklist);
       debugger;
+      const updatedChecklists = state.checklists.map((checklist) => {
+        if (checklist.id === action.item.checklist_id) {
+          const updatedItems = [...checklist.items, action.item];
+          return { ...checklist, items: updatedItems };
+        } else {
+          return checklist;
+        }
+      });
+      console.log(updatedChecklists);
 
       return {
         ...state,
-        checklists: {
-          ...state.checklists,
-        },
+        checklists: updatedChecklists,
       };
     default:
       return state;

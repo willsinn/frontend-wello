@@ -82,20 +82,17 @@ export const deleteChecklist = (checklist) => {
 };
 export const postNewListItem = (checklist, item) => {
   return (dispatch) => {
-    fetch(
-      `http://localhost:3000/checklist/${checklist.id}/task_checklist_item/new`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          task_checklist_id: checklist.id,
-          item: item,
-        }),
-      }
-    )
+    fetch(`http://localhost:3000/checklist/${checklist.id}/item/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        checklist_id: checklist.id,
+        item: item,
+      }),
+    })
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(addListItem(JSONresponse)));
   };
