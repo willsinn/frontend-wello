@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EditChecklist from "./EditChecklist";
 import AddChecklistItem from "./AddChecklistItem";
+import ChecklistItemList from "./ChecklistItemList";
 import { deleteChecklist } from "../actions/checklists";
 import { connect } from "react-redux";
 
@@ -51,12 +52,7 @@ const Checklist = ({
             </div>
           </div>
         )}
-
-        <div className="checklist-progress">
-          <span className="checklist-progress-percentage"></span>
-          <div className="checklist-progress-bar"></div>
-        </div>
-
+        <ChecklistItemList items={checklist.items} />
         {!active ? (
           <div className="checklist-add-new-item">
             <button className="sidebar-btn" onClick={(e) => setActive(true)}>

@@ -27,7 +27,6 @@ const checklistsReducer = (state = defaultState, action) => {
       );
       return { ...state, checklists: remainingLists };
     case "ADD_LIST_ITEM":
-      debugger;
       const updatedChecklists = state.checklists.map((checklist) => {
         if (checklist.id === action.item.checklist_id) {
           const updatedItems = [...checklist.items, action.item];

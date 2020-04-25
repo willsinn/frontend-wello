@@ -20,7 +20,7 @@ const TaskChecklists = (props, { checklists, dispatch }) => {
     setEditChecklist(checklist);
   };
   const renderChecklists = () => {
-    if (props.checklists.length > 0) {
+    if (props.checklists && props.checklists.length > 0) {
       return props.checklists.map((checklist) => {
         return (
           <Checklist
