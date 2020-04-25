@@ -2155,6 +2155,7 @@ button {
   word-break: break-word;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  padding-left: 40px;
 }
 .checklist-item-details,
 .checklist-item-row,
