@@ -50,7 +50,9 @@ const Checklist = ({
           <div className="checklist-progress-bar"></div>
         </div>
 
-        <div className="module-body"></div>
+        <div className="checklist-add-new-item">
+          <button className="sidebar-btn">Add an item</button>
+        </div>
       </div>
       {del.id && del.id === checklist.id ? (
         <div className="side-popover" style={{ top: "248px", right: "4em" }}>
