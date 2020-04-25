@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EditChecklist from "./EditChecklist";
+import AddChecklistItem from "./AddChecklistItem";
 import { deleteChecklist } from "../actions/checklists";
 import { connect } from "react-redux";
 
@@ -13,6 +14,7 @@ const Checklist = ({
   handleCancelDelete,
   dispatch,
 }) => {
+  const [active, setActive] = useState(false);
   const handleDelete = (e) => {
     dispatch(deleteChecklist(checklist, dispatch));
     handleCancelDelete(e);
@@ -50,9 +52,15 @@ const Checklist = ({
           <div className="checklist-progress-bar"></div>
         </div>
 
-        <div className="checklist-add-new-item">
-          <button className="sidebar-btn">Add an item</button>
-        </div>
+        {!active ? (
+          <div className="checklist-add-new-item">
+            <button className="sidebar-btn" onClick={(e) => setActive(true)}>
+              Add an item
+            </button>
+          </div>
+        ) : (
+          <AddChecklistItem checklist={checklist} />
+        )}
       </div>
       {del.id && del.id === checklist.id ? (
         <div className="side-popover" style={{ top: "248px", right: "4em" }}>

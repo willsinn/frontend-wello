@@ -1,5 +1,6 @@
 const defaultState = {
   checklists: [],
+  checklistItems: [],
 };
 const checklistsReducer = (state = defaultState, action) => {
   switch (action.type) {
