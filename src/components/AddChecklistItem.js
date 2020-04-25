@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { postNewListItem } from "../actions/checklists";
+import { connect } from "react-redux";
 
-const AddChecklistItem = ({ checklist }) => {
-  const [item, setItem] = useState("Add an item.");
+const AddChecklistItem = ({ checklist, handleCloseAdd, dispatch }) => {
+  const [item, setItem] = useState("");
   const handleChange = (e) => {
     e.persist(e);
     setItem(e.target.value);
@@ -9,6 +11,9 @@ const AddChecklistItem = ({ checklist }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
+      dispatch(postNewListItem(checklist, item));
+      setItem("");
+      handleCloseAdd(e);
     }
   };
 
@@ -24,7 +29,6 @@ const AddChecklistItem = ({ checklist }) => {
         >
           <textarea
             className="edit-checklist"
-            placeholder="Add a more detailed description…"
             type="text"
             name="item"
             onChange={(e) => handleChange(e)}
@@ -41,11 +45,15 @@ const AddChecklistItem = ({ checklist }) => {
         >
           Add
         </button>
-        <button className="close-add-btn" style={{ paddingLeft: "12px" }}>
+        <button
+          className="close-add-btn"
+          style={{ paddingLeft: "12px" }}
+          onClick={(e) => handleCloseAdd(e)}
+        >
           ✕
         </button>
       </div>
     </div>
   );
 };
-export default AddChecklistItem;
+export default connect()(AddChecklistItem);

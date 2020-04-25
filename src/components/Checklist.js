@@ -19,6 +19,9 @@ const Checklist = ({
     dispatch(deleteChecklist(checklist, dispatch));
     handleCancelDelete(e);
   };
+  const handleCloseAdd = (e) => {
+    setActive(false);
+  };
   return (
     <div className="checklist">
       <div className="task-window-desc">
@@ -59,7 +62,10 @@ const Checklist = ({
             </button>
           </div>
         ) : (
-          <AddChecklistItem checklist={checklist} />
+          <AddChecklistItem
+            checklist={checklist}
+            handleCloseAdd={handleCloseAdd}
+          />
         )}
       </div>
       {del.id && del.id === checklist.id ? (

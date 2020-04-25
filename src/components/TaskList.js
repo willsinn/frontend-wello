@@ -3,7 +3,7 @@ import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
 import TaskWindow from "../components/TaskWindow";
 import QuickTaskEditor from "../components/QuickTaskEditor";
-import { fetchTaskChecklists } from "../actions/checklists";
+import { fetchChecklists } from "../actions/checklists";
 import { connect } from "react-redux";
 
 const TaskList = ({ card, dispatch }) => {
@@ -24,7 +24,7 @@ const TaskList = ({ card, dispatch }) => {
   };
   const handleRenderTaskWindow = (task) => {
     setEditTask(task);
-    dispatch(fetchTaskChecklists(task));
+    dispatch(fetchChecklists(task));
     setWindow(true);
   };
   const handleCloseWindow = () => {

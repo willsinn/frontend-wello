@@ -6,6 +6,10 @@ export const addList = (checklist) => ({
   type: "ADD_LIST",
   checklist,
 });
+export const addListItem = (item) => ({
+  type: "ADD_LIST_ITEM",
+  item,
+});
 export const updateChecklist = (checklist) => ({
   type: "UPDATE_CHECKLIST",
   checklist,
@@ -16,7 +20,7 @@ export const removeChecklist = (checklist) => ({
 });
 export const postNewChecklist = (task, title) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/${task.id}/task_checklists/new`, {
+    fetch(`http://localhost:3000/task/${task.id}/checklists/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,16 +37,21 @@ export const postNewChecklist = (task, title) => {
       });
   };
 };
-export const fetchTaskChecklists = (task) => {
+export const fetchChecklists = (task) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/${task.id}/task_checklists`)
+    fetch(`http://localhost:3000/task/${task.id}/checklists`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(setLists(JSONresponse)));
   };
 };
 export const saveChecklistTitle = (checklist, title) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task_checklists/${checklist.id}/update`, {
+    fetch(`http://localhost:3000/checklists/${checklist.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +70,7 @@ export const saveChecklistTitle = (checklist, title) => {
 export const deleteChecklist = (checklist) => {
   return (dispatch) => {
     dispatch(removeChecklist(checklist));
-    fetch(`http://localhost:3000/task_checklists/${checklist.id}/delete`, {
+    fetch(`http://localhost:3000/checklists/${checklist.id}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -76,7 +85,7 @@ export const deleteChecklist = (checklist) => {
 export const postNewListItem = (checklist, item) => {
   return (dispatch) => {
     fetch(
-      `http://localhost:3000/task_checklists/${checklist.id}/task_checklist_item/new`,
+      `http://localhost:3000/checklist/${checklist.id}/task_checklist_item/new`,
       {
         method: "POST",
         headers: {
@@ -85,9 +94,11 @@ export const postNewListItem = (checklist, item) => {
         },
         body: JSON.stringify({
           task_checklist_id: checklist.id,
-          item: `${item}`,
+          item: item,
         }),
       }
-    );
+    )
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(addListItem(JSONresponse)));
   };
 };
