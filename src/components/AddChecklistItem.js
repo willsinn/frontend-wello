@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const AddChecklistItem = ({ checklist }) => {
-  const [item, setItem] = useState(checklist.item);
+  const [item, setItem] = useState("Add an item.");
   const handleChange = (e) => {
     e.persist(e);
     setItem(e.target.value);
@@ -11,6 +11,8 @@ const AddChecklistItem = ({ checklist }) => {
       e.preventDefault();
     }
   };
+
+  console.log("add chklistItem", checklist.id, item);
 
   return (
     <div className="editing">
@@ -24,10 +26,10 @@ const AddChecklistItem = ({ checklist }) => {
             className="edit-checklist"
             placeholder="Add a more detailed description…"
             type="text"
-            name="desc"
-            value={item}
-            placeholder="Add an item."
+            name="item"
             onChange={(e) => handleChange(e)}
+            value={item.value}
+            placeholder="Add an item."
           />
         </form>
       </div>
@@ -37,7 +39,7 @@ const AddChecklistItem = ({ checklist }) => {
           style={{ paddingLeft: "12px", paddingRight: "12px", margin: "0" }}
           onClick={handleSubmit}
         >
-          Save
+          Add
         </button>
         <button className="close-add-btn" style={{ paddingLeft: "12px" }}>
           ✕
