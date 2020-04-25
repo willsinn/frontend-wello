@@ -2168,6 +2168,7 @@ button {
   padding: 6px 0;
   width: 100%;
   display: inline-flex;
+  position: relative;
   cursor: pointer;
 }
 .checklist-item-details-text {
@@ -2191,23 +2192,18 @@ button {
 }
 .checklist-item-controls {
   box-sizing: border-box;
-  padding: 3px;
-  height: 28px;
-  width: 28px;
+  position: absolute;
+  top: 3.5px;
+  right: 3px;
+  height: 26px;
+  width: 26px;
   border-radius: 3px;
   cursor: pointer;
   margin-left: 6px;
-  min-width: 28px;
+  min-width: 26px;
   display: flex;
   justify-content: center;
   align-content: center;
-
-  /* display: inline-flex;
-  flex-direction: row;
-  border-radius: 3px;
-  position: absolute;
-  top: 2px;
-  right: 2px; */
 }
 .checklist-item-controls:hover {
   background-color: rgba(9, 30, 66, 0.08);
