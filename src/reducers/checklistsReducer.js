@@ -16,6 +16,11 @@ const checklistsReducer = (state = defaultState, action) => {
         }
       });
       return { ...state, checklists: updatedLists };
+    case "REMOVE_CHECKLIST":
+      const remainingLists = state.checklists.filter(
+        (checklist) => checklist.id !== action.checklist.id
+      );
+      return { ...state, checklists: remainingLists };
     default:
       return state;
   }

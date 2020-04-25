@@ -73,3 +73,21 @@ export const deleteChecklist = (checklist) => {
     });
   };
 };
+export const postNewListItem = (checklist, item) => {
+  return (dispatch) => {
+    fetch(
+      `http://localhost:3000/task_checklists/${checklist.id}/task_checklist_item/new`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          task_checklist_id: checklist.id,
+          item: `${item}`,
+        }),
+      }
+    );
+  };
+};
