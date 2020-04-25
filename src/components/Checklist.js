@@ -22,6 +22,8 @@ const Checklist = ({
   const handleCloseAdd = (e) => {
     setActive(false);
   };
+  console.log(checklist);
+
   return (
     <div className="checklist">
       <div className="task-window-desc">

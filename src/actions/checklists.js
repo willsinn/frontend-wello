@@ -32,9 +32,7 @@ export const postNewChecklist = (task, title) => {
       }),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => {
-        dispatch(addList(JSONresponse));
-      });
+      .then((JSONresponse) => dispatch(addList(JSONresponse)));
   };
 };
 export const fetchChecklists = (task) => {
