@@ -10,6 +10,9 @@ const ChecklistItemList = ({ items }) => {
   const handleEditing = (e, item) => {
     setEditing(item);
   };
+  const handleCloseEditing = () => {
+    setEditing({});
+  };
   const renderChecklistItems = () => {
     if (items && items.length > 0) {
       return items.map((item) => {
@@ -21,6 +24,7 @@ const ChecklistItemList = ({ items }) => {
             editing={editing}
             handleEditing={handleEditing}
             handleHoveringItem={handleHoveringItem}
+            handleCloseEditing={handleCloseEditing}
           />
         );
       });

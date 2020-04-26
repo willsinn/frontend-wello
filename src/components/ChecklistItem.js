@@ -7,6 +7,7 @@ const ChecklistItem = ({
   editing,
   handleHoveringItem,
   handleEditing,
+  handleCloseEditing,
 }) => {
   console.log(editing);
 
@@ -19,7 +20,10 @@ const ChecklistItem = ({
       <div className="checklist-item-details">
         <div className="checklist-item-row">
           {editing.id && editing.id === item.id ? (
-            <EditChecklistItem item={item} />
+            <EditChecklistItem
+              item={item}
+              handleCloseEditing={handleCloseEditing}
+            />
           ) : (
             <div
               className="checklist-item-text-and-controls checklist-item-details"

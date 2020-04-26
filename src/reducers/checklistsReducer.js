@@ -26,6 +26,7 @@ const checklistsReducer = (state = defaultState, action) => {
         (checklist) => checklist.id !== action.checklist.id
       );
       return { ...state, checklists: remainingLists };
+
     case "ADD_LIST_ITEM":
       const updatedChecklists = state.checklists.map((checklist) => {
         if (checklist.id === action.item.checklist_id) {
@@ -35,12 +36,27 @@ const checklistsReducer = (state = defaultState, action) => {
           return checklist;
         }
       });
-      console.log(updatedChecklists);
-
       return {
         ...state,
         checklists: updatedChecklists,
       };
+    case "UPDATE_LIST_ITEM":
+      const updateChecklistItems = state.checklists.map((checklist) => {
+        if (checklist.id === action.item.checklist_id) {
+          const updatedItems = checklist.items.map((item) => {
+            item.id === action.item.id ? action.item : item;
+          });
+          return {
+            checklist: { checklist, items: updatedItems },
+          };
+        } else {
+          return checklist;
+        }
+      });
+      console.log(updateChecklistItems);
+      debugger;
+
+      return { ...state };
     default:
       return state;
   }

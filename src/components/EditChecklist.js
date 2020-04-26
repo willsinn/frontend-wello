@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { saveChecklistTitle } from "../actions/checklists";
+import { saveItemDetails } from "../actions/checklists";
 import { connect } from "react-redux";
 
 const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
@@ -11,7 +11,7 @@ const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(saveChecklistTitle(checklist, title));
+      dispatch(saveItemDetails(checklist, title));
       handleCloseEditing();
     }
   };

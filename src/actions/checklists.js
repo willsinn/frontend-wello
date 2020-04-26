@@ -10,6 +10,10 @@ export const addListItem = (item) => ({
   type: "ADD_LIST_ITEM",
   item,
 });
+export const updateListItem = (item) => ({
+  type: "UPDATE_LIST_ITEM",
+  item,
+});
 export const updateChecklist = (checklist) => ({
   type: "UPDATE_CHECKLIST",
   checklist,
@@ -95,5 +99,23 @@ export const postNewListItem = (checklist, item) => {
     })
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(addListItem(JSONresponse)));
+  };
+};
+
+export const saveItemDetail = (item, detail) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/items/${item.id}/update`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        item_id: item.id,
+        item: detail,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(updateListItem(JSONresponse)));
   };
 };
