@@ -7,8 +7,8 @@ const ChecklistItemList = ({ items }) => {
   const handleHoveringItem = (e, tarItem) => {
     setHovering({ id: tarItem.id });
   };
-  const handleEditing = (item) => {
-    setEditing({ item });
+  const handleEditing = (e, item) => {
+    setEditing(item);
   };
   const renderChecklistItems = () => {
     if (items && items.length > 0) {

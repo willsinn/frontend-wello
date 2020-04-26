@@ -8,7 +8,7 @@ const ChecklistItem = ({
   handleHoveringItem,
   handleEditing,
 }) => {
-  console.log(editing, item, hovering);
+  console.log(editing);
 
   return (
     <div
@@ -18,21 +18,21 @@ const ChecklistItem = ({
       <div className="checklist-item-check-box"></div>
       <div className="checklist-item-details">
         <div className="checklist-item-row">
-          {"make conditional that renders current item cols when editing is {}" ? (
+          {editing.id && editing.id === item.id ? (
             <EditChecklistItem item={item} />
           ) : (
             <div
               className="checklist-item-text-and-controls checklist-item-details"
-              onClick={(e) => handleEditing(item)}
+              onClick={(e) => handleEditing(e, item)}
             >
               <span className="checklist-item-details-text">{item.item}</span>
             </div>
           )}
           <div>
             {hovering.id === item.id ? (
-              <div class="checklist-item-controls">
-                <div class="checklist-item-menu js-open-menu">
-                  <span class="checklist-icon-sm icon-sm icon-overflow-menu-horizontal">
+              <div className="checklist-item-controls">
+                <div className="checklist-item-menu js-open-menu">
+                  <span className="checklist-icon-sm icon-sm icon-overflow-menu-horizontal">
                     ...
                   </span>
                 </div>
