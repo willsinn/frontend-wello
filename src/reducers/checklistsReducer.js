@@ -44,16 +44,21 @@ const checklistsReducer = (state = defaultState, action) => {
       const updateChecklistItems = state.checklists.map((checklist) => {
         if (checklist.id === action.item.checklist_id) {
           const updatedItems = checklist.items.map((item) => {
-            item.id === action.item.id ? action.item : item;
+            if (item.id === action.item.id) {
+              return action.item;
+            } else {
+              return item;
+            }
           });
           return {
-            checklist: { checklist, items: updatedItems },
+            checklist,
+            items: updatedItems,
           };
         } else {
           return checklist;
         }
       });
-      console.log(updateChecklistItems);
+      console.log(updateChecklistItems, action.item);
       debugger;
 
       return { ...state };

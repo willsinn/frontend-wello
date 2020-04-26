@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import EditChecklistItem from "./EditChecklistItem";
 
 const ChecklistItem = ({
@@ -9,8 +9,6 @@ const ChecklistItem = ({
   handleEditing,
   handleCloseEditing,
 }) => {
-  console.log(editing);
-
   return (
     <div
       className="checklist-item"
@@ -19,9 +17,10 @@ const ChecklistItem = ({
       <div className="checklist-item-check-box"></div>
       <div className="checklist-item-details">
         <div className="checklist-item-row">
-          {editing.id && editing.id === item.id ? (
+          {editing.id === item.id ? (
             <EditChecklistItem
               item={item}
+              editing={editing}
               handleCloseEditing={handleCloseEditing}
             />
           ) : (

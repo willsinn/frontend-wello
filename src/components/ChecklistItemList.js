@@ -10,8 +10,8 @@ const ChecklistItemList = ({ items }) => {
   const handleEditing = (e, item) => {
     setEditing(item);
   };
-  const handleCloseEditing = () => {
-    setEditing({});
+  const handleCloseEditing = (e) => {
+    setEditing({ editing: {} });
   };
   const renderChecklistItems = () => {
     if (items && items.length > 0) {

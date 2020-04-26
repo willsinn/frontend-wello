@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { saveItemTitle } from "../actions/checklists";
+import { saveItemDetail } from "../actions/checklists";
 import { connect } from "react-redux";
 
-const EditChecklistItem = ({ item, handleCloseEditing, dispatch }) => {
-  const [detail, setDetail] = useState(item.item);
+const EditChecklistItem = (
+  props,
+  { item, editing, handleCloseEditing, dispatch }
+) => {
+  const [detail, setDetail] = useState(editing);
   const handleChange = (e) => {
     e.persist(e);
     setDetail(e.target.value);
@@ -11,7 +14,7 @@ const EditChecklistItem = ({ item, handleCloseEditing, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(saveItemTitle(item, detail));
+      props.dispatch(saveItemDetail(editing, detail));
       handleCloseEditing();
     }
   };
@@ -44,7 +47,7 @@ const EditChecklistItem = ({ item, handleCloseEditing, dispatch }) => {
         <button
           className="close-add-btn"
           style={{ paddingLeft: "12px" }}
-          onClick={handleCloseEditing}
+          onClick={(e) => props.handleCloseEditing(e)}
         >
           ✕
         </button>

@@ -1915,6 +1915,8 @@ button {
 .description-form {
   border-radius: 3px;
   border-color: rgba(9, 30, 66, 0.13);
+  min-width: 92%;
+  max-width: 92%;
 }
 .description-field {
   overflow: hidden;
@@ -2163,6 +2165,7 @@ button {
   display: flex;
   flex-direction: row;
   cursor: pointer;
+  width: 100%;
 }
 .checklist-item-text-and-controls {
   padding: 6px 0;
@@ -2180,12 +2183,12 @@ button {
 .checklist-item-menu {
   box-sizing: border-box;
   padding: 2px;
-  height: 28px;
-  width: 28px;
+  height: 22px;
+  width: 22px;
   border-radius: 3px;
-  cursor: pointer;
   margin-left: 5px;
-  min-width: 28px;
+  min-width: 22px;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -2193,14 +2196,14 @@ button {
 .checklist-item-controls {
   box-sizing: border-box;
   position: absolute;
-  top: 2px;
-  right: 2px;
-  min-height: 28px;
-  max-height: 28px;
-  max-width: 28px;
+  top: 3px;
+  right: 4.5px;
+  min-height: 26px;
+  max-height: 26px;
+  max-width: 26px;
   border-radius: 3px;
   cursor: pointer;
-  min-width: 28px;
+  min-width: 26px;
 }
 .checklist-item-controls:hover {
   background-color: rgba(9, 30, 66, 0.08);
@@ -2208,8 +2211,11 @@ button {
 }
 .checklist-icon-sm {
   height: 12px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 14px;
   width: 28px;
   font-weight: 600;
+}
+.editing-checklist-item {
+  width: 100%;
 }
