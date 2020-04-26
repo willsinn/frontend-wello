@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import EditChecklistItem from "./EditChecklistItem";
 
 const ChecklistItem = ({
   item,
   hovering,
   editing,
+  menu,
   handleHoveringItem,
   handleEditing,
   handleCloseEditing,
+  renderMenu,
 }) => {
   return (
     <div
@@ -33,7 +35,10 @@ const ChecklistItem = ({
           )}
           <div>
             {hovering.id === item.id ? (
-              <div className="checklist-item-controls">
+              <div
+                className="checklist-item-controls"
+                onClick={(e) => renderMenu(item)}
+              >
                 <div className="checklist-item-menu js-open-menu">
                   <span className="checklist-icon-sm icon-sm icon-overflow-menu-horizontal">
                     ...
@@ -44,6 +49,9 @@ const ChecklistItem = ({
           </div>
         </div>
       </div>
+      {menu.id && menu.id === item.id ? (
+        <div className="checklist-menu">{menu.item}</div>
+      ) : null}
     </div>
   );
 };

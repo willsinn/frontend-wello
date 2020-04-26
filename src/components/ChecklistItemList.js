@@ -4,6 +4,10 @@ import ChecklistItem from "./ChecklistItem";
 const ChecklistItemList = ({ items }) => {
   const [hovering, setHovering] = useState({ id: undefined });
   const [editing, setEditing] = useState({});
+  const [menu, setMenu] = useState({});
+  const renderMenu = (item) => {
+    setMenu(item);
+  };
   const handleHoveringItem = (e, tarItem) => {
     setHovering({ id: tarItem.id });
   };
@@ -12,6 +16,7 @@ const ChecklistItemList = ({ items }) => {
   };
   const handleCloseEditing = (e) => {
     setEditing({ editing: {} });
+    setMenu({});
   };
   const renderChecklistItems = () => {
     if (items && items.length > 0) {
@@ -22,9 +27,11 @@ const ChecklistItemList = ({ items }) => {
             item={item}
             hovering={hovering}
             editing={editing}
+            menu={menu}
             handleEditing={handleEditing}
             handleHoveringItem={handleHoveringItem}
             handleCloseEditing={handleCloseEditing}
+            renderMenu={renderMenu}
           />
         );
       });

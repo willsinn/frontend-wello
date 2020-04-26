@@ -2219,3 +2219,13 @@ button {
 .editing-checklist-item {
   width: 100%;
 }
+
+.checklist-menu {
+  width: 300px;
+  height: 150px;
+  background-color: white;
+  position: absolute;
+  z-index: 70;
+  top: 0;
+  right: 0;
+}
