@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import EditChecklistItem from "./EditChecklistItem";
 
 const ChecklistItem = ({
   item,
@@ -7,6 +8,8 @@ const ChecklistItem = ({
   handleHoveringItem,
   handleEditing,
 }) => {
+  console.log(editing, item, hovering);
+
   return (
     <div
       className="checklist-item"
@@ -15,12 +18,16 @@ const ChecklistItem = ({
       <div className="checklist-item-check-box"></div>
       <div className="checklist-item-details">
         <div className="checklist-item-row">
-          <div
-            className="checklist-item-text-and-controls checklist-item-details"
-            onClick={(e) => handleEditing(item)}
-          >
-            <span className="checklist-item-details-text">{item.item}</span>
-          </div>
+          {"make conditional that renders current item cols when editing is {}" ? (
+            <EditChecklistItem item={item} />
+          ) : (
+            <div
+              className="checklist-item-text-and-controls checklist-item-details"
+              onClick={(e) => handleEditing(item)}
+            >
+              <span className="checklist-item-details-text">{item.item}</span>
+            </div>
+          )}
           <div>
             {hovering.id === item.id ? (
               <div class="checklist-item-controls">
