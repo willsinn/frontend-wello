@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ChecklistItem = ({ item, hovering, handleHoveringItem }) => {
-  console.log("c", item, hovering);
-
+const ChecklistItem = ({
+  item,
+  hovering,
+  editing,
+  handleHoveringItem,
+  handleEditing,
+}) => {
   return (
     <div
       className="checklist-item"
@@ -11,7 +15,10 @@ const ChecklistItem = ({ item, hovering, handleHoveringItem }) => {
       <div className="checklist-item-check-box"></div>
       <div className="checklist-item-details">
         <div className="checklist-item-row">
-          <div className="checklist-item-text-and-controls checklist-item-details">
+          <div
+            className="checklist-item-text-and-controls checklist-item-details"
+            onClick={(e) => handleEditing(item)}
+          >
             <span className="checklist-item-details-text">{item.item}</span>
           </div>
           <div>
