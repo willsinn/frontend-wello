@@ -50,7 +50,18 @@ const ChecklistItem = ({
         </div>
       </div>
       {menu.id && menu.id === item.id ? (
-        <div className="checklist-menu">{menu.item}</div>
+        <div className="checklist-menu">
+          <div className="no-back menu-clearfix">
+            <div className="checklist-menu side-popover-header-title">
+              {menu.item}
+            </div>
+            <div className="checklist-menu-options">
+              <div className="menu-option ">
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
       ) : null}
     </div>
   );

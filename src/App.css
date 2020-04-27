@@ -2222,10 +2222,13 @@ button {
 
 .checklist-menu {
   width: 300px;
+  min-width: 300px;
   height: 150px;
+  min-height: 150px;
   background-color: white;
   position: absolute;
   z-index: 70;
   top: 0;
   right: 0;
+  transform-origin: ;
 }
