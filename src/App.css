@@ -1296,7 +1296,6 @@ button {
   overflow: hidden;
 }
 .board-menu-close-btn {
-  position: absolute;
   font-size: 28px;
   position: absolute;
   top: 8px;
@@ -1861,8 +1860,6 @@ button {
   border-bottom: 1px solid #5e6c84;
 }
 .task-window-desc {
-  overflow-x: hidden;
-  overflow-y: auto;
   min-height: 24px;
   padding: 0 8px 8px 16px;
   position: relative;
@@ -2217,18 +2214,42 @@ button {
   font-weight: 600;
 }
 .editing-checklist-item {
+  height: 100%;
   width: 100%;
 }
 
 .checklist-menu {
-  width: 300px;
-  min-width: 300px;
-  height: 150px;
-  min-height: 150px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
+  overflow: hidden;
+  width: 304px;
+  height: 124px;
   background-color: white;
   position: absolute;
   z-index: 70;
-  top: 0;
+  top: 34px;
   right: 0;
-  transform-origin: ;
+}
+.checklist-menu-body {
+  cursor: pointer;
+  margin-top: 12px;
+  padding: 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.checklist-menu-item {
+  height: 32px;
+  width: 304px;
+  display: flex;
+  align-items: center;
+}
+.checklist-menu-item:hover {
+  background-color: rgba(9, 30, 66, 0.04);
+}
+.checklist-menu-item-text {
+  padding: 6px 12px;
 }

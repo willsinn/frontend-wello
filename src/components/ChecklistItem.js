@@ -46,23 +46,24 @@ const ChecklistItem = ({
                 </div>
               </div>
             ) : null}
+            {menu.id && menu.id === item.id ? (
+              <div className="checklist-menu">
+                <div className="side-popover-header-title">Item Actions</div>
+                <div className="checklist-menu-body">
+                  <div className="checklist-menu-item">
+                    <span className="checklist-menu-item-text">
+                      Convert to Card
+                    </span>
+                  </div>
+                  <div className="checklist-menu-item">
+                    <span className="checklist-menu-item-text">Delete</span>
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
-      {menu.id && menu.id === item.id ? (
-        <div className="checklist-menu">
-          <div className="no-back menu-clearfix">
-            <div className="checklist-menu side-popover-header-title">
-              {menu.item}
-            </div>
-            <div className="checklist-menu-options">
-              <div className="menu-option ">
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 };
