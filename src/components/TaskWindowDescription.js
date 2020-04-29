@@ -3,8 +3,8 @@ import { saveTaskDesc } from "../actions/workspace";
 
 import { connect } from "react-redux";
 
-const TaskWindowDescription = ({ task, dispatch }) => {
-  const [desc, setDesc] = useState(task.task_desc);
+const TaskWindowDescription = ({ editTask, dispatch }) => {
+  const [desc, setDesc] = useState(editTask.task_desc);
   const [editable, setEditable] = useState(false);
   const handleChange = (e) => {
     e.persist(e);
@@ -13,20 +13,21 @@ const TaskWindowDescription = ({ task, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(saveTaskDesc(task, desc));
+      dispatch(saveTaskDesc(editTask, desc));
       setEditable(false);
     }
   };
   const handleExitEditable = (e) => {
     setEditable(false);
-    setDesc(task.task_desc);
+    setDesc(editTask.task_desc);
   };
+  console.log(desc.length, desc);
 
   return (
     <div className="task-window-desc">
       <div className="module-header">
         <h3 className="module-title">Description</h3>
-        {desc && !editable ? (
+        {desc.length > 0 ? (
           <div className="editable-desc" onClick={(e) => setEditable(true)}>
             <button className="edit-desc-btn">Edit</button>
           </div>
@@ -34,41 +35,41 @@ const TaskWindowDescription = ({ task, dispatch }) => {
       </div>
 
       {!editable ? (
-        <div className="module-body" onClick={(e) => setEditable(true)}>
-          {!desc ? (
-            <div className="desc-placeholder">
-              <p>Add a more detailed description...</p>
+        <>
+          {desc.length > 0 ? (
+            <div className="module-body" onClick={(e) => setEditable(true)}>
+              <p className="curr-desc">{desc}</p>
             </div>
           ) : (
-            <p className="curr-desc">{desc}</p>
+            <div
+              className="desc-placeholder"
+              onClick={(e) => setEditable(true)}
+            >
+              <p>Add a more detailed description...</p>
+            </div>
           )}
-        </div>
+        </>
       ) : (
         <div className="editing">
-          <div>
-            <form className="description-form" onSubmit={handleSubmit}>
-              <textarea
-                className="description-field"
-                placeholder="Add a more detailed description…"
-                type="text"
-                name="desc"
-                value={desc}
-                onChange={(e) => handleChange(e)}
-              />
-            </form>
-          </div>
-          <div>
-            <button
-              className="add-list-btn"
-              style={{ paddingLeft: "12px", paddingRight: "12px", margin: "0" }}
-              onClick={handleSubmit}
-            >
-              Save
-            </button>
-            <button className="close-add-btn" onClick={handleExitEditable}>
-              ✕
-            </button>
-          </div>
+          <form className="description-form" onSubmit={handleSubmit}>
+            <textarea
+              className="description-field"
+              type="text"
+              name="desc"
+              value={desc}
+              onChange={(e) => handleChange(e)}
+            />
+          </form>
+          <button
+            className="add-list-btn"
+            style={{ paddingLeft: "12px", paddingRight: "12px", margin: "0" }}
+            onClick={handleSubmit}
+          >
+            Save
+          </button>
+          <button className="close-add-btn" onClick={handleExitEditable}>
+            ✕
+          </button>
         </div>
       )}
     </div>

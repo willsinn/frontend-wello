@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Checklist from "./Checklist";
 import { connect } from "react-redux";
 
-const TaskChecklists = (props, { checklists, dispatch }) => {
+const TaskChecklists = (props, { task, checklists, dispatch }) => {
   const [editChecklist, setEditChecklist] = useState({});
   const [del, setDel] = useState({});
   const handleConfirmDelete = (checklist) => {
@@ -19,6 +19,8 @@ const TaskChecklists = (props, { checklists, dispatch }) => {
   const handleEditTitle = (checklist) => {
     setEditChecklist(checklist);
   };
+  console.log(task, "Task Checklists", editChecklist);
+
   const renderChecklists = () => {
     if (props.checklists && props.checklists.length > 0) {
       return props.checklists.map((checklist) => {

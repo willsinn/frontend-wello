@@ -19,7 +19,7 @@ const ChecklistItem = ({
       <div className="checklist-item-check-box"></div>
       <div className="checklist-item-details">
         <div className="checklist-item-row">
-          {editing.id === item.id ? (
+          {editing.id && item.id && editing.id === item.id ? (
             <EditChecklistItem
               item={item}
               editing={editing}

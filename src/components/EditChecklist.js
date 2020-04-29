@@ -28,7 +28,7 @@ const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
             className="edit-checklist"
             placeholder="Add a more detailed description…"
             type="text"
-            name="desc"
+            name="title"
             value={title}
             onChange={(e) => handleChange(e)}
           />
