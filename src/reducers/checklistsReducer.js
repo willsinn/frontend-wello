@@ -62,8 +62,25 @@ const checklistsReducer = (state = defaultState, action) => {
         checklists: updateChecklistItems,
       };
     case "REMOVE_ITEM":
-      debugger;
-      return { ...state };
+      const removedChecklistItem = state.checklists.map((checklist) => {
+        if (checklist.id === action.item.checklist_id) {
+          const remainingItems = checklist.items.filter(
+            (item) => item.id !== action.item.id
+          );
+
+          const updatedChecklist = {
+            ...checklist,
+            items: remainingItems,
+          };
+          return updatedChecklist;
+        } else {
+          return checklist;
+        }
+      });
+      return {
+        ...state,
+        checklists: removedChecklistItem,
+      };
     default:
       return state;
   }

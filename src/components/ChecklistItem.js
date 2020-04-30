@@ -1,5 +1,6 @@
 import React from "react";
 import EditChecklistItem from "./EditChecklistItem";
+import { deleteItem } from "../actions/checklists";
 import { connect } from "react-redux";
 
 const ChecklistItem = ({
@@ -10,10 +11,14 @@ const ChecklistItem = ({
   handleHoveringItem,
   handleEditing,
   handleCloseEditing,
+  closeMenu,
   renderMenu,
+  dispatch,
 }) => {
-  console.log(item, editItem);
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    closeMenu();
+    dispatch(deleteItem(item));
+  };
   return (
     <div
       className="checklist-item"

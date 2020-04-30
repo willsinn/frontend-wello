@@ -8,6 +8,9 @@ const ChecklistItemList = ({ items }) => {
   const renderMenu = (item) => {
     setMenu(item);
   };
+  const closeMenu = () => {
+    setMenu({});
+  };
   const handleHoveringItem = (e, tarItem) => {
     setHovering({ id: tarItem.id });
   };
@@ -31,6 +34,7 @@ const ChecklistItemList = ({ items }) => {
             handleEditing={handleEditing}
             handleHoveringItem={handleHoveringItem}
             handleCloseEditing={handleCloseEditing}
+            closeMenu={closeMenu}
             renderMenu={renderMenu}
           />
         );
