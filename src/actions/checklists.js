@@ -84,7 +84,7 @@ export const deleteChecklist = (checklist) => {
     });
   };
 };
-export const postNewListItem = (checklist, item) => {
+export const postNewListItem = (checklist, detail) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/checklist/${checklist.id}/item/new`, {
       method: "POST",
@@ -94,7 +94,7 @@ export const postNewListItem = (checklist, item) => {
       },
       body: JSON.stringify({
         checklist_id: checklist.id,
-        item: item,
+        detail: detail,
       }),
     })
       .then((response) => response.json())
@@ -112,7 +112,7 @@ export const saveItemDetail = (item, detail) => {
       },
       body: JSON.stringify({
         item_id: item.id,
-        item: detail,
+        detail: detail,
       }),
     })
       .then((response) => response.json())

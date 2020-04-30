@@ -31,7 +31,7 @@ const ChecklistItem = ({
               className="checklist-item-text-and-controls checklist-item-details"
               onClick={(e) => handleEditing(item)}
             >
-              <span className="checklist-item-details-text">{item.item}</span>
+              <span className="checklist-item-details-text">{item.detail}</span>
             </div>
           )}
           <div>
