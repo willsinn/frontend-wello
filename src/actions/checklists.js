@@ -6,12 +6,12 @@ export const addList = (checklist) => ({
   type: "ADD_LIST",
   checklist,
 });
-export const addListItem = (item) => ({
-  type: "ADD_LIST_ITEM",
+export const addItem = (item) => ({
+  type: "ADD_ITEM",
   item,
 });
-export const updateListItem = (item) => ({
-  type: "UPDATE_LIST_ITEM",
+export const updateItem = (item) => ({
+  type: "UPDATE_ITEM",
   item,
 });
 export const updateChecklist = (checklist) => ({
@@ -21,6 +21,10 @@ export const updateChecklist = (checklist) => ({
 export const removeChecklist = (checklist) => ({
   type: "REMOVE_CHECKLIST",
   checklist,
+});
+export const removeItem = (item) => ({
+  type: "REMOVE_ITEM",
+  item,
 });
 export const postNewChecklist = (task, title) => {
   return (dispatch) => {
@@ -98,7 +102,7 @@ export const postNewListItem = (checklist, detail) => {
       }),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => dispatch(addListItem(JSONresponse)));
+      .then((JSONresponse) => dispatch(addItem(JSONresponse)));
   };
 };
 
@@ -116,6 +120,21 @@ export const saveItemDetail = (item, detail) => {
       }),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => dispatch(updateListItem(JSONresponse)));
+      .then((JSONresponse) => dispatch(updateItem(JSONresponse)));
+  };
+};
+export const deleteItem = (item) => {
+  return (dispatch) => {
+    dispatch(removeItem(item));
+    fetch(`http://localhost:3000/items/${item.id}/delete`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        id: item.id,
+      }),
+    });
   };
 };

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import EditChecklistItem from "./EditChecklistItem";
+import { connect } from "react-redux";
 
 const ChecklistItem = ({
   item,
@@ -12,7 +13,7 @@ const ChecklistItem = ({
   renderMenu,
 }) => {
   console.log(item, editItem);
-
+  const handleDelete = () => {};
   return (
     <div
       className="checklist-item"
@@ -56,7 +57,10 @@ const ChecklistItem = ({
                       Convert to Card
                     </span>
                   </div>
-                  <div className="checklist-menu-item">
+                  <div
+                    className="checklist-menu-item"
+                    onClick={(e) => handleDelete()}
+                  >
                     <span className="checklist-menu-item-text">Delete</span>
                   </div>
                 </div>
@@ -69,4 +73,4 @@ const ChecklistItem = ({
   );
 };
 
-export default ChecklistItem;
+export default connect()(ChecklistItem);
