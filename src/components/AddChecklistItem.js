@@ -3,16 +3,16 @@ import { postNewListItem } from "../actions/checklists";
 import { connect } from "react-redux";
 
 const AddChecklistItem = ({ checklist, handleCloseAdd, dispatch }) => {
-  const [item, setItem] = useState("");
+  const [itemDetail, setItemDetail] = useState("");
   const handleChange = (e) => {
     e.persist(e);
-    setItem(e.target.value);
+    setItemDetail(e.target.value);
   };
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(postNewListItem(checklist, item));
-      setItem("");
+      dispatch(postNewListItem(checklist, itemDetail));
+      setItemDetail("");
       handleCloseAdd(e);
     }
   };
@@ -27,9 +27,9 @@ const AddChecklistItem = ({ checklist, handleCloseAdd, dispatch }) => {
           <textarea
             className="edit-checklist"
             type="text"
-            name="item"
+            name="itemDetail"
             onChange={(e) => handleChange(e)}
-            value={item.value}
+            value={itemDetail.value}
             placeholder="Add an item."
           />
         </form>

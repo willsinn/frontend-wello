@@ -3,7 +3,7 @@ import ChecklistItem from "./ChecklistItem";
 
 const ChecklistItemList = ({ items }) => {
   const [hovering, setHovering] = useState({ id: undefined });
-  const [editing, setEditing] = useState({});
+  const [editItem, setEditItem] = useState({});
   const [menu, setMenu] = useState({});
   const renderMenu = (item) => {
     setMenu(item);
@@ -11,22 +11,22 @@ const ChecklistItemList = ({ items }) => {
   const handleHoveringItem = (e, tarItem) => {
     setHovering({ id: tarItem.id });
   };
-  const handleEditing = (e, item) => {
-    setEditing(item);
+  const handleEditing = (item) => {
+    setEditItem(item);
   };
   const handleCloseEditing = (e) => {
-    setEditing({ editing: {} });
+    setEditItem({});
     setMenu({});
   };
   const renderChecklistItems = () => {
-    if (items && items.length > 0) {
+    if (items.length > 0) {
       return items.map((item) => {
         return (
           <ChecklistItem
             key={item.id}
             item={item}
             hovering={hovering}
-            editing={editing}
+            editItem={editItem}
             menu={menu}
             handleEditing={handleEditing}
             handleHoveringItem={handleHoveringItem}

@@ -4,13 +4,15 @@ import EditChecklistItem from "./EditChecklistItem";
 const ChecklistItem = ({
   item,
   hovering,
-  editing,
+  editItem,
   menu,
   handleHoveringItem,
   handleEditing,
   handleCloseEditing,
   renderMenu,
 }) => {
+  console.log(item, editItem);
+
   return (
     <div
       className="checklist-item"
@@ -19,18 +21,17 @@ const ChecklistItem = ({
       <div className="checklist-item-check-box"></div>
       <div className="checklist-item-details">
         <div className="checklist-item-row">
-          {editing.id && item.id && editing.id === item.id ? (
+          {editItem.id && item.id === editItem.id ? (
             <EditChecklistItem
-              item={item}
-              editing={editing}
+              editItem={editItem}
               handleCloseEditing={handleCloseEditing}
             />
           ) : (
             <div
               className="checklist-item-text-and-controls checklist-item-details"
-              onClick={(e) => handleEditing(e, item)}
+              onClick={(e) => handleEditing(item)}
             >
-              <span className="checklist-item-details-text">{item.item}</span>
+              <span className="checklist-item-details-text">{item.detail}</span>
             </div>
           )}
           <div>
@@ -46,7 +47,7 @@ const ChecklistItem = ({
                 </div>
               </div>
             ) : null}
-            {menu.id && menu.id === item.id ? (
+            {menu.id === item.id ? (
               <div className="checklist-menu">
                 <div className="side-popover-header-title">Item Actions</div>
                 <div className="checklist-menu-body">

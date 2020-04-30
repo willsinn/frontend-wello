@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { saveItemDetail } from "../actions/checklists";
+import { saveChecklistTitle } from "../actions/checklists";
 import { connect } from "react-redux";
 
 const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
@@ -11,7 +11,7 @@ const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(saveItemDetail(checklist, title));
+      dispatch(saveChecklistTitle(checklist, title));
       handleCloseEditing();
     }
   };
@@ -26,7 +26,6 @@ const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
         >
           <textarea
             className="edit-checklist"
-            placeholder="Add a more detailed description…"
             type="text"
             name="title"
             value={title}

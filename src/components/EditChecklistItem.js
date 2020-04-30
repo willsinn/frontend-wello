@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 
 const EditChecklistItem = (
   props,
-  { item, editing, handleCloseEditing, dispatch }
+  { editItem, handleCloseEditing, dispatch }
 ) => {
-  const [detail, setDetail] = useState(editing);
+  const [detail, setDetail] = useState(editItem.detail);
   const handleChange = (e) => {
     e.persist(e);
     setDetail(e.target.value);
@@ -14,10 +14,12 @@ const EditChecklistItem = (
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      props.dispatch(saveItemDetail(editing, detail));
+      props.dispatch(saveItemDetail(editItem, detail));
       handleCloseEditing();
     }
   };
+  console.log(editItem);
+
   return (
     <div className="editing-checklist-item">
       <div style={{ margin: "4px 0" }}>
@@ -28,7 +30,6 @@ const EditChecklistItem = (
         >
           <textarea
             className="edit-checklist"
-            placeholder="Add a more detailed description…"
             type="text"
             name="desc"
             value={detail}
