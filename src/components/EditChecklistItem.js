@@ -18,9 +18,6 @@ const EditChecklistItem = (
       handleCloseEditing();
     }
   };
-  console.log("Edit----ChecklistItem", editing);
-  console.log("item", item);
-
   return (
     <div className="editing-checklist-item">
       <div style={{ margin: "4px 0" }}>

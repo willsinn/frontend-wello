@@ -1950,6 +1950,7 @@ button {
 .body-left-window {
   width: 504px;
   max-width: 504px;
+  height: 100%;
 }
 .sidebar-btn {
   background-color: rgba(9, 30, 66, 0.04);

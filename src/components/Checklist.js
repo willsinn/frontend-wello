@@ -23,25 +23,23 @@ const Checklist = ({
   const handleCloseAdd = (e) => {
     setActive(false);
   };
-  console.log(checklist);
-
   return (
     <div className="checklist">
-      <div className="task-window-desc">
+      <div className="edit-checklist-cond">
         {editChecklist.id && checklist.id === editChecklist.id ? (
           <EditChecklist
             checklist={checklist}
             handleCloseEditing={handleCloseEditing}
           />
         ) : (
-          <div className="module-header" style={{ margin: "0 0 4px 40px" }}>
+          <div className="checklist-header" style={{ margin: "0 0 4px 40px" }}>
             <h3
-              className="module-title"
+              className="checklist-title"
               onClick={(e) => handleEditTitle(checklist)}
             >
               {checklist.title}
             </h3>
-            <div className="module-btns">
+            <div className="checklist-btns">
               <button className="sidebar-btn">Hide Completed Items</button>
               <button
                 className="sidebar-btn"

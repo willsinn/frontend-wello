@@ -103,7 +103,6 @@ export const postNewListItem = (checklist, item) => {
 };
 
 export const saveItemDetail = (item, detail) => {
-  debugger;
   return (dispatch) => {
     fetch(`http://localhost:3000/items/${item.id}/update`, {
       method: "PUT",

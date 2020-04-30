@@ -21,34 +21,36 @@ const TaskWindowDescription = ({ editTask, dispatch }) => {
     setEditable(false);
     setDesc(editTask.task_desc);
   };
-  console.log(desc.length, desc);
-
   return (
     <div className="task-window-desc">
       <div className="module-header">
         <h3 className="module-title">Description</h3>
-        {desc.length > 0 ? (
-          <div className="editable-desc" onClick={(e) => setEditable(true)}>
-            <button className="edit-desc-btn">Edit</button>
-          </div>
-        ) : null}
+        <div className="editable-desc">
+          {desc.length > 0 && !editable ? (
+            <button
+              className="edit-desc-btn"
+              onClick={(e) => setEditable(true)}
+            >
+              Edit
+            </button>
+          ) : null}
+        </div>
       </div>
 
       {!editable ? (
-        <>
+        <div className="module-body">
           {desc.length > 0 ? (
-            <div className="module-body" onClick={(e) => setEditable(true)}>
-              <p className="curr-desc">{desc}</p>
-            </div>
+            <p className="curr-desc" onClick={(e) => setEditable(true)}>
+              {desc}
+            </p>
           ) : (
-            <div
-              className="desc-placeholder"
-              onClick={(e) => setEditable(true)}
-            >
-              <p>Add a more detailed description...</p>
+            <div className="desc-placeholder">
+              <p onClick={(e) => setEditable(true)}>
+                Add a more detailed description...
+              </p>
             </div>
           )}
-        </>
+        </div>
       ) : (
         <div className="editing">
           <form className="description-form" onSubmit={handleSubmit}>

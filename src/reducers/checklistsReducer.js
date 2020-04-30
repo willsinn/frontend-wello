@@ -1,5 +1,3 @@
-import { updateChecklist } from "../actions/checklists";
-
 const defaultState = {
   checklists: [],
   items: [],

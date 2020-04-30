@@ -16,8 +16,6 @@ const AddChecklist = ({ task, closePopup, dispatch }) => {
       closePopup();
     }
   };
-  console.log(title);
-
   return (
     <div className="add-checklist">
       <form className="add-checklist-form" onSubmit={handleSubmit}>

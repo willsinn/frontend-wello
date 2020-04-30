@@ -16,9 +16,6 @@ const AddChecklistItem = ({ checklist, handleCloseAdd, dispatch }) => {
       handleCloseAdd(e);
     }
   };
-
-  console.log("add chklistItem", checklist.id, item);
-
   return (
     <div className="editing">
       <div style={{ margin: "4px 0" }}>

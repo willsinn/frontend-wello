@@ -18,10 +18,7 @@ const TaskWindow = ({
   const [note, setNote] = useState(initialState);
   const [sidebtn, setSidebtn] = useState("");
 
-  const handleNoteEdit = (tarNote) => {
-    console.log(tarNote);
-    debugger;
-
+  const handleNoteEdit = () => {
     setTask(editTask);
     setNote(editTask.note);
   };
@@ -53,8 +50,6 @@ const TaskWindow = ({
   const closePopup = () => {
     setSidebtn("");
   };
-  console.log(task, editTask);
-
   return (
     <div className="window-modal">
       <div className="task-window">
@@ -99,8 +94,9 @@ const TaskWindow = ({
           <div className="task-window-body" onClick={handleSave}>
             <div className="body-left-window">
               <TaskWindowDescription editTask={editTask} />
-              {/* <TaskChecklists editTask={editTask} /> */}
+              <TaskChecklists />
             </div>
+
             <div className="task-window-sidebar">
               <h3 className="sidebar-title">add to task</h3>
 
