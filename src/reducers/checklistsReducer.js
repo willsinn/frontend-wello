@@ -48,18 +48,19 @@ const checklistsReducer = (state = defaultState, action) => {
               return item;
             }
           });
-          return {
-            checklist,
+          const updatedChecklist = {
+            ...checklist,
             items: updatedItems,
           };
+          return updatedChecklist;
         } else {
           return checklist;
         }
       });
-      console.log(updateChecklistItems, action.item);
-      debugger;
-
-      return { ...state };
+      return {
+        ...state,
+        checklists: updateChecklistItems,
+      };
     default:
       return state;
   }
