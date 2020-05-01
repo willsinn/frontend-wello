@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { saveItemDetail } from "../actions/checklists";
 import { connect } from "react-redux";
 
-const EditChecklistItem = ({ editItem, handleCloseEditing, dispatch }) => {
+const EditItem = ({ editItem, handleCloseEditing, dispatch }) => {
   const [detail, setDetail] = useState(editItem.detail);
   const handleChange = (e) => {
     e.persist(e);
@@ -53,4 +53,4 @@ const EditChecklistItem = ({ editItem, handleCloseEditing, dispatch }) => {
   );
 };
 
-export default connect()(EditChecklistItem);
+export default connect()(EditItem);

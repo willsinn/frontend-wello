@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ChecklistItem from "./ChecklistItem";
+import Item from "../containers/Item";
 
-const ChecklistItemList = ({ items }) => {
+const ItemsList = ({ items }) => {
   const [hovering, setHovering] = useState({ id: undefined });
   const [editItem, setEditItem] = useState({});
   const [menu, setMenu] = useState({});
@@ -25,7 +25,7 @@ const ChecklistItemList = ({ items }) => {
     if (items.length > 0) {
       return items.map((item) => {
         return (
-          <ChecklistItem
+          <Item
             key={item.id}
             item={item}
             hovering={hovering}
@@ -57,4 +57,4 @@ const ChecklistItemList = ({ items }) => {
   );
 };
 
-export default ChecklistItemList;
+export default ItemsList;

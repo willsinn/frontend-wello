@@ -1,9 +1,9 @@
 import React from "react";
-import EditChecklistItem from "./EditChecklistItem";
+import EditItem from "../components/EditItem";
 import { deleteItem } from "../actions/checklists";
 import { connect } from "react-redux";
 
-const ChecklistItem = ({
+const Item = ({
   item,
   hovering,
   editItem,
@@ -28,7 +28,7 @@ const ChecklistItem = ({
       <div className="checklist-item-details">
         <div className="checklist-item-row">
           {editItem.id && item.id === editItem.id ? (
-            <EditChecklistItem
+            <EditItem
               editItem={editItem}
               handleCloseEditing={handleCloseEditing}
             />
@@ -78,4 +78,4 @@ const ChecklistItem = ({
   );
 };
 
-export default connect()(ChecklistItem);
+export default connect()(Item);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EditChecklist from "./EditChecklist";
-import AddChecklistItem from "./AddChecklistItem";
-import ChecklistItemList from "./ChecklistItemList";
+import AddItem from "./AddItem";
+import ItemsList from "./ItemsList";
 import { deleteChecklist } from "../actions/checklists";
 import { connect } from "react-redux";
 
@@ -50,7 +50,7 @@ const Checklist = ({
             </div>
           </div>
         )}
-        <ChecklistItemList items={checklist.items} />
+        <ItemsList items={checklist.items} />
         {!active ? (
           <div className="checklist-add-new-item">
             <button className="sidebar-btn" onClick={(e) => setActive(true)}>
@@ -58,10 +58,7 @@ const Checklist = ({
             </button>
           </div>
         ) : (
-          <AddChecklistItem
-            checklist={checklist}
-            handleCloseAdd={handleCloseAdd}
-          />
+          <AddItem checklist={checklist} handleCloseAdd={handleCloseAdd} />
         )}
       </div>
       {del.id && del.id === checklist.id ? (
