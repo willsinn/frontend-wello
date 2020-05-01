@@ -2166,7 +2166,7 @@ button {
   width: 100%;
 }
 .checklist-item-text-and-controls {
-  padding: 6px 0;
+  padding: 8px 0;
   width: 100%;
   display: inline-flex;
   position: relative;
@@ -2253,4 +2253,12 @@ button {
 }
 .checklist-menu-item-text {
   padding: 6px 12px;
+}
+.checklist-item-check-box {
+  background-color: #091e42;
+  border-radius: 2px;
+  height: 18px;
+  width: 18px;
+  line-height: 18px;
+  position: absolute;
 }

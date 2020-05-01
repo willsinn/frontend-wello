@@ -24,7 +24,9 @@ const Item = ({
       className="checklist-item"
       onMouseEnter={(e) => handleHoveringItem(e, item)}
     >
-      <div className="checklist-item-check-box"></div>
+      <div className="checklist-item-check-box">
+        {/* <button className="checklist-item-check-button"></button> */}
+      </div>
       <div className="checklist-item-details">
         <div className="checklist-item-row">
           {editItem.id && item.id === editItem.id ? (
