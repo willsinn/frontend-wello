@@ -25,7 +25,7 @@ const Item = ({
       onMouseEnter={(e) => handleHoveringItem(e, item)}
     >
       <div className="checklist-item-check-box">
-        {/* <button className="checklist-item-check-button"></button> */}
+        {/* <span className="checklist-item-check-button"></span> */}
       </div>
       <div className="checklist-item-details">
         <div className="checklist-item-row">
@@ -36,7 +36,7 @@ const Item = ({
             />
           ) : (
             <div
-              className="checklist-item-text-and-controls checklist-item-details"
+              className="checklist-item-text-and-controls"
               onClick={(e) => handleEditing(item)}
             >
               <span className="checklist-item-details-text">{item.detail}</span>
@@ -58,6 +58,9 @@ const Item = ({
             {menu.id === item.id ? (
               <div className="checklist-menu">
                 <div className="side-popover-header-title">Item Actions</div>
+                <button class="side-close-btn" onClick={(e) => closeMenu()}>
+                  ✕
+                </button>
                 <div className="checklist-menu-body">
                   <div className="checklist-menu-item">
                     <span className="checklist-menu-item-text">

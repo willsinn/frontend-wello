@@ -2010,7 +2010,8 @@ button {
 .side-popover-header-title {
   box-sizing: border-box;
   color: #5e6c84;
-  display: block;
+  display: flex;
+  justify-content: center;
   line-height: 40px;
   border-bottom: 1px solid rgba(9, 30, 66, 0.13);
   margin: 0 12px;
@@ -2194,7 +2195,7 @@ button {
 .checklist-item-controls {
   box-sizing: border-box;
   position: absolute;
-  top: 3px;
+  top: 4px;
   right: 4.5px;
   min-height: 26px;
   max-height: 26px;
@@ -2255,10 +2256,13 @@ button {
   padding: 6px 12px;
 }
 .checklist-item-check-box {
-  background-color: #091e42;
+  border: 2px solid lightgray;
   border-radius: 2px;
-  height: 18px;
-  width: 18px;
-  line-height: 18px;
+  height: 16px;
+  width: 16px;
+  line-height: 16px;
+  background-color: white;
   position: absolute;
+  top: 20%;
+  left: 6px;
 }
