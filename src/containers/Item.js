@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import EditItem from "../components/EditItem";
 import { deleteItem } from "../actions/checklists";
 import { connect } from "react-redux";
@@ -15,6 +15,7 @@ const Item = ({
   renderMenu,
   dispatch,
 }) => {
+  const [checked, setChecked] = useState(false);
   const handleDelete = () => {
     closeMenu();
     dispatch(deleteItem(item));
@@ -24,9 +25,22 @@ const Item = ({
       className="checklist-item"
       onMouseEnter={(e) => handleHoveringItem(e, item)}
     >
-      <div className="checklist-item-check-box">
-        {/* <span className="checklist-item-check-button"></span> */}
-      </div>
+      {checked ? (
+        <div
+          className="checklist-item-checked"
+          onClick={(e) => setChecked(!checked)}
+        >
+          <span className="completed-checkmark">✓</span>
+        </div>
+      ) : (
+        <div
+          className="checklist-item-check-box"
+          onClick={(e) => setChecked(!checked)}
+        >
+          {/* <span className="checklist-item-check-button"></span> */}
+        </div>
+      )}
+
       <div className="checklist-item-details">
         <div className="checklist-item-row">
           {editItem.id && item.id === editItem.id ? (
