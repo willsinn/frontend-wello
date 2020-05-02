@@ -105,7 +105,6 @@ export const postNewListItem = (checklist, detail) => {
       .then((JSONresponse) => dispatch(addItem(JSONresponse)));
   };
 };
-
 export const saveItemDetail = (item, detail) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/items/${item.id}/update`, {
@@ -118,6 +117,21 @@ export const saveItemDetail = (item, detail) => {
         item_id: item.id,
         detail: detail,
       }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(updateItem(JSONresponse)));
+  };
+};
+export const updateItemCompletion = (item) => {
+  debugger;
+  return (dispatch) => {
+    fetch(`http://localhost:3000/items/${item.id}/update`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ item_id: item.id, completed: item.completed }),
     })
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(updateItem(JSONresponse)));
