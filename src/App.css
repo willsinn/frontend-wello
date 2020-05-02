@@ -2301,3 +2301,12 @@ button {
   color: white;
   font-size: 11px;
 }
+.checklist-progress {
+  background: rgba(9, 30, 66, 0.08);
+  border-radius: 4px;
+  clear: both;
+  height: 8px;
+  margin: 0 0 0 40px;
+  overflow: hidden;
+  position: relative;
+}
