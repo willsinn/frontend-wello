@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import EditItem from "../components/EditItem";
-import { deleteItem } from "../actions/checklists";
+import { deleteItem, updateItemCompletion } from "../actions/checklists";
 import { connect } from "react-redux";
 
 const Item = ({
@@ -15,7 +15,6 @@ const Item = ({
   renderMenu,
   dispatch,
 }) => {
-  const [checked, setChecked] = useState(false);
   const handleDelete = () => {
     closeMenu();
     dispatch(deleteItem(item));
@@ -25,20 +24,18 @@ const Item = ({
       className="checklist-item"
       onMouseEnter={(e) => handleHoveringItem(e, item)}
     >
-      {checked ? (
+      {item.completed ? (
         <div
           className="checklist-item-checked"
-          onClick={(e) => setChecked(!checked)}
+          onClick={(e) => dispatch(updateItemCompletion(item))}
         >
           <span className="completed-checkmark">✓</span>
         </div>
       ) : (
         <div
           className="checklist-item-check-box"
-          onClick={(e) => setChecked(!checked)}
-        >
-          {/* <span className="checklist-item-check-button"></span> */}
-        </div>
+          onClick={(e) => dispatch(updateItemCompletion(item))}
+        ></div>
       )}
 
       <div className="checklist-item-details">
@@ -53,7 +50,15 @@ const Item = ({
               className="checklist-item-text-and-controls"
               onClick={(e) => handleEditing(item)}
             >
-              <span className="checklist-item-details-text">{item.detail}</span>
+              {item.completed ? (
+                <span className="completed-strikethrough checklist-item-details-text">
+                  {item.detail}
+                </span>
+              ) : (
+                <span className="checklist-item-details-text">
+                  {item.detail}
+                </span>
+              )}
             </div>
           )}
           <div>

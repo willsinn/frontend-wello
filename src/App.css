@@ -2179,6 +2179,11 @@ button {
   align-self: center;
   flex: 1;
 }
+.completed-strikethrough {
+  color: #5e6c84;
+  text-decoration: line-through;
+}
+
 .checklist-item-menu {
   box-sizing: border-box;
   padding: 2px;

@@ -123,7 +123,6 @@ export const saveItemDetail = (item, detail) => {
   };
 };
 export const updateItemCompletion = (item) => {
-  debugger;
   return (dispatch) => {
     fetch(`http://localhost:3000/items/${item.id}/update`, {
       method: "PUT",
@@ -131,7 +130,7 @@ export const updateItemCompletion = (item) => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ item_id: item.id, completed: item.completed }),
+      body: JSON.stringify({ item_id: item.id, completed: !item.completed }),
     })
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(updateItem(JSONresponse)));
