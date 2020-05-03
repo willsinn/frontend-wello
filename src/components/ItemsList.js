@@ -41,10 +41,17 @@ const ItemsList = ({ items }) => {
       });
     }
   };
+  const renderPercentage = () => {
+    const completed = 0;
+
+    return completed;
+  };
   return (
     <div className="checklist-body">
       <div className="checklist-progress">
-        <span className="checklist-progress-percentage"></span>
+        <span className="checklist-progress-percentage">
+          {renderPercentage()}%
+        </span>
         <div className="checklist-progress-bar"></div>
       </div>
       <div
