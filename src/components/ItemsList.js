@@ -60,7 +60,12 @@ const ItemsList = ({ items }) => {
         <span className="checklist-progress-percentage">
           {renderPercentage()}%
         </span>
-        <div className="checklist-progress-bar"></div>
+        <div className="checklist-progress-bar">
+          <div
+            className="percentage-progress"
+            style={{ width: `${renderPercentage()}%` }}
+          ></div>
+        </div>
       </div>
       <div
         className="checklist-items-list"

@@ -2310,7 +2310,12 @@ button {
   margin: 0 0 0 40px;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 .checklists-container {
   padding: 0 8px 8px 16px;
+}
+.percentage-progress {
+  background-color: #0079bf;
+  height: 8px;
 }
