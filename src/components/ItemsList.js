@@ -45,16 +45,14 @@ const ItemsList = ({ items }) => {
     let correctCount = 0;
 
     if (items.length > 0) {
-      console.log(items.length);
       items.forEach((item) => {
         if (item.completed) {
           correctCount++;
         }
       });
     }
-    console.log(correctCount);
-
-    return correctCount;
+    const percent = correctCount / items.length;
+    return percent * 100;
   };
   return (
     <div className="checklist-body">
