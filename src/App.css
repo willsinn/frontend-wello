@@ -2316,6 +2316,11 @@ button {
   padding: 0 8px 8px 16px;
 }
 .percentage-progress {
-  background-color: #0079bf;
+  background: #0079bf;
   height: 8px;
+}
+.finished-progress {
+  background: #61bd4f;
+  height: 8px;
+  width: 100%;
 }

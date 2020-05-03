@@ -61,10 +61,14 @@ const ItemsList = ({ items }) => {
           {renderPercentage()}%
         </span>
         <div className="checklist-progress-bar">
-          <div
-            className="percentage-progress"
-            style={{ width: `${renderPercentage()}%` }}
-          ></div>
+          {renderPercentage() === 100 ? (
+            <div className="finished-progress"></div>
+          ) : (
+            <div
+              className="percentage-progress"
+              style={{ width: `${renderPercentage()}%` }}
+            ></div>
+          )}
         </div>
       </div>
       <div
