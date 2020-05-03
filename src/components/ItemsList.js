@@ -42,9 +42,19 @@ const ItemsList = ({ items }) => {
     }
   };
   const renderPercentage = () => {
-    const completed = 0;
+    let correctCount = 0;
 
-    return completed;
+    if (items.length > 0) {
+      console.log(items.length);
+      items.forEach((item) => {
+        if (item.completed) {
+          correctCount++;
+        }
+      });
+    }
+    console.log(correctCount);
+
+    return correctCount;
   };
   return (
     <div className="checklist-body">
