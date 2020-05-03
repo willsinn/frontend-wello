@@ -51,6 +51,9 @@ const ItemsList = ({ items }) => {
         }
       });
     }
+    if (items.length === 0) {
+      return 0;
+    }
     const percent = correctCount / items.length;
     return Math.trunc(percent * 100);
   };

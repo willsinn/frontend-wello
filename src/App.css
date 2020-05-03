@@ -2302,6 +2302,15 @@ button {
   color: white;
   font-size: 11px;
 }
+.checklist-progress {
+  position: relative;
+}
+.checklist-progress-percentage {
+  position: absolute;
+  font-size: 11px;
+  top: 0;
+  left: 0;
+}
 .checklist-progress-bar {
   background: rgba(9, 30, 66, 0.08);
   border-radius: 4px;
