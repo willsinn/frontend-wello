@@ -1863,8 +1863,8 @@ button {
   min-height: 24px;
   padding: 0 8px 8px 16px;
   position: relative;
-  width: 552px;
-  min-width: 552px;
+  /* width: 552px;
+  min-width: 552px; */
   z-index: 0;
 }
 .editable-desc {
@@ -1948,8 +1948,9 @@ button {
   position: relative;
 }
 .body-left-window {
-  width: 504px;
-  max-width: 504px;
+  width: 100%;
+  /* width: 504px;
+  max-width: 504px; */
   height: 100%;
 }
 .sidebar-btn {
@@ -2309,4 +2310,7 @@ button {
   margin: 0 0 0 40px;
   overflow: hidden;
   position: relative;
+}
+.checklists-container {
+  padding: 0 8px 8px 16px;
 }

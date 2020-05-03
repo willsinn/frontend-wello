@@ -19,8 +19,6 @@ const TaskChecklists = (props, { checklists, dispatch }) => {
   const handleEditTitle = (checklist) => {
     setEditChecklist(checklist);
   };
-  console.log(props.checklists, "Task Checklists");
-
   const renderChecklists = () => {
     if (props.checklists && props.checklists.length > 0) {
       return props.checklists.map((checklist) => {
@@ -39,7 +37,7 @@ const TaskChecklists = (props, { checklists, dispatch }) => {
       });
     }
   };
-  return <div>{renderChecklists()}</div>;
+  return <div className="checklists-container">{renderChecklists()}</div>;
 };
 
 const mapStateToProps = (state) => {
