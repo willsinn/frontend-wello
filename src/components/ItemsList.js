@@ -52,7 +52,7 @@ const ItemsList = ({ items }) => {
       });
     }
     const percent = correctCount / items.length;
-    return percent * 100;
+    return Math.trunc(percent * 100);
   };
   return (
     <div className="checklist-body">
