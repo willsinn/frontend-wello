@@ -1938,10 +1938,10 @@ button {
   margin: 0 0 8px 40px;
 }
 .task-window-sidebar {
-  float: right;
   padding: 0 8px 8px 8px;
   margin: 0 8px;
   width: 168px;
+  min-width: 168px;
   overflow: hidden;
   z-index: 10;
   height: 100%;
