@@ -31,7 +31,7 @@ const Checklist = ({
           handleCloseEditing={handleCloseEditing}
         />
       ) : (
-        <div className="checklist-header" style={{ margin: "0 0 4px 40px" }}>
+        <div className="checklist-header">
           <h3
             className="checklist-title"
             onClick={(e) => handleEditTitle(checklist)}
@@ -39,7 +39,9 @@ const Checklist = ({
             {checklist.title}
           </h3>
           <div className="checklist-btns">
-            <button className="sidebar-btn">Hide Completed Items</button>
+            <button className="sidebar-btn" style={{ marginRight: "8px" }}>
+              Hide Completed Items
+            </button>
             <button
               className="sidebar-btn"
               onClick={(e) => handleConfirmDelete(checklist)}

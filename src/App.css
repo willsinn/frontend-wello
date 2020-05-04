@@ -2350,3 +2350,12 @@ button {
   box-shadow: inset 0 0 0 1px rgba(9, 30, 66, 0.13);
   margin-bottom: 4px;
 }
+.checklist-header {
+  margin: 0 0 4px 40px;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+.checklist-btns {
+  display: flex;
+}
