@@ -1009,6 +1009,15 @@ button {
   position: relative;
   left: -8px;
 }
+.check-mark-icon {
+  background-image: url("./images/check-mark-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  padding: 4px;
+  position: relative;
+}
 .add-board-modal {
   position: fixed;
   z-index: 80;
@@ -1954,8 +1963,8 @@ button {
 }
 .body-left-window {
   width: 100%;
-  /* width: 504px;
-  max-width: 504px; */
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 .sidebar-btn {

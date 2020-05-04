@@ -32,6 +32,8 @@ const Checklist = ({
         />
       ) : (
         <div className="checklist-header">
+          <span className="check-mark-icon" />
+
           <h3
             className="checklist-title"
             onClick={(e) => handleEditTitle(checklist)}
