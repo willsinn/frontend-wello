@@ -15,7 +15,6 @@ const EditChecklist = ({ editChecklist, handleCloseEditing, dispatch }) => {
       handleCloseEditing();
     }
   };
-
   return (
     <div className="editing">
       <div style={{ margin: "4px 0" }}>
@@ -28,8 +27,8 @@ const EditChecklist = ({ editChecklist, handleCloseEditing, dispatch }) => {
             className="edit-checklist"
             type="text"
             name="title"
-            value={title}
             onChange={handleChange}
+            value={title}
           />
         </form>
       </div>

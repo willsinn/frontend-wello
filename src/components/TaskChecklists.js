@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Checklist from "./Checklist";
 import { connect } from "react-redux";
 
-const TaskChecklists = ({ checklists, dispatch }) => {
+const TaskChecklists = ({ checklists }) => {
   const [editChecklist, setEditChecklist] = useState({});
   const [del, setDel] = useState({});
   const handleConfirmDelete = (checklist) => {
