@@ -51,7 +51,7 @@ const Item = ({
               onClick={(e) => handleEditing(item)}
             >
               {item.completed ? (
-                <span className="completed-strikethrough checklist-item-details-text">
+                <span className="checklist-item-details-text completed-strikethrough">
                   {item.detail}
                 </span>
               ) : (
@@ -61,41 +61,39 @@ const Item = ({
               )}
             </div>
           )}
-          <div>
-            {hovering.id === item.id ? (
-              <div
-                className="checklist-item-controls"
-                onClick={(e) => renderMenu(item)}
-              >
-                <div className="checklist-item-menu js-open-menu">
-                  <span className="checklist-icon-sm icon-sm icon-overflow-menu-horizontal">
-                    ...
+          {hovering.id === item.id ? (
+            <div
+              className="checklist-item-controls"
+              onClick={(e) => renderMenu(item)}
+            >
+              <div className="checklist-item-menu js-open-menu">
+                <span className="checklist-icon-sm icon-sm icon-overflow-menu-horizontal">
+                  ...
+                </span>
+              </div>
+            </div>
+          ) : null}
+          {menu.id === item.id ? (
+            <div className="checklist-menu">
+              <div className="side-popover-header-title">Item Actions</div>
+              <button class="side-close-btn" onClick={(e) => closeMenu()}>
+                ✕
+              </button>
+              <div className="checklist-menu-body">
+                <div className="checklist-menu-item">
+                  <span className="checklist-menu-item-text">
+                    Convert to Card
                   </span>
                 </div>
-              </div>
-            ) : null}
-            {menu.id === item.id ? (
-              <div className="checklist-menu">
-                <div className="side-popover-header-title">Item Actions</div>
-                <button class="side-close-btn" onClick={(e) => closeMenu()}>
-                  ✕
-                </button>
-                <div className="checklist-menu-body">
-                  <div className="checklist-menu-item">
-                    <span className="checklist-menu-item-text">
-                      Convert to Card
-                    </span>
-                  </div>
-                  <div
-                    className="checklist-menu-item"
-                    onClick={(e) => handleDelete()}
-                  >
-                    <span className="checklist-menu-item-text">Delete</span>
-                  </div>
+                <div
+                  className="checklist-menu-item"
+                  onClick={(e) => handleDelete()}
+                >
+                  <span className="checklist-menu-item-text">Delete</span>
                 </div>
               </div>
-            ) : null}
-          </div>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

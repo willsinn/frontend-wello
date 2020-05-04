@@ -19,15 +19,11 @@ const EditItem = ({ editItem, handleCloseEditing, dispatch }) => {
   return (
     <div className="editing-checklist-item">
       <div style={{ margin: "4px 0" }}>
-        <form
-          className="description-form"
-          style={{ height: "54px" }}
-          onSubmit={handleSubmit}
-        >
+        <form className="" style={{ height: "54px" }} onSubmit={handleSubmit}>
           <textarea
-            className="edit-checklist"
+            className="edit-item"
             type="text"
-            name="desc"
+            name="detail"
             value={detail}
             onChange={(e) => handleChange(e)}
           />

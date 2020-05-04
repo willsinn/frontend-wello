@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { saveChecklistTitle } from "../actions/checklists";
 import { connect } from "react-redux";
 
-const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
-  const [title, setTitle] = useState(checklist.title);
+const EditChecklist = ({ editChecklist, handleCloseEditing, dispatch }) => {
+  const [title, setTitle] = useState(editChecklist.title);
   const handleChange = (e) => {
     e.persist(e);
     setTitle(e.target.value);
@@ -11,7 +11,7 @@ const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(saveChecklistTitle(checklist, title));
+      dispatch(saveChecklistTitle(editChecklist, title));
       handleCloseEditing();
     }
   };
@@ -29,7 +29,7 @@ const EditChecklist = ({ checklist, handleCloseEditing, dispatch }) => {
             type="text"
             name="title"
             value={title}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </form>
       </div>

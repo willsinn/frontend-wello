@@ -2103,7 +2103,6 @@ button {
   line-height: 20px;
   padding: 8px 12px;
   width: 92%;
-  border: 0.25px solid #0079bf;
   box-shadow: inset 0 0 0 1px rgba(9, 30, 66, 0.13);
   height: 50px;
   background: #fff;
@@ -2332,4 +2331,22 @@ button {
   background: #61bd4f;
   height: 8px;
   width: 100%;
+}
+.edit-item {
+  overflow: hidden;
+  border-radius: 3px;
+  overflow-wrap: break-word;
+  resize: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  display: block;
+  line-height: 20px;
+  padding: 8px 12px;
+  width: 92%;
+  height: 56px;
+  background: rgba(9, 30, 66, 0.04);
+  border-color: rgba(9, 30, 66, 0.13);
+  box-shadow: inset 0 0 0 1px rgba(9, 30, 66, 0.13);
+  margin-bottom: 4px;
 }

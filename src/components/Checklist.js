@@ -25,42 +25,41 @@ const Checklist = ({
   };
   return (
     <div className="checklist">
-      <div className="edit-checklist-cond">
-        {editChecklist.id && checklist.id === editChecklist.id ? (
-          <EditChecklist
-            checklist={checklist}
-            handleCloseEditing={handleCloseEditing}
-          />
-        ) : (
-          <div className="checklist-header" style={{ margin: "0 0 4px 40px" }}>
-            <h3
-              className="checklist-title"
-              onClick={(e) => handleEditTitle(checklist)}
+      {editChecklist.id && checklist.id === editChecklist.id ? (
+        <EditChecklist
+          editChecklist={editChecklist}
+          handleCloseEditing={handleCloseEditing}
+        />
+      ) : (
+        <div className="checklist-header" style={{ margin: "0 0 4px 40px" }}>
+          <h3
+            className="checklist-title"
+            onClick={(e) => handleEditTitle(checklist)}
+          >
+            {checklist.title}
+          </h3>
+          <div className="checklist-btns">
+            <button className="sidebar-btn">Hide Completed Items</button>
+            <button
+              className="sidebar-btn"
+              onClick={(e) => handleConfirmDelete(checklist)}
             >
-              {checklist.title}
-            </h3>
-            <div className="checklist-btns">
-              <button className="sidebar-btn">Hide Completed Items</button>
-              <button
-                className="sidebar-btn"
-                onClick={(e) => handleConfirmDelete(checklist)}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        )}
-        <ItemsList items={checklist.items} />
-        {!active ? (
-          <div className="checklist-add-new-item">
-            <button className="sidebar-btn" onClick={(e) => setActive(true)}>
-              Add an item
+              Delete
             </button>
           </div>
-        ) : (
-          <AddItem checklist={checklist} handleCloseAdd={handleCloseAdd} />
-        )}
-      </div>
+        </div>
+      )}
+
+      <ItemsList items={checklist.items} />
+      {!active ? (
+        <div className="checklist-add-new-item">
+          <button className="sidebar-btn" onClick={(e) => setActive(true)}>
+            Add an item
+          </button>
+        </div>
+      ) : (
+        <AddItem checklist={checklist} handleCloseAdd={handleCloseAdd} />
+      )}
       {del.id && del.id === checklist.id ? (
         <div className="side-popover" style={{ top: "248px", right: "4em" }}>
           <div className="no-back">
