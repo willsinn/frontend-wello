@@ -59,32 +59,34 @@ const TaskWindow = ({
         <div className="task-detail-window">
           <div className="task-window-header">
             <span className="task-window-icon" />
-            {task.id === undefined ? (
-              <h1
-                className="card-text"
-                style={{
-                  fontSize: "1.70em",
-                  minHeight: "28px",
-                  height: "28px",
-                  margin: "0",
-                }}
-                onClick={(e) => handleNoteEdit()}
-              >
-                {editTask.note}
-              </h1>
-            ) : (
-              <form className="edit-note-form" onSubmit={handleSubmit}>
-                <input
-                  className="edit-input"
-                  style={{ fontSize: "1.7em" }}
-                  type="text"
-                  name="note"
-                  onChange={handleChange}
-                  value={note}
-                  required
-                />
-              </form>
-            )}
+            <div>
+              {task.id === undefined ? (
+                <h1
+                  className="card-text"
+                  style={{
+                    fontSize: "1.70em",
+                    minHeight: "28px",
+                    height: "28px",
+                    margin: "0",
+                  }}
+                  onClick={(e) => handleNoteEdit()}
+                >
+                  {editTask.note}
+                </h1>
+              ) : (
+                <form className="edit-note-form" onSubmit={handleSubmit}>
+                  <input
+                    className="edit-input"
+                    style={{ fontSize: "1.7em" }}
+                    type="text"
+                    name="note"
+                    onChange={handleChange}
+                    value={note}
+                    required
+                  />
+                </form>
+              )}
+            </div>
             <div className="task-window-text">
               <span>in list </span>
               <span className="task-window-list-name">{cardGoal}</span>
