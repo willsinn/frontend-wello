@@ -25,13 +25,11 @@ const Checklist = ({
     setActive(false);
   };
   const renderIncomplete = (e) => {
-    console.log(checklist.items);
     const incompleteItems = checklist.items.filter(
       (item) => item.complete === false
     );
-    console.log(incompleteItems);
     if (incompleteItems.length === 0) {
-      return "All Complete";
+      return <div>All Complete</div>;
     }
 
     if (incompleteItems.length > 0) {
@@ -56,13 +54,23 @@ const Checklist = ({
             {checklist.title}
           </h3>
           <div className="checklist-btns">
-            <button
-              className="sidebar-btn"
-              style={{ marginRight: "8px" }}
-              onClick={(e) => setFilter(!filter)}
-            >
-              Hide Completed Items
-            </button>
+            {filter ? (
+              <button
+                className="sidebar-btn"
+                style={{ marginRight: "8px" }}
+                onClick={(e) => setFilter(!filter)}
+              >
+                Show Completed Items{" "}
+              </button>
+            ) : (
+              <button
+                className="sidebar-btn"
+                style={{ marginRight: "8px" }}
+                onClick={(e) => setFilter(!filter)}
+              >
+                Hide Completed Items
+              </button>
+            )}
             <button
               className="sidebar-btn"
               onClick={(e) => handleConfirmDelete(checklist)}
@@ -72,8 +80,11 @@ const Checklist = ({
           </div>
         </div>
       )}
-      {renderIncomplete()}
-      <ItemsList items={checklist.items} />
+      {filter ? (
+        <>{renderIncomplete()}</>
+      ) : (
+        <ItemsList items={checklist.items} />
+      )}
       {!active ? (
         <div className="checklist-add-new-item">
           <button className="sidebar-btn" onClick={(e) => setActive(true)}>
