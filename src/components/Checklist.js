@@ -16,12 +16,27 @@ const Checklist = ({
   dispatch,
 }) => {
   const [active, setActive] = useState(false);
+  const [filter, setFilter] = useState(false);
   const handleDelete = (e) => {
     dispatch(deleteChecklist(checklist, dispatch));
     handleCancelDelete(e);
   };
   const handleCloseAdd = (e) => {
     setActive(false);
+  };
+  const renderIncomplete = (e) => {
+    console.log(checklist.items);
+    const incompleteItems = checklist.items.filter(
+      (item) => item.complete === false
+    );
+    console.log(incompleteItems);
+    if (incompleteItems.length === 0) {
+      return "All Complete";
+    }
+
+    if (incompleteItems.length > 0) {
+      return <ItemsList items={incompleteItems} />;
+    }
   };
   return (
     <div className="checklist">
@@ -41,7 +56,11 @@ const Checklist = ({
             {checklist.title}
           </h3>
           <div className="checklist-btns">
-            <button className="sidebar-btn" style={{ marginRight: "8px" }}>
+            <button
+              className="sidebar-btn"
+              style={{ marginRight: "8px" }}
+              onClick={(e) => setFilter(!filter)}
+            >
               Hide Completed Items
             </button>
             <button
@@ -53,7 +72,7 @@ const Checklist = ({
           </div>
         </div>
       )}
-
+      {renderIncomplete()}
       <ItemsList items={checklist.items} />
       {!active ? (
         <div className="checklist-add-new-item">
