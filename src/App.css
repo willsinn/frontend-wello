@@ -1872,6 +1872,7 @@ button {
 }
 .module-title {
   font-weight: 525;
+  cursor: default;
 }
 .task-window-text {
   color: #5e6c84;
@@ -1962,6 +1963,7 @@ button {
 }
 .checklist-title {
   cursor: pointer;
+  font-weight: 475;
 }
 .task-window-sidebar {
   padding: 0 8px 8px 8px;
@@ -2386,4 +2388,8 @@ button {
 }
 .checklist-btns {
   display: flex;
+}
+.checklists-container {
+  display: flex;
+  flex-direction: column;
 }
