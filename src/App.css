@@ -931,7 +931,7 @@ button {
 }
 
 /*
-  ICON BUTTONS
+  ICONS
 */
 .icon {
   background-color: transparent;
@@ -1019,6 +1019,16 @@ button {
   padding: 4px;
   position: absolute;
   left: -36px;
+  top: 15px;
+}
+.task-window-icon {
+  background-image: url("./images/task-window-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  left: -33.5px;
   top: 15px;
 }
 .add-board-modal {
