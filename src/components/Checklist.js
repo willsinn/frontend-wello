@@ -65,7 +65,7 @@ const Checklist = ({
         <AddItem checklist={checklist} handleCloseAdd={handleCloseAdd} />
       )}
       {del.id && del.id === checklist.id ? (
-        <div className="side-popover" style={{ top: "248px", right: "4em" }}>
+        <div className="side-popover" style={{ top: "248px", right: "20%" }}>
           <div className="no-back">
             <div className="side-popover-header">
               <span className="side-popover-header-title">

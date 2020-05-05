@@ -24,6 +24,7 @@ const TaskWindowDescription = ({ editTask, dispatch }) => {
   return (
     <div className="task-window-desc">
       <div className="module-header">
+        <span className="desc-icon" />
         <h3 className="module-title">Description</h3>
         <div className="editable-desc">
           {desc.length > 0 && !editable ? (

@@ -1006,8 +1006,9 @@ button {
   height: 20px;
   width: 20px;
   padding: 4px;
-  position: relative;
-  left: -8px;
+  position: absolute;
+  left: -38px;
+  top: 12px;
 }
 .check-mark-icon {
   background-image: url("./images/check-mark-icon.png");
@@ -1016,7 +1017,9 @@ button {
   height: 20px;
   width: 20px;
   padding: 4px;
-  position: relative;
+  position: absolute;
+  left: -36px;
+  top: 15px;
 }
 .add-board-modal {
   position: fixed;
@@ -1851,11 +1854,10 @@ button {
   justify-content: space-between;
 }
 .module-header {
-  margin: 12px 40px 6px 40px;
+  margin: 12px 0 6px 40px;
   align-items: center;
   text-align: center;
   display: flex;
-  justify-content: space-between;
   position: relative;
 }
 .module-title {
@@ -2370,6 +2372,7 @@ button {
   display: flex;
   justify-content: space-between;
   height: 50px;
+  position: relative;
 }
 .checklist-btns {
   display: flex;

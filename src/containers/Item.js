@@ -76,7 +76,7 @@ const Item = ({
           {menu.id === item.id ? (
             <div className="checklist-menu">
               <div className="side-popover-header-title">Item Actions</div>
-              <button class="side-close-btn" onClick={(e) => closeMenu()}>
+              <button className="side-close-btn" onClick={(e) => closeMenu()}>
                 ✕
               </button>
               <div className="checklist-menu-body">
