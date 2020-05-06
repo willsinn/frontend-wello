@@ -117,24 +117,7 @@ const TaskWindow = ({
               ) : null}
 
               {sidebtn === "checklist" ? (
-                <div className="side-popover">
-                  <div className="no-back">
-                    <div className="side-popover-header">
-                      <span className="side-popover-header-title">
-                        Add Checklist
-                      </span>
-                      <button
-                        onClick={(e) => setSidebtn("")}
-                        className="side-close-btn"
-                      >
-                        ✕
-                      </button>
-                    </div>
-                    <div className="side-popover-body">
-                      <AddChecklist task={editTask} closePopup={closePopup} />
-                    </div>
-                  </div>
-                </div>
+                <AddChecklist task={editTask} closePopup={closePopup} />
               ) : null}
               <div
                 className="sidebar-btn"
