@@ -2028,10 +2028,9 @@ button {
   overflow: hidden;
   position: fixed;
   width: 304px;
-  max-height: 172px;
-  min-height: 168px;
   z-index: 70;
   top: 215px;
+  right: 1.5em;
 }
 .side-popover-header {
   text-align: center;
@@ -2397,4 +2396,11 @@ button {
   color: #5e6c84;
   display: block;
   margin: 8px 0 0 40px;
+}
+.label-menu {
+  width: 304px;
+  height: 499px;
+  position: fixed;
+  bottom: 0;
+  top: 10%;
 }
