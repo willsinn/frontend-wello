@@ -2434,34 +2434,34 @@ button {
   box-shadow: -8px 0 #519839;
 }
 .task-label-yellow {
-  background-color: ;
+  background-color: #f2d600;
 }
 .task-label-yellow:hover {
-  box-shadow: -8px 0;
+  box-shadow: -8px 0 #d9b51c;
 }
 .task-label-orange {
-  background-color: ;
+  background-color: #ff9f1a;
 }
 .task-label-orange:hover {
-  box-shadow: -8px 0;
+  box-shadow: -8px 0 #cd8313;
 }
 .task-label-red {
-  background-color: ;
+  background-color: #eb5a46;
 }
 .task-label-red:hover {
-  box-shadow: -8px 0;
+  box-shadow: -8px 0 #b04632;
 }
 .task-label-purple {
-  background-color: ;
+  background-color: #c377e0;
 }
 .task-label-purple:hover {
-  box-shadow: -8px 0;
+  box-shadow: -8px 0 #89609e;
 }
 .task-label-blue {
-  background-color: ;
+  background-color: #0079bf;
 }
 .task-label-blue:hover {
-  box-shadow: -8px 0;
+  box-shadow: -8px 0 #055a8c;
 }
 .name-label-btn-container {
   position: absolute;
