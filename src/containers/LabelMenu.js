@@ -10,7 +10,19 @@ const LabelMenu = ({ closePopup }) => {
             ✕
           </button>
         </div>
-        <div className="side-popover-body">labels</div>
+        labels
+        <div className="side-popover-body">
+          <ul className="label-popover-list">
+            <li className="label-popover-list-item">
+              <span className="task-label-green task-label">
+                <p>text</p>
+              </span>
+              <div className="name-label-btn-container">
+                <button className="name-label-btn">✐</button>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
