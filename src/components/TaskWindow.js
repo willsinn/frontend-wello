@@ -112,7 +112,9 @@ const TaskWindow = ({
                 Labels
               </div>
 
-              {sidebtn === "labels" ? <LabelMenu /> : null}
+              {sidebtn === "labels" ? (
+                <LabelMenu closePopup={closePopup} />
+              ) : null}
 
               {sidebtn === "checklist" ? (
                 <div className="side-popover">
