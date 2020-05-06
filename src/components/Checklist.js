@@ -24,15 +24,9 @@ const Checklist = ({
   const handleCloseAdd = (e) => {
     setActive(false);
   };
-  const renderIncomplete = (e) => {
-    const incompleteItems = checklist.items.filter(
-      (item) => item.complete === false
-    );
-    if (incompleteItems.length === 0) {
-      return <div>All Complete</div>;
-    }
-
-    if (incompleteItems.length > 0) {
+  const renderIncomplete = () => {
+    if (checklist.items.length > 0) {
+      const incompleteItems = checklist.items.filter((item) => !item.completed);
       return <ItemsList items={incompleteItems} />;
     }
   };
@@ -60,7 +54,7 @@ const Checklist = ({
                 style={{ marginRight: "8px" }}
                 onClick={(e) => setFilter(!filter)}
               >
-                Show Completed Items{" "}
+                Show Completed Items
               </button>
             ) : (
               <button
