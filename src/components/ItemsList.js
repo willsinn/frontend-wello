@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Item from "../containers/Item";
 
-const ItemsList = ({ items }) => {
+const ItemsList = ({ items, filter }) => {
   const [hovering, setHovering] = useState({ id: undefined });
   const [editItem, setEditItem] = useState({});
   const [menu, setMenu] = useState({});
@@ -41,22 +41,7 @@ const ItemsList = ({ items }) => {
       });
     }
   };
-  const renderPercentage = () => {
-    let correctCount = 0;
 
-    if (items.length > 0) {
-      items.forEach((item) => {
-        if (item.completed) {
-          correctCount++;
-        }
-      });
-    }
-    if (items.length === 0) {
-      return 0;
-    }
-    const percent = correctCount / items.length;
-    return Math.trunc(percent * 100);
-  };
   return (
     <div className="checklist-body">
       <div
@@ -64,6 +49,11 @@ const ItemsList = ({ items }) => {
         onMouseLeave={(e) => setHovering({ id: undefined })}
       >
         {renderChecklistItems()}
+        {items.length === 0 && filter ? (
+          <div className="complete-checklist-text">
+            Everything in this checklist is complete!
+          </div>
+        ) : null}
       </div>
     </div>
   );

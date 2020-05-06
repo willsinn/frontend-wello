@@ -27,7 +27,18 @@ const Checklist = ({
   const renderIncomplete = () => {
     if (checklist.items.length > 0) {
       const incompleteItems = checklist.items.filter((item) => !item.completed);
-      return <ItemsList items={incompleteItems} />;
+      return <ItemsList items={incompleteItems} filter={filter} />;
+    }
+  };
+  const renderCompleteCount = () => {
+    let completeCount = 0;
+    if (checklist.items.length > 0) {
+      checklist.items.forEach((item) => {
+        if (item.completed) {
+          completeCount++;
+        }
+      });
+      return completeCount;
     }
   };
   const renderPercentage = () => {
@@ -70,7 +81,7 @@ const Checklist = ({
                 style={{ marginRight: "8px" }}
                 onClick={(e) => setFilter(!filter)}
               >
-                Show Completed Items
+                Show Checked Items ({renderCompleteCount()})
               </button>
             ) : (
               <button
@@ -90,6 +101,7 @@ const Checklist = ({
           </div>
         </div>
       )}
+
       <div className="checklist-progress">
         <span className="checklist-progress-percentage">
           {renderPercentage()}%
@@ -105,10 +117,11 @@ const Checklist = ({
           )}
         </div>
       </div>
+
       {filter ? (
         <>{renderIncomplete()}</>
       ) : (
-        <ItemsList items={checklist.items} />
+        <ItemsList items={checklist.items} filter={filter} />
       )}
       {!active ? (
         <div className="checklist-add-new-item">

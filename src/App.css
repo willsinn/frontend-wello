@@ -2393,3 +2393,8 @@ button {
   display: flex;
   flex-direction: column;
 }
+.complete-checklist-text {
+  color: #5e6c84;
+  display: block;
+  margin: 8px 0 0 40px;
+}
