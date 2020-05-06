@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import TaskWindowDescription from "./TaskWindowDescription";
-import TaskChecklists from "./TaskChecklists";
-import AddChecklist from "./AddChecklist";
-import LabelMenu from "../containers/LabelMenu";
+import TaskWindowDescription from "../components/TaskWindowDescription";
+import TaskChecklists from "../components/TaskChecklists";
+import AddChecklist from "../components/AddChecklist";
+import LabelMenu from "./LabelMenu";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 
@@ -51,8 +51,6 @@ const TaskWindow = ({
   const closePopup = () => {
     setSidebtn("");
   };
-
-  console.log(sidebtn);
 
   return (
     <div className="window-modal">
