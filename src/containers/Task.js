@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 
-const Task = ({ task, card, renderQuickEditor }) => {
+const Task = ({
+  task,
+  card,
+  editor,
+  handleRenderTaskWindow,
+  handleRenderQuickEditor,
+}) => {
   const [visible, setVisible] = useState(false);
+
   return (
     <div
       className="task-item task-item-details"
-      onMouseEnter={e => setVisible(true)}
-      onMouseLeave={e => setVisible(false)}
+      onMouseEnter={(e) => setVisible(true)}
+      onMouseLeave={(e) => setVisible(false)}
     >
       <div className="task-item-note">
-        <span>{task.note}</span>
+        <div
+          className="open-task-window"
+          onClick={(e) => handleRenderTaskWindow(task)}
+        >
+          {task.note}
+        </div>
         {visible ? (
           <span
             className="edit-task-item-btn"
-            onClick={e => renderQuickEditor(e, task)}
+            onClick={(e) => handleRenderQuickEditor(task)}
           >
             ✎
           </span>

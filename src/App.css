@@ -11,6 +11,9 @@ textarea {
   line-height: 20px;
   font-weight: 400;
 }
+p {
+  margin: 0;
+}
 form {
   display: block;
   margin-top: 0em;
@@ -40,6 +43,9 @@ button {
   cursor: pointer;
   overflow: hidden;
   outline: none;
+}
+.no-back {
+  background: transparent;
 }
 #root {
   height: 100vh;
@@ -925,7 +931,7 @@ button {
 }
 
 /*
-  ICON BUTTONS
+  ICONS
 */
 .icon {
   background-color: transparent;
@@ -1000,8 +1006,30 @@ button {
   height: 20px;
   width: 20px;
   padding: 4px;
-  position: relative;
-  left: -8px;
+  position: absolute;
+  left: -38px;
+  top: 12px;
+}
+.check-mark-icon {
+  background-image: url("./images/check-mark-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  padding: 4px;
+  position: absolute;
+  left: -36px;
+  top: 15px;
+}
+.task-window-icon {
+  background-image: url("./images/task-window-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  left: -33.5px;
+  top: 15px;
 }
 .add-board-modal {
   position: fixed;
@@ -1290,7 +1318,6 @@ button {
   overflow: hidden;
 }
 .board-menu-close-btn {
-  position: absolute;
   font-size: 28px;
   position: absolute;
   top: 8px;
@@ -1499,7 +1526,6 @@ button {
   border: none;
   color: #fff;
   border-radius: 3px;
-  margin-top: 0;
   padding-top: 4px;
   padding-bottom: 4px;
   margin: 0 4px 4px 4px;
@@ -1507,7 +1533,7 @@ button {
 .close-add-btn {
   min-height: 32px;
   height: 32px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 900;
   margin-top: 0;
   color: gray;
@@ -1537,9 +1563,11 @@ button {
 .card-text {
   font-weight: 600;
   margin: 0 0 8px;
-  font-size: 18px;
+  font-size: 1.15em;
   line-height: 20px;
   cursor: pointer;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .edit-card-title {
   overflow: hidden;
@@ -1745,6 +1773,10 @@ button {
   text-decoration: none;
   border: none;
 }
+.open-task-window {
+  width: 100%;
+  min-height: 60px;
+}
 .quick-task-editor-wrapper {
   position: absolute;
   z-index: 100;
@@ -1756,12 +1788,613 @@ button {
   right: -96px;
   width: max-content;
 }
-.edit-card-input {
+.edit-input {
   position: relative;
   top: -2px;
   height: 20px;
   font-size: 17px;
-  border: 2px solid blue;
+  border: 2px solid #6791d6;
   border-radius: 3px;
   width: 100%;
+  font-weight: 600;
+}
+.window-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+}
+.task-window {
+  width: 768px;
+  background-color: #f4f5f7;
+  border-radius: 2px;
+  margin: 48px 8px 80px;
+  min-height: 600px;
+  z-index: 25;
+  overflow: hidden;
+  position: relative;
+}
+.close-task-window {
+  cursor: pointer;
+  color: #42526e;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 32px;
+  overflow: hidden;
+  padding: 4px;
+  margin: 4px;
+  width: 32px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+}
+.close-task-window:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  color: #42526e;
+}
+.task-detail-window {
+}
+.edit-note-form {
+  width: 98%;
+}
+.task-window-header {
+  margin: 12px 40px 8px 56px;
+  padding-top: 12px;
+  min-height: 32px;
+  position: relative;
+  z-index: 1;
+}
+.task-window-body {
+  height: 600px;
+  min-height: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.module-header {
+  margin: 12px 0 6px 40px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  position: relative;
+}
+.module-title {
+  font-weight: 525;
+  cursor: default;
+}
+.task-window-text {
+  color: #5e6c84;
+  cursor: default;
+}
+.task-window-list-name {
+  font-weight: 500;
+  border-bottom: 1px solid #5e6c84;
+}
+.task-window-desc {
+  min-height: 24px;
+  padding: 0 8px 8px 16px;
+  position: relative;
+  /* width: 552px;
+  min-width: 552px; */
+  z-index: 0;
+}
+.editable-desc {
+  margin: 0 0 0 8px;
+  display: flex;
+  align-items: center;
+}
+.edit-desc-btn {
+  padding: 6px 12px;
+  background-color: rgba(9, 30, 66, 0.04);
+  box-shadow: none;
+  border: none;
+  height: 32px;
+  border-radius: 3px;
+}
+.edit-desc-btn:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  box-shadow: none;
+  border: none;
+}
+.desc-placeholder {
+  background-color: rgba(9, 30, 66, 0.04);
+  box-shadow: none;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  min-height: 40px;
+  padding: 8px 12px;
+  text-decoration: none;
+  margin-left: 40px;
+}
+.desc-placeholder:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  box-shadow: none;
+  border: none;
+}
+.editing {
+  display: block;
+  float: left;
+  padding-bottom: 9px;
+  z-index: 50;
+  width: 100%;
+  margin-left: 40px;
+}
+.description-form {
+  border-radius: 3px;
+  border-color: rgba(9, 30, 66, 0.13);
+  min-width: 92%;
+  max-width: 92%;
+}
+.description-field {
+  overflow: hidden;
+  border-radius: 3px;
+  overflow-wrap: break-word;
+  resize: none;
+  height: 108px;
+  min-height: 108px;
+  background: #fff;
+  box-shadow: none;
+  color: #172b4d;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  display: block;
+  line-height: 20px;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border: 2px solid blue;
+  width: 92%;
+}
+.curr-desc {
+  margin: 0 0 8px 40px;
+  cursor: pointer;
+}
+.checklist-title {
+  cursor: pointer;
+  font-weight: 475;
+}
+.task-window-sidebar {
+  padding: 0 8px 8px 8px;
+  margin: 0 8px;
+  width: 168px;
+  min-width: 168px;
+  overflow: hidden;
+  z-index: 10;
+  height: 100%;
+  position: relative;
+}
+.body-left-window {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.sidebar-btn {
+  background-color: rgba(9, 30, 66, 0.04);
+  box-shadow: none;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 32px;
+  margin-top: 8px;
+  max-width: 300px;
+  overflow: hidden;
+  padding: 6px 12px;
+  position: relative;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  white-space: nowrap;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 85ms;
+  transition-timing-function: ease;
+}
+.sidebar-btn:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  box-shadow: none;
+  border: none;
+}
+.sidebar-title {
+  color: #5e6c84;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 16px;
+  margin-top: 16px;
+  text-transform: uppercase;
+  line-height: 20px;
+  margin-bottom: -4px;
+  margin-left: -4px;
+}
+.side-popover {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
+  overflow: hidden;
+  position: fixed;
+  width: 304px;
+  max-height: 172px;
+  min-height: 168px;
+  z-index: 70;
+  top: 215px;
+}
+.side-popover-header {
+  text-align: center;
+}
+.side-popover-header-title {
+  box-sizing: border-box;
+  color: #5e6c84;
+  display: flex;
+  justify-content: center;
+  line-height: 40px;
+  border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+  margin: 0 12px;
+  overflow: hidden;
+  padding: 0 32px;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 1;
+  margin-bottom: 8px;
+}
+.side-close-btn {
+  color: #6b778c;
+  padding: 10px 12px 10px 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+.side-close-btn:hover {
+  color: #172b4d;
+}
+.id-checklist {
+  font-weight: 700;
+  color: #5e6c84;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  display: block;
+}
+.side-popover-body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 12px 12px;
+  justify-content: center;
+  display: flex;
+}
+.add-checklist {
+  width: 230px;
+  max-width: 230px;
+}
+.add-checklist-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.checklist-btn {
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0;
+  max-width: 55px;
+  width: 55px;
+}
+.add-checklist-input {
+  background-color: #fafbfc;
+  border: none;
+  box-shadow: inset 0 0 0 2px #dfe1e6;
+  color: #172b4d;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  display: block;
+  line-height: 20px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 85ms;
+  transition-timing-function: ease;
+}
+.module-btns {
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  width: 242px;
+  justify-content: space-between;
+}
+.edit-checklist {
+  overflow: hidden;
+  border-radius: 3px;
+  overflow-wrap: break-word;
+  resize: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  display: block;
+  line-height: 20px;
+  padding: 8px 12px;
+  width: 92%;
+  box-shadow: inset 0 0 0 1px rgba(9, 30, 66, 0.13);
+  height: 50px;
+  background: #fff;
+  border: none;
+  box-shadow: inset 0 0 0 2px #0079bf;
+  color: #172b4d;
+}
+.del-checklist-btn {
+  width: 100%;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 8px 4px 0 0;
+  padding: 6px 12px;
+  text-align: center;
+  background-color: #cf513d;
+  box-shadow: none;
+  border: none;
+  color: #fff;
+}
+.del-checklist-btn:hover {
+  background-color: #eb5a46;
+  box-shadow: none;
+  border: none;
+  color: #fff;
+}
+.checklist-add-new-item {
+  margin-left: 40px;
+}
+.checklist-body {
+  min-height: 8px;
+}
+.checklist-items-list {
+  height: 100%;
+  width: 100%;
+}
+.checklist-item {
+  clear: both;
+  position: relative;
+  border-radius: 3px;
+  transform-origin: left bottom;
+  transition-property: transform, opacity, height, padding, margin;
+  transition-duration: 0.14s;
+  transition-timing-function: ease-in;
+}
+.checklist-item:hover {
+  background-color: rgba(9, 30, 66, 0.04);
+}
+.checklist-item-details {
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding-left: 40px;
+}
+.checklist-item-details,
+.checklist-item-row,
+.checklist-item-text-and-controls {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  width: 100%;
+}
+.checklist-item-text-and-controls {
+  padding: 8px 0;
+  width: 100%;
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+}
+.checklist-item-details-text {
+  min-height: 20px;
+  margin-bottom: 0;
+  align-self: center;
+  flex: 1;
+}
+.completed-strikethrough {
+  color: #5e6c84;
+  text-decoration: line-through;
+}
+
+.checklist-item-menu {
+  box-sizing: border-box;
+  padding: 2px;
+  height: 22px;
+  width: 22px;
+  border-radius: 3px;
+  margin-left: 5px;
+  min-width: 22px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.checklist-item-controls {
+  box-sizing: border-box;
+  position: absolute;
+  top: 4px;
+  right: 4.5px;
+  min-height: 26px;
+  max-height: 26px;
+  max-width: 26px;
+  border-radius: 3px;
+  cursor: pointer;
+  min-width: 26px;
+}
+.checklist-item-controls:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  color: #172b4d;
+}
+.checklist-icon-sm {
+  height: 12px;
+  font-size: 16px;
+  line-height: 14px;
+  width: 28px;
+  font-weight: 600;
+}
+.editing-checklist-item {
+  height: 100%;
+  width: 100%;
+}
+
+.checklist-menu {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
+  overflow: hidden;
+  width: 304px;
+  height: 124px;
+  background-color: white;
+  position: absolute;
+  z-index: 70;
+  top: 34px;
+  right: 0;
+}
+.checklist-menu-body {
+  cursor: pointer;
+  margin-top: 12px;
+  padding: 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.checklist-menu-item {
+  height: 32px;
+  width: 304px;
+  display: flex;
+  align-items: center;
+}
+.checklist-menu-item:hover {
+  background-color: rgba(9, 30, 66, 0.04);
+}
+.checklist-menu-item-text {
+  padding: 6px 12px;
+}
+.checklist-item-check-box {
+  background-color: #fafbfc;
+  box-shadow: inset 0 0 0 2px #dfe1e6;
+  border-radius: 2px;
+  height: 18px;
+  width: 18px;
+  line-height: 18px;
+  position: absolute;
+  top: 25%;
+  left: 6px;
+}
+.checklist-item-check-box:hover {
+  background: #ebecf0;
+  box-shadow: inset 0 0 0 2px #dfe1e6;
+  cursor: pointer;
+  text-indent: 0;
+}
+.checklist-item-checked {
+  border-radius: 2px;
+  height: 18px;
+  width: 18px;
+  line-height: 18px;
+  position: absolute;
+  top: 25%;
+  left: 6px;
+  background-color: #0079bf;
+  box-shadow: inset 0 0 0 2px #0079bf;
+  text-indent: 0;
+  display: flex;
+  justify-content: center;
+}
+.checklist-item-checked:hover {
+  cursor: pointer;
+  text-indent: 0;
+  background-color: #5ba4cf;
+  box-shadow: inset 0 0 0 2px #5ba4cf;
+}
+.completed-checkmark {
+  color: white;
+  font-size: 11px;
+}
+.checklist-progress {
+  display: flex;
+  align-items: center;
+}
+.checklist-progress-percentage {
+  cursor: default;
+  font-size: 11px;
+  top: 0;
+  left: 0;
+}
+.checklist-progress-bar {
+  background: rgba(9, 30, 66, 0.08);
+  border-radius: 4px;
+  clear: both;
+  height: 8px;
+  margin: 0 0 0 12px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.checklists-container {
+  padding: 0 8px 8px 16px;
+}
+.percentage-progress {
+  background: #0079bf;
+  height: 8px;
+}
+.finished-progress {
+  background: #61bd4f;
+  height: 8px;
+  width: 100%;
+}
+.edit-item {
+  overflow: hidden;
+  border-radius: 3px;
+  overflow-wrap: break-word;
+  resize: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  display: block;
+  line-height: 20px;
+  padding: 8px 12px;
+  width: 92%;
+  height: 56px;
+  background: rgba(9, 30, 66, 0.04);
+  border-color: rgba(9, 30, 66, 0.13);
+  box-shadow: inset 0 0 0 1px rgba(9, 30, 66, 0.13);
+  margin-bottom: 4px;
+}
+.checklist-header {
+  margin: 0 0 4px 40px;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  position: relative;
+}
+.checklist-btns {
+  display: flex;
+}
+.checklists-container {
+  display: flex;
+  flex-direction: column;
+}
+.complete-checklist-text {
+  color: #5e6c84;
+  display: block;
+  margin: 8px 0 0 40px;
 }

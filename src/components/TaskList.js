@@ -1,34 +1,51 @@
 import React, { useState } from "react";
 import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
+import TaskWindow from "../components/TaskWindow";
 import QuickTaskEditor from "../components/QuickTaskEditor";
+import { fetchChecklists } from "../actions/checklists";
+import { connect } from "react-redux";
 
-const TaskList = ({ card }) => {
+const TaskList = ({ card, dispatch }) => {
   const [addTask, setAddTask] = useState(false);
   const [editor, setEditor] = useState(false);
+  const [window, setWindow] = useState(false);
   const [editTask, setEditTask] = useState({});
-
-  const closeQuickEditor = e => {
-    setEditor(false);
-    setEditTask({});
+  const handleUpdateEditTask = (note) => {
+    setEditTask({ ...editTask, note });
   };
-  const renderQuickEditor = (e, task) => {
+  const handleRenderQuickEditor = (task) => {
     setEditTask(task);
     setEditor(true);
   };
-  const handleCloseTaskForm = e => {
+  const handleCloseQuickEditor = () => {
+    setEditTask({});
+    setEditor(false);
+  };
+  const handleRenderTaskWindow = (task) => {
+    setEditTask(task);
+    dispatch(fetchChecklists(task));
+    setWindow(true);
+  };
+  const handleCloseWindow = () => {
+    setEditTask({});
+    setWindow(false);
+  };
+  const handleCloseTaskForm = (e) => {
     setAddTask(false);
   };
   const renderTasks = () => {
     if (card && card.tasks && card.tasks.length > 0) {
-      return card.tasks.map(task => {
+      return card.tasks.map((task) => {
         if (!task.archived) {
           return (
             <Task
               key={task.id}
               task={task}
               card={card.id}
-              renderQuickEditor={renderQuickEditor}
+              editor={editor}
+              handleRenderTaskWindow={handleRenderTaskWindow}
+              handleRenderQuickEditor={handleRenderQuickEditor}
             />
           );
         } else {
@@ -37,33 +54,44 @@ const TaskList = ({ card }) => {
       });
     }
   };
+
   return (
     <div className="task-list">
-      {editor ? <div className="quick-task-editor" /> : null}
-      {editor ? (
+      {editor && !window ? <div className="quick-task-editor" /> : null}
+
+      {editor && !window ? (
         <div className="quick-task-editor-wrapper">
           <div
             className="close-quick-editor-icon"
-            onClick={e => closeQuickEditor(e)}
+            onClick={(e) => handleCloseQuickEditor()}
           >
             ✕
           </div>
           <QuickTaskEditor
             editTask={editTask}
-            closeQuickEditor={closeQuickEditor}
+            handleCloseQuickEditor={handleCloseQuickEditor}
           />
         </div>
       ) : null}
 
+      {window && !editor ? (
+        <TaskWindow
+          cardGoal={card.goal}
+          editTask={editTask}
+          handleCloseWindow={handleCloseWindow}
+          handleUpdateEditTask={handleUpdateEditTask}
+        />
+      ) : null}
+
       {renderTasks()}
       {!addTask ? (
-        <div className="task-composer" onClick={e => setAddTask(true)}>
+        <div className="task-composer" onClick={(e) => setAddTask(true)}>
           <span className="open-task-composer">
             <span
               style={{
                 fontSize: "22px",
                 fontWeight: "300",
-                padding: "0 4px"
+                padding: "0 4px",
               }}
             >
               +
@@ -78,4 +106,4 @@ const TaskList = ({ card }) => {
   );
 };
 
-export default TaskList;
+export default connect()(TaskList);

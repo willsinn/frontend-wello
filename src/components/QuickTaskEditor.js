@@ -3,22 +3,22 @@ import { archiveTask, updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const initialState = { note: "" };
-const QuickTaskEditor = ({ editTask, closeQuickEditor, dispatch }) => {
+const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
   const [note, setNote] = useState(editTask.note);
-  const clearState = e => {
+  const clearState = (e) => {
     setNote({ ...initialState });
     e.target.firstElementChild.value = "";
   };
-  const handleChange = e => {
+  const handleChange = (e) => {
     e.persist();
     setNote(e.target.value);
   };
-  const handleSubmitTask = e => {
+  const handleSubmitTask = (e) => {
     if (e) {
       dispatch(updateTaskNote(editTask, note));
       e.preventDefault();
       clearState(e);
-      closeQuickEditor(e);
+      handleCloseQuickEditor(e);
     }
   };
   return (
@@ -31,7 +31,7 @@ const QuickTaskEditor = ({ editTask, closeQuickEditor, dispatch }) => {
               overflow: "hidden",
               overflowWrap: "break-word",
               resize: "none",
-              height: "90px"
+              height: "90px",
             }}
             className="quick-edit-textarea"
             type="text"
@@ -48,8 +48,8 @@ const QuickTaskEditor = ({ editTask, closeQuickEditor, dispatch }) => {
       <div className="quick-task-editor-buttons">
         <button className="quick-task-edit-btn"> Edit Label</button>
         <button
-          onClick={e =>
-            dispatch(archiveTask(editTask, () => closeQuickEditor(e)))
+          onClick={(e) =>
+            dispatch(archiveTask(editTask, () => handleCloseQuickEditor(e)))
           }
           className="quick-task-edit-btn"
         >
