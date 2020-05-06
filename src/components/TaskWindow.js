@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TaskWindowDescription from "./TaskWindowDescription";
 import TaskChecklists from "./TaskChecklists";
 import AddChecklist from "./AddChecklist";
+import LabelMenu from "../containers/LabelMenu";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 
@@ -50,6 +51,9 @@ const TaskWindow = ({
   const closePopup = () => {
     setSidebtn("");
   };
+
+  console.log(sidebtn);
+
   return (
     <div className="window-modal">
       <div className="task-window">
@@ -107,6 +111,8 @@ const TaskWindow = ({
               >
                 Labels
               </div>
+
+              {sidebtn === "labels" ? <LabelMenu /> : null}
 
               {sidebtn === "checklist" ? (
                 <div className="side-popover">
