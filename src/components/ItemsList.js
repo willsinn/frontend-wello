@@ -59,21 +59,6 @@ const ItemsList = ({ items }) => {
   };
   return (
     <div className="checklist-body">
-      <div className="checklist-progress">
-        <span className="checklist-progress-percentage">
-          {renderPercentage()}%
-        </span>
-        <div className="checklist-progress-bar">
-          {renderPercentage() === 100 ? (
-            <div className="finished-progress"></div>
-          ) : (
-            <div
-              className="percentage-progress"
-              style={{ width: `${renderPercentage()}%` }}
-            ></div>
-          )}
-        </div>
-      </div>
       <div
         className="checklist-items-list"
         onMouseLeave={(e) => setHovering({ id: undefined })}

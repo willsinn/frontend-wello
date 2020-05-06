@@ -30,6 +30,22 @@ const Checklist = ({
       return <ItemsList items={incompleteItems} />;
     }
   };
+  const renderPercentage = () => {
+    let correctCount = 0;
+
+    if (checklist.items.length > 0) {
+      checklist.items.forEach((item) => {
+        if (item.completed) {
+          correctCount++;
+        }
+      });
+    }
+    if (checklist.items.length === 0) {
+      return 0;
+    }
+    const percent = correctCount / checklist.items.length;
+    return Math.trunc(percent * 100);
+  };
   return (
     <div className="checklist">
       {editChecklist.id && checklist.id === editChecklist.id ? (
@@ -74,6 +90,21 @@ const Checklist = ({
           </div>
         </div>
       )}
+      <div className="checklist-progress">
+        <span className="checklist-progress-percentage">
+          {renderPercentage()}%
+        </span>
+        <div className="checklist-progress-bar">
+          {renderPercentage() === 100 ? (
+            <div className="finished-progress"></div>
+          ) : (
+            <div
+              className="percentage-progress"
+              style={{ width: `${renderPercentage()}%` }}
+            ></div>
+          )}
+        </div>
+      </div>
       {filter ? (
         <>{renderIncomplete()}</>
       ) : (
