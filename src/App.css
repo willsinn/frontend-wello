@@ -2424,17 +2424,48 @@ button {
   margin-right: 4px;
 }
 .task-label:hover {
-  box-shadow: -8px 0 #519839;
   margin-right: 3px;
   padding-left: 4px;
 }
 .task-label-green {
   background-color: #61bd4f;
 }
+.task-label-green:hover {
+  box-shadow: -8px 0 #519839;
+}
+.task-label-yellow {
+  background-color: ;
+}
+.task-label-yellow:hover {
+  box-shadow: -8px 0;
+}
+.task-label-orange {
+  background-color: ;
+}
+.task-label-orange:hover {
+  box-shadow: -8px 0;
+}
+.task-label-red {
+  background-color: ;
+}
+.task-label-red:hover {
+  box-shadow: -8px 0;
+}
+.task-label-purple {
+  background-color: ;
+}
+.task-label-purple:hover {
+  box-shadow: -8px 0;
+}
+.task-label-blue {
+  background-color: ;
+}
+.task-label-blue:hover {
+  box-shadow: -8px 0;
+}
 .name-label-btn-container {
   position: absolute;
   right: 0;
 }
-
 .name-label-btn {
 }
