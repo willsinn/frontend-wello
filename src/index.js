@@ -11,6 +11,7 @@ import userReducer from "./reducers/userReducer";
 import boardsReducer from "./reducers/boardsReducer";
 import workspaceReducer from "./reducers/workspaceReducer";
 import checklistsReducer from "./reducers/checklistsReducer";
+import labelsReducer from "./reducers/labelsReducer";
 
 import * as serviceWorker from "./serviceWorker";
 import { fetchUserBoards } from "./actions/boards";
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   boardsReducer: boardsReducer,
   workspaceReducer: workspaceReducer,
   checklistsReducer: checklistsReducer,
+  labelsReducer: labelsReducer,
 });
 const store = createStore(
   rootReducer,
