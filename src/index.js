@@ -14,9 +14,9 @@ import checklistsReducer from "./reducers/checklistsReducer";
 import labelsReducer from "./reducers/labelsReducer";
 
 import * as serviceWorker from "./serviceWorker";
-import { fetchUser } from "./actions/user";
 import { fetchUserBoards } from "./actions/boards";
-import { fetchLabels } from "./actions/labels";
+
+import { fetchUser } from "./actions/user";
 
 const rootReducer = combineReducers({
   userReducer: userReducer,
@@ -32,7 +32,6 @@ const store = createStore(
 
 store.dispatch(fetchUser());
 store.dispatch(fetchUserBoards());
-store.dispatch(fetchLabels());
 
 ReactDOM.render(
   <Provider store={store}>
