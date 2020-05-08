@@ -1,10 +1,12 @@
 import React from "react";
+import Label from "../containers/Label";
 
 const LabelsList = ({ labels }) => {
   console.log("LABELS_LIST", labels);
 
   return (
     <ul className="label-popover-list">
+      <Label />
       <li className="label-popover-list-item">
         <span className="task-label-green task-label">
           <p>text</p>
