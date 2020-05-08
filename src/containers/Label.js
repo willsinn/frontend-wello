@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const Label = ({ label }) => {
   return (
     <li className="label-popover-list-item">
-      <span className="task-label-green task-label">
+      <span className={`task-label-${label.color} task-label`}>
         <p>{label.name}</p>
       </span>
       <div className="name-label-btn-container">
