@@ -3,10 +3,14 @@ import Label from "../containers/Label";
 
 const LabelsList = ({ labels }) => {
   console.log("LABELS_LIST", labels);
-
+  const renderLabels = () => {
+    return labels.map((label) => {
+      return <Label key={label.id} label={label} />;
+    });
+  };
   return (
     <ul className="label-popover-list">
-      <Label />
+      {renderLabels()}
       <li className="label-popover-list-item">
         <span className="task-label-green task-label">
           <p>text</p>
@@ -15,7 +19,6 @@ const LabelsList = ({ labels }) => {
           <button className="name-label-btn">✐</button>
         </div>
       </li>
-
       <li className="label-popover-list-item">
         <span className="task-label-yellow task-label">
           <p>text</p>
@@ -24,7 +27,6 @@ const LabelsList = ({ labels }) => {
           <button className="name-label-btn">✐</button>
         </div>
       </li>
-
       <li className="label-popover-list-item">
         <span className="task-label-orange task-label">
           <p>text</p>
@@ -33,7 +35,6 @@ const LabelsList = ({ labels }) => {
           <button className="name-label-btn">✐</button>
         </div>
       </li>
-
       <li className="label-popover-list-item">
         <span className="task-label-red task-label">
           <p>text</p>
@@ -42,7 +43,6 @@ const LabelsList = ({ labels }) => {
           <button className="name-label-btn">✐</button>
         </div>
       </li>
-
       <li className="label-popover-list-item">
         <span className="task-label-purple task-label">
           <p>text</p>
@@ -51,7 +51,6 @@ const LabelsList = ({ labels }) => {
           <button className="name-label-btn">✐</button>
         </div>
       </li>
-
       <li className="label-popover-list-item">
         <span className="task-label-blue task-label">
           <p>text</p>

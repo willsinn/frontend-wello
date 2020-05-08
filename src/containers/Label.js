@@ -5,7 +5,7 @@ const Label = ({ label }) => {
   return (
     <li className="label-popover-list-item">
       <span className="task-label-green task-label">
-        <p>text</p>
+        <p>{label.name}</p>
       </span>
       <div className="name-label-btn-container">
         <button className="name-label-btn">✐</button>
