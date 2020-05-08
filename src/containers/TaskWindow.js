@@ -94,6 +94,9 @@ const TaskWindow = ({
               <span className="task-window-list-name">{cardGoal}</span>
             </div>
           </div>
+
+          <div>LABELS</div>
+
           <div className="task-window-body" onClick={handleSave}>
             <div className="body-left-window">
               <TaskWindowDescription editTask={editTask} />

@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const LabelMenu = ({ closePopup }) => {
+const LabelMenu = ({ labels, closePopup }) => {
+  console.log(labels);
   return (
     <div className="label-menu side-popover">
       <div className="no-back">
@@ -10,7 +12,6 @@ const LabelMenu = ({ closePopup }) => {
             ✕
           </button>
         </div>
-        labels
         <div className="side-popover-body">
           <ul className="label-popover-list">
             <li className="label-popover-list-item">
@@ -72,5 +73,10 @@ const LabelMenu = ({ closePopup }) => {
     </div>
   );
 };
-
-export default LabelMenu;
+const mapStateToProps = (state) => {
+  return { labels: state.labelsReducer.labels };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+export default connect(mapStateToProps, mapDispatchToProps)(LabelMenu);

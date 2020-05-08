@@ -4,7 +4,7 @@ export const setLabels = (labels) => ({
 });
 export const fetchLabels = (task) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/${task.id}/labels`, {
+    fetch(`http://localhost:3000/labels`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
