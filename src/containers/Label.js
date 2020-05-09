@@ -9,10 +9,10 @@ const Label = ({ label, handleEditLabel }) => {
       </span>
       <div className="name-label-btn-container">
         <button
-          className="name-label-btn"
+          className="name-label-btn edit-task-item-btn"
           onClick={(e) => handleEditLabel(label)}
         >
-          ✐
+          ✎
         </button>
       </div>
     </li>

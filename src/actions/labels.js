@@ -6,6 +6,7 @@ export const updateLabel = (label) => ({
   type: "UPDATE_LABEL",
   label,
 });
+
 export const fetchLabels = (task) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/labels`, {

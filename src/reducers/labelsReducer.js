@@ -7,10 +7,14 @@ const labelsReducer = (state = defaultState, action) => {
     case "SET_LABELS":
       return { ...state, labels: action.labels };
     case "UPDATE_LABEL":
-      console.log(action.label);
-
-      debugger;
-      return { ...state };
+      const updatedLabels = state.labels.map((label) => {
+        if (label.id === action.label.id) {
+          return action.label;
+        } else {
+          return label;
+        }
+      });
+      return { ...state, labels: updatedLabels };
     default:
       return state;
   }

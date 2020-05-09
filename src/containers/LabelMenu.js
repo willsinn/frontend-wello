@@ -14,7 +14,6 @@ const LabelMenu = ({ labels, closePopup, dispatch }) => {
       setName(label.name);
     }
   };
-
   const handleBackClick = () => {
     setEditingLabel({});
   };
@@ -26,10 +25,9 @@ const LabelMenu = ({ labels, closePopup, dispatch }) => {
     if (e) {
       e.preventDefault();
       dispatch(editLabelName(editingLabel, name));
-      closePopup();
+      setEditingLabel({});
     }
   };
-  console.log(name);
 
   return (
     <>
@@ -103,7 +101,9 @@ const LabelMenu = ({ labels, closePopup, dispatch }) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { labels: state.labelsReducer.labels };
+  return {
+    labels: state.labelsReducer.labels,
+  };
 };
 
 export default connect(mapStateToProps)(LabelMenu);
