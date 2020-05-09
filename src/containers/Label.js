@@ -7,8 +7,6 @@ const Label = ({
   handleCreateTaskLabel,
   taskLabel,
 }) => {
-  console.log(taskLabel[0]);
-
   return (
     <li className="label-popover-list-item">
       <span

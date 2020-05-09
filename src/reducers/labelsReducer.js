@@ -23,6 +23,11 @@ const labelsReducer = (state = defaultState, action) => {
         ...state,
         taskLabels: [...state.taskLabels, action.taskLabel],
       };
+    case "REMOVE_TASK_LABEL":
+      // debugger;
+      return {
+        ...state,
+      };
     default:
       return state;
   }
