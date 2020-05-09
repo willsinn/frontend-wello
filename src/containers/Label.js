@@ -13,7 +13,7 @@ const Label = ({
     <li className="label-popover-list-item">
       <span
         className={`task-label-${label.color} task-label`}
-        onClick={(e) => handleCreateTaskLabel(label.id)}
+        onClick={(e) => handleCreateTaskLabel(label.id, taskLabel[0])}
       >
         <p>{label.name}</p>
         {taskLabel[0] ? <span>✓</span> : null}

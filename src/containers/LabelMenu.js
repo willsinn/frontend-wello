@@ -28,8 +28,11 @@ const LabelMenu = ({ labels, taskLabels, closePopup, taskId, dispatch }) => {
       setEditingLabel({});
     }
   };
-  const handleCreateTaskLabel = (labelId) => {
-    dispatch(createTaskLabel(labelId, taskId));
+  const handleCreateTaskLabel = (labelId, taskLabel) => {
+    if (taskLabel) {
+    } else {
+      dispatch(createTaskLabel(labelId, taskId));
+    }
   };
   console.log(taskLabels);
 

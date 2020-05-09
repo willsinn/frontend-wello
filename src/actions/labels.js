@@ -10,7 +10,10 @@ export const updateLabel = (label) => ({
   type: "UPDATE_LABEL",
   label,
 });
-
+export const addTaskLabel = (taskLabel) => ({
+  type: "ADD_TASK_LABEL",
+  taskLabel,
+});
 export const fetchLabels = (task) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/labels`, {
@@ -60,6 +63,6 @@ export const createTaskLabel = (labelId, taskId) => {
       body: JSON.stringify({ id: labelId, task_id: taskId }),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => console.log("createTaskLabel", JSONresponse));
+      .then((JSONresponse) => dispatch(addTaskLabel(JSONresponse)));
   };
 };

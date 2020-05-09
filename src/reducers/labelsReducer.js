@@ -18,6 +18,11 @@ const labelsReducer = (state = defaultState, action) => {
         }
       });
       return { ...state, labels: updatedLabels };
+    case "ADD_TASK_LABEL":
+      return {
+        ...state,
+        taskLabels: [...state.taskLabels, action.taskLabel],
+      };
     default:
       return state;
   }
