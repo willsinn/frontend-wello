@@ -1,14 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const Label = ({ label }) => {
+const Label = ({ label, handleEditLabel }) => {
   return (
     <li className="label-popover-list-item">
       <span className={`task-label-${label.color} task-label`}>
         <p>{label.name}</p>
       </span>
       <div className="name-label-btn-container">
-        <button className="name-label-btn">✐</button>
+        <button
+          className="name-label-btn"
+          onClick={(e) => handleEditLabel(label)}
+        >
+          ✐
+        </button>
       </div>
     </li>
   );

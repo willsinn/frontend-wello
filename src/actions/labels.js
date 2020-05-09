@@ -18,7 +18,7 @@ export const fetchLabels = (task) => {
       .then((JSONresponse) => dispatch(setLabels(JSONresponse)));
   };
 };
-export const nameLabel = (label, name) => {
+export const editLabelName = (label, name) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/label/${label.id}/update`, {
       method: "PUT",

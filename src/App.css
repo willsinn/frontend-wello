@@ -2051,6 +2051,10 @@ button {
   z-index: 1;
   margin-bottom: 8px;
 }
+.side-back-btn {
+  left: 0;
+  transform: rotate(-90deg);
+}
 .side-close-btn {
   color: #6b778c;
   padding: 10px 12px 10px 8px;
@@ -2399,11 +2403,14 @@ button {
 }
 .label-menu {
   width: 304px;
-  height: 499px;
   position: fixed;
+  height: 400px;
   bottom: 0;
   top: 10%;
   right: 15%;
+}
+.edit-label-name {
+  height: 300px;
 }
 .label-popover-list {
   width: 100%;
@@ -2474,6 +2481,7 @@ button {
   position: absolute;
   top: 0;
   right: 0;
+  color: #42526e;
 }
 .name-label-btn:hover {
   background-color: rgba(9, 30, 66, 0.08);
