@@ -57,23 +57,22 @@ const LabelMenu = ({ labels, closePopup, dispatch }) => {
               >
                 ⌃
               </button>
-              <span className="side-popover-header-title">
-                Change Label Name
-              </span>
+              <span className="side-popover-header-title">Change Label</span>
               <button onClick={(e) => closePopup()} className="side-close-btn">
                 ✕
               </button>
             </div>
             <div className="side-popover-body">
-              <div className="editing">
+              <div className="editing-label">
                 <div style={{ margin: "4px 0" }}>
+                  <label className="id-checklist">Name</label>
                   <form
                     className="description-form"
-                    style={{ height: "54px" }}
+                    style={{ height: "62px" }}
                     onSubmit={handleSubmit}
                   >
                     <input
-                      className="edit-checklist"
+                      className="label-input add-card-input"
                       type="text"
                       name="name"
                       onChange={(e) => handleChange(e)}

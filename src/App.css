@@ -2030,7 +2030,7 @@ button {
   width: 304px;
   z-index: 70;
   top: 215px;
-  right: 1.5em;
+  right: 11%;
 }
 .side-popover-header {
   text-align: center;
@@ -2405,12 +2405,11 @@ button {
   width: 304px;
   position: fixed;
   height: 400px;
-  bottom: 0;
-  top: 10%;
+  bottom: 8px;
   right: 15%;
 }
 .edit-label-name {
-  height: 300px;
+  height: 190px;
 }
 .label-popover-list {
   width: 100%;
@@ -2486,4 +2485,10 @@ button {
 .name-label-btn:hover {
   background-color: rgba(9, 30, 66, 0.08);
   color: #091e42;
+}
+.editing-label {
+  width: 100%;
+}
+.label-input {
+  width: 100%;
 }
