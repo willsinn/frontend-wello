@@ -2421,7 +2421,7 @@ button {
   padding: 6px 12px;
   position: relative;
   transition: padding 85ms, margin 85ms, box-shadow 85ms;
-  min-width: 236px;
+  min-width: 227px;
   margin-right: 4px;
 }
 .task-label:hover {
@@ -2466,7 +2466,16 @@ button {
 }
 .name-label-btn-container {
   position: absolute;
-  right: 0;
+  right: 3.75px;
 }
 .name-label-btn {
+  border-radius: 3px;
+  padding: 6px 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.name-label-btn:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  color: #091e42;
 }
