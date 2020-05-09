@@ -73,7 +73,7 @@ export const createTaskLabel = (labelId, taskId) => {
 export const deleteTaskLabel = (taskLabelId) => {
   return (dispatch) => {
     dispatch(removeTaskLabel(taskLabelId));
-    fetch(`http://localhost:3000/task_label/${taskLabelId}/delete}`, {
+    fetch(`http://localhost:3000/task_label/${taskLabelId}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

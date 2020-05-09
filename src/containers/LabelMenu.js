@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import LabelsList from "../components/LabelsList";
-import { editLabelName, createTaskLabel } from "../actions/labels";
+import {
+  editLabelName,
+  createTaskLabel,
+  deleteTaskLabel,
+} from "../actions/labels";
 import { connect } from "react-redux";
 
 const LabelMenu = ({ labels, taskLabels, closePopup, taskId, dispatch }) => {
@@ -30,12 +34,11 @@ const LabelMenu = ({ labels, taskLabels, closePopup, taskId, dispatch }) => {
   };
   const handleCreateTaskLabel = (labelId, taskLabel) => {
     if (taskLabel) {
+      dispatch(deleteTaskLabel(taskLabel.id));
     } else {
       dispatch(createTaskLabel(labelId, taskId));
     }
   };
-  console.log(taskLabels);
-
   return (
     <>
       {!editingLabel.id ? (
