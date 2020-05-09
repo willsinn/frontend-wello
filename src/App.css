@@ -2429,6 +2429,13 @@ button {
   transition: padding 85ms, margin 85ms, box-shadow 85ms;
   min-width: 227px;
   margin-right: 4px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.task-label p {
+  max-width: 200px;
+  overflow: hidden;
 }
 .task-label:hover {
   margin-right: 3px;

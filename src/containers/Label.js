@@ -1,7 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const Label = ({ label, handleEditLabel, handleCreateTaskLabel }) => {
+const Label = ({
+  label,
+  handleEditLabel,
+  handleCreateTaskLabel,
+  taskLabel,
+}) => {
+  console.log(taskLabel[0]);
+
   return (
     <li className="label-popover-list-item">
       <span
@@ -9,6 +16,7 @@ const Label = ({ label, handleEditLabel, handleCreateTaskLabel }) => {
         onClick={(e) => handleCreateTaskLabel(label.id)}
       >
         <p>{label.name}</p>
+        {taskLabel[0] ? <span>✓</span> : null}
       </span>
       <div className="name-label-btn-container">
         <button

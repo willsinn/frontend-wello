@@ -5,7 +5,6 @@ import AddChecklist from "../components/AddChecklist";
 import LabelMenu from "./LabelMenu";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
-import { editLabelName } from "../actions/labels";
 
 const initialState = { note: "" };
 
@@ -134,4 +133,8 @@ const TaskWindow = ({
     </div>
   );
 };
-export default connect()(TaskWindow);
+
+const mapStateToProps = (state) => {
+  return {};
+};
+export default connect(mapStateToProps)(TaskWindow);

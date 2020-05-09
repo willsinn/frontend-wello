@@ -3,7 +3,7 @@ import LabelsList from "../components/LabelsList";
 import { editLabelName, createTaskLabel } from "../actions/labels";
 import { connect } from "react-redux";
 
-const LabelMenu = ({ labels, closePopup, taskId, dispatch }) => {
+const LabelMenu = ({ labels, taskLabels, closePopup, taskId, dispatch }) => {
   const [name, setName] = useState("");
   const [editingLabel, setEditingLabel] = useState({});
   const handleEditLabel = (label) => {
@@ -31,6 +31,8 @@ const LabelMenu = ({ labels, closePopup, taskId, dispatch }) => {
   const handleCreateTaskLabel = (labelId) => {
     dispatch(createTaskLabel(labelId, taskId));
   };
+  console.log(taskLabels);
+
   return (
     <>
       {!editingLabel.id ? (
@@ -45,8 +47,10 @@ const LabelMenu = ({ labels, closePopup, taskId, dispatch }) => {
             <div className="side-popover-body">
               <LabelsList
                 labels={labels}
+                taskLabels={taskLabels}
                 handleEditLabel={handleEditLabel}
                 handleCreateTaskLabel={handleCreateTaskLabel}
+                taskId={taskId}
               />
             </div>
           </div>
@@ -109,6 +113,7 @@ const LabelMenu = ({ labels, closePopup, taskId, dispatch }) => {
 const mapStateToProps = (state) => {
   return {
     labels: state.labelsReducer.labels,
+    taskLabels: state.labelsReducer.taskLabels,
   };
 };
 

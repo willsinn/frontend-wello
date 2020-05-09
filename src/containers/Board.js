@@ -14,7 +14,7 @@ import Autumn from "../images/autumn.jpg";
 
 import { connect } from "react-redux";
 import { updateBoardBackground, starredBoard } from "../actions/boards";
-import { fetchLabels } from "../actions/labels";
+import { fetchLabels, fetchTaskLabels } from "../actions/labels";
 
 const bgs = [
   "iceland",
@@ -32,6 +32,7 @@ const Board = ({ workspace, dispatch }) => {
 
   const renderBoardBg = () => {
     dispatch(fetchLabels());
+    dispatch(fetchTaskLabels());
     if (background === "") {
       return findBg(workspace.background);
     } else {
