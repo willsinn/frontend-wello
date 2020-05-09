@@ -33,3 +33,17 @@ export const editLabelName = (label, name) => {
       .then((JSONresponse) => dispatch(updateLabel(JSONresponse)));
   };
 };
+export const createTaskLabel = (labelId, taskId) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/task/${taskId}/label/${labelId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ id: labelId, task_id: taskId }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => console.log("createTaskLabel", JSONresponse));
+  };
+};

@@ -5,6 +5,7 @@ import AddChecklist from "../components/AddChecklist";
 import LabelMenu from "./LabelMenu";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
+import { editLabelName } from "../actions/labels";
 
 const initialState = { note: "" };
 
@@ -114,7 +115,7 @@ const TaskWindow = ({
               </div>
 
               {sidebtn === "labels" ? (
-                <LabelMenu closePopup={closePopup} />
+                <LabelMenu closePopup={closePopup} taskId={editTask.id} />
               ) : null}
 
               {sidebtn === "checklist" ? (

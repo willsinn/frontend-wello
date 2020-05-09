@@ -28,7 +28,6 @@ const LabelMenu = ({ labels, closePopup, dispatch }) => {
       setEditingLabel({});
     }
   };
-
   return (
     <>
       {!editingLabel.id ? (
