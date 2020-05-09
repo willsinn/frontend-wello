@@ -2,6 +2,10 @@ export const setLabels = (labels) => ({
   type: "SET_LABELS",
   labels,
 });
+export const setTaskLabels = (task_labels) => ({
+  type: "SET_TASK_LABELS",
+  task_labels,
+});
 export const updateLabel = (label) => ({
   type: "UPDATE_LABEL",
   label,
@@ -17,6 +21,18 @@ export const fetchLabels = (task) => {
     })
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(setLabels(JSONresponse)));
+  };
+};
+export const fetchTaskLabels = () => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/task_labels`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(setTaskLabels(JSONresponse)));
   };
 };
 export const editLabelName = (label, name) => {
