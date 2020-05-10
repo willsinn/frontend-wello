@@ -13,6 +13,7 @@ const TaskWindow = ({
   cardGoal,
   editTask,
   taskLabels,
+  labels,
   handleCloseWindow,
   handleUpdateEditTask,
   dispatch,
@@ -96,7 +97,11 @@ const TaskWindow = ({
               <span className="task-window-list-name">{cardGoal}</span>
             </div>
           </div>
-          <LabelsList taskWindowLabels={taskLabels} />
+          <LabelsList
+            winLabels={labels}
+            windowLabels={taskLabels}
+            windowId={editTask.id}
+          />
           <div className="task-window-body" onClick={handleSave}>
             <div className="body-left-window">
               <TaskWindowDescription editTask={editTask} />
@@ -135,6 +140,9 @@ const TaskWindow = ({
 };
 
 const mapStateToProps = (state) => {
-  return { taskLabels: state.labelsReducer.taskLabels };
+  return {
+    labels: state.labelsReducer.labels,
+    taskLabels: state.labelsReducer.taskLabels,
+  };
 };
 export default connect(mapStateToProps)(TaskWindow);

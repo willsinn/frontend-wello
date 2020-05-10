@@ -5,10 +5,12 @@ import TaskWindowLabel from "./TaskWindowLabel";
 const LabelsList = ({
   labels,
   taskLabels,
-  taskWindowLabels,
+  taskId,
+  winLabels,
+  windowLabels,
+  windowId,
   handleEditLabel,
   handleCreateTaskLabel,
-  taskId,
 }) => {
   const renderLabels = () => {
     if (labels) {
@@ -30,9 +32,20 @@ const LabelsList = ({
     }
   };
   const renderTaskWindowLabels = () => {
-    if (taskWindowLabels) {
-      return taskWindowLabels.map((taskWindowLabel) => {
-        return <TaskWindowLabel taskWindowLabel={taskWindowLabel} />;
+    if (winLabels) {
+      return winLabels.map((label) => {
+        const matchedLabel = windowLabels.filter(
+          (windowLabel) =>
+            windowLabel.task_id === windowId &&
+            windowLabel.label_id === label.id
+        );
+        if (matchedLabel[0]) {
+          return (
+            <TaskWindowLabel key={`window-label${label.id}`} label={label} />
+          );
+        } else {
+          return null;
+        }
       });
     }
   };
