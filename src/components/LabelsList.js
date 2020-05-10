@@ -1,5 +1,6 @@
 import React from "react";
 import Label from "../containers/Label";
+import TaskWindowLabel from "./TaskWindowLabel";
 
 const LabelsList = ({
   labels,
@@ -28,7 +29,19 @@ const LabelsList = ({
       });
     }
   };
-  return <ul className="label-popover-list">{renderLabels()}</ul>;
+  const renderTaskWindowLabels = () => {
+    if (taskWindowLabels) {
+      return taskWindowLabels.map((taskWindowLabel) => {
+        return <TaskWindowLabel taskWindowLabel={taskWindowLabel} />;
+      });
+    }
+  };
+  return (
+    <>
+      <ul className="label-popover-list">{renderLabels()}</ul>
+      <ul>{renderTaskWindowLabels()}</ul>
+    </>
+  );
 };
 
 export default LabelsList;
