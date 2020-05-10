@@ -3,6 +3,7 @@ import TaskWindowDescription from "../components/TaskWindowDescription";
 import TaskChecklists from "../components/TaskChecklists";
 import AddChecklist from "../components/AddChecklist";
 import LabelMenu from "./LabelMenu";
+import LabelsList from "../components/LabelsList";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 
@@ -11,6 +12,7 @@ const initialState = { note: "" };
 const TaskWindow = ({
   cardGoal,
   editTask,
+  taskLabels,
   handleCloseWindow,
   handleUpdateEditTask,
   dispatch,
@@ -51,7 +53,7 @@ const TaskWindow = ({
   const closePopup = () => {
     setSidebtn("");
   };
-
+  console.log(taskLabels);
   return (
     <div className="window-modal">
       <div className="task-window">
@@ -94,9 +96,7 @@ const TaskWindow = ({
               <span className="task-window-list-name">{cardGoal}</span>
             </div>
           </div>
-
-          <div>LABELS</div>
-
+          <LabelsList taskWindowLabels={taskLabels} />
           <div className="task-window-body" onClick={handleSave}>
             <div className="body-left-window">
               <TaskWindowDescription editTask={editTask} />
@@ -135,6 +135,6 @@ const TaskWindow = ({
 };
 
 const mapStateToProps = (state) => {
-  return {};
+  return { taskLabels: state.labelsReducer.taskLabels };
 };
 export default connect(mapStateToProps)(TaskWindow);
