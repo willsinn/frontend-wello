@@ -2501,9 +2501,14 @@ button {
 }
 .task-window-label {
   min-width: 16px;
+  margin: 0 0 4px 4px;
 }
 .task-window-label:hover {
   box-shadow: none;
   padding: 6px 12px;
-  margin: 0 0 4px;
+  margin: 0 0 4px 4px;
+}
+.window-labels-list {
+  display: flex;
+  flex-wrap: wrap;
 }

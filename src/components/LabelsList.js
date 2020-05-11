@@ -52,7 +52,7 @@ const LabelsList = ({
   return (
     <>
       <ul className="label-popover-list">{renderLabels()}</ul>
-      <ul>{renderTaskWindowLabels()}</ul>
+      <ul className="window-labels-list">{renderTaskWindowLabels()}</ul>
     </>
   );
 };
