@@ -54,6 +54,9 @@ const TaskWindow = ({
   const closePopup = () => {
     setSidebtn("");
   };
+  const openLabelMenu = () => {
+    setSidebtn("labels");
+  };
   console.log(taskLabels);
   return (
     <div className="window-modal">
@@ -101,6 +104,7 @@ const TaskWindow = ({
             winLabels={labels}
             windowLabels={taskLabels}
             windowId={editTask.id}
+            openLabelMenu={openLabelMenu}
           />
           <div className="task-window-body" onClick={handleSave}>
             <div className="body-left-window">

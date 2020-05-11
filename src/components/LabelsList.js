@@ -11,6 +11,7 @@ const LabelsList = ({
   windowId,
   handleEditLabel,
   handleCreateTaskLabel,
+  openLabelMenu,
 }) => {
   const renderLabels = () => {
     if (labels) {
@@ -41,7 +42,11 @@ const LabelsList = ({
         );
         if (matchedLabel[0]) {
           return (
-            <TaskWindowLabel key={`window-label${label.id}`} label={label} />
+            <TaskWindowLabel
+              key={`window-label${label.id}`}
+              label={label}
+              openLabelMenu={openLabelMenu}
+            />
           );
         } else {
           return null;

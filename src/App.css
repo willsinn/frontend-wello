@@ -2416,7 +2416,7 @@ button {
 }
 .label-popover-list-item {
   display: flex;
-  max-width: 100%;
+  max-width: 200px;
 }
 .task-label {
   border-radius: 3px;
@@ -2507,8 +2507,14 @@ button {
   box-shadow: none;
   padding: 6px 12px;
   margin: 0 0 4px 4px;
+  opacity: 0.7;
 }
 .window-labels-list {
   display: flex;
   flex-wrap: wrap;
+  width: 504px;
+  margin: 24px 0 0 50px;
+}
+.task-window-list-item {
+  width: fit-content;
 }
