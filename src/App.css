@@ -1877,6 +1877,7 @@ button {
 .task-window-text {
   color: #5e6c84;
   cursor: default;
+  margin-bottom: 12px;
 }
 .task-window-list-name {
   font-weight: 500;
@@ -2513,8 +2514,51 @@ button {
   display: flex;
   flex-wrap: wrap;
   width: 504px;
-  margin: 24px 0 0 50px;
+  margin: 0 0 0 50px;
 }
 .task-window-list-item {
   width: fit-content;
+}
+
+.tlabel-green {
+  background-color: #61bd4f;
+}
+.tlabel-yellow {
+  background-color: #f2d600;
+}
+.tlabel-orange {
+  background-color: #ff9f1a;
+}
+.tlabel-red {
+  background-color: #eb5a46;
+}
+.tlabel-purple {
+  background-color: #c377e0;
+}
+.tlabel-blue {
+  background-color: #0079bf;
+}
+.task-labels-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.task-labels-list-item {
+  min-width: 56px;
+  max-height: 16px;
+  font-size: 15px;
+  display: flex;
+  padding: 2px;
+}
+.tlabel-item {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 4px;
+  border: 1px;
+  border-radius: 3px;
+  font-size: 11.5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
