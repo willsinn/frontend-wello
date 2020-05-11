@@ -54,6 +54,7 @@ const LabelsList = ({
       });
     }
   };
+  const renderTaskedLabels = () => {};
   return (
     <>
       <ul className="label-popover-list">{renderLabels()}</ul>
