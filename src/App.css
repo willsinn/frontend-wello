@@ -2499,3 +2499,11 @@ button {
 .label-input {
   width: 100%;
 }
+.task-window-label {
+  min-width: 16px;
+}
+.task-window-label:hover {
+  box-shadow: none;
+  padding: 6px 12px;
+  margin: 0 0 4px;
+}
