@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LabelsList from "../components/LabelsList";
+import LabelsList from "./LabelsList";
 import { connect } from "react-redux";
 
 const Task = ({
@@ -18,7 +18,7 @@ const Task = ({
       onMouseLeave={(e) => setVisible(false)}
     >
       <div className="task-item-note">
-        <LabelsList tLabels={labels} taskedLabels tId={task.id} />
+        <LabelsList tLabels={labels} taskedLabels={taskLabels} tId={task.id} />
         <div
           className="open-task-window"
           onClick={(e) => handleRenderTaskWindow(task)}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LabelsList from "../components/LabelsList";
+import LabelsList from "./LabelsList";
 import {
   editLabelName,
   createTaskLabel,

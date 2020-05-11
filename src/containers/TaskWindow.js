@@ -3,7 +3,7 @@ import TaskWindowDescription from "../components/TaskWindowDescription";
 import TaskChecklists from "../components/TaskChecklists";
 import AddChecklist from "../components/AddChecklist";
 import LabelMenu from "./LabelMenu";
-import LabelsList from "../components/LabelsList";
+import LabelsList from "./LabelsList";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 

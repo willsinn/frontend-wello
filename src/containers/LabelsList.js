@@ -1,6 +1,7 @@
 import React from "react";
-import Label from "../containers/Label";
-import TaskWindowLabel from "./TaskWindowLabel";
+import Label from "./Label";
+import TaskWindowLabel from "../components/TaskWindowLabel";
+import TaskLabel from "../components/TaskLabel";
 
 const LabelsList = ({
   labels,
@@ -9,6 +10,9 @@ const LabelsList = ({
   winLabels,
   windowLabels,
   windowId,
+  tLabels,
+  taskedLabels,
+  tId,
   handleEditLabel,
   handleCreateTaskLabel,
   openLabelMenu,
@@ -43,7 +47,7 @@ const LabelsList = ({
         if (matchedLabel[0]) {
           return (
             <TaskWindowLabel
-              key={`window-label${label.id}`}
+              key={`window-label-${label.id}`}
               label={label}
               openLabelMenu={openLabelMenu}
             />
@@ -54,11 +58,26 @@ const LabelsList = ({
       });
     }
   };
-  const renderTaskedLabels = () => {};
+  const renderTaskedLabels = () => {
+    if (tLabels) {
+      return tLabels.map((label) => {
+        const matchedLabel = taskedLabels.filter(
+          (taskedLabel) =>
+            taskedLabel.task_id === tId && taskedLabel.label_id === label.id
+        );
+        if (matchedLabel[0]) {
+          return <TaskLabel key={`task-label-${label.id}`} label={label} />;
+        } else {
+          return null;
+        }
+      });
+    }
+  };
   return (
     <>
       <ul className="label-popover-list">{renderLabels()}</ul>
       <ul className="window-labels-list">{renderTaskWindowLabels()}</ul>
+      <ul className="task-labels-list">{renderTaskedLabels()}</ul>
     </>
   );
 };
