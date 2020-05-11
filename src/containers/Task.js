@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 
-const Task = ({
-  task,
-  card,
-  editor,
-  handleRenderTaskWindow,
-  handleRenderQuickEditor,
-}) => {
+const Task = ({ task, handleRenderTaskWindow, handleRenderQuickEditor }) => {
   const [visible, setVisible] = useState(false);
 
   return (
@@ -16,6 +10,7 @@ const Task = ({
       onMouseLeave={(e) => setVisible(false)}
     >
       <div className="task-item-note">
+        Labels
         <div
           className="open-task-window"
           onClick={(e) => handleRenderTaskWindow(task)}

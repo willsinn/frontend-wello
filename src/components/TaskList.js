@@ -42,8 +42,6 @@ const TaskList = ({ card, dispatch }) => {
             <Task
               key={task.id}
               task={task}
-              card={card.id}
-              editor={editor}
               handleRenderTaskWindow={handleRenderTaskWindow}
               handleRenderQuickEditor={handleRenderQuickEditor}
             />
