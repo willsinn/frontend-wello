@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import LabelsList from "./LabelsList";
+import { connect } from "react-redux";
 
 const Task = ({
   task,
-  card,
-  editor,
+  labels,
+  taskLabels,
   handleRenderTaskWindow,
   handleRenderQuickEditor,
 }) => {
@@ -16,6 +18,7 @@ const Task = ({
       onMouseLeave={(e) => setVisible(false)}
     >
       <div className="task-item-note">
+        <LabelsList tLabels={labels} taskedLabels={taskLabels} tId={task.id} />
         <div
           className="open-task-window"
           onClick={(e) => handleRenderTaskWindow(task)}
@@ -34,5 +37,10 @@ const Task = ({
     </div>
   );
 };
-
-export default Task;
+const mapStateToProps = (state) => {
+  return {
+    labels: state.labelsReducer.labels,
+    taskLabels: state.labelsReducer.taskLabels,
+  };
+};
+export default connect(mapStateToProps)(Task);

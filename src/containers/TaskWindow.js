@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import TaskWindowDescription from "./TaskWindowDescription";
-import TaskChecklists from "./TaskChecklists";
-import AddChecklist from "./AddChecklist";
+import TaskWindowDescription from "../components/TaskWindowDescription";
+import TaskChecklists from "../components/TaskChecklists";
+import AddChecklist from "../components/AddChecklist";
+import LabelMenu from "./LabelMenu";
+import LabelsList from "./LabelsList";
 import { updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
 
@@ -10,6 +12,8 @@ const initialState = { note: "" };
 const TaskWindow = ({
   cardGoal,
   editTask,
+  taskLabels,
+  labels,
   handleCloseWindow,
   handleUpdateEditTask,
   dispatch,
@@ -50,6 +54,10 @@ const TaskWindow = ({
   const closePopup = () => {
     setSidebtn("");
   };
+  const openLabelMenu = () => {
+    setSidebtn("labels");
+  };
+  console.log(taskLabels);
   return (
     <div className="window-modal">
       <div className="task-window">
@@ -92,6 +100,12 @@ const TaskWindow = ({
               <span className="task-window-list-name">{cardGoal}</span>
             </div>
           </div>
+          <LabelsList
+            winLabels={labels}
+            windowLabels={taskLabels}
+            windowId={editTask.id}
+            openLabelMenu={openLabelMenu}
+          />
           <div className="task-window-body" onClick={handleSave}>
             <div className="body-left-window">
               <TaskWindowDescription editTask={editTask} />
@@ -107,25 +121,29 @@ const TaskWindow = ({
               >
                 Labels
               </div>
+              {sidebtn === "labels" ? (
+                <div
+                  style={{
+                    position: "fixed",
+                    top: "35%",
+                    left: "55%",
+                    zIndex: "1",
+                  }}
+                >
+                  <LabelMenu closePopup={closePopup} taskId={editTask.id} />
+                </div>
+              ) : null}
 
               {sidebtn === "checklist" ? (
-                <div className="side-popover">
-                  <div className="no-back">
-                    <div className="side-popover-header">
-                      <span className="side-popover-header-title">
-                        Add Checklist
-                      </span>
-                      <button
-                        onClick={(e) => setSidebtn("")}
-                        className="side-close-btn"
-                      >
-                        ✕
-                      </button>
-                    </div>
-                    <div className="side-popover-body">
-                      <AddChecklist task={editTask} closePopup={closePopup} />
-                    </div>
-                  </div>
+                <div
+                  style={{
+                    position: "fixed",
+                    top: "48%",
+                    left: "55%",
+                    zIndex: "1",
+                  }}
+                >
+                  <AddChecklist task={editTask} closePopup={closePopup} />
                 </div>
               ) : null}
               <div
@@ -141,4 +159,11 @@ const TaskWindow = ({
     </div>
   );
 };
-export default connect()(TaskWindow);
+
+const mapStateToProps = (state) => {
+  return {
+    labels: state.labelsReducer.labels,
+    taskLabels: state.labelsReducer.taskLabels,
+  };
+};
+export default connect(mapStateToProps)(TaskWindow);

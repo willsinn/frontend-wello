@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
-import TaskWindow from "../components/TaskWindow";
+import TaskWindow from "../containers/TaskWindow";
 import QuickTaskEditor from "../components/QuickTaskEditor";
 import { fetchChecklists } from "../actions/checklists";
 import { connect } from "react-redux";
@@ -42,8 +42,6 @@ const TaskList = ({ card, dispatch }) => {
             <Task
               key={task.id}
               task={task}
-              card={card.id}
-              editor={editor}
               handleRenderTaskWindow={handleRenderTaskWindow}
               handleRenderQuickEditor={handleRenderQuickEditor}
             />

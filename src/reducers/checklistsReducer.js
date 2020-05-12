@@ -7,8 +7,6 @@ const checklistsReducer = (state = defaultState, action) => {
     case "SET_LISTS":
       return { ...state, checklists: action.checklists };
     case "ADD_LIST":
-      console.log(action.payload);
-
       return { ...state, checklists: [...state.checklists, action.checklist] };
     case "UPDATE_CHECKLIST":
       const updatedLists = state.checklists.map((checklist) => {

@@ -9,19 +9,19 @@ const defaultState = {
     "autumn",
     "waterfall",
     "city",
-    "meadow"
-  ]
+    "meadow",
+  ],
 };
 
 const boardsReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "DELETE_BOARD":
       const remainingBoards = [...state.boards].filter(
-        board => board.id !== action.board.id
+        (board) => board.id !== action.board.id
       );
       return {
         ...state,
-        boards: remainingBoards
+        boards: remainingBoards,
       };
     case "SET_BOARDS":
       return { ...state, boards: action.payload };
@@ -29,11 +29,13 @@ const boardsReducer = (state = defaultState, action) => {
       return { ...state, boards: [...state.boards, action.board] };
     case "UPDATE_BOARD":
       console.log(action.board);
-      const updatedBoards = state.boards.map(board => {
-        if (board.id=== action.board.id){
-          return action.board
-        } else { return board }
-      })
+      const updatedBoards = state.boards.map((board) => {
+        if (board.id === action.board.id) {
+          return action.board;
+        } else {
+          return board;
+        }
+      });
       return { ...state, boards: updatedBoards };
     default:
       return state;

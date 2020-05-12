@@ -3,10 +3,12 @@ import userReducer from "./userReducer";
 import boardsReducer from "./boardsReducer";
 import workspaceReducer from "./workspaceReducer";
 import checklistsReducer from "./checklistsReducer";
+import labelsReducer from "./labelsReducer";
 
 export default combineReducers({
   userReducer,
   boardsReducer,
   workspaceReducer,
   checklistsReducer,
+  labelsReducer,
 });
