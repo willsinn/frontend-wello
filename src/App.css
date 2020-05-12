@@ -2027,7 +2027,6 @@ button {
   box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25),
     0 0 0 1px rgba(9, 30, 66, 0.08);
   overflow: hidden;
-  position: fixed;
   width: 304px;
   z-index: 70;
   top: 215px;
@@ -2404,10 +2403,7 @@ button {
 }
 .label-menu {
   width: 304px;
-  position: fixed;
   height: 276px;
-  bottom: 8px;
-  right: 15%;
 }
 .edit-label-name {
   height: 190px;
@@ -2545,6 +2541,7 @@ button {
 .task-labels-list-item {
   min-width: 56px;
   max-height: 16px;
+  min-height: 16px;
   font-size: 15px;
   display: flex;
   padding: 2px;

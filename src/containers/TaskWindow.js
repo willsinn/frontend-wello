@@ -121,13 +121,30 @@ const TaskWindow = ({
               >
                 Labels
               </div>
-
               {sidebtn === "labels" ? (
-                <LabelMenu closePopup={closePopup} taskId={editTask.id} />
+                <div
+                  style={{
+                    position: "fixed",
+                    top: "35%",
+                    left: "55%",
+                    zIndex: "1",
+                  }}
+                >
+                  <LabelMenu closePopup={closePopup} taskId={editTask.id} />
+                </div>
               ) : null}
 
               {sidebtn === "checklist" ? (
-                <AddChecklist task={editTask} closePopup={closePopup} />
+                <div
+                  style={{
+                    position: "fixed",
+                    top: "48%",
+                    left: "55%",
+                    zIndex: "1",
+                  }}
+                >
+                  <AddChecklist task={editTask} closePopup={closePopup} />
+                </div>
               ) : null}
               <div
                 className="sidebar-btn"

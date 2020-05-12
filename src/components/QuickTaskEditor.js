@@ -51,9 +51,12 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
         </form>
       </div>
       <div className="quick-task-editor-buttons">
-        {renderMenu ? (
-          <LabelMenu closePopup={closePopup} taskId={editTask.id} />
-        ) : null}
+        <div style={{ position: "absolute", top: "32px", right: "-224px" }}>
+          {renderMenu ? (
+            <LabelMenu closePopup={closePopup} taskId={editTask.id} />
+          ) : null}
+        </div>
+
         <button
           className="quick-task-edit-btn"
           onClick={(e) => setRenderMenu(true)}
