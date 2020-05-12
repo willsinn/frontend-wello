@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { archiveTask, updateTaskNote } from "../actions/workspace";
 import { connect } from "react-redux";
+import LabelMenu from "../containers/LabelMenu";
 
 const initialState = { note: "" };
 const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
+  const [renderMenu, setRenderMenu] = useState(false);
   const [note, setNote] = useState(editTask.note);
   const clearState = (e) => {
     setNote({ ...initialState });
@@ -20,6 +22,9 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
       clearState(e);
       handleCloseQuickEditor(e);
     }
+  };
+  const closePopup = () => {
+    setRenderMenu(false);
   };
   return (
     <div className="quick-edit-task">
@@ -46,7 +51,15 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
         </form>
       </div>
       <div className="quick-task-editor-buttons">
-        <button className="quick-task-edit-btn"> Edit Label</button>
+        {renderMenu ? (
+          <LabelMenu closePopup={closePopup} taskId={editTask.id} />
+        ) : null}
+        <button
+          className="quick-task-edit-btn"
+          onClick={(e) => setRenderMenu(true)}
+        >
+          Edit Label
+        </button>
         <button
           onClick={(e) =>
             dispatch(archiveTask(editTask, () => handleCloseQuickEditor(e)))
