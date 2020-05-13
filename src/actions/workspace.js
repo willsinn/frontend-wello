@@ -29,7 +29,7 @@ export const toggleEdit = () => ({
 });
 export const fetchWorkspace = (board, dispatch) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/user/1/board/${board.id}`, {
+    fetch(`http://localhost:3000/api/v1/user/1/board/${board.id}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -48,18 +48,21 @@ export const fetchWorkspace = (board, dispatch) => {
 
 export const postNewCard = (board, callback) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/board/${board.workspace.id}/cards/new`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        board_id: board.workspace.id,
-        goal: board.goal,
-        card_desc: "",
-      }),
-    })
+    fetch(
+      `http://localhost:3000/api/v1/board/${board.workspace.id}/cards/new`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          board_id: board.workspace.id,
+          goal: board.goal,
+          card_desc: "",
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(addCard(JSONresponse)));
     callback();
@@ -68,7 +71,7 @@ export const postNewCard = (board, callback) => {
 
 export const fetchCard = (card, dispatch) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/card/${card.id}`, {
+    fetch(`http://localhost:3000/api/v1/card/${card.id}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -79,7 +82,7 @@ export const fetchCard = (card, dispatch) => {
 
 export const updateCardGoal = (card, goal) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/card/update/${card.id}`, {
+    fetch(`http://localhost:3000/api/v1/card/update/${card.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -98,7 +101,7 @@ export const updateCardGoal = (card, goal) => {
 };
 export const archiveCard = (card) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/card/update/${card.id}`, {
+    fetch(`http://localhost:3000/api/v1/card/update/${card.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -117,7 +120,7 @@ export const archiveCard = (card) => {
 };
 export const postNewTask = (card, callback) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/card/${card.card.id}/tasks/new`, {
+    fetch(`http://localhost:3000/api/v1/card/${card.card.id}/tasks/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -138,7 +141,7 @@ export const postNewTask = (card, callback) => {
 };
 export const archiveTask = (task, callback) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/update/${task.id}`, {
+    fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -159,7 +162,7 @@ export const archiveTask = (task, callback) => {
 
 export const updateTaskNote = (task, note) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/update/${task.id}`, {
+    fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -178,7 +181,7 @@ export const updateTaskNote = (task, note) => {
 };
 export const saveTaskDesc = (task, desc) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/update/${task.id}`, {
+    fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

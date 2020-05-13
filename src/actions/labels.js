@@ -20,7 +20,7 @@ export const removeTaskLabel = (taskLabelId) => ({
 });
 export const fetchLabels = (task) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/labels`, {
+    fetch(`http://localhost:3000/api/v1/labels`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -32,7 +32,7 @@ export const fetchLabels = (task) => {
 };
 export const fetchTaskLabels = () => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task_labels`, {
+    fetch(`http://localhost:3000/api/v1/task_labels`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -44,7 +44,7 @@ export const fetchTaskLabels = () => {
 };
 export const editLabelName = (label, name) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/label/${label.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/label/${label.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export const editLabelName = (label, name) => {
 };
 export const createTaskLabel = (labelId, taskId) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/${taskId}/label/${labelId}`, {
+    fetch(`http://localhost:3000/api/v1/task/${taskId}/label/${labelId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +73,7 @@ export const createTaskLabel = (labelId, taskId) => {
 export const deleteTaskLabel = (taskLabelId) => {
   return (dispatch) => {
     dispatch(removeTaskLabel(taskLabelId));
-    fetch(`http://localhost:3000/task_label/${taskLabelId}/delete`, {
+    fetch(`http://localhost:3000/api/v1/task_label/${taskLabelId}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
