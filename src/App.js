@@ -48,5 +48,5 @@ const mapStateToProps = ({
   activePg: activePg.activePg,
   workspace: workspace.workspace,
 });
-export default connect(mapStateToProps)(App);
+export default withRouter(App);
 //withRouter is a Higher Order Component (HOC) that returns a COPY of App with React router props injected
