@@ -7,7 +7,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./App";
-import userReducer from "./reducers/userReducer";
+import usersReducer from "./reducers/usersReducer";
 import boardsReducer from "./reducers/boardsReducer";
 import workspaceReducer from "./reducers/workspaceReducer";
 import checklistsReducer from "./reducers/checklistsReducer";
@@ -19,7 +19,7 @@ import { fetchUserBoards } from "./actions/boards";
 import { fetchUser } from "./actions/user";
 
 const rootReducer = combineReducers({
-  userReducer: userReducer,
+  usersReducer: usersReducer,
   boardsReducer: boardsReducer,
   workspaceReducer: workspaceReducer,
   checklistsReducer: checklistsReducer,

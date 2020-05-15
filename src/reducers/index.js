@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
-import userReducer from "./userReducer";
+import usersReducer from "./usersReducer";
 import boardsReducer from "./boardsReducer";
 import workspaceReducer from "./workspaceReducer";
 import checklistsReducer from "./checklistsReducer";
 import labelsReducer from "./labelsReducer";
 
 export default combineReducers({
-  userReducer,
+  usersReducer,
   boardsReducer,
   workspaceReducer,
   checklistsReducer,
