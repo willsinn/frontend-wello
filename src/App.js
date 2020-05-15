@@ -6,8 +6,8 @@ import Board from "./containers/Board";
 import { connect } from "react-redux";
 import "./App.css";
 
-import LoginForm from "./components/LoginForm";
-import SignupForm from "./components/SignupForm";
+import LoginForm from "./containers/LoginForm";
+import SignupForm from "./containers/SignupForm";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 
 const App = (props) => {
