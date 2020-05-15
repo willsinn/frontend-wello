@@ -18,13 +18,12 @@ const App = (props) => {
     <>
       <NavBar />
       <Switch>
-        <Route exact path="/" render={() => <Redirect to="/profile" />} />
+        <Route exact path="/" render={() => <Redirect to="/home" />} />
 
-        <Route exact path="/profile" component={HomePage} />
-        <Route exact path="/search" component={ProfilePage} />
+        <Route exact path="/home" component={HomePage} />
+        <Route exact path="/profile" component={ProfilePage} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignupForm} />
-        <Route component={NotFound} />
       </Switch>
       {/* {(() => {
         switch (props.activePg) {
