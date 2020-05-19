@@ -7,6 +7,11 @@ const SignUpForm = ({ dispatch }) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
+  const resetState = () => {
+    setEmail("");
+    setName("");
+    setPassword("");
+  };
   const handleEmailChange = (e) => {
     e.persist();
     setEmail(e.target.value);
@@ -25,6 +30,7 @@ const SignUpForm = ({ dispatch }) => {
       if (email.includes("@") && name.length > 2 && password.length > 7) {
         dispatch(userSignup({ email, name, password }));
       }
+      resetState();
     }
   };
 
