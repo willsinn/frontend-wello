@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { userSignup } from "../actions/user";
 
-const SignUpForm = (props) => {
+const SignUpForm = ({ dispatch }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -19,19 +20,18 @@ const SignUpForm = (props) => {
     setPassword(e.target.value);
   };
   const handleSubmit = (e) => {
-    if (email.includes("@") && name.length > 2 && password.length > 7) {
-      postUser();
+    if (e) {
+      e.preventDefault();
+      if (email.includes("@") && name.length > 2 && password.length > 7) {
+        dispatch(userSignup({ email, name, password }));
+      }
     }
-  };
-  const postUser = () => {
-    console.log("hi");
-    debugger;
   };
 
   return (
     <div className="card-item-wrap">
       <div className="card-item">
-        <form onSubmit={handleSubmit}>
+        <form>
           <input
             className="add-card-input"
             type="text"
@@ -57,11 +57,7 @@ const SignUpForm = (props) => {
             value={password}
             placeholder="Create password"
           />
-          <button
-            onSubmit={handleSubmit}
-            className="add-list-btn"
-            type="submit"
-          >
+          <button onClick={handleSubmit} className="add-list-btn" type="submit">
             Sign Up
           </button>
           <button className="close-add-btn">Log In</button>

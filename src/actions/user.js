@@ -35,10 +35,12 @@ export const userSignup = (params) => {
         Accept: "application/json",
       },
       body: JSON.stringify({
-        email: params.email,
-        name: params.name,
-        password: params.password,
-        password_confirmation: params.password,
+        user: {
+          email: params.email,
+          name: params.name,
+          password: params.password,
+          password_confirmation: params.password,
+        },
       }),
     })
       .then((response) => response.json())
