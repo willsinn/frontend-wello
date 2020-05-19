@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { userSignup } from "../actions/user";
+import { userLogin } from "../actions/user";
 
 const LoginForm = ({ dispatch }) => {
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ const LoginForm = ({ dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(userSignup({ email, password }));
+      dispatch(userLogin({ email, password }));
       resetState();
     }
   };

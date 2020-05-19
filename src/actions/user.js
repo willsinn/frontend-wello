@@ -47,3 +47,22 @@ export const userSignup = (params) => {
       .then((JSONresponse) => console.log(JSONresponse));
   };
 };
+
+export const userLogin = (params) => {
+  debugger;
+  return (dispatch) => {
+    fetch("http://localhost:3000/v1/sessions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          email: params.email,
+          password: params.password,
+        },
+      }),
+    }).then((response) => console.log(response.json()));
+  };
+};

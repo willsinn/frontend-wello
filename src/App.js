@@ -4,6 +4,7 @@ import HomePage from "./containers/HomePage";
 import ProfilePage from "./containers/ProfilePage";
 import Board from "./containers/Board";
 import SignUpForm from "./components/SignUpForm";
+import LoginForm from "./components/LoginForm";
 import { connect } from "react-redux";
 import "./App.css";
 
@@ -13,7 +14,8 @@ const App = (props) => {
 
   return (
     <>
-      <SignUpForm />
+      <LoginForm />
+      {/* <SignUpForm /> */}
       {/* <NavBar />
       {(() => {
         switch (props.activePg) {

@@ -30,8 +30,8 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-store.dispatch(fetchUser());
-store.dispatch(fetchUserBoards());
+// store.dispatch(fetchUser());
+// store.dispatch(fetchUserBoards());
 
 ReactDOM.render(
   <Provider store={store}>
