@@ -17,8 +17,43 @@ const LabelsList = ({
   handleCreateTaskLabel,
   openLabelMenu,
 }) => {
+  const renderLabels = () => {
+    const sorted = [];
+
+    if (labels) {
+      console.log(labels);
+
+      labels.forEach((label, index) => {
+        // console.log(label);
+
+        if (index === 0) {
+          sorted.push(label);
+        }
+        //
+      });
+    }
+    return console.log(sorted);
+
+    // return sorted.map((label) => {
+    //   const taskLabel = taskLabels.filter(
+    //     (task_label) =>
+    //       task_label.task_id === taskId && task_label.label_id === label.id
+    //   );
+    //   console.log(taskLabel);
+    //   return (
+    //     <Label
+    //       key={label.id}
+    //       label={label}
+    //       handleEditLabel={handleEditLabel}
+    //       handleCreateTaskLabel={handleCreateTaskLabel}
+    //       taskLabel={taskLabel}
+    //     />
+    //   );
+    // });
+  };
   // const renderLabels = () => {
   //   if (labels) {
+
   //     return labels.map((label) => {
   //       const taskLabel = taskLabels.filter(
   //         (task_label) =>
@@ -37,41 +72,8 @@ const LabelsList = ({
   //     });
   //   }
   // };
-  const renderLabels = () => {
-    const sorted = [];
-    // let counter = 0;
-    if (labels) {
-      const orderedLabels = labels.map((label) => {
-        const taskLabel = taskLabels.filter(
-          (task_label) =>
-            task_label.task_id === taskId && task_label.label_id === label.id
-        );
-        return taskLabel[0];
-      });
-      // return console.log("this is ordered-labels", orderedLabels);
-      orderedLabels.forEach((label, index) => {
-        // if (counter ===label.label_id){
-        // }
-        // if (counter < label.label_id){
-        //   sorted.
-        // }
-        console.log(label, index);
-        if (index === 0) {
-          return sorted.push(label);
-        }
-        if (index > 0) {
-          //compare sorted index 0 label_id to current.label_id, if the elem is
-          if (label.label_id === sorted[index - 1].label_id) {
-            return sorted.unshift(label);
-          }
-          if (label.label_id > sorted[index - 1].label_id) {
-            return sorted.push(label);
-          }
-        }
-      });
-    }
-    console.log(sorted);
-  };
+
+  // };
   const renderTaskWindowLabels = () => {
     if (winLabels) {
       return winLabels.map((label) => {
@@ -120,3 +122,55 @@ const LabelsList = ({
 };
 
 export default LabelsList;
+
+// const renderLabels = () => {
+//   const sorted = [];
+//   // let counter = 0;
+//   if (labels) {
+//     const orderedLabels = labels.map((label) => {
+//       const taskLabel = taskLabels.filter(
+//         (task_label) =>
+//           task_label.task_id === taskId && task_label.label_id === label.id
+//       );
+//       return taskLabel[0];
+//     });
+//     // return console.log("this is ordered-labels", orderedLabels);
+//     orderedLabels.forEach((label, index) => {
+//       // if (counter ===label.label_id){
+//       // }
+//       // if (counter < label.label_id){
+//       //   sorted.
+//       // }
+//       console.log(label, index);
+//       if (index === 0) {
+//         return sorted.push(label);
+//       }
+//       if (index > 0) {
+//         //compare sorted index 0 label_id to current.label_id, if the elem is
+//         if (label.label_id === sorted[index - 1].label_id) {
+//           return sorted.unshift(label);
+//         }
+//         if (label.label_id > sorted[index - 1].label_id) {
+//           return sorted.push(label);
+//         }
+//       }
+//     });
+//   }
+//   console.log(sorted);
+
+// return labels.map((label) => {
+//   const taskLabel = taskLabels.filter(
+//     (task_label) =>
+//       task_label.task_id === taskId && task_label.label_id === label.id
+//   );
+//   console.log(taskLabel);
+//   return (
+//     <Label
+//       key={label.id}
+//       label={label}
+//       handleEditLabel={handleEditLabel}
+//       handleCreateTaskLabel={handleCreateTaskLabel}
+//       taskLabel={taskLabel}
+//     />
+//   );
+// });
