@@ -1,6 +1,6 @@
 import React from "react";
 import PersonalBoardList from "../components/PersonalBoardList";
-import Archived from "./Archived";
+import Archives from "./Archives";
 
 const HomePage = (props) => {
   return (
@@ -12,7 +12,7 @@ const HomePage = (props) => {
       </div>
 
       <div>
-        <Archived />
+        <Archives />
       </div>
     </div>
   );

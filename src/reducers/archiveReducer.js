@@ -1,7 +1,7 @@
 const defaultState = {
   archived: [],
 };
-const archivedReducer = (state = defaultState, action) => {
+const archiveReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_ARCHIVED":
       return state;
@@ -9,4 +9,4 @@ const archivedReducer = (state = defaultState, action) => {
       return state;
   }
 };
-export default archivedReducer;
+export default archiveReducer;
