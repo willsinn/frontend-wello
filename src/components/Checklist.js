@@ -32,13 +32,20 @@ const Checklist = ({
   };
   const renderCompleteCount = () => {
     let completeCount = 0;
+    if (checklist.items.length === 0) {
+      return;
+    }
     if (checklist.items.length > 0) {
       checklist.items.forEach((item) => {
         if (item.completed) {
           completeCount++;
         }
       });
-      return completeCount;
+      if (completeCount === 0) {
+        return "";
+      } else {
+        return `(${completeCount})`;
+      }
     }
   };
   const renderPercentage = () => {
@@ -81,7 +88,7 @@ const Checklist = ({
                 style={{ marginRight: "8px" }}
                 onClick={(e) => setFilter(!filter)}
               >
-                Show Checked Items ({renderCompleteCount()})
+                Show Checked Items {renderCompleteCount()}
               </button>
             ) : (
               <button
