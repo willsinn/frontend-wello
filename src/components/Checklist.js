@@ -138,14 +138,14 @@ const Checklist = ({
             <div className="side-popover-header">
               <span className="side-popover-header-title">
                 Delete {checklist.title}?
+                <button
+                  onClick={(e) => handleCancelDelete(e)}
+                  className="side-close-btn"
+                >
+                  ✕
+                </button>
               </span>
-              <button
-                onClick={(e) => handleCancelDelete(e)}
-                className="side-close-btn"
-              >
-                ✕
-              </button>
-              <div></div>
+
               <div className="side-popover-body">
                 <div>
                   <div
