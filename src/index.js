@@ -32,6 +32,7 @@ const store = createStore(
 
 store.dispatch(fetchUser());
 store.dispatch(fetchUserBoards());
+console.log(`%c INITIAL REDUX STORE`, "color: purple", store.getState());
 
 ReactDOM.render(
   <Provider store={store}>

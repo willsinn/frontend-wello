@@ -8,6 +8,10 @@ export const setPage = (page) => ({
 });
 export const authenticatingUser = () => ({ type: "AUTHENTICATING_USER" });
 
+export const setError = (error) => ({
+  type: "SET_ERROR",
+  error,
+});
 export const fetchUser = (data) => {
   return (dispatch) => {
     fetch("http://localhost:3000/user/1", {
@@ -29,7 +33,6 @@ export const fetchUser = (data) => {
 };
 
 export const userLogin = (username, password) => {
-  debugger;
   return (dispatch) => {
     dispatch({ type: "AUTHENTICATING_USER" });
     fetch("http://localhost:3000/api/v1/login", {
@@ -49,6 +52,8 @@ export const userLogin = (username, password) => {
         if (response.ok) {
           return response.json();
         } else {
+          // debugger;
+          dispatch(setError("Incorrect username or password."));
           throw response;
         }
       })

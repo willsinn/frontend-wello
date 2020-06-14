@@ -18,10 +18,12 @@ const userReducer = (state = defaultState, action) => {
     case "SET_PAGE":
       return { ...state, activePg: action.page };
     case "AUTHENTICATING_USER": //tells the app we're fetching
-      debugger;
+      // debugger;
       return { ...state, authenticatingUser: true };
     case "AUTHENTICATED_USER":
       return { ...state, authenticatingUser: false };
+    case "SET_ERROR":
+      return { ...state, error: action.error };
     default:
       return state;
   }

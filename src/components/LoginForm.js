@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { userLogin } from "../actions/user";
 
-const LoginForm = ({ dispatch }) => {
+const LoginForm = ({ error, authenticatingUser, dispatch }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,9 +22,12 @@ const LoginForm = ({ dispatch }) => {
       //   closePopup();
     }
   };
+  console.log(error, authenticatingUser);
+
   return (
     <div>
-      Hi this is the login form
+      Hi this is the Wello Login Form!!!
+      <div>{error}</div>
       <form onSubmit={handleSubmit}>
         <input
           className="add-checklist-input"
@@ -49,5 +52,10 @@ const LoginForm = ({ dispatch }) => {
     </div>
   );
 };
-
-export default connect()(LoginForm);
+const mapStateToProps = (state) => {
+  return {
+    error: state.userReducer.error,
+    authenticatingUser: state.userReducer.authenticatingUser,
+  };
+};
+export default connect(mapStateToProps)(LoginForm);
