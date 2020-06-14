@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { userLogin } from "../actions/user";
 
-const LoginForm = ({}) => {
+const LoginForm = ({ dispatch }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,15 +16,12 @@ const LoginForm = ({}) => {
   };
   const handleSubmit = (e) => {
     if (e) {
-      debugger;
       e.preventDefault();
-      //   dispatch(postNewChecklist(task, title));
+      dispatch(userLogin(username, password));
       //   setTitle("Checklist");
       //   closePopup();
     }
   };
-  console.log(username, password);
-
   return (
     <div>
       Hi this is the login form
