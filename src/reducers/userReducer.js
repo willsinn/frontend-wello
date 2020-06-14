@@ -1,6 +1,5 @@
 const defaultState = {
   user: null,
-  userId: null,
   activePg: "",
   loggedIn: false,
   authenticatingUser: false,
@@ -10,15 +9,15 @@ const defaultState = {
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_USER":
+      // debugger;
+      console.log(`%c LOGIN_PAYLOAD `, "color: red", action.payload);
       return {
         ...state,
-        user: action.payload,
-        userId: action.payload.id,
+        user: action.payload.user,
       };
     case "SET_PAGE":
       return { ...state, activePg: action.page };
     case "AUTHENTICATING_USER": //tells the app we're fetching
-      // debugger;
       return { ...state, authenticatingUser: true };
     case "AUTHENTICATED_USER":
       return { ...state, authenticatingUser: false };

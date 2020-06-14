@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { userLogin } from "../actions/user";
 
-const LoginForm = ({ error, authenticatingUser, dispatch }) => {
+const LoginForm = ({ user, error, authenticatingUser, dispatch }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,7 +22,7 @@ const LoginForm = ({ error, authenticatingUser, dispatch }) => {
       //   closePopup();
     }
   };
-  console.log(error, authenticatingUser);
+  console.log(user, error, authenticatingUser);
 
   return (
     <div>
@@ -56,6 +56,7 @@ const mapStateToProps = (state) => {
   return {
     error: state.userReducer.error,
     authenticatingUser: state.userReducer.authenticatingUser,
+    user: state.userReducer.user,
   };
 };
 export default connect(mapStateToProps)(LoginForm);

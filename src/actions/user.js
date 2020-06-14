@@ -14,21 +14,21 @@ export const setError = (error) => ({
 });
 export const fetchUser = (data) => {
   return (dispatch) => {
-    fetch("http://localhost:3000/user/1", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    // .then(response => {
-    //   if (response.ok) {
-    //     return response.json();
-    //   } else {
-    //     response.throw();
-    //   }
-    // });
-    // .then(JSONresponse => console.log(JSONresponse));
+    //     fetch("http://localhost:3000/user/1", {
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Accept: "application/json",
+    //       },
+    //       body: JSON.stringify(data),
+    //     });
+    //     .then(response => {
+    //       if (response.ok) {
+    //         return response.json();
+    //       } else {
+    //         response.throw();
+    //       }
+    //     })
+    //     .then(JSONresponse => console.log(JSONresponse));
   };
 };
 
@@ -52,19 +52,13 @@ export const userLogin = (username, password) => {
         if (response.ok) {
           return response.json();
         } else {
-          // debugger;
           dispatch(setError("Incorrect username or password."));
           throw response;
         }
       })
       .then((JSONResponse) => {
         localStorage.setItem("jwt", JSONResponse.jwt);
-        dispatch({ type: "SET_CURRENT_USER", payload: JSONResponse.user });
-      })
-      .catch((r) =>
-        r
-          .json()
-          .then((e) => dispatch({ type: "FAILED_LOGIN", payload: e.message }))
-      );
+        dispatch(setUser(JSONResponse));
+      });
   };
 };
