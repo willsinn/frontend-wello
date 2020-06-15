@@ -7,16 +7,15 @@ import LoginForm from "./components/LoginForm";
 import { connect } from "react-redux";
 import "./App.css";
 
-const App = (props) => {
-  // console.log(props.activePg);
-  //console.log(props.workspace);
+const App = ({ activePg }) => {
+  console.log(activePg);
 
   return (
     <>
       <LoginForm />
       {/* <NavBar />
       {(() => {
-        switch (props.activePg) {
+        switch (activePg) {
           case "home":
             return <HomePage />;
           case "board":
@@ -30,12 +29,14 @@ const App = (props) => {
     </>
   );
 };
-
-const mapStateToProps = ({
-  userReducer: activePg,
-  workspaceReducer: workspace,
-}) => ({
-  activePg: activePg.activePg,
-  workspace: workspace.workspace,
-});
+const mapStateToProps = (state) => {
+  return { activePg: state.userReducer.activePg };
+};
+// const mapStateToProps = ({
+//   userReducer: activePg,
+//   workspaceReducer: workspace,
+// }) => ({
+//   activePg: activePg.activePg,
+//   workspace: workspace.workspace,
+// });
 export default connect(mapStateToProps)(App);
