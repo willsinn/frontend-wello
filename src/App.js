@@ -7,8 +7,9 @@ import LoginForm from "./components/LoginForm";
 import { connect } from "react-redux";
 import "./App.css";
 
-const App = ({ activePg }) => {
-  console.log(activePg);
+const App = ({ user, activePg }) => {
+  console.log("active page", activePg);
+  console.log("this is the current user", user);
 
   return (
     <>
@@ -30,13 +31,10 @@ const App = ({ activePg }) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { activePg: state.userReducer.activePg };
+  return {
+    user: state.userReducer.user,
+    activePg: state.userReducer.activePg,
+  };
 };
-// const mapStateToProps = ({
-//   userReducer: activePg,
-//   workspaceReducer: workspace,
-// }) => ({
-//   activePg: activePg.activePg,
-//   workspace: workspace.workspace,
-// });
+
 export default connect(mapStateToProps)(App);
