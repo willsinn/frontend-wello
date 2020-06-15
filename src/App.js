@@ -7,26 +7,31 @@ import LoginForm from "./components/LoginForm";
 import { connect } from "react-redux";
 import "./App.css";
 
-const App = ({ user, activePg }) => {
+const App = ({ user, activePg, workspace }) => {
   console.log("active page", activePg);
   console.log("this is the current user", user);
 
   return (
     <>
-      <LoginForm />
-      {/* <NavBar />
-      {(() => {
-        switch (activePg) {
-          case "home":
-            return <HomePage />;
-          case "board":
-            return <Board workspace={props.workspace} />;
-          case "profile":
-            return <ProfilePage />;
-          default:
-            return <HomePage />;
-        }
-      })()} */}
+      {user === null ? (
+        <LoginForm />
+      ) : (
+        <div id="root">
+          <NavBar />
+          {(() => {
+            switch (activePg) {
+              case "home":
+                return <HomePage />;
+              case "board":
+                return <Board workspace={workspace} />;
+              case "profile":
+                return <ProfilePage />;
+              default:
+                return <HomePage />;
+            }
+          })()}
+        </div>
+      )}
     </>
   );
 };
@@ -34,6 +39,7 @@ const mapStateToProps = (state) => {
   return {
     user: state.userReducer.user,
     activePg: state.userReducer.activePg,
+    workspace: state.workspaceReducer.workspace,
   };
 };
 
