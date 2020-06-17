@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import { userLogin } from "../actions/user";
 
 const LoginForm = ({ loggedIn, error, dispatch }) => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleUnChange = (e) => {
     e.persist();
-    setUsername(e.target.value);
+    setEmail(e.target.value);
   };
   const handlePwChange = (e) => {
     e.persist();
@@ -18,7 +18,7 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(userLogin(username, password));
+      dispatch(userLogin(email, password));
     }
   };
 
@@ -34,9 +34,9 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
             <input
               className="add-checklist-input"
               type="text"
-              name="username"
+              name="email"
               onChange={handleUnChange}
-              value={username}
+              value={email}
               required
             />
             <input

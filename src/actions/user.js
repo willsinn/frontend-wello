@@ -13,7 +13,7 @@ export const setError = (error) => ({
   error,
 });
 
-export const userLogin = (username, password) => {
+export const userLogin = (email, password) => {
   return (dispatch) => {
     dispatch({ type: "AUTHENTICATING_USER" });
     fetch("http://localhost:3000/api/v1/login", {
@@ -24,7 +24,7 @@ export const userLogin = (username, password) => {
       },
       body: JSON.stringify({
         user: {
-          username: username,
+          email: email,
           password: password,
         },
       }),
