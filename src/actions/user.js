@@ -12,25 +12,6 @@ export const setError = (error) => ({
   type: "SET_ERROR",
   error,
 });
-export const fetchUser = (data) => {
-  return (dispatch) => {
-    //     fetch("http://localhost:3000/user/1", {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         Accept: "application/json",
-    //       },
-    //       body: JSON.stringify(data),
-    //     });
-    //     .then(response => {
-    //       if (response.ok) {
-    //         return response.json();
-    //       } else {
-    //         response.throw();
-    //       }
-    //     })
-    //     .then(JSONresponse => console.log(JSONresponse));
-  };
-};
 
 export const userLogin = (username, password) => {
   return (dispatch) => {
@@ -63,7 +44,6 @@ export const userLogin = (username, password) => {
   };
 };
 export const fetchCurrentUser = () => {
-  debugger;
   // takes the token in localStorage and finds out who it belongs to
   return (dispatch) => {
     dispatch(authenticatingUser()); //tells the app we are fetching
@@ -74,6 +54,6 @@ export const fetchCurrentUser = () => {
       },
     })
       .then((response) => response.json())
-      .then((JSONResponse) => console.log(JSONResponse));
+      .then((JSONResponse) => dispatch(setUser(JSONResponse)));
   };
 };

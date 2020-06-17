@@ -4,7 +4,7 @@ import HomePage from "./containers/HomePage";
 import LoginForm from "./components/LoginForm";
 import "./App.css";
 
-const App = ({}) => {
+const App = () => {
   // console.log("active page", activePg);
   // console.log("this is the current user", user);
   return (

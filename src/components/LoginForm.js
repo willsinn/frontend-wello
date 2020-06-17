@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { userLogin } from "../actions/user";
 
-const LoginForm = ({ user, error, authenticatingUser, dispatch }) => {
+const LoginForm = ({ loggedIn, error, dispatch }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,45 +19,47 @@ const LoginForm = ({ user, error, authenticatingUser, dispatch }) => {
     if (e) {
       e.preventDefault();
       dispatch(userLogin(username, password));
-      //   setTitle("Checklist");
-      //   closePopup();
     }
   };
-  console.log(user, error, authenticatingUser);
 
   return (
-    <div>
-      Hi this is the Wello Login Form!!!
-      <div>{error}</div>
-      <form onSubmit={handleSubmit}>
-        <input
-          className="add-checklist-input"
-          type="text"
-          name="username"
-          onChange={handleUnChange}
-          value={username}
-          required
-        />
-        <input
-          className="add-checklist-input"
-          type="text"
-          name="password"
-          onChange={handlePwChange}
-          value={password}
-          required
-        />
-        <button className="checklist-btn add-list-btn" type="submit">
-          Login
-        </button>
-      </form>
-    </div>
+    <>
+      {loggedIn ? (
+        <Redirect to="/home" />
+      ) : (
+        <div>
+          Hi this is the Wello Login Form!!!
+          <div>{error}</div>
+          <form onSubmit={handleSubmit}>
+            <input
+              className="add-checklist-input"
+              type="text"
+              name="username"
+              onChange={handleUnChange}
+              value={username}
+              required
+            />
+            <input
+              className="add-checklist-input"
+              type="text"
+              name="password"
+              onChange={handlePwChange}
+              value={password}
+              required
+            />
+            <button className="checklist-btn add-list-btn" type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+      )}
+    </>
   );
 };
 const mapStateToProps = (state) => {
   return {
     error: state.userReducer.error,
-    authenticatingUser: state.userReducer.authenticatingUser,
-    user: state.userReducer.user,
+    loggedIn: state.userReducer.loggedIn,
   };
 };
 export default connect(mapStateToProps)(LoginForm);
