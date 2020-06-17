@@ -57,3 +57,5 @@ export const fetchCurrentUser = () => {
       .then((JSONResponse) => dispatch(setUser(JSONResponse)));
   };
 };
+
+export const userLogout = () => ({ type: "USER_LOGOUT" });

@@ -9,8 +9,11 @@ const defaultState = {
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_USER":
-      // debugger;
-      console.log(`%c LOGIN_PAYLOAD `, "color: red", action.payload);
+      console.log(
+        `%c USER-LOGIN-PAYLOAD, userReducer`,
+        "color: red",
+        action.payload
+      );
       return {
         ...state,
         user: action.payload.user,
@@ -25,6 +28,9 @@ const userReducer = (state = defaultState, action) => {
       return { ...state, authenticatingUser: false };
     case "SET_ERROR":
       return { ...state, error: action.error };
+    case "USER_LOGOUT":
+      localStorage.clear();
+      return { ...state, user: null, loggedIn: false };
     default:
       return state;
   }
