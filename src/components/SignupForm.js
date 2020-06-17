@@ -33,7 +33,8 @@ const SignupForm = ({ loggedIn, error, dispatch }) => {
       e.preventDefault();
       debugger;
       if (password === passwordConfirm) {
-        dispatch(userSignup({ email, firstName, lastName, password }));
+        const name = `${firstName}%%${lastName}`;
+        dispatch(userSignup({ email, password, name }));
       } else {
         dispatch(setError("Passwords do not match"));
       }
