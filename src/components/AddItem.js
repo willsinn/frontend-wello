@@ -37,8 +37,8 @@ const AddItem = ({ checklist, handleCloseAdd, dispatch }) => {
       <div>
         <button
           className="add-list-btn"
+          type="submit"
           style={{ paddingLeft: "12px", paddingRight: "12px", margin: "0" }}
-          onClick={handleSubmit}
         >
           Add
         </button>
