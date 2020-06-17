@@ -47,11 +47,10 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
       {loggedIn ? (
         <Redirect to="/home" />
       ) : (
-        <div className="signup-page">
-          <div>
-            <LandingPage />
-            SIGNUP!{error}
-          </div>
+        <div className="landing">
+          <LandingPage />
+
+          <div>SIGNUP!{error}</div>
           <form onSubmit={handleSubmit}>
             <input
               className="signup-input"

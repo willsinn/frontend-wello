@@ -25,35 +25,36 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
 
   return (
     <>
-      <LandingPage />
       {loggedIn ? (
         <Redirect to="/home" />
       ) : (
-        <div>
+        <div className="landing">
           <LandingPage />
           Hi this is the Wello Login Form!!!
-          <div>{error}</div>
-          <form onSubmit={handleSubmit}>
-            <input
-              className="add-checklist-input"
-              type="text"
-              name="email"
-              onChange={handleUnChange}
-              value={email}
-              required
-            />
-            <input
-              className="add-checklist-input"
-              type="text"
-              name="password"
-              onChange={handlePwChange}
-              value={password}
-              required
-            />
-            <button className="checklist-btn add-list-btn" type="submit">
-              Login
-            </button>
-          </form>
+          <div className="signin-modal">
+            <div>{error}</div>
+            <form onSubmit={handleSubmit}>
+              <input
+                className="add-checklist-input"
+                type="text"
+                name="email"
+                onChange={handleUnChange}
+                value={email}
+                required
+              />
+              <input
+                className="add-checklist-input"
+                type="text"
+                name="password"
+                onChange={handlePwChange}
+                value={password}
+                required
+              />
+              <button className="checklist-btn add-list-btn" type="submit">
+                Login
+              </button>
+            </form>
+          </div>
         </div>
       )}
     </>
