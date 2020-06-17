@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import LandingPage from "./LandingPage";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { userLogin } from "../actions/user";
@@ -24,10 +25,12 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
 
   return (
     <>
+      <LandingPage />
       {loggedIn ? (
         <Redirect to="/home" />
       ) : (
         <div>
+          <LandingPage />
           Hi this is the Wello Login Form!!!
           <div>{error}</div>
           <form onSubmit={handleSubmit}>
