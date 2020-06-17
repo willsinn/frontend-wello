@@ -13,6 +13,8 @@ export const setError = (error) => ({
   error,
 });
 
+export const userLogout = () => ({ type: "USER_LOGOUT" });
+
 export const userLogin = (email, password) => {
   return (dispatch) => {
     dispatch({ type: "AUTHENTICATING_USER" });
@@ -57,5 +59,42 @@ export const fetchCurrentUser = () => {
       .then((JSONResponse) => dispatch(setUser(JSONResponse)));
   };
 };
+export const userSignup = (user) => {
+  console.log(user);
 
-export const userLogout = () => ({ type: "USER_LOGOUT" });
+  debugger;
+  // return (dispatch) => {
+  //   dispatch({ type: "AUTHENTICATING_USER" });
+  //   fetch("http://localhost:3000/api/v1/users", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       user: {
+  //         username: username,
+  //         password: password,
+  //       },
+  //     }),
+  //   })
+  //     .then((response) => {
+  //       console.log(response);
+  //       if (response.ok) {
+  //         return response.json();
+  //       } else {
+  //         throw response;
+  //       }
+  //     })
+  //     /* {username: will, pw: will} */
+  //     .then((JSONResponse) => {
+  //       localStorage.setItem("jwt", JSONResponse.jwt);
+  //       dispatch({ type: "SET_CURRENT_USER", payload: JSONResponse.user });
+  //     })
+  //     .catch((r) =>
+  //       r
+  //         .json()
+  //         .then((e) => dispatch({ type: "FAILED_LOGIN", payload: e.message }))
+  //     );
+  // };
+};
