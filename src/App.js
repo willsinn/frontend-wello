@@ -7,8 +7,7 @@ import SignupForm from "./components/SignupForm";
 import "./App.css";
 
 const App = () => {
-  // console.log("active page", activePg);
-  // console.log("this is the current user", user);
+
   return (
     <>
       <Switch>
