@@ -1,22 +1,23 @@
 import React from "react";
-import NavBar from "./containers/NavBar";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import HomePage from "./containers/HomePage";
-import ProfilePage from "./containers/ProfilePage";
-import Board from "./containers/Board";
 import LoginForm from "./components/LoginForm";
-import { connect } from "react-redux";
 import "./App.css";
 
 const App = ({ user, activePg, workspace }) => {
-  console.log("active page", activePg);
-  console.log("this is the current user", user);
+  // console.log("active page", activePg);
+  // console.log("this is the current user", user);
 
   return (
     <>
-      {user === null ? (
+      <Switch>
+        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Route exact path="/home" component={HomePage} />
+        <Route exact path="/login" component={LoginForm} />
+      </Switch>
+      {/* {user === null ? (
         <LoginForm />
       ) : (
-        <div id="root">
           <NavBar />
           {(() => {
             switch (activePg) {
@@ -30,17 +31,16 @@ const App = ({ user, activePg, workspace }) => {
                 return <HomePage />;
             }
           })()}
-        </div>
-      )}
+      )} */}
     </>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    user: state.userReducer.user,
-    activePg: state.userReducer.activePg,
-    workspace: state.workspaceReducer.workspace,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     user: state.userReducer.user,
+//     activePg: state.userReducer.activePg,
+//     workspace: state.workspaceReducer.workspace,
+//   };
+// };
 
-export default connect(mapStateToProps)(App);
+export default withRouter(App);
