@@ -1,6 +1,14 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-const SignupForm = () => {
+const SignupForm = ({ loggedIn, dispatch }) => {
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+
   const handleChange = (fieldType) => {
     return (event) => {
       this.setState({
@@ -9,12 +17,23 @@ const SignupForm = () => {
     };
   };
   return (
-    <div className="signup-page">
-      <div>SIGNUP!</div>
-    </div>
+    <>
+      {loggedIn ? (
+        <Redirect to="/home" />
+      ) : (
+        <div className="signup-page">
+          <div>SIGNUP!</div>
+        </div>
+      )}
+    </>
   );
 };
-export default SignupForm;
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.userReducer.loggedIn,
+  };
+};
+export default connect(mapStateToProps)(SignupForm);
 
 // <div className="form-wrapper">
 // <div className="form-box">
