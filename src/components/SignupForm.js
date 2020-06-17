@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { userSignup, setError } from "../actions/user";
-
+//saved
 const SignupForm = ({ loggedIn, error, dispatch }) => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -31,7 +31,6 @@ const SignupForm = ({ loggedIn, error, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      debugger;
       if (password === passwordConfirm) {
         const name = `${firstName}%%${lastName}`;
         dispatch(userSignup({ email, password, name }));

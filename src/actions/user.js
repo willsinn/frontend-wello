@@ -12,7 +12,6 @@ export const setError = (error) => ({
   type: "SET_ERROR",
   error,
 });
-
 export const userLogout = () => ({ type: "USER_LOGOUT" });
 
 export const userLogin = (email, password) => {
