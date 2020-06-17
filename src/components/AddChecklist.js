@@ -37,7 +37,10 @@ const AddChecklist = ({ task, closePopup, dispatch }) => {
                 value={title}
                 required
               />
-              <button className="checklist-btn add-list-btn" type="submit">
+              <button
+                className="checklist-btn add-list-btn"
+                onClick={(e) => handleSubmit(e)}
+              >
                 Add
               </button>
             </form>

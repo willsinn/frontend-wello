@@ -35,7 +35,6 @@ hr {
   margin: auto;
   padding: 0;
   width: 90%;
-  margin: 8px;
 }
 button {
   background-color: Transparent;
@@ -718,6 +717,7 @@ button {
   color: white;
 }
 .modal-header {
+  border-bottom: 1px solid rgba(9, 30, 66, 0.13);
   box-sizing: border-box;
   color: #5e6c84;
   display: flex;

@@ -14,6 +14,9 @@ import checklistsReducer from "./reducers/checklistsReducer";
 import labelsReducer from "./reducers/labelsReducer";
 
 import * as serviceWorker from "./serviceWorker";
+import { fetchUserBoards } from "./actions/boards";
+
+import { fetchUser } from "./actions/user";
 
 const rootReducer = combineReducers({
   userReducer: userReducer,
@@ -27,7 +30,8 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-// console.log(`%c INITIAL REDUX STORE`, "color: purple", store.getState());
+store.dispatch(fetchUser());
+store.dispatch(fetchUserBoards());
 
 ReactDOM.render(
   <Provider store={store}>

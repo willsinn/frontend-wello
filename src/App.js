@@ -1,22 +1,41 @@
 import React from "react";
-import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import NavBar from "./containers/NavBar";
 import HomePage from "./containers/HomePage";
-import LoginForm from "./components/LoginForm";
-import SignupForm from "./components/SignupForm";
-
+import ProfilePage from "./containers/ProfilePage";
+import Board from "./containers/Board";
+import SignUpForm from "./components/SignUpForm";
+import { connect } from "react-redux";
 import "./App.css";
 
-const App = () => {
+const App = (props) => {
+  // console.log(props.activePg);
+  //console.log(props.workspace);
 
   return (
     <>
-      <Switch>
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
-        <Route exact path="/home" component={HomePage} />
-        <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/signup" component={SignupForm} />
-      </Switch>
+      <SignUpForm />
+      {/* <NavBar />
+      {(() => {
+        switch (props.activePg) {
+          case "home":
+            return <HomePage />;
+          case "board":
+            return <Board workspace={props.workspace} />;
+          case "profile":
+            return <ProfilePage />;
+          default:
+            return <HomePage />;
+        }
+      })()} */}
     </>
   );
 };
-export default withRouter(App);
+
+const mapStateToProps = ({
+  userReducer: activePg,
+  workspaceReducer: workspace,
+}) => ({
+  activePg: activePg.activePg,
+  workspace: workspace.workspace,
+});
+export default connect(mapStateToProps)(App);
