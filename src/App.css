@@ -77,11 +77,10 @@ button {
   position: relative;
 }
 .home-page {
-  height: inherit;
-  width: 100%;
   display: flex;
-  /* flex-direction: column; */
-  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
 }
 .user.right-side {
   display: flex;
@@ -2736,4 +2735,10 @@ button {
 .tile-star:hover {
   font-size: 14.25px;
   font-weight: 350;
+}
+.archive-boards-menu {
+  width: 240px;
+  margin: 16px 16px 16px 0;
+  display: flex;
+  flex-direction: column;
 }
