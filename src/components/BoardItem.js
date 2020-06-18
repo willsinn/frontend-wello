@@ -11,21 +11,18 @@ import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 import { setPage } from "../actions/user";
 import { fetchWorkspace } from "../actions/workspace";
-import { clearWorkspace } from "../actions/workspace";
 
-const BoardItem = (props, { dispatch }) => {
-  const handleClick = e => {
+const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
+  const handleClick = (e) => {
     if (e) {
-      props.dispatch(clearWorkspace());
-      props.dispatch(fetchWorkspace(props.board));
-      props.dispatch(setPage("board"));
+      dispatch(fetchWorkspace({ board, user }, dispatch(setPage("board"))));
     }
-    if (props.sidelist) {
-      props.closeSidelist(e);
+    if (sidelist) {
+      closeSidelist(e);
     }
   };
   const renderBg = () => {
-    switch (props.board.background) {
+    switch (board.background) {
       case "lake":
         return { backgroundImage: `url(${Lake})` };
       case "mountians":
@@ -50,8 +47,13 @@ const BoardItem = (props, { dispatch }) => {
   };
   return (
     <div style={renderBg()} onClick={handleClick} className="board-item">
-      <span className="board-name">{props.board.title}</span>
+      <span className="board-name">{board.title}</span>
     </div>
   );
 };
-export default connect()(BoardItem);
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user,
+  };
+};
+export default connect(mapStateToProps)(BoardItem);

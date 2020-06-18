@@ -27,9 +27,10 @@ export const clearEdit = () => ({
 export const toggleEdit = () => ({
   type: "TOGGLE_EDIT",
 });
-export const fetchWorkspace = (board, dispatch) => {
+export const fetchWorkspace = (data, callback) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/user/1/board/${board.id}`, {
+    dispatch(clearWorkspace());
+    fetch(`http://localhost:3000/user/${data.user.id}/board/${data.board.id}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -37,13 +38,9 @@ export const fetchWorkspace = (board, dispatch) => {
       },
     })
       .then((response) => response.json())
-      .then((JSONresponse) => {
-        dispatch(
-          setWorkspace({
-            board: JSONresponse,
-          })
-        );
-      });
+      .then((JSONresponse) =>
+        dispatch(setWorkspace({ board: JSONresponse }), () => callback())
+      );
   };
 };
 
