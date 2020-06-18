@@ -1,19 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchArchives } from "../actions/archives";
 
-const Archives = ({ dispatch, user }) => {
-  console.log(user);
+const Archives = ({ boards }) => {
+  console.log(boards);
 
-  const renderArchives = () => {
-    dispatch(fetchArchives());
+  const renderArchivedBoards = () => {
+    if (boards && boards.length > 0) {
+      const archived = [];
+      boards.forEach((board) => {
+        if (board.archived) {
+          return archived.push(board);
+        }
+      });
+    }
   };
+  const renderArchivedCards = () => {};
+  const renderArchivedTasks = () => {};
+
   return <div>Hello this is archived</div>;
 };
 
 const mapStateToProps = (state) => {
   return {
-    user: state.userReducer.user,
+    boards: state.boardsReducer.boards,
   };
 };
 
