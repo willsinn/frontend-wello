@@ -21,9 +21,9 @@ const StarredBoardList = ({ boards }) => {
     }
   };
   return (
-    <div className="boards-listed-tiles">
+    <div className="personal-boards">
       <div className="board-tiles-section-header">
-        <span className="board-tiles-header-title">Starred Boards</span>
+        <h3 className="personal-tiles">Starred</h3>
       </div>
       <ul className="board-tiles-ul">{renderTiles()}</ul>
     </div>

@@ -5,7 +5,7 @@ import { setArchives } from "../actions/archives";
 const Archives = ({ boards, archives, dispatch }) => {
   const findArchivedObjects = () => {
     if (boards && boards.length > 0) {
-      return dispatch(setArchives({ boards: boards }));
+      dispatch(setArchives(boards));
     }
   };
   return <div>{findArchivedObjects()}</div>;

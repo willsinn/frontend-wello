@@ -27,7 +27,6 @@ const boardsReducer = (state = defaultState, action) => {
       const userId = action.boardsData.user_id;
       const boards = action.boardsData.boards;
       const userBoards = boards.filter((board) => board.user_id === userId);
-      debugger;
       return { ...state, boards: userBoards };
     case "ADD_NEW_BOARD":
       return { ...state, boards: [...state.boards, action.board] };
