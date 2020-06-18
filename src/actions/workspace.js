@@ -27,39 +27,46 @@ export const clearEdit = () => ({
 export const toggleEdit = () => ({
   type: "TOGGLE_EDIT",
 });
-export const fetchWorkspace = (board, dispatch) => {
+export const updateWorkspace = (board) => ({
+  type: "UPDATE_WORKSPACE",
+  board,
+});
+export const fetchWorkspace = (data) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/user/1/board/${board.id}`, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
+    // dispatch(clearWorkspace());
+    fetch(
+      `http://localhost:3000/api/v1/user/${data.user.id}/board/${data.board.id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+      }
+    )
       .then((response) => response.json())
-      .then((JSONresponse) => {
-        dispatch(
-          setWorkspace({
-            board: JSONresponse,
-          })
-        );
-      });
+      .then((JSONresponse) => dispatch(setWorkspace({ board: JSONresponse })));
   };
 };
 
 export const postNewCard = (board, callback) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/board/${board.workspace.id}/cards/new`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        board_id: board.workspace.id,
-        goal: board.goal,
-        card_desc: "",
-      }),
-    })
+    fetch(
+      `http://localhost:3000/api/v1/board/${board.workspace.id}/cards/new`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+        body: JSON.stringify({
+          board_id: board.workspace.id,
+          goal: board.goal,
+          card_desc: "",
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(addCard(JSONresponse)));
     callback();
@@ -68,10 +75,11 @@ export const postNewCard = (board, callback) => {
 
 export const fetchCard = (card, dispatch) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/card/${card.id}`, {
+    fetch(`http://localhost:3000/api/v1/card/${card.id}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     });
   };
@@ -79,11 +87,12 @@ export const fetchCard = (card, dispatch) => {
 
 export const updateCardGoal = (card, goal) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/card/update/${card.id}`, {
+    fetch(`http://localhost:3000/api/v1/card/update/${card.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: card.id,
@@ -98,11 +107,12 @@ export const updateCardGoal = (card, goal) => {
 };
 export const archiveCard = (card) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/card/update/${card.id}`, {
+    fetch(`http://localhost:3000/api/v1/card/update/${card.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: card.id,
@@ -117,11 +127,12 @@ export const archiveCard = (card) => {
 };
 export const postNewTask = (card, callback) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/card/${card.card.id}/tasks/new`, {
+    fetch(`http://localhost:3000/api/v1/card/${card.card.id}/tasks/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         card_id: card.card.id,
@@ -138,11 +149,12 @@ export const postNewTask = (card, callback) => {
 };
 export const archiveTask = (task, callback) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/update/${task.id}`, {
+    fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: task.id,
@@ -159,11 +171,12 @@ export const archiveTask = (task, callback) => {
 
 export const updateTaskNote = (task, note) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/update/${task.id}`, {
+    fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: task.id,
@@ -178,11 +191,12 @@ export const updateTaskNote = (task, note) => {
 };
 export const saveTaskDesc = (task, desc) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/update/${task.id}`, {
+    fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: task.id,
@@ -192,6 +206,26 @@ export const saveTaskDesc = (task, desc) => {
       .then((response) => response.json())
       .then((JSONresponse) => {
         dispatch(updateTask(JSONresponse));
+      });
+  };
+};
+export const starredBoard = (board) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({
+        id: `${board.id}`,
+        starred: `${!board.starred}`,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => {
+        dispatch(updateWorkspace(JSONresponse));
       });
   };
 };

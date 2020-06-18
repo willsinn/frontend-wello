@@ -1,6 +1,6 @@
 export const setBoards = (boardsData) => ({
   type: "SET_BOARDS",
-  payload: boardsData,
+  boardsData,
 });
 export const updateBoard = (board) => ({
   type: "UPDATE_BOARD",
@@ -11,33 +11,36 @@ export const addNewBoard = (boardData) => ({
   board: boardData,
 });
 
-export const fetchUserBoards = (data) => {
+
+export const fetchUserBoards = (userId) => {
   return (dispatch) => {
-    fetch("http://localhost:3000/user/1/boards", {
+    fetch(`http://localhost:3000/api/v1/user/${userId}/boards`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
-      body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => dispatch(setBoards(JSONresponse)));
+      .then((JSONresponse) =>
+        dispatch(setBoards({ boards: JSONresponse, user_id: userId }))
+      );
   };
 };
-export const postNewBoard = (newBoard, dispatch) => {
+export const postNewBoard = (data) => {
   return (dispatch) => {
-    console.log(newBoard);
-    fetch("http://localhost:3000/user/1/boards/new", {
+    fetch(`http://localhost:3000/api/v1/user/${data.user.id}/boards/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        user_id: 1,
-        title: newBoard.title,
-        background: newBoard.background,
-        team_name: newBoard.team,
+        user_id: data.user.id,
+        title: data.board.title,
+        background: data.board.background,
+        team_name: data.board.team,
       }),
     })
       .then((response) => response.json())
@@ -51,11 +54,12 @@ export const deleteBoard = (board) => ({
 export const deleteBoardWorkspace = (board, dispatch) => {
   console.log(board.id, board);
   return (dispatch) => {
-    fetch(`http://localhost:3000/user/1/board/${board.id}/delete`, {
+    fetch(`http://localhost:3000/api/v1/user/1/board/${board.id}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({ board_id: `${board.id}` }),
     }).then((response) => dispatch(deleteBoard(board)));
@@ -63,11 +67,12 @@ export const deleteBoardWorkspace = (board, dispatch) => {
 };
 export const updateBoardBackground = (board, background) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/board/${board.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: board.id,
@@ -80,22 +85,21 @@ export const updateBoardBackground = (board, background) => {
       });
   };
 };
-export const starredBoard = (board) => {
+export const removeStarred = (board) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/board/${board.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        id: board.id,
-        starred: true,
+        id: `${board.id}`,
+        starred: false,
       }),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => {
-        dispatch(updateBoard(JSONresponse));
-      });
+      .then((JSONresponse) => dispatch(updateBoard(JSONresponse)));
   };
 };

@@ -15,9 +15,6 @@ import labelsReducer from "./reducers/labelsReducer";
 import archiveReducer from "./reducers/archiveReducer";
 
 import * as serviceWorker from "./serviceWorker";
-import { fetchUserBoards } from "./actions/boards";
-
-import { fetchUser } from "./actions/user";
 
 const rootReducer = combineReducers({
   userReducer: userReducer,
@@ -32,8 +29,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-store.dispatch(fetchUser());
-store.dispatch(fetchUserBoards());
+// console.log(`%c INITIAL REDUX STORE`, "color: purple", store.getState());
 
 ReactDOM.render(
   <Provider store={store}>

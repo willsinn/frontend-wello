@@ -10,22 +10,22 @@ import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 import { setPage } from "../actions/user";
-import { fetchWorkspace } from "../actions/workspace";
-import { clearWorkspace } from "../actions/workspace";
+import { fetchWorkspace, clearWorkspace } from "../actions/workspace";
+import { removeStarred } from "../actions/boards";
 
-const BoardItem = (props, { dispatch }) => {
-  const handleClick = e => {
-    if (e) {
-      props.dispatch(clearWorkspace());
-      props.dispatch(fetchWorkspace(props.board));
-      props.dispatch(setPage("board"));
+const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
+  const handleClick = (e, actionType) => {
+    if (e && actionType === "star") {
+      dispatch(clearWorkspace());
+      dispatch(removeStarred(board));
     }
-    if (props.sidelist) {
-      props.closeSidelist(e);
+    if (e && actionType === "workspace") {
+      dispatch(setPage("board"));
+      dispatch(fetchWorkspace({ board, user }));
     }
   };
   const renderBg = () => {
-    switch (props.board.background) {
+    switch (board.background) {
       case "lake":
         return { backgroundImage: `url(${Lake})` };
       case "mountians":
@@ -49,9 +49,33 @@ const BoardItem = (props, { dispatch }) => {
     }
   };
   return (
-    <div style={renderBg()} onClick={handleClick} className="board-item">
-      <span className="board-name">{props.board.title}</span>
+    <div style={renderBg()} className="board-item">
+      <div
+        style={{ width: "100%", height: "80px" }}
+        onClick={(e) => {
+          handleClick(e, "workspace");
+        }}
+      >
+        <span className="board-name">{board.title}</span>
+      </div>
+
+      <div style={{ height: "24px", width: "24px" }}>
+        {board.starred ? (
+          <button
+            onClick={(e) => {
+              handleClick(e, "star");
+            }}
+          >
+            <span className="tile-star">☆</span>
+          </button>
+        ) : null}
+      </div>
     </div>
   );
 };
-export default connect()(BoardItem);
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user,
+  };
+};
+export default connect(mapStateToProps)(BoardItem);

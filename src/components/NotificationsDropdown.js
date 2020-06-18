@@ -1,15 +1,21 @@
 import React from "react";
 
-const NotificationsDropdown = props => {
+const NotificationsDropdown = (props) => {
   return (
     <div className="notifications right-modal">
-      <div className="modal-header title">
-        <div className="modal-header label">Notifications</div>
-        <div className="modal-header close">
+      <div className="dropdown-title">
+        <div className="dropdown-label">Notifications</div>
+        <div className="dropdown-title-close">
           <button>
-            <span onClick={e => props.closeRightnav(e)}>×</span>
+            <span
+              className="dropdown-title-close-btn"
+              onClick={(e) => props.closeRightnav(e)}
+            >
+              ×
+            </span>
           </button>
         </div>
+        <hr />
       </div>
       <div className="new-option">
         <div className="all-nots title">

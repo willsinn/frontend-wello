@@ -28,11 +28,12 @@ export const removeItem = (item) => ({
 });
 export const postNewChecklist = (task, title) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/${task.id}/checklists/new`, {
+    fetch(`http://localhost:3000/api/v1/task/${task.id}/checklists/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         task_id: task.id,
@@ -45,10 +46,11 @@ export const postNewChecklist = (task, title) => {
 };
 export const fetchChecklists = (task) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/task/${task.id}/checklists`, {
+    fetch(`http://localhost:3000/api/v1/task/${task.id}/checklists`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     })
       .then((response) => response.json())
@@ -57,11 +59,12 @@ export const fetchChecklists = (task) => {
 };
 export const saveChecklistTitle = (checklist, title) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/checklists/${checklist.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/checklists/${checklist.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: checklist.id,
@@ -76,11 +79,12 @@ export const saveChecklistTitle = (checklist, title) => {
 export const deleteChecklist = (checklist) => {
   return (dispatch) => {
     dispatch(removeChecklist(checklist));
-    fetch(`http://localhost:3000/checklists/${checklist.id}/delete`, {
+    fetch(`http://localhost:3000/api/v1/checklists/${checklist.id}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: checklist.id,
@@ -88,17 +92,19 @@ export const deleteChecklist = (checklist) => {
     });
   };
 };
-export const postNewListItem = (checklist, detail) => {
+export const postNewListItem = (item) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/checklist/${checklist.id}/item/new`, {
+    fetch(`http://localhost:3000/api/v1/checklist/${item.listId}/item/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        checklist_id: checklist.id,
-        detail: detail,
+        checklist_id: `${item.listId}`,
+        detail: `${item.detail}`,
+        completed: false,
       }),
     })
       .then((response) => response.json())
@@ -107,11 +113,12 @@ export const postNewListItem = (checklist, detail) => {
 };
 export const saveItemDetail = (item, detail) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/items/${item.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/items/${item.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         item_id: item.id,
@@ -124,11 +131,12 @@ export const saveItemDetail = (item, detail) => {
 };
 export const updateItemCompletion = (item) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/items/${item.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/items/${item.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({ item_id: item.id, completed: !item.completed }),
     })
@@ -139,11 +147,12 @@ export const updateItemCompletion = (item) => {
 export const deleteItem = (item) => {
   return (dispatch) => {
     dispatch(removeItem(item));
-    fetch(`http://localhost:3000/items/${item.id}/delete`, {
+    fetch(`http://localhost:3000/api/v1/items/${item.id}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: item.id,

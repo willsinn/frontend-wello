@@ -60,97 +60,102 @@ const TaskWindow = ({
   console.log(taskLabels);
   return (
     <div className="window-modal">
-      <div className="task-window">
-        <div className="close-task-window" onClick={(e) => handleCloseWindow()}>
-          ✕
-        </div>
-        <div className="task-detail-window">
-          <div className="task-window-header">
-            <span className="task-window-icon" />
-            <div>
-              {task.id === undefined ? (
-                <h1
-                  className="card-text"
-                  style={{
-                    fontSize: "1.70em",
-                    minHeight: "28px",
-                    height: "28px",
-                    margin: "0",
-                  }}
-                  onClick={(e) => handleNoteEdit()}
-                >
-                  {editTask.note}
-                </h1>
-              ) : (
-                <form className="edit-note-form" onSubmit={handleSubmit}>
-                  <input
-                    className="edit-input"
-                    style={{ fontSize: "1.7em" }}
-                    type="text"
-                    name="note"
-                    onChange={handleChange}
-                    value={note}
-                    required
-                  />
-                </form>
-              )}
-            </div>
-            <div className="task-window-text">
-              <span>in list </span>
-              <span className="task-window-list-name">{cardGoal}</span>
-            </div>
+      <div className="task-window-wrap">
+        <div className="task-window">
+          <div
+            className="close-task-window"
+            onClick={(e) => handleCloseWindow()}
+          >
+            ✕
           </div>
-          <LabelsList
-            winLabels={labels}
-            windowLabels={taskLabels}
-            windowId={editTask.id}
-            openLabelMenu={openLabelMenu}
-          />
-          <div className="task-window-body" onClick={handleSave}>
-            <div className="body-left-window">
-              <TaskWindowDescription editTask={editTask} />
-              <TaskChecklists />
-            </div>
-
-            <div className="task-window-sidebar">
-              <h3 className="sidebar-title">add to task</h3>
-
-              <div
-                className="sidebar-btn"
-                onClick={(e) => setSidebtn("labels")}
-              >
-                Labels
+          <div className="task-detail-window">
+            <div className="task-window-header">
+              <span className="task-window-icon" />
+              <div>
+                {task.id === undefined ? (
+                  <h1
+                    className="card-text"
+                    style={{
+                      fontSize: "1.70em",
+                      minHeight: "28px",
+                      height: "28px",
+                      margin: "0",
+                    }}
+                    onClick={(e) => handleNoteEdit()}
+                  >
+                    {editTask.note}
+                  </h1>
+                ) : (
+                  <form className="edit-note-form" onSubmit={handleSubmit}>
+                    <input
+                      className="edit-input"
+                      style={{ fontSize: "1.7em" }}
+                      type="text"
+                      name="note"
+                      onChange={handleChange}
+                      value={note}
+                      required
+                    />
+                  </form>
+                )}
               </div>
-              {sidebtn === "labels" ? (
-                <div
-                  style={{
-                    position: "fixed",
-                    top: "35%",
-                    left: "55%",
-                    zIndex: "1",
-                  }}
-                >
-                  <LabelMenu closePopup={closePopup} taskId={editTask.id} />
-                </div>
-              ) : null}
+              <div className="task-window-text">
+                <span>in list </span>
+                <span className="task-window-list-name">{cardGoal}</span>
+              </div>
+            </div>
+            <LabelsList
+              winLabels={labels}
+              windowLabels={taskLabels}
+              windowId={editTask.id}
+              openLabelMenu={openLabelMenu}
+            />
+            <div className="task-window-body" onClick={handleSave}>
+              <div className="body-left-window">
+                <TaskWindowDescription editTask={editTask} />
+                <TaskChecklists taskId={editTask.id} />
+              </div>
 
-              {sidebtn === "checklist" ? (
+              <div className="task-window-sidebar">
+                <h3 className="sidebar-title">add to task</h3>
+
                 <div
-                  style={{
-                    position: "fixed",
-                    top: "48%",
-                    left: "55%",
-                    zIndex: "1",
-                  }}
+                  className="sidebar-btn"
+                  onClick={(e) => setSidebtn("labels")}
                 >
-                  <AddChecklist task={editTask} closePopup={closePopup} />
+                  Labels
                 </div>
-              ) : null}
-              <div
-                className="sidebar-btn"
-                onClick={(e) => setSidebtn("checklist")}
-              >
-                Checklist
+                {sidebtn === "labels" ? (
+                  <div
+                    style={{
+                      position: "fixed",
+                      top: "35%",
+                      left: "55%",
+                      zIndex: "1",
+                    }}
+                  >
+                    <LabelMenu closePopup={closePopup} taskId={editTask.id} />
+                  </div>
+                ) : null}
+
+                {sidebtn === "checklist" ? (
+                  <div
+                    style={{
+                      position: "fixed",
+                      top: "48%",
+                      left: "55%",
+                      zIndex: "1",
+                    }}
+                  >
+                    <AddChecklist task={editTask} closePopup={closePopup} />
+                  </div>
+                ) : null}
+                <div
+                  className="sidebar-btn"
+                  onClick={(e) => setSidebtn("checklist")}
+                >
+                  Checklist
+                </div>
               </div>
             </div>
           </div>
