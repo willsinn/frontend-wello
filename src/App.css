@@ -787,6 +787,10 @@ button {
   width: 100%;
   font-weight: 100;
 }
+.dropdown-title-close-btn:hover {
+  font-weight: 225;
+  color: #3a3f48;
+}
 .close {
   position: absolute;
   right: -24px;
@@ -2710,4 +2714,17 @@ button {
   padding: 0.5em 1em;
   max-width: 100%;
   margin: 16px 0;
+}
+.tile-star {
+  font-size: 14px;
+  font-weight: 225;
+  position: absolute;
+  color: rgb(242, 214, 0);
+  bottom: 8px;
+  right: 12px;
+  transition: margin 0.5s ease-in-out;
+}
+.tile-star:hover {
+  font-size: 15px;
+  font-weight: 350;
 }

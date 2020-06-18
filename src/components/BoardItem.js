@@ -49,6 +49,7 @@ const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
   return (
     <div style={renderBg()} onClick={handleClick} className="board-item">
       <span className="board-name">{board.title}</span>
+      {board.starred ? <span className="tile-star">☆</span> : null}
     </div>
   );
 };
