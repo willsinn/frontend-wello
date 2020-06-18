@@ -3,6 +3,12 @@ import { connect } from "react-redux";
 import { archiveCard, positionNewTask } from "../actions/workspace";
 
 const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
+  const handleAddFirstClick = (e) => {
+    if (e) {
+      dispatch(positionNewTask("first"));
+      handleCloseCardMenu(e);
+    }
+  };
   return (
     <div className="card-menu-modal">
       <div className="dropdown-title" style={{ margin: "0" }}>
@@ -22,7 +28,7 @@ const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
       <ul>
         <li className="option-item">
           <button
-            onClick={(e) => dispatch(positionNewTask("first"))}
+            onClick={(e) => handleAddFirstClick(e)}
             className="option-title js-member-profile"
             data-tab="profile"
           >

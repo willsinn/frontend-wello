@@ -3,13 +3,11 @@ import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
 import TaskWindow from "../containers/TaskWindow";
 import QuickTaskEditor from "../components/QuickTaskEditor";
-import { fetchChecklists } from "../actions/checklists";
 import { connect } from "react-redux";
+import { fetchChecklists } from "../actions/checklists";
+import { positionNewTask } from "../actions/workspace";
 
 const TaskList = ({ card, position, dispatch }) => {
-  const [addToFirst, setAddToFirst] = useState(false);
-  const [addToLast, setAddToLast] = useState(false);
-
   const [editor, setEditor] = useState(false);
   const [window, setWindow] = useState(false);
   const [editTask, setEditTask] = useState({});
@@ -33,21 +31,7 @@ const TaskList = ({ card, position, dispatch }) => {
     setEditTask({});
     setWindow(false);
   };
-  const handleCloseTaskForm = (e) => {
-    setAddToLast(false);
-  };
-  const renderLastForm = (e) => {
-    if (e) {
-      setAddToLast(true);
-      setAddToFirst(false);
-    }
-  };
-  const renderFirstForm = (e) => {
-    if (e) {
-      setAddToLast(false);
-      setAddToFirst(true);
-    }
-  };
+
   const renderTasks = () => {
     if (card && card.tasks && card.tasks.length > 0) {
       return card.tasks.map((task) => {
@@ -94,24 +78,15 @@ const TaskList = ({ card, position, dispatch }) => {
           handleUpdateEditTask={handleUpdateEditTask}
         />
       ) : null}
-      {position === "first" ? (
-        <AddTask
-          handleCloseTaskForm={handleCloseTaskForm}
-          card={card}
-          addToFirst={addToFirst}
-          addToLast={addToLast}
-        />
-      ) : null}
+      {position === "first" ? <AddTask card={card} /> : null}
       {renderTasks()}
       {position === "last" ? (
-        <AddTask
-          handleCloseTaskForm={handleCloseTaskForm}
-          card={card}
-          addToLast={addToLast}
-          addToFirst={addToFirst}
-        />
+        <AddTask card={card} />
       ) : (
-        <div className="task-composer" onClick={(e) => renderLastForm(e)}>
+        <div
+          className="task-composer"
+          onClick={(e) => dispatch(positionNewTask("last"))}
+        >
           <span className="open-task-composer">
             <span
               style={{

@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postNewTask } from "../actions/workspace";
+import { postNewTask, positionNewTask } from "../actions/workspace";
 
 const initialState = { note: "" };
-const AddTask = ({
-  card,
-  addToLast,
-  addToFirst,
-  dispatch,
-  handleCloseTaskForm,
-}) => {
+const AddTask = ({ card, position, dispatch }) => {
   const [note, setNote] = useState(initialState);
   const clearState = (e) => {
     setNote({ ...initialState });
@@ -22,11 +16,14 @@ const AddTask = ({
   const handleSubmitTask = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(postNewTask({ note, card: card }, () => handleCloseTaskForm(e)));
+      dispatch(
+        postNewTask({ note, card: card }, () => dispatch(positionNewTask("")))
+      );
       clearState(e);
-      //handleCloseTaskForm(e)
     }
   };
+  console.log("ADDTASK, position task accordingly", position);
+
   // CREATE METHOD TO ORGANIZE AND RETURN TASKS IN ORDER
   // 1. add column order:int, first task is set at 1000
   // 2. addFirst takes lowest order:num (first elem in array) and creates a new task with lowestOrderNum - 1;
@@ -34,7 +31,7 @@ const AddTask = ({
   // 4. the two states are passed into AddTask to help determine where the user addedTask
   return (
     <div className="task-item-wrap">
-      <form onSubmit={handleSubmitTask}>
+      <form onSubmit={handleSubmitTask} style={{ marginBottom: "4px" }}>
         <textarea
           className="add-task-textarea"
           type="text"
@@ -48,7 +45,7 @@ const AddTask = ({
           Add Task
         </button>
         <button
-          onClick={(e) => handleCloseTaskForm(e)}
+          onClick={(e) => dispatch(positionNewTask(""))}
           className="close-add-btn"
         >
           ✕
@@ -57,5 +54,9 @@ const AddTask = ({
     </div>
   );
 };
-
-export default connect()(AddTask);
+const mapStateToProps = (state) => {
+  return {
+    position: state.workspaceReducer.position,
+  };
+};
+export default connect(mapStateToProps)(AddTask);

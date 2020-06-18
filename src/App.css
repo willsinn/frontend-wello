@@ -1596,8 +1596,8 @@ button {
 }
 .card-text {
   font-weight: 600;
-  margin: 0 0 8px;
-  font-size: 1.15em;
+  margin: 0 0 8px 12px;
+  font-size: 1.32em;
   line-height: 20px;
   cursor: pointer;
   overflow-x: hidden;
