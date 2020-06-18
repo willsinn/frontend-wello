@@ -2723,8 +2723,10 @@ button {
   bottom: 8px;
   right: 12px;
   transition: margin 0.5s ease-in-out;
+  height: 20px;
+  width: 20px;
 }
 .tile-star:hover {
-  font-size: 15px;
+  font-size: 14.25px;
   font-weight: 350;
 }

@@ -11,15 +11,21 @@ import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 import { setPage } from "../actions/user";
 import { fetchWorkspace } from "../actions/workspace";
+import { removeStarred } from "../actions/boards";
 
 const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
-  const handleClick = (e) => {
+  const handleClick = (e, actionType) => {
     if (e) {
-      dispatch(setPage("board"));
-      dispatch(fetchWorkspace({ board, user }));
-    }
-    if (sidelist) {
-      closeSidelist(e);
+      switch (actionType) {
+        case "star":
+          return dispatch(removeStarred(board));
+
+        case "workspace":
+          dispatch(setPage("board"));
+          return dispatch(fetchWorkspace({ board, user }));
+        default:
+          return;
+      }
     }
   };
   const renderBg = () => {
@@ -47,9 +53,25 @@ const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
     }
   };
   return (
-    <div style={renderBg()} onClick={handleClick} className="board-item">
+    <div
+      style={renderBg()}
+      onClick={(e) => {
+        handleClick(e, "workspace");
+      }}
+      className="board-item"
+    >
       <span className="board-name">{board.title}</span>
-      {board.starred ? <span className="tile-star">☆</span> : null}
+      <div style={{ height: "20px", width: "20px" }}>
+        {board.starred ? (
+          <button
+            onClick={(e) => {
+              handleClick(e, "star");
+            }}
+          >
+            <span className="tile-star">☆</span>
+          </button>
+        ) : null}
+      </div>
     </div>
   );
 };
