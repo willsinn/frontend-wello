@@ -11,7 +11,7 @@ const AddItem = ({ checklist, handleCloseAdd, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(postNewListItem(checklist, itemDetail));
+      dispatch(postNewListItem({ listId: checklist.id, detail: itemDetail }));
       setItemDetail("");
       handleCloseAdd(e);
     }
@@ -32,23 +32,21 @@ const AddItem = ({ checklist, handleCloseAdd, dispatch }) => {
             value={itemDetail.value}
             placeholder="Add an item."
           />
+          <button
+            className="add-list-btn"
+            type="submit"
+            style={{ paddingLeft: "12px", paddingRight: "12px", margin: "0" }}
+          >
+            Add
+          </button>
+          <button
+            className="close-add-btn"
+            style={{ paddingLeft: "12px" }}
+            onClick={(e) => handleCloseAdd(e)}
+          >
+            ✕
+          </button>
         </form>
-      </div>
-      <div>
-        <button
-          className="add-list-btn"
-          type="submit"
-          style={{ paddingLeft: "12px", paddingRight: "12px", margin: "0" }}
-        >
-          Add
-        </button>
-        <button
-          className="close-add-btn"
-          style={{ paddingLeft: "12px" }}
-          onClick={(e) => handleCloseAdd(e)}
-        >
-          ✕
-        </button>
       </div>
     </div>
   );

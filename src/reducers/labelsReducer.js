@@ -10,19 +10,15 @@ const labelsReducer = (state = defaultState, action) => {
     case "SET_TASK_LABELS":
       return { ...state, taskLabels: action.task_labels };
     case "UPDATE_LABEL":
+      const updatedLabel = action.label;
       const updatedLabels = state.labels.map((label) => {
-        if (label.id === action.label.id) {
-          return action.label;
+        if (label.id === updatedLabel.id) {
+          return updatedLabel;
         } else {
           return label;
         }
       });
       return { ...state, labels: updatedLabels };
-    case "ADD_TASK_LABEL":
-      return {
-        ...state,
-        taskLabels: [...state.taskLabels, action.taskLabel],
-      };
     case "REMOVE_TASK_LABEL":
       const updatedTaskLabels = state.taskLabels.filter(
         (taskLabel) => taskLabel.id !== action.taskLabelId

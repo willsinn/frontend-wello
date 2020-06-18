@@ -71,7 +71,7 @@ export const createTaskLabel = (labelId, taskId) => {
       body: JSON.stringify({ id: labelId, task_id: taskId }),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => dispatch(addTaskLabel(JSONresponse)));
+      .then((JSONresponse) => dispatch(updateLabel(JSONresponse)));
   };
 };
 export const deleteTaskLabel = (taskLabelId) => {
