@@ -1,28 +1,33 @@
 import React from "react";
 import { connect } from "react-redux";
+import { setBoardsArchives, fetchAllCards } from "../actions/archives";
 
-const Archives = ({ boards }) => {
-  console.log(boards);
-
+const Archives = ({ boards, archives, dispatch }) => {
   const renderArchivedBoards = () => {
     if (boards && boards.length > 0) {
-      const archived = [];
-      boards.forEach((board) => {
-        if (board.archived) {
-          return archived.push(board);
-        }
+      debugger;
+      const archived = boards.filter((board) => board.archived === true);
+      if (archived.length > 0) {
+        dispatch(setBoardsArchives({ boards: archived }));
+      }
+      boards.map((board) => {
+        const boardId = board.id;
+        dispatch(fetchAllCards({ board_id: boardId }));
+        return boardId;
       });
     }
+    console.log(archives);
   };
   const renderArchivedCards = () => {};
   const renderArchivedTasks = () => {};
 
-  return <div>Hello this is archived</div>;
+  return <div>{renderArchivedBoards()}</div>;
 };
 
 const mapStateToProps = (state) => {
   return {
     boards: state.boardsReducer.boards,
+    archives: state.archiveReducer.archives,
   };
 };
 
