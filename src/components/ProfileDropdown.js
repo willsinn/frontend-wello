@@ -27,9 +27,14 @@ const ProfileDropdown = ({ user, closeRightnav, dispatch }) => {
           user.email
         })`}</div>
         <hr />
-        <div className="modal-header close">
+        <div className="dropdown-title-close">
           <button>
-            <span onClick={(e) => closeRightnav(e)}>×</span>
+            <span
+              className="dropdown-title-close-btn"
+              onClick={(e) => closeRightnav(e)}
+            >
+              ×
+            </span>
           </button>
         </div>
       </div>
