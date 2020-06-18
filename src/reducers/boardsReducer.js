@@ -24,7 +24,13 @@ const boardsReducer = (state = defaultState, action) => {
         boards: remainingBoards,
       };
     case "SET_BOARDS":
-      return { ...state, boards: action.payload };
+      const userBoards = [];
+      action.boardsData.boards.forEach((board) => {
+        if (board.user_id === action.boardsData.user_id) {
+          userBoards.push(board);
+        }
+      });
+      return { ...state, boards: userBoards };
     case "ADD_NEW_BOARD":
       return { ...state, boards: [...state.boards, action.board] };
     case "UPDATE_BOARD":

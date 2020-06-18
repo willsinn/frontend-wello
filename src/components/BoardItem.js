@@ -15,7 +15,8 @@ import { fetchWorkspace } from "../actions/workspace";
 const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
   const handleClick = (e) => {
     if (e) {
-      dispatch(fetchWorkspace({ board, user }, dispatch(setPage("board"))));
+      dispatch(setPage("board"));
+      dispatch(fetchWorkspace({ board, user }));
     }
     if (sidelist) {
       closeSidelist(e);

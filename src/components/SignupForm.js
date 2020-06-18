@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LandingPage from "./LandingPage";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { userSignup } from "../actions/user";
+import { userSignup, setError } from "../actions/user";
 //saved
 const SignUpForm = ({ loggedIn, error, dispatch }) => {
   const [email, setEmail] = useState("");
@@ -27,7 +27,9 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
   const handleSubmitSignup = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(userSignup({ email, password, name }));
+      dispatch(
+        userSignup({ email, password, name }, () => dispatch(setError(null)))
+      );
     }
   };
   console.log(loggedIn);
@@ -43,6 +45,9 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
             <div className="signin-modal-wrap">
               <div className="center">
                 <div className="signin-modal signup">
+                  {error === null ? null : (
+                    <p className="error-message">{error}</p>
+                  )}
                   <h1 className="signin-modal-title">
                     Sign up for your account
                   </h1>

@@ -35,7 +35,7 @@ export const userLogin = (email, password) => {
         if (response.ok) {
           return response.json();
         } else {
-          dispatch(setError("Incorrect username or password."));
+          dispatch(setError("Incorrect email address and / or password."));
           throw response;
         }
       })
@@ -59,7 +59,7 @@ export const fetchCurrentUser = () => {
       .then((JSONResponse) => dispatch(setUser(JSONResponse)));
   };
 };
-export const userSignup = (user) => {
+export const userSignup = (user, callback) => {
   return (dispatch) => {
     dispatch({ type: "AUTHENTICATING_USER" });
     fetch("http://localhost:3000/api/v1/users", {
@@ -81,6 +81,7 @@ export const userSignup = (user) => {
         if (response.ok) {
           return response.json();
         } else {
+          dispatch(setError(`There is an existing account for ${user.email}.`));
           throw response;
         }
       })
@@ -88,7 +89,7 @@ export const userSignup = (user) => {
       .then((JSONResponse) => {
         localStorage.setItem("jwt", JSONResponse.jwt);
         dispatch(setUser(JSONResponse));
+        callback();
       });
-
   };
 };

@@ -1,5 +1,5 @@
 const defaultState = {
-  workspace: {}
+  workspace: {},
 };
 
 const workspaceReducer = (state = defaultState, action) => {
@@ -9,17 +9,18 @@ const workspaceReducer = (state = defaultState, action) => {
     case "CLEAR_WORKSPACE":
       return { ...state, workspace: defaultState, cards: [] };
     case "SET_WORKSPACE":
+      debugger;
       return { ...state, workspace: action.workspace.board };
     case "ADD_CARD":
       return {
         ...state,
         workspace: {
           ...state.workspace,
-          cards: [...state.workspace.cards, action.card]
-        }
+          cards: [...state.workspace.cards, action.card],
+        },
       };
     case "UPDATE_CARD":
-      const updatedCard = state.workspace.cards.map(card => {
+      const updatedCard = state.workspace.cards.map((card) => {
         if (card.id === action.card.id) {
           return action.card;
         } else {
@@ -28,14 +29,14 @@ const workspaceReducer = (state = defaultState, action) => {
       });
       return {
         ...state,
-        workspace: { ...state.workspace, cards: updatedCard }
+        workspace: { ...state.workspace, cards: updatedCard },
       };
     case "ADD_TASK":
-      const addNewTask = state.workspace.cards.map(card => {
+      const addNewTask = state.workspace.cards.map((card) => {
         if (card.id === action.task.card_id) {
           const updatedCard = {
             ...card,
-            tasks: [...card.tasks, action.task]
+            tasks: [...card.tasks, action.task],
           };
           return updatedCard;
         } else {
@@ -46,13 +47,13 @@ const workspaceReducer = (state = defaultState, action) => {
         ...state,
         workspace: {
           ...state.workspace,
-          cards: addNewTask
-        }
+          cards: addNewTask,
+        },
       };
     case "UPDATE_TASK":
-      const updateArchivedCardTask = state.workspace.cards.map(card => {
+      const updateArchivedCardTask = state.workspace.cards.map((card) => {
         if (card.id === action.task.card_id) {
-          const updatedTasks = card.tasks.map(task => {
+          const updatedTasks = card.tasks.map((task) => {
             if (task.id === action.task.id) {
               return action.task;
             } else {
@@ -61,7 +62,7 @@ const workspaceReducer = (state = defaultState, action) => {
           });
           const updatedCard = {
             ...card,
-            tasks: updatedTasks
+            tasks: updatedTasks,
           };
           return updatedCard;
         } else {
@@ -70,7 +71,7 @@ const workspaceReducer = (state = defaultState, action) => {
       });
       return {
         ...state,
-        workspace: { ...state.workspace, cards: updateArchivedCardTask }
+        workspace: { ...state.workspace, cards: updateArchivedCardTask },
       };
     default:
       return state;

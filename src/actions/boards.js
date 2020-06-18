@@ -1,6 +1,6 @@
 export const setBoards = (boardsData) => ({
   type: "SET_BOARDS",
-  payload: boardsData,
+  boardsData,
 });
 export const updateBoard = (board) => ({
   type: "UPDATE_BOARD",
@@ -21,7 +21,9 @@ export const fetchUserBoards = (userId) => {
       },
     })
       .then((response) => response.json())
-      .then((JSONresponse) => dispatch(setBoards(JSONresponse)));
+      .then((JSONresponse) =>
+        dispatch(setBoards({ boards: JSONresponse, user_id: userId }))
+      );
   };
 };
 export const postNewBoard = (data) => {
