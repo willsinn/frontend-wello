@@ -1754,6 +1754,7 @@ button {
   box-shadow: none;
   border: none;
   color: #fff;
+
   background-color: #5aac44;
   padding: 6px 24px 6px 24px;
   border-radius: 3px;
@@ -1771,8 +1772,8 @@ button {
   border: 1px solid transparent;
   padding: 6px 8px 2px;
   margin-bottom: 7px;
-  width: 232px;
-  height: 54px;
+  width: 238px;
+  height: 48px;
   display: block;
 }
 .card-menu-modal {
@@ -1785,6 +1786,7 @@ button {
   left: 232px;
   top: 42px;
   z-index: 70;
+  height: fit-content;
 }
 .quick-task-edit-btn:hover {
   background: rgba(0, 0, 0, 0.8);
