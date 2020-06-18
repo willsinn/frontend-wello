@@ -7,7 +7,9 @@ import { fetchChecklists } from "../actions/checklists";
 import { connect } from "react-redux";
 
 const TaskList = ({ card, dispatch }) => {
-  const [addTask, setAddTask] = useState(false);
+  const [addToFirst, setAddToFirst] = useState(false);
+  const [addToLast, setAddToLast] = useState(false);
+
   const [editor, setEditor] = useState(false);
   const [window, setWindow] = useState(false);
   const [editTask, setEditTask] = useState({});
@@ -32,7 +34,19 @@ const TaskList = ({ card, dispatch }) => {
     setWindow(false);
   };
   const handleCloseTaskForm = (e) => {
-    setAddTask(false);
+    setAddToLast(false);
+  };
+  const renderLastForm = (e) => {
+    if (e) {
+      setAddToLast(true);
+      setAddToFirst(false);
+    }
+  };
+  const renderFirstForm = (e) => {
+    if (e) {
+      setAddToLast(false);
+      setAddToFirst(true);
+    }
   };
   const renderTasks = () => {
     if (card && card.tasks && card.tasks.length > 0) {
@@ -80,10 +94,24 @@ const TaskList = ({ card, dispatch }) => {
           handleUpdateEditTask={handleUpdateEditTask}
         />
       ) : null}
-
+      {addToFirst ? (
+        <AddTask
+          handleCloseTaskForm={handleCloseTaskForm}
+          card={card}
+          addToFirst={addToFirst}
+          addToLast={addToLast}
+        />
+      ) : null}
       {renderTasks()}
-      {!addTask ? (
-        <div className="task-composer" onClick={(e) => setAddTask(true)}>
+      {addToLast ? (
+        <AddTask
+          handleCloseTaskForm={handleCloseTaskForm}
+          card={card}
+          addToLast={addToLast}
+          addToFirst={addToFirst}
+        />
+      ) : (
+        <div className="task-composer" onClick={(e) => renderLastForm(e)}>
           <span className="open-task-composer">
             <span
               style={{
@@ -97,8 +125,6 @@ const TaskList = ({ card, dispatch }) => {
             Add another task
           </span>
         </div>
-      ) : (
-        <AddTask handleCloseTaskForm={handleCloseTaskForm} card={card} />
       )}
     </div>
   );

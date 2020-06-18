@@ -18,11 +18,11 @@ const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
           </button>
         </div>
       </div>
-      <hr style={{ marginTop: "0" }} />
+      <hr />
       <ul>
         <li className="option-item">
           <button className="option-title js-member-profile" data-tab="profile">
-            <span>Add Card...</span>
+            <span>Add Task...</span>
           </button>
         </li>
         <li className="option-item">
