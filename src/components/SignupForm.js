@@ -6,24 +6,20 @@ import { userSignup, setError } from "../actions/user";
 //saved
 const SignUpForm = ({ loggedIn, error, dispatch }) => {
   const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [signup, setSignup] = useState(true);
 
   const handleChange = (e, fieldType) => {
     if (e) {
       switch (fieldType) {
         case "email":
           return setEmail(e.target.value);
-        case "firstName":
-          return setFirstName(e.target.value);
-        case "lastName":
-          return setLastName(e.target.value);
+        case "name":
+          return setName(e.target.value);
         case "password":
           return setPassword(e.target.value);
-        case "passwordConfirm":
-          return setPasswordConfirm(e.target.value);
+
         default:
           return;
       }
@@ -32,79 +28,76 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      if (password === passwordConfirm) {
-        const name = `${firstName}%%${lastName}`;
-        dispatch(userSignup({ email, password, name }));
-      } else {
-        dispatch(setError("Passwords do not match"));
-      }
+      dispatch(userSignup({ email, password, name }));
     }
   };
   //   console.log(email);
   //   console.log(firstName);
   return (
     <>
-      {loggedIn ? (
-        <Redirect to="/home" />
-      ) : (
-        <div className="landing">
-          <LandingPage />
+      <LandingPage />
+      {signup ? (
+        <div className="modal-wrap">
+          <div className="center">
+            <div className="signin-modal">
+              <h1 className="signin-modal-title">Sign up for your account</h1>
+              <div>{error}</div>
+              <form className="signin-form" onSubmit={handleSubmit}>
+                <input
+                  className="signin-input"
+                  type="email"
+                  label="email"
+                  placeholder="Enter email address"
+                  name="email"
+                  onChange={(e) => handleChange(e, "email")}
+                  value={email}
+                  required
+                />
+                <input
+                  className="signin-input"
+                  type="name"
+                  label="name"
+                  placeholder="Enter full Name"
+                  name="name"
+                  onChange={(e) => handleChange(e, "name")}
+                  value={name}
+                  required
+                />
+                <input
+                  className="signin-input"
+                  type="password"
+                  label="password"
+                  placeholder="Create password"
+                  name="password"
+                  onChange={(e) => handleChange(e, "password")}
+                  value={password}
+                  required
+                />
+                <p className="terms-policy">
+                  By signing up, you confirm that you've read and accepted our
+                  Terms of Service and Privacy Policy.
+                </p>
 
-          <div>SIGNUP!{error}</div>
-          <form className="signin-form" onSubmit={handleSubmit}>
-            <input
-              className="signin-input"
-              type="email"
-              label="email"
-              placeholder="Email address"
-              name="email"
-              onChange={(e) => handleChange(e, "email")}
-              value={email}
-              required
-            />
-            <input
-              className="signin-input"
-              type="firstName"
-              label="firstName"
-              placeholder="First name"
-              name="firstName"
-              onChange={(e) => handleChange(e, "firstName")}
-              value={firstName}
-              required
-            />
-            <input
-              className="signin-input"
-              type="lastName"
-              label="lastName"
-              placeholder="Last name"
-              name="lastName"
-              onChange={(e) => handleChange(e, "lastName")}
-              value={lastName}
-              required
-            />
-            <input
-              className="signin-input"
-              type="password"
-              label="password"
-              placeholder="Password."
-              name="password"
-              onChange={(e) => handleChange(e, "password")}
-              value={password}
-              required
-            />
-            <input
-              className="signin-input"
-              type="password"
-              label="passwordConfirm"
-              placeholder="Confirm password"
-              name="passwordConfirm"
-              onChange={(e) => handleChange(e, "passwordConfirm")}
-              value={passwordConfirm}
-              required
-            />
-            <button type="submit">Signup</button>
-          </form>
+                <button
+                  className="signin-btn checklist-btn add-list-btn"
+                  type="submit"
+                >
+                  Sign Up
+                </button>
+              </form>
+              <hr />
+              <a
+                href="login"
+                onClick={(e) => setSignup(!signup)}
+                className="signup-link"
+              >
+                Already have an account? Log in
+              </a>
+            </div>
+          </div>
         </div>
+      ) : (
+        <Redirect to="/login" />
       )}
     </>
   );
