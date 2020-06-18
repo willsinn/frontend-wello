@@ -34,12 +34,12 @@ const boardsReducer = (state = defaultState, action) => {
     case "ADD_NEW_BOARD":
       return { ...state, boards: [...state.boards, action.board] };
     case "UPDATE_BOARD":
-      const updatedBoards = [];
-      state.boards.forEach((board) => {
-        if (board.id === action.board.id) {
-          updatedBoards.push(action.board);
+      const updatedBoard = action.board;
+      const updatedBoards = state.boards.map((board) => {
+        if (board.id === updatedBoard.id) {
+          return updatedBoard;
         } else {
-          updatedBoards.push(board);
+          return board;
         }
       });
       return { ...state, boards: updatedBoards };

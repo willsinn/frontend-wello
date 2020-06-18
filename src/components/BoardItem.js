@@ -10,22 +10,18 @@ import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 import { setPage } from "../actions/user";
-import { fetchWorkspace } from "../actions/workspace";
+import { fetchWorkspace, clearWorkspace } from "../actions/workspace";
 import { removeStarred } from "../actions/boards";
 
 const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
   const handleClick = (e, actionType) => {
-    if (e) {
-      switch (actionType) {
-        case "star":
-          return dispatch(removeStarred(board));
-
-        case "workspace":
-          dispatch(setPage("board"));
-          return dispatch(fetchWorkspace({ board, user }));
-        default:
-          return;
-      }
+    if (e && actionType === "star") {
+      dispatch(clearWorkspace());
+      dispatch(removeStarred(board));
+    }
+    if (e && actionType === "workspace") {
+      dispatch(setPage("board"));
+      dispatch(fetchWorkspace({ board, user }));
     }
   };
   const renderBg = () => {
@@ -53,15 +49,17 @@ const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
     }
   };
   return (
-    <div
-      style={renderBg()}
-      onClick={(e) => {
-        handleClick(e, "workspace");
-      }}
-      className="board-item"
-    >
-      <span className="board-name">{board.title}</span>
-      <div style={{ height: "20px", width: "20px" }}>
+    <div style={renderBg()} className="board-item">
+      <div
+        style={{ width: "100%", height: "80px" }}
+        onClick={(e) => {
+          handleClick(e, "workspace");
+        }}
+      >
+        <span className="board-name">{board.title}</span>
+      </div>
+
+      <div style={{ height: "24px", width: "24px" }}>
         {board.starred ? (
           <button
             onClick={(e) => {

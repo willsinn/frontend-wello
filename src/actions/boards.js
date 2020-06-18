@@ -94,7 +94,7 @@ export const removeStarred = (board) => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        id: board.id,
+        id: `${board.id}`,
         starred: false,
       }),
     })

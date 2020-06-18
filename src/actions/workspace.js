@@ -219,8 +219,8 @@ export const starredBoard = (board) => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        id: board.id,
-        starred: !board.starred,
+        id: `${board.id}`,
+        starred: `${!board.starred}`,
       }),
     })
       .then((response) => response.json())

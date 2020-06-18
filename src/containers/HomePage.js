@@ -10,10 +10,11 @@ const HomePage = ({ user, workspace, dispatch }) => {
   const renderBoards = () => {
     dispatch(fetchUserBoards(user.id));
   };
+
   return (
     <div id="root">
       <NavBar />
-      {workspace.id ? (
+      {workspace && workspace.id ? (
         <Redirect to="/board" />
       ) : (
         <div className="home-page">
@@ -26,6 +27,7 @@ const HomePage = ({ user, workspace, dispatch }) => {
     </div>
   );
 };
+
 const mapStateToProps = (state) => {
   return {
     user: state.userReducer.user,

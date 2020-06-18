@@ -118,19 +118,22 @@ const Board = ({ workspace, dispatch }) => {
                     >
                       {workspace.title}
                     </span>
-                    <button className="navbar-btn">
+                    <button
+                      className="navbar-btn"
+                      onClick={(e) => handleClick(e)}
+                    >
                       {workspace.starred ? (
                         <span
-                          style={{ fontSize: "16px", color: "#f2d600" }}
-                          onClick={(e) => handleClick(e)}
+                          style={{
+                            fontSize: "17px",
+                            fontWeight: "400",
+                            color: "#f2d600",
+                          }}
                         >
                           ☆
                         </span>
                       ) : (
-                        <span
-                          style={{ fontSize: "16px" }}
-                          onClick={(e) => handleClick(e)}
-                        >
+                        <span style={{ fontSize: "17px", fontWeight: "400" }}>
                           ☆
                         </span>
                       )}
