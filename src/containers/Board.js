@@ -14,7 +14,8 @@ import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 
 import { connect } from "react-redux";
-import { updateBoardBackground, starredBoard } from "../actions/boards";
+import { starredBoard } from "../actions/workspace";
+import { updateBoardBackground } from "../actions/boards";
 import { fetchLabels, fetchTaskLabels } from "../actions/labels";
 import { Redirect } from "react-router-dom";
 
@@ -45,6 +46,12 @@ const Board = ({ workspace, dispatch }) => {
     dispatch(updateBoardBackground(workspace, bgOption));
     setBackground(bgOption);
   };
+  const handleClick = (e) => {
+    if (e) {
+      dispatch(starredBoard(workspace));
+    }
+  };
+
   const bgOptions = bgs.filter((bg) => bg !== workspace.background);
 
   const findBg = (bgKey) => {
@@ -113,10 +120,16 @@ const Board = ({ workspace, dispatch }) => {
                     </span>
                     <button className="navbar-btn">
                       {workspace.starred ? (
-                        <span>★</span>
+                        <span
+                          style={{ fontSize: "16px", color: "#f2d600" }}
+                          onClick={(e) => handleClick(e)}
+                        >
+                          ☆
+                        </span>
                       ) : (
                         <span
-                          onClick={(e) => dispatch(starredBoard(workspace))}
+                          style={{ fontSize: "16px" }}
+                          onClick={(e) => handleClick(e)}
                         >
                           ☆
                         </span>

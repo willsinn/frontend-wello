@@ -84,23 +84,23 @@ export const updateBoardBackground = (board, background) => {
       });
   };
 };
-export const starredBoard = (board) => {
-  return (dispatch) => {
-    fetch(`http://localhost:3000/board/${board.id}/update`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
-      body: JSON.stringify({
-        id: board.id,
-        starred: true,
-      }),
-    })
-      .then((response) => response.json())
-      .then((JSONresponse) => {
-        dispatch(updateBoard(JSONresponse));
-      });
-  };
-};
+// export const starredBoard = (board) => {
+//   return (dispatch) => {
+//     fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
+//       method: "PUT",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Accept: "application/json",
+//         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+//       },
+//       body: JSON.stringify({
+//         id: board.id,
+//         starred: true,
+//       }),
+//     })
+//       .then((response) => response.json())
+//       .then((JSONresponse) => {
+//         dispatch(updateBoard(JSONresponse));
+//       });
+//   };
+// };

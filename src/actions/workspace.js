@@ -27,6 +27,10 @@ export const clearEdit = () => ({
 export const toggleEdit = () => ({
   type: "TOGGLE_EDIT",
 });
+export const updateWorkspace = (board) => ({
+  type: "UPDATE_WORKSPACE",
+  board,
+});
 export const fetchWorkspace = (data) => {
   return (dispatch) => {
     // dispatch(clearWorkspace());
@@ -202,6 +206,26 @@ export const saveTaskDesc = (task, desc) => {
       .then((response) => response.json())
       .then((JSONresponse) => {
         dispatch(updateTask(JSONresponse));
+      });
+  };
+};
+export const starredBoard = (board) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({
+        id: board.id,
+        starred: !board.starred,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => {
+        dispatch(updateWorkspace(JSONresponse));
       });
   };
 };
