@@ -1,6 +1,7 @@
 import React from "react";
 import withAuth from "../hocs/withAuth";
 import PersonalBoardList from "../components/PersonalBoardList";
+
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
 import { fetchUserBoards } from "../actions/boards";

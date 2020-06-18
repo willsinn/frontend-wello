@@ -4,6 +4,7 @@ import boardsReducer from "./boardsReducer";
 import workspaceReducer from "./workspaceReducer";
 import checklistsReducer from "./checklistsReducer";
 import labelsReducer from "./labelsReducer";
+import archiveReducer from "./archiveReducer";
 
 export default combineReducers({
   userReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   workspaceReducer,
   checklistsReducer,
   labelsReducer,
+  archiveReducer,
 });

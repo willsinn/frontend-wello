@@ -80,7 +80,7 @@ button {
   height: inherit;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: space-evenly;
 }
 .user.right-side {

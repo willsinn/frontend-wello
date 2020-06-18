@@ -12,6 +12,7 @@ import boardsReducer from "./reducers/boardsReducer";
 import workspaceReducer from "./reducers/workspaceReducer";
 import checklistsReducer from "./reducers/checklistsReducer";
 import labelsReducer from "./reducers/labelsReducer";
+import archiveReducer from "./reducers/archiveReducer";
 
 import * as serviceWorker from "./serviceWorker";
 
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   workspaceReducer: workspaceReducer,
   checklistsReducer: checklistsReducer,
   labelsReducer: labelsReducer,
+  archiveReducer: archiveReducer,
 });
 const store = createStore(
   rootReducer,
