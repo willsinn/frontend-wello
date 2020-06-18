@@ -2,11 +2,30 @@ import React from "react";
 import { connect } from "react-redux";
 import { setPage, userLogout } from "../actions/user";
 
-const ProfileDropdown = ({ closeRightnav, dispatch }) => {
+const ProfileDropdown = ({ user, closeRightnav, dispatch }) => {
+  const renderCapsName = () => {
+    const names = user.name.split(" ");
+    let namesCaps;
+    if (names) {
+      names.forEach((name, index) => {
+        let capitalized = name[0].toUpperCase();
+        capitalized = capitalized + name.slice(1, name.length);
+        if (index === 0) {
+          namesCaps = capitalized;
+        }
+        if (index > 0) {
+          namesCaps = namesCaps + " " + capitalized;
+        }
+      });
+    }
+    return namesCaps;
+  };
   return (
     <div className="new-board right-modal">
-      <div className="modal-header title">
-        <div className="modal-header label">William Sinn (williamsinn1)</div>
+      <div className="dropdown-title ">
+        <div className="dropdown-label">{`${renderCapsName()} (${
+          user.email
+        })`}</div>
         <hr />
         <div className="modal-header close">
           <button>
@@ -65,4 +84,7 @@ const ProfileDropdown = ({ closeRightnav, dispatch }) => {
     </div>
   );
 };
-export default connect()(ProfileDropdown);
+const mapStateToProps = (state) => ({
+  user: state.userReducer.user,
+});
+export default connect(mapStateToProps)(ProfileDropdown);

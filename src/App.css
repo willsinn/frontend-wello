@@ -711,9 +711,9 @@ button {
   top: 0;
 }
 .app-name {
-  font-family: cursive;
+  font-family: Brush Script MT;
   position: relative;
-  font-size: 28px;
+  font-size: 32.5px;
   font-weight: bold;
   color: white;
 }
@@ -751,18 +751,25 @@ button {
   border-radius: 2px;
 }
 
-.modal-header.title {
+.modal-header {
   margin-bottom: 8px;
   padding: 0 12px;
   position: relative;
   text-align: center;
 }
 
-.title {
+.dropdown-title {
   display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  position: relative;
+  text-align: center;
+  height: 100%;
 }
-.label {
+.dropdown-label {
   display: block;
+  color: #5e6c84;
+  font-size: 14.5px;
 }
 .close {
   position: absolute;
