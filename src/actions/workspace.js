@@ -31,6 +31,10 @@ export const updateWorkspace = (board) => ({
   type: "UPDATE_WORKSPACE",
   board,
 });
+export const positionNewTask = (position) => ({
+  type: "POSITION_NEW_TASK",
+  position,
+});
 export const fetchWorkspace = (data) => {
   return (dispatch) => {
     // dispatch(clearWorkspace());

@@ -6,7 +6,7 @@ import QuickTaskEditor from "../components/QuickTaskEditor";
 import { fetchChecklists } from "../actions/checklists";
 import { connect } from "react-redux";
 
-const TaskList = ({ card, dispatch }) => {
+const TaskList = ({ card, position, dispatch }) => {
   const [addToFirst, setAddToFirst] = useState(false);
   const [addToLast, setAddToLast] = useState(false);
 
@@ -94,7 +94,7 @@ const TaskList = ({ card, dispatch }) => {
           handleUpdateEditTask={handleUpdateEditTask}
         />
       ) : null}
-      {addToFirst ? (
+      {position === "first" ? (
         <AddTask
           handleCloseTaskForm={handleCloseTaskForm}
           card={card}
@@ -103,7 +103,7 @@ const TaskList = ({ card, dispatch }) => {
         />
       ) : null}
       {renderTasks()}
-      {addToLast ? (
+      {position === "last" ? (
         <AddTask
           handleCloseTaskForm={handleCloseTaskForm}
           card={card}
@@ -129,5 +129,9 @@ const TaskList = ({ card, dispatch }) => {
     </div>
   );
 };
-
-export default connect()(TaskList);
+const mapStateToProps = (state) => {
+  return {
+    position: state.workspaceReducer.position,
+  };
+};
+export default connect(mapStateToProps)(TaskList);

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { archiveCard } from "../actions/workspace";
+import { archiveCard, positionNewTask } from "../actions/workspace";
 
 const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
   return (
@@ -21,7 +21,11 @@ const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
       <hr />
       <ul>
         <li className="option-item">
-          <button className="option-title js-member-profile" data-tab="profile">
+          <button
+            onClick={(e) => dispatch(positionNewTask("first"))}
+            className="option-title js-member-profile"
+            data-tab="profile"
+          >
             <span>Add Task...</span>
           </button>
         </li>

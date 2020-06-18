@@ -1,5 +1,6 @@
 const defaultState = {
   workspace: {},
+  position: "",
 };
 
 const workspaceReducer = (state = defaultState, action) => {
@@ -74,6 +75,8 @@ const workspaceReducer = (state = defaultState, action) => {
         ...state,
         workspace: { ...state.workspace, cards: updateArchivedCardTask },
       };
+    case "POSITION_NEW_TASK":
+      return { ...state, position: action.position };
     default:
       return state;
   }

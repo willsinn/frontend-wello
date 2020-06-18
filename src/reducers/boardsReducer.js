@@ -43,6 +43,7 @@ const boardsReducer = (state = defaultState, action) => {
         }
       });
       return { ...state, boards: updatedBoards };
+
     default:
       return state;
   }
