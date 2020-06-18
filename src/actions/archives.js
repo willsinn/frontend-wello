@@ -1,15 +1,15 @@
-export const setBoardsArchives = (boards) => ({
+// export const setBoardsArchives = (boards) => ({
+//   type: "SET_ARCHIVES",
+//   boards,
+// });
+export const setArchives = (archives) => ({
   type: "SET_ARCHIVES",
-  boards,
-});
-export const setCardsArchives = (cards) => ({
-  type: "SET_CARDS_ARCHIVES",
-  cards,
+  archives,
 });
 
-export const fetchAllCards = (data) => {
+export const fetchAllArchived = (user) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/${data.board_id}/cards`, {
+    fetch(`http://localhost:3000/api/v1/user/${user.user_id}/archived`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -17,6 +17,6 @@ export const fetchAllCards = (data) => {
       },
     })
       .then((response) => response.json())
-      .then((JSONresponse) => dispatch(setCardsArchives(JSONresponse)));
+      .then((JSONresponse) => dispatch(setArchives(JSONresponse)));
   };
 };
