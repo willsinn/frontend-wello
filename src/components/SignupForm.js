@@ -51,9 +51,9 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
           <LandingPage />
 
           <div>SIGNUP!{error}</div>
-          <form onSubmit={handleSubmit}>
+          <form className="signin-form" onSubmit={handleSubmit}>
             <input
-              className="signup-input"
+              className="signin-input"
               type="email"
               label="email"
               placeholder="Email address"
@@ -63,7 +63,7 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
               required
             />
             <input
-              className="signup-input"
+              className="signin-input"
               type="firstName"
               label="firstName"
               placeholder="First name"
@@ -73,7 +73,7 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
               required
             />
             <input
-              className="signup-input"
+              className="signin-input"
               type="lastName"
               label="lastName"
               placeholder="Last name"
@@ -83,7 +83,7 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
               required
             />
             <input
-              className="signup-input"
+              className="signin-input"
               type="password"
               label="password"
               placeholder="Password."
@@ -93,7 +93,7 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
               required
             />
             <input
-              className="signup-input"
+              className="signin-input"
               type="password"
               label="passwordConfirm"
               placeholder="Confirm password"
