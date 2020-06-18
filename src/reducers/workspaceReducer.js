@@ -9,7 +9,6 @@ const workspaceReducer = (state = defaultState, action) => {
     case "CLEAR_WORKSPACE":
       return { ...state, workspace: defaultState, cards: [] };
     case "SET_WORKSPACE":
-      debugger;
       return { ...state, workspace: action.workspace.board };
     case "ADD_CARD":
       return {

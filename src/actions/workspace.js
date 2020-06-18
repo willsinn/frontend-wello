@@ -28,7 +28,6 @@ export const toggleEdit = () => ({
   type: "TOGGLE_EDIT",
 });
 export const fetchWorkspace = (data) => {
-  debugger;
   return (dispatch) => {
     // dispatch(clearWorkspace());
     fetch(

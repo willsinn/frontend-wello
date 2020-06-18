@@ -5,30 +5,49 @@ import ProfileDropdown from "../components/ProfileDropdown";
 import SideDropdownList from "../components/SideDropdownList";
 import HomeBtn from "../components/HomeBtn";
 import AddBoardModal from "../components/AddBoardModal";
+import { connect } from "react-redux";
 
-const NavBar = props => {
+const NavBar = ({ user }) => {
   const [sidelist, setSidelist] = useState(false);
   const [rightnav, setRightnav] = useState("");
   const [modal, setModal] = useState(false);
 
-  const closeRightnav = e => {
+  const closeRightnav = (e) => {
     setRightnav("");
   };
-  const closeSidelist = e => {
+  const closeSidelist = (e) => {
     setSidelist(false);
   };
-  const closeModal = e => {
+  const closeModal = (e) => {
     setModal(false);
   };
-  const openModal = e => {
+  const openModal = (e) => {
     setRightnav("");
     setModal(true);
+  };
+  const renderInitials = () => {
+    const split = user.name.split(" ");
+    let initials = "";
+    if (split) {
+      split.forEach((letter) => {
+        const first = letter[0].toUpperCase();
+        initials += first;
+      });
+    }
+    if (initials.length !== 2) {
+      initials += initials;
+    }
+    if (initials.length > 2) {
+      const limit = initials.slice(0, 1);
+      initials = limit;
+    }
+    return initials;
   };
   return (
     <div id="navbar">
       <div className="left-navbar">
         <HomeBtn close={closeRightnav} />
-        <button className="navbar-btn" onClick={e => setSidelist(!sidelist)}>
+        <button className="navbar-btn" onClick={(e) => setSidelist(!sidelist)}>
           <span className="wello-icon-white" />
         </button>
       </div>
@@ -61,7 +80,7 @@ const NavBar = props => {
         <div className="app-name"> Wello</div>
       </div>
       <div className="right-navbar">
-        <button className="navbar-btn" onClick={e => setRightnav("create")}>
+        <button className="navbar-btn" onClick={(e) => setRightnav("create")}>
           <img
             className="icon"
             src={require("../images/add-new-icon.png")}
@@ -69,7 +88,7 @@ const NavBar = props => {
             opacity="1"
           />
         </button>
-        <button className="navbar-btn" onClick={e => setRightnav("noti")}>
+        <button className="navbar-btn" onClick={(e) => setRightnav("noti")}>
           <img
             className="icon"
             src={require("../images/notify-icon.png")}
@@ -77,7 +96,7 @@ const NavBar = props => {
             opacity="1"
           />
         </button>
-        <div onClick={e => setRightnav("prof")}>
+        <div onClick={(e) => setRightnav("prof")}>
           <span
             className="user-initials"
             style={{
@@ -85,15 +104,19 @@ const NavBar = props => {
               width: "32px",
               lineHeight: "32px",
               fontSize: "14px",
-              margin: "0"
+              margin: "0",
             }}
           >
-            WS
+            {renderInitials()}
           </span>
         </div>
       </div>
     </div>
   );
 };
-
-export default NavBar;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user,
+  };
+};
+export default connect(mapStateToProps)(NavBar);

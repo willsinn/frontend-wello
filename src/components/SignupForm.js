@@ -1,118 +1,76 @@
 import React, { useState } from "react";
-import LandingPage from "./LandingPage";
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { userSignup, setError } from "../actions/user";
-//saved
-const SignUpForm = ({ loggedIn, error, dispatch }) => {
+import { userSignup } from "../actions/user";
+
+const SignUpForm = ({ dispatch }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [signup, setSignup] = useState(true);
 
-  const handleChange = (e, fieldType) => {
-    if (e) {
-      switch (fieldType) {
-        case "email":
-          return setEmail(e.target.value);
-        case "name":
-          return setName(e.target.value);
-        case "password":
-          return setPassword(e.target.value);
-        default:
-          return;
-      }
-    }
+  const resetState = () => {
+    setEmail("");
+    setName("");
+    setPassword("");
   };
-  const handleSubmitSignup = (e) => {
+  const handleEmailChange = (e) => {
+    e.persist();
+    setEmail(e.target.value);
+  };
+  const handleNameChange = (e) => {
+    e.persist();
+    setName(e.target.value);
+  };
+  const handlePasswordChange = (e) => {
+    e.persist();
+    setPassword(e.target.value);
+  };
+  const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(
-        userSignup({ email, password, name }, () => dispatch(setError(null)))
-      );
+      if (email.includes("@") && name.length > 2 && password.length > 7) {
+        dispatch(userSignup({ email, name, password }));
+      }
+      resetState();
     }
   };
-  console.log(loggedIn);
 
   return (
-    <>
-      {loggedIn ? (
-        <Redirect to="/home" />
-      ) : (
-        <>
-          <LandingPage />
-          {signup ? (
-            <div className="signin-modal-wrap">
-              <div className="center">
-                <div className="signin-modal signup">
-                  {error === null ? null : (
-                    <p className="error-message">{error}</p>
-                  )}
-                  <h1 className="signin-modal-title">
-                    Sign up for your account
-                  </h1>
-                  <div>{error}</div>
-                  <form onSubmit={handleSubmitSignup} className="signin-form">
-                    <input
-                      className="signin-input"
-                      type="email"
-                      label="email"
-                      placeholder="Enter email address"
-                      name="email"
-                      onChange={(e) => handleChange(e, "email")}
-                      value={email}
-                      required
-                    />
-                    <input
-                      className="signin-input"
-                      type="name"
-                      label="name"
-                      placeholder="Enter full Name"
-                      name="name"
-                      onChange={(e) => handleChange(e, "name")}
-                      value={name}
-                      required
-                    />
-                    <input
-                      className="signin-input"
-                      type="password"
-                      label="password"
-                      placeholder="Create password"
-                      name="password"
-                      onChange={(e) => handleChange(e, "password")}
-                      value={password}
-                      required
-                    />
-                    <button
-                      className="signin-btn checklist-btn add-list-btn"
-                      type="submit"
-                    >
-                      Sign Up
-                    </button>
-                  </form>
-                  <hr />
-                  <a
-                    href="login"
-                    onClick={(e) => setSignup(!signup)}
-                    className="signup-link"
-                  >
-                    Already have an account? Log in
-                  </a>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <Redirect to="/login" />
-          )}
-        </>
-      )}
-    </>
+    <div className="card-item-wrap">
+      <div className="card-item">
+        <form>
+          <input
+            className="add-card-input"
+            type="text"
+            name="email"
+            onChange={handleEmailChange}
+            value={email}
+            placeholder="Enter email"
+          />
+          <input
+            className="add-card-input"
+            type="text"
+            name="username"
+            onChange={handleNameChange}
+            value={name}
+            placeholder="Enter full name"
+            required
+          />
+          <input
+            className="add-card-input"
+            type="password"
+            name="password"
+            onChange={handlePasswordChange}
+            value={password}
+            placeholder="Create password"
+          />
+          <button onClick={handleSubmit} className="add-list-btn" type="submit">
+            Sign Up
+          </button>
+          <button className="close-add-btn">Log In</button>
+        </form>
+      </div>
+    </div>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    error: state.userReducer.error,
-    loggedIn: state.userReducer.loggedIn,
-  };
-};
-export default connect(mapStateToProps)(SignUpForm);
+
+export default connect()(SignUpForm);
