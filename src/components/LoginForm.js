@@ -23,6 +23,7 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
       dispatch(userLogin(email, password));
     }
   };
+  console.log(loggedIn);
 
   return (
     <>
@@ -34,7 +35,7 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
           {!login ? (
             <Redirect to="/signup" />
           ) : (
-            <div className="modal-wrap">
+            <div className="signin-modal-wrap">
               <div className="center">
                 <div className="signin-modal">
                   <h1 className="signin-modal-title">Log in to Wello</h1>

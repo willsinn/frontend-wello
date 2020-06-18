@@ -17,6 +17,7 @@ export const fetchUserBoards = (data) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify(data),
     })
@@ -32,6 +33,7 @@ export const postNewBoard = (newBoard, dispatch) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         user_id: 1,
@@ -56,6 +58,7 @@ export const deleteBoardWorkspace = (board, dispatch) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({ board_id: `${board.id}` }),
     }).then((response) => dispatch(deleteBoard(board)));
@@ -68,6 +71,7 @@ export const updateBoardBackground = (board, background) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: board.id,
@@ -87,6 +91,7 @@ export const starredBoard = (board) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: board.id,

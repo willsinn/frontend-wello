@@ -33,6 +33,7 @@ export const fetchWorkspace = (board, dispatch) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     })
       .then((response) => response.json())
@@ -53,6 +54,7 @@ export const postNewCard = (board, callback) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         board_id: board.workspace.id,
@@ -72,6 +74,7 @@ export const fetchCard = (card, dispatch) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     });
   };
@@ -84,6 +87,7 @@ export const updateCardGoal = (card, goal) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: card.id,
@@ -103,6 +107,7 @@ export const archiveCard = (card) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: card.id,
@@ -122,6 +127,7 @@ export const postNewTask = (card, callback) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         card_id: card.card.id,
@@ -143,6 +149,7 @@ export const archiveTask = (task, callback) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: task.id,
@@ -164,6 +171,7 @@ export const updateTaskNote = (task, note) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: task.id,
@@ -183,6 +191,7 @@ export const saveTaskDesc = (task, desc) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: task.id,

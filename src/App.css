@@ -975,6 +975,14 @@ button {
   width: 22px;
   padding-right: 4px;
 }
+.wello-icon-blue {
+  background-image: url("./images/wello-icon-blue.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 39px;
+  width: 39px;
+  padding-right: 10px;
+}
 .wello-icon-gray {
   background-image: url("./images/wello-icon-gray.png");
   background-size: contain;
@@ -2645,4 +2653,26 @@ button {
   height: 100%;
   width: 100%;
   align-items: center;
+}
+.landing-title {
+  position: absolute;
+  top: 32px;
+  right: 46.5%;
+  display: flex;
+  align-items: center;
+}
+.landing-title-text {
+  font-size: 56px;
+  font-family: Brush Script MT;
+  color: #094973;
+}
+.signin-modal-wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.signup {
+  margin-top: 225px;
 }

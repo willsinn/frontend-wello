@@ -24,6 +24,7 @@ export const fetchLabels = (task) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     })
       .then((response) => response.json())
@@ -36,6 +37,7 @@ export const fetchTaskLabels = () => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     })
       .then((response) => response.json())
@@ -49,6 +51,7 @@ export const editLabelName = (label, name) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({ id: label.id, name: name }),
     })
@@ -63,6 +66,7 @@ export const createTaskLabel = (labelId, taskId) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({ id: labelId, task_id: taskId }),
     })
@@ -78,6 +82,7 @@ export const deleteTaskLabel = (taskLabelId) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({ task_label_id: taskLabelId }),
     });

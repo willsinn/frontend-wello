@@ -33,6 +33,7 @@ export const postNewChecklist = (task, title) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         task_id: task.id,
@@ -49,6 +50,7 @@ export const fetchChecklists = (task) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     })
       .then((response) => response.json())
@@ -62,6 +64,7 @@ export const saveChecklistTitle = (checklist, title) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: checklist.id,
@@ -81,6 +84,7 @@ export const deleteChecklist = (checklist) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: checklist.id,
@@ -95,6 +99,7 @@ export const postNewListItem = (checklist, detail) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         checklist_id: checklist.id,
@@ -112,6 +117,7 @@ export const saveItemDetail = (item, detail) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         item_id: item.id,
@@ -129,6 +135,7 @@ export const updateItemCompletion = (item) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({ item_id: item.id, completed: !item.completed }),
     })
@@ -144,6 +151,7 @@ export const deleteItem = (item) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
         id: item.id,
