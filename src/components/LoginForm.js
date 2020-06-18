@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import LandingPage from "./LandingPage";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { userLogin } from "../actions/user";
@@ -6,6 +7,7 @@ import { userLogin } from "../actions/user";
 const LoginForm = ({ loggedIn, error, dispatch }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [login, setLogin] = useState(true);
 
   const handleUnChange = (e) => {
     e.persist();
@@ -21,37 +23,62 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
       dispatch(userLogin(email, password));
     }
   };
+  console.log(loggedIn);
 
   return (
     <>
       {loggedIn ? (
         <Redirect to="/home" />
       ) : (
-        <div>
-          Hi this is the Wello Login Form!!!
-          <div>{error}</div>
-          <form onSubmit={handleSubmit}>
-            <input
-              className="add-checklist-input"
-              type="text"
-              name="email"
-              onChange={handleUnChange}
-              value={email}
-              required
-            />
-            <input
-              className="add-checklist-input"
-              type="text"
-              name="password"
-              onChange={handlePwChange}
-              value={password}
-              required
-            />
-            <button className="checklist-btn add-list-btn" type="submit">
-              Login
-            </button>
-          </form>
-        </div>
+        <>
+          <LandingPage />
+          {!login ? (
+            <Redirect to="/signup" />
+          ) : (
+            <div className="signin-modal-wrap">
+              <div className="center">
+                <div className="signin-modal">
+                  <h1 className="signin-modal-title">Log in to Wello</h1>
+                  <div>{error}</div>
+                  <form className="signin-form" onSubmit={handleSubmit}>
+                    <input
+                      className="signin-input"
+                      type="text"
+                      name="email"
+                      onChange={handleUnChange}
+                      placeholder="Enter email"
+                      value={email}
+                      required
+                    />
+                    <input
+                      className="signin-input"
+                      type="text"
+                      name="password"
+                      onChange={handlePwChange}
+                      placeholder="Enter password"
+                      value={password}
+                      required
+                    />
+                    <button
+                      className="signin-btn checklist-btn add-list-btn"
+                      type="submit"
+                    >
+                      Login
+                    </button>
+                  </form>
+                  <hr />
+                  <a
+                    href="signup"
+                    onClick={(e) => setLogin(!login)}
+                    className="signup-link"
+                  >
+                    Signup for an account
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
       )}
     </>
   );

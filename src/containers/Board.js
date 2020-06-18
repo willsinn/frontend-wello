@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CardList from "../components/CardList";
 import BoardMenu from "./BoardMenu";
+import NavBar from "./NavBar";
 
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
@@ -13,8 +14,10 @@ import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 
 import { connect } from "react-redux";
-import { updateBoardBackground, starredBoard } from "../actions/boards";
+import { starredBoard } from "../actions/workspace";
+import { updateBoardBackground } from "../actions/boards";
 import { fetchLabels, fetchTaskLabels } from "../actions/labels";
+import { Redirect } from "react-router-dom";
 
 const bgs = [
   "iceland",
@@ -43,6 +46,12 @@ const Board = ({ workspace, dispatch }) => {
     dispatch(updateBoardBackground(workspace, bgOption));
     setBackground(bgOption);
   };
+  const handleClick = (e) => {
+    if (e) {
+      dispatch(starredBoard(workspace));
+    }
+  };
+
   const bgOptions = bgs.filter((bg) => bg !== workspace.background);
 
   const findBg = (bgKey) => {
@@ -89,48 +98,68 @@ const Board = ({ workspace, dispatch }) => {
   };
 
   return (
-    <div id="board" style={renderBoardBg()}>
-      <div className="board-header-wrap">
-        <div className="board-header">
-          <div className="board-ops left">
-            <div className="board-ops title-top">
-              <span
-                className="b-name"
-                style={{
-                  paddingLeft: "12px",
-                  paddingRight: "12px",
-                }}
-              >
-                {workspace.title}
-              </span>
-              <button className="navbar-btn">
-                {workspace.starred ? (
-                  <span>★</span>
-                ) : (
-                  <span onClick={(e) => dispatch(starredBoard(workspace))}>
-                    ☆
-                  </span>
-                )}
-              </button>
+    <>
+      {workspace.id === undefined ? (
+        <Redirect to="/home" />
+      ) : (
+        <>
+          <NavBar />
+          <div id="board" style={renderBoardBg()}>
+            <div className="board-header-wrap">
+              <div className="board-header">
+                <div className="board-ops left">
+                  <div className="board-ops title-top">
+                    <span
+                      className="b-name"
+                      style={{
+                        paddingLeft: "12px",
+                        paddingRight: "12px",
+                      }}
+                    >
+                      {workspace.title}
+                    </span>
+                    <button
+                      className="navbar-btn"
+                      onClick={(e) => handleClick(e)}
+                    >
+                      {workspace.starred ? (
+                        <span
+                          style={{
+                            fontSize: "17px",
+                            fontWeight: "400",
+                            color: "#f2d600",
+                          }}
+                        >
+                          ☆
+                        </span>
+                      ) : (
+                        <span style={{ fontSize: "17px", fontWeight: "400" }}>
+                          ☆
+                        </span>
+                      )}
+                    </button>
+                  </div>
+                </div>
+                <div className="board-ops right">
+                  <BoardMenu
+                    workspace={workspace}
+                    findBg={findBg}
+                    bgOptions={bgOptions}
+                    changeBackground={changeBackground}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="board-body">
+              <CardList key={workspace.id} workspace={workspace} />
             </div>
           </div>
-          <div className="board-ops right">
-            <BoardMenu
-              workspace={workspace}
-              findBg={findBg}
-              bgOptions={bgOptions}
-              changeBackground={changeBackground}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="board-body">
-        <CardList key={workspace.id} workspace={workspace} />
-      </div>
-    </div>
+        </>
+      )}
+    </>
   );
 };
-const mapStateToProps = ({ userReducer: user }) => ({
-  user: user,
+const mapStateToProps = (state) => ({
+  workspace: state.workspaceReducer.workspace,
 });
 export default connect(mapStateToProps)(Board);

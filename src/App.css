@@ -711,9 +711,9 @@ button {
   top: 0;
 }
 .app-name {
-  font-family: cursive;
+  font-family: Brush Script MT;
   position: relative;
-  font-size: 28px;
+  font-size: 32.5px;
   font-weight: bold;
   color: white;
 }
@@ -751,18 +751,45 @@ button {
   border-radius: 2px;
 }
 
-.modal-header.title {
+.modal-header {
   margin-bottom: 8px;
   padding: 0 12px;
   position: relative;
   text-align: center;
 }
 
-.title {
+.dropdown-title {
   display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  position: relative;
+  text-align: center;
+  height: 100%;
 }
-.label {
+.dropdown-label {
   display: block;
+  color: #5e6c84;
+  font-size: 14.5px;
+}
+.dropdown-title-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdown-title-close-btn {
+  font-size: 24px;
+  height: 100%;
+  width: 100%;
+  font-weight: 100;
+}
+.dropdown-title-close-btn:hover {
+  font-weight: 225;
+  color: #3a3f48;
 }
 .close {
   position: absolute;
@@ -974,6 +1001,14 @@ button {
   height: 22px;
   width: 22px;
   padding-right: 4px;
+}
+.wello-icon-blue {
+  background-image: url("./images/wello-icon-blue.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 39px;
+  width: 39px;
+  padding-right: 10px;
 }
 .wello-icon-gray {
   background-image: url("./images/wello-icon-gray.png");
@@ -2558,4 +2593,140 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.landing {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.landing-page {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  align-items: flex-end;
+}
+.landing-left-bg {
+  width: 300px;
+  height: 200px;
+  background-image: url("./images/landing-left-bg.jpeg");
+  background-repeat: no-repeat;
+  margin-left: 7.5%;
+  margin-bottom: 50px;
+}
+.signin-modal {
+  background-color: #ffffff;
+  border-radius: 3px;
+  padding: 25px 40px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px;
+  max-width: 360px;
+  min-width: 320px;
+}
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.signin-input {
+  padding-left: 8px;
+  width: 100%;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 300;
+  background-color: #fafbfc;
+  border: 2px solid #dfe1e6;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 3px;
+  height: 44px;
+  -webkit-transition: background-color 0.2s ease-in-out 0s,
+    border-color 0.2s ease-in-out 0s;
+  transition: background-color 0.2s ease-in-out 0s,
+    border-color 0.2s ease-in-out 0s;
+}
+.signin-modal-title {
+  text-align: center;
+  color: #5e6c84;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  line-height: 28px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.signin-btn {
+  min-width: 100%;
+  margin-bottom: 12px;
+}
+.signin-btn:hover {
+  background: #61bd4f;
+}
+.signup-link {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  text-decoration: none;
+}
+.terms-policy {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #5e6c84;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+.landing-title {
+  position: absolute;
+  top: 32px;
+  right: 46.5%;
+  display: flex;
+  align-items: center;
+}
+.landing-title-text {
+  font-size: 56px;
+  font-family: Brush Script MT;
+  color: #094973;
+}
+.signin-modal-wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.signup {
+  margin-top: 225px;
+}
+.error-message {
+  background: #eb5a46;
+  color: #fbedeb;
+  font-size: 14px;
+  line-height: 1.3333;
+  border-radius: 4px;
+  border: 1px solid #eb5a46;
+  display: inline-block;
+  padding: 0.5em 1em;
+  max-width: 100%;
+  margin: 16px 0;
+}
+.tile-star {
+  font-size: 14px;
+  font-weight: 225;
+  position: absolute;
+  color: rgb(242, 214, 0);
+  bottom: 8px;
+  right: 12px;
+  transition: margin 0.5s ease-in-out;
+  height: 20px;
+  width: 20px;
+}
+.tile-star:hover {
+  font-size: 14.25px;
+  font-weight: 350;
 }
