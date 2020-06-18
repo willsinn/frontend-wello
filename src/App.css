@@ -1835,16 +1835,14 @@ button {
 }
 .window-modal {
   position: fixed;
-  height: 100%;
-  width: 100%;
+
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 20;
   background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
+
   overflow-y: scroll;
 }
 .task-window {
@@ -1893,11 +1891,15 @@ button {
   z-index: 1;
 }
 .task-window-body {
-  height: 600px;
   min-height: 600px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  margin-bottom: 60px;
+}
+.task-window-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .module-header {
   margin: 12px 0 6px 40px;
@@ -1920,11 +1922,10 @@ button {
   border-bottom: 1px solid #5e6c84;
 }
 .task-window-desc {
-  min-height: 24px;
+  height: fit-content;
+  width: 96%;
   padding: 0 8px 8px 16px;
   position: relative;
-  /* width: 552px;
-  min-width: 552px; */
   z-index: 0;
 }
 .editable-desc {
@@ -1964,24 +1965,22 @@ button {
 .editing {
   display: block;
   float: left;
-  padding-bottom: 9px;
   z-index: 50;
   width: 100%;
+  height: fit-content;
   margin-left: 40px;
 }
 .description-form {
   border-radius: 3px;
   border-color: rgba(9, 30, 66, 0.13);
-  min-width: 92%;
-  max-width: 92%;
+  width: 100%;
 }
 .description-field {
   overflow: hidden;
   border-radius: 3px;
   overflow-wrap: break-word;
   resize: none;
-  height: 108px;
-  min-height: 108px;
+  height: 72px;
   background: #fff;
   box-shadow: none;
   color: #172b4d;
@@ -2067,6 +2066,7 @@ button {
   z-index: 70;
   top: 215px;
   right: 11%;
+  position: fixed;
 }
 .side-popover-header {
   text-align: center;
@@ -2157,6 +2157,10 @@ button {
   margin: 0;
   width: 242px;
   justify-content: space-between;
+}
+.module-body {
+  height: fit-content;
+  width: 100%;
 }
 .edit-checklist {
   overflow: hidden;
@@ -2388,9 +2392,7 @@ button {
   position: relative;
   width: 100%;
 }
-.checklists-container {
-  padding: 0 8px 8px 16px;
-}
+
 .percentage-progress {
   background: #0079bf;
   height: 8px;
@@ -2431,6 +2433,8 @@ button {
 .checklists-container {
   display: flex;
   flex-direction: column;
+  padding: 0 8px 8px 16px;
+  margin-top: 16px;
 }
 .complete-checklist-text {
   color: #5e6c84;
