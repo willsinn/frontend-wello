@@ -10,8 +10,9 @@ const withAuth = (WrappedComponent) => {
         "%c INSIDE COMPONENT DID MOUNT FOR AUTH HOC",
         "color: purple"
       );
-      if (localStorage.getItem("jwt") && !this.props.loggedIn)
+      if (localStorage.getItem("jwt") && !this.props.loggedIn) {
         this.props.fetchCurrentUser();
+      }
     }
 
     render() {

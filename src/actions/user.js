@@ -45,7 +45,7 @@ export const userLogin = (email, password) => {
       });
   };
 };
-export const fetchCurrentUser = () => {
+export const fetchCurrentUser = (callback) => {
   // takes the token in localStorage and finds out who it belongs to
   return (dispatch) => {
     dispatch(authenticatingUser()); //tells the app we are fetching
@@ -56,7 +56,10 @@ export const fetchCurrentUser = () => {
       },
     })
       .then((response) => response.json())
-      .then((JSONResponse) => dispatch(setUser(JSONResponse)));
+      .then(
+        (JSONResponse) => dispatch(setUser(JSONResponse)),
+        () => callback()
+      );
   };
 };
 export const userSignup = (user, callback) => {

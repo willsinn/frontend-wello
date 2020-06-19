@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import withAuth from "../hocs/withAuth";
 import PersonalBoardList from "../components/PersonalBoardList";
 import StarredBoardList from "../components/StarredBoardList";
@@ -8,14 +8,23 @@ import { connect } from "react-redux";
 import { fetchUserBoards } from "../actions/boards";
 import { setPage } from "../actions/user";
 import { setArchives } from "../actions/archives";
-
 import { Redirect } from "react-router-dom";
 
 const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
-  const renderBoards = () => {
-    dispatch(fetchUserBoards(user.id, () => dispatch(setArchives(boards))));
+  useEffect(() => {
+    dispatch(fetchUserBoards(user.id));
+  }, []);
+  const handleArchivesClick = (e) => {
+    if (e) {
+      dispatch(setPage("archives"));
+      dispatch(setArchives({ userBoards: boards }));
+    }
   };
-
+  const handleBoardsClick = (e) => {
+    if (e) {
+      dispatch(setPage("boards"));
+    }
+  };
   return (
     <div id="root">
       <NavBar />
@@ -28,7 +37,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
               <div style={{ width: "220px" }}>
                 <ul>
                   <li
-                    onClick={(e) => dispatch(setPage("boards"))}
+                    onClick={(e) => handleBoardsClick(e)}
                     style={{ marginBottom: "4px" }}
                   >
                     {activePage === "boards" ? (
@@ -44,7 +53,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                   </li>
 
                   <li
-                    onClick={(e) => dispatch(setPage("archives"))}
+                    onClick={(e) => handleArchivesClick(e)}
                     style={{ marginBottom: "4px" }}
                   >
                     {activePage === "archives" ? (
@@ -62,7 +71,6 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
               </div>
             </nav>
           </div>
-          {renderBoards()}
 
           <div className="home-right-content-container">
             {activePage === "boards" ? (
@@ -76,9 +84,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                 </div>
               </div>
             ) : null}
-            {activePage === "archives" ? (
-              <ArchivesPage boards={boards} />
-            ) : null}
+            {activePage === "archives" ? <ArchivesPage /> : null}
           </div>
         </div>
       )}

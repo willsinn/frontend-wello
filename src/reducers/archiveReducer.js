@@ -8,8 +8,10 @@ const defaultState = {
 const archiveReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_ARCHIVES":
-      const u_boards = action.data.filter((b) => b.archived === true);
-      let cds = action.data.map((b) => {
+      const u_boards = action.data.userBoards.filter(
+        (b) => b.archived === true
+      );
+      let cds = action.data.userBoards.map((b) => {
         return b.cards;
       });
       cds = cds.flat();
@@ -31,7 +33,7 @@ const archiveReducer = (state = defaultState, action) => {
     // case "SET_BOARD_ARCHIVES":
     //   return {
     //     ...state,
-    //     board_archives: [...state.board_archives, action.data],
+    //     board_archives: [...state.board_archives, action.data]userBoards.,
     //   };
     // case "SET_CARD_ARCHIVES":
     //   return {

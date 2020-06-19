@@ -11,7 +11,9 @@ export const addNewBoard = (boardData) => ({
   board: boardData,
 });
 
-export const fetchUserBoards = (userId, callback) => {
+export const fetchUserBoards = (userId) => {
+  console.log(userId);
+
   return (dispatch) => {
     fetch(`http://localhost:3000/api/v1/user/${userId}/boards`, {
       headers: {
@@ -21,10 +23,8 @@ export const fetchUserBoards = (userId, callback) => {
       },
     })
       .then((response) => response.json())
-      .then(
-        (JSONresponse) =>
-          dispatch(setBoards({ boards: JSONresponse, user_id: userId })),
-        callback()
+      .then((JSONresponse) =>
+        dispatch(setBoards({ boards: JSONresponse, user_id: userId }))
       );
   };
 };

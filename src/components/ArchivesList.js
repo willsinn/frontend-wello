@@ -1,12 +1,14 @@
 import React from "react";
-import { connect } from "react-redux";
+import ArchiveItem from "./ArchiveItem";
 
 const ArchivesList = ({ archives }) => {
   //   console.log(archives);
   const renderArchived = () => {
-    return archives.map((archive) => {
-      return <li>Archive Item</li>;
-    });
+    if (archives.length > 0) {
+      return archives.map((archive) => (
+        <ArchiveItem key={archive.id} archive={archive} />
+      ));
+    }
   };
   return <ul>{renderArchived()}</ul>;
 };
