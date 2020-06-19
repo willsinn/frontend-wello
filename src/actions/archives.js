@@ -1,4 +1,4 @@
-export const setArchives = (boards) => ({
-  type: "SET_ARCHIVES",
-  boards,
+export const setArchived = (data) => ({
+  type: "SET_ARCHIVED",
+  data,
 });

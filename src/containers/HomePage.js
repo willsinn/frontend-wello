@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import withAuth from "../hocs/withAuth";
 import PersonalBoardList from "../components/PersonalBoardList";
 import StarredBoardList from "../components/StarredBoardList";
-import Archives from "./Archives";
+import ArchivesPage from "./ArchivesPage";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
 import { fetchUserBoards } from "../actions/boards";
 import { Redirect } from "react-router-dom";
 
-const HomePage = ({ user, workspace, dispatch }) => {
+const HomePage = ({ user, workspace, boards, dispatch }) => {
   const [active, setActive] = useState("boards");
   const renderBoards = () => {
     dispatch(fetchUserBoards(user.id));
@@ -80,7 +80,7 @@ const HomePage = ({ user, workspace, dispatch }) => {
                 </div>
               </div>
             ) : (
-              <Archives />
+              <ArchivesPage boards={boards} />
             )}
           </div>
         </div>
@@ -93,6 +93,7 @@ const mapStateToProps = (state) => {
   return {
     user: state.userReducer.user,
     workspace: state.workspaceReducer.workspace,
+    boards: state.boardsReducer.boards,
   };
 };
 export default withAuth(connect(mapStateToProps)(HomePage));
