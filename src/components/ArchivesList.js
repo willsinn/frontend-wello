@@ -2,7 +2,7 @@ import React from "react";
 import ArchiveItem from "./ArchiveItem";
 
 const ArchivesList = ({ archives }) => {
-  //   console.log(archives);
+  console.log(archives);
   const renderArchived = () => {
     if (archives.length > 0) {
       return archives.map((archive) => (
