@@ -12,8 +12,6 @@ export const addNewBoard = (boardData) => ({
 });
 
 export const fetchUserBoards = (userId) => {
-  console.log(userId);
-
   return (dispatch) => {
     fetch(`http://localhost:3000/api/v1/user/${userId}/boards`, {
       headers: {
@@ -48,22 +46,26 @@ export const postNewBoard = (data) => {
       .then((JSONresponse) => dispatch(addNewBoard(JSONresponse)));
   };
 };
-export const deleteBoard = (board) => ({
-  type: "DELETE_BOARD",
-  board: board,
-});
-export const deleteBoardWorkspace = (board, dispatch) => {
-  console.log(board.id, board);
+// export const deleteBoard = (board) => ({
+//   type: "DELETE_BOARD",
+//   board: board,
+// });
+export const archiveBoard = (board) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/user/1/board/${board.id}/delete`, {
-      method: "POST",
+    dispatch(updateBoard({ ...board, archived: true }));
+
+    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
-      body: JSON.stringify({ board_id: `${board.id}` }),
-    }).then((response) => dispatch(deleteBoard(board)));
+      body: JSON.stringify({
+        board_id: `${board.id}`,
+        archived: true,
+      }),
+    });
   };
 };
 export const updateBoardBackground = (board, background) => {

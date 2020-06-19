@@ -4,7 +4,8 @@ import BoardItem from "../components/BoardItem";
 const PersonalBoardList = ({ boards }) => {
   const renderTiles = () => {
     if (boards.length > 0) {
-      return boards.map((board) => (
+      const filtered = boards.filter((board) => !board.archived);
+      return filtered.map((board) => (
         <li className="board-tile" key={`tile-${board.id}`}>
           <div className="tile-content-wrapper">
             <BoardItem key={board.id} board={board} />

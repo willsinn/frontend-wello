@@ -14,6 +14,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
   useEffect(() => {
     dispatch(fetchUserBoards(user.id));
   }, []);
+
   const handleArchivesClick = (e) => {
     if (e) {
       dispatch(setPage("archives"));
@@ -43,7 +44,10 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                     {activePage === "boards" ? (
                       <span
                         className="archive-boards-menu-link"
-                        style={{ backgroundColor: "#e4f0f6", color: "#0079bf" }}
+                        style={{
+                          backgroundColor: "#e4f0f6",
+                          color: "#0079bf",
+                        }}
                       >
                         Boards
                       </span>
@@ -59,7 +63,10 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                     {activePage === "archives" ? (
                       <span
                         className="archive-boards-menu-link"
-                        style={{ backgroundColor: "#e4f0f6", color: "#0079bf" }}
+                        style={{
+                          backgroundColor: "#e4f0f6",
+                          color: "#0079bf",
+                        }}
                       >
                         Archives
                       </span>

@@ -3,13 +3,12 @@ import ArchivesList from "../components/ArchivesList";
 import { connect } from "react-redux";
 
 const ArchivesPage = ({ boards, cards, tasks }) => {
-  console.log(cards);
-
   const renderAllArchives = () => {
-    if (cards && tasks) {
-      debugger;
+    if (boards && cards && tasks) {
+      let arr = [boards, cards, tasks];
+      const archives = arr.flat();
 
-      const archives = [boards, cards, tasks].flat();
+      return <ArchivesList archives={archives} />;
     }
   };
   return <div>{renderAllArchives()}</div>;
