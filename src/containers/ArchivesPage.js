@@ -1,10 +1,19 @@
 import React from "react";
+import ArchivesList from "../components/ArchivesList";
 import { connect } from "react-redux";
-import { setArchived } from "../actions/archives";
 
-const ArchivesPage = ({ boards, dispatch }) => {
-  console.log(boards);
-  return <div>{dispatch(setArchived({ boards }))}</div>;
+const ArchivesPage = ({ archives }) => {
+  return (
+    <div>
+      <ArchivesList archives={archives.boards} />
+      <ArchivesList archives={archives.cards} />
+      <ArchivesList archives={archives.tasks} />
+    </div>
+  );
 };
-
-export default connect()(ArchivesPage);
+const mapStateToProps = (state) => {
+  return {
+    archives: state.archiveReducer.archives,
+  };
+};
+export default connect(mapStateToProps)(ArchivesPage);

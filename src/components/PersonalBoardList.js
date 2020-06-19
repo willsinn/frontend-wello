@@ -1,6 +1,5 @@
 import React from "react";
 import BoardItem from "../components/BoardItem";
-import { connect } from "react-redux";
 
 const PersonalBoardList = ({ boards }) => {
   const renderTiles = () => {
@@ -25,7 +24,4 @@ const PersonalBoardList = ({ boards }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { boards: state.boardsReducer.boards };
-};
-export default connect(mapStateToProps)(PersonalBoardList);
+export default PersonalBoardList;

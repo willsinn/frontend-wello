@@ -1,16 +1,10 @@
 import React from "react";
 import BoardItem from "../components/BoardItem";
-import { connect } from "react-redux";
-import { starredBoard } from "../actions/workspace";
 
 const StarredBoardList = ({ boards }) => {
   const renderTiles = () => {
     if (boards && boards.length > 0) {
-      const starredBoards = boards.filter((board) => {
-        if (board.starred) {
-          return board;
-        }
-      });
+      const starredBoards = boards.filter((board) => board.starred);
       return starredBoards.map((board) => (
         <li className="board-tile" key={`tile-${board.id}`}>
           <div className="tile-content-wrapper">
@@ -30,7 +24,4 @@ const StarredBoardList = ({ boards }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { boards: state.boardsReducer.boards };
-};
-export default connect(mapStateToProps)(StarredBoardList);
+export default StarredBoardList;

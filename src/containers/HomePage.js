@@ -6,12 +6,14 @@ import ArchivesPage from "./ArchivesPage";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
 import { fetchUserBoards } from "../actions/boards";
+import { setPage } from "../actions/user";
+import { setArchives } from "../actions/archives";
+
 import { Redirect } from "react-router-dom";
 
-const HomePage = ({ user, workspace, boards, dispatch }) => {
-  const [active, setActive] = useState("boards");
+const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
   const renderBoards = () => {
-    dispatch(fetchUserBoards(user.id));
+    dispatch(fetchUserBoards(user.id, () => dispatch(setArchives(boards))));
   };
 
   return (
@@ -26,40 +28,34 @@ const HomePage = ({ user, workspace, boards, dispatch }) => {
               <div style={{ width: "220px" }}>
                 <ul>
                   <li
-                    onClick={(e) => setActive("boards")}
+                    onClick={(e) => dispatch(setPage("boards"))}
                     style={{ marginBottom: "4px" }}
                   >
-                    {active === "boards" ? (
-                      <a
-                        href
+                    {activePage === "boards" ? (
+                      <span
                         className="archive-boards-menu-link"
                         style={{ backgroundColor: "#e4f0f6", color: "#0079bf" }}
                       >
                         Boards
-                      </a>
+                      </span>
                     ) : (
-                      <a href className="archive-boards-menu-link">
-                        Boards
-                      </a>
+                      <span className="archive-boards-menu-link">Boards</span>
                     )}
                   </li>
 
                   <li
-                    onClick={(e) => setActive("archives")}
+                    onClick={(e) => dispatch(setPage("archives"))}
                     style={{ marginBottom: "4px" }}
                   >
-                    {active === "archives" ? (
-                      <a
-                        href
+                    {activePage === "archives" ? (
+                      <span
                         className="archive-boards-menu-link"
                         style={{ backgroundColor: "#e4f0f6", color: "#0079bf" }}
                       >
                         Archives
-                      </a>
+                      </span>
                     ) : (
-                      <a href className="archive-boards-menu-link">
-                        Archives
-                      </a>
+                      <span className="archive-boards-menu-link">Archives</span>
                     )}
                   </li>
                 </ul>
@@ -69,19 +65,20 @@ const HomePage = ({ user, workspace, boards, dispatch }) => {
           {renderBoards()}
 
           <div className="home-right-content-container">
-            {active === "boards" ? (
+            {activePage === "boards" ? (
               <div className="boards-container">
                 <div className="boards-section">
-                  <StarredBoardList />
+                  <StarredBoardList boards={boards} />
                 </div>
 
                 <div className="boards-section">
-                  <PersonalBoardList />
+                  <PersonalBoardList boards={boards} />
                 </div>
               </div>
-            ) : (
+            ) : null}
+            {activePage === "archives" ? (
               <ArchivesPage boards={boards} />
-            )}
+            ) : null}
           </div>
         </div>
       )}
@@ -92,6 +89,7 @@ const HomePage = ({ user, workspace, boards, dispatch }) => {
 const mapStateToProps = (state) => {
   return {
     user: state.userReducer.user,
+    activePage: state.userReducer.activePage,
     workspace: state.workspaceReducer.workspace,
     boards: state.boardsReducer.boards,
   };
