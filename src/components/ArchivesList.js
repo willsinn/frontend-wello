@@ -5,25 +5,37 @@ const ArchivesList = ({ archives }) => {
   const renderArchived = () => {
     return archives.map((archive) => {
       let archiveType;
-      if (archive === undefined) {
-        return null;
+
+      if (archive !== undefined) {
+        if (archive.user_id) {
+          archiveType = (
+            <ArchiveItem
+              key={`${archiveType}-${archive.id}`}
+              archive={archive}
+              archiveType={"board"}
+            />
+          );
+        }
+        if (archive.board_id) {
+          archiveType = (
+            <ArchiveItem
+              key={`${archiveType}-${archive.id}`}
+              archive={archive}
+              archiveType={"card"}
+            />
+          );
+        }
+        if (archive.card_id) {
+          archiveType = (
+            <ArchiveItem
+              key={`${archiveType}-${archive.id}`}
+              archive={archive}
+              archiveType={"card"}
+            />
+          );
+        }
       }
-      if (archive.user_id) {
-        archiveType = "board";
-      }
-      if (archive.board_id) {
-        archiveType = "card";
-      }
-      if (archive.card_id) {
-        archiveType = "task";
-      }
-      return (
-        <ArchiveItem
-          key={`${archiveType}-${archive.id}`}
-          archive={archive}
-          archiveType={archiveType}
-        />
-      );
+      return archiveType;
     });
   };
   return <ul className="archive-list">{renderArchived()}</ul>;

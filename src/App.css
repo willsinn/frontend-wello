@@ -2849,7 +2849,19 @@ button {
 .archive-item-info {
   margin: 0 4px;
 }
-
 .archive-item-info:first-child {
   margin-left: 8px;
+}
+.render-action {
+  height: 12px;
+  width: 12px;
+  transform-origin: rotate(135deg);
+}
+.open-info-btn {
+  transform-origin: rotate(90deg);
+  height: 12px;
+  width: 12px;
+  transition: 0.2s ease-in-out;
+}
+.action-dropdown-btn {
 }
