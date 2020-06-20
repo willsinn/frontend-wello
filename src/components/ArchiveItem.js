@@ -1,7 +1,7 @@
 import React from "react";
-import ArchiveBoard from "./ArchiveBoard";
-import ArchiveCard from "./ArchiveCard";
-import ArchiveTask from "./ArchiveTask";
+import BoardArchiveItem from "./BoardArchiveItem";
+import CardArchiveItem from "./CardArchiveItem";
+import TaskArchiveItem from "./TaskArchiveItem";
 
 // import { connect } from "react-redux";
 
@@ -10,11 +10,11 @@ const ArchiveItem = ({ archive, archiveType }) => {
     if (archive) {
       switch (archiveType) {
         case "board":
-          return <ArchiveBoard boardArchive={archive} />;
+          return <BoardArchiveItem boardArchive={archive} />;
         case "card":
-          return <ArchiveCard cardArchive={archive} />;
+          return <CardArchiveItem cardArchive={archive} />;
         case "task":
-          return <ArchiveTask taskArchive={archive} />;
+          return <TaskArchiveItem taskArchive={archive} />;
         default:
           return;
       }

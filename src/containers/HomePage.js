@@ -12,10 +12,8 @@ import { Redirect } from "react-router-dom";
 
 const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
   useEffect(() => {
-    dispatch(
-      fetchUserBoards(user.id, dispatch(setArchives({ userBoards: boards })))
-    );
-  });
+    dispatch(fetchUserBoards(user.id));
+  }, [user.id, dispatch]);
   // useEffect(() => {
   //   const fetchBoards = () => {
   //     if (boards === undefined) {
@@ -39,13 +37,21 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
       dispatch(setPage("boards"));
     }
   };
+  const fetchArchives = () => {
+    if (boards && boards.length > 0) {
+      dispatch(setArchives({ userBoards: boards }));
+    }
+  };
   return (
     <div id="root">
       <NavBar />
+      {fetchArchives()}
+
       {workspace && workspace.id ? (
         <Redirect to="/board" />
       ) : (
         <div className="home-page">
+          {}
           <div style={{ position: "absolute", top: "40px", left: "0px" }}>
             <nav className="archive-boards-menu">
               <div style={{ width: "220px" }}>

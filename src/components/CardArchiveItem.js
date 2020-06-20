@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 
-const ArchiveCard = ({ cardArchive }) => {
+const CardArchiveItem = ({ cardArchive }) => {
   const [render, setRender] = useState(false);
-  //   const handleRenderClick = (e) => {
-  //     if (e) {
-  //       setRender(!render);
-  //     }
-  //   };
+
   return (
     <div className="archive-item-content straight-row-content">
       <div className="straight-row-content a-left">
         <span className="archive-item-info">Card</span>
         <span className="archive-item-info archive-title-text">{`${cardArchive.goal}`}</span>
-        {cardArchive.task.length > 0 ? (
+        {cardArchive.tasks.length > 0 ? (
           <div className="straight-row-content a-left">
             {render ? (
               <div className="dropdown-btn">
@@ -49,4 +45,4 @@ const ArchiveCard = ({ cardArchive }) => {
     </div>
   );
 };
-export default ArchiveCard;
+export default CardArchiveItem;

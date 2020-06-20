@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ArchiveBoard = ({ boardArchive }) => {
+const BoardArchiveItem = ({ boardArchive }) => {
   const [render, setRender] = useState(false);
 
   return (
@@ -28,6 +28,7 @@ const ArchiveBoard = ({ boardArchive }) => {
       </div>
 
       <div className="straight-row-content a-right">
+        <span>Archived: </span>
         <span className="archive-title-info">{boardArchive.date_archived}</span>
         <div className="restore-archived">
           <button>
@@ -38,4 +39,4 @@ const ArchiveBoard = ({ boardArchive }) => {
     </div>
   );
 };
-export default ArchiveBoard;
+export default BoardArchiveItem;
