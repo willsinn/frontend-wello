@@ -8,7 +8,14 @@ const ArchivesPage = ({ archives }) => {
       return <ArchivesList archives={archives} />;
     }
   };
-  return <div>{renderArchives()}</div>;
+  return (
+    <div className="archives-page">
+      <div className="board-tiles-section-header">
+        <span className="home-section-title">Archives</span>
+      </div>
+      {renderArchives()}
+    </div>
+  );
 };
 const mapStateToProps = (state) => {
   return {

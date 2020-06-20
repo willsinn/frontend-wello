@@ -2,9 +2,10 @@ import React from "react";
 import BoardItem from "../components/BoardItem";
 
 const PersonalBoardList = ({ boards }) => {
+  const filtered = boards.filter((board) => !board.archived);
+
   const renderTiles = () => {
     if (boards.length > 0) {
-      const filtered = boards.filter((board) => !board.archived);
       return filtered.map((board) => (
         <li className="board-tile" key={`tile-${board.id}`}>
           <div className="tile-content-wrapper">
@@ -17,7 +18,7 @@ const PersonalBoardList = ({ boards }) => {
   return (
     <div className="boards-listed-tiles">
       <div className="board-tiles-section-header">
-        <span className="board-tiles-header-title">Personal Boards</span>
+        <span className="home-section-title">Personal Boards</span>
       </div>
 
       <ul className="board-tiles-ul">{renderTiles()}</ul>

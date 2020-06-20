@@ -2780,6 +2780,8 @@ button {
   /* padding: 0 0 11px; */
   position: relative;
   display: flex;
+  height: 42px;
+  width: 100%;
 }
 .boards-listed-tiles {
   display: flex;
@@ -2796,4 +2798,27 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.archives-page {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 100%;
+  margin-top: 48px;
+}
+.archive-list {
+  height: fit-content;
+  min-width: 600px;
+  max-width: 75%;
+  background-color: pink;
+}
+.archive-item {
+  margin-bottom: 8px;
+  background-color: gray;
+  height: 48px;
+  width: 100%;
+}
+.home-section-title {
+  font-size: 18px;
+  font-weight: 800;
 }

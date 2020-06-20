@@ -2,6 +2,8 @@ import React from "react";
 // import { connect } from "react-redux";
 
 const ArchiveItem = ({ archive, archiveType }) => {
+  console.log(archive);
+
   const renderArchive = () => {
     if (archive) {
       switch (archiveType) {
@@ -9,30 +11,34 @@ const ArchiveItem = ({ archive, archiveType }) => {
           return (
             <div>
               <span>
-                Board <span>{`${archive.title}`}</span>, Cardlists(
-                {`${archive.cards.length}`})
+                Board titled
+                <span className="archive-title-text">{`${archive.title}`}</span>
               </span>
+              <span>{archive.date_archived}</span>
             </div>
           );
         case "card":
           return (
             <div>
               <span>
-                Card <span>{`${archive.goal}`}</span>, Tasks(
-                {`${archive.tasks.length}`})
+                Card named
+                <span className="archive-title-text">{`${archive.goal}`}</span>
               </span>
+              <span>{archive.date_archived}</span>
             </div>
           );
         case "task":
           return (
             <div>
               <span>
-                Task <span>{`${archive.note}`}</span>
+                Task noted
+                <span className="archive-title-text">{`${archive.note}`}</span>
               </span>
+              <span>{archive.date_archived}</span>
             </div>
           );
         default:
-          return;
+          return <div>You don't have any archives.</div>;
       }
     }
     // if (keys.includes("user_id")) {
@@ -46,7 +52,7 @@ const ArchiveItem = ({ archive, archiveType }) => {
     // }
   };
   return (
-    <li>
+    <li className="archive-item">
       <div>{renderArchive()}</div>
     </li>
   );

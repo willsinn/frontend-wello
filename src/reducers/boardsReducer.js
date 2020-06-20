@@ -31,7 +31,7 @@ const boardsReducer = (state = defaultState, action) => {
       );
       // debugger;
 
-      return { ...state, boards: userBoards };
+      return { ...state, boards: [...userBoards] };
     case "ADD_NEW_BOARD":
       return { ...state, boards: [...state.boards, action.board] };
     case "UPDATE_BOARD":
