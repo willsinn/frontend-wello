@@ -10,10 +10,19 @@ const ArchiveItem = ({ archive, archiveType }) => {
         case "board":
           return (
             <div className="archive-item-content straight-row-content">
-              <div className="straight-row-content">
+              <div className="straight-row-content a-left">
                 <span className="archive-item-info">Board</span>
                 <span className="archive-item-info archive-title-text">{`${archive.title}`}</span>
+                {archive.cards.length > 0 ? (
+                  <div className="straight-row-content a-left">
+                    <div>
+                      <span className="open-info-btn">⌃</span>
+                    </div>
+                    <span className="archive-item-info">cards</span>
+                  </div>
+                ) : null}
               </div>
+
               <div className="straight-row-content a-right">
                 <span className="archive-title-info">
                   {archive.date_archived}
@@ -32,7 +41,16 @@ const ArchiveItem = ({ archive, archiveType }) => {
               <div className="straight-row-content">
                 <span className="archive-item-info">Card named</span>
                 <span className="archive-item-info archive-title-text">{`${archive.goal}`}</span>
+                {archive.tasks.length > 0 ? (
+                  <div className="straight-row-content">
+                    <div>
+                      <span className="open-info-btn">⌃</span>
+                    </div>
+                    <span className="archive-item-info">tasks</span>
+                  </div>
+                ) : null}
               </div>
+
               <div className="straight-row-content a-right">
                 <span className="archive-item-info">
                   {archive.date_archived}
@@ -49,8 +67,10 @@ const ArchiveItem = ({ archive, archiveType }) => {
           return (
             <div className="archive-item-content straight-row-content">
               <div className="straight-row-content">
-                <span className="archive-item-info">Task noted</span>
-                <span className="archive-item-info archive-title-text">{`${archive.note}`}</span>
+                <div>
+                  <span className="archive-item-info">Task noted</span>
+                  <span className="archive-item-info archive-title-text">{`${archive.note}`}</span>
+                </div>
               </div>
               <div className="straight-row-content a-right">
                 <span className="archive-title-info">
