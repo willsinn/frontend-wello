@@ -2765,7 +2765,7 @@ button {
   outline: 0;
 }
 .home-right-content-container {
-  margin: 24px 0 0 280px;
+  margin: 24px 0 0 320px;
   height: 100%;
   width: 100%;
   color: #172b4d;
@@ -2812,13 +2812,40 @@ button {
   max-width: 75%;
   background-color: pink;
 }
-.archive-item {
-  margin-bottom: 8px;
-  background-color: gray;
-  height: 48px;
+.archives-list-item {
+  height: fit-content;
   width: 100%;
+}
+.boards-container {
+  margin-top: 40px;
+}
+.archive-item {
+  margin: 4px 2px;
+  background-color: gray;
+  height: 36px;
+  max-width: 100%;
 }
 .home-section-title {
   font-size: 18px;
   font-weight: 800;
+}
+.archive-item-content {
+  max-width: 100%;
+  justify-content: space-between;
+}
+.straight-row-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.a-right {
+  justify-content: flex-end;
+}
+.archive-item-info {
+  margin: 0 4px;
+}
+
+.archive-item-info:first-child {
+  margin-left: 12px;
 }

@@ -9,51 +9,73 @@ const ArchiveItem = ({ archive, archiveType }) => {
       switch (archiveType) {
         case "board":
           return (
-            <div>
-              <span>
-                Board titled
-                <span className="archive-title-text">{`${archive.title}`}</span>
-              </span>
-              <span>{archive.date_archived}</span>
+            <div className="archive-item-content straight-row-content">
+              <div className="straight-row-content">
+                <span className="archive-item-info">Board</span>
+                <span className="archive-item-info archive-title-text">{`${archive.title}`}</span>
+              </div>
+              <div className="straight-row-content a-right">
+                <span className="archive-title-info">
+                  {archive.date_archived}
+                </span>
+                <div className="restore-archived">
+                  <button>
+                    <span className="restore-btn-text">restore</span>
+                  </button>
+                </div>
+              </div>
             </div>
           );
         case "card":
           return (
-            <div>
-              <span>
-                Card named
-                <span className="archive-title-text">{`${archive.goal}`}</span>
-              </span>
-              <span>{archive.date_archived}</span>
+            <div className="archive-item-content straight-row-content">
+              <div className="straight-row-content">
+                <span className="archive-item-info">Card named</span>
+                <span className="archive-item-info archive-title-text">{`${archive.goal}`}</span>
+              </div>
+              <div className="straight-row-content a-right">
+                <span className="archive-item-info">
+                  {archive.date_archived}
+                </span>
+                <div className="restore-archived">
+                  <button>
+                    <span className="restore-btn-text">restore</span>
+                  </button>
+                </div>
+              </div>
             </div>
           );
         case "task":
           return (
-            <div>
-              <span>
-                Task noted
-                <span className="archive-title-text">{`${archive.note}`}</span>
-              </span>
-              <span>{archive.date_archived}</span>
+            <div className="archive-item-content straight-row-content">
+              <div className="straight-row-content">
+                <span className="archive-item-info">Task noted</span>
+                <span className="archive-item-info archive-title-text">{`${archive.note}`}</span>
+              </div>
+              <div className="straight-row-content a-right">
+                <span className="archive-title-info">
+                  {archive.date_archived}
+                </span>
+                <div className="restore-archived">
+                  <button>
+                    <span className="restore-btn-text">restore</span>
+                  </button>
+                </div>
+              </div>
             </div>
           );
         default:
-          return <div>You don't have any archives.</div>;
+          return (
+            <div className="archive-item-content">
+              You don't have any archives.
+            </div>
+          );
       }
     }
-    // if (keys.includes("user_id")) {
-
-    // }
-    // if (keys.includes("board_id")) {
-    //   return <div>Archived Card</div>;
-    // }
-    // if (keys.includes("card_id")) {
-    //   return <div>Archived Task</div>;
-    // }
   };
   return (
-    <li className="archive-item">
-      <div>{renderArchive()}</div>
+    <li className="archives-list-item">
+      <div className="archive-item">{renderArchive()}</div>
     </li>
   );
 };
