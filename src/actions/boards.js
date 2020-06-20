@@ -50,11 +50,17 @@ export const postNewBoard = (data) => {
 //   type: "DELETE_BOARD",
 //   board: board,
 // });
-export const archiveBoard = (board) => {
+export const archiveBoard = (data) => {
+  debugger;
   return (dispatch) => {
-    dispatch(updateBoard({ ...board, archived: true }));
-
-    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
+    dispatch(
+      updateBoard({
+        ...data.board,
+        archived: true,
+        archive_dat: data.archiveDat,
+      })
+    );
+    fetch(`http://localhost:3000/api/v1/board/${data.board.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -62,8 +68,9 @@ export const archiveBoard = (board) => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        board_id: `${board.id}`,
+        board_id: `${data.board.id}`,
         archived: true,
+        archive_dat: `${data.archiveDat}`,
       }),
     });
   };

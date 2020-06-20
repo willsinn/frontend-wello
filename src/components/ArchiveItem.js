@@ -3,22 +3,47 @@ import React from "react";
 
 const ArchiveItem = ({ archive, archiveType }) => {
   const renderArchive = () => {
-    const arch_keys = Object.entries(archive);
-    const keys = arch_keys.map((key) => {
-      const k = key[0];
-      return k;
-    });
     if (archive) {
-      if (keys.includes("user_id")) {
-        return <div>Archived Board</div>;
-      }
-      if (keys.includes("board_id")) {
-        return <div>Archived Card</div>;
-      }
-      if (keys.includes("card_id")) {
-        return <div>Archived Task</div>;
+      switch (archiveType) {
+        case "board":
+          return (
+            <div>
+              <span>
+                Board <span>{`${archive.title}`}</span>, Cardlists(
+                {`${archive.cards.length}`})
+              </span>
+            </div>
+          );
+        case "card":
+          return (
+            <div>
+              <span>
+                Card <span>{`${archive.goal}`}</span>, Tasks(
+                {`${archive.tasks.length}`})
+              </span>
+            </div>
+          );
+        case "task":
+          return (
+            <div>
+              <span>
+                Task <span>{`${archive.note}`}</span>
+              </span>
+            </div>
+          );
+        default:
+          return;
       }
     }
+    // if (keys.includes("user_id")) {
+
+    // }
+    // if (keys.includes("board_id")) {
+    //   return <div>Archived Card</div>;
+    // }
+    // if (keys.includes("card_id")) {
+    //   return <div>Archived Task</div>;
+    // }
   };
   return (
     <li>

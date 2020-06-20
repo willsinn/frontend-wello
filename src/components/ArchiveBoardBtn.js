@@ -2,11 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { archiveBoard } from "../actions/boards";
 import { clearWorkspace } from "../actions/workspace";
+import { getCurrentDate } from "../utils";
 
 const ArchiveBoardBtn = ({ board, dispatch }) => {
+  const date = getCurrentDate();
   const handleClick = (e) => {
     if (e) {
-      dispatch(archiveBoard(board));
+      dispatch(archiveBoard({ board, date }));
       dispatch(clearWorkspace());
     }
   };
