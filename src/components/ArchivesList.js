@@ -7,12 +7,14 @@ const ArchivesList = ({ archives }) => {
       let archiveType;
 
       return archives.map((archive) => {
-        if (archive.user_id) {
+        if (archive && archive.user_id) {
           archiveType = "board";
-        } else if (archive.board_id) {
+        } else if (archive && archive.board_id) {
           archiveType = "card";
-        } else {
+        } else if (archive && archive.card_id) {
           archiveType = "task";
+        } else {
+          return null;
         }
         return (
           <ArchiveItem

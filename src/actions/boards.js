@@ -11,7 +11,7 @@ export const addNewBoard = (boardData) => ({
   board: boardData,
 });
 
-export const fetchUserBoards = (userId) => {
+export const fetchUserBoards = (userId, callback) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/api/v1/user/${userId}/boards`, {
       headers: {
@@ -22,7 +22,9 @@ export const fetchUserBoards = (userId) => {
     })
       .then((response) => response.json())
       .then((JSONresponse) =>
-        dispatch(setBoards({ boards: JSONresponse, user_id: userId }))
+        dispatch(
+          setBoards({ boards: JSONresponse, user_id: userId }, () => callback())
+        )
       );
   };
 };
@@ -51,15 +53,14 @@ export const postNewBoard = (data) => {
 //   board: board,
 // });
 export const archiveBoard = (data) => {
-  debugger;
   return (dispatch) => {
-    dispatch(
-      updateBoard({
-        ...data.board,
-        archived: true,
-        archive_dat: data.archiveDat,
-      })
-    );
+    // dispatch(
+    //   updateBoard({
+    //     ...data.board,
+    //     archived: true,
+    //     date_archived: data.dateArchived,
+    //   })
+    // );
     fetch(`http://localhost:3000/api/v1/board/${data.board.id}/update`, {
       method: "PUT",
       headers: {
@@ -69,10 +70,12 @@ export const archiveBoard = (data) => {
       },
       body: JSON.stringify({
         board_id: `${data.board.id}`,
-        archived: true,
-        archive_dat: `${data.archiveDat}`,
+        archived: `${!data.board.archived}`,
+        date_archived: `${data.dateArchived}`,
       }),
-    });
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(updateBoard(JSONresponse)));
   };
 };
 export const updateBoardBackground = (board, background) => {

@@ -4,5 +4,7 @@ export const getCurrentDate = () => {
   let newTime = new Date();
   newTime = newTime.toTimeString();
 
-  return `${newDate} ${newTime}`;
+  let currDate = `${newDate} ${newTime}`;
+  currDate = currDate.split(" GMT-");
+  return currDate[0];
 };

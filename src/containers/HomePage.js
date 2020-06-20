@@ -12,13 +12,26 @@ import { Redirect } from "react-router-dom";
 
 const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
   useEffect(() => {
-    dispatch(fetchUserBoards(user.id));
-  }, []);
-
+    dispatch(
+      fetchUserBoards(user.id, dispatch(setArchives({ userBoards: boards })))
+    );
+  });
+  // useEffect(() => {
+  //   const fetchBoards = () => {
+  //     if (boards === undefined) {
+  //     }
+  //   };
+  //   const subscription = () => {
+  //     boards.source.subscribe();
+  //     return () => {
+  //       subscription.unsubscribe();
+  //     };
+  //   };
+  // }, [boards]);
   const handleArchivesClick = (e) => {
     if (e) {
       dispatch(setPage("archives"));
-      dispatch(setArchives({ userBoards: boards }));
+      // dispatch(setArchives({ userBoards: boards }));
     }
   };
   const handleBoardsClick = (e) => {
@@ -80,7 +93,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
           </div>
 
           <div className="home-right-content-container">
-            {activePage === "boards" ? (
+            {boards && boards.length > 0 && activePage === "boards" ? (
               <div className="boards-container">
                 <div className="boards-section">
                   <StarredBoardList boards={boards} />

@@ -5,10 +5,10 @@ import { clearWorkspace } from "../actions/workspace";
 import { getCurrentDate } from "../utils";
 
 const ArchiveBoardBtn = ({ board, dispatch }) => {
-  const date = getCurrentDate();
   const handleClick = (e) => {
     if (e) {
-      dispatch(archiveBoard({ board, date }));
+      let dateArchived = getCurrentDate();
+      dispatch(archiveBoard({ board, dateArchived }));
       dispatch(clearWorkspace());
     }
   };
