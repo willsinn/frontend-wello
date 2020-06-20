@@ -2,22 +2,17 @@ import React from "react";
 import ArchivesList from "../components/ArchivesList";
 import { connect } from "react-redux";
 
-const ArchivesPage = ({ boards, cards, tasks }) => {
-  const renderAllArchives = () => {
-    if (boards && cards && tasks) {
-      let arr = [boards, cards, tasks];
-      const archives = arr.flat();
-
+const ArchivesPage = ({ archives }) => {
+  const renderArchives = () => {
+    if (archives && archives.length > 0) {
       return <ArchivesList archives={archives} />;
     }
   };
-  return <div>{renderAllArchives()}</div>;
+  return <div>{renderArchives()}</div>;
 };
 const mapStateToProps = (state) => {
   return {
-    boards: state.archiveReducer.archives.boards,
-    cards: state.archiveReducer.archives.cards,
-    tasks: state.archiveReducer.archives.tasks,
+    archives: state.archiveReducer.archives,
   };
 };
 export default connect(mapStateToProps)(ArchivesPage);

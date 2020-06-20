@@ -1,9 +1,5 @@
 const defaultState = {
-  archives: {
-    boards: [],
-    cards: [],
-    tasks: [],
-  },
+  archives: [],
 };
 const archiveReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -12,39 +8,25 @@ const archiveReducer = (state = defaultState, action) => {
         (b) => b.archived === true
       );
       let cds = action.data.userBoards.map((b) => {
-        return b.cards;
+        let bc = b.cards;
+        return bc;
       });
       cds = cds.flat();
-      const b_cards = cds.filter((card) => card.archived === true);
-      let tks = cds.map((card) => {
-        return card.tasks;
+      const b_cards = cds.filter((cd) => cd.archived === true);
+      let tks = cds.map((c) => {
+        let ct = c.tasks;
+
+        return ct;
       });
       tks = tks.flat();
-      const c_tasks = tks.filter((task) => task.archived === true);
+      const c_tasks = tks.filter((t) => t.archived === true);
+      const userArchives = b_cards.concat(u_boards).concat(c_tasks[0]);
 
       return {
         ...state,
-        archives: {
-          boards: u_boards,
-          cards: b_cards,
-          tasks: c_tasks,
-        },
+        archives: userArchives,
       };
-    // case "SET_BOARD_ARCHIVES":
-    //   return {
-    //     ...state,
-    //     board_archives: [...state.board_archives, action.data]userBoards.,
-    //   };
-    // case "SET_CARD_ARCHIVES":
-    //   return {
-    //     ...state,
-    //     card_archives: [...state.card_archives, action.data],
-    //   };
-    // case "SET_TASK_ARCHIVES":
-    //   return {
-    //     ...state,
-    //     task_archives: [...state.task_archives, action.data],
-    //   };
+
     default:
       return state;
   }

@@ -1,14 +1,14 @@
 import React from "react";
 // import { connect } from "react-redux";
 
-const ArchiveItem = ({ archive }) => {
+const ArchiveItem = ({ archive, archiveType }) => {
   const renderArchive = () => {
+    const arch_keys = Object.entries(archive);
+    const keys = arch_keys.map((key) => {
+      const k = key[0];
+      return k;
+    });
     if (archive) {
-      const arch_keys = Object.entries(archive);
-      const keys = arch_keys.map((key) => {
-        const k = key[0];
-        return k;
-      });
       if (keys.includes("user_id")) {
         return <div>Archived Board</div>;
       }
