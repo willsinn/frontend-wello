@@ -7,17 +7,15 @@ import TaskArchiveItem from "./TaskArchiveItem";
 
 const ArchiveItem = ({ archive, archiveType }) => {
   const renderArchive = () => {
-    if (archive) {
-      switch (archiveType) {
-        case "board":
-          return <BoardArchiveItem boardArchive={archive} />;
-        case "card":
-          return <CardArchiveItem cardArchive={archive} />;
-        case "task":
-          return <TaskArchiveItem taskArchive={archive} />;
-        default:
-          return;
-      }
+    switch (archiveType) {
+      case "board":
+        return <BoardArchiveItem boardArchive={archive} />;
+      case "card":
+        return <CardArchiveItem cardArchive={archive} />;
+      case "task":
+        return <TaskArchiveItem taskArchive={archive} />;
+      default:
+        return;
     }
   };
   return (

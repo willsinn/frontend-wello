@@ -1,8 +1,15 @@
 import React, { useState } from "react";
+import CardArchiveItem from "./CardArchiveItem";
 
 const BoardArchiveItem = ({ boardArchive }) => {
   const [render, setRender] = useState(false);
-
+  const renderBoardCards = () => {
+    if (boardArchive.cards && boardArchive.cards.length > 0) {
+      return boardArchive.cards.map((card) => (
+        <CardArchiveItem key={`board-card-${card.id}`} cardArchive={card} />
+      ));
+    }
+  };
   return (
     <div className="archive-item-content straight-row-content">
       <div className="straight-row-content a-left">
@@ -26,7 +33,6 @@ const BoardArchiveItem = ({ boardArchive }) => {
           ) : null}
         </div>
       </div>
-
       <div className="straight-row-content a-right">
         <span>Archived: </span>
         <span className="archive-title-info">{boardArchive.date_archived}</span>
@@ -35,6 +41,9 @@ const BoardArchiveItem = ({ boardArchive }) => {
             <span className="restore-btn-text">restore</span>
           </button>
         </div>
+      </div>
+      <div className="archive-item-nested-list">
+        {render ? renderBoardCards() : null}
       </div>
     </div>
   );
