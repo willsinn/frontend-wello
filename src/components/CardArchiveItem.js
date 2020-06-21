@@ -4,7 +4,7 @@ const CardArchiveItem = ({ cardArchive }) => {
   const [renderT, setRenderT] = useState(false);
 
   return (
-    <>
+    <li className="archives-list-item">
       {cardArchive.archived ? (
         <div className="archive-item-content straight-row-content">
           <div className="straight-row-content a-left">
@@ -43,7 +43,7 @@ const CardArchiveItem = ({ cardArchive }) => {
       ) : (
         <div>hihi in unarchived</div>
       )}
-    </>
+    </li>
   );
 };
 export default CardArchiveItem;
