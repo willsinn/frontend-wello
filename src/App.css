@@ -2807,6 +2807,8 @@ button {
   margin-top: 48px;
 }
 .archive-list {
+  display: flex;
+  flex-direction: column;
   height: fit-content;
   min-width: 600px;
   max-width: 75%;
@@ -2853,17 +2855,23 @@ button {
   margin-left: 8px;
 }
 .render-action {
-  height: 12px;
-  width: 12px;
   transform-origin: rotate(135deg);
 }
 .open-info-btn {
-  transform-origin: rotate(90deg);
   height: 12px;
   width: 12px;
-  transition: 0.2s ease-in-out;
+  transform: rotate(90deg);
+  transform-origin: center;
 }
-.action-dropdown-btn {
+.closed-info-btn {
+  height: 12px;
+  width: 12px;
+  transform: rotate(180deg);
+  transform-origin: center;
+}
+.action-dropdown-icon {
+  height: 12px;
+  width: 12px;
 }
 .archive-item-nested-list {
   min-height: 100%;
