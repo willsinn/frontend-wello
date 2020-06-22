@@ -66,14 +66,14 @@ const CardArchiveItem = ({ cardArchive, archiveType }) => {
                 <span className="archive-title-info">
                   {cardArchive.date_archived}
                 </span>
-                <div className="restore-archived">
-                  <button>
-                    <span className="archive-item-label restore-btn-text">
-                      RESTORE
-                    </span>
-                  </button>
-                </div>
               </div>
+            </div>
+            <div className="restore-archived">
+              <button>
+                <span className="archive-item-label restore-btn-text">
+                  RESTORE
+                </span>
+              </button>
             </div>
           </li>
           {cardArchive.tasks && renderT ? (

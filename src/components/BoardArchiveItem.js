@@ -23,43 +23,43 @@ const BoardArchiveItem = ({ boardArchive, archiveType }) => {
               <span className="archive-item-label">BOARD</span>
               <span className="archive-title-text archive-item-info">{`${boardArchive.title}`}</span>
             </div>
-            {boardArchive.cards.length > 0 ? (
-              <div className="render-nested-info">
-                {render ? (
-                  <button
-                    className="closed-info-btn"
-                    onClick={(e) => setRender(!render)}
-                  >
-                    <span className="action-dropdown-icon">⌃</span>
-                  </button>
-                ) : (
-                  <button
-                    className="open-info-btn"
-                    onClick={(e) => setRender(!render)}
-                  >
-                    <span className="action-dropdown-icon">⌃</span>
-                  </button>
-                )}
-                <span className="archive-item-label">CARDS</span>
-              </div>
-            ) : null}
-          </div>
-          <div className="archived-status">
-            <span className="archive-item-label">ARCHIVED</span>
-            <span className="archive-title-info">
-              {boardArchive.date_archived}
-            </span>
-          </div>
-          <div className="restore-archived">
-            <button>
-              <span className="archive-item-label restore-btn-text">
-                RESTORE
+            <div className="render-nested-info">
+              {boardArchive.cards.length > 0 ? (
+                <span className="archive-item-label">
+                  {render ? (
+                    <button
+                      className="closed-info-btn"
+                      onClick={(e) => setRender(!render)}
+                    >
+                      <span className="action-dropdown-icon">⌃</span>
+                    </button>
+                  ) : (
+                    <button
+                      className="open-info-btn"
+                      onClick={(e) => setRender(!render)}
+                    >
+                      <span className="action-dropdown-icon">⌃</span>
+                    </button>
+                  )}
+                  CARDS
+                </span>
+              ) : null}
+            </div>
+            <div className="archive-status">
+              <span className="archive-item-label">ARCHIVED</span>
+              <span className="archive-title-info">
+                {boardArchive.date_archived}
               </span>
-            </button>
+            </div>
           </div>
         </div>
+        <div className="restore-archived">
+          <button className="restore-btn">
+            <span className="archive-item-label restore-btn-text">RESTORE</span>
+          </button>
+        </div>
       </li>
-      {boardArchive.cards && render ? (
+      {boardArchive.cards.length > 0 && render ? (
         <div className="archive-item-nested-list">
           <ul className="archive-list">{renderBoardCards()}</ul>
         </div>
