@@ -45,7 +45,7 @@ export const userLogin = (email, password) => {
       });
   };
 };
-export const fetchCurrentUser = (callback) => {
+export const fetchCurrentUser = () => {
   // takes the token in localStorage and finds out who it belongs to
   return (dispatch) => {
     dispatch(authenticatingUser()); //tells the app we are fetching
@@ -55,11 +55,15 @@ export const fetchCurrentUser = (callback) => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     })
-      .then((response) => response.json())
-      .then(
-        (JSONResponse) => dispatch(setUser(JSONResponse)),
-        () => callback()
-      );
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          localStorage.clear();
+          throw response;
+        }
+      })
+      .then((JSONResponse) => dispatch(setUser(JSONResponse)));
   };
 };
 export const userSignup = (user, callback) => {

@@ -52,7 +52,7 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
                     />
                     <input
                       className="signin-input"
-                      type="text"
+                      type="password"
                       name="password"
                       onChange={handlePwChange}
                       placeholder="Enter password"
@@ -68,7 +68,7 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
                   </form>
                   <hr />
                   <a
-                    href="signup"
+                    href="/signup"
                     onClick={(e) => setLogin(!login)}
                     className="signup-link"
                   >

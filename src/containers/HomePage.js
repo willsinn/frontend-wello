@@ -51,7 +51,6 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
         <Redirect to="/board" />
       ) : (
         <div className="home-page">
-          {}
           <div style={{ position: "absolute", top: "40px", left: "0px" }}>
             <nav className="archive-boards-menu">
               <div style={{ width: "220px" }}>

@@ -26,7 +26,15 @@ const archiveReducer = (state = defaultState, action) => {
         ...state,
         archives: userArchives,
       };
-
+    case "REMOVE_ARCHIVE":
+      debugger;
+      const remainingArchives = state.archives.filter(
+        (archive) => action.data.id !== archive.id
+      );
+      return {
+        ...state,
+        archives: remainingArchives,
+      };
     default:
       return state;
   }

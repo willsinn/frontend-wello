@@ -7,17 +7,21 @@ const ArchivesList = ({ archives }) => {
   const renderArchived = () => {
     if (archives.length > 0) {
       const archArr = [];
-
       archives.forEach((a) => {
-        const aItem = Object.keys(a);
-        if (aItem.includes("user_id")) {
-          archArr.push("board");
-        }
-        if (aItem.includes("board_id")) {
-          archArr.push("card");
-        }
-        if (aItem.includes("card_id")) {
-          archArr.push("task");
+        if (a === undefined || a === null) {
+          return;
+        } else {
+          const aItem = Object.keys(a);
+
+          if (aItem.includes("user_id")) {
+            archArr.push("board");
+          }
+          if (aItem.includes("board_id")) {
+            archArr.push("card");
+          }
+          if (aItem.includes("card_id")) {
+            archArr.push("task");
+          }
         }
       });
 

@@ -1,6 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
+import { restoreTask } from "../actions/archives";
 
-const TaskArchiveItem = ({ taskArchive, lastTaskId, archiveType }) => {
+const TaskArchiveItem = ({
+  taskArchive,
+  lastTaskId,
+  archiveType,
+  dispatch,
+}) => {
   const renderNestedTasks = () => {
     return (
       <span className="archive-title-text archive-item-info">
@@ -8,7 +15,11 @@ const TaskArchiveItem = ({ taskArchive, lastTaskId, archiveType }) => {
       </span>
     );
   };
-
+  const handleTaskRestore = (e) => {
+    if (e) {
+      dispatch(restoreTask(taskArchive));
+    }
+  };
   console.log(lastTaskId, taskArchive.id);
 
   return (
@@ -36,7 +47,10 @@ const TaskArchiveItem = ({ taskArchive, lastTaskId, archiveType }) => {
             </div>
           </div>
           <div className="restore-archived">
-            <button className="restore-btn">
+            <button
+              className="restore-btn"
+              onClick={(e) => handleTaskRestore(e)}
+            >
               <span className="archive-item-label restore-btn-text">
                 RESTORE
               </span>
@@ -47,4 +61,4 @@ const TaskArchiveItem = ({ taskArchive, lastTaskId, archiveType }) => {
     </>
   );
 };
-export default TaskArchiveItem;
+export default connect()(TaskArchiveItem);
