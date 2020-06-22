@@ -60,9 +60,7 @@ const BoardArchiveItem = ({ boardArchive, archiveType }) => {
         </div>
       </li>
       {boardArchive.cards.length > 0 && render ? (
-        <div className="archive-item-nested-list">
-          <ul className="archive-list">{renderBoardCards()}</ul>
-        </div>
+        <ul className="archive-item-nested-list">{renderBoardCards()}</ul>
       ) : null}
     </>
   );

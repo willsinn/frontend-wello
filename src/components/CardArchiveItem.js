@@ -68,9 +68,7 @@ const CardArchiveItem = ({ cardArchive, archiveType }) => {
         )}
       </li>
       {cardArchive.tasks && renderT ? (
-        <div className="archive-item-nested-list">
-          <ul className="archive-list">{renderCardTasks()}</ul>
-        </div>
+        <ul className="archive-item-nested-list">{renderCardTasks()}</ul>
       ) : null}
     </>
   );

@@ -2880,7 +2880,11 @@ button {
   width: 14px;
 }
 .archive-item-nested-list {
-  min-height: 100%;
+  display: flex;
+  height: fit-content;
+  width: 80%;
+  flex-direction: column;
+  align-self: flex-end;
 }
 
 .archive-item-label {
