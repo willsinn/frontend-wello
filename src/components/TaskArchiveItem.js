@@ -5,8 +5,8 @@ const TaskArchiveItem = ({ taskArchive }) => {
     <li className="archives-list-item">
       <div className="archive-item-content straight-row-content">
         <div className="straight-row-content">
-          <div>
-            <span className="archive-item-info">Task</span>
+          <div className="render-nested-info">
+            <span className="archive-item-label">TASK</span>
             <span className="archive-item-info archive-title-text">{` ${taskArchive.note}`}</span>
           </div>
         </div>
@@ -16,7 +16,9 @@ const TaskArchiveItem = ({ taskArchive }) => {
           </span>
           <div className="restore-archived">
             <button>
-              <span className="restore-btn-text">restore</span>
+              <span className="archive-item-label restore-btn-text">
+                RESTORE
+              </span>
             </button>
           </div>
         </div>

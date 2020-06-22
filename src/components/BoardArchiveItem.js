@@ -19,45 +19,45 @@ const BoardArchiveItem = ({ boardArchive }) => {
       <li className="archives-list-item">
         <div className="archive-item-content straight-row-content">
           <div className="straight-row-content a-left">
-            <span className="archive-item-info">Board</span>
+            <span className="archive-item-label">BOARD</span>
             <span className="archive-item-info archive-title-text">{`${boardArchive.title}`}</span>
-            <div className="straight-row-content a-left">
-              {boardArchive.cards.length > 0 ? (
-                <div>
-                  {render ? (
-                    <button
-                      className="closed-info-btn"
-                      onClick={(e) => setRender(!render)}
-                    >
-                      <span className="action-dropdown-icon">⌃</span>
-                    </button>
-                  ) : (
-                    <button
-                      className="open-info-btn"
-                      onClick={(e) => setRender(!render)}
-                    >
-                      <span className="action-dropdown-icon">⌃</span>
-                    </button>
-                  )}
-                  <span className="archive-item-info">cards</span>
-                </div>
-              ) : null}
-            </div>
+            {boardArchive.cards.length > 0 ? (
+              <div className="render-nested-info">
+                {render ? (
+                  <button
+                    className="closed-info-btn"
+                    onClick={(e) => setRender(!render)}
+                  >
+                    <span className="action-dropdown-icon">⌃</span>
+                  </button>
+                ) : (
+                  <button
+                    className="open-info-btn"
+                    onClick={(e) => setRender(!render)}
+                  >
+                    <span className="action-dropdown-icon">⌃</span>
+                  </button>
+                )}
+                <span className="archive-item-label">CARDS</span>
+              </div>
+            ) : null}
           </div>
           <div className="straight-row-content a-right">
-            <span>Archived: </span>
+            <span className="archive-item-label">ARCHIVED</span>
             <span className="archive-title-info">
               {boardArchive.date_archived}
             </span>
             <div className="restore-archived">
               <button>
-                <span className="restore-btn-text">restore</span>
+                <span className="archive-item-label restore-btn-text">
+                  RESTORE
+                </span>
               </button>
             </div>
           </div>
         </div>
       </li>
-      {render ? (
+      {boardArchive.cards && render ? (
         <div className="archive-item-nested-list">
           <ul className="archive-list">{renderBoardCards()}</ul>
         </div>
