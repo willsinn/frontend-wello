@@ -1,29 +1,50 @@
 import React from "react";
 
-const TaskArchiveItem = ({ taskArchive }) => {
+const TaskArchiveItem = ({ taskArchive, lastTaskId, archiveType }) => {
+  const renderNestedTasks = () => {
+    return (
+      <span className="archive-title-text archive-item-info">
+        {`${taskArchive.note}`}
+      </span>
+    );
+  };
+
+  console.log(lastTaskId, taskArchive.id);
+
   return (
-    <li className="archives-list-item">
-      <div className="archive-item-content straight-row-content">
-        <div className="straight-row-content">
-          <div className="render-nested-info">
-            <span className="archive-item-label">TASK</span>
-            <span className="archive-title-text archive-item-info">{` ${taskArchive.note}`}</span>
+    <>
+      {archiveType === "nested" ? (
+        <li>
+          {renderNestedTasks()}
+          {taskArchive.id === lastTaskId ? null : <span>, </span>}
+        </li>
+      ) : (
+        <li className="archives-list-item">
+          <div className="archive-item-content straight-row-content">
+            <div className="full-archive">
+              <div className="main-archive">
+                <span className="archive-item-label">TASK</span>
+                <span className="archive-title-text archive-item-info">{`${taskArchive.note}`}</span>
+              </div>
+              <div className="render-nested-info" />
+              <div className="archive-status">
+                <span className="archive-item-label">ARCHIVED</span>
+                <span className="archive-title-info">
+                  {taskArchive.date_archived}
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="straight-row-content a-right">
-          <span className="archive-title-info">
-            {taskArchive.date_archived}
-          </span>
           <div className="restore-archived">
-            <button>
+            <button className="restore-btn">
               <span className="archive-item-label restore-btn-text">
                 RESTORE
               </span>
             </button>
           </div>
-        </div>
-      </div>
-    </li>
+        </li>
+      )}
+    </>
   );
 };
 export default TaskArchiveItem;

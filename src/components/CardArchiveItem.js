@@ -5,45 +5,55 @@ const CardArchiveItem = ({ cardArchive, archiveType }) => {
   const [renderT, setRenderT] = useState(false);
   const renderCardTasks = () => {
     if (cardArchive.tasks && cardArchive.tasks.length > 0) {
+      const lastTask = cardArchive.tasks[cardArchive.tasks.length - 1];
       return cardArchive.tasks.map((task) => (
         <TaskArchiveItem
           key={`task-${task.id}`}
+          lastTaskId={lastTask.id}
           archiveType={"nested"}
           taskArchive={task}
         />
       ));
     }
   };
-  console.log(cardArchive, archiveType);
-
   return (
     <>
       <li className="archives-list-item">
         <div className="archive-item-content straight-row-content">
           <div className="full-archive">
-            <div className="main-archive">
-              <span className="archive-item-label">CARD</span>
+            <div className="nested-posi main-archive">
+              {archiveType === "nested" ? null : (
+                <span className="archive-item-label">CARD</span>
+              )}
               <span className="archive-title-text archive-item-info">{`${cardArchive.goal}`}</span>
             </div>
-            <div className="render-nested-info">
+            <div className="nested-posi render-nested-info">
               {cardArchive.tasks.length > 0 ? (
                 <span className="archive-item-label">
                   {renderT ? (
                     <button
-                      className="closed-info-btn"
+                      className="render-active render-tasks-btn"
                       onClick={(e) => setRenderT(!renderT)}
                     >
                       <span className="action-dropdown-icon">⌃</span>
                     </button>
                   ) : (
                     <button
-                      className="closed-info-btn"
+                      className="render-tasks-btn"
                       onClick={(e) => setRenderT(!renderT)}
                     >
                       <span className="action-dropdown-icon">⌃</span>
                     </button>
                   )}
                   TASKS
+                  {renderT ? (
+                    <button
+                      className="render-active render-tasks-btn"
+                      onClick={(e) => setRenderT(!renderT)}
+                    >
+                      <span className="action-dropdown-icon">⌃</span>
+                    </button>
+                  ) : null}
                 </span>
               ) : null}
             </div>
@@ -56,7 +66,11 @@ const CardArchiveItem = ({ cardArchive, archiveType }) => {
               </div>
             )}
           </div>
+          {cardArchive.tasks && renderT ? (
+            <ul className="card-nested-tasks">{renderCardTasks()}</ul>
+          ) : null}
         </div>
+
         {archiveType === "nested" ? null : (
           <div className="restore-archived">
             <button className="restore-btn">
@@ -67,9 +81,6 @@ const CardArchiveItem = ({ cardArchive, archiveType }) => {
           </div>
         )}
       </li>
-      {cardArchive.tasks && renderT ? (
-        <ul className="archive-item-nested-list">{renderCardTasks()}</ul>
-      ) : null}
     </>
   );
 };
