@@ -7,7 +7,7 @@ const TaskArchiveItem = ({ taskArchive }) => {
         <div className="straight-row-content">
           <div className="render-nested-info">
             <span className="archive-item-label">TASK</span>
-            <span className="archive-item-info archive-title-text">{` ${taskArchive.note}`}</span>
+            <span className="archive-title-text archive-item-info">{` ${taskArchive.note}`}</span>
           </div>
         </div>
         <div className="straight-row-content a-right">

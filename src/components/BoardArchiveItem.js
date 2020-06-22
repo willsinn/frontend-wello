@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import CardArchiveItem from "./CardArchiveItem";
 
-const BoardArchiveItem = ({ boardArchive }) => {
+const BoardArchiveItem = ({ boardArchive, archiveType }) => {
   const [render, setRender] = useState(false);
   const renderBoardCards = () => {
     if (boardArchive.cards && boardArchive.cards.length > 0) {
       return boardArchive.cards.map((card) => (
         <CardArchiveItem
           key={`card-${card.id}`}
-          archiveType={"card"}
+          archiveType={"nested"}
           cardArchive={card}
         />
       ));
@@ -18,9 +18,11 @@ const BoardArchiveItem = ({ boardArchive }) => {
     <>
       <li className="archives-list-item">
         <div className="archive-item-content straight-row-content">
-          <div className="straight-row-content a-left">
-            <span className="archive-item-label">BOARD</span>
-            <span className="archive-item-info archive-title-text">{`${boardArchive.title}`}</span>
+          <div className="full-archive">
+            <div className="main-archive">
+              <span className="archive-item-label">BOARD</span>
+              <span className="archive-title-text archive-item-info">{`${boardArchive.title}`}</span>
+            </div>
             {boardArchive.cards.length > 0 ? (
               <div className="render-nested-info">
                 {render ? (
@@ -42,18 +44,18 @@ const BoardArchiveItem = ({ boardArchive }) => {
               </div>
             ) : null}
           </div>
-          <div className="straight-row-content a-right">
+          <div className="archived-status">
             <span className="archive-item-label">ARCHIVED</span>
             <span className="archive-title-info">
               {boardArchive.date_archived}
             </span>
-            <div className="restore-archived">
-              <button>
-                <span className="archive-item-label restore-btn-text">
-                  RESTORE
-                </span>
-              </button>
-            </div>
+          </div>
+          <div className="restore-archived">
+            <button>
+              <span className="archive-item-label restore-btn-text">
+                RESTORE
+              </span>
+            </button>
           </div>
         </div>
       </li>
