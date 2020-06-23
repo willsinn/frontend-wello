@@ -93,7 +93,7 @@ export const userSignup = (user) => {
       })
       .then((JSONResponse) => {
         localStorage.setItem("jwt", JSONResponse.jwt);
-        return dispatch(setUser(JSONResponse));
+        dispatch(setUser(JSONResponse));
       });
   };
 };

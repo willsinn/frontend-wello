@@ -13,23 +13,11 @@ import { Redirect } from "react-router-dom";
 const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
   useEffect(() => {
     dispatch(fetchUserBoards(user.id));
-  });
-  // useEffect(() => {
-  //   const fetchBoards = () => {
-  //     if (boards === undefined) {
-  //     }
-  //   };
-  //   const subscription = () => {
-  //     boards.source.subscribe();
-  //     return () => {
-  //       subscription.unsubscribe();
-  //     };
-  //   };
-  // }, [boards]);
+  }, [user.id, dispatch]);
+
   const handleArchivesClick = (e) => {
     if (e) {
       dispatch(setPage("archives"));
-      // dispatch(setArchives({ userBoards: boards }));
     }
   };
   const handleBoardsClick = (e) => {
