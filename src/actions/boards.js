@@ -100,7 +100,7 @@ export const updateBoardBackground = (board, background) => {
 };
 export const removeStarred = (board) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
