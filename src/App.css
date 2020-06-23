@@ -2777,10 +2777,8 @@ button {
 }
 .board-tiles-section-header {
   margin: 0 0 0 40px;
-  /* padding: 0 0 11px; */
   position: relative;
   display: flex;
-  height: 42px;
   width: 100%;
 }
 .boards-listed-tiles {

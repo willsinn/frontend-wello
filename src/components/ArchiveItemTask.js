@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { restoreTask } from "../actions/archives";
 
-const TaskArchiveItem = ({
+const ArchiveItemTask = ({
   taskArchive,
   lastTaskId,
   archiveType,
@@ -60,4 +60,4 @@ const TaskArchiveItem = ({
     </>
   );
 };
-export default connect()(TaskArchiveItem);
+export default connect()(ArchiveItemTask);

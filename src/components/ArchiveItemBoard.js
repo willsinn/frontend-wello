@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import CardArchiveItem from "./CardArchiveItem";
+import ArchiveItemCard from "./ArchiveItemCard";
 import { connect } from "react-redux";
 import { restoreBoard } from "../actions/archives";
 
-const BoardArchiveItem = ({ boardArchive, dispatch, archiveType }) => {
+const ArchiveItemBoard = ({ boardArchive, dispatch, archiveType }) => {
   const [render, setRender] = useState(false);
   const renderBoardCards = () => {
     if (boardArchive.cards && boardArchive.cards.length > 0) {
       return boardArchive.cards.map((card) => (
-        <CardArchiveItem
+        <ArchiveItemCard
           key={`card-${card.id}`}
           archiveType={"nested"}
           cardArchive={card}
@@ -76,4 +76,4 @@ const BoardArchiveItem = ({ boardArchive, dispatch, archiveType }) => {
     </>
   );
 };
-export default connect()(BoardArchiveItem);
+export default connect()(ArchiveItemBoard);

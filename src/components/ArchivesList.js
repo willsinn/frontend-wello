@@ -1,7 +1,7 @@
 import React from "react";
-import BoardArchiveItem from "./BoardArchiveItem";
-import CardArchiveItem from "./CardArchiveItem";
-import TaskArchiveItem from "./TaskArchiveItem";
+import ArchiveItemBoard from "./ArchiveItemBoard";
+import ArchiveItemCard from "./ArchiveItemCard";
+import ArchiveItemTask from "./ArchiveItemTask";
 
 const ArchivesList = ({ archives }) => {
   const renderArchived = () => {
@@ -31,7 +31,7 @@ const ArchivesList = ({ archives }) => {
           switch (elemType) {
             case "board":
               return (
-                <BoardArchiveItem
+                <ArchiveItemBoard
                   key={aKey}
                   archiveType={elemType}
                   boardArchive={archive}
@@ -39,7 +39,7 @@ const ArchivesList = ({ archives }) => {
               );
             case "card":
               return (
-                <CardArchiveItem
+                <ArchiveItemCard
                   key={aKey}
                   archiveType={elemType}
                   cardArchive={archive}
@@ -47,7 +47,7 @@ const ArchivesList = ({ archives }) => {
               );
             case "task":
               return (
-                <TaskArchiveItem
+                <ArchiveItemTask
                   key={aKey}
                   archiveType={elemType}
                   taskArchive={archive}

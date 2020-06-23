@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import TaskArchiveItem from "./TaskArchiveItem";
+import ArchiveItemTask from "./ArchiveItemTask";
 import { connect } from "react-redux";
 import { restoreCard } from "../actions/archives";
 
-const CardArchiveItem = ({ cardArchive, dispatch, archiveType }) => {
+const ArchiveItemCard = ({ cardArchive, dispatch, archiveType }) => {
   const [renderT, setRenderT] = useState(false);
   const renderCardTasks = () => {
     if (cardArchive.tasks && cardArchive.tasks.length > 0) {
       const lastTask = cardArchive.tasks[cardArchive.tasks.length - 1];
       return cardArchive.tasks.map((task) => (
-        <TaskArchiveItem
+        <ArchiveItemTask
           key={`task-${task.id}`}
           lastTaskId={lastTask.id}
           archiveType={"nested"}
@@ -94,4 +94,4 @@ const CardArchiveItem = ({ cardArchive, dispatch, archiveType }) => {
     </>
   );
 };
-export default connect()(CardArchiveItem);
+export default connect()(ArchiveItemCard);
