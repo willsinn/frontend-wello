@@ -13,7 +13,7 @@ import { Redirect } from "react-router-dom";
 const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
   useEffect(() => {
     dispatch(fetchUserBoards(user.id));
-  }, [user.id, dispatch]);
+  });
   // useEffect(() => {
   //   const fetchBoards = () => {
   //     if (boards === undefined) {

@@ -29,9 +29,7 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      if (email.includes("@") && name.length > 2 && password.length > 7) {
-        dispatch(userSignup({ email, name, password }));
-      }
+      dispatch(userSignup({ email, name, password }));
       resetState();
     }
   };
@@ -48,7 +46,6 @@ const SignUpForm = ({ loggedIn, error, dispatch }) => {
               <div className="signin-modal">
                 <h1 className="signin-modal-title">Sign up for an account</h1>
                 <div>{error}</div>
-
                 <form className="signin-form" onSubmit={handleSubmit}>
                   <input
                     className="signin-input"

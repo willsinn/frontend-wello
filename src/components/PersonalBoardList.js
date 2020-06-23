@@ -7,7 +7,7 @@ const PersonalBoardList = ({ boards }) => {
   const renderTiles = () => {
     if (boards.length > 0) {
       return filtered.map((board) => (
-        <li className="board-tile" key={`tile-${board.id}`}>
+        <li className="board-tile" key={`p-tile-${board.id}`}>
           <div className="tile-content-wrapper">
             <BoardItem key={board.id} board={board} />
           </div>
