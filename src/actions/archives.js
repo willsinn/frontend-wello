@@ -7,7 +7,6 @@ export const removeArchive = (data) => ({
   data,
 });
 export const restoreTask = (task) => {
-  debugger;
   return (dispatch) => {
     fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
       method: "PUT",
@@ -22,9 +21,44 @@ export const restoreTask = (task) => {
       }),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => {
-        dispatch(removeArchive(JSONresponse));
-      });
+      .then((JSONresponse) => dispatch(removeArchive(JSONresponse)));
+  };
+};
+export const restoreCard = (card) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/card/update/${card.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({
+        id: `${card.id}`,
+        archived: false,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(removeArchive(JSONresponse)));
+  };
+};
+export const restoreBoard = (board) => {
+  debugger;
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({
+        id: `${board.id}`,
+        archived: false,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(removeArchive(JSONresponse)));
   };
 };
 // export const setBoardArchives = (data) => ({

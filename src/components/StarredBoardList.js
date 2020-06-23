@@ -2,10 +2,9 @@ import React from "react";
 import BoardItem from "../components/BoardItem";
 
 const StarredBoardList = ({ boards }) => {
-  const starredBoards = boards.filter((board) => board.starred);
-
   const renderTiles = () => {
     if (boards && boards.length > 0) {
+      const starredBoards = boards.filter((board) => board.starred);
       return starredBoards.map((board) => (
         <li className="board-tile" key={`tile-${board.id}`}>
           <div className="tile-content-wrapper">

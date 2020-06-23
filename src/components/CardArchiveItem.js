@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import TaskArchiveItem from "./TaskArchiveItem";
+import { connect } from "react-redux";
+import { restoreCard } from "../actions/archives";
 
-const CardArchiveItem = ({ cardArchive, archiveType }) => {
+const CardArchiveItem = ({ cardArchive, dispatch, archiveType }) => {
   const [renderT, setRenderT] = useState(false);
   const renderCardTasks = () => {
     if (cardArchive.tasks && cardArchive.tasks.length > 0) {
@@ -14,6 +16,11 @@ const CardArchiveItem = ({ cardArchive, archiveType }) => {
           taskArchive={task}
         />
       ));
+    }
+  };
+  const handleCardRestore = (e) => {
+    if (e) {
+      dispatch(restoreCard(cardArchive));
     }
   };
   return (
@@ -73,7 +80,10 @@ const CardArchiveItem = ({ cardArchive, archiveType }) => {
 
         {archiveType === "nested" ? null : (
           <div className="restore-archived">
-            <button className="restore-btn">
+            <button
+              className="restore-btn"
+              onClick={(e) => handleCardRestore(e)}
+            >
               <span className="archive-item-label restore-btn-text">
                 RESTORE
               </span>
@@ -84,4 +94,4 @@ const CardArchiveItem = ({ cardArchive, archiveType }) => {
     </>
   );
 };
-export default CardArchiveItem;
+export default connect()(CardArchiveItem);

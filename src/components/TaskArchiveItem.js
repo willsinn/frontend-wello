@@ -20,7 +20,6 @@ const TaskArchiveItem = ({
       dispatch(restoreTask(taskArchive));
     }
   };
-  console.log(lastTaskId, taskArchive.id);
 
   return (
     <>

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import CardArchiveItem from "./CardArchiveItem";
+import { connect } from "react-redux";
+import { restoreBoard } from "../actions/archives";
 
-const BoardArchiveItem = ({ boardArchive, archiveType }) => {
+const BoardArchiveItem = ({ boardArchive, dispatch, archiveType }) => {
   const [render, setRender] = useState(false);
   const renderBoardCards = () => {
     if (boardArchive.cards && boardArchive.cards.length > 0) {
@@ -14,6 +16,12 @@ const BoardArchiveItem = ({ boardArchive, archiveType }) => {
       ));
     }
   };
+  const handleBoardRestore = (e) => {
+    if (e) {
+      dispatch(restoreBoard(boardArchive));
+    }
+  };
+
   return (
     <>
       <li className="archives-list-item">
@@ -54,7 +62,10 @@ const BoardArchiveItem = ({ boardArchive, archiveType }) => {
           </div>
         </div>
         <div className="restore-archived">
-          <button className="restore-btn">
+          <button
+            className="restore-btn"
+            onClick={(e) => handleBoardRestore(e)}
+          >
             <span className="archive-item-label restore-btn-text">RESTORE</span>
           </button>
         </div>
@@ -65,4 +76,4 @@ const BoardArchiveItem = ({ boardArchive, archiveType }) => {
     </>
   );
 };
-export default BoardArchiveItem;
+export default connect()(BoardArchiveItem);

@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 const ArchivesPage = ({ archives }) => {
   const renderArchives = () => {
-    debugger;
     if (archives && archives.length > 0) {
       return <ArchivesList archives={archives} />;
     }

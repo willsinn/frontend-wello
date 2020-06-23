@@ -7,7 +7,7 @@ import { userLogin } from "../actions/user";
 const LoginForm = ({ loggedIn, error, dispatch }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [login, setLogin] = useState(true);
+  // const [login, setLogin] = useState(true);
 
   const handleUnChange = (e) => {
     e.persist();
