@@ -61,7 +61,7 @@ export const archiveBoard = (data) => {
     //     date_archived: data.dateArchived,
     //   })
     // );
-    fetch(`http://localhost:3000/api/v1/board/${data.board.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/board/update/${data.board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +80,7 @@ export const archiveBoard = (data) => {
 };
 export const updateBoardBackground = (board, background) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
