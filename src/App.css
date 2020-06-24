@@ -2767,12 +2767,13 @@ button {
 .home-right-content-container {
   margin: 24px 0 0 320px;
   height: 100%;
-  width: 100%;
+  width: 70%;
   color: #172b4d;
 }
 .boards-section {
   padding: 0 0 20px;
   margin: 0 auto;
+  height: 160px;
   max-width: 1250px;
 }
 .board-tiles-section-header {
