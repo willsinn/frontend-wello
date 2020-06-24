@@ -34,7 +34,7 @@ hr {
   height: 1px;
   margin: auto;
   padding: 0;
-  width: 90%;
+  width: 95%;
   margin: 8px;
 }
 button {
@@ -77,11 +77,10 @@ button {
   position: relative;
 }
 .home-page {
-  height: inherit;
-  width: 100%;
   display: flex;
-  /* flex-direction: column; */
-  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
 }
 .user.right-side {
   display: flex;
@@ -761,7 +760,7 @@ button {
 .dropdown-title {
   display: flex;
   flex-direction: column;
-  padding: 12px 0;
+  padding: 12px 0 4px 0;
   position: relative;
   text-align: center;
   height: 100%;
@@ -1597,8 +1596,8 @@ button {
 }
 .card-text {
   font-weight: 600;
-  margin: 0 0 8px;
-  font-size: 1.15em;
+  margin: 0 0 8px 12px;
+  font-size: 1.32em;
   line-height: 20px;
   cursor: pointer;
   overflow-x: hidden;
@@ -2736,4 +2735,214 @@ button {
 .tile-star:hover {
   font-size: 14.25px;
   font-weight: 350;
+}
+.archive-boards-menu {
+  width: 240px;
+  margin: 42px 0 0 18px;
+  display: flex;
+  flex-direction: column;
+}
+.archive-boards-menu-link {
+  align-items: center;
+  background-color: transparent;
+  border-radius: 4px;
+  box-shadow: none;
+  display: flex;
+  font-weight: 700;
+  margin: 0;
+  min-height: 20px;
+  overflow: hidden;
+  padding: 6px 8px 6px 8px;
+  text-decoration: none;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 85ms;
+  transition-timing-function: ease;
+  color: #172b4d;
+}
+.archive-boards-menu-link:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  color: #091e42;
+  outline: 0;
+}
+.home-right-content-container {
+  margin: 24px 0 0 320px;
+  height: 100%;
+  width: 100%;
+  color: #172b4d;
+}
+.boards-section {
+  padding: 0 0 20px;
+  margin: 0 auto;
+  max-width: 1250px;
+}
+.board-tiles-section-header {
+  margin: 0 0 0 40px;
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+.boards-listed-tiles {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.board-tiles-header-title {
+  display: inline-block;
+  line-height: 24px;
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.archives-page {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 100%;
+  margin-top: 48px;
+}
+.archive-list {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  min-width: 600px;
+  max-width: 75%;
+}
+.archives-list-item {
+  margin: 2.5px 2px;
+  height: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ebecf0;
+  border-radius: 3px;
+}
+.boards-container {
+  margin-top: 40px;
+}
+/* .archive-item {
+  border-radius: 3px;
+  height: 36px;
+  max-width: 100%;
+} */
+.home-section-title {
+  font-size: 18px;
+  font-weight: 800;
+}
+.archive-item-content {
+  max-width: 100%;
+  justify-content: space-between;
+  overflow: scroll;
+}
+.straight-row-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.a-right {
+  justify-content: flex-end;
+}
+.a-left {
+  justify-content: flex-start;
+  margin-left: 4px;
+}
+.archive-item-info {
+  margin: 0 4px;
+}
+.archive-item-info:first-child {
+  margin-left: 8px;
+}
+.render-action {
+  transform-origin: rotate(135deg);
+}
+.open-info-btn {
+  height: 19px;
+  width: 20px;
+  transform: rotate(90deg);
+  transform-origin: center;
+  margin-right: 2px;
+}
+.closed-info-btn {
+  height: 19px;
+  width: 20px;
+  transform: rotate(180deg);
+  transform-origin: center;
+  margin-right: 2px;
+  color: #5aac44;
+}
+.action-dropdown-icon {
+  height: 14px;
+  width: 14px;
+}
+.archive-item-nested-list {
+  display: flex;
+  height: fit-content;
+  width: 82.5%;
+  flex-direction: column;
+  align-self: flex-end;
+}
+
+.archive-item-label {
+  color: #026aa7;
+  margin: 0 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  flex: 1 1 auto;
+  text-align: left;
+}
+.main-archive {
+  width: 105px;
+}
+.full-archive {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-left: 16px;
+}
+.render-nested-info {
+  width: 110px;
+}
+.archive-status {
+  width: 275px;
+  height: 100%;
+}
+.archive-title-info {
+  text-align: left;
+}
+.restore-archived {
+  display: flex;
+  height: 100%;
+}
+.restore-btn {
+  width: 75px;
+  background-color: #026aa7;
+  margin: 4px 6px;
+  border-radius: 3px;
+}
+.restore-btn-text {
+  color: #ebecf0;
+  font-size: 10.5px;
+  font-weight: 725;
+}
+.restore-btn:hover {
+  background-color: #026aa7cf;
+  color: #fff;
+}
+.render-tasks-btn {
+  height: 19px;
+  width: 20px;
+  transform: rotate(90deg);
+  transform-origin: center;
+  margin-right: 2px;
+}
+.render-active {
+  color: #5aac44;
+}
+.card-nested-tasks {
+  display: flex;
 }

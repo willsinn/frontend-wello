@@ -48,18 +48,25 @@ export const userLogin = (email, password) => {
 export const fetchCurrentUser = () => {
   // takes the token in localStorage and finds out who it belongs to
   return (dispatch) => {
-    dispatch(authenticatingUser()); //tells the app we are fetching
+    dispatch({ type: "AUTHENTICATING_USER" }); //tells the app we are fetching
     fetch("http://localhost:3000/api/v1/profile", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          localStorage.clear();
+          throw response;
+        }
+      })
       .then((JSONResponse) => dispatch(setUser(JSONResponse)));
   };
 };
-export const userSignup = (user, callback) => {
+export const userSignup = (user) => {
   return (dispatch) => {
     dispatch({ type: "AUTHENTICATING_USER" });
     fetch("http://localhost:3000/api/v1/users", {
@@ -77,7 +84,6 @@ export const userSignup = (user, callback) => {
       }),
     })
       .then((response) => {
-        console.log(response);
         if (response.ok) {
           return response.json();
         } else {
@@ -85,11 +91,9 @@ export const userSignup = (user, callback) => {
           throw response;
         }
       })
-      /* {username: will, pw: will} */
       .then((JSONResponse) => {
         localStorage.setItem("jwt", JSONResponse.jwt);
         dispatch(setUser(JSONResponse));
-        callback();
       });
   };
 };

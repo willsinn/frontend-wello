@@ -1,16 +1,15 @@
 import React from "react";
-import DelBoardBtn from "../components/DelBoardBtn";
-import BoardShareLink from "../components/BoardShareLink";
+import ArchiveBoardBtn from "../components/ArchiveBoardBtn";
+// import BoardShareLink from "../components/BoardShareLink";
 
-const MenuNavItemMore = props => {
-  console.log(props);
+const MenuNavItemMore = ({ setContent, setSidebar, board }) => {
   return (
     <div className="board-menu-container">
       <div className="board-menu-sidebar-content">
         <div className="board-menu-header-content">
           <button
             className="board-menu-back-btn"
-            onClick={e => props.setContent("")}
+            onClick={(e) => setContent("")}
           >
             <span className="back-text">←</span>
           </button>
@@ -19,25 +18,20 @@ const MenuNavItemMore = props => {
           </h3>
           <button
             className="board-menu-close-btn"
-            onClick={e => props.setSidebar(false)}
+            onClick={(e) => setSidebar(e, false)}
           >
             <span className="close-text">✕</span>
           </button>
         </div>
         <hr />
         <div className="board-menu-content">
-          <DelBoardBtn board={props.board} />
+          <ArchiveBoardBtn board={board} />
           <div
             style={{ paddingTop: "10px", paddingBottom: "10px", width: "100%" }}
           >
             <hr />
           </div>
-          <BoardShareLink />
-          <div
-            style={{ paddingTop: "10px", paddingBottom: "10px", width: "100%" }}
-          >
-            <hr />
-          </div>
+          {/* <BoardShareLink /> */}
         </div>
       </div>
     </div>

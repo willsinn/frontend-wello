@@ -7,7 +7,10 @@ const workspaceReducer = (state = defaultState, action) => {
     case "TOGGLE_EDIT":
       return { ...state, isEditActive: !state.isEditActive };
     case "CLEAR_WORKSPACE":
-      return { ...state, workspace: defaultState };
+      return {
+        ...state,
+        workspace: {},
+      };
     case "SET_WORKSPACE":
       return { ...state, workspace: action.workspace.board };
     case "UPDATE_WORKSPACE":
@@ -74,6 +77,8 @@ const workspaceReducer = (state = defaultState, action) => {
         ...state,
         workspace: { ...state.workspace, cards: updateArchivedCardTask },
       };
+    case "POSITION_NEW_TASK":
+      return { ...state, position: action.position };
     default:
       return state;
   }

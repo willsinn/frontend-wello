@@ -15,8 +15,9 @@ const NotificationsDropdown = (props) => {
             </span>
           </button>
         </div>
-        <hr />
       </div>
+      <hr />
+
       <div className="new-option">
         <div className="all-nots title">
           <div>View All</div>

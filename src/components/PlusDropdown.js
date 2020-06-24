@@ -16,6 +16,8 @@ const PlusDropdown = (props) => {
           </button>
         </div>
       </div>
+      <hr />
+
       <div className="create-board">
         <button
           className="create-board-btn"

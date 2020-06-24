@@ -1,6 +1,6 @@
 const defaultState = {
   user: null,
-  activePg: "",
+  activePage: "boards",
   loggedIn: false,
   authenticatingUser: false,
   failedLogin: false,
@@ -21,7 +21,7 @@ const userReducer = (state = defaultState, action) => {
         authenticatingUser: false,
       };
     case "SET_PAGE":
-      return { ...state, activePg: action.page };
+      return { ...state, activePage: action.page };
     case "AUTHENTICATING_USER": //tells the app we're fetching
       return { ...state, authenticatingUser: true };
     case "AUTHENTICATED_USER":

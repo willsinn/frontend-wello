@@ -3,11 +3,11 @@ import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
 import TaskWindow from "../containers/TaskWindow";
 import QuickTaskEditor from "../components/QuickTaskEditor";
-import { fetchChecklists } from "../actions/checklists";
 import { connect } from "react-redux";
+import { fetchChecklists } from "../actions/checklists";
+import { positionNewTask } from "../actions/workspace";
 
-const TaskList = ({ card, dispatch }) => {
-  const [addTask, setAddTask] = useState(false);
+const TaskList = ({ card, position, dispatch }) => {
   const [editor, setEditor] = useState(false);
   const [window, setWindow] = useState(false);
   const [editTask, setEditTask] = useState({});
@@ -31,9 +31,7 @@ const TaskList = ({ card, dispatch }) => {
     setEditTask({});
     setWindow(false);
   };
-  const handleCloseTaskForm = (e) => {
-    setAddTask(false);
-  };
+
   const renderTasks = () => {
     if (card && card.tasks && card.tasks.length > 0) {
       return card.tasks.map((task) => {
@@ -80,10 +78,15 @@ const TaskList = ({ card, dispatch }) => {
           handleUpdateEditTask={handleUpdateEditTask}
         />
       ) : null}
-
+      {position === "first" ? <AddTask card={card} /> : null}
       {renderTasks()}
-      {!addTask ? (
-        <div className="task-composer" onClick={(e) => setAddTask(true)}>
+      {position === "last" ? (
+        <AddTask card={card} />
+      ) : (
+        <div
+          className="task-composer"
+          onClick={(e) => dispatch(positionNewTask("last"))}
+        >
           <span className="open-task-composer">
             <span
               style={{
@@ -97,11 +100,13 @@ const TaskList = ({ card, dispatch }) => {
             Add another task
           </span>
         </div>
-      ) : (
-        <AddTask handleCloseTaskForm={handleCloseTaskForm} card={card} />
       )}
     </div>
   );
 };
-
-export default connect()(TaskList);
+const mapStateToProps = (state) => {
+  return {
+    position: state.workspaceReducer.position,
+  };
+};
+export default connect(mapStateToProps)(TaskList);

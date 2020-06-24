@@ -1,12 +1,12 @@
 import React from "react";
 import BoardItem from "../components/BoardItem";
 
-const PersonalBoardList = ({ boards }) => {
+const StarredBoardList = ({ boards }) => {
   const renderTiles = () => {
-    if (boards.length > 0) {
-      const filtered = boards.filter((board) => !board.archived);
-      return filtered.map((board) => (
-        <li className="board-tile" key={`p-tile-${board.id}`}>
+    if (boards && boards.length > 0) {
+      const starredBoards = boards.filter((board) => board.starred);
+      return starredBoards.map((board) => (
+        <li className="board-tile" key={`tile-${board.id}`}>
           <div className="tile-content-wrapper">
             <BoardItem key={board.id} board={board} />
           </div>
@@ -15,13 +15,13 @@ const PersonalBoardList = ({ boards }) => {
     }
   };
   return (
-    <div className="boards-listed-tiles">
+    <div className="personal-boards">
       <div className="board-tiles-section-header">
-        <span className="home-section-title">Personal Boards</span>
+        <span className="home-section-title">Starred</span>
       </div>
       <ul className="board-tiles-ul">{renderTiles()}</ul>
     </div>
   );
 };
 
-export default PersonalBoardList;
+export default StarredBoardList;

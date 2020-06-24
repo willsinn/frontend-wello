@@ -60,7 +60,7 @@ const BoardMenu = (props) => {
                 <MenuNavItemMore
                   setSidebar={setSidebar}
                   setContent={setContent}
-                  workspace={props.workspace}
+                  board={props.workspace}
                   resetClosedSidebar={resetClosedSidebar}
                 />
               );

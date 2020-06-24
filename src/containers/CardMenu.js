@@ -1,8 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { archiveCard } from "../actions/workspace";
+import { archiveCard, positionNewTask } from "../actions/workspace";
 
 const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
+  const handleAddFirstClick = (e) => {
+    if (e) {
+      dispatch(positionNewTask("first"));
+      handleCloseCardMenu(e);
+    }
+  };
   return (
     <div className="card-menu-modal">
       <div className="dropdown-title" style={{ margin: "0" }}>
@@ -18,11 +24,15 @@ const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
           </button>
         </div>
       </div>
-      <hr style={{ marginTop: "0" }} />
+      <hr />
       <ul>
         <li className="option-item">
-          <button className="option-title js-member-profile" data-tab="profile">
-            <span>Add Card...</span>
+          <button
+            onClick={(e) => handleAddFirstClick(e)}
+            className="option-title js-member-profile"
+            data-tab="profile"
+          >
+            <span>Add Task...</span>
           </button>
         </li>
         <li className="option-item">

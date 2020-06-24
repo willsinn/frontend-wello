@@ -31,6 +31,10 @@ export const updateWorkspace = (board) => ({
   type: "UPDATE_WORKSPACE",
   board,
 });
+export const positionNewTask = (position) => ({
+  type: "POSITION_NEW_TASK",
+  position,
+});
 export const fetchWorkspace = (data) => {
   return (dispatch) => {
     // dispatch(clearWorkspace());
@@ -211,7 +215,7 @@ export const saveTaskDesc = (task, desc) => {
 };
 export const starredBoard = (board) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

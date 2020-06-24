@@ -11,8 +11,7 @@ export const addNewBoard = (boardData) => ({
   board: boardData,
 });
 
-
-export const fetchUserBoards = (userId) => {
+export const fetchUserBoards = (userId, callback) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/api/v1/user/${userId}/boards`, {
       headers: {
@@ -23,7 +22,9 @@ export const fetchUserBoards = (userId) => {
     })
       .then((response) => response.json())
       .then((JSONresponse) =>
-        dispatch(setBoards({ boards: JSONresponse, user_id: userId }))
+        dispatch(
+          setBoards({ boards: JSONresponse, user_id: userId }, () => callback())
+        )
       );
   };
 };
@@ -47,27 +48,39 @@ export const postNewBoard = (data) => {
       .then((JSONresponse) => dispatch(addNewBoard(JSONresponse)));
   };
 };
-export const deleteBoard = (board) => ({
-  type: "DELETE_BOARD",
-  board: board,
-});
-export const deleteBoardWorkspace = (board, dispatch) => {
-  console.log(board.id, board);
+// export const deleteBoard = (board) => ({
+//   type: "DELETE_BOARD",
+//   board: board,
+// });
+export const archiveBoard = (data) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/user/1/board/${board.id}/delete`, {
-      method: "POST",
+    // dispatch(
+    //   updateBoard({
+    //     ...data.board,
+    //     archived: true,
+    //     date_archived: data.dateArchived,
+    //   })
+    // );
+    fetch(`http://localhost:3000/api/v1/board/update/${data.board.id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
-      body: JSON.stringify({ board_id: `${board.id}` }),
-    }).then((response) => dispatch(deleteBoard(board)));
+      body: JSON.stringify({
+        board_id: `${data.board.id}`,
+        archived: `${!data.board.archived}`,
+        date_archived: `${data.dateArchived}`,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(updateBoard(JSONresponse)));
   };
 };
 export const updateBoardBackground = (board, background) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -87,7 +100,7 @@ export const updateBoardBackground = (board, background) => {
 };
 export const removeStarred = (board) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/${board.id}/update`, {
+    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
