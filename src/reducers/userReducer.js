@@ -9,11 +9,11 @@ const defaultState = {
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_USER":
-      console.log(
-        `%c USER-LOGIN-PAYLOAD, userReducer`,
-        "color: red",
-        action.payload
-      );
+      // console.log(
+      //   `%c USER-LOGIN-PAYLOAD, userReducer`,
+      //   "color: red",
+      //   action.payload
+      // );
       return {
         ...state,
         user: action.payload.user,
@@ -22,7 +22,7 @@ const userReducer = (state = defaultState, action) => {
       };
     case "SET_PAGE":
       return { ...state, activePage: action.page };
-    case "AUTHENTICATING_USER": //tells the app we're fetching
+    case "AUTHENTICATING_USER":
       return { ...state, authenticatingUser: true };
     case "AUTHENTICATED_USER":
       return { ...state, authenticatingUser: false };

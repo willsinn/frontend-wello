@@ -5,9 +5,9 @@ import TaskWindow from "../containers/TaskWindow";
 import QuickTaskEditor from "../components/QuickTaskEditor";
 import { connect } from "react-redux";
 import { fetchChecklists } from "../actions/checklists";
-import { positionNewTask } from "../actions/workspace";
 
-const TaskList = ({ card, position, dispatch }) => {
+const TaskList = ({ card, dispatch }) => {
+  const [addTask, setAddTask] = useState(false);
   const [editor, setEditor] = useState(false);
   const [window, setWindow] = useState(false);
   const [editTask, setEditTask] = useState({});
@@ -31,7 +31,16 @@ const TaskList = ({ card, position, dispatch }) => {
     setEditTask({});
     setWindow(false);
   };
-
+  const handleAddTask = (e) => {
+    if (e) {
+      setAddTask(true);
+    }
+  };
+  const handleCloseAddTask = (e) => {
+    if (e) {
+      setAddTask(false);
+    }
+  };
   const renderTasks = () => {
     if (card && card.tasks && card.tasks.length > 0) {
       return card.tasks.map((task) => {
@@ -78,15 +87,11 @@ const TaskList = ({ card, position, dispatch }) => {
           handleUpdateEditTask={handleUpdateEditTask}
         />
       ) : null}
-      {position === "first" ? <AddTask card={card} /> : null}
       {renderTasks()}
-      {position === "last" ? (
-        <AddTask card={card} />
+      {addTask ? (
+        <AddTask card={card} handleCloseAddTask={handleCloseAddTask} />
       ) : (
-        <div
-          className="task-composer"
-          onClick={(e) => dispatch(positionNewTask("last"))}
-        >
+        <div className="task-composer" onClick={(e) => handleAddTask(e)}>
           <span className="open-task-composer">
             <span
               style={{
@@ -104,9 +109,5 @@ const TaskList = ({ card, position, dispatch }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    position: state.workspaceReducer.position,
-  };
-};
-export default connect(mapStateToProps)(TaskList);
+
+export default connect()(TaskList);

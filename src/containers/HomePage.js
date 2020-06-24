@@ -34,7 +34,6 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
     <div id="root">
       <NavBar />
       {fetchArchives()}
-
       {workspace && workspace.id ? (
         <Redirect to="/board" />
       ) : (

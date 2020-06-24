@@ -1589,7 +1589,7 @@ button {
   flex: 0 0 auto;
   padding: 10px 8px;
   position: relative;
-  max-height: 20px;
+  max-height: 26px;
   justify-content: space-between;
   align-content: center;
   width: 214px;
@@ -1598,7 +1598,7 @@ button {
   font-weight: 600;
   margin: 0 0 8px 12px;
   font-size: 1.32em;
-  line-height: 20px;
+  line-height: 24px;
   cursor: pointer;
   overflow-x: hidden;
   overflow-y: auto;

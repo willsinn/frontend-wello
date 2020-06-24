@@ -57,7 +57,6 @@ const TaskWindow = ({
   const openLabelMenu = () => {
     setSidebtn("labels");
   };
-  console.log(taskLabels);
   return (
     <div className="window-modal">
       <div className="task-window-wrap">
