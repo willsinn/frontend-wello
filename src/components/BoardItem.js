@@ -51,7 +51,7 @@ const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
   return (
     <div style={renderBg()} className="board-item">
       <div
-        style={{ width: "100%", height: "80px" }}
+        style={{ width: "100%", height: "36px" }}
         onClick={(e) => {
           handleClick(e, "workspace");
         }}

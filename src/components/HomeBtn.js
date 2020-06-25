@@ -1,22 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import { clearWorkspace } from "../actions/workspace";
 
-const HomeBtn = ({ dispatch }) => {
-  const handleClick = (e) => {
-    if (e) {
-      dispatch(clearWorkspace());
-    }
-  };
+const HomeBtn = () => {
   return (
-    <button className="navbar-btn" onClick={(e) => handleClick(e)}>
+    <a href="/home" className="navbar-btn">
       <img
         className="icon"
         src={require("../images/home-icon.png")}
         alt="home"
         opacity="1"
       />
-    </button>
+    </a>
   );
 };
 export default connect()(HomeBtn);

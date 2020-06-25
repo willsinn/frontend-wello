@@ -38,65 +38,69 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
         <Redirect to="/board" />
       ) : (
         <div className="home-page">
-          <div style={{ position: "absolute", top: "40px", left: "0px" }}>
-            <nav className="archive-boards-menu">
-              <div style={{ width: "220px" }}>
-                <ul>
-                  <li
-                    onClick={(e) => handleBoardsClick(e)}
-                    style={{ marginBottom: "4px" }}
-                  >
-                    {activePage === "boards" ? (
-                      <span
-                        className="archive-boards-menu-link"
-                        style={{
-                          backgroundColor: "#e4f0f6",
-                          color: "#0079bf",
-                        }}
-                      >
-                        Boards
-                      </span>
-                    ) : (
-                      <span className="archive-boards-menu-link">Boards</span>
-                    )}
-                  </li>
+          <div className="home-inner-container">
+            <div>
+              <nav className="archive-boards-menu">
+                <div style={{ width: "220px" }}>
+                  <ul>
+                    <li
+                      onClick={(e) => handleBoardsClick(e)}
+                      style={{ marginBottom: "4px" }}
+                    >
+                      {activePage === "boards" ? (
+                        <span
+                          className="archive-boards-menu-link"
+                          style={{
+                            backgroundColor: "#e4f0f6",
+                            color: "#0079bf",
+                          }}
+                        >
+                          Boards
+                        </span>
+                      ) : (
+                        <span className="archive-boards-menu-link">Boards</span>
+                      )}
+                    </li>
 
-                  <li
-                    onClick={(e) => handleArchivesClick(e)}
-                    style={{ marginBottom: "4px" }}
-                  >
-                    {activePage === "archives" ? (
-                      <span
-                        className="archive-boards-menu-link"
-                        style={{
-                          backgroundColor: "#e4f0f6",
-                          color: "#0079bf",
-                        }}
-                      >
-                        Archives
-                      </span>
-                    ) : (
-                      <span className="archive-boards-menu-link">Archives</span>
-                    )}
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-
-          <div className="home-right-content-container">
-            {boards && boards.length > 0 && activePage === "boards" ? (
-              <div className="boards-container">
-                <div className="boards-section">
-                  <StarredBoardList boards={boards} />
+                    <li
+                      onClick={(e) => handleArchivesClick(e)}
+                      style={{ marginBottom: "4px" }}
+                    >
+                      {activePage === "archives" ? (
+                        <span
+                          className="archive-boards-menu-link"
+                          style={{
+                            backgroundColor: "#e4f0f6",
+                            color: "#0079bf",
+                          }}
+                        >
+                          Archives
+                        </span>
+                      ) : (
+                        <span className="archive-boards-menu-link">
+                          Archives
+                        </span>
+                      )}
+                    </li>
+                  </ul>
                 </div>
+              </nav>
+            </div>
 
-                <div className="boards-section">
-                  <PersonalBoardList boards={boards} />
+            <div className="home-right-content-container">
+              {boards && boards.length > 0 && activePage === "boards" ? (
+                <div className="boards-container">
+                  <div className="boards-section">
+                    <StarredBoardList boards={boards} />
+                  </div>
+
+                  <div className="boards-section">
+                    <PersonalBoardList boards={boards} />
+                  </div>
                 </div>
-              </div>
-            ) : null}
-            {activePage === "archives" ? <ArchivesPage /> : null}
+              ) : null}
+              {activePage === "archives" ? <ArchivesPage /> : null}
+            </div>
           </div>
         </div>
       )}

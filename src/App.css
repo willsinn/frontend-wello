@@ -81,6 +81,7 @@ button {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  width: 100%;
 }
 .user.right-side {
   display: flex;
@@ -179,10 +180,10 @@ button {
   margin-left: 4px;
 }
 .sidelist-li {
-  height: 32px;
+  height: 36px;
   min-width: 225px;
-  margin-top: 5.5px;
-  margin-bottom: 5.5px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 .project-list-title {
   height: 100%;
@@ -197,7 +198,8 @@ button {
   display: flex;
   width: 250px;
   background-color: #fff;
-  border: 0.75px solid black;
+  box-shadow: 0 12px 24px -6px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
   border-radius: 3px;
   padding: 0;
   position: fixed;
@@ -205,11 +207,9 @@ button {
   left: 0;
 }
 .sidelist-ul {
-  /* overflow: auto; */
   list-style-type: none;
   padding: 0;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 16px 12px;
 }
 .navbar-btn {
   background-color: hsla(0, 0%, 100%, 0.3);
@@ -2764,7 +2764,7 @@ button {
   outline: 0;
 }
 .home-right-content-container {
-  margin: 24px 0 0 320px;
+  margin: 24px 0 0 0;
   height: 100%;
   width: 70%;
   color: #172b4d;
@@ -2909,7 +2909,7 @@ button {
   width: 110px;
 }
 .archive-status {
-  width: 275px;
+  /* width: 275px; */
   height: 100%;
 }
 .archive-title-info {
@@ -2946,4 +2946,9 @@ button {
 }
 .card-nested-tasks {
   display: flex;
+}
+.home-inner-container {
+  width: 70%;
+  display: flex;
+  min-width: 800px;
 }
