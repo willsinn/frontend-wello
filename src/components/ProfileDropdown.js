@@ -40,13 +40,9 @@ const ProfileDropdown = ({ user, closeRightnav, dispatch }) => {
       </div>
       <ul>
         <li className="option-item">
-          <button
-            onClick={(e) => dispatch(setPage("profile"), closeRightnav(e))}
-            className="option-title js-member-profile"
-            data-tab="profile"
-          >
+          <a className="option-title js-member-activity active" href="/profile">
             <span>Profile and Visibility</span>
-          </button>
+          </a>
         </li>
         <li className="option-item">
           <button

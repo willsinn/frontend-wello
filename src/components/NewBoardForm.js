@@ -41,7 +41,6 @@ const NewBoardForm = ({ user, closeModal, dispatch }) => {
     setTeam(initialTeam);
     setBackground(initialBackground);
     closeModal(e);
-    debugger;
     e.target.firstElementChild.value = "";
   };
 

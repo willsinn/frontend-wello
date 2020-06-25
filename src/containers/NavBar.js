@@ -26,15 +26,15 @@ const NavBar = ({ user }) => {
     setModal(true);
   };
   const renderInitials = () => {
-    const split = user.name.split(" ");
     let initials = "";
-    if (split) {
-      split.forEach((letter) => {
+    const nameSplit = user.name.split(" ");
+    if (nameSplit) {
+      nameSplit.forEach((letter) => {
         const first = letter[0].toUpperCase();
         initials += first;
       });
     }
-    if (initials.length !== 2) {
+    if (initials.length === 1) {
       initials += initials;
     }
     if (initials.length > 2) {
