@@ -145,10 +145,7 @@ export const postNewTask = (card, callback) => {
       }),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => {
-        dispatch(addTask(JSONresponse));
-        callback();
-      });
+      .then((JSONresponse) => dispatch(addTask(JSONresponse)));
   };
 };
 export const archiveTask = (task, callback) => {

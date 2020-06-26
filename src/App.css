@@ -81,6 +81,7 @@ button {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  width: 100%;
 }
 .user.right-side {
   display: flex;
@@ -179,10 +180,10 @@ button {
   margin-left: 4px;
 }
 .sidelist-li {
-  height: 32px;
+  height: 36px;
   min-width: 225px;
-  margin-top: 5.5px;
-  margin-bottom: 5.5px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 .project-list-title {
   height: 100%;
@@ -197,7 +198,8 @@ button {
   display: flex;
   width: 250px;
   background-color: #fff;
-  border: 0.75px solid black;
+  box-shadow: 0 12px 24px -6px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
   border-radius: 3px;
   padding: 0;
   position: fixed;
@@ -205,11 +207,9 @@ button {
   left: 0;
 }
 .sidelist-ul {
-  /* overflow: auto; */
   list-style-type: none;
   padding: 0;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 16px 12px;
 }
 .navbar-btn {
   background-color: hsla(0, 0%, 100%, 0.3);
@@ -273,12 +273,11 @@ button {
 }
 .board-tiles-ul {
   width: 100%;
-  height: 70%;
+  height: fit-content;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  overflow-y: auto;
 }
 .board-tile {
   height: 100px;
@@ -1589,7 +1588,7 @@ button {
   flex: 0 0 auto;
   padding: 10px 8px;
   position: relative;
-  max-height: 20px;
+  max-height: 26px;
   justify-content: space-between;
   align-content: center;
   width: 214px;
@@ -1598,7 +1597,7 @@ button {
   font-weight: 600;
   margin: 0 0 8px 12px;
   font-size: 1.32em;
-  line-height: 20px;
+  line-height: 24px;
   cursor: pointer;
   overflow-x: hidden;
   overflow-y: auto;
@@ -2765,21 +2764,22 @@ button {
   outline: 0;
 }
 .home-right-content-container {
-  margin: 24px 0 0 320px;
+  margin: 24px 0 0 0;
   height: 100%;
-  width: 100%;
+  width: 70%;
   color: #172b4d;
 }
 .boards-section {
   padding: 0 0 20px;
   margin: 0 auto;
+  min-height: 150px;
+  height: fit-content;
   max-width: 1250px;
 }
 .board-tiles-section-header {
   margin: 0 0 0 40px;
   position: relative;
   display: flex;
-  width: 100%;
 }
 .boards-listed-tiles {
   display: flex;
@@ -2810,6 +2810,7 @@ button {
   height: fit-content;
   min-width: 600px;
   max-width: 75%;
+  margin: 20px 0 0 4px;
 }
 .archives-list-item {
   margin: 2.5px 2px;
@@ -2908,7 +2909,7 @@ button {
   width: 110px;
 }
 .archive-status {
-  width: 275px;
+  /* width: 275px; */
   height: 100%;
 }
 .archive-title-info {
@@ -2945,4 +2946,9 @@ button {
 }
 .card-nested-tasks {
   display: flex;
+}
+.home-inner-container {
+  width: 70%;
+  display: flex;
+  min-width: 800px;
 }

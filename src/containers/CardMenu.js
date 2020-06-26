@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { archiveCard, positionNewTask } from "../actions/workspace";
+import { archiveCard } from "../actions/workspace";
 
 const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
   const handleAddFirstClick = (e) => {
     if (e) {
-      dispatch(positionNewTask("first"));
+      dispatch(archiveCard(card));
       handleCloseCardMenu(e);
     }
   };
@@ -23,36 +23,17 @@ const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
             </span>
           </button>
         </div>
-      </div>
-      <hr />
-      <ul>
-        <li className="option-item">
+        <hr />
+        <div className="option-item">
           <button
             onClick={(e) => handleAddFirstClick(e)}
-            className="option-title js-member-profile"
-            data-tab="profile"
-          >
-            <span>Add Task...</span>
-          </button>
-        </li>
-        <li className="option-item">
-          <button
-            className="option-title js-member-activity active"
-            data-tab="cards"
-          >
-            <span>Copy List...</span>
-          </button>
-        </li>
-        <li className="option-item">
-          <button
-            onClick={(e) => dispatch(archiveCard(card))}
             className="option-title js-member-cards"
             data-tab="cards"
           >
             <span>Archive List...</span>
           </button>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   );
 };

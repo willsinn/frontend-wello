@@ -46,7 +46,6 @@ export const userLogin = (email, password) => {
   };
 };
 export const fetchCurrentUser = () => {
-  // takes the token in localStorage and finds out who it belongs to
   return (dispatch) => {
     dispatch({ type: "AUTHENTICATING_USER" }); //tells the app we are fetching
     fetch("http://localhost:3000/api/v1/profile", {

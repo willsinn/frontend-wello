@@ -38,15 +38,15 @@ const NewBoardForm = ({ user, closeModal, dispatch }) => {
   };
   const resetForm = (e) => {
     setTitle(initialTitle);
-    setTitle(initialTeam);
-    setTitle(initialBackground);
+    setTeam(initialTeam);
+    setBackground(initialBackground);
     closeModal(e);
+    e.target.firstElementChild.value = "";
   };
 
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      console.log(title, background);
       dispatch(postNewBoard({ board: { title, background, team }, user }));
       resetForm(e);
     }

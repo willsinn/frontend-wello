@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postNewTask, positionNewTask } from "../actions/workspace";
+import { postNewTask } from "../actions/workspace";
 
 const initialState = { note: "" };
-const AddTask = ({ card, position, dispatch }) => {
+const AddTask = ({ card, handleCloseAddTask, dispatch }) => {
   const [note, setNote] = useState(initialState);
   const clearState = (e) => {
     setNote({ ...initialState });
@@ -16,19 +16,11 @@ const AddTask = ({ card, position, dispatch }) => {
   const handleSubmitTask = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(
-        postNewTask({ note, card: card }, () => dispatch(positionNewTask("")))
-      );
+      dispatch(postNewTask({ note, card: card }));
+      handleCloseAddTask(e);
       clearState(e);
     }
   };
-  console.log("ADDTASK, position task accordingly", position);
-
-  // CREATE METHOD TO ORGANIZE AND RETURN TASKS IN ORDER
-  // 1. add column order:int, first task is set at 1000
-  // 2. addFirst takes lowest order:num (first elem in array) and creates a new task with lowestOrderNum - 1;
-  // 3. addLast does the opposite
-  // 4. the two states are passed into AddTask to help determine where the user addedTask
   return (
     <div className="task-item-wrap">
       <form onSubmit={handleSubmitTask} style={{ marginBottom: "4px" }}>
@@ -45,7 +37,7 @@ const AddTask = ({ card, position, dispatch }) => {
           Add Task
         </button>
         <button
-          onClick={(e) => dispatch(positionNewTask(""))}
+          onClick={(e) => handleCloseAddTask(e)}
           className="close-add-btn"
         >
           ✕
@@ -54,9 +46,5 @@ const AddTask = ({ card, position, dispatch }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    position: state.workspaceReducer.position,
-  };
-};
-export default connect(mapStateToProps)(AddTask);
+
+export default connect()(AddTask);

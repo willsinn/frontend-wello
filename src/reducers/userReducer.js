@@ -22,7 +22,7 @@ const userReducer = (state = defaultState, action) => {
       };
     case "SET_PAGE":
       return { ...state, activePage: action.page };
-    case "AUTHENTICATING_USER": //tells the app we're fetching
+    case "AUTHENTICATING_USER":
       return { ...state, authenticatingUser: true };
     case "AUTHENTICATED_USER":
       return { ...state, authenticatingUser: false };

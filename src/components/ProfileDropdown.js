@@ -42,37 +42,19 @@ const ProfileDropdown = ({ user, closeRightnav, dispatch }) => {
         <li className="option-item">
           <button
             onClick={(e) => dispatch(setPage("profile"), closeRightnav(e))}
-            className="option-title js-member-profile"
-            data-tab="profile"
-          >
-            <span>Profile and Visibility</span>
-          </button>
-        </li>
-        <li className="option-item">
-          <button
-            onClick={(e) => dispatch(setPage("profile"), closeRightnav(e))}
             className="option-title js-member-activity active"
             data-tab="cards"
           >
-            <span> Activity</span>
+            <span> Profile</span>
           </button>
         </li>
         <li className="option-item">
           <button
-            onClick={(e) => dispatch(setPage("profile"), closeRightnav(e))}
-            className="option-title js-member-cards"
+            onClick={(e) => dispatch(setPage("archives"), closeRightnav(e))}
+            className="option-title js-member-activity active"
             data-tab="cards"
           >
-            <span>Cards</span>
-          </button>
-        </li>
-        <li className="option-item">
-          <button
-            onClick={(e) => dispatch(setPage("profile"), closeRightnav(e))}
-            className="option-title js-member-account"
-            data-tab="settings"
-          >
-            <span> Settings</span>
+            <span> Archives</span>
           </button>
         </li>
         <hr />

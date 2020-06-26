@@ -48,19 +48,9 @@ export const postNewBoard = (data) => {
       .then((JSONresponse) => dispatch(addNewBoard(JSONresponse)));
   };
 };
-// export const deleteBoard = (board) => ({
-//   type: "DELETE_BOARD",
-//   board: board,
-// });
+
 export const archiveBoard = (data) => {
   return (dispatch) => {
-    // dispatch(
-    //   updateBoard({
-    //     ...data.board,
-    //     archived: true,
-    //     date_archived: data.dateArchived,
-    //   })
-    // );
     fetch(`http://localhost:3000/api/v1/board/update/${data.board.id}`, {
       method: "PUT",
       headers: {
@@ -93,9 +83,7 @@ export const updateBoardBackground = (board, background) => {
       }),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => {
-        dispatch(updateBoard(JSONresponse));
-      });
+      .then((JSONresponse) => dispatch(updateBoard(JSONresponse)));
   };
 };
 export const removeStarred = (board) => {
