@@ -2893,7 +2893,6 @@ button {
   width: 110px;
 }
 .archive-status {
-  /* width: 275px; */
   height: 100%;
 }
 .archive-title-info {
@@ -2935,4 +2934,13 @@ button {
   width: 70%;
   display: flex;
   min-width: 800px;
+}
+.settings-form {
+  width: 75%;
+}
+.settings-page {
+  margin-top: 40px;
+}
+.settings-btn {
+  margin-top: 12px;
 }

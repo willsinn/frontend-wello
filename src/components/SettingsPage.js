@@ -1,67 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { changeUserAttrs } from "../actions/user";
 
-const SettingsPage = () => {
+const SettingsPage = ({ user, dispatch }) => {
+  const [chgName, setChgName] = useState(user.name);
+  const [chgEmail, setChgEmail] = useState(user.email);
+
+  const handleChange = (e, actionType) => {
+    if (actionType === "name") {
+      setChgName(e.target.value);
+    }
+    if (actionType === "email") {
+      setChgEmail(e.target.value);
+    }
+  };
+  const handleSubmit = (e) => {
+    if (e) {
+      dispatch(
+        changeUserAttrs({ id: user.id, name: chgName, email: chgEmail })
+      );
+    }
+  };
   return (
-    <div>
-      <hr />
-      <h3>About</h3>
-      <div>
-        <div>
-          <h3>Avatar</h3>
-          <div>
-            <div title="William Sinn (williamsinn1)">
-              <span>WS</span>
-            </div>
-            <button>Change Avatar…</button>
-          </div>
-          <div>
-            <span name="public" role="presentation" />
-            <span>Always Public</span>
-          </div>
-        </div>
-        <form>
-          <div>
-            <span>Full Name</span>
-            <div>
-              <span name="public" role="presentation" />
-              <span>Always Public</span>
-            </div>
-          </div>
-          <div>
-            <span>William Sinn</span>
-          </div>
-          <div>
-            <span>Initials</span>
-            <div>
-              <span name="public" role="presentation" />
-              <span>Always Public</span>
-            </div>
-          </div>
-          <div>
-            <span>WS</span>
-          </div>
-          <div>
-            <span>Username</span>
-            <div>
-              <span>Always Public</span>
-            </div>
-          </div>
-          <div>
-            <input name="username" value="williamsinn1" />
-          </div>
-          <div>
-            <span>Bio</span>
-            <div>
-              <span name="public" role="presentation" />
-              <span>Always Public</span>
-            </div>
-          </div>
-          <textarea />
-          <button>Save</button>
-        </form>
-      </div>
+    <div className="settings-page">
+      <form className="settings-form" onSubmit={handleSubmit}>
+        <label>Name</label>
+        <input
+          className="signin-input"
+          type="text"
+          name="name"
+          onChange={(e) => handleChange(e, "name")}
+          value={chgName}
+          required
+        />
+        <label>Email</label>
+        <input
+          className="signin-input"
+          type="text"
+          name="email"
+          onChange={(e) => handleChange(e, "email")}
+          value={chgEmail}
+          required
+        />
+        <hr />
+        <button
+          className="settings-btn signin-btn checklist-btn add-list-btn"
+          type="submit"
+        >
+          Save
+        </button>
+      </form>
     </div>
   );
 };
-
-export default SettingsPage;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user,
+  };
+};
+export default connect(mapStateToProps)(SettingsPage);
