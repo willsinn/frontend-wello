@@ -3,7 +3,6 @@ import PlusDropdown from "../components/PlusDropdown";
 import NotificationsDropdown from "../components/NotificationsDropdown";
 import ProfileDropdown from "../components/ProfileDropdown";
 import SideDropdownList from "../components/SideDropdownList";
-import HomeBtn from "../components/HomeBtn";
 import AddBoardModal from "../components/AddBoardModal";
 import { connect } from "react-redux";
 
@@ -46,7 +45,14 @@ const NavBar = ({ user }) => {
   return (
     <div id="navbar">
       <div className="left-navbar">
-        <HomeBtn close={closeRightnav} />
+        <a href="/home" className="navbar-btn">
+          <img
+            className="icon"
+            src={require("../images/home-icon.png")}
+            alt="home"
+            opacity="1"
+          />
+        </a>
         <button className="navbar-btn" onClick={(e) => setSidelist(!sidelist)}>
           <span className="wello-icon-white" />
         </button>

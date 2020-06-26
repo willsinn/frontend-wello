@@ -3,6 +3,7 @@ import withAuth from "../hocs/withAuth";
 import PersonalBoardList from "../components/PersonalBoardList";
 import StarredBoardList from "../components/StarredBoardList";
 import ArchivesPage from "./ArchivesPage";
+import ProfilePage from "./ProfilePage";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
 import { fetchUserBoards } from "../actions/boards";
@@ -65,27 +66,6 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                         <span className="archive-boards-menu-link">Boards</span>
                       )}
                     </li>
-
-                    <li
-                      onClick={(e) => handleLinkClick(e, "archives")}
-                      style={{ marginBottom: "4px" }}
-                    >
-                      {activePage === "archives" ? (
-                        <span
-                          className="archive-boards-menu-link"
-                          style={{
-                            backgroundColor: "#e4f0f6",
-                            color: "#0079bf",
-                          }}
-                        >
-                          Archives
-                        </span>
-                      ) : (
-                        <span className="archive-boards-menu-link">
-                          Archives
-                        </span>
-                      )}
-                    </li>
                     <li
                       onClick={(e) => handleLinkClick(e, "profile")}
                       style={{ marginBottom: "4px" }}
@@ -106,15 +86,33 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                         </span>
                       )}
                     </li>
+                    <li
+                      onClick={(e) => handleLinkClick(e, "archives")}
+                      style={{ marginBottom: "4px" }}
+                    >
+                      {activePage === "archives" ? (
+                        <span
+                          className="archive-boards-menu-link"
+                          style={{
+                            backgroundColor: "#e4f0f6",
+                            color: "#0079bf",
+                          }}
+                        >
+                          Archives
+                        </span>
+                      ) : (
+                        <span className="archive-boards-menu-link">
+                          Archives
+                        </span>
+                      )}
+                    </li>
                   </ul>
                 </div>
               </nav>
             </div>
 
             <div className="home-right-content-container">
-              {activePage === "archives" ? (
-                <ArchivesPage />
-              ) : (
+              {activePage === null || activePage === "boards" ? (
                 <div className="boards-container">
                   <div className="boards-section">
                     <StarredBoardList boards={boards} />
@@ -123,7 +121,9 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                     <PersonalBoardList boards={boards} />
                   </div>
                 </div>
-              )}
+              ) : null}
+              {activePage === "archives" ? <ArchivesPage /> : null}
+              {activePage === "profile" ? <ProfilePage /> : null}
             </div>
           </div>
         </div>
