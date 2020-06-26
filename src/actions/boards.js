@@ -51,6 +51,7 @@ export const postNewBoard = (data) => {
 
 export const archiveBoard = (data) => {
   return (dispatch) => {
+    debugger;
     fetch(`http://localhost:3000/api/v1/board/update/${data.board.id}`, {
       method: "PUT",
       headers: {
@@ -60,8 +61,8 @@ export const archiveBoard = (data) => {
       },
       body: JSON.stringify({
         board_id: `${data.board.id}`,
-        archived: `${!data.board.archived}`,
-        date_archived: `${data.dateArchived}`,
+        archived: true,
+        date_archived: `${data.date_archived}`,
       }),
     })
       .then((response) => response.json())

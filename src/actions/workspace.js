@@ -158,8 +158,9 @@ export const archiveTask = (task, callback) => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        id: task.id,
-        archived: true,
+        id: `${task.id}`,
+        archived: `${true}`,
+        date_archived: `${task.date_archived}`,
       }),
     })
       .then((response) => response.json())

@@ -24,7 +24,7 @@ const SettingsPage = ({ user, dispatch }) => {
   return (
     <div className="settings-page">
       <form className="settings-form" onSubmit={handleSubmit}>
-        <label>Name</label>
+        <label>Full Name</label>
         <input
           className="signin-input"
           type="text"
