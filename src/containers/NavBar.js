@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PlusDropdown from "../components/PlusDropdown";
-import NotificationsDropdown from "../components/NotificationsDropdown";
 import ProfileDropdown from "../components/ProfileDropdown";
 import SideDropdownList from "../components/SideDropdownList";
 import AddBoardModal from "../components/AddBoardModal";
@@ -70,8 +69,6 @@ const NavBar = ({ user }) => {
                 openModal={openModal}
               />
             );
-          case "noti":
-            return <NotificationsDropdown closeRightnav={closeRightnav} />;
           case "prof":
             return <ProfileDropdown closeRightnav={closeRightnav} />;
           default:
@@ -91,14 +88,6 @@ const NavBar = ({ user }) => {
             className="icon"
             src={require("../images/add-new-icon.png")}
             alt="create"
-            opacity="1"
-          />
-        </button>
-        <button className="navbar-btn" onClick={(e) => setRightnav("noti")}>
-          <img
-            className="icon"
-            src={require("../images/notify-icon.png")}
-            alt="noti"
             opacity="1"
           />
         </button>

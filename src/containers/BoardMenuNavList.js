@@ -1,6 +1,4 @@
 import React from "react";
-import MenuActivityList from "../components/MenuActivityList";
-
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
 import Cityscape from "../images/cityscape.jpg";
@@ -11,7 +9,7 @@ import Waterfall from "../images/waterfall.jpeg";
 import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 
-const BoardMenuNavList = props => {
+const BoardMenuNavList = (props) => {
   const renderCurrBg = () => {
     switch (props.currBg) {
       case "lake":
@@ -43,7 +41,7 @@ const BoardMenuNavList = props => {
           </h3>
           <button
             className="board-menu-close-btn"
-            onClick={e => props.setSidebar(false)}
+            onClick={(e) => props.setSidebar(false)}
           >
             <span className="close-text">✕</span>
           </button>
@@ -53,7 +51,7 @@ const BoardMenuNavList = props => {
           <ul className="board-menu-nav-list">
             <li
               className="board-menu-nav-item"
-              onClick={e => props.setContent("about")}
+              onClick={(e) => props.setContent("about")}
             >
               <span className="board-menu-nav-btn">
                 <div className="wello-icon-gray menu-icon" />
@@ -65,7 +63,7 @@ const BoardMenuNavList = props => {
             </li>
             <li
               className="board-menu-nav-item"
-              onClick={e => props.setContent("bg")}
+              onClick={(e) => props.setContent("bg")}
             >
               <span className="board-menu-nav-btn">
                 <div
@@ -73,20 +71,14 @@ const BoardMenuNavList = props => {
                   style={renderCurrBg()}
                 />
                 <div>Change Background</div>
+                <div className="board-option-summary">
+                  Update this board background.
+                </div>
               </span>
             </li>
             <li
               className="board-menu-nav-item"
-              onClick={e => props.setContent("search")}
-            >
-              <span className="board-menu-nav-btn">
-                <div className="search-icon-gray menu-icon" />
-                <span>Search Cards</span>
-              </span>
-            </li>
-            <li
-              className="board-menu-nav-item"
-              onClick={e => props.setContent("more")}
+              onClick={(e) => props.setContent("more")}
             >
               <span className="board-menu-nav-btn">
                 <div className="dots-icon-gray menu-icon">...</div>
@@ -95,7 +87,6 @@ const BoardMenuNavList = props => {
             </li>
             <hr style={{ margin: "16px" }} />
           </ul>
-          <MenuActivityList />
         </div>
       </div>
     </div>

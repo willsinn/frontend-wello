@@ -822,24 +822,6 @@ button {
   width: 420px;
 }
 
-.tabbed-profile-header {
-  background-color: #f4f5f7;
-  height: 152px;
-  color: #172b4d;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
-    Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-}
-.tabbed-profile-header.wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 650px;
-  padding: 32px;
-  position: relative;
-}
 .user-initials {
   font-size: 22px;
   height: 48px;
@@ -1112,7 +1094,12 @@ button {
   position: relative;
   margin-top: 6px;
 }
-
+.profile-nicknames {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
 .input {
   -webkit-writing-mode: horizontal-tb !important;
   text-rendering: auto;
@@ -2531,9 +2518,6 @@ button {
   color: #091e42;
 }
 .editing-label {
-  width: 100%;
-}
-.label-input {
   width: 100%;
 }
 .task-window-label {

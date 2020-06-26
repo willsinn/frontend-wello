@@ -14,20 +14,11 @@ const ArchiveBoardBtn = ({ board, dispatch }) => {
   };
   return (
     <ul className="board-menu-nav-list">
-      <li className="board-menu-nav-item">
-        <span className="board-menu-nav-btn">
-          <div>
-            <span className="">
-              This action also archives associated cards and tasks.
-            </span>
-          </div>
-        </span>
-      </li>
       <li onClick={(e) => handleClick(e)} className="board-menu-nav-item">
         <span className="board-menu-nav-btn">
           <div className="del-icon menu-icon" />
           <div>
-            <span className="">Archive board.</span>
+            <span className="">Archive board</span>
           </div>
         </span>
       </li>
