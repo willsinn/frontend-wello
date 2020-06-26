@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { archiveCard } from "../actions/workspace";
+import { getCurrentDate } from "../utils";
 
 const CardMenu = ({ card, handleCloseCardMenu, dispatch }) => {
   const handleAddFirstClick = (e) => {
     if (e) {
-      dispatch(archiveCard(card));
+      dispatch(archiveCard({ card, date_archived: getCurrentDate() }));
       handleCloseCardMenu(e);
     }
   };
