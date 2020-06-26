@@ -15,14 +15,18 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
     dispatch(fetchUserBoards(user.id));
   }, [user.id, dispatch]);
 
-  const handleArchivesClick = (e) => {
+  const handleLinkClick = (e, linkType) => {
     if (e) {
-      dispatch(setPage("archives"));
-    }
-  };
-  const handleBoardsClick = (e) => {
-    if (e) {
-      dispatch(setPage("boards"));
+      switch (linkType) {
+        case "boards":
+          return dispatch(setPage("boards"));
+        case "archives":
+          return dispatch(setPage("archives"));
+        case "profile":
+          return dispatch(setPage("profile"));
+        default:
+          return;
+      }
     }
   };
   const fetchArchives = () => {
@@ -44,7 +48,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                 <div style={{ width: "220px" }}>
                   <ul>
                     <li
-                      onClick={(e) => handleBoardsClick(e)}
+                      onClick={(e) => handleLinkClick(e, "boards")}
                       style={{ marginBottom: "4px" }}
                     >
                       {activePage === "boards" ? (
@@ -63,7 +67,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                     </li>
 
                     <li
-                      onClick={(e) => handleArchivesClick(e)}
+                      onClick={(e) => handleLinkClick(e, "archives")}
                       style={{ marginBottom: "4px" }}
                     >
                       {activePage === "archives" ? (
@@ -82,21 +86,44 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                         </span>
                       )}
                     </li>
+                    <li
+                      onClick={(e) => handleLinkClick(e, "profile")}
+                      style={{ marginBottom: "4px" }}
+                    >
+                      {activePage === "profile" ? (
+                        <span
+                          className="archive-boards-menu-link"
+                          style={{
+                            backgroundColor: "#e4f0f6",
+                            color: "#0079bf",
+                          }}
+                        >
+                          Profile
+                        </span>
+                      ) : (
+                        <span className="archive-boards-menu-link">
+                          Profile
+                        </span>
+                      )}
+                    </li>
                   </ul>
                 </div>
               </nav>
             </div>
 
             <div className="home-right-content-container">
-              <div className="boards-container">
-                <div className="boards-section">
-                  <StarredBoardList boards={boards} />
+              {activePage === "archives" ? (
+                <ArchivesPage />
+              ) : (
+                <div className="boards-container">
+                  <div className="boards-section">
+                    <StarredBoardList boards={boards} />
+                  </div>
+                  <div className="boards-section">
+                    <PersonalBoardList boards={boards} />
+                  </div>
                 </div>
-                <div className="boards-section">
-                  <PersonalBoardList boards={boards} />
-                </div>
-              </div>
-              {activePage === "archives" ? <ArchivesPage /> : null}
+              )}
             </div>
           </div>
         </div>
