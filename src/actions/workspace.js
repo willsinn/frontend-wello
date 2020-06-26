@@ -1,5 +1,3 @@
-import AddCard from "../components/AddCard";
-
 export const clearWorkspace = () => ({
   type: "CLEAR_WORKSPACE",
 });
@@ -79,7 +77,7 @@ export const postNewCard = (board, callback) => {
   };
 };
 
-export const fetchCard = (card, dispatch) => {
+export const fetchCard = (card) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/api/v1/card/${card.id}`, {
       headers: {
@@ -132,9 +130,9 @@ export const archiveCard = (data) => {
       });
   };
 };
-export const postNewTask = (card, callback) => {
+export const postNewTask = (data) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/card/${card.card.id}/tasks/new`, {
+    fetch(`http://localhost:3000/api/v1/card/${data.card.id}/tasks/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -142,8 +140,8 @@ export const postNewTask = (card, callback) => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        card_id: card.card.id,
-        note: card.note,
+        card_id: data.card.id,
+        note: data.note,
         task_desc: "",
       }),
     })

@@ -2,6 +2,7 @@ import React from "react";
 import ArchiveItemBoard from "./ArchiveItemBoard";
 import ArchiveItemCard from "./ArchiveItemCard";
 import ArchiveItemTask from "./ArchiveItemTask";
+import { connect } from "react-redux";
 
 const ArchivesList = ({ archives }) => {
   const renderArchived = () => {
@@ -46,5 +47,9 @@ const ArchivesList = ({ archives }) => {
 
   return <ul className="archive-list">{renderArchived()}</ul>;
 };
-
-export default ArchivesList;
+const mapStateToProps = (state) => {
+  return {
+    archives: state.archiveReducer.archives,
+  };
+};
+export default connect(mapStateToProps)(ArchivesList);
