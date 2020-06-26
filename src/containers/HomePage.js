@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import withAuth from "../hocs/withAuth";
 import PersonalBoardList from "../components/PersonalBoardList";
 import StarredBoardList from "../components/StarredBoardList";
-import AboutPage from "../components/AboutPage";
+import SettingsPage from "../components/SettingsPage";
 import ArchivesPage from "./ArchivesPage";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
@@ -34,20 +34,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
     }
     return initials;
   };
-  const handleLinkClick = (e, linkType) => {
-    if (e) {
-      switch (linkType) {
-        case "boards":
-          return dispatch(setPage("boards"));
-        case "archives":
-          return dispatch(setPage("archives"));
-        case "about":
-          return dispatch(setPage("about"));
-        default:
-          return;
-      }
-    }
-  };
+
   const fetchArchives = () => {
     if (boards && boards.length > 0) {
       dispatch(setArchives({ userBoards: boards }));
@@ -74,7 +61,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                   <div style={{ width: "220px" }}>
                     <ul>
                       <li
-                        onClick={(e) => handleLinkClick(e, "boards")}
+                        onClick={(e) => dispatch(setPage("boards"))}
                         style={{ marginBottom: "4px" }}
                       >
                         {activePage === "boards" ? (
@@ -95,7 +82,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                       </li>
 
                       <li
-                        onClick={(e) => handleLinkClick(e, "archives")}
+                        onClick={(e) => dispatch(setPage("archives"))}
                         style={{ marginBottom: "4px" }}
                       >
                         {activePage === "archives" ? (
@@ -116,10 +103,10 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                       </li>
 
                       <li
-                        onClick={(e) => handleLinkClick(e, "about")}
+                        onClick={(e) => dispatch(setPage("settings"))}
                         style={{ marginBottom: "4px" }}
                       >
-                        {activePage === "about" ? (
+                        {activePage === "settings" ? (
                           <span
                             className="archive-boards-menu-link"
                             style={{
@@ -127,11 +114,11 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                               color: "#0079bf",
                             }}
                           >
-                            About
+                            Settings
                           </span>
                         ) : (
                           <span className="archive-boards-menu-link">
-                            About
+                            Settings
                           </span>
                         )}
                       </li>
@@ -155,8 +142,8 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                       );
                     case "archives":
                       return <ArchivesPage />;
-                    case "about":
-                      return <AboutPage />;
+                    case "settings":
+                      return <SettingsPage />;
                     default:
                       return null;
                   }

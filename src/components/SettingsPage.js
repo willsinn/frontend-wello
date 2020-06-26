@@ -1,6 +1,6 @@
 import React from "react";
 
-const AboutPage = (props) => {
+const SettingsPage = () => {
   return (
     <div>
       <hr />
@@ -64,4 +64,4 @@ const AboutPage = (props) => {
   );
 };
 
-export default AboutPage;
+export default SettingsPage;
