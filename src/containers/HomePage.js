@@ -88,17 +88,14 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
             </div>
 
             <div className="home-right-content-container">
-              {boards && boards.length > 0 && activePage === "boards" ? (
-                <div className="boards-container">
-                  <div className="boards-section">
-                    <StarredBoardList boards={boards} />
-                  </div>
-
-                  <div className="boards-section">
-                    <PersonalBoardList boards={boards} />
-                  </div>
+              <div className="boards-container">
+                <div className="boards-section">
+                  <StarredBoardList boards={boards} />
                 </div>
-              ) : null}
+                <div className="boards-section">
+                  <PersonalBoardList boards={boards} />
+                </div>
+              </div>
               {activePage === "archives" ? <ArchivesPage /> : null}
             </div>
           </div>
