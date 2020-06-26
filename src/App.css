@@ -2792,8 +2792,7 @@ button {
   display: flex;
   flex-direction: column;
   height: fit-content;
-  min-width: 600px;
-  max-width: 75%;
+  width: 480px;
   margin: 20px 0 0 4px;
 }
 .archives-list-item {
@@ -2843,21 +2842,7 @@ button {
 .render-action {
   transform-origin: rotate(135deg);
 }
-.open-info-btn {
-  height: 19px;
-  width: 20px;
-  transform: rotate(90deg);
-  transform-origin: center;
-  margin-right: 2px;
-}
-.closed-info-btn {
-  height: 19px;
-  width: 20px;
-  transform: rotate(180deg);
-  transform-origin: center;
-  margin-right: 2px;
-  color: #5aac44;
-}
+
 .action-dropdown-icon {
   height: 14px;
   width: 14px;
@@ -2893,7 +2878,6 @@ button {
   width: 110px;
 }
 .archive-status {
-  /* width: 275px; */
   height: 100%;
 }
 .archive-title-info {
@@ -2935,4 +2919,13 @@ button {
   width: 70%;
   display: flex;
   min-width: 800px;
+}
+.settings-form {
+  width: 75%;
+}
+.settings-page {
+  margin-top: 80px;
+}
+.settings-btn {
+  margin-top: 12px;
 }

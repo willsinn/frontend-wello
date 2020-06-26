@@ -1,3 +1,5 @@
+import AddCard from "../components/AddCard";
+
 export const clearWorkspace = () => ({
   type: "CLEAR_WORKSPACE",
 });
@@ -109,9 +111,9 @@ export const updateCardGoal = (card, goal) => {
       });
   };
 };
-export const archiveCard = (card) => {
+export const archiveCard = (data) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/card/update/${card.id}`, {
+    fetch(`http://localhost:3000/api/v1/card/update/${data.card.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -119,8 +121,9 @@ export const archiveCard = (card) => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        id: card.id,
+        id: data.card.id,
         archived: true,
+        date_archived: data.date_archived,
       }),
     })
       .then((response) => response.json())
@@ -158,8 +161,9 @@ export const archiveTask = (task, callback) => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        id: task.id,
-        archived: true,
+        id: `${task.id}`,
+        archived: `${true}`,
+        date_archived: `${task.date_archived}`,
       }),
     })
       .then((response) => response.json())

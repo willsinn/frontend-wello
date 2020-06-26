@@ -60,8 +60,8 @@ export const archiveBoard = (data) => {
       },
       body: JSON.stringify({
         board_id: `${data.board.id}`,
-        archived: `${!data.board.archived}`,
-        date_archived: `${data.dateArchived}`,
+        archived: true,
+        date_archived: `${data.date_archived}`,
       }),
     })
       .then((response) => response.json())
@@ -102,5 +102,24 @@ export const removeStarred = (board) => {
     })
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(updateBoard(JSONresponse)));
+  };
+};
+export const restoreBoard = (board, callback) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({
+        id: `${board.id}`,
+        archived: false,
+        date_archived: "",
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(addNewBoard(JSONresponse)), callback());
   };
 };

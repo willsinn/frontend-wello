@@ -30,29 +30,11 @@ const ArchivesList = ({ archives }) => {
 
           switch (elemType) {
             case "board":
-              return (
-                <ArchiveItemBoard
-                  key={aKey}
-                  archiveType={elemType}
-                  boardArchive={archive}
-                />
-              );
+              return <ArchiveItemBoard key={aKey} boardArchive={archive} />;
             case "card":
-              return (
-                <ArchiveItemCard
-                  key={aKey}
-                  archiveType={elemType}
-                  cardArchive={archive}
-                />
-              );
+              return <ArchiveItemCard key={aKey} cardArchive={archive} />;
             case "task":
-              return (
-                <ArchiveItemTask
-                  key={aKey}
-                  archiveType={elemType}
-                  taskArchive={archive}
-                />
-              );
+              return <ArchiveItemTask key={aKey} taskArchive={archive} />;
             default:
               return console.log("ERROR: FAILING ARCHIVE RENDER!");
           }

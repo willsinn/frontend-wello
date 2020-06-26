@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { archiveTask, updateTaskNote } from "../actions/workspace";
+import { getCurrentDate } from "../utils";
 import { connect } from "react-redux";
 import LabelMenu from "../containers/LabelMenu";
 
@@ -65,7 +66,12 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
         </button>
         <button
           onClick={(e) =>
-            dispatch(archiveTask(editTask, () => handleCloseQuickEditor(e)))
+            dispatch(
+              archiveTask(
+                { id: editTask.id, date_archived: getCurrentDate() },
+                () => handleCloseQuickEditor(e)
+              )
+            )
           }
           className="quick-task-edit-btn"
         >

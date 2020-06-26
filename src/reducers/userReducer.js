@@ -28,6 +28,8 @@ const userReducer = (state = defaultState, action) => {
       return { ...state, authenticatingUser: false };
     case "SET_ERROR":
       return { ...state, error: action.error };
+    case "UPDATE_USER":
+      return { ...state, user: action.user };
     case "USER_LOGOUT":
       localStorage.clear();
       return { ...state, user: null, loggedIn: false };

@@ -4,7 +4,9 @@ import BoardItem from "../components/BoardItem";
 const StarredBoardList = ({ boards }) => {
   const renderTiles = () => {
     if (boards && boards.length > 0) {
-      const starredBoards = boards.filter((board) => board.starred);
+      const starredBoards = boards.filter(
+        (board) => board.starred && !board.archived
+      );
       return starredBoards.map((board) => (
         <li className="board-tile" key={`tile-${board.id}`}>
           <div className="tile-content-wrapper">

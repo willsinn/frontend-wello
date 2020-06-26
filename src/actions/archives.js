@@ -8,6 +8,7 @@ export const removeArchive = (data) => ({
 });
 export const restoreTask = (task) => {
   return (dispatch) => {
+    dispatch(removeArchive(task));
     fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
@@ -18,14 +19,14 @@ export const restoreTask = (task) => {
       body: JSON.stringify({
         id: `${task.id}`,
         archived: false,
+        date_archived: "",
       }),
-    })
-      .then((response) => response.json())
-      .then((JSONresponse) => dispatch(removeArchive(JSONresponse)));
+    }).then((response) => response.json());
   };
 };
 export const restoreCard = (card) => {
   return (dispatch) => {
+    dispatch(removeArchive(card));
     fetch(`http://localhost:3000/api/v1/card/update/${card.id}`, {
       method: "PUT",
       headers: {
@@ -36,39 +37,8 @@ export const restoreCard = (card) => {
       body: JSON.stringify({
         id: `${card.id}`,
         archived: false,
+        date_archived: "",
       }),
-    })
-      .then((response) => response.json())
-      .then((JSONresponse) => dispatch(removeArchive(JSONresponse)));
+    }).then((response) => response.json());
   };
 };
-export const restoreBoard = (board) => {
-  return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
-      body: JSON.stringify({
-        id: `${board.id}`,
-        archived: false,
-      }),
-    })
-      .then((response) => response.json())
-      .then((JSONresponse) => dispatch(removeArchive(JSONresponse)));
-  };
-};
-// export const setBoardArchives = (data) => ({
-//   type: "SET_BOARD_ARCHIVES",
-//   data,
-// });
-// export const setCardArchives = (data) => ({
-//   type: "SET_CARD_ARCHIVES",
-//   data,
-// });
-// export const setTaskArchives = (data) => ({
-//   type: "SET_TASK_ARCHIVES",
-//   data,
-// });

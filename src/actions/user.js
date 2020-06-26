@@ -12,7 +12,10 @@ export const setError = (error) => ({
   type: "SET_ERROR",
   error,
 });
-
+export const updateUser = (user) => ({
+  type: "UPDATE_USER",
+  user,
+});
 export const userLogout = () => ({ type: "USER_LOGOUT" });
 
 export const userLogin = (email, password) => {
@@ -94,5 +97,26 @@ export const userSignup = (user) => {
         localStorage.setItem("jwt", JSONResponse.jwt);
         dispatch(setUser(JSONResponse));
       });
+  };
+};
+export const changeUserAttrs = (user) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/user/update/${user.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({
+        user: {
+          id: `${user.id}`,
+          name: `${user.name}`,
+          email: `${user.email}`,
+        },
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(updateUser(JSONresponse)));
   };
 };

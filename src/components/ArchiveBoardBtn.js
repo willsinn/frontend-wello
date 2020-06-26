@@ -7,8 +7,7 @@ import { getCurrentDate } from "../utils";
 const ArchiveBoardBtn = ({ board, dispatch }) => {
   const handleClick = (e) => {
     if (e) {
-      let dateArchived = getCurrentDate();
-      dispatch(archiveBoard({ board, dateArchived }));
+      dispatch(archiveBoard({ board, date_archived: getCurrentDate() }));
       dispatch(clearWorkspace());
     }
   };
