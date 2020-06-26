@@ -39,16 +39,14 @@ const TaskWindowDescription = ({ editTask, dispatch }) => {
       </div>
 
       {!editable ? (
-        <div className="module-body">
+        <div className="module-body" onClick={(e) => setEditable(true)}>
           {desc.length > 0 ? (
             <p className="curr-desc" onClick={(e) => setEditable(true)}>
               {desc}
             </p>
           ) : (
             <div className="desc-placeholder">
-              <p onClick={(e) => setEditable(true)}>
-                Add a more detailed description...
-              </p>
+              <p>Add a more detailed description...</p>
             </div>
           )}
         </div>

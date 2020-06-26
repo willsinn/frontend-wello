@@ -86,7 +86,7 @@ const LabelMenu = ({ labels, taskLabels, closePopup, taskId, dispatch }) => {
                     onSubmit={handleSubmit}
                   >
                     <input
-                      className="label-input add-card-input"
+                      className="add-card-input"
                       type="text"
                       name="name"
                       onChange={(e) => handleChange(e)}
