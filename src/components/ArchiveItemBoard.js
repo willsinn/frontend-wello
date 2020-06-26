@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { restoreBoard } from "../actions/archives";
+import { restoreBoard } from "../actions/boards";
+import { removeArchive } from "../actions/archives";
 
 const ArchiveItemBoard = ({ boardArchive, dispatch }) => {
   const handleBoardRestore = (e) => {
     if (e) {
-      dispatch(restoreBoard(boardArchive));
+      dispatch(
+        restoreBoard(boardArchive, () => dispatch(removeArchive(boardArchive)))
+      );
     }
   };
 

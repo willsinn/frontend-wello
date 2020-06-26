@@ -51,7 +51,6 @@ export const postNewBoard = (data) => {
 
 export const archiveBoard = (data) => {
   return (dispatch) => {
-    debugger;
     fetch(`http://localhost:3000/api/v1/board/update/${data.board.id}`, {
       method: "PUT",
       headers: {
@@ -103,5 +102,24 @@ export const removeStarred = (board) => {
     })
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(updateBoard(JSONresponse)));
+  };
+};
+export const restoreBoard = (board, callback) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({
+        id: `${board.id}`,
+        archived: false,
+        date_archived: "",
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(addNewBoard(JSONresponse)), callback());
   };
 };

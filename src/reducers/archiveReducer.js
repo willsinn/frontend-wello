@@ -29,26 +29,13 @@ const archiveReducer = (state = defaultState, action) => {
         archives: activeArchives,
       };
     case "REMOVE_ARCHIVE":
-      let remainingArchives = [];
+      const remainingArchives = state.archives.filter(
+        (archive) =>
+          action.data.id !== archive.id &&
+          action.data.date_archived !== archive.date_archived
+      );
+      debugger;
 
-      if (action.data.user_id) {
-        const removeArchive = state.archives.filter(
-          (archive) => action.data.id !== archive.id
-        );
-        remainingArchives = removeArchive;
-      }
-      if (action.data.board_id) {
-        const removeArchive = state.archives.filter(
-          (archive) => action.data.id !== archive.id
-        );
-        remainingArchives = removeArchive;
-      }
-      if (action.data.card_id) {
-        const removeArchive = state.archives.filter(
-          (archive) => action.data.id !== archive.id
-        );
-        remainingArchives = removeArchive;
-      }
       return {
         ...state,
         archives: remainingArchives,
