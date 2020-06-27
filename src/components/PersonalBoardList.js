@@ -17,6 +17,7 @@ const PersonalBoardList = ({ boards }) => {
   return (
     <div className="boards-listed-tiles">
       <div className="board-tiles-section-header">
+        <div className="user-profile-icon" />
         <span className="home-section-title">Personal Boards</span>
       </div>
       <ul className="board-tiles-ul">{renderTiles()}</ul>

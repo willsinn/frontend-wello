@@ -20,6 +20,7 @@ const StarredBoardList = ({ boards }) => {
     <div className="boards-section">
       <div className="personal-boards">
         <div className="board-tiles-section-header">
+          <div className="starred-icon-black" />
           <span className="home-section-title">Starred</span>
         </div>
         <ul className="board-tiles-ul">{renderTiles()}</ul>

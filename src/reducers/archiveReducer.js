@@ -34,6 +34,7 @@ const archiveReducer = (state = defaultState, action) => {
           action.data.id !== archive.id &&
           action.data.date_archived !== archive.date_archived
       );
+      debugger;
       return {
         ...state,
         archives: remainingArchives,
