@@ -960,9 +960,7 @@ button {
 /* .fav-star-icon {
   background-image: url("./images/fav-star-icon.png");
 } */
-.del-icon {
-  background-image: url("./images/delete-icon.png");
-}
+
 .home-icon {
   background-size: contain;
 }
@@ -1023,7 +1021,7 @@ button {
   position: relative;
 }
 .archive-icon-black {
-  background-image: url("./images/archives-icon.png");
+  background-image: url("./images/archives-icon.svg");
   background-size: contain;
   background-repeat: no-repeat;
   height: 20px;
@@ -1395,6 +1393,7 @@ button {
   padding: 8px 6px 8px 40px;
   position: relative;
   width: 90%;
+  display: flex;
 }
 .board-menu-nav-btn:hover {
   background-color: rgba(9, 30, 66, 0.08);
