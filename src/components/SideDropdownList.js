@@ -8,7 +8,7 @@ const SideDropdownList = ({ boards, sidelist, closeSidelist }) => {
       return boards.map((board) => (
         <li className="sidelist-li">
           <BoardItem
-            key={board.id}
+            key={`Sideboard-${board.id}`}
             board={board}
             sidelist={sidelist}
             closeSidelist={closeSidelist}

@@ -15,25 +15,6 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
   useEffect(() => {
     dispatch(fetchUserBoards(user.id));
   }, [user.id, dispatch]);
-  const nameSplit = user.name.split(" ");
-  const renderInitials = () => {
-    let initials = "";
-    const nameSplit = user.name.split(" ");
-    if (nameSplit) {
-      nameSplit.forEach((letter) => {
-        const first = letter[0].toUpperCase();
-        initials += first;
-      });
-    }
-    if (initials.length === 1) {
-      initials += initials;
-    }
-    if (initials.length > 2) {
-      const limit = initials.slice(0, 1);
-      initials = limit;
-    }
-    return initials;
-  };
 
   const fetchArchives = () => {
     if (boards && boards.length > 0) {
@@ -49,11 +30,6 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
         <Redirect to="/board" />
       ) : (
         <div className="home-page-wrap">
-          <div className="profile-nicknames">
-            <span className="user-initials">{renderInitials()}</span>
-            <span className="user-fullname">{user.name}</span>
-            <span className="user-handle">@{nameSplit[0]}1</span>
-          </div>
           <div className="home-page">
             <div className="home-inner-container">
               <div>
