@@ -1113,8 +1113,8 @@ button {
 .profile-nicknames {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+  align-items: flex-end;
+  margin: 20px 0;
 }
 .input {
   -webkit-writing-mode: horizontal-tb !important;
@@ -2936,11 +2936,11 @@ button {
   display: flex;
   min-width: 800px;
 }
-.settings-form {
-  width: 75%;
-}
 .settings-page {
-  margin-top: 80px;
+  width: 65%;
+}
+.settings-form {
+  margin: 0 40px;
 }
 .settings-btn {
   margin-top: 12px;
