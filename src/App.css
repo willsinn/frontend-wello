@@ -1393,7 +1393,6 @@ button {
   padding: 8px 6px 8px 40px;
   position: relative;
   width: 90%;
-  display: flex;
 }
 .board-menu-nav-btn:hover {
   background-color: rgba(9, 30, 66, 0.08);
