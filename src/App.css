@@ -2715,9 +2715,7 @@ button {
   line-height: 1.3333;
   border-radius: 4px;
   border: 1px solid #eb5a46;
-  display: inline-block;
   padding: 0.5em 1em;
-  max-width: 100%;
   margin: 16px 0;
 }
 .tile-star {

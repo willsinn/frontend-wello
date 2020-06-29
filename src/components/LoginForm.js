@@ -36,7 +36,7 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
             <div className="center">
               <div className="signin-modal">
                 <h1 className="signin-modal-title">Log in to Wello</h1>
-                <div>{error}</div>
+                {error ? <div className="error-message">{error}</div> : null}
                 <form className="signin-form" onSubmit={handleSubmit}>
                   <input
                     className="signin-input"

@@ -45,7 +45,7 @@ const SignForm = ({ loggedIn, error, dispatch }) => {
             <div className="center">
               <div className="signin-modal">
                 <h1 className="signin-modal-title">Sign up for an account</h1>
-                <div>{error}</div>
+                {error ? <div className="error-message">{error}</div> : null}
                 <form className="signin-form" onSubmit={handleSubmit}>
                   <input
                     className="signin-input"
@@ -54,6 +54,7 @@ const SignForm = ({ loggedIn, error, dispatch }) => {
                     onChange={handleEmailChange}
                     value={email}
                     placeholder="Enter email"
+                    required
                   />
                   <input
                     className="signin-input"
@@ -71,6 +72,7 @@ const SignForm = ({ loggedIn, error, dispatch }) => {
                     onChange={handlePasswordChange}
                     value={password}
                     placeholder="Create password"
+                    required
                   />
                   <button className="signin-btn add-list-btn" type="submit">
                     Sign Up
