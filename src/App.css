@@ -1937,7 +1937,7 @@ button {
   align-items: center;
 }
 .edit-desc-btn {
-  padding: 6px 12px;
+  padding: 2px 12px;
   background-color: rgba(9, 30, 66, 0.04);
   box-shadow: none;
   border: none;
@@ -1961,6 +1961,11 @@ button {
   margin-left: 40px;
 }
 .desc-placeholder:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  box-shadow: none;
+  border: none;
+}
+.curr-desc:hover {
   background-color: rgba(9, 30, 66, 0.08);
   box-shadow: none;
   border: none;
@@ -1999,6 +2004,9 @@ button {
 .curr-desc {
   margin: 0 0 8px 40px;
   cursor: pointer;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 2px;
 }
 .checklist-title {
   cursor: pointer;

@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { updateBoardDesc } from "../actions/workspace";
 
-const MenuNavItemAbout = ({ user, workspace, setContent, setSidebar }) => {
-  const [desc, setDesc] = useState(workspace.board_desc);
+const MenuNavItemAbout = ({
+  user,
+  workspace,
+  setContent,
+  setSidebar,
+  dispatch,
+}) => {
+  const [b_desc, setDesc] = useState(workspace.board_desc);
   const [editable, setEditable] = useState(false);
   const handleChange = (e) => {
     e.persist(e);
@@ -11,9 +18,8 @@ const MenuNavItemAbout = ({ user, workspace, setContent, setSidebar }) => {
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      debugger;
-      // dispatch(saveTaskDesc(editTask, desc));
-      // setEditable(false);
+      dispatch(updateBoardDesc({ workspace, b_desc }));
+      setEditable(false);
     }
   };
   const handleExitEditable = (e) => {
@@ -80,7 +86,7 @@ const MenuNavItemAbout = ({ user, workspace, setContent, setSidebar }) => {
                       {renderInitials()}
                     </span>
                     <div>{user.name}</div>
-                    <div>@{nameSplit[0]}1</div>
+                    <div style={{ fontWeight: "325" }}>@{nameSplit[0]}1</div>
                   </span>
                 </div>
               </span>
@@ -102,7 +108,7 @@ const MenuNavItemAbout = ({ user, workspace, setContent, setSidebar }) => {
                       <span style={{ fontWeight: "600" }}>Description</span>
                     </div>
                     <div className="editable-desc">
-                      {desc && desc.length > 0 && !editable ? (
+                      {b_desc && b_desc.length > 0 && !editable ? (
                         <button
                           className="edit-desc-btn"
                           onClick={(e) => setEditable(true)}
@@ -118,17 +124,21 @@ const MenuNavItemAbout = ({ user, workspace, setContent, setSidebar }) => {
                       className="module-body"
                       onClick={(e) => setEditable(true)}
                     >
-                      {desc && desc.length > 0 ? (
+                      {b_desc && b_desc.length > 0 ? (
                         <p
                           className="curr-desc"
                           onClick={(e) => setEditable(true)}
+                          style={{
+                            fontWeight: "325",
+                            margin: "0",
+                          }}
                         >
-                          {desc}
+                          {b_desc}
                         </p>
                       ) : (
                         <div
                           style={{
-                            fontWeight: "525",
+                            fontWeight: "325",
                             width: "100%",
                             margin: "0",
                           }}
@@ -143,16 +153,17 @@ const MenuNavItemAbout = ({ user, workspace, setContent, setSidebar }) => {
                       )}
                     </div>
                   ) : (
-                    <div className="editing">
+                    <div className="editing" style={{ margin: "0" }}>
                       <form
                         className="description-form"
                         onSubmit={handleSubmit}
                       >
                         <textarea
                           className="description-field"
+                          style={{ width: "100%" }}
                           type="text"
                           name="desc"
-                          value={desc}
+                          value={b_desc}
                           onChange={(e) => handleChange(e)}
                         />
                       </form>
