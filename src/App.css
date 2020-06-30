@@ -1350,6 +1350,8 @@ button {
   flex-wrap: nowrap;
   justify-content: flex-start;
   overflow: hidden;
+  box-shadow: 0 12px 24px -6px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
 }
 .board-menu-close-btn {
   font-size: 28px;
