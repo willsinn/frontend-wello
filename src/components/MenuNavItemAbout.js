@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
-const MenuNavItemAbout = ({ user, setContent, setSidebar }) => {
+const MenuNavItemAbout = ({ user, workspace, setContent, setSidebar }) => {
+  const [desc, setDesc] = useState(workspace.board_desc);
+  const [editable, setEditable] = useState(false);
+  const handleChange = (e) => {
+    e.persist(e);
+    setDesc(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    if (e) {
+      e.preventDefault();
+      debugger;
+      // dispatch(saveTaskDesc(editTask, desc));
+      // setEditable(false);
+    }
+  };
+  const handleExitEditable = (e) => {
+    setEditable(false);
+    setDesc(workspace.board_desc);
+  };
+
   const nameSplit = user.name.split(" ");
   const renderInitials = () => {
     let initials = "";
@@ -21,6 +40,7 @@ const MenuNavItemAbout = ({ user, setContent, setSidebar }) => {
     }
     return initials;
   };
+  console.log(workspace);
 
   return (
     <div className="board-menu-container">
@@ -69,10 +89,95 @@ const MenuNavItemAbout = ({ user, setContent, setSidebar }) => {
             <li className="board-menu-nav-item">
               <span className="norm-item-content">
                 <div className="desc-icon" />
-                <div> Description </div>
+                <div style={{ padding: "0" }} className="task-window-desc">
+                  <div
+                    className="module-header"
+                    style={{ margin: "12px 0 12px 28px" }}
+                  >
+                    <div style={{ display: "flex" }} className="module-title">
+                      <span
+                        className="desc-icon"
+                        style={{ top: "-2px", left: "-32px" }}
+                      />
+                      <span style={{ fontWeight: "600" }}>Description</span>
+                    </div>
+                    <div className="editable-desc">
+                      {desc && desc.length > 0 && !editable ? (
+                        <button
+                          className="edit-desc-btn"
+                          onClick={(e) => setEditable(true)}
+                        >
+                          Edit
+                        </button>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  {!editable ? (
+                    <div
+                      className="module-body"
+                      onClick={(e) => setEditable(true)}
+                    >
+                      {desc && desc.length > 0 ? (
+                        <p
+                          className="curr-desc"
+                          onClick={(e) => setEditable(true)}
+                        >
+                          {desc}
+                        </p>
+                      ) : (
+                        <div
+                          style={{
+                            fontWeight: "525",
+                            width: "100%",
+                            margin: "0",
+                          }}
+                          className="desc-placeholder"
+                        >
+                          <p>
+                            It’s your board’s time to shine! Let people know
+                            what this board is used for and what they can expect
+                            to see.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="editing">
+                      <form
+                        className="description-form"
+                        onSubmit={handleSubmit}
+                      >
+                        <textarea
+                          className="description-field"
+                          type="text"
+                          name="desc"
+                          value={desc}
+                          onChange={(e) => handleChange(e)}
+                        />
+                      </form>
+                      <button
+                        className="add-list-btn"
+                        style={{
+                          paddingLeft: "12px",
+                          paddingRight: "12px",
+                          margin: "0",
+                        }}
+                        onClick={handleSubmit}
+                      >
+                        Save
+                      </button>
+                      <button
+                        className="close-add-btn"
+                        onClick={handleExitEditable}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  )}
+                </div>
               </span>
             </li>
-            <li className="board-menu-nav-item">DESCRIPTION</li>
           </ul>
         </div>
       </div>
@@ -80,7 +185,10 @@ const MenuNavItemAbout = ({ user, setContent, setSidebar }) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { user: state.userReducer.user };
+  return {
+    user: state.userReducer.user,
+    workspace: state.workspaceReducer.workspace,
+  };
 };
 
 export default connect(mapStateToProps)(MenuNavItemAbout);

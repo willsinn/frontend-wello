@@ -42,6 +42,7 @@ export const postNewBoard = (data) => {
         title: data.board.title,
         background: data.board.background,
         team_name: data.board.team,
+        board_desc: "",
       }),
     })
       .then((response) => response.json())
