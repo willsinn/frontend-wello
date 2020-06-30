@@ -103,7 +103,7 @@ const MenuNavItemAbout = ({
                     <div style={{ display: "flex" }} className="module-title">
                       <span
                         className="desc-icon"
-                        style={{ top: "-2px", left: "-32px" }}
+                        style={{ top: "2px", left: "-32px" }}
                       />
                       <span style={{ fontWeight: "600" }}>Description</span>
                     </div>
