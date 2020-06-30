@@ -14,11 +14,9 @@ const ArchiveBoardBtn = ({ board, dispatch }) => {
   return (
     <ul className="board-menu-nav-list">
       <li onClick={(e) => handleClick(e)} className="board-menu-nav-item">
-        <span className="board-menu-nav-btn">
-          <div className="del-icon menu-icon" />
-          <div>
-            <span className="">Archive board</span>
-          </div>
+        <span style={{ display: "flex" }} className="board-menu-nav-btn">
+          <div className="archive-icon-black" />
+          <span className="">Archive board</span>
         </span>
       </li>
     </ul>

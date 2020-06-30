@@ -960,9 +960,7 @@ button {
 /* .fav-star-icon {
   background-image: url("./images/fav-star-icon.png");
 } */
-.del-icon {
-  background-image: url("./images/delete-icon.png");
-}
+
 .home-icon {
   background-size: contain;
 }
@@ -1023,7 +1021,7 @@ button {
   position: relative;
 }
 .archive-icon-black {
-  background-image: url("./images/archives-icon.png");
+  background-image: url("./images/archives-icon.svg");
   background-size: contain;
   background-repeat: no-repeat;
   height: 20px;
