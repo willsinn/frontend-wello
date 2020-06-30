@@ -131,6 +131,7 @@ const MenuNavItemAbout = ({
                           style={{
                             fontWeight: "325",
                             margin: "0",
+                            width: "100%",
                           }}
                         >
                           {b_desc}
