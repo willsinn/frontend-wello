@@ -232,3 +232,21 @@ export const starredBoard = (board) => {
       });
   };
 };
+export const updateBoardDesc = (data) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/board/update/${data.workspace.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({
+        id: data.workspace.id,
+        board_desc: data.b_desc,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(updateWorkspace(JSONresponse)));
+  };
+};

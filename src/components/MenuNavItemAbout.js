@@ -1,13 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { updateBoardDesc } from "../actions/workspace";
 
-const MenuNavItemAbout = props => {
+const MenuNavItemAbout = ({
+  user,
+  workspace,
+  setContent,
+  setSidebar,
+  dispatch,
+}) => {
+  const [b_desc, setDesc] = useState(workspace.board_desc);
+  const [editable, setEditable] = useState(false);
+  const handleChange = (e) => {
+    e.persist(e);
+    setDesc(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    if (e) {
+      e.preventDefault();
+      dispatch(updateBoardDesc({ workspace, b_desc }));
+      setEditable(false);
+    }
+  };
+  const handleExitEditable = (e) => {
+    setEditable(false);
+    setDesc(workspace.board_desc);
+  };
+
+  const nameSplit = user.name.split(" ");
+  const renderInitials = () => {
+    let initials = "";
+    const nameSplit = user.name.split(" ");
+    if (nameSplit) {
+      nameSplit.forEach((letter) => {
+        const first = letter[0].toUpperCase();
+        initials += first;
+      });
+    }
+    if (initials.length === 1) {
+      initials += initials;
+    }
+    if (initials.length > 2) {
+      const limit = initials.slice(0, 1);
+      initials = limit;
+    }
+    return initials;
+  };
+  console.log(workspace);
+
   return (
     <div className="board-menu-container">
       <div className="board-menu-sidebar-content">
         <div className="board-menu-header-content">
           <button
             className="board-menu-back-btn"
-            onClick={e => props.setContent("")}
+            onClick={(e) => setContent("")}
           >
             <span className="back-text">←</span>
           </button>
@@ -16,7 +63,7 @@ const MenuNavItemAbout = props => {
           </h3>
           <button
             className="board-menu-close-btn"
-            onClick={e => props.setSidebar(false)}
+            onClick={(e) => setSidebar(false)}
           >
             <span className="close-text">✕</span>
           </button>
@@ -36,27 +83,124 @@ const MenuNavItemAbout = props => {
                 <div className="about-user-initials">
                   <span className="menu-icon board-menu-nav-btn activity-item">
                     <span className="initials-wrap menu-icon menu-initials">
-                      WS
+                      {renderInitials()}
                     </span>
-                    <div> William Sinn </div>
-                    <div> @William_Sinn_1 </div>
+                    <div>{user.name}</div>
+                    <div style={{ fontWeight: "325" }}>@{nameSplit[0]}1</div>
                   </span>
                 </div>
               </span>
             </li>
-
+            <hr />
             <li className="board-menu-nav-item">
               <span className="norm-item-content">
                 <div className="desc-icon" />
-                <div> Description </div>
+                <div style={{ padding: "0" }} className="task-window-desc">
+                  <div
+                    className="module-header"
+                    style={{ margin: "12px 0 12px 28px" }}
+                  >
+                    <div style={{ display: "flex" }} className="module-title">
+                      <span
+                        className="desc-icon"
+                        style={{ top: "2px", left: "-32px" }}
+                      />
+                      <span style={{ fontWeight: "600" }}>Description</span>
+                    </div>
+                    <div className="editable-desc">
+                      {b_desc && b_desc.length > 0 && !editable ? (
+                        <button
+                          className="edit-desc-btn"
+                          onClick={(e) => setEditable(true)}
+                        >
+                          Edit
+                        </button>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  {!editable ? (
+                    <div
+                      className="module-body"
+                      onClick={(e) => setEditable(true)}
+                    >
+                      {b_desc && b_desc.length > 0 ? (
+                        <p
+                          className="curr-desc"
+                          onClick={(e) => setEditable(true)}
+                          style={{
+                            fontWeight: "325",
+                            margin: "0",
+                            width: "100%",
+                          }}
+                        >
+                          {b_desc}
+                        </p>
+                      ) : (
+                        <div
+                          style={{
+                            fontWeight: "325",
+                            width: "100%",
+                            margin: "0",
+                          }}
+                          className="desc-placeholder"
+                        >
+                          <p>
+                            It’s your board’s time to shine! Let people know
+                            what this board is used for and what they can expect
+                            to see.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="editing" style={{ margin: "0" }}>
+                      <form
+                        className="description-form"
+                        onSubmit={handleSubmit}
+                      >
+                        <textarea
+                          className="description-field"
+                          style={{ width: "100%" }}
+                          type="text"
+                          name="desc"
+                          value={b_desc}
+                          onChange={(e) => handleChange(e)}
+                        />
+                      </form>
+                      <button
+                        className="add-list-btn"
+                        style={{
+                          paddingLeft: "12px",
+                          paddingRight: "12px",
+                          margin: "0",
+                        }}
+                        onClick={handleSubmit}
+                      >
+                        Save
+                      </button>
+                      <button
+                        className="close-add-btn"
+                        onClick={handleExitEditable}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  )}
+                </div>
               </span>
             </li>
-            <li className="board-menu-nav-item">DESCRIPTION</li>
           </ul>
         </div>
       </div>
     </div>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user,
+    workspace: state.workspaceReducer.workspace,
+  };
+};
 
-export default MenuNavItemAbout;
+export default connect(mapStateToProps)(MenuNavItemAbout);
