@@ -1,15 +1,15 @@
 import React from "react";
 
-const MenuNavItemBackground = props => {
+const MenuNavItemBackground = (props) => {
   const renderBgOptions = () => {
-    return props.bgOptions.map(bgOption => {
+    return props.bgOptions.map((bgOption) => {
       return (
         <li
           key={`bg-${bgOption}-${props.workspace.id}`}
           className="board-bg-select"
         >
           <span
-            onClick={e => props.changeBackground(bgOption)}
+            onClick={(e) => props.changeBackground(bgOption)}
             className="menu-bg-tile"
           >
             <div className="photo-option-bg" style={props.findBg(bgOption)} />
@@ -24,7 +24,7 @@ const MenuNavItemBackground = props => {
         <div className="board-menu-header-content">
           <button
             className="board-menu-back-btn"
-            onClick={e => props.setContent("")}
+            onClick={(e) => props.setContent("")}
           >
             <span className="back-text">←</span>
           </button>
@@ -33,7 +33,7 @@ const MenuNavItemBackground = props => {
           </h3>
           <button
             className="board-menu-close-btn"
-            onClick={e => props.setSidebar(false)}
+            onClick={(e) => props.resetClosedSidebar(e)}
           >
             <span className="close-text">✕</span>
           </button>
