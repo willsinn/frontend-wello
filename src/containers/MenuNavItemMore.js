@@ -1,8 +1,12 @@
 import React from "react";
 import ArchiveBoardBtn from "../components/ArchiveBoardBtn";
-// import BoardShareLink from "../components/BoardShareLink";
 
-const MenuNavItemMore = ({ setContent, setSidebar, board }) => {
+const MenuNavItemMore = ({
+  setContent,
+  setSidebar,
+  resetClosedSidebar,
+  board,
+}) => {
   return (
     <div className="board-menu-container">
       <div className="board-menu-sidebar-content">
@@ -18,7 +22,7 @@ const MenuNavItemMore = ({ setContent, setSidebar, board }) => {
           </h3>
           <button
             className="board-menu-close-btn"
-            onClick={(e) => setSidebar(e, false)}
+            onClick={(e) => resetClosedSidebar(e)}
           >
             <span className="close-text">✕</span>
           </button>
@@ -31,7 +35,6 @@ const MenuNavItemMore = ({ setContent, setSidebar, board }) => {
           >
             <hr />
           </div>
-          {/* <BoardShareLink /> */}
         </div>
       </div>
     </div>
