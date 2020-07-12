@@ -1,3 +1,6 @@
+import { getUrl } from "../utils.js";
+const fetchUrl = getUrl();
+
 export const setUser = (userData) => ({
   type: "SET_USER",
   payload: userData,
@@ -21,7 +24,7 @@ export const userLogout = () => ({ type: "USER_LOGOUT" });
 export const userLogin = (email, password) => {
   return (dispatch) => {
     dispatch({ type: "AUTHENTICATING_USER" });
-    fetch("http://localhost:3000/api/v1/login", {
+    fetch(`${fetchUrl}/api/v1/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +54,7 @@ export const userLogin = (email, password) => {
 export const fetchCurrentUser = () => {
   return (dispatch) => {
     dispatch({ type: "AUTHENTICATING_USER" }); //tells the app we are fetching
-    fetch("http://localhost:3000/api/v1/profile", {
+    fetch(`${fetchUrl}/api/v1/profile`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -71,7 +74,7 @@ export const fetchCurrentUser = () => {
 export const userSignup = (user) => {
   return (dispatch) => {
     dispatch({ type: "AUTHENTICATING_USER" });
-    fetch("http://localhost:3000/api/v1/users", {
+    fetch(`${fetchUrl}/api/v1/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +104,7 @@ export const userSignup = (user) => {
 };
 export const changeUserAttrs = (user) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/user/update/${user.id}`, {
+    fetch(`${fetchUrl}/api/v1/user/update/${user.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

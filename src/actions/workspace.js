@@ -1,3 +1,6 @@
+import { getUrl } from "../utils.js";
+const fetchUrl = getUrl();
+
 export const clearWorkspace = () => ({
   type: "CLEAR_WORKSPACE",
 });
@@ -38,16 +41,13 @@ export const positionNewTask = (position) => ({
 export const fetchWorkspace = (data) => {
   return (dispatch) => {
     // dispatch(clearWorkspace());
-    fetch(
-      `http://localhost:3000/api/v1/user/${data.user.id}/board/${data.board.id}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-      }
-    )
+    fetch(`${fetchUrl}/api/v1/user/${data.user.id}/board/${data.board.id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+    })
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(setWorkspace({ board: JSONresponse })));
   };
@@ -55,22 +55,19 @@ export const fetchWorkspace = (data) => {
 
 export const postNewCard = (board, callback) => {
   return (dispatch) => {
-    fetch(
-      `http://localhost:3000/api/v1/board/${board.workspace.id}/cards/new`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-        body: JSON.stringify({
-          board_id: board.workspace.id,
-          goal: board.goal,
-          card_desc: "",
-        }),
-      }
-    )
+    fetch(`${fetchUrl}/api/v1/board/${board.workspace.id}/cards/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({
+        board_id: board.workspace.id,
+        goal: board.goal,
+        card_desc: "",
+      }),
+    })
       .then((response) => response.json())
       .then((JSONresponse) => dispatch(addCard(JSONresponse)));
     callback();
@@ -79,7 +76,7 @@ export const postNewCard = (board, callback) => {
 
 export const fetchCard = (card) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/card/${card.id}`, {
+    fetch(`${fetchUrl}/api/v1/card/${card.id}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -91,7 +88,7 @@ export const fetchCard = (card) => {
 
 export const updateCardGoal = (card, goal) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/card/update/${card.id}`, {
+    fetch(`${fetchUrl}/api/v1/card/update/${card.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -111,7 +108,7 @@ export const updateCardGoal = (card, goal) => {
 };
 export const archiveCard = (data) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/card/update/${data.card.id}`, {
+    fetch(`${fetchUrl}/api/v1/card/update/${data.card.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -132,7 +129,7 @@ export const archiveCard = (data) => {
 };
 export const postNewTask = (data) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/card/${data.card.id}/tasks/new`, {
+    fetch(`${fetchUrl}/api/v1/card/${data.card.id}/tasks/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -151,7 +148,7 @@ export const postNewTask = (data) => {
 };
 export const archiveTask = (task, callback) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
+    fetch(`${fetchUrl}/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -174,7 +171,7 @@ export const archiveTask = (task, callback) => {
 
 export const updateTaskNote = (task, note) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
+    fetch(`${fetchUrl}/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -194,7 +191,7 @@ export const updateTaskNote = (task, note) => {
 };
 export const saveTaskDesc = (task, desc) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
+    fetch(`${fetchUrl}/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -214,7 +211,7 @@ export const saveTaskDesc = (task, desc) => {
 };
 export const starredBoard = (board) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
+    fetch(`${fetchUrl}/api/v1/board/update/${board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -234,7 +231,7 @@ export const starredBoard = (board) => {
 };
 export const updateBoardDesc = (data) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/update/${data.workspace.id}`, {
+    fetch(`${fetchUrl}/api/v1/board/update/${data.workspace.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
