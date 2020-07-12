@@ -1,3 +1,6 @@
+import { getUrl } from "../utils.js";
+const fetchUrl = getUrl();
+
 export const setBoards = (boardsData) => ({
   type: "SET_BOARDS",
   boardsData,
@@ -13,7 +16,7 @@ export const addNewBoard = (boardData) => ({
 
 export const fetchUserBoards = (userId, callback) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/user/${userId}/boards`, {
+    fetch(`${fetchUrl}/api/v1/user/${userId}/boards`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -30,7 +33,7 @@ export const fetchUserBoards = (userId, callback) => {
 };
 export const postNewBoard = (data) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/user/${data.user.id}/boards/new`, {
+    fetch(`${fetchUrl}/api/v1/user/${data.user.id}/boards/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +55,7 @@ export const postNewBoard = (data) => {
 
 export const archiveBoard = (data) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/update/${data.board.id}`, {
+    fetch(`${fetchUrl}/api/v1/board/update/${data.board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +74,7 @@ export const archiveBoard = (data) => {
 };
 export const updateBoardBackground = (board, background) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
+    fetch(`${fetchUrl}/api/v1/board/update/${board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -89,7 +92,7 @@ export const updateBoardBackground = (board, background) => {
 };
 export const removeStarred = (board) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
+    fetch(`${fetchUrl}/api/v1/board/update/${board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -107,7 +110,7 @@ export const removeStarred = (board) => {
 };
 export const restoreBoard = (board, callback) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/board/update/${board.id}`, {
+    fetch(`${fetchUrl}/api/v1/board/update/${board.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

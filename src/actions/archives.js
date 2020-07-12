@@ -1,3 +1,6 @@
+import { getUrl } from "../utils.js";
+const fetchUrl = getUrl();
+
 export const setArchives = (data) => ({
   type: "SET_ARCHIVES",
   data,
@@ -9,7 +12,7 @@ export const removeArchive = (data) => ({
 export const restoreTask = (task) => {
   return (dispatch) => {
     dispatch(removeArchive(task));
-    fetch(`http://localhost:3000/api/v1/task/update/${task.id}`, {
+    fetch(`${fetchUrl}/api/v1/task/update/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +30,7 @@ export const restoreTask = (task) => {
 export const restoreCard = (card) => {
   return (dispatch) => {
     dispatch(removeArchive(card));
-    fetch(`http://localhost:3000/api/v1/card/update/${card.id}`, {
+    fetch(`${fetchUrl}/api/v1/card/update/${card.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -1,3 +1,6 @@
+import { getUrl } from "../utils.js";
+const fetchUrl = getUrl();
+
 export const setLists = (checklists) => ({
   type: "SET_LISTS",
   checklists,
@@ -28,7 +31,7 @@ export const removeItem = (item) => ({
 });
 export const postNewChecklist = (task, title) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/task/${task.id}/checklists/new`, {
+    fetch(`${fetchUrl}/api/v1/task/${task.id}/checklists/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +49,7 @@ export const postNewChecklist = (task, title) => {
 };
 export const fetchChecklists = (task) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/task/${task.id}/checklists`, {
+    fetch(`${fetchUrl}/api/v1/task/${task.id}/checklists`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -59,7 +62,7 @@ export const fetchChecklists = (task) => {
 };
 export const saveChecklistTitle = (checklist, title) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/checklists/${checklist.id}/update`, {
+    fetch(`${fetchUrl}/api/v1/checklists/${checklist.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -79,7 +82,7 @@ export const saveChecklistTitle = (checklist, title) => {
 export const deleteChecklist = (checklist) => {
   return (dispatch) => {
     dispatch(removeChecklist(checklist));
-    fetch(`http://localhost:3000/api/v1/checklists/${checklist.id}/delete`, {
+    fetch(`${fetchUrl}/api/v1/checklists/${checklist.id}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -94,7 +97,7 @@ export const deleteChecklist = (checklist) => {
 };
 export const postNewListItem = (item) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/checklist/${item.listId}/item/new`, {
+    fetch(`${fetchUrl}/api/v1/checklist/${item.listId}/item/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -113,7 +116,7 @@ export const postNewListItem = (item) => {
 };
 export const saveItemDetail = (item, detail) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/items/${item.id}/update`, {
+    fetch(`${fetchUrl}/api/v1/items/${item.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -131,7 +134,7 @@ export const saveItemDetail = (item, detail) => {
 };
 export const updateItemCompletion = (item) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/items/${item.id}/update`, {
+    fetch(`${fetchUrl}/api/v1/items/${item.id}/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -147,7 +150,7 @@ export const updateItemCompletion = (item) => {
 export const deleteItem = (item) => {
   return (dispatch) => {
     dispatch(removeItem(item));
-    fetch(`http://localhost:3000/api/v1/items/${item.id}/delete`, {
+    fetch(`${fetchUrl}/api/v1/items/${item.id}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
