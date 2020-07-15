@@ -1,7 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-rails db:drop && rails db:create && rails db:migrate && rails db:seed && rails s
-
 ## Available Scripts
 
 In the project directory, you can run:
