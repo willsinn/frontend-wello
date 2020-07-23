@@ -10,7 +10,6 @@ export const getCurrentDate = () => {
 };
 
 export const getUrl = () => {
-  return "https://54.83.170.239:3000";
+  return "http://54.83.170.239:3001";
 };
-
 //ask rob if theres a better way of exporting the fetch url.
