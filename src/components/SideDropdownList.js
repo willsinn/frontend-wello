@@ -9,21 +9,20 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   const [filtered, setFiltered] = useState([]);
   const [highlight, setHighlight] = useState("");
   const highlightButton = {
-    border: "2px solid #3b00ff",
+    border: "2px solid #026aa7",
     padding: "5px 4px 5px 5px",
   };
+  const starredBoards = boards.filter((board) => board.starred);
   const renderItems = (type, arr) => {
-    if (boards.length > 0) {
-      return arr.map((board) => (
-        <li className="sidelist-li" key={`side-${type}-${board.id}`}>
-          <BoardItem
-            board={board}
-            closeSidelist={closeSidelist}
-            itemContext={"side"}
-          />
-        </li>
-      ));
-    }
+    return arr.map((board) => (
+      <li className="sidelist-li" key={`side-${type}-${board.id}`}>
+        <BoardItem
+          board={board}
+          closeSidelist={closeSidelist}
+          itemContext={"side"}
+        />
+      </li>
+    ));
   };
   const renderSearchResults = (arr) => {
     setFiltered([...arr]);
@@ -81,7 +80,6 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
     );
   };
   const renderStarred = () => {
-    const starredBoards = boards.filter((board) => board.starred === true);
     return (
       <div className="sidelist-control">
         <div>
@@ -103,7 +101,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         </button>
         {starred ? (
           <>
-            {starredBoards.length > 0 ? (
+            {boards.length > 0 ? (
               <ul className="sidelist-ul">
                 {renderItems("starred", starredBoards)}
               </ul>
@@ -136,8 +134,11 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
           </span>
         </button>
       </div>
+      <hr />
       {filtered.length > 0 ? (
-        <ul className="sidelist-ul">{renderItems("search", filtered)}</ul>
+        <div className="sidelist-control">
+          <ul className="sidelist-ul">{renderItems("search", filtered)}</ul>
+        </div>
       ) : (
         <>
           {renderStarred()}
@@ -152,16 +153,6 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
           >
             <span style={{ textDecoration: "underline" }}>
               Create new board...
-            </span>
-          </button>
-        </li>
-        <li className="option-item" style={{ width: "91.5%" }}>
-          <button
-            className="option-title js-member-activity active"
-            onClick={(e) => handleActionClick(e)}
-          >
-            <span style={{ textDecoration: "underline" }}>
-              See archived boards...
             </span>
           </button>
         </li>
