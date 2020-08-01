@@ -145,6 +145,7 @@ button {
   line-height: 20px;
   font-weight: 900;
   position: relative;
+  cursor: pointer;
 }
 
 .left-navbar {
