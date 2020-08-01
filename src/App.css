@@ -2741,9 +2741,9 @@ button {
 }
 .tile-star {
   font-size: 14px;
-  font-weight: 225;
+  font-weight: 500;
   position: absolute;
-  color: #f2d600;
+  color: #ffeb3b;
   bottom: 8px;
   right: 12px;
   transition: margin 0.5s ease-in-out;
@@ -3017,7 +3017,7 @@ button {
 }
 .side-right-box {
   opacity: 0.8;
-  background-color: #fefeff;
+  background-color: rgb(254, 254, 255, 0.5);
   width: 100%;
   display: flex;
   align-items: center;

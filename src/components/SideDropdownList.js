@@ -12,9 +12,9 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
     border: "2px solid #3b00ff",
     padding: "5px 4px 5px 5px",
   };
-  const renderItems = (type) => {
+  const renderItems = (type, arr) => {
     if (boards.length > 0) {
-      return boards.map((board) => (
+      return arr.map((board) => (
         <li className="sidelist-li" key={`side-${type}-${board.id}`}>
           <BoardItem
             board={board}
@@ -67,7 +67,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         {personal ? (
           <>
             {boards.length > 0 ? (
-              <ul className="sidelist-ul">{renderItems("personal")}</ul>
+              <ul className="sidelist-ul">{renderItems("personal", boards)}</ul>
             ) : (
               <div className="elm-container">
                 <div className="empty-list-message">
@@ -104,7 +104,9 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         {starred ? (
           <>
             {starredBoards.length > 0 ? (
-              <ul className="sidelist-ul">{renderItems("starred")}</ul>
+              <ul className="sidelist-ul">
+                {renderItems("starred", starredBoards)}
+              </ul>
             ) : (
               <div className="elm-container">
                 <div className="empty-list-message">
@@ -132,33 +134,36 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
           </span>
         </button>
       </div>
-
-      {renderStarred()}
-
-      {renderPersonal()}
-
-      <ul className="center-col">
-        <li className="option-item" style={{ width: "91.5%" }}>
-          <button
-            className="option-title js-member-activity active"
-            onClick={(e) => handleActionClick(e, () => openModal())}
-          >
-            <span style={{ textDecoration: "underline" }}>
-              Create new board...
-            </span>
-          </button>
-        </li>
-        <li className="option-item" style={{ width: "91.5%" }}>
-          <button
-            className="option-title js-member-activity active"
-            onClick={(e) => handleActionClick(e)}
-          >
-            <span style={{ textDecoration: "underline" }}>
-              See archived boards...
-            </span>
-          </button>
-        </li>
-      </ul>
+      {filtered.length > 0 ? (
+        <ul className="sidelist-ul">{renderItems("search", filtered)}</ul>
+      ) : (
+        <>
+          {renderStarred()}
+          {renderPersonal()}
+          <ul className="center-col">
+            <li className="option-item" style={{ width: "91.5%" }}>
+              <button
+                className="option-title js-member-activity active"
+                onClick={(e) => handleActionClick(e, () => openModal())}
+              >
+                <span style={{ textDecoration: "underline" }}>
+                  Create new board...
+                </span>
+              </button>
+            </li>
+            <li className="option-item" style={{ width: "91.5%" }}>
+              <button
+                className="option-title js-member-activity active"
+                onClick={(e) => handleActionClick(e)}
+              >
+                <span style={{ textDecoration: "underline" }}>
+                  See archived boards...
+                </span>
+              </button>
+            </li>
+          </ul>
+        </>
+      )}
     </div>
   );
 };
