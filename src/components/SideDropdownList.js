@@ -13,11 +13,11 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   const renderItems = (type) => {
     if (boards.length > 0) {
       return boards.map((board) => (
-        <li className="sidelist-li">
+        <li className="sidelist-li" key={`side-${type}-${board.id}`}>
           <BoardItem
-            key={`side-${type}-${board.id}`}
             board={board}
             closeSidelist={closeSidelist}
+            itemContext={"side"}
           />
         </li>
       ));
