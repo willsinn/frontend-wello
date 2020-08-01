@@ -10,7 +10,11 @@ import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 import { setPage } from "../actions/user";
-import { fetchWorkspace, clearWorkspace } from "../actions/workspace";
+import {
+  fetchWorkspace,
+  clearWorkspace,
+  starredBoard,
+} from "../actions/workspace";
 import { removeStarred } from "../actions/boards";
 import { fetchChecklists } from "../actions/checklists";
 
@@ -32,7 +36,11 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
       closeSidelist(e);
     }
   };
-  console.log(board);
+  const handleStarBoard = (e) => {
+    if (e) {
+      dispatch(starredBoard(board));
+    }
+  };
   const renderBg = () => {
     switch (board.background) {
       case "lake":
@@ -80,25 +88,36 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
                 {board.title}
               </span>
             </div>
-            <div
-              style={{
-                height: "24px",
-                width: "24px",
-                position: "absolute",
-                top: "12px",
-                right: "0",
-              }}
-            >
-              {board.starred ? (
-                <button
-                  onClick={(e) => {
-                    handleClick(e, "star");
-                  }}
-                >
+
+            {board.starred ? (
+              <div
+                style={{
+                  height: "24px",
+                  width: "24px",
+                  position: "absolute",
+                  top: "12px",
+                  right: "0",
+                }}
+              >
+                <button onClick={(e) => handleClick(e, "star")}>
                   <span className="tile-star">☆</span>
                 </button>
-              ) : null}
-            </div>
+              </div>
+            ) : (
+              <div
+                style={{
+                  height: "24px",
+                  width: "24px",
+                  position: "absolute",
+                  top: "12px",
+                  right: "0",
+                }}
+              >
+                <button onClick={(e) => handleStarBoard(e)}>
+                  <span className="black-tile-star">☆</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       ) : (
