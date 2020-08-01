@@ -22,6 +22,7 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
     if (e && actionType === "workspace") {
       dispatch(setPage("board"));
       dispatch(fetchWorkspace({ board, user }));
+      closeSidelist(e);
     }
   };
   const renderBg = () => {
@@ -51,7 +52,11 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
   return (
     <>
       {itemContext === "side" ? (
-        <div className="board-item" style={renderBg()}>
+        <div
+          className="board-item"
+          style={renderBg()}
+          onClick={(e) => handleClick(e, "workspace")}
+        >
           <div className="side-box-overlay">
             <div className="side-left-box" />
             <div className="side-right-box">
@@ -92,9 +97,7 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
         <div style={renderBg()} className="board-item">
           <div
             style={{ width: "100%", height: "72px" }}
-            onClick={(e) => {
-              handleClick(e, "workspace");
-            }}
+            onClick={(e) => handleClick(e, "workspace")}
           >
             <span className="board-name">{board.title}</span>
           </div>
