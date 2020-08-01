@@ -83,7 +83,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   const renderStarred = () => {
     const starredBoards = boards.filter((board) => board.starred === true);
     return (
-      <div className="sidelist-control" style={{ marginTop: "40px" }}>
+      <div className="sidelist-control">
         <div>
           <i className="fa fa-star-o side-icon" aria-hidden="true"></i>
           Starred Boards
@@ -123,7 +123,9 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   console.log(filtered, "side");
   return (
     <div className="sidelist-wrapper">
-      <SearchBoardForm renderSearchResults={renderSearchResults} />
+      <div className="search-cont">
+        <SearchBoardForm renderSearchResults={renderSearchResults} />
+      </div>
       <div className="dropdown-title-close">
         <button>
           <span

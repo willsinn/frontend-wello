@@ -43,16 +43,15 @@ const SearchBoardForm = ({ boards, renderSearchResults }) => {
   };
 
   return (
-    <div className="editing-checklist-item">
-      <form className="" style={{ height: "54px" }} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="input"
-          value={input}
-          onChange={(e) => handleChange(e)}
-        />
-      </form>
-    </div>
+    <form className="search-board-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="search-board-input"
+        value={input}
+        onChange={(e) => handleChange(e)}
+        style={{ width: "190px", marginRight: "26px" }}
+      />
+    </form>
   );
 };
 const mapStateToProps = (state) => {
