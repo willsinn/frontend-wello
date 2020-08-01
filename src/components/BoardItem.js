@@ -13,7 +13,7 @@ import { setPage } from "../actions/user";
 import { fetchWorkspace, clearWorkspace } from "../actions/workspace";
 import { removeStarred } from "../actions/boards";
 
-const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
+const BoardItem = ({ board, user, key, closeSidelist, dispatch }) => {
   const handleClick = (e, actionType) => {
     if (e && actionType === "star") {
       dispatch(clearWorkspace());
@@ -24,6 +24,7 @@ const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
       dispatch(fetchWorkspace({ board, user }));
     }
   };
+  console.log(key);
   const renderBg = () => {
     switch (board.background) {
       case "lake":

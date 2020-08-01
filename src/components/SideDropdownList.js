@@ -10,14 +10,13 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
     border: "2px solid #3b00ff",
     padding: "5px 4px 5px 5px",
   };
-  const renderItems = () => {
+  const renderItems = (type) => {
     if (boards.length > 0) {
       return boards.map((board) => (
         <li className="sidelist-li">
           <BoardItem
-            key={`Sideboard-${board.id}`}
+            key={`side-${type}-${board.id}`}
             board={board}
-            sidelist={sidelist}
             closeSidelist={closeSidelist}
           />
         </li>
@@ -44,7 +43,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
     return (
       <div className="sidelist-control">
         <div>
-          <i class="fa fa-user side-icon" aria-hidden="true"></i>
+          <i className="fa fa-user side-icon" aria-hidden="true"></i>
           Personal Boards
         </div>
         <button
@@ -63,7 +62,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         {personal ? (
           <>
             {boards.length > 0 ? (
-              <ul className="sidelist-ul">{renderItems()}</ul>
+              <ul className="sidelist-ul">{renderItems("personal")}</ul>
             ) : (
               <div className="elm-container">
                 <div className="empty-list-message">
@@ -81,7 +80,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
     return (
       <div className="sidelist-control" style={{ marginTop: "40px" }}>
         <div>
-          <i class="fa fa-star-o side-icon" aria-hidden="true"></i>
+          <i className="fa fa-star-o side-icon" aria-hidden="true"></i>
           Starred Boards
         </div>
         <button
@@ -100,7 +99,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         {starred ? (
           <>
             {starredBoards.length > 0 ? (
-              <ul className="sidelist-ul">{renderItems()}</ul>
+              <ul className="sidelist-ul">{renderItems("starred")}</ul>
             ) : (
               <div className="elm-container">
                 <div className="empty-list-message">
