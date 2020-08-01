@@ -5,8 +5,11 @@ import { connect } from "react-redux";
 const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   const [personal, setPersonal] = useState(true);
   const [starred, setStarred] = useState(true);
-  const [highlight, setHighlight] = useState();
-
+  const [highlight, setHighlight] = useState("");
+  const highlightButton = {
+    border: "2px solid #3b00ff",
+    padding: "5px 4px 5px 5px",
+  };
   const renderItems = () => {
     if (boards.length > 0) {
       return boards.map((board) => (
@@ -27,16 +30,31 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
       callbackAction();
     }
   };
+  const handleExpandClick = (e, type) => {
+    if (e) {
+      if (type === "starred") {
+        setStarred(!starred);
+      } else {
+        setPersonal(!personal);
+      }
+      setHighlight(type);
+    }
+  };
   const renderPersonal = () => {
     return (
       <div className="sidelist-control">
         <div>Personal</div>
         <button
           className="sidelist-control-btn"
-          onClick={(e) => setPersonal(!personal)}
+          onClick={(e) => handleExpandClick(e, "personal")}
+          style={highlight === "personal" ? highlightButton : null}
         >
-          <div style={{ width: "20px", height: "20px" }}>
-            {personal ? <span>-</span> : <span>+</span>}
+          <div className="side-ctrl-btn-wrap">
+            {personal ? (
+              <span className="side-ctrl-btn-txt">-</span>
+            ) : (
+              <span className="side-ctrl-btn-txt">+</span>
+            )}
           </div>
         </button>
         {personal ? (
@@ -58,14 +76,19 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   const renderStarred = () => {
     const starredBoards = boards.filter((board) => board.starred === true);
     return (
-      <div className="sidelist-control">
+      <div className="sidelist-control" style={{ marginTop: "40px" }}>
         <div>Starred</div>
         <button
           className="sidelist-control-btn"
-          onClick={(e) => setStarred(!starred)}
+          onClick={(e) => handleExpandClick(e, "starred")}
+          style={highlight === "starred" ? highlightButton : null}
         >
-          <div style={{ width: "20px", height: "20px" }}>
-            {starred ? <span>-</span> : <span>+</span>}
+          <div className="side-ctrl-btn-wrap">
+            {starred ? (
+              <span className="side-ctrl-btn-txt">-</span>
+            ) : (
+              <span className="side-ctrl-btn-txt">+</span>
+            )}
           </div>
         </button>
         {starred ? (
