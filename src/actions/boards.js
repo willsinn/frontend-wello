@@ -90,7 +90,7 @@ export const updateBoardBackground = (board, background) => {
       .then((JSONresponse) => dispatch(updateBoard(JSONresponse)));
   };
 };
-export const removeStarred = (board) => {
+export const toggleStarred = (board) => {
   return (dispatch) => {
     fetch(`${fetchUrl}/api/v1/board/update/${board.id}`, {
       method: "PUT",
@@ -101,7 +101,7 @@ export const removeStarred = (board) => {
       },
       body: JSON.stringify({
         id: `${board.id}`,
-        starred: false,
+        starred: !board.starred,
       }),
     })
       .then((response) => response.json())
