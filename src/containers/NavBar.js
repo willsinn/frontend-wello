@@ -57,7 +57,11 @@ const NavBar = ({ user }) => {
       </div>
 
       {!sidelist ? null : (
-        <SideDropdownList sidelist={sidelist} closeSidelist={closeSidelist} />
+        <SideDropdownList
+          sidelist={sidelist}
+          closeSidelist={closeSidelist}
+          openModal={openModal}
+        />
       )}
       {(() => {
         switch (rightnav) {
