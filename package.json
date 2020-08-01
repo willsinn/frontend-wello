@@ -15,6 +15,7 @@
     "uuid": "^3.3.3"
   },
   "scripts": {
+    "serve": "node --version",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
