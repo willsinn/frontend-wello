@@ -9,7 +9,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   const [filtered, setFiltered] = useState([]);
   const [highlight, setHighlight] = useState("");
   const highlightButton = {
-    border: "2px solid #3b00ff",
+    border: "2px solid #026aa7",
     padding: "5px 4px 5px 5px",
   };
   const renderItems = (type, arr) => {
@@ -154,16 +154,6 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
           >
             <span style={{ textDecoration: "underline" }}>
               Create new board...
-            </span>
-          </button>
-        </li>
-        <li className="option-item" style={{ width: "91.5%" }}>
-          <button
-            className="option-title js-member-activity active"
-            onClick={(e) => handleActionClick(e)}
-          >
-            <span style={{ textDecoration: "underline" }}>
-              See archived boards...
             </span>
           </button>
         </li>
