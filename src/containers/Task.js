@@ -8,9 +8,11 @@ const Task = ({
   taskLabels,
   handleRenderTaskWindow,
   handleRenderQuickEditor,
+  todos,
+  finishedTodos,
 }) => {
   const [visible, setVisible] = useState(false);
-
+  console.log(todos, finishedTodos);
   return (
     <div
       className="task-item task-item-details"
@@ -24,6 +26,33 @@ const Task = ({
           onClick={(e) => handleRenderTaskWindow(task)}
         >
           {task.note}
+          <div
+            className="todo-tracker"
+            style={{
+              backgroundColor:
+                finishedTodos === todos && todos !== 0
+                  ? "#61bd4f"
+                  : "transparent",
+            }}
+          >
+            <i
+              className="fa fa-check-square-o todo-tracker-icon"
+              aria-hidden="true"
+              style={{
+                color:
+                  finishedTodos === todos && todos !== 0 ? "white" : "#6b778c",
+              }}
+            ></i>
+            <div
+              className="todo-tracker-num"
+              style={{
+                color:
+                  finishedTodos === todos && todos !== 0 ? "white" : "#6b778c",
+              }}
+            >
+              {finishedTodos}/{todos}
+            </div>
+          </div>
         </div>
         {visible ? (
           <span

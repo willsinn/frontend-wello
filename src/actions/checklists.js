@@ -47,9 +47,9 @@ export const postNewChecklist = (task, title) => {
       .then((JSONresponse) => dispatch(addList(JSONresponse)));
   };
 };
-export const fetchChecklists = (task) => {
+export const fetchChecklists = () => {
   return (dispatch) => {
-    fetch(`${fetchUrl}/api/v1/task/${task.id}/checklists`, {
+    fetch(`${fetchUrl}/api/v1/task/checklists`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
