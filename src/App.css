@@ -11,6 +11,7 @@ textarea {
   line-height: 20px;
   font-weight: 400;
 }
+
 p {
   margin: 0;
 }
@@ -27,6 +28,10 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.fa {
+  color: white;
+  font-size: 28px;
 }
 hr {
   background-color: rgba(9, 30, 66, 0.13);
@@ -2950,4 +2955,10 @@ button {
 }
 .settings-btn {
   margin-top: 12px;
+}
+.nav-btn-text {
+  color: white;
+  font-size: 22px;
+  transform: rotate(45deg);
+  font-weight: 100;
 }
