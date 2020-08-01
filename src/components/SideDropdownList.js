@@ -43,7 +43,10 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   const renderPersonal = () => {
     return (
       <div className="sidelist-control">
-        <div>Personal</div>
+        <div>
+          <i class="fa fa-user side-icon" aria-hidden="true"></i>
+          Personal Boards
+        </div>
         <button
           className="sidelist-control-btn"
           onClick={(e) => handleExpandClick(e, "personal")}
@@ -77,7 +80,10 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
     const starredBoards = boards.filter((board) => board.starred === true);
     return (
       <div className="sidelist-control" style={{ marginTop: "40px" }}>
-        <div>Starred</div>
+        <div>
+          <i class="fa fa-star-o side-icon" aria-hidden="true"></i>
+          Starred Boards
+        </div>
         <button
           className="sidelist-control-btn"
           onClick={(e) => handleExpandClick(e, "starred")}

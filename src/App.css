@@ -3001,6 +3001,11 @@ button {
 .sidelist-control-btn:hover {
   background-color: rgba(9, 30, 66, 0.08);
 }
+.fa.side-icon {
+  color: inherit;
+  font-size: inherit;
+  margin: 0 8px 0 12px;
+}
 .empty-list-message {
   color: #7a869a;
   margin: 16px 30px 10px 31px;
