@@ -136,6 +136,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
           </span>
         </button>
       </div>
+      <hr />
       {filtered.length > 0 ? (
         <div className="sidelist-control">
           <ul className="sidelist-ul">{renderItems("search", filtered)}</ul>

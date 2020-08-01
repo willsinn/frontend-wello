@@ -20,10 +20,6 @@ import { fetchChecklists } from "../actions/checklists";
 
 const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
   const handleClick = (e, actionType) => {
-    if (e && actionType === "star") {
-      dispatch(clearWorkspace());
-      dispatch(removeStarred(board));
-    }
     if (e && actionType === "workspace") {
       dispatch(fetchWorkspace({ board, user }));
       dispatch(fetchChecklists());
@@ -36,9 +32,14 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
       closeSidelist(e);
     }
   };
-  const handleStarBoard = (e) => {
+  const addStarBoard = (e) => {
     if (e) {
       dispatch(starredBoard(board));
+    }
+  };
+  const removeStarBoard = (e) => {
+    if (e) {
+      dispatch(removeStarred(board));
     }
   };
   const renderBg = () => {
@@ -99,7 +100,7 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
                   right: "0",
                 }}
               >
-                <button onClick={(e) => handleClick(e, "star")}>
+                <button onClick={(e) => removeStarBoard(e)}>
                   <span className="tile-star">☆</span>
                 </button>
               </div>
@@ -113,7 +114,7 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
                   right: "0",
                 }}
               >
-                <button onClick={(e) => handleStarBoard(e)}>
+                <button onClick={(e) => addStarBoard(e)}>
                   <span className="black-tile-star">☆</span>
                 </button>
               </div>
@@ -130,11 +131,7 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
           </div>
           <div style={{ height: "24px", width: "24px" }}>
             {board.starred ? (
-              <button
-                onClick={(e) => {
-                  handleClick(e, "star");
-                }}
-              >
+              <button onClick={(e) => removeStarBoard(e)}>
                 <span className="tile-star">☆</span>
               </button>
             ) : null}
