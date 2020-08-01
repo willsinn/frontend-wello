@@ -59,8 +59,9 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
                 style={{
                   color: "black",
                   fontSize: "12.5px",
-                  fontWeight: "375",
+                  fontWeight: "575",
                   marginLeft: "8px",
+                  textTransform: "none",
                 }}
               >
                 {board.title}

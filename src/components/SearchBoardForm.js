@@ -41,15 +41,33 @@ const SearchBoardForm = ({ boards, renderSearchResults }) => {
       e.preventDefault();
     }
   };
-
   return (
-    <form className="search-board-form" onSubmit={handleSubmit}>
+    <form
+      className="search-board-form"
+      onSubmit={handleSubmit}
+      style={{ marginTop: "8px" }}
+    >
       <input
         type="text"
         name="search-board-input"
+        placeholder="Find boards by name..."
         value={input}
         onChange={(e) => handleChange(e)}
-        style={{ width: "190px", marginRight: "26px" }}
+        style={{
+          backgroundColor: "#fafbfc",
+          border: "none",
+          boxShadow: "inset 0 0 0 2px #dfe1e6",
+          color: "#172b4d",
+          boxSizing: "border-box",
+          borderRadius: "3px",
+          display: "block",
+          lineHeight: "20px",
+          marginBottom: "12px",
+          padding: "8px 12px",
+          width: "200px",
+          marginRight: "26px",
+          height: "30px",
+        }}
       />
     </form>
   );
