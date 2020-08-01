@@ -39,11 +39,19 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
             {personal ? <span>-</span> : <span>+</span>}
           </div>
         </button>
-        {personal && boards.length > 0 ? (
-          <ul className="sidelist-ul">{renderItems()}</ul>
-        ) : (
-          <div>A compilation of boards created by you.</div>
-        )}
+        {personal ? (
+          <>
+            {boards.length > 0 ? (
+              <ul className="sidelist-ul">{renderItems()}</ul>
+            ) : (
+              <div className="elm-container">
+                <div className="empty-list-message">
+                  A compilation of boards created by you.
+                </div>
+              </div>
+            )}
+          </>
+        ) : null}
       </div>
     );
   };
@@ -60,14 +68,20 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
             {starred ? <span>-</span> : <span>+</span>}
           </div>
         </button>
-        {starred && starredBoards.length > 0 ? (
-          <ul className="sidelist-ul">{renderItems()}</ul>
-        ) : (
-          <div>
-            Star your most important boards to keep them right at your
-            fingertips.
-          </div>
-        )}
+        {starred ? (
+          <>
+            {starredBoards.length > 0 ? (
+              <ul className="sidelist-ul">{renderItems()}</ul>
+            ) : (
+              <div className="elm-container">
+                <div className="empty-list-message">
+                  Star your most important boards to keep them right at your
+                  fingertips.
+                </div>
+              </div>
+            )}
+          </>
+        ) : null}
       </div>
     );
   };
@@ -84,9 +98,9 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         </button>
       </div>
 
-      <div>{renderStarred()}</div>
+      {renderStarred()}
 
-      <div>{renderPersonal()}</div>
+      {renderPersonal()}
 
       <ul className="center-col">
         <li className="option-item" style={{ width: "91.5%" }}>
