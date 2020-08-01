@@ -218,6 +218,7 @@ button {
   top: 46px;
   left: 0;
   z-index: 1;
+  overflow-x: scroll;
 }
 .sidelist-ul {
   list-style-type: none;
@@ -2741,9 +2742,9 @@ button {
 }
 .tile-star {
   font-size: 14px;
-  font-weight: 225;
+  font-weight: 500;
   position: absolute;
-  color: rgb(242, 214, 0);
+  color: #ffeb3b;
   bottom: 8px;
   right: 12px;
   transition: margin 0.5s ease-in-out;
@@ -2982,6 +2983,20 @@ button {
   text-transform: uppercase;
   line-height: 19px;
 }
+.search-board-form {
+  height: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-cont {
+  height: 54px;
+  width: 100%;
+  position: relative;
+  margin-top: 4px;
+}
+
 .sidelist-control-btn {
   background-color: transparent;
   border-radius: 3px;
@@ -3005,6 +3020,22 @@ button {
   color: inherit;
   font-size: inherit;
   margin: 0 8px 0 12px;
+}
+.side-box-overlay {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.side-left-box {
+  height: 36px;
+  width: 42px;
+}
+.side-right-box {
+  opacity: 0.8;
+  background-color: rgb(254, 254, 255, 0.5);
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 .empty-list-message {
   color: #7a869a;

@@ -13,7 +13,7 @@ import { setPage } from "../actions/user";
 import { fetchWorkspace, clearWorkspace } from "../actions/workspace";
 import { removeStarred } from "../actions/boards";
 
-const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
+const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
   const handleClick = (e, actionType) => {
     if (e && actionType === "star") {
       dispatch(clearWorkspace());
@@ -49,28 +49,69 @@ const BoardItem = ({ board, user, sidelist, closeSidelist, dispatch }) => {
     }
   };
   return (
-    <div style={renderBg()} className="board-item">
-      <div
-        style={{ width: "100%", height: "72px" }}
-        onClick={(e) => {
-          handleClick(e, "workspace");
-        }}
-      >
-        <span className="board-name">{board.title}</span>
-      </div>
-
-      <div style={{ height: "24px", width: "24px" }}>
-        {board.starred ? (
-          <button
+    <>
+      {itemContext === "side" ? (
+        <div className="board-item" style={renderBg()}>
+          <div className="side-box-overlay">
+            <div className="side-left-box" />
+            <div className="side-right-box">
+              <span
+                style={{
+                  color: "black",
+                  fontSize: "12.5px",
+                  fontWeight: "575",
+                  marginLeft: "8px",
+                  textTransform: "none",
+                }}
+              >
+                {board.title}
+              </span>
+            </div>
+            <div
+              style={{
+                height: "24px",
+                width: "24px",
+                position: "absolute",
+                top: "12px",
+                right: "0",
+              }}
+            >
+              {board.starred ? (
+                <button
+                  onClick={(e) => {
+                    handleClick(e, "star");
+                  }}
+                >
+                  <span className="tile-star">☆</span>
+                </button>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div style={renderBg()} className="board-item">
+          <div
+            style={{ width: "100%", height: "72px" }}
             onClick={(e) => {
-              handleClick(e, "star");
+              handleClick(e, "workspace");
             }}
           >
-            <span className="tile-star">☆</span>
-          </button>
-        ) : null}
-      </div>
-    </div>
+            <span className="board-name">{board.title}</span>
+          </div>
+          <div style={{ height: "24px", width: "24px" }}>
+            {board.starred ? (
+              <button
+                onClick={(e) => {
+                  handleClick(e, "star");
+                }}
+              >
+                <span className="tile-star">☆</span>
+              </button>
+            ) : null}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 const mapStateToProps = (state) => {
