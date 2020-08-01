@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   const [personal, setPersonal] = useState(true);
   const [starred, setStarred] = useState(true);
+  const [filtered, setFiltered] = useState([]);
   const [highlight, setHighlight] = useState("");
   const highlightButton = {
     border: "2px solid #3b00ff",
@@ -23,6 +24,9 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         </li>
       ));
     }
+  };
+  const renderSearchResults = (arr) => {
+    setFiltered([...arr]);
   };
   const handleActionClick = (e, callbackAction) => {
     if (e) {
@@ -114,9 +118,10 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
       </div>
     );
   };
+  console.log(filtered, "side");
   return (
     <div className="sidelist-wrapper">
-      <SearchBoardForm />
+      <SearchBoardForm renderSearchResults={renderSearchResults} />
       <div className="dropdown-title-close">
         <button>
           <span
