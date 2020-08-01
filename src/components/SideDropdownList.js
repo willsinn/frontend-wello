@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   const [personal, setPersonal] = useState(true);
   const [starred, setStarred] = useState(true);
+  const [highlight, setHighlight] = useState();
 
   const renderItems = () => {
     if (boards.length > 0) {
@@ -26,6 +27,26 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
       callbackAction();
     }
   };
+  const renderPersonal = () => {
+    return (
+      <div className="sidelist-control">
+        <div>Personal</div>
+        <button
+          className="sidelist-control-btn"
+          onClick={(e) => setPersonal(!personal)}
+        >
+          <div style={{ width: "20px", height: "20px" }}>
+            {personal ? <span>-</span> : <span>+</span>}
+          </div>
+        </button>
+        {personal && boards.length > 0 ? (
+          <ul className="sidelist-ul">{renderItems()}</ul>
+        ) : (
+          <div>A compilation of boards created by you.</div>
+        )}
+      </div>
+    );
+  };
   return (
     <div className="sidelist-wrapper">
       <div className="dropdown-title-close">
@@ -38,19 +59,21 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
           </span>
         </button>
       </div>
+      <div>{renderPersonal()}</div>
+
       <div>
         <div className="sidelist-control">
           <div>Starred</div>
           <button
             className="sidelist-control-btn"
-            onClick={(e) => setPersonal(!personal)}
+            onClick={(e) => setStarred(!starred)}
           >
             <div style={{ width: "20px", height: "20px" }}>
-              {personal ? <span>-</span> : <span>+</span>}
+              {starred ? <span>-</span> : <span>+</span>}
             </div>
           </button>
+          {starred ? <ul className="sidelist-ul">{renderItems()}</ul> : null}
         </div>
-        {personal ? <ul className="sidelist-ul">{renderItems()}</ul> : null}
       </div>
       <ul className="center-col">
         <li className="option-item" style={{ width: "91.5%" }}>
