@@ -8,11 +8,20 @@ const SearchBoardForm = ({ boards, renderSearchResults }) => {
     const searchMatches = [];
     boards.forEach((board) => {
       const str = board.title;
-      [...str].forEach((char) => {
-        if (char === searchVal) {
+      [...str].forEach((char, i) => {
+        if (searchVal.length === 1 && char === searchVal) {
           const isDuplicate = searchMatches.filter((m) => m.id === board.id);
           if (isDuplicate.length === 0) {
             searchMatches.push(board);
+          }
+        }
+        if (searchVal.length > 1) {
+          const check = str.substring(i, i + searchVal.length + 1);
+          if (check === searchVal) {
+            const isDuplicate = searchMatches.filter((m) => m.id === board.id);
+            if (isDuplicate.length === 0) {
+              searchMatches.push(board);
+            }
           }
         }
       });
