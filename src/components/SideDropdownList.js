@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import BoardItem from "./BoardItem";
 import { connect } from "react-redux";
 
 const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
+  const [personal, setPersonal] = useState(true);
+  const [starred, setStarred] = useState(true);
+
   const renderItems = () => {
     if (boards.length > 0) {
       return boards.map((board) => (
@@ -35,7 +38,20 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
           </span>
         </button>
       </div>
-      <ul className="sidelist-ul">{renderItems()}</ul>
+      <div>
+        <div className="sidelist-control">
+          <div>Starred</div>
+          <button
+            className="sidelist-control-btn"
+            onClick={(e) => setPersonal(!personal)}
+          >
+            <div style={{ width: "20px", height: "20px" }}>
+              {personal ? <span>-</span> : <span>+</span>}
+            </div>
+          </button>
+        </div>
+        {personal ? <ul className="sidelist-ul">{renderItems()}</ul> : null}
+      </div>
       <ul className="center-col">
         <li className="option-item" style={{ width: "91.5%" }}>
           <button
