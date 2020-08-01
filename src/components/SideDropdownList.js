@@ -47,6 +47,30 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
       </div>
     );
   };
+  const renderStarred = () => {
+    const starredBoards = boards.filter((board) => board.starred === true);
+    return (
+      <div className="sidelist-control">
+        <div>Starred</div>
+        <button
+          className="sidelist-control-btn"
+          onClick={(e) => setStarred(!starred)}
+        >
+          <div style={{ width: "20px", height: "20px" }}>
+            {starred ? <span>-</span> : <span>+</span>}
+          </div>
+        </button>
+        {starred && starredBoards.length > 0 ? (
+          <ul className="sidelist-ul">{renderItems()}</ul>
+        ) : (
+          <div>
+            Star your most important boards to keep them right at your
+            fingertips.
+          </div>
+        )}
+      </div>
+    );
+  };
   return (
     <div className="sidelist-wrapper">
       <div className="dropdown-title-close">
@@ -59,22 +83,11 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
           </span>
         </button>
       </div>
+
+      <div>{renderStarred()}</div>
+
       <div>{renderPersonal()}</div>
 
-      <div>
-        <div className="sidelist-control">
-          <div>Starred</div>
-          <button
-            className="sidelist-control-btn"
-            onClick={(e) => setStarred(!starred)}
-          >
-            <div style={{ width: "20px", height: "20px" }}>
-              {starred ? <span>-</span> : <span>+</span>}
-            </div>
-          </button>
-          {starred ? <ul className="sidelist-ul">{renderItems()}</ul> : null}
-        </div>
-      </div>
       <ul className="center-col">
         <li className="option-item" style={{ width: "91.5%" }}>
           <button
