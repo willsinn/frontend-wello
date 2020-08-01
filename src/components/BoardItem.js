@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { setPage } from "../actions/user";
 import { fetchWorkspace, clearWorkspace } from "../actions/workspace";
 import { removeStarred } from "../actions/boards";
+import { fetchChecklists } from "../actions/checklists";
 
 const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
   const handleClick = (e, actionType) => {
@@ -20,15 +21,18 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
       dispatch(removeStarred(board));
     }
     if (e && actionType === "workspace") {
-      dispatch(setPage("board"));
       dispatch(fetchWorkspace({ board, user }));
+      dispatch(fetchChecklists());
+      dispatch(setPage("board"));
     }
     if (e && actionType === "side") {
-      dispatch(setPage("board"));
       dispatch(fetchWorkspace({ board, user }));
+      dispatch(setPage("board"));
+      dispatch(fetchChecklists());
       closeSidelist(e);
     }
   };
+  console.log(board);
   const renderBg = () => {
     switch (board.background) {
       case "lake":

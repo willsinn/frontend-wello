@@ -4,9 +4,8 @@ import AddTask from "../components/AddTask";
 import TaskWindow from "../containers/TaskWindow";
 import QuickTaskEditor from "../components/QuickTaskEditor";
 import { connect } from "react-redux";
-import { fetchChecklists } from "../actions/checklists";
 
-const TaskList = ({ card, dispatch }) => {
+const TaskList = ({ card, checklists }) => {
   const [addTask, setAddTask] = useState(false);
   const [editor, setEditor] = useState(false);
   const [window, setWindow] = useState(false);
@@ -24,7 +23,6 @@ const TaskList = ({ card, dispatch }) => {
   };
   const handleRenderTaskWindow = (task) => {
     setEditTask(task);
-    dispatch(fetchChecklists(task));
     setWindow(true);
   };
   const handleCloseWindow = () => {
@@ -44,10 +42,24 @@ const TaskList = ({ card, dispatch }) => {
   const renderTasks = () => {
     if (card && card.tasks && card.tasks.length > 0) {
       return card.tasks.map((task) => {
+        let todos = 0;
+        let finished = 0;
+        checklists.forEach((ck) => {
+          if (ck.task_id === task.id && ck.items.length > 0) {
+            [...ck.items].forEach((itm) => {
+              todos++;
+              if (itm.completed) {
+                finished++;
+              }
+            });
+          }
+        });
         if (!task.archived) {
           return (
             <Task
               key={task.id}
+              todos={todos}
+              finishedTodos={finished}
               task={task}
               handleRenderTaskWindow={handleRenderTaskWindow}
               handleRenderQuickEditor={handleRenderQuickEditor}
@@ -59,7 +71,7 @@ const TaskList = ({ card, dispatch }) => {
       });
     }
   };
-
+  console.log(checklists);
   return (
     <div className="task-list">
       {editor && !window ? <div className="quick-task-editor" /> : null}
@@ -109,5 +121,9 @@ const TaskList = ({ card, dispatch }) => {
     </div>
   );
 };
-
-export default connect()(TaskList);
+const mapStateToProps = (state) => {
+  return {
+    checklists: state.checklistsReducer.checklists,
+  };
+};
+export default connect(mapStateToProps)(TaskList);

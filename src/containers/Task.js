@@ -8,9 +8,11 @@ const Task = ({
   taskLabels,
   handleRenderTaskWindow,
   handleRenderQuickEditor,
+  todos,
+  finishedTodos,
 }) => {
   const [visible, setVisible] = useState(false);
-
+  console.log(todos, finishedTodos);
   return (
     <div
       className="task-item task-item-details"
@@ -24,6 +26,7 @@ const Task = ({
           onClick={(e) => handleRenderTaskWindow(task)}
         >
           {task.note}
+          <div></div>
         </div>
         {visible ? (
           <span
