@@ -140,30 +140,30 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         <>
           {renderStarred()}
           {renderPersonal()}
-          <ul className="center-col">
-            <li className="option-item" style={{ width: "91.5%" }}>
-              <button
-                className="option-title js-member-activity active"
-                onClick={(e) => handleActionClick(e, () => openModal())}
-              >
-                <span style={{ textDecoration: "underline" }}>
-                  Create new board...
-                </span>
-              </button>
-            </li>
-            <li className="option-item" style={{ width: "91.5%" }}>
-              <button
-                className="option-title js-member-activity active"
-                onClick={(e) => handleActionClick(e)}
-              >
-                <span style={{ textDecoration: "underline" }}>
-                  See archived boards...
-                </span>
-              </button>
-            </li>
-          </ul>
         </>
       )}
+      <ul className="center-col">
+        <li className="option-item" style={{ width: "91.5%" }}>
+          <button
+            className="option-title js-member-activity active"
+            onClick={(e) => handleActionClick(e, () => openModal())}
+          >
+            <span style={{ textDecoration: "underline" }}>
+              Create new board...
+            </span>
+          </button>
+        </li>
+        <li className="option-item" style={{ width: "91.5%" }}>
+          <button
+            className="option-title js-member-activity active"
+            onClick={(e) => handleActionClick(e)}
+          >
+            <span style={{ textDecoration: "underline" }}>
+              See archived boards...
+            </span>
+          </button>
+        </li>
+      </ul>
     </div>
   );
 };
