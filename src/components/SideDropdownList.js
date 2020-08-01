@@ -137,7 +137,9 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         </button>
       </div>
       {filtered.length > 0 ? (
-        <ul className="sidelist-ul">{renderItems("search", filtered)}</ul>
+        <div className="sidelist-control">
+          <ul className="sidelist-ul">{renderItems("search", filtered)}</ul>
+        </div>
       ) : (
         <>
           {renderStarred()}
