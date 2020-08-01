@@ -44,13 +44,12 @@ const NavBar = ({ user }) => {
   return (
     <div id="navbar">
       <div className="left-navbar">
-        <a href="/home" className="navbar-btn">
-          <img
-            className="icon"
-            src={require("../images/home-icon.png")}
-            alt="home"
-            opacity="1"
-          />
+        <a
+          href="/home"
+          className="navbar-btn"
+          style={{ textDecoration: "none" }}
+        >
+          <i className="fa fa-home" aria-hidden="true"></i>
         </a>
         <button className="navbar-btn" onClick={(e) => setSidelist(!sidelist)}>
           <span className="wello-icon-white" />
@@ -84,13 +83,16 @@ const NavBar = ({ user }) => {
       </div>
       <div className="right-navbar">
         <button className="navbar-btn" onClick={(e) => setRightnav("create")}>
-          <img
+          {/* <img
             className="icon"
             src={require("../images/add-new-icon.png")}
             alt="create"
             opacity="1"
-          />
+            style={{ color: "white" }}
+          /> */}
+          <div className="nav-btn-text">✕</div>
         </button>
+
         <div onClick={(e) => setRightnav("prof")}>
           <span
             className="user-initials"
