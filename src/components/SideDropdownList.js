@@ -50,7 +50,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         <li className="option-item" style={{ width: "91.5%" }}>
           <button
             className="option-title js-member-activity active"
-            onClick={(e) => openModal(e)}
+            onClick={(e) => handleActionClick(e)}
           >
             <span style={{ textDecoration: "underline" }}>
               See archived boards...
