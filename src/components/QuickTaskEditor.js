@@ -54,7 +54,11 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
       <div className="quick-task-editor-buttons">
         <div style={{ position: "absolute", top: "32px", right: "-224px" }}>
           {renderMenu ? (
-            <LabelMenu closePopup={closePopup} taskId={editTask.id} />
+            <LabelMenu
+              closePopup={closePopup}
+              taskId={editTask.id}
+              absLabel={"absLabel"}
+            />
           ) : null}
         </div>
 

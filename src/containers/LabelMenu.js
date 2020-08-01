@@ -7,7 +7,14 @@ import {
 } from "../actions/labels";
 import { connect } from "react-redux";
 
-const LabelMenu = ({ labels, taskLabels, closePopup, taskId, dispatch }) => {
+const LabelMenu = ({
+  labels,
+  taskLabels,
+  closePopup,
+  taskId,
+  dispatch,
+  absLabel,
+}) => {
   const [name, setName] = useState("");
   const [editingLabel, setEditingLabel] = useState({});
   const handleEditLabel = (label) => {
@@ -39,10 +46,15 @@ const LabelMenu = ({ labels, taskLabels, closePopup, taskId, dispatch }) => {
       dispatch(createTaskLabel(labelId, taskId));
     }
   };
+  const renderLabelLocation = () => {
+    if (absLabel === "absLabel") {
+      return { position: "absolute", top: "0" };
+    }
+  };
   return (
     <>
       {!editingLabel.id ? (
-        <div className="label-menu side-popover">
+        <div className="label-menu side-popover" style={renderLabelLocation()}>
           <div className="no-back">
             <div className="side-popover-header">
               <span className="side-popover-header-title">Labels</span>
