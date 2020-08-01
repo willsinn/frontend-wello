@@ -11,7 +11,12 @@ textarea {
   line-height: 20px;
   font-weight: 400;
 }
-
+.center-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 p {
   margin: 0;
 }
@@ -210,14 +215,14 @@ button {
   border-radius: 2px;
   padding: 0;
   position: fixed;
-  top: 42px;
+  top: 46px;
   left: 0;
   z-index: 1;
 }
 .sidelist-ul {
   list-style-type: none;
   padding: 0;
-  margin: 16px 12px;
+  margin: 36px 12px 8px 12px;
 }
 .navbar-btn {
   background-color: hsla(0, 0%, 100%, 0.3);

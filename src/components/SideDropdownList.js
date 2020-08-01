@@ -17,24 +17,44 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
       ));
     }
   };
-  const handleCreateClick = (e) => {
+  const handleActionClick = (e, callbackAction) => {
     if (e) {
       closeSidelist();
-      openModal();
+      callbackAction();
     }
   };
   return (
     <div className="sidelist-wrapper">
+      <div className="dropdown-title-close">
+        <button>
+          <span
+            className="dropdown-title-close-btn"
+            onClick={(e) => closeSidelist(e)}
+          >
+            ×
+          </span>
+        </button>
+      </div>
       <ul className="sidelist-ul">{renderItems()}</ul>
-      <ul>
-        <li className="option-item" onClick={(e) => handleCreateClick(e)}>
-          <button className="option-title js-member-activity active">
-            Create new board...
+      <ul className="center-col">
+        <li className="option-item" style={{ width: "91.5%" }}>
+          <button
+            className="option-title js-member-activity active"
+            onClick={(e) => handleActionClick(e, () => openModal())}
+          >
+            <span style={{ textDecoration: "underline" }}>
+              Create new board...
+            </span>
           </button>
         </li>
-        <li className="option-item" onClick={(e) => openModal(e)}>
-          <button className="option-title js-member-activity active">
-            See archived boards...
+        <li className="option-item" style={{ width: "91.5%" }}>
+          <button
+            className="option-title js-member-activity active"
+            onClick={(e) => openModal(e)}
+          >
+            <span style={{ textDecoration: "underline" }}>
+              See archived boards...
+            </span>
           </button>
         </li>
       </ul>
