@@ -44,11 +44,7 @@ const NavBar = ({ user }) => {
   return (
     <div id="navbar">
       <div className="left-navbar">
-        <a
-          href="/home"
-          className="navbar-btn"
-          style={{ textDecoration: "none" }}
-        >
+        <a href="/" className="navbar-btn" style={{ textDecoration: "none" }}>
           <i className="fa fa-home" aria-hidden="true"></i>
         </a>
         <button className="navbar-btn" onClick={(e) => setSidelist(!sidelist)}>

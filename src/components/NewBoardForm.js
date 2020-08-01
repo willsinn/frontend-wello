@@ -42,6 +42,7 @@ const NewBoardForm = ({ user, closeModal, dispatch }) => {
     setBackground(initialBackground);
     closeModal(e);
     e.target.firstElementChild.value = "";
+    e.target.elements[1].value = "";
   };
 
   const handleSubmit = (e) => {

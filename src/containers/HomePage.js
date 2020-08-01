@@ -121,7 +121,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
                     case "settings":
                       return <SettingsPage />;
                     default:
-                      return null;
+                      return;
                   }
                 })()}
               </div>

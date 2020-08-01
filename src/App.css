@@ -136,7 +136,6 @@ button {
   height: 100%;
   width: 100%;
   border-radius: 3px;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -145,6 +144,7 @@ button {
   line-height: 20px;
   font-weight: 900;
   position: relative;
+  cursor: pointer;
 }
 
 .left-navbar {
@@ -3032,7 +3032,7 @@ button {
 }
 .side-right-box {
   opacity: 0.8;
-  background-color: rgb(254, 254, 255, 0.5);
+  background-color: rgb(254, 254, 255, 0.85);
   width: 100%;
   display: flex;
   align-items: center;

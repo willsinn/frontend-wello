@@ -16,6 +16,11 @@ import archiveReducer from "./reducers/archiveReducer";
 
 import * as serviceWorker from "./serviceWorker";
 
+// import { StaticRouter } from "react-router-dom";
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
+
 const rootReducer = combineReducers({
   userReducer: userReducer,
   boardsReducer: boardsReducer,
@@ -33,7 +38,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
       <App />
     </Router>
   </Provider>,
