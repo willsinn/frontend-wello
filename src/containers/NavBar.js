@@ -83,13 +83,6 @@ const NavBar = ({ user }) => {
       </div>
       <div className="right-navbar">
         <button className="navbar-btn" onClick={(e) => setRightnav("create")}>
-          {/* <img
-            className="icon"
-            src={require("../images/add-new-icon.png")}
-            alt="create"
-            opacity="1"
-            style={{ color: "white" }}
-          /> */}
           <div className="nav-btn-text">✕</div>
         </button>
 
