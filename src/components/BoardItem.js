@@ -59,8 +59,8 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
                 style={{
                   color: "black",
                   fontSize: "12.5px",
-                  fontWeight: "650",
-                  marginLeft: "12px",
+                  fontWeight: "375",
+                  marginLeft: "8px",
                 }}
               >
                 {board.title}
@@ -72,7 +72,7 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
                 width: "24px",
                 position: "absolute",
                 top: "12px",
-                right: "4px",
+                right: "0",
               }}
             >
               {board.starred ? (

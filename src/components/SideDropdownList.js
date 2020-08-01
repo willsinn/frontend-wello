@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BoardItem from "./BoardItem";
+import SearchBoardForm from "./SearchBoardForm";
 import { connect } from "react-redux";
 
 const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
@@ -115,6 +116,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
   };
   return (
     <div className="sidelist-wrapper">
+      <SearchBoardForm />
       <div className="dropdown-title-close">
         <button>
           <span
