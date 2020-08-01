@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./App";
 import userReducer from "./reducers/userReducer";
@@ -15,6 +15,11 @@ import labelsReducer from "./reducers/labelsReducer";
 import archiveReducer from "./reducers/archiveReducer";
 
 import * as serviceWorker from "./serviceWorker";
+
+import { StaticRouter } from "react-router-dom";
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
   userReducer: userReducer,
@@ -33,9 +38,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <StaticRouter history={history}>
       <App />
-    </Router>
+    </StaticRouter>
   </Provider>,
   document.getElementById("root")
 );
