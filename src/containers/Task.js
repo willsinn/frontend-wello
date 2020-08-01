@@ -26,7 +26,33 @@ const Task = ({
           onClick={(e) => handleRenderTaskWindow(task)}
         >
           {task.note}
-          <div></div>
+          <div
+            className="todo-tracker"
+            style={{
+              backgroundColor:
+                finishedTodos === todos && todos !== 0
+                  ? "#61bd4f"
+                  : "transparent",
+            }}
+          >
+            <i
+              className="fa fa-check-square-o todo-tracker-icon"
+              aria-hidden="true"
+              style={{
+                color:
+                  finishedTodos === todos && todos !== 0 ? "white" : "#6b778c",
+              }}
+            ></i>
+            <div
+              className="todo-tracker-num"
+              style={{
+                color:
+                  finishedTodos === todos && todos !== 0 ? "white" : "#6b778c",
+              }}
+            >
+              {finishedTodos}/{todos}
+            </div>
+          </div>
         </div>
         {visible ? (
           <span

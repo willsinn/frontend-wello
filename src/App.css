@@ -146,7 +146,29 @@ button {
   position: relative;
   cursor: pointer;
 }
-
+.todo-tracker-icon {
+  height: 16px;
+  width: 16px;
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todo-tracker-num {
+  font-size: 10px;
+}
+.todo-tracker {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  padding: 1px 5px 1px 3px;
+  border-radius: 3px;
+}
 .left-navbar {
   display: flex;
 }
