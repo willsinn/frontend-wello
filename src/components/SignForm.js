@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { userSignup } from "../actions/user";
 
-const SignForm = ({ loggedIn, error, dispatch }) => {
+const SignForm = ({ loggedIn, error, dispatch, handleLoginClick }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -79,7 +79,11 @@ const SignForm = ({ loggedIn, error, dispatch }) => {
                   </button>
                 </form>
                 <hr />
-                <a href="/login" className="signup-link">
+                <a
+                  onClick={(e) => handleLoginClick(e)}
+                  href=""
+                  className="signup-link"
+                >
                   Already have an account? Log In
                 </a>
               </div>
