@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import LandingPage from "./LandingPage";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { userSignup } from "../actions/user";
 
@@ -79,9 +79,9 @@ const SignForm = ({ loggedIn, error, dispatch }) => {
                   </button>
                 </form>
                 <hr />
-                <a href="/login" className="signup-link">
+                <Link to="/login" className="signup-link">
                   Already have an account? Log In
-                </a>
+                </Link>
               </div>
             </div>
           </div>

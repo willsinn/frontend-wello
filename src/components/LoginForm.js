@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import LandingPage from "./LandingPage";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { userLogin } from "../actions/user";
 
 const LoginForm = ({ loggedIn, error, dispatch }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [login, setLogin] = useState(true);
-
   const handleUnChange = (e) => {
     e.persist();
     setEmail(e.target.value);
@@ -23,7 +21,6 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
       dispatch(userLogin(email, password));
     }
   };
-  console.log(loggedIn);
 
   return (
     <>
@@ -64,9 +61,9 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
                   </button>
                 </form>
                 <hr />
-                <a href="/signup" className="signup-link">
+                <Link to="/signup" className="signup-link">
                   Signup for an account
-                </a>
+                </Link>
               </div>
             </div>
           </div>
