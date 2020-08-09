@@ -32,7 +32,12 @@ const userReducer = (state = defaultState, action) => {
       return { ...state, user: action.user };
     case "USER_LOGOUT":
       localStorage.clear();
-      return { ...state, user: null, loggedIn: false };
+      return {
+        ...state,
+        user: null,
+        loggedIn: false,
+        authenticatingUser: true,
+      };
     default:
       return state;
   }
