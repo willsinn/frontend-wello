@@ -2893,16 +2893,7 @@ button {
   font-size: 18px;
   font-weight: 800;
 }
-.archive-item-content {
-  max-width: 100%;
-  justify-content: space-between;
-  overflow: scroll;
-}
-.straight-row-content {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
+
 .a-right {
   justify-content: flex-end;
 }
@@ -2946,12 +2937,6 @@ button {
   max-width: 225px;
   margin-left: 12px;
   overflow: hidden;
-}
-.full-archive {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  margin-left: 16px;
 }
 .render-nested-info {
   width: 110px;
