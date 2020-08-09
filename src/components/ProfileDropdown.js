@@ -96,13 +96,14 @@ const ProfileDropdown = ({ user, closeRightnav, activePage, dispatch }) => {
           </li>
           <hr />
           <li className="option-item">
-            <button
+            <Link
+              to="/"
               onClick={(e) => dispatch(userLogout(), closeRightnav(e))}
               className="option-title js-member-account"
               data-tab="settings"
             >
               <span>Logout</span>
-            </button>
+            </Link>
           </li>
         </ul>
       )}
