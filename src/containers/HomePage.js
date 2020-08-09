@@ -15,13 +15,13 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
   useEffect(() => {
     dispatch(fetchUserBoards(user.id));
   }, [user.id, dispatch]);
-
+  const archivedBoards = boards.filter((b) => b.archived);
   const fetchArchives = () => {
     if (boards && boards.length > 0) {
-      dispatch(setArchives({ userBoards: boards }));
+      dispatch(setArchives({ userBoards: archivedBoards }));
     }
   };
-  console.log(workspace, activePage, boards);
+  // console.log(workspace, activePage, boards);
   return (
     <div id="root">
       <NavBar />
