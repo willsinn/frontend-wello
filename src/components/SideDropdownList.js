@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import BoardItem from "./BoardItem";
 import SearchBoardForm from "./SearchBoardForm";
+import {
+  toggleSidelistStarred,
+  toggleSidelistPersonal,
+} from "../actions/boards";
 import { connect } from "react-redux";
 
-const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
-  const [personal, setPersonal] = useState(true);
-  const [starred, setStarred] = useState(true);
+const SideDropdownList = ({
+  boards,
+  starredOpen,
+  personalOpen,
+  openModal,
+  closeSidelist,
+  dispatch,
+}) => {
+  const [searching, setSearching] = useState(false);
   const [filtered, setFiltered] = useState([]);
   const [highlight, setHighlight] = useState("");
   const highlightButton = {
@@ -25,25 +35,14 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
       </li>
     ));
   };
-  const renderSearchResults = (arr) => {
-    setFiltered([...arr]);
-  };
+
   const handleActionClick = (e, callbackAction) => {
     if (e) {
       closeSidelist();
       callbackAction();
     }
   };
-  const handleExpandClick = (e, type) => {
-    if (e) {
-      if (type === "starred") {
-        setStarred(!starred);
-      } else {
-        setPersonal(!personal);
-      }
-      setHighlight(type);
-    }
-  };
+
   const renderPersonal = () => {
     return (
       <div className="sidelist-control">
@@ -53,18 +52,20 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         </div>
         <button
           className="sidelist-control-btn"
-          onClick={(e) => handleExpandClick(e, "personal")}
+          onClick={() =>
+            dispatch(toggleSidelistPersonal(), setHighlight("personal"))
+          }
           style={highlight === "personal" ? highlightButton : null}
         >
           <div className="side-ctrl-btn-wrap">
-            {personal ? (
+            {personalOpen ? (
               <span className="side-ctrl-btn-txt">-</span>
             ) : (
               <span className="side-ctrl-btn-txt">+</span>
             )}
           </div>
         </button>
-        {personal ? (
+        {personalOpen ? (
           <>
             {showBoards.length > 0 ? (
               <ul className="sidelist-ul">
@@ -91,18 +92,20 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         </div>
         <button
           className="sidelist-control-btn"
-          onClick={(e) => handleExpandClick(e, "starred")}
+          onClick={() =>
+            dispatch(toggleSidelistStarred(), setHighlight("starred"))
+          }
           style={highlight === "starred" ? highlightButton : null}
         >
           <div className="side-ctrl-btn-wrap">
-            {starred ? (
+            {starredOpen ? (
               <span className="side-ctrl-btn-txt">-</span>
             ) : (
               <span className="side-ctrl-btn-txt">+</span>
             )}
           </div>
         </button>
-        {starred ? (
+        {starredOpen ? (
           <>
             {boards.length > 0 ? (
               <ul className="sidelist-ul">
@@ -121,12 +124,36 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
       </div>
     );
   };
-  console.log(filtered, "side");
+  const filterMatches = (searchVal) => {
+    if (searchVal === "") setSearching(false);
+    if (searchVal) setSearching(true);
+    const searchMatches = [];
+    showBoards.forEach((board) => {
+      const str = board.title;
+      [...str].forEach((char, i) => {
+        if (searchVal.length === 1 && char === searchVal) {
+          const isDuplicate = searchMatches.filter((m) => m.id === board.id);
+          if (isDuplicate.length === 0) {
+            searchMatches.push(board);
+          }
+        }
+        if (searchVal.length > 1) {
+          const check = str.substring(i, i + searchVal.length);
+          if (check === searchVal) {
+            const isDuplicate = searchMatches.filter((m) => m.id === board.id);
+            if (isDuplicate.length === 0) {
+              searchMatches.push(board);
+            }
+          }
+        }
+      });
+    });
+    setFiltered(searchMatches);
+  };
+  console.log(personalOpen);
   return (
     <div className="sidelist-wrapper">
-      <div className="search-cont">
-        <SearchBoardForm renderSearchResults={renderSearchResults} />
-      </div>
+      <SearchBoardForm filterMatches={filterMatches} />
       <div className="dropdown-title-close">
         <button>
           <span
@@ -138,7 +165,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         </button>
       </div>
       <hr />
-      {filtered.length > 0 ? (
+      {searching ? (
         <div className="sidelist-control">
           <ul className="sidelist-ul">{renderItems("search", filtered)}</ul>
         </div>
@@ -165,5 +192,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
 };
 const mapStateToProps = (state) => ({
   boards: state.boardsReducer.boards,
+  personalOpen: state.boardsReducer.personalOpen,
+  starredOpen: state.boardsReducer.starredOpen,
 });
 export default connect(mapStateToProps)(SideDropdownList);
