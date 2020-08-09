@@ -150,7 +150,6 @@ const SideDropdownList = ({
     });
     setFiltered(searchMatches);
   };
-  console.log(personalOpen);
   return (
     <div className="sidelist-wrapper">
       <SearchBoardForm filterMatches={filterMatches} />
