@@ -132,8 +132,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
           }
         }
         if (searchVal.length > 1) {
-          const check = str.substring(i, i + searchVal.length + 1);
-          debugger;
+          const check = str.substring(i, i + searchVal.length);
           if (check === searchVal) {
             const isDuplicate = searchMatches.filter((m) => m.id === board.id);
             if (isDuplicate.length === 0) {
