@@ -113,7 +113,7 @@ export const toggleStarred = (board) => {
       .then((JSONresponse) => dispatch(updateBoard(JSONresponse)));
   };
 };
-export const restoreBoard = (board, callback) => {
+export const restoreBoard = (board) => {
   return (dispatch) => {
     fetch(`${fetchUrl}/api/v1/board/update/${board.id}`, {
       method: "PUT",
@@ -129,6 +129,6 @@ export const restoreBoard = (board, callback) => {
       }),
     })
       .then((response) => response.json())
-      .then((JSONresponse) => dispatch(addNewBoard(JSONresponse)), callback());
+      .then((JSONresponse) => dispatch(updateBoard(JSONresponse)));
   };
 };
