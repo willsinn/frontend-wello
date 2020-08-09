@@ -22,9 +22,7 @@ const MenuNavItemTitle = ({ setSidebar, setContent, resetClosedSidebar }) => {
           </button>
         </div>
         <hr />
-        <div className="board-menu-content">
-          <div className="">Add Search Bar Eventually</div>
-        </div>
+        <div className="board-menu-content"></div>
       </div>
     </div>
   );
