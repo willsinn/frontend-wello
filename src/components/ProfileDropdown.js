@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { setPage, userLogout } from "../actions/user";
 
 const ProfileDropdown = ({ user, closeRightnav, activePage, dispatch }) => {
@@ -53,13 +54,14 @@ const ProfileDropdown = ({ user, closeRightnav, activePage, dispatch }) => {
             </a>
           </li>
           <li className="option-item">
-            <button
+            <Link
+              to="/"
               onClick={(e) => dispatch(userLogout(), closeRightnav(e))}
               className="option-title js-member-account"
               data-tab="settings"
             >
               <span>Logout</span>
-            </button>
+            </Link>
           </li>
         </ul>
       ) : (
