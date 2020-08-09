@@ -71,7 +71,6 @@ const TaskList = ({ card, checklists }) => {
       });
     }
   };
-  console.log(checklists);
   return (
     <div className="task-list">
       {editor && !window ? <div className="quick-task-editor" /> : null}

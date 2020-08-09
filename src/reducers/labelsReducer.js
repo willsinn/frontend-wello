@@ -9,6 +9,9 @@ const labelsReducer = (state = defaultState, action) => {
       const userLabels = action.data.labels.filter(
         (label) => label.user_id === action.data.userId
       );
+      userLabels.sort(function (a, b) {
+        return a.color - b.color;
+      });
       return { ...state, labels: userLabels };
     case "ADD_NEW_LABEL":
       return { ...state, labels: [...state.labels, action.label] };

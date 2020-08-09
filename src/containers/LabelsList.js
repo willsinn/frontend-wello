@@ -19,7 +19,11 @@ const LabelsList = ({
 }) => {
   const renderLabels = () => {
     if (labels) {
-      return labels.map((label) => {
+      const sortedLabels = [...labels];
+      sortedLabels.sort(function (a, b) {
+        return a.color - b.color;
+      });
+      return sortedLabels.map((label) => {
         const taskLabel = taskLabels.filter(
           (task_label) =>
             task_label.task_id === taskId && task_label.label_id === label.id
