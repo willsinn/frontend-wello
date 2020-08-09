@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CardList from "../components/CardList";
 import BoardMenu from "./BoardMenu";
 import NavBar from "./NavBar";
+import EditBoardTitle from "../components/EditBoardTitle";
 
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
@@ -32,6 +33,7 @@ const bgs = [
 ];
 const Board = ({ workspace, dispatch }) => {
   const [background, setBackground] = useState("");
+  const [edit, setEdit] = useState(false);
 
   const renderBoardBg = () => {
     dispatch(fetchLabels());
@@ -51,7 +53,9 @@ const Board = ({ workspace, dispatch }) => {
       dispatch(starredBoard(workspace));
     }
   };
-
+  const handleEditTitleClick = (e) => {
+    if (e) return setEdit(!edit);
+  };
   const bgOptions = bgs.filter((bg) => bg !== workspace.background);
 
   const findBg = (bgKey) => {
@@ -109,15 +113,22 @@ const Board = ({ workspace, dispatch }) => {
               <div className="board-header">
                 <div className="board-ops left">
                   <div className="board-ops title-top">
-                    <span
-                      className="b-name"
-                      style={{
-                        paddingLeft: "12px",
-                        paddingRight: "12px",
-                      }}
-                    >
-                      {workspace.title}
-                    </span>
+                    <div onClick={(e) => handleEditTitleClick(e)}>
+                      {edit ? (
+                        <EditBoardTitle />
+                      ) : (
+                        <span
+                          className="b-name"
+                          style={{
+                            paddingLeft: "12px",
+                            paddingRight: "12px",
+                          }}
+                        >
+                          {workspace.title}
+                        </span>
+                      )}
+                    </div>
+
                     <button
                       className="navbar-btn"
                       onClick={(e) => handleClick(e)}

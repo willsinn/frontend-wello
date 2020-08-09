@@ -1035,6 +1035,11 @@ button {
   background-size: contain;
   background-repeat: no-repeat;
 }
+.title-icon-black {
+  background-image: url("./images/title-icon-black.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .starred-icon-black {
   background-image: url("./images/fav-star-icon.png");
   background-size: contain;
