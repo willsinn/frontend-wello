@@ -4,8 +4,9 @@ import SearchBoardForm from "./SearchBoardForm";
 import { connect } from "react-redux";
 
 const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
-  const [personal, setPersonal] = useState(true);
+  const [personal, setPersonal] = useState(false);
   const [starred, setStarred] = useState(true);
+  const [searching, setSearching] = useState(false);
   const [filtered, setFiltered] = useState([]);
   const [highlight, setHighlight] = useState("");
   const highlightButton = {
@@ -120,7 +121,8 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
     );
   };
   const filterMatches = (searchVal) => {
-    console.log(searchVal);
+    if (searchVal === "") setSearching(false);
+    if (searchVal) setSearching(true);
     const searchMatches = [];
     showBoards.forEach((board) => {
       const str = board.title;
@@ -161,7 +163,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         </button>
       </div>
       <hr />
-      {filtered.length > 0 ? (
+      {searching ? (
         <div className="sidelist-control">
           <ul className="sidelist-ul">{renderItems("search", filtered)}</ul>
         </div>
