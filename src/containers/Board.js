@@ -113,7 +113,10 @@ const Board = ({ workspace, dispatch }) => {
               <div className="board-header">
                 <div className="board-ops left">
                   <div className="board-ops title-top">
-                    <div onClick={(e) => handleEditTitleClick(e)}>
+                    <div
+                      className="board-title-cont"
+                      onClick={(e) => handleEditTitleClick(e)}
+                    >
                       {edit ? (
                         <EditBoardTitle />
                       ) : (

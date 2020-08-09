@@ -3092,3 +3092,9 @@ button {
   align-items: center;
   margin-top: -2px;
 }
+.edit-title {
+  width: 100%;
+}
+.board-title-cont {
+  max-width: fit-content;
+}
