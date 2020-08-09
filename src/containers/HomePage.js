@@ -10,6 +10,7 @@ import { fetchUserBoards } from "../actions/boards";
 import { setPage } from "../actions/user";
 import { setArchives } from "../actions/archives";
 import { Redirect } from "react-router-dom";
+import { newUserLabel } from "../actions/labels";
 
 const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
   const fetchArchives = () => {
     if (boards && boards.length > 0) {
       dispatch(setArchives({ userBoards: archivedBoards }));
+      dispatch(newUserLabel(user.id));
     }
   };
   // console.log(workspace, activePage, boards);

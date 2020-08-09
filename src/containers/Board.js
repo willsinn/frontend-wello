@@ -109,10 +109,7 @@ const Board = ({ workspace, dispatch }) => {
         <>
           <NavBar />
           <div id="board" style={renderBoardBg()}>
-            <div
-              className="board-header-wrap"
-              // onMouseDown={(e) => setEdit(false)}
-            >
+            <div className="board-header-wrap">
               <div className="board-header">
                 <div className="board-ops left">
                   <div className="board-ops title-top">

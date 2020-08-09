@@ -91,3 +91,19 @@ export const deleteTaskLabel = (taskLabelId) => {
     });
   };
 };
+export const newUserLabel = (userId) => {
+  debugger;
+  return (dispatch) => {
+    fetch(`${fetchUrl}/api/v1/label/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({ user_id: userId, color: "orange" }),
+    })
+      .then((r) => r.json())
+      .then((JSONresponse) => console.log(JSONresponse));
+  };
+};
