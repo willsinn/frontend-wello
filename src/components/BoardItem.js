@@ -76,10 +76,11 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
                 <span
                   style={{
                     color: "black",
-                    fontSize: "14px",
-                    fontWeight: "425",
+                    fontSize: "13px",
+                    fontWeight: "500",
                     marginLeft: "8px",
                     textTransform: "none",
+                    letterSpacing: "0",
                   }}
                 >
                   {board.title}
