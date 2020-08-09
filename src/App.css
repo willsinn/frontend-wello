@@ -3092,9 +3092,13 @@ button {
   align-items: center;
   margin-top: -2px;
 }
-.edit-title {
+.edit-title.form {
   width: 100%;
+  min-width: 30px;
 }
 .board-title-cont {
   max-width: fit-content;
+}
+.b-name {
+  padding: 0 12px;
 }

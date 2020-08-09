@@ -53,11 +53,11 @@ const Board = ({ workspace, dispatch }) => {
       dispatch(starredBoard(workspace));
     }
   };
-  const handleEditTitleClick = (e) => {
-    if (e) return setEdit(!edit);
-  };
-  const bgOptions = bgs.filter((bg) => bg !== workspace.background);
 
+  const bgOptions = bgs.filter((bg) => bg !== workspace.background);
+  const handleCloseEdit = (e) => {
+    setEdit(false);
+  };
   const findBg = (bgKey) => {
     switch (bgKey) {
       case "lake":
@@ -109,26 +109,26 @@ const Board = ({ workspace, dispatch }) => {
         <>
           <NavBar />
           <div id="board" style={renderBoardBg()}>
-            <div className="board-header-wrap">
+            <div
+              className="board-header-wrap"
+              // onMouseDown={(e) => setEdit(false)}
+            >
               <div className="board-header">
                 <div className="board-ops left">
                   <div className="board-ops title-top">
                     <div
                       className="board-title-cont"
-                      onClick={(e) => handleEditTitleClick(e)}
+                      onClick={(e) => setEdit(true)}
                     >
                       {edit ? (
-                        <EditBoardTitle />
-                      ) : (
-                        <span
-                          className="b-name"
-                          style={{
-                            paddingLeft: "12px",
-                            paddingRight: "12px",
-                          }}
-                        >
-                          {workspace.title}
+                        <span>
+                          <EditBoardTitle
+                            workspace={workspace}
+                            handleCloseEdit={handleCloseEdit}
+                          />
                         </span>
+                      ) : (
+                        <span>{workspace.title}</span>
                       )}
                     </div>
 
