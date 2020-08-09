@@ -12,7 +12,8 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
     border: "2px solid #026aa7",
     padding: "5px 4px 5px 5px",
   };
-  const starredBoards = boards.filter((board) => board.starred);
+  const showBoards = boards.filter((b) => !b.archived);
+  const starredBoards = showBoards.filter((board) => board.starred);
   const renderItems = (type, arr) => {
     return arr.map((board) => (
       <li className="sidelist-li" key={`side-${type}-${board.id}`}>
@@ -65,8 +66,10 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
         </button>
         {personal ? (
           <>
-            {boards.length > 0 ? (
-              <ul className="sidelist-ul">{renderItems("personal", boards)}</ul>
+            {showBoards.length > 0 ? (
+              <ul className="sidelist-ul">
+                {renderItems("personal", showBoards)}
+              </ul>
             ) : (
               <div className="elm-container">
                 <div className="empty-list-message">
