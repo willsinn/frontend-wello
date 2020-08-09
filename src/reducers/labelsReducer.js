@@ -6,7 +6,10 @@ const defaultState = {
 const labelsReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_LABELS":
-      return { ...state, labels: action.labels };
+      const userLabels = action.data.labels.filter(
+        (label) => label.user_id === action.data.userId
+      );
+      return { ...state, labels: userLabels };
     case "ADD_NEW_LABEL":
       return { ...state, labels: [...state.labels, action.label] };
     case "SET_TASK_LABELS":

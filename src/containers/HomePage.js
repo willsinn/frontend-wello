@@ -24,17 +24,18 @@ const HomePage = ({
 }) => {
   useEffect(() => {
     dispatch(fetchUserBoards(user.id));
-    dispatch(fetchLabels());
+    dispatch(fetchLabels(user.id));
     dispatch(fetchTaskLabels());
   }, [user.id, dispatch]);
   const archivedBoards = boards.filter((b) => b.archived);
   const fetchArchives = () => {
     if (boards && boards.length > 0)
       dispatch(setArchives({ userBoards: archivedBoards }));
-    if (labels.length === 0)
-      defaultLabels.forEach((labelColor) =>
-        dispatch(newUserLabel({ userId: user.id, color: labelColor }))
-      );
+
+    // if (labels && labels.length > 0) debugger;
+    // defaultLabels.forEach((labelColor) =>
+    //   dispatch(newUserLabel({ userId: user.id, color: labelColor }))
+    // );
   };
   console.log(labels);
   return (
