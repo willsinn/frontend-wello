@@ -52,7 +52,9 @@ const SideDropdownList = ({
         </div>
         <button
           className="sidelist-control-btn"
-          onClick={() => dispatch(toggleSidelistPersonal())}
+          onClick={() =>
+            dispatch(toggleSidelistPersonal(), setHighlight("personal"))
+          }
           style={highlight === "personal" ? highlightButton : null}
         >
           <div className="side-ctrl-btn-wrap">
@@ -90,7 +92,9 @@ const SideDropdownList = ({
         </div>
         <button
           className="sidelist-control-btn"
-          onClick={() => dispatch(toggleSidelistStarred())}
+          onClick={() =>
+            dispatch(toggleSidelistStarred(), setHighlight("starred"))
+          }
           style={highlight === "starred" ? highlightButton : null}
         >
           <div className="side-ctrl-btn-wrap">

@@ -11,8 +11,8 @@ const defaultState = {
     "meadow",
   ],
   boards: [],
-  personalOpen: false,
-  starredOpen: false,
+  personalOpen: true,
+  starredOpen: true,
 };
 
 const boardsReducer = (state = defaultState, action) => {
