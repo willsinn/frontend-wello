@@ -135,6 +135,7 @@ const Board = ({ workspace, dispatch }) => {
                     <button
                       className="navbar-btn"
                       onClick={(e) => handleClick(e)}
+                      style={{ marginLeft: "4px" }}
                     >
                       {workspace.starred ? (
                         <span

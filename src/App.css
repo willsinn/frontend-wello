@@ -3092,10 +3092,17 @@ button {
   align-items: center;
   margin-top: -2px;
 }
-.edit-title.form {
-  width: 100%;
-  min-width: 30px;
+
+.edit-title.input {
+  box-sizing: border-box;
+  width: fit-content;
+  height: 32px;
+  font-size: 18px;
+  padding-left: 8px;
+  border: 1px solid #026aa7cf;
+  border-radius: 2px;
 }
+
 .board-title-cont {
   max-width: fit-content;
 }
