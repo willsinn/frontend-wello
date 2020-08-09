@@ -2879,6 +2879,7 @@ button {
   justify-content: space-between;
   background-color: #ebecf0;
   border-radius: 3px;
+  align-items: center;
 }
 .boards-container {
   margin-top: 40px;
@@ -2932,16 +2933,19 @@ button {
 }
 .archive-item-label {
   color: #026aa7;
-  margin: 0 6px;
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  margin: 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
   flex: 1 1 auto;
   text-align: left;
 }
 .main-archive {
-  width: 105px;
+  min-width: 105px;
+  max-width: 225px;
+  margin-left: 12px;
+  overflow: hidden;
 }
 .full-archive {
   display: flex;
@@ -2952,10 +2956,7 @@ button {
 .render-nested-info {
   width: 110px;
 }
-.archive-status {
-  margin-left: 16px;
-  height: 100%;
-}
+
 .archive-title-info {
   text-align: left;
 }
