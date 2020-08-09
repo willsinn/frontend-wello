@@ -15,11 +15,11 @@ const ArchiveItemBoard = ({ boardArchive, dispatch }) => {
   return (
     <li className="archives-list-item">
       <div className="main-archive">
-        <span className="archive-item-label">BOARD</span>
+        <span className="archive-item-label">BOARD:</span>
         <span className="archive-title-text archive-item-info">{`${boardArchive.title}`}</span>
       </div>
       <div>
-        <span className="archive-item-label">ARCHIVED</span>
+        <span className="archive-item-label">ARCHIVED:</span>
         <span className="archive-title-info">{boardArchive.date_archived}</span>
       </div>
       <div className="restore-archived">
