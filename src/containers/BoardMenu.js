@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BoardMenuNavList from "./BoardMenuNavList";
 import MenuNavItemAbout from "../components/MenuNavItemAbout";
 import MenuNavItemBackground from "../components/MenuNavItemBackground";
-import MenuNavItemSearch from "../components/MenuNavItemSearch";
+import MenuNavItemTitle from "../components/MenuNavItemTitle";
 import MenuNavItemMore from "./MenuNavItemMore";
 
 const BoardMenu = (props) => {
@@ -47,9 +47,9 @@ const BoardMenu = (props) => {
                   changeBackground={props.changeBackground}
                 />
               );
-            case "search":
+            case "title":
               return (
-                <MenuNavItemSearch
+                <MenuNavItemTitle
                   setSidebar={setSidebar}
                   setContent={setContent}
                   resetClosedSidebar={resetClosedSidebar}

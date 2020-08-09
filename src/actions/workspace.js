@@ -247,3 +247,21 @@ export const updateBoardDesc = (data) => {
       .then((JSONresponse) => dispatch(updateWorkspace(JSONresponse)));
   };
 };
+export const updateBoardTitle = (data) => {
+  return (dispatch) => {
+    fetch(`${fetchUrl}/api/v1/board/update/${data.workspace.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({
+        id: data.workspace.id,
+        title: data.title,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => dispatch(updateWorkspace(JSONresponse)));
+  };
+};

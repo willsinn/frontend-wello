@@ -1,7 +1,6 @@
 import React from "react";
 
 const TaskWindowLabel = ({ label, openLabelMenu }) => {
-  console.log(label);
   return (
     <li className="task-window-list-item" onClick={(e) => openLabelMenu()}>
       <span

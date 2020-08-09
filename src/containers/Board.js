@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CardList from "../components/CardList";
 import BoardMenu from "./BoardMenu";
 import NavBar from "./NavBar";
+import EditBoardTitle from "../components/EditBoardTitle";
 
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
@@ -14,9 +15,9 @@ import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 
 import { connect } from "react-redux";
+import { newUserLabel } from "../actions/labels";
 import { starredBoard } from "../actions/workspace";
 import { updateBoardBackground } from "../actions/boards";
-import { fetchLabels, fetchTaskLabels } from "../actions/labels";
 import { Redirect } from "react-router-dom";
 
 const bgs = [
@@ -30,12 +31,13 @@ const bgs = [
   "city",
   "meadow",
 ];
-const Board = ({ workspace, dispatch }) => {
+const defaultLabels = ["green", "yellow", "orange", "red", "purple", "blue"];
+
+const Board = ({ workspace, labels, user, dispatch }) => {
   const [background, setBackground] = useState("");
+  const [edit, setEdit] = useState(false);
 
   const renderBoardBg = () => {
-    dispatch(fetchLabels());
-    dispatch(fetchTaskLabels());
     if (background === "") {
       return findBg(workspace.background);
     } else {
@@ -53,7 +55,9 @@ const Board = ({ workspace, dispatch }) => {
   };
 
   const bgOptions = bgs.filter((bg) => bg !== workspace.background);
-
+  const handleCloseEdit = (e) => {
+    setEdit(false);
+  };
   const findBg = (bgKey) => {
     switch (bgKey) {
       case "lake":
@@ -96,7 +100,12 @@ const Board = ({ workspace, dispatch }) => {
         return;
     }
   };
-
+  const updateDefaultLabels = () => {
+    if (labels.length === 0)
+      defaultLabels.forEach((labelColor) =>
+        dispatch(newUserLabel({ userId: user.id, color: labelColor }))
+      );
+  };
   return (
     <>
       {workspace.id === undefined ? (
@@ -104,23 +113,32 @@ const Board = ({ workspace, dispatch }) => {
       ) : (
         <>
           <NavBar />
+          {updateDefaultLabels()}
           <div id="board" style={renderBoardBg()}>
             <div className="board-header-wrap">
               <div className="board-header">
                 <div className="board-ops left">
                   <div className="board-ops title-top">
-                    <span
-                      className="b-name"
-                      style={{
-                        paddingLeft: "12px",
-                        paddingRight: "12px",
-                      }}
+                    <div
+                      className="board-title-cont"
+                      onClick={(e) => setEdit(true)}
                     >
-                      {workspace.title}
-                    </span>
+                      {edit ? (
+                        <span>
+                          <EditBoardTitle
+                            workspace={workspace}
+                            handleCloseEdit={handleCloseEdit}
+                          />
+                        </span>
+                      ) : (
+                        <span>{workspace.title}</span>
+                      )}
+                    </div>
+
                     <button
                       className="navbar-btn"
                       onClick={(e) => handleClick(e)}
+                      style={{ marginLeft: "4px" }}
                     >
                       {workspace.starred ? (
                         <span
@@ -161,5 +179,7 @@ const Board = ({ workspace, dispatch }) => {
 };
 const mapStateToProps = (state) => ({
   workspace: state.workspaceReducer.workspace,
+  labels: state.labelsReducer.labels,
+  user: state.userReducer.user,
 });
 export default connect(mapStateToProps)(Board);

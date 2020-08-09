@@ -10,18 +10,26 @@ import { fetchUserBoards } from "../actions/boards";
 import { setPage } from "../actions/user";
 import { setArchives } from "../actions/archives";
 import { Redirect } from "react-router-dom";
+import { fetchLabels, fetchTaskLabels } from "../actions/labels";
 
-const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
+const HomePage = ({
+  user,
+  activePage,
+  workspace,
+  boards,
+  labels,
+  dispatch,
+}) => {
   useEffect(() => {
     dispatch(fetchUserBoards(user.id));
+    dispatch(fetchLabels(user.id));
+    dispatch(fetchTaskLabels());
   }, [user.id, dispatch]);
   const archivedBoards = boards.filter((b) => b.archived);
   const fetchArchives = () => {
-    if (boards && boards.length > 0) {
+    if (boards && boards.length > 0)
       dispatch(setArchives({ userBoards: archivedBoards }));
-    }
   };
-  // console.log(workspace, activePage, boards);
   return (
     <div id="root">
       <NavBar />
@@ -139,6 +147,7 @@ const mapStateToProps = (state) => {
     activePage: state.userReducer.activePage,
     workspace: state.workspaceReducer.workspace,
     boards: state.boardsReducer.boards,
+    labels: state.labelsReducer.labels,
   };
 };
 export default withAuth(connect(mapStateToProps)(HomePage));

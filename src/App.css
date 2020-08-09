@@ -888,7 +888,8 @@ button {
   margin-right: 10px;
   cursor: pointer;
 }
-.user-initials:hover {
+.about-user-initials {
+  margin: 8px;
 }
 .user-fullname {
   font-size: 24px;
@@ -1031,6 +1032,11 @@ button {
 }
 .wello-icon-gray {
   background-image: url("./images/wello-icon-gray.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.title-icon-black {
+  background-image: url("./images/title-icon-black.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -1365,6 +1371,7 @@ button {
   display: flex;
   flex-direction: row;
   left: 0;
+  z-index: 1;
 }
 .board-sidebar {
 }
@@ -3084,4 +3091,21 @@ button {
   justify-content: center;
   align-items: center;
   margin-top: -2px;
+}
+
+.edit-title.input {
+  box-sizing: border-box;
+  width: fit-content;
+  height: 32px;
+  font-size: 18px;
+  padding-left: 8px;
+  border: 1px solid #026aa7cf;
+  border-radius: 2px;
+}
+
+.board-title-cont {
+  max-width: fit-content;
+}
+.b-name {
+  padding: 0 12px;
 }

@@ -78,6 +78,18 @@ const BoardMenuNavList = (props) => {
             </li>
             <li
               className="board-menu-nav-item"
+              onClick={(e) => props.setContent("title")}
+            >
+              <span className="board-menu-nav-btn">
+                <div className="title-icon-black menu-icon" />
+                <div>Update Title</div>
+                <div className="board-option-summary">
+                  Change the board name.
+                </div>
+              </span>
+            </li>
+            <li
+              className="board-menu-nav-item"
               onClick={(e) => props.setContent("more")}
             >
               <span className="board-menu-nav-btn">

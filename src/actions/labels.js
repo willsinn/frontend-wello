@@ -1,9 +1,13 @@
 import { getUrl } from "../utils.js";
 const fetchUrl = getUrl();
 
-export const setLabels = (labels) => ({
+export const setLabels = (data) => ({
   type: "SET_LABELS",
-  labels,
+  data,
+});
+export const addNewLabel = (label) => ({
+  type: "ADD_NEW_LABEL",
+  label,
 });
 export const setTaskLabels = (task_labels) => ({
   type: "SET_TASK_LABELS",
@@ -21,7 +25,7 @@ export const removeTaskLabel = (taskLabelId) => ({
   type: "REMOVE_TASK_LABEL",
   taskLabelId,
 });
-export const fetchLabels = (task) => {
+export const fetchLabels = (userId) => {
   return (dispatch) => {
     fetch(`${fetchUrl}/api/v1/labels`, {
       headers: {
@@ -31,7 +35,9 @@ export const fetchLabels = (task) => {
       },
     })
       .then((response) => response.json())
-      .then((JSONresponse) => dispatch(setLabels(JSONresponse)));
+      .then((JSONresponse) =>
+        dispatch(setLabels({ labels: JSONresponse, userId: userId }))
+      );
   };
 };
 export const fetchTaskLabels = () => {
@@ -89,5 +95,20 @@ export const deleteTaskLabel = (taskLabelId) => {
       },
       body: JSON.stringify({ task_label_id: taskLabelId }),
     });
+  };
+};
+export const newUserLabel = (data) => {
+  return (dispatch) => {
+    fetch(`${fetchUrl}/api/v1/label/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      body: JSON.stringify({ user_id: data.userId, color: data.color }),
+    })
+      .then((r) => r.json())
+      .then((JSONresponse) => dispatch(addNewLabel(JSONresponse)));
   };
 };

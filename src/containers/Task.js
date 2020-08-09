@@ -12,7 +12,6 @@ const Task = ({
   finishedTodos,
 }) => {
   const [visible, setVisible] = useState(false);
-  console.log(todos, finishedTodos);
   return (
     <div
       className="task-item task-item-details"
