@@ -5,6 +5,10 @@ export const setLabels = (labels) => ({
   type: "SET_LABELS",
   labels,
 });
+export const addNewLabel = (label) => ({
+  type: "ADD_NEW_LABEL",
+  label,
+});
 export const setTaskLabels = (task_labels) => ({
   type: "SET_TASK_LABELS",
   task_labels,
@@ -91,8 +95,7 @@ export const deleteTaskLabel = (taskLabelId) => {
     });
   };
 };
-export const newUserLabel = (userId) => {
-  debugger;
+export const newUserLabel = (data) => {
   return (dispatch) => {
     fetch(`${fetchUrl}/api/v1/label/new`, {
       method: "POST",
@@ -101,9 +104,9 @@ export const newUserLabel = (userId) => {
         Accept: "application/json",
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
-      body: JSON.stringify({ user_id: userId, color: "orange" }),
+      body: JSON.stringify({ user_id: data.userId, color: data.color }),
     })
       .then((r) => r.json())
-      .then((JSONresponse) => console.log(JSONresponse));
+      .then((JSONresponse) => dispatch(addNewLabel(JSONresponse)));
   };
 };

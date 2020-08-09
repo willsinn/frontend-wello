@@ -11,19 +11,32 @@ import { setPage } from "../actions/user";
 import { setArchives } from "../actions/archives";
 import { Redirect } from "react-router-dom";
 import { newUserLabel } from "../actions/labels";
+import { fetchLabels, fetchTaskLabels } from "../actions/labels";
 
-const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
+const defaultLabels = ["green", "yellow", "orange", "red", "purple", "blue"];
+const HomePage = ({
+  user,
+  activePage,
+  workspace,
+  boards,
+  labels,
+  dispatch,
+}) => {
   useEffect(() => {
     dispatch(fetchUserBoards(user.id));
+    dispatch(fetchLabels());
+    dispatch(fetchTaskLabels());
   }, [user.id, dispatch]);
   const archivedBoards = boards.filter((b) => b.archived);
   const fetchArchives = () => {
-    if (boards && boards.length > 0) {
+    if (boards && boards.length > 0)
       dispatch(setArchives({ userBoards: archivedBoards }));
-      dispatch(newUserLabel(user.id));
-    }
+    if (labels.length === 0)
+      defaultLabels.forEach((labelColor) =>
+        dispatch(newUserLabel({ userId: user.id, color: labelColor }))
+      );
   };
-  // console.log(workspace, activePage, boards);
+  console.log(labels);
   return (
     <div id="root">
       <NavBar />
@@ -141,6 +154,7 @@ const mapStateToProps = (state) => {
     activePage: state.userReducer.activePage,
     workspace: state.workspaceReducer.workspace,
     boards: state.boardsReducer.boards,
+    labels: state.labelsReducer.labels,
   };
 };
 export default withAuth(connect(mapStateToProps)(HomePage));

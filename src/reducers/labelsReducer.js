@@ -7,6 +7,8 @@ const labelsReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_LABELS":
       return { ...state, labels: action.labels };
+    case "ADD_NEW_LABEL":
+      return { ...state, labels: [...state.labels, action.label] };
     case "SET_TASK_LABELS":
       return { ...state, taskLabels: action.task_labels };
     case "UPDATE_LABEL":

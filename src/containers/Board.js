@@ -17,7 +17,6 @@ import Autumn from "../images/autumn.jpg";
 import { connect } from "react-redux";
 import { starredBoard } from "../actions/workspace";
 import { updateBoardBackground } from "../actions/boards";
-import { fetchLabels, fetchTaskLabels } from "../actions/labels";
 import { Redirect } from "react-router-dom";
 
 const bgs = [
@@ -36,8 +35,6 @@ const Board = ({ workspace, dispatch }) => {
   const [edit, setEdit] = useState(false);
 
   const renderBoardBg = () => {
-    dispatch(fetchLabels());
-    dispatch(fetchTaskLabels());
     if (background === "") {
       return findBg(workspace.background);
     } else {
