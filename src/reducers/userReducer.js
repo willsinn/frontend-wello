@@ -37,6 +37,7 @@ const userReducer = (state = defaultState, action) => {
         user: null,
         loggedIn: false,
         authenticatingUser: true,
+        activePage: "boards",
       };
     default:
       return state;
