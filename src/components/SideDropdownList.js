@@ -15,8 +15,6 @@ const SideDropdownList = ({
   closeSidelist,
   dispatch,
 }) => {
-  const [personal, setPersonal] = useState(false);
-  const [starred, setStarred] = useState(true);
   const [searching, setSearching] = useState(false);
   const [filtered, setFiltered] = useState([]);
   const [highlight, setHighlight] = useState("");
@@ -44,16 +42,7 @@ const SideDropdownList = ({
       callbackAction();
     }
   };
-  const handleExpandClick = (e, type) => {
-    if (e) {
-      if (type === "starred") {
-        setStarred(!starred);
-      } else {
-        setPersonal(!personal);
-      }
-      setHighlight(type);
-    }
-  };
+
   const renderPersonal = () => {
     return (
       <div className="sidelist-control">
