@@ -14,20 +14,13 @@ const ArchiveItemBoard = ({ boardArchive, dispatch }) => {
 
   return (
     <li className="archives-list-item">
-      <div className="archive-item-content straight-row-content">
-        <div className="full-archive">
-          <div className="main-archive">
-            <span className="archive-item-label">BOARD</span>
-            <span className="archive-title-text archive-item-info">{`${boardArchive.title}`}</span>
-          </div>
-
-          <div className="archive-status">
-            <span className="archive-item-label">ARCHIVED</span>
-            <span className="archive-title-info">
-              {boardArchive.date_archived}
-            </span>
-          </div>
-        </div>
+      <div className="main-archive">
+        <span className="archive-item-label">BOARD:</span>
+        <span className="archive-title-text archive-item-info">{`${boardArchive.title}`}</span>
+      </div>
+      <div>
+        <span className="archive-item-label">ARCHIVED:</span>
+        <span className="archive-title-info">{boardArchive.date_archived}</span>
       </div>
       <div className="restore-archived">
         <button className="restore-btn" onClick={(e) => handleBoardRestore(e)}>

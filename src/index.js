@@ -35,7 +35,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-// console.log(`%c INITIAL REDUX STORE`, "color: purple", store.getState());
+console.log(`%c INITIAL REDUX STORE`, "color: purple", store.getState());
 
 ReactDOM.render(
   <Provider store={store}>

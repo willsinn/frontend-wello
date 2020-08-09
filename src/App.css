@@ -2872,13 +2872,14 @@ button {
   margin: 20px 0 0 4px;
 }
 .archives-list-item {
-  margin: 2.5px 2px;
+  margin: 3px 0;
   height: 36px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   background-color: #ebecf0;
   border-radius: 3px;
+  align-items: center;
 }
 .boards-container {
   margin-top: 40px;
@@ -2892,16 +2893,7 @@ button {
   font-size: 18px;
   font-weight: 800;
 }
-.archive-item-content {
-  max-width: 100%;
-  justify-content: space-between;
-  overflow: scroll;
-}
-.straight-row-content {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
+
 .a-right {
   justify-content: flex-end;
 }
@@ -2932,30 +2924,24 @@ button {
 }
 .archive-item-label {
   color: #026aa7;
-  margin: 0 6px;
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  margin: 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
   flex: 1 1 auto;
   text-align: left;
 }
 .main-archive {
-  width: 105px;
-}
-.full-archive {
-  display: flex;
-  align-items: center;
+  min-width: 105px;
+  max-width: 225px;
+  margin-left: 12px;
   overflow: hidden;
-  margin-left: 16px;
 }
 .render-nested-info {
   width: 110px;
 }
-.archive-status {
-  margin-left: 16px;
-  height: 100%;
-}
+
 .archive-title-info {
   text-align: left;
 }

@@ -21,7 +21,7 @@ const HomePage = ({ user, activePage, workspace, boards, dispatch }) => {
       dispatch(setArchives({ userBoards: boards }));
     }
   };
-
+  console.log(workspace, activePage, boards);
   return (
     <div id="root">
       <NavBar />
