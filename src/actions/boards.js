@@ -13,7 +13,12 @@ export const addNewBoard = (boardData) => ({
   type: "ADD_NEW_BOARD",
   board: boardData,
 });
-
+export const toggleSidelistStarred = () => ({
+  type: "TOGGLE_SIDELIST_STARRED",
+});
+export const toggleSidelistPersonal = () => ({
+  type: "TOGGLE_SIDELIST_PERSONAL",
+});
 export const fetchUserBoards = (userId, callback) => {
   return (dispatch) => {
     fetch(`${fetchUrl}/api/v1/user/${userId}/boards`, {

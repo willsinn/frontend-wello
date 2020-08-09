@@ -1,5 +1,4 @@
 const defaultState = {
-  boards: [],
   bgs: [
     "iceland",
     "lake",
@@ -11,6 +10,9 @@ const defaultState = {
     "city",
     "meadow",
   ],
+  boards: [],
+  personalOpen: false,
+  starredOpen: false,
 };
 
 const boardsReducer = (state = defaultState, action) => {
@@ -41,7 +43,10 @@ const boardsReducer = (state = defaultState, action) => {
         }
       });
       return { ...state, boards: updatedBoards };
-
+    case "TOGGLE_SIDELIST_STARRED":
+      return { ...state, starredOpen: !state.starredOpen };
+    case "TOGGLE_SIDELIST_PERSONAL":
+      return { ...state, personalOpen: !state.personalOpen };
     default:
       return state;
   }
