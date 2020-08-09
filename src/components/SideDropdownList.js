@@ -25,9 +25,7 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
       </li>
     ));
   };
-  const renderSearchResults = (arr) => {
-    setFiltered([...arr]);
-  };
+
   const handleActionClick = (e, callbackAction) => {
     if (e) {
       closeSidelist();
@@ -121,11 +119,37 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
       </div>
     );
   };
+  const filterMatches = (searchVal) => {
+    console.log(searchVal);
+    const searchMatches = [];
+    showBoards.forEach((board) => {
+      const str = board.title;
+      [...str].forEach((char, i) => {
+        if (searchVal.length === 1 && char === searchVal) {
+          const isDuplicate = searchMatches.filter((m) => m.id === board.id);
+          if (isDuplicate.length === 0) {
+            searchMatches.push(board);
+          }
+        }
+        if (searchVal.length > 1) {
+          const check = str.substring(i, i + searchVal.length + 1);
+          debugger;
+          if (check === searchVal) {
+            const isDuplicate = searchMatches.filter((m) => m.id === board.id);
+            if (isDuplicate.length === 0) {
+              searchMatches.push(board);
+            }
+          }
+        }
+      });
+    });
+    setFiltered(searchMatches);
+  };
   console.log(filtered, "side");
   return (
     <div className="sidelist-wrapper">
       <div className="search-cont">
-        <SearchBoardForm renderSearchResults={renderSearchResults} />
+        <SearchBoardForm filterMatches={filterMatches} />
       </div>
       <div className="dropdown-title-close">
         <button>
