@@ -72,7 +72,10 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
                 className="side-left-box"
                 onClick={(e) => handleClick(e, "side")}
               />
-              <div className="side-right-box">
+              <div
+                className="side-right-box"
+                onClick={(e) => handleClick(e, "side")}
+              >
                 <span
                   style={{
                     color: "black",
@@ -86,36 +89,23 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
                   {board.title}
                 </span>
               </div>
-
-              {board.starred ? (
-                <button
-                  onClick={(e) => handleToggleStarred(e)}
-                  style={{
-                    height: "100%",
-                    width: "40px",
-                    position: "absolute",
-                    right: "0",
-                  }}
-                >
+              <button
+                onClick={(e) => handleToggleStarred(e)}
+                style={{
+                  height: "100%",
+                  width: "40px",
+                  position: "absolute",
+                  right: "0",
+                }}
+              >
+                {board.starred ? (
                   <span className="tile-star">☆</span>
-                </button>
-              ) : (
-                <>
-                  {hover ? (
-                    <button
-                      onClick={(e) => handleToggleStarred(e)}
-                      style={{
-                        height: "100%",
-                        width: "40px",
-                        position: "absolute",
-                        right: "0",
-                      }}
-                    >
-                      <span className="black-tile-star">☆</span>
-                    </button>
-                  ) : null}
-                </>
-              )}
+                ) : (
+                  <>
+                    {hover ? <span className="black-tile-star">☆</span> : null}
+                  </>
+                )}
+              </button>
             </div>
           </div>
         </div>
