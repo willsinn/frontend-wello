@@ -146,12 +146,9 @@ const SideDropdownList = ({ boards, sidelist, openModal, closeSidelist }) => {
     });
     setFiltered(searchMatches);
   };
-  console.log(filtered, "side");
   return (
     <div className="sidelist-wrapper">
-      <div className="search-cont">
-        <SearchBoardForm filterMatches={filterMatches} />
-      </div>
+      <SearchBoardForm filterMatches={filterMatches} />
       <div className="dropdown-title-close">
         <button>
           <span
