@@ -10,10 +10,8 @@ import { fetchUserBoards } from "../actions/boards";
 import { setPage } from "../actions/user";
 import { setArchives } from "../actions/archives";
 import { Redirect } from "react-router-dom";
-import { newUserLabel } from "../actions/labels";
 import { fetchLabels, fetchTaskLabels } from "../actions/labels";
 
-const defaultLabels = ["green", "yellow", "orange", "red", "purple", "blue"];
 const HomePage = ({
   user,
   activePage,
@@ -31,13 +29,7 @@ const HomePage = ({
   const fetchArchives = () => {
     if (boards && boards.length > 0)
       dispatch(setArchives({ userBoards: archivedBoards }));
-
-    // if (labels && labels.length > 0) debugger;
-    // defaultLabels.forEach((labelColor) =>
-    //   dispatch(newUserLabel({ userId: user.id, color: labelColor }))
-    // );
   };
-  console.log(labels);
   return (
     <div id="root">
       <NavBar />

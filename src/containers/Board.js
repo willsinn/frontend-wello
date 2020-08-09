@@ -15,6 +15,7 @@ import Beach from "../images/beach.jpg";
 import Autumn from "../images/autumn.jpg";
 
 import { connect } from "react-redux";
+import { newUserLabel } from "../actions/labels";
 import { starredBoard } from "../actions/workspace";
 import { updateBoardBackground } from "../actions/boards";
 import { Redirect } from "react-router-dom";
@@ -30,7 +31,9 @@ const bgs = [
   "city",
   "meadow",
 ];
-const Board = ({ workspace, dispatch }) => {
+const defaultLabels = ["green", "yellow", "orange", "red", "purple", "blue"];
+
+const Board = ({ workspace, labels, user, dispatch }) => {
   const [background, setBackground] = useState("");
   const [edit, setEdit] = useState(false);
 
@@ -97,7 +100,12 @@ const Board = ({ workspace, dispatch }) => {
         return;
     }
   };
-
+  const updateDefaultLabels = () => {
+    if (labels.length === 0)
+      defaultLabels.forEach((labelColor) =>
+        dispatch(newUserLabel({ userId: user.id, color: labelColor }))
+      );
+  };
   return (
     <>
       {workspace.id === undefined ? (
@@ -105,6 +113,7 @@ const Board = ({ workspace, dispatch }) => {
       ) : (
         <>
           <NavBar />
+          {updateDefaultLabels()}
           <div id="board" style={renderBoardBg()}>
             <div className="board-header-wrap">
               <div className="board-header">
@@ -170,5 +179,7 @@ const Board = ({ workspace, dispatch }) => {
 };
 const mapStateToProps = (state) => ({
   workspace: state.workspaceReducer.workspace,
+  labels: state.labelsReducer.labels,
+  user: state.userReducer.user,
 });
 export default connect(mapStateToProps)(Board);

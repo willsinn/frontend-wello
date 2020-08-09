@@ -1,5 +1,5 @@
 const defaultState = {
-  labels: [],
+  labels: null,
   taskLabels: [],
 };
 
