@@ -147,7 +147,7 @@ button {
   cursor: pointer;
 }
 .board-item.opa {
-  opacity: 0.75;
+  opacity: 0.9;
 }
 
 .todo-tracker-icon {
