@@ -26,7 +26,6 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
     <>
       <LandingPage />
       {loggedIn ? <Redirect to="/home" /> : null}
-      <LandingPage />
       <div className="signin-modal-wrap">
         <div className="center">
           <div className="signin-modal">
