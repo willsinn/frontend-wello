@@ -33,60 +33,54 @@ const SignForm = ({ loggedIn, error, dispatch }) => {
       resetState();
     }
   };
-  console.log("HI");
   return (
     <>
-      {loggedIn ? (
-        <Redirect to="/home" />
-      ) : (
-        <>
-          <LandingPage />
-          <div className="signin-modal-wrap">
-            <div className="center">
-              <div className="signin-modal">
-                <h1 className="signin-modal-title">Sign up for an account</h1>
-                {error ? <div className="error-message">{error}</div> : null}
-                <form className="signin-form" onSubmit={handleSubmit}>
-                  <input
-                    className="signin-input"
-                    type="text"
-                    name="email"
-                    onChange={handleEmailChange}
-                    value={email}
-                    placeholder="Enter email"
-                    required
-                  />
-                  <input
-                    className="signin-input"
-                    type="text"
-                    name="username"
-                    onChange={handleNameChange}
-                    value={name}
-                    placeholder="Enter full name"
-                    required
-                  />
-                  <input
-                    className="signin-input"
-                    type="password"
-                    name="password"
-                    onChange={handlePasswordChange}
-                    value={password}
-                    placeholder="Create password"
-                    required
-                  />
-                  <button className="signin-btn add-list-btn" type="submit">
-                    Sign Up
-                  </button>
-                </form>
-                <hr />
-                <Link to="/login" className="signup-link">
-                  Already have an account? Log In
-                </Link>
-              </div>
-            </div>
+      <LandingPage />
+      {loggedIn ? <Redirect to="/home" /> : null}
+      <div className="signin-modal-wrap">
+        <div className="center">
+          <div className="signin-modal">
+            <h1 className="signin-modal-title">Sign up for an account</h1>
+            {error ? <div className="error-message">{error}</div> : null}
+            <form className="signin-form" onSubmit={handleSubmit}>
+              <input
+                className="signin-input"
+                type="text"
+                name="email"
+                onChange={handleEmailChange}
+                value={email}
+                placeholder="Enter email"
+                required
+              />
+              <input
+                className="signin-input"
+                type="text"
+                name="username"
+                onChange={handleNameChange}
+                value={name}
+                placeholder="Enter full name"
+                required
+              />
+              <input
+                className="signin-input"
+                type="password"
+                name="password"
+                onChange={handlePasswordChange}
+                value={password}
+                placeholder="Create password"
+                required
+              />
+              <button className="signin-btn add-list-btn" type="submit">
+                Sign Up
+              </button>
+            </form>
+            <hr />
+            <Link to="/login" className="signup-link">
+              Already have an account? Log In
+            </Link>
           </div>
-        </>
-      )}
+        </div>
+      </div>
     </>
   );
 };

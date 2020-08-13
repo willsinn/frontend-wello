@@ -24,51 +24,47 @@ const LoginForm = ({ loggedIn, error, dispatch }) => {
 
   return (
     <>
-      {loggedIn ? (
-        <Redirect to="/home" />
-      ) : (
-        <>
-          <LandingPage />
-          <div className="signin-modal-wrap">
-            <div className="center">
-              <div className="signin-modal">
-                <h1 className="signin-modal-title">Log in to Wello</h1>
-                {error ? <div className="error-message">{error}</div> : null}
-                <form className="signin-form" onSubmit={handleSubmit}>
-                  <input
-                    className="signin-input"
-                    type="text"
-                    name="email"
-                    onChange={handleUnChange}
-                    placeholder="Enter email"
-                    value={email}
-                    required
-                  />
-                  <input
-                    className="signin-input"
-                    type="password"
-                    name="password"
-                    onChange={handlePwChange}
-                    placeholder="Enter password"
-                    value={password}
-                    required
-                  />
-                  <button
-                    className="signin-btn checklist-btn add-list-btn"
-                    type="submit"
-                  >
-                    Login
-                  </button>
-                </form>
-                <hr />
-                <Link to="/signup" className="signup-link">
-                  Signup for an account
-                </Link>
-              </div>
-            </div>
+      <LandingPage />
+      {loggedIn ? <Redirect to="/home" /> : null}
+      <LandingPage />
+      <div className="signin-modal-wrap">
+        <div className="center">
+          <div className="signin-modal">
+            <h1 className="signin-modal-title">Log in to Wello</h1>
+            {error ? <div className="error-message">{error}</div> : null}
+            <form className="signin-form" onSubmit={handleSubmit}>
+              <input
+                className="signin-input"
+                type="text"
+                name="email"
+                onChange={handleUnChange}
+                placeholder="Enter email"
+                value={email}
+                required
+              />
+              <input
+                className="signin-input"
+                type="password"
+                name="password"
+                onChange={handlePwChange}
+                placeholder="Enter password"
+                value={password}
+                required
+              />
+              <button
+                className="signin-btn checklist-btn add-list-btn"
+                type="submit"
+              >
+                Login
+              </button>
+            </form>
+            <hr />
+            <Link to="/signup" className="signup-link">
+              Signup for an account
+            </Link>
           </div>
-        </>
-      )}
+        </div>
+      </div>
     </>
   );
 };

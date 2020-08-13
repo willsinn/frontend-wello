@@ -34,7 +34,7 @@ const HomePage = ({
     <div id="root">
       <NavBar />
       {fetchArchives()}
-      {workspace && workspace.id ? (
+      {workspace && workspace.id && activePage === "board" ? (
         <Redirect to="/board" />
       ) : (
         <div className="home-page-wrap">
