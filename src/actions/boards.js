@@ -1,5 +1,4 @@
-import { getUrl } from "../utils.js";
-const fetchUrl = getUrl();
+import { fetchUrl } from "../utils.js";
 
 export const setBoards = (boardsData) => ({
   type: "SET_BOARDS",

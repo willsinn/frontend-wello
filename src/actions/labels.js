@@ -1,5 +1,4 @@
-import { getUrl } from "../utils.js";
-const fetchUrl = getUrl();
+import { fetchUrl } from "../utils.js";
 
 export const setLabels = (data) => ({
   type: "SET_LABELS",

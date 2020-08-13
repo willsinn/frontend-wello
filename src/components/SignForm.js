@@ -33,7 +33,7 @@ const SignForm = ({ loggedIn, error, dispatch }) => {
       resetState();
     }
   };
-
+  console.log("HI");
   return (
     <>
       {loggedIn ? (

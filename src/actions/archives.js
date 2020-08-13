@@ -1,5 +1,4 @@
-import { getUrl } from "../utils.js";
-const fetchUrl = getUrl();
+import { fetchUrl } from "../utils.js";
 
 export const setArchives = (data) => ({
   type: "SET_ARCHIVES",
