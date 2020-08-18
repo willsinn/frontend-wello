@@ -3,7 +3,7 @@ import withAuth from "../hocs/withAuth";
 import PersonalBoardList from "../components/PersonalBoardList";
 import StarredBoardList from "../components/StarredBoardList";
 import SettingsPage from "../components/SettingsPage";
-import ArchivesPage from "./ArchivesPage";
+import ArchivesPage from "../components/ArchivesPage";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
 import { fetchUserBoards } from "../actions/boards";

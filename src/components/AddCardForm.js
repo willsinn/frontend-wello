@@ -3,17 +3,17 @@ import { connect } from "react-redux";
 import { postNewCard } from "../actions/workspace";
 
 const initialState = { goal: "" };
-const AddCard = ({ workspace, handleCloseCardForm, dispatch }) => {
+const AddCardForm = ({ workspace, handleCloseCardForm, dispatch }) => {
   const [goal, setGoal] = useState(initialState);
-  const clearState = e => {
+  const clearState = (e) => {
     setGoal({ ...initialState });
     e.target.firstElementChild.value = "";
   };
-  const handleChange = e => {
+  const handleChange = (e) => {
     e.persist();
     setGoal(e.target.value);
   };
-  const handleSubmitCard = e => {
+  const handleSubmitCard = (e) => {
     if (e) {
       e.preventDefault();
       dispatch(
@@ -41,7 +41,7 @@ const AddCard = ({ workspace, handleCloseCardForm, dispatch }) => {
             Add List
           </button>
           <button
-            onClick={e => handleCloseCardForm(e)}
+            onClick={(e) => handleCloseCardForm(e)}
             className="close-add-btn"
           >
             ✕
@@ -51,4 +51,4 @@ const AddCard = ({ workspace, handleCloseCardForm, dispatch }) => {
     </div>
   );
 };
-export default connect()(AddCard);
+export default connect()(AddCardForm);

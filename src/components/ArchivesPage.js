@@ -1,5 +1,5 @@
 import React from "react";
-import ArchivesList from "../components/ArchivesList";
+import ArchivesList from "./ArchivesList";
 import { connect } from "react-redux";
 
 const ArchivesPage = () => {
