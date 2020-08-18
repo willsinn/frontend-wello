@@ -9,6 +9,6 @@ export const getCurrentDate = () => {
   return currDate[0];
 };
 
-export const fetchUrl = "http://localhost:3000";
+export const fetchUrl = "http://ec2-35-168-2-112.compute-1.amazonaws.com";
 
 //ask rob if theres a better way of exporting the fetch url.
