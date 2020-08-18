@@ -16,7 +16,7 @@ const initialTitle = "";
 const initialTeam = "";
 const initialBackground = "iceland";
 
-const NewBoardForm = ({ user, closeModal, dispatch }) => {
+const AddBoardForm = ({ user, modal, closeModal, dispatch }) => {
   const [title, setTitle] = useState(initialTitle);
   const [team, setTeam] = useState(initialTeam);
   const [background, setBackground] = useState(initialBackground);
@@ -75,50 +75,55 @@ const NewBoardForm = ({ user, closeModal, dispatch }) => {
     }
   };
   return (
-    <div className="modal-content" style={selectBg()}>
-      <form className="board-form" onSubmit={(e) => handleSubmit(e)}>
-        <input
-          autoComplete="off"
-          autoCorrect="off"
-          spellCheck="false"
-          type="text"
-          name="title"
-          onChange={handleChange}
-          className="new-board input"
-          placeholder="Add board title"
-          data-test-id="create-board-full-name"
-          value={title.value}
-        />
-        <input
-          autoComplete="off"
-          autoCorrect="off"
-          spellCheck="false"
-          type="text"
-          name="team"
-          onChange={handleChange}
-          className="new-board input"
-          placeholder="add team name"
-          data-test-id="create-board-title-input"
-          value={team.value}
-        />
-        {title.length === undefined || title.length === 0 ? (
-          <button
-            type="submit"
-            className="disabled-submit-new-board-btn"
-            disabled
-          >
-            Create Board
-          </button>
-        ) : (
-          <button type="submit" className="submit-new-board-btn">
-            Create Board
-          </button>
-        )}
-      </form>
-      <button className="modal close-btn" onClick={(e) => closeModal(e)}>
-        <span>x</span>
-      </button>
-      <BgPalette background={background} handleChangeBg={handleChangeBg} />
+    <div
+      className="add-board-modal"
+      style={modal ? { display: "block" } : { display: "none" }}
+    >
+      <div className="modal-content" style={selectBg()}>
+        <form className="board-form" onSubmit={(e) => handleSubmit(e)}>
+          <input
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
+            type="text"
+            name="title"
+            onChange={handleChange}
+            className="new-board input"
+            placeholder="Add board title"
+            data-test-id="create-board-full-name"
+            value={title.value}
+          />
+          <input
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
+            type="text"
+            name="team"
+            onChange={handleChange}
+            className="new-board input"
+            placeholder="add team name"
+            data-test-id="create-board-title-input"
+            value={team.value}
+          />
+          {title.length === undefined || title.length === 0 ? (
+            <button
+              type="submit"
+              className="disabled-submit-new-board-btn"
+              disabled
+            >
+              Create Board
+            </button>
+          ) : (
+            <button type="submit" className="submit-new-board-btn">
+              Create Board
+            </button>
+          )}
+        </form>
+        <button className="modal close-btn" onClick={(e) => closeModal(e)}>
+          <span>x</span>
+        </button>
+        <BgPalette background={background} handleChangeBg={handleChangeBg} />
+      </div>
     </div>
   );
 };
@@ -127,4 +132,4 @@ const mapStateToProps = (state) => {
     user: state.userReducer.user,
   };
 };
-export default connect(mapStateToProps)(NewBoardForm);
+export default connect(mapStateToProps)(AddBoardForm);
