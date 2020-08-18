@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import BgPalette from "./BgPalette";
+import BgPalette from "../components/BgPalette";
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
 import Cityscape from "../images/cityscape.jpg";

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PlusDropdown from "../components/PlusDropdown";
 import ProfileDropdown from "../components/ProfileDropdown";
 import SideDropdownList from "../components/SideDropdownList";
-import AddBoardForm from "../components/AddBoardForm";
+import AddBoardForm from "./AddBoardForm";
 import { connect } from "react-redux";
 
 const NavBar = ({ user }) => {
