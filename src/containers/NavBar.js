@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PlusDropdown from "../components/PlusDropdown";
 import ProfileDropdown from "../components/ProfileDropdown";
 import SideDropdownList from "../components/SideDropdownList";
-import AddBoardModal from "../components/AddBoardModal";
+import AddBoardForm from "../components/AddBoardForm";
 import { connect } from "react-redux";
 
 const NavBar = ({ user }) => {
@@ -75,7 +75,7 @@ const NavBar = ({ user }) => {
         }
       })()}
 
-      <AddBoardModal modal={modal} closeModal={closeModal} />
+      <AddBoardForm modal={modal} closeModal={closeModal} />
 
       <div className="mid-nav-title">
         <div className="wello-icon-white" />
