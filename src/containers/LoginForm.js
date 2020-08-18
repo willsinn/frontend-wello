@@ -1,38 +1,27 @@
 import React, { useState } from "react";
-import LandingPage from "./LandingPage";
+import LandingPage from "../components/LandingPage";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { userSignup } from "../actions/user";
+import { userLogin } from "../actions/user";
 
-const SignForm = ({ loggedIn, error, dispatch }) => {
+const LoginForm = ({ loggedIn, error, dispatch }) => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-
-  const resetState = () => {
-    setEmail("");
-    setName("");
-    setPassword("");
-  };
-  const handleEmailChange = (e) => {
+  const handleUnChange = (e) => {
     e.persist();
     setEmail(e.target.value);
   };
-  const handleNameChange = (e) => {
-    e.persist();
-    setName(e.target.value);
-  };
-  const handlePasswordChange = (e) => {
+  const handlePwChange = (e) => {
     e.persist();
     setPassword(e.target.value);
   };
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
-      dispatch(userSignup({ email, name, password }));
-      resetState();
+      dispatch(userLogin(email, password));
     }
   };
+
   return (
     <>
       <LandingPage />
@@ -40,43 +29,37 @@ const SignForm = ({ loggedIn, error, dispatch }) => {
       <div className="signin-modal-wrap">
         <div className="center">
           <div className="signin-modal">
-            <h1 className="signin-modal-title">Sign up for an account</h1>
+            <h1 className="signin-modal-title">Log in to Wello</h1>
             {error ? <div className="error-message">{error}</div> : null}
             <form className="signin-form" onSubmit={handleSubmit}>
               <input
                 className="signin-input"
                 type="text"
                 name="email"
-                onChange={handleEmailChange}
-                value={email}
+                onChange={handleUnChange}
                 placeholder="Enter email"
-                required
-              />
-              <input
-                className="signin-input"
-                type="text"
-                name="username"
-                onChange={handleNameChange}
-                value={name}
-                placeholder="Enter full name"
+                value={email}
                 required
               />
               <input
                 className="signin-input"
                 type="password"
                 name="password"
-                onChange={handlePasswordChange}
+                onChange={handlePwChange}
+                placeholder="Enter password"
                 value={password}
-                placeholder="Create password"
                 required
               />
-              <button className="signin-btn add-list-btn" type="submit">
-                Sign Up
+              <button
+                className="signin-btn checklist-btn add-list-btn"
+                type="submit"
+              >
+                Login
               </button>
             </form>
             <hr />
-            <Link to="/login" className="signup-link">
-              Already have an account? Log In
+            <Link to="/signup" className="signup-link">
+              Signup for an account
             </Link>
           </div>
         </div>
@@ -90,4 +73,4 @@ const mapStateToProps = (state) => {
     loggedIn: state.userReducer.loggedIn,
   };
 };
-export default connect(mapStateToProps)(SignForm);
+export default connect(mapStateToProps)(LoginForm);

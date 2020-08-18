@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Task from "../containers/Task";
+import Task from "./Task";
 import AddTask from "../components/AddTask";
-import TaskWindow from "../containers/TaskWindow";
+import TaskWindow from "./TaskWindow";
 import QuickTaskEditor from "../components/QuickTaskEditor";
 import { connect } from "react-redux";
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { saveTaskDesc } from "../actions/workspace";
-
 import { connect } from "react-redux";
 
 const TaskWindowDescription = ({ editTask, dispatch }) => {

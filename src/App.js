@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import HomePage from "./containers/HomePage";
-import LoginForm from "./components/LoginForm";
-import SignForm from "./components/SignForm";
+import LoginForm from "./containers/LoginForm";
+import SignForm from "./containers/SignForm";
 import Board from "./containers/Board";
 
 import "./App.css";

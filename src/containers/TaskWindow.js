@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TaskWindowDescription from "../components/TaskWindowDescription";
+import TaskWindowDescription from "./TaskWindowDescription";
 import TaskChecklists from "../components/TaskChecklists";
 import AddChecklist from "../components/AddChecklist";
 import LabelMenu from "./LabelMenu";
