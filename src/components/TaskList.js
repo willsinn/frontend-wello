@@ -63,6 +63,13 @@ const TaskList = ({ card, checklists }) => {
               task={task}
               handleRenderTaskWindow={handleRenderTaskWindow}
               handleRenderQuickEditor={handleRenderQuickEditor}
+              editor={editor}
+              window={window}
+              editTask={editTask}
+              handleCloseQuickEditor={handleCloseQuickEditor}
+              handleCloseWindow={handleCloseWindow}
+              handleUpdateEditTask={handleUpdateEditTask}
+              card={card}
             />
           );
         } else {
@@ -73,7 +80,7 @@ const TaskList = ({ card, checklists }) => {
   };
   return (
     <div className="task-list">
-      {editor && !window ? <div className="quick-task-editor" /> : null}
+      {/* {editor && !window ? <div className="quick-task-editor" /> : null}
 
       {editor && !window ? (
         <div className="quick-task-editor-wrapper">
@@ -88,16 +95,16 @@ const TaskList = ({ card, checklists }) => {
             handleCloseQuickEditor={handleCloseQuickEditor}
           />
         </div>
-      ) : null}
+      ) : null} */}
 
-      {window && !editor ? (
+      {/* {window && !editor ? (
         <TaskWindow
           cardGoal={card.goal}
           editTask={editTask}
           handleCloseWindow={handleCloseWindow}
           handleUpdateEditTask={handleUpdateEditTask}
         />
-      ) : null}
+      ) : null} */}
       {renderTasks()}
       {addTask ? (
         <AddTask card={card} handleCloseAddTask={handleCloseAddTask} />

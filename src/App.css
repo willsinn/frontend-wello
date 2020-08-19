@@ -595,6 +595,8 @@ button {
   display: inline-block;
   vertical-align: top;
   white-space: nowrap;
+  position: relative;
+  z-index: 0;
 }
 .card-item {
   background-color: #ebecf0;
@@ -1754,7 +1756,7 @@ button {
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 100;
+  z-index: 70;
   background: rgba(0, 0, 0, 0.6);
 }
 .close-quick-editor-icon {
@@ -1877,7 +1879,10 @@ button {
 .quick-task-editor-wrapper {
   position: absolute;
   z-index: 100;
-  top: 75px;
+  top: 20px;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 .quick-task-editor-buttons {
   position: absolute;
@@ -3124,4 +3129,11 @@ button {
   height: inherit;
   width: 100%;
   margin-bottom: 40px;
+}
+.quick-edit-cont {
+  height: 124px;
+  /* max-height: 124px; */
+  /* min-width: 256px; */
+  width: 256px;
+  position: fixed;
 }

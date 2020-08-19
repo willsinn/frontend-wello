@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import LabelsList from "./LabelsList";
+import QuickTaskEditor from "../components/QuickTaskEditor";
+import TaskWindow from "./TaskWindow";
+
 import { connect } from "react-redux";
 
 const Task = ({
@@ -8,8 +11,15 @@ const Task = ({
   taskLabels,
   handleRenderTaskWindow,
   handleRenderQuickEditor,
+  handleCloseQuickEditor,
   todos,
+  editor,
+  window,
+  editTask,
   finishedTodos,
+  handleCloseWindow,
+  handleUpdateEditTask,
+  card,
 }) => {
   const [visible, setVisible] = useState(false);
   return (
@@ -18,6 +28,34 @@ const Task = ({
       onMouseEnter={(e) => setVisible(true)}
       onMouseLeave={(e) => setVisible(false)}
     >
+      {editor && !window ? <div className="quick-task-editor" /> : null}
+      <div className="quick-task-editor-wrapper">
+        {editor && !window ? (
+          <div style={{ position: "relative" }}>
+            <div
+              className="close-quick-editor-icon"
+              onClick={(e) => handleCloseQuickEditor()}
+            >
+              ✕
+            </div>
+            <div className="quick-edit-cont">
+              <QuickTaskEditor
+                editTask={editTask}
+                handleCloseQuickEditor={handleCloseQuickEditor}
+              />
+            </div>
+          </div>
+        ) : null}
+      </div>
+
+      {window && !editor ? (
+        <TaskWindow
+          cardGoal={card.goal}
+          editTask={editTask}
+          handleCloseWindow={handleCloseWindow}
+          handleUpdateEditTask={handleUpdateEditTask}
+        />
+      ) : null}
       <div className="task-item-note">
         <LabelsList tLabels={labels} taskedLabels={taskLabels} tId={task.id} />
         <div
