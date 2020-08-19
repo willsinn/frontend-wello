@@ -48,7 +48,7 @@ const LabelMenu = ({
   };
   const renderLabelLocation = () => {
     if (absLabel === "absLabel") {
-      return { position: "absolute", top: "0" };
+      return { position: "absolute", top: "8px" };
     }
   };
   return (

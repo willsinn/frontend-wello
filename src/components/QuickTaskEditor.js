@@ -5,7 +5,12 @@ import { connect } from "react-redux";
 import LabelMenu from "../containers/LabelMenu";
 
 const initialState = { note: "" };
-const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
+const QuickTaskEditor = ({
+  editor,
+  editTask,
+  handleCloseQuickEditor,
+  dispatch,
+}) => {
   const [renderMenu, setRenderMenu] = useState(false);
   const [note, setNote] = useState(editTask.note);
   const clearState = (e) => {
@@ -29,15 +34,28 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
   };
   return (
     <div className="quick-edit-task">
-      <div className="quick-edit-details">
-        <form onSubmit={handleSubmitTask}>
+      <div className="task-details">
+        <form
+          onSubmit={handleSubmitTask}
+          style={{
+            position: "relative",
+            height: "100%",
+            width: "100%",
+            overflowWrap: "anywhere",
+            minHeight: "90px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <textarea
-            dir="auto"
             style={{
-              overflow: "hidden",
-              overflowWrap: "break-word",
-              resize: "none",
-              height: "90px",
+              overflowWrap: "anywhere",
+              height: "100%",
+              minHeight: "90px",
+              display: "flex",
+              flexWrap: "wrap",
             }}
             className="quick-edit-textarea"
             type="text"
@@ -51,36 +69,38 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
           </button>
         </form>
       </div>
-      <div className="quick-task-editor-buttons">
-        <div style={{ position: "absolute", top: "32px", right: "-224px" }}>
-          {renderMenu ? (
-            <LabelMenu
-              closePopup={closePopup}
-              taskId={editTask.id}
-              absLabel={"absLabel"}
-            />
-          ) : null}
-        </div>
+      <div style={{ position: "relative" }}>
+        <div className="task-btn-cont">
+          <div style={{ position: "absolute", top: "32px", right: "-224px" }}>
+            {renderMenu ? (
+              <LabelMenu
+                closePopup={closePopup}
+                taskId={editTask.id}
+                absLabel={"absLabel"}
+              />
+            ) : null}
+          </div>
 
-        <button
-          className="quick-task-edit-btn"
-          onClick={(e) => setRenderMenu(true)}
-        >
-          Edit Label
-        </button>
-        <button
-          onClick={(e) =>
-            dispatch(
-              archiveTask(
-                { id: editTask.id, date_archived: getCurrentDate() },
-                () => handleCloseQuickEditor(e)
+          <button
+            className="quick-task-edit-btn"
+            onClick={(e) => setRenderMenu(true)}
+          >
+            Edit Label
+          </button>
+          <button
+            onClick={(e) =>
+              dispatch(
+                archiveTask(
+                  { id: editTask.id, date_archived: getCurrentDate() },
+                  () => handleCloseQuickEditor(e)
+                )
               )
-            )
-          }
-          className="quick-task-edit-btn"
-        >
-          Archive
-        </button>
+            }
+            className="quick-task-edit-btn"
+          >
+            Archive
+          </button>
+        </div>
       </div>
     </div>
   );

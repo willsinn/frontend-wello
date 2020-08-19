@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
 import TaskWindow from "../containers/TaskWindow";
-import QuickTaskEditor from "../components/QuickTaskEditor";
 import { connect } from "react-redux";
 
 const TaskList = ({ card, checklists }) => {
@@ -13,17 +12,21 @@ const TaskList = ({ card, checklists }) => {
   const handleUpdateEditTask = (note) => {
     setEditTask({ ...editTask, note });
   };
-  const handleRenderQuickEditor = (task) => {
-    setEditTask(task);
-    setEditor(true);
+  const handleRenderQuickEditor = (e, task) => {
+    if (e) {
+      setEditTask(task);
+      setEditor(task.id);
+    }
   };
   const handleCloseQuickEditor = () => {
     setEditTask({});
     setEditor(false);
   };
-  const handleRenderTaskWindow = (task) => {
-    setEditTask(task);
-    setWindow(true);
+  const handleRenderTaskWindow = (e, task) => {
+    if (e) {
+      setEditTask(task);
+      setWindow(true);
+    }
   };
   const handleCloseWindow = () => {
     setEditTask({});
@@ -63,6 +66,10 @@ const TaskList = ({ card, checklists }) => {
               task={task}
               handleRenderTaskWindow={handleRenderTaskWindow}
               handleRenderQuickEditor={handleRenderQuickEditor}
+              editor={editor}
+              window={window}
+              editTask={editTask}
+              handleCloseQuickEditor={handleCloseQuickEditor}
             />
           );
         } else {
@@ -73,24 +80,7 @@ const TaskList = ({ card, checklists }) => {
   };
   return (
     <div className="task-list">
-      {editor && !window ? <div className="quick-task-editor" /> : null}
-
-      {editor && !window ? (
-        <div className="quick-task-editor-wrapper">
-          <div
-            className="close-quick-editor-icon"
-            onClick={(e) => handleCloseQuickEditor()}
-          >
-            ✕
-          </div>
-          <QuickTaskEditor
-            editTask={editTask}
-            handleCloseQuickEditor={handleCloseQuickEditor}
-          />
-        </div>
-      ) : null}
-
-      {window && !editor ? (
+      {window && !editor && editTask ? (
         <TaskWindow
           cardGoal={card.goal}
           editTask={editTask}

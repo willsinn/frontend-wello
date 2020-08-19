@@ -169,7 +169,7 @@ button {
   width: -moz-fit-content;
   width: fit-content;
   position: absolute;
-  bottom: -28px;
+  bottom: -24px;
   left: 0px;
   padding: 1px 5px 1px 3px;
   border-radius: 3px;
@@ -595,6 +595,7 @@ button {
   display: inline-block;
   vertical-align: top;
   white-space: nowrap;
+  position: relative;
 }
 .card-item {
   background-color: #ebecf0;
@@ -1680,8 +1681,10 @@ button {
   text-decoration: none;
 }
 .task-composer {
-  min-height: 38px;
-  max-height: 38px;
+  height: 38px;
+  z-index: 0;
+  /* max-height: 38px; */
+  position: relative;
 }
 .open-task-composer {
   border-radius: 3px;
@@ -1720,9 +1723,10 @@ button {
 
 .task-item-details {
   overflow: hidden;
-  padding: 6px 8px 2px;
+  padding: 6px 8px 6px;
   position: relative;
-  min-height: 60px;
+  z-index: 0;
+  height: 100%;
 }
 .task-list {
   flex: 1 1 auto;
@@ -1733,19 +1737,25 @@ button {
 }
 .task-item-note {
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  overflow-wrap: anywhere;
 }
 .edit-task-item-btn {
   position: absolute;
-  color: gray;
+  color: black;
   top: 0;
   right: 0;
+  background-color: #dedee2;
   transform: rotate(90deg);
   border-radius: 3px;
   padding: 4px 8px;
 }
 .edit-task-item-btn:hover {
-  background-color: #ebecf0;
-  color: black;
+  background-color: rgb(160, 162, 167);
+  color: rgb(255 255 255);
 }
 .quick-task-editor {
   bottom: 0;
@@ -1754,7 +1764,7 @@ button {
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 100;
+  z-index: 70;
   background: rgba(0, 0, 0, 0.6);
 }
 .close-quick-editor-icon {
@@ -1777,45 +1787,41 @@ button {
 }
 
 .quick-edit-task {
-  display: flex;
   width: 256px;
-  height: 124px;
+  min-height: 124px;
   background: white;
   border-radius: 3px;
+  position: fixed;
+  height: max-content;
 }
 .quick-edit-details {
-  overflow: hidden;
-  padding: 6px 8px 2px;
-  z-index: 10;
   color: black;
   text-align: left;
   width: 100%;
+  height: 100%;
 }
 .quick-edit-textarea {
-  overflow: hidden;
-  overflow-wrap: break-word;
-  resize: none;
-  height: 90px;
-  width: 100%;
+  min-height: 90px;
+  width: 92.5%;
   background-color: #fff;
   border: 1px solid transparent;
   box-shadow: none;
   padding: 0;
   margin: -1px;
-  -webkit-appearance: none;
-  display: block;
+  height: 100%;
 }
 .save-task-note {
   box-shadow: none;
   border: none;
   color: #fff;
-
   background-color: #5aac44;
   padding: 6px 24px 6px 24px;
   border-radius: 3px;
-  margin-top: 40px;
   position: absolute;
-  margin-left: -8px;
+  display: flex;
+  align-self: flex-start;
+  left: 2px;
+  bottom: -64px;
 }
 .save-task-note:hover {
   background-color: #61bd4f;
@@ -1867,17 +1873,20 @@ button {
 }
 .open-task-window {
   width: 100%;
-  /* min-height: 60px; */
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   overflow-wrap: anywhere;
   height: fit-content;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 .quick-task-editor-wrapper {
   position: absolute;
-  z-index: 100;
-  top: 75px;
+  /* z-index: 80; */
+  top: 20px;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 .quick-task-editor-buttons {
   position: absolute;
@@ -1901,7 +1910,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 20;
+  z-index: 30;
   background-color: rgba(0, 0, 0, 0.6);
 
   overflow-y: scroll;
@@ -1939,7 +1948,8 @@ button {
   background-color: rgba(9, 30, 66, 0.08);
   color: #42526e;
 }
-.task-detail-window {
+.task-details {
+  margin-top: 12px;
 }
 .edit-note-form {
   width: 98%;
@@ -3124,4 +3134,15 @@ button {
   height: inherit;
   width: 100%;
   margin-bottom: 40px;
+}
+.quick-edit-cont {
+  position: relative;
+}
+.task-btn-cont {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  right: -106px;
+  top: -101px;
+  z-index: 81;
 }
