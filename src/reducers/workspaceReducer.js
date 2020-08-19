@@ -1,5 +1,7 @@
 const defaultState = {
   workspace: {},
+  isAddingId: null,
+  addValue: "",
 };
 
 const workspaceReducer = (state = defaultState, action) => {
@@ -77,8 +79,12 @@ const workspaceReducer = (state = defaultState, action) => {
         ...state,
         workspace: { ...state.workspace, cards: updateArchivedCardTask },
       };
-    case "POSITION_NEW_TASK":
-      return { ...state, position: action.position };
+    case "SET_CURRENT_ADDING":
+      return { ...state, isAddingId: action.cardId };
+    case "SAVE_ADD_VALUE":
+      return { ...state, addValue: action.value };
+    case "CLOSE_ADDING":
+      return { ...state, isAddingId: null, addValue: "" };
     default:
       return state;
   }

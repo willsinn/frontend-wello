@@ -33,9 +33,16 @@ export const updateWorkspace = (board) => ({
   type: "UPDATE_WORKSPACE",
   board,
 });
-export const positionNewTask = (position) => ({
-  type: "POSITION_NEW_TASK",
-  position,
+export const setCurrentAdding = (cardId) => ({
+  type: "SET_CURRENT_ADDING",
+  cardId,
+});
+export const saveAddValue = (value) => ({
+  type: "SAVE_ADD_VALUE",
+  value,
+});
+export const closeAdding = () => ({
+  type: "CLOSE_ADDING",
 });
 export const fetchWorkspace = (data) => {
   return (dispatch) => {

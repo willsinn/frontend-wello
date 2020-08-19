@@ -145,6 +145,8 @@ button {
   font-weight: 900;
   position: relative;
   cursor: pointer;
+  box-sizing: border-box;
+  display: inline-block;
 }
 .board-item.opa {
   opacity: 0.9;
@@ -589,7 +591,7 @@ button {
 .card-item-wrap {
   width: 272px;
   margin: 0 4px;
-  height: 100%;
+  height: fit-content;
   border-radius: 3px;
   box-sizing: border-box;
   display: inline-block;
@@ -604,7 +606,6 @@ button {
   display: flex;
   flex-direction: column;
   min-width: 268px;
-  position: relative;
   white-space: normal;
 }
 
@@ -1360,6 +1361,7 @@ button {
   position: absolute;
   right: 0;
   top: 0;
+  height: 100%;
 }
 .board-menu {
   background-color: yellow;
@@ -1641,19 +1643,17 @@ button {
   flex: 0 0 auto;
   padding: 10px 8px;
   position: relative;
-  max-height: 26px;
+  height: 100%;
   justify-content: space-between;
   align-content: center;
   width: 214px;
 }
 .card-text {
   font-weight: 600;
-  margin: 0 0 8px 0;
-  font-size: 1.32em;
-  line-height: 28px;
+  margin: 0 0 0 8px;
+  line-height: 20px;
   cursor: pointer;
-  font-size: 1.7em;
-  /* min-height: 28px; */
+  font-size: 18px;
   height: 100%;
   width: 100%;
   display: flex;
@@ -1896,12 +1896,18 @@ button {
 }
 .edit-input {
   position: relative;
-  top: -2px;
-  font-size: 17px;
+  margin: 0 0 0 4px;
+  font-size: 18px;
   border: 2px solid #6791d6;
   border-radius: 3px;
-  width: 100%;
+  width: 92%;
+  max-width: 100%;
   font-weight: 600;
+  height: 100%;
+  display: flex;
+  min-height: 20px;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
 }
 .window-modal {
   position: fixed;
@@ -3118,14 +3124,15 @@ button {
   box-sizing: border-box;
   width: fit-content;
   height: 32px;
-  font-size: 18px;
-  padding-left: 8px;
-  border: 1px solid #026aa7cf;
-  border-radius: 2px;
+  font-size: 20px;
+  margin-left: 8px;
+  border: 2px solid #026aa7cf;
+  border-radius: 2.5px;
 }
 
 .board-title-cont {
   max-width: fit-content;
+  font-size: 20px;
 }
 .b-name {
   padding: 0 12px;

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
 import TaskWindow from "../containers/TaskWindow";
+import { setCurrentAdding } from "../actions/workspace";
 import { connect } from "react-redux";
 
-const TaskList = ({ card, checklists }) => {
-  const [addTask, setAddTask] = useState(false);
+const TaskList = ({ card, checklists, isAddingId, dispatch }) => {
   const [editor, setEditor] = useState(false);
   const [window, setWindow] = useState(false);
   const [editTask, setEditTask] = useState({});
@@ -32,16 +32,7 @@ const TaskList = ({ card, checklists }) => {
     setEditTask({});
     setWindow(false);
   };
-  const handleAddTask = (e) => {
-    if (e) {
-      setAddTask(true);
-    }
-  };
-  const handleCloseAddTask = (e) => {
-    if (e) {
-      setAddTask(false);
-    }
-  };
+
   const renderTasks = () => {
     if (card && card.tasks && card.tasks.length > 0) {
       return card.tasks.map((task) => {
@@ -89,10 +80,13 @@ const TaskList = ({ card, checklists }) => {
         />
       ) : null}
       {renderTasks()}
-      {addTask ? (
-        <AddTask card={card} handleCloseAddTask={handleCloseAddTask} />
+      {isAddingId && isAddingId === card.id ? (
+        <AddTask card={card} />
       ) : (
-        <div className="task-composer" onClick={(e) => handleAddTask(e)}>
+        <div
+          className="task-composer"
+          onClick={(e) => dispatch(setCurrentAdding(card.id))}
+        >
           <span className="open-task-composer">
             <span
               style={{
@@ -113,6 +107,7 @@ const TaskList = ({ card, checklists }) => {
 const mapStateToProps = (state) => {
   return {
     checklists: state.checklistsReducer.checklists,
+    isAddingId: state.workspaceReducer.isAddingId,
   };
 };
 export default connect(mapStateToProps)(TaskList);

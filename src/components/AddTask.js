@@ -1,26 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { postNewTask } from "../actions/workspace";
+import { postNewTask, saveAddValue, closeAdding } from "../actions/workspace";
 
-const initialState = { note: "" };
-const AddTask = ({ card, handleCloseAddTask, dispatch }) => {
-  const [note, setNote] = useState(initialState);
-  const clearState = (e) => {
-    setNote({ ...initialState });
-    e.target.firstElementChild.value = "";
-  };
+const AddTask = ({ card, addValue, dispatch }) => {
   const handleChange = (e) => {
     e.persist();
-    setNote(e.target.value);
+    dispatch(saveAddValue(e.target.value));
   };
   const handleSubmitTask = (e) => {
     if (e) {
+      const note = addValue;
       e.preventDefault();
       dispatch(postNewTask({ note, card: card }));
-      handleCloseAddTask(e);
-      clearState(e);
+      dispatch(closeAdding(""));
     }
   };
+  console.log(addValue);
   return (
     <div className="task-item-wrap">
       <form onSubmit={handleSubmitTask} style={{ marginBottom: "4px" }}>
@@ -29,7 +24,7 @@ const AddTask = ({ card, handleCloseAddTask, dispatch }) => {
           type="text"
           name="note"
           onChange={handleChange}
-          value={note.value}
+          value={addValue}
           placeholder="Enter note for this task..."
           required
         />
@@ -37,7 +32,7 @@ const AddTask = ({ card, handleCloseAddTask, dispatch }) => {
           Add Task
         </button>
         <button
-          onClick={(e) => handleCloseAddTask(e)}
+          onClick={() => dispatch(closeAdding())}
           className="close-add-btn"
         >
           ✕
@@ -46,5 +41,9 @@ const AddTask = ({ card, handleCloseAddTask, dispatch }) => {
     </div>
   );
 };
-
-export default connect()(AddTask);
+const mapStateToProps = (state) => {
+  return {
+    addValue: state.workspaceReducer.addValue,
+  };
+};
+export default connect(mapStateToProps)(AddTask);

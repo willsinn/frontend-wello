@@ -48,7 +48,7 @@ const Card = ({
       <div className="card-item">
         <div className="card-item-content">
           <div className="card-item-header">
-            <span className="edit-card-title">
+            <div className="edit-card-title">
               {editCard.id === undefined ? (
                 <h2 className="card-text" onClick={(e) => handleCardGoalEdit()}>
                   {card.goal}
@@ -65,7 +65,7 @@ const Card = ({
                   />
                 </form>
               )}
-            </span>
+            </div>
 
             <span
               onClick={(e) => handleOpenCardMenu(e, card)}

@@ -72,7 +72,11 @@ const TaskWindow = ({
               <span className="task-window-icon" />
               <div>
                 {task.id === undefined ? (
-                  <h1 className="card-text" onClick={(e) => handleNoteEdit()}>
+                  <h1
+                    className="card-text"
+                    onClick={(e) => handleNoteEdit()}
+                    style={{ margin: "0 0 8px 0" }}
+                  >
                     {editTask.note}
                   </h1>
                 ) : (
