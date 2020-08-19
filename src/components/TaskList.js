@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
 import TaskWindow from "../containers/TaskWindow";
-import QuickTaskEditor from "../components/QuickTaskEditor";
 import { connect } from "react-redux";
 
 const TaskList = ({ card, checklists }) => {
@@ -71,9 +70,6 @@ const TaskList = ({ card, checklists }) => {
               window={window}
               editTask={editTask}
               handleCloseQuickEditor={handleCloseQuickEditor}
-              handleCloseWindow={handleCloseWindow}
-              handleUpdateEditTask={handleUpdateEditTask}
-              card={card}
             />
           );
         } else {

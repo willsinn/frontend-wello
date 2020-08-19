@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import LabelsList from "./LabelsList";
 import QuickTaskEditor from "../components/QuickTaskEditor";
-import TaskWindow from "./TaskWindow";
 
 import { connect } from "react-redux";
 
@@ -17,9 +16,6 @@ const Task = ({
   window,
   editTask,
   finishedTodos,
-  handleCloseWindow,
-  handleUpdateEditTask,
-  card,
 }) => {
   const [visible, setVisible] = useState(false);
   return (
