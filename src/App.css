@@ -1882,7 +1882,7 @@ button {
 }
 .quick-task-editor-wrapper {
   position: absolute;
-  z-index: 100;
+  /* z-index: 80; */
   top: 20px;
   left: 0;
   height: 100%;
@@ -1910,7 +1910,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 20;
+  z-index: 30;
   background-color: rgba(0, 0, 0, 0.6);
 
   overflow-y: scroll;

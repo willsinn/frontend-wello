@@ -6,7 +6,7 @@ import LabelMenu from "../containers/LabelMenu";
 
 const initialState = { note: "" };
 const QuickTaskEditor = ({
-  task,
+  editor,
   editTask,
   handleCloseQuickEditor,
   dispatch,
@@ -34,14 +34,7 @@ const QuickTaskEditor = ({
   };
   return (
     <div className="quick-edit-task">
-      <div
-        className="task-details"
-        style={
-          task.id === editTask.id
-            ? { position: "relative", zIndex: "10" }
-            : { position: "relative", zIndex: "0" }
-        }
-      >
+      <div className="task-details">
         <form
           onSubmit={handleSubmitTask}
           style={{
@@ -76,7 +69,7 @@ const QuickTaskEditor = ({
           </button>
         </form>
       </div>
-      <div className="quick-task-editor-buttons">
+      <div style={{ position: "relative" }}>
         <div style={{ position: "absolute", top: "32px", right: "-224px" }}>
           {renderMenu ? (
             <LabelMenu

@@ -16,7 +16,7 @@ const TaskList = ({ card, checklists }) => {
   const handleRenderQuickEditor = (e, task) => {
     if (e) {
       setEditTask(task);
-      setEditor(true);
+      setEditor(task.id);
     }
   };
   const handleCloseQuickEditor = () => {

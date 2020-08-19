@@ -27,30 +27,41 @@ const Task = ({
       className="task-item task-item-details"
       onMouseEnter={(e) => setVisible(true)}
       onMouseLeave={(e) => setVisible(false)}
+      style={editor !== task.id ? { zIndex: "0" } : { zIndex: "1" }}
     >
       {editor && !window && editTask.id === task.id ? (
         <div className="quick-task-editor" />
       ) : null}
-      {editor && !window ? (
-        <>
-          {editTask.id === task.id ? (
-            <div className="quick-task-editor-wrapper">
-              <div
-                className="close-quick-editor-icon"
-                onClick={(e) => handleCloseQuickEditor()}
-              >
-                ✕
-              </div>
-              <div className="quick-edit-cont">
-                <QuickTaskEditor
-                  task={task}
-                  editTask={editTask}
-                  handleCloseQuickEditor={handleCloseQuickEditor}
-                />
-              </div>
+      <div
+        className="quick-task-editor-wrapper"
+        style={editor !== task.id ? { zIndex: "0" } : { zIndex: "100" }}
+      >
+        {editor === task.id ? (
+          <>
+            <div
+              className="close-quick-editor-icon"
+              onClick={(e) => handleCloseQuickEditor()}
+            >
+              ✕
             </div>
-          ) : null}
-        </>
+            <div className="quick-edit-cont">
+              <QuickTaskEditor
+                editor={editor}
+                editTask={editTask}
+                handleCloseQuickEditor={handleCloseQuickEditor}
+              />
+            </div>
+          </>
+        ) : null}
+      </div>
+
+      {window && !editor && editTask ? (
+        <TaskWindow
+          cardGoal={card.goal}
+          editTask={editTask}
+          handleCloseWindow={handleCloseWindow}
+          handleUpdateEditTask={handleUpdateEditTask}
+        />
       ) : null}
       <div className="task-item-note">
         <LabelsList tLabels={labels} taskedLabels={taskLabels} tId={task.id} />
@@ -89,6 +100,7 @@ const Task = ({
             </div>
           </div>
         </div>
+
         {visible ? (
           <span
             className="edit-task-item-btn"
