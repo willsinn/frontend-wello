@@ -29,14 +29,25 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
   };
   return (
     <div className="quick-edit-task">
-      <div className="quick-edit-details">
-        <form onSubmit={handleSubmitTask}>
+      <div
+        className="quick-edit-details"
+        style={{ position: "relative", zIndex: "10" }}
+      >
+        <form
+          onSubmit={handleSubmitTask}
+          style={{
+            position: "relative",
+            height: "100%",
+            width: "100%",
+          }}
+        >
           <textarea
             dir="auto"
             style={{
               overflowWrap: "anywhere",
               resize: "none",
-              height: "fit-content",
+              height: "100%",
+              minHeight: "90px",
             }}
             className="quick-edit-textarea"
             type="text"

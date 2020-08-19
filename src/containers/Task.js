@@ -32,9 +32,9 @@ const Task = ({
         <div className="quick-task-editor" />
       ) : null}
       {editor && !window ? (
-        <div className="quick-task-editor-wrapper">
+        <>
           {editTask.id === task.id ? (
-            <>
+            <div className="quick-task-editor-wrapper">
               <div
                 className="close-quick-editor-icon"
                 onClick={(e) => handleCloseQuickEditor()}
@@ -47,9 +47,9 @@ const Task = ({
                   handleCloseQuickEditor={handleCloseQuickEditor}
                 />
               </div>
-            </>
+            </div>
           ) : null}
-        </div>
+        </>
       ) : null}
       <div className="task-item-note">
         <LabelsList tLabels={labels} taskedLabels={taskLabels} tId={task.id} />
