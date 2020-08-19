@@ -1727,7 +1727,8 @@ button {
   padding: 6px 8px 2px;
   position: relative;
   min-height: 60px;
-  z-index: 1;
+  z-index: 0;
+  height: 100%;
 }
 .task-list {
   flex: 1 1 auto;
@@ -1738,6 +1739,11 @@ button {
 }
 .task-item-note {
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  overflow-wrap: anywhere;
 }
 .edit-task-item-btn {
   position: absolute;
@@ -1783,31 +1789,27 @@ button {
 
 .quick-edit-task {
   width: 256px;
-  height: 124px;
+  min-height: 124px;
   background: white;
   border-radius: 3px;
   position: fixed;
+  height: max-content;
 }
 .quick-edit-details {
-  padding: 6px 8px 2px;
   color: black;
   text-align: left;
   width: 100%;
   height: 100%;
 }
 .quick-edit-textarea {
-  overflow: hidden;
-  overflow-wrap: break-word;
-  resize: none;
-  height: 90px;
+  min-height: 90px;
   width: 92.5%;
   background-color: #fff;
   border: 1px solid transparent;
   box-shadow: none;
   padding: 0;
   margin: -1px;
-  -webkit-appearance: none;
-  display: block;
+  height: 100%;
 }
 .save-task-note {
   box-shadow: none;
@@ -1816,10 +1818,10 @@ button {
   background-color: #5aac44;
   padding: 6px 24px 6px 24px;
   border-radius: 3px;
-  position: relative;
-  /* position: absolute;
-  bottom: 40px;
-  left: 0; */
+  position: absolute;
+  display: flex;
+  align-self: flex-start;
+  left: 0;
 }
 .save-task-note:hover {
   background-color: #61bd4f;

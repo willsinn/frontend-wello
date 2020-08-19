@@ -43,6 +43,7 @@ const Task = ({
               </div>
               <div className="quick-edit-cont">
                 <QuickTaskEditor
+                  task={task}
                   editTask={editTask}
                   handleCloseQuickEditor={handleCloseQuickEditor}
                 />
@@ -55,7 +56,7 @@ const Task = ({
         <LabelsList tLabels={labels} taskedLabels={taskLabels} tId={task.id} />
         <div
           className="open-task-window"
-          onClick={(e) => handleRenderTaskWindow(task)}
+          onClick={(e) => handleRenderTaskWindow(e, task)}
         >
           {task.note}
           <div
@@ -91,7 +92,7 @@ const Task = ({
         {visible ? (
           <span
             className="edit-task-item-btn"
-            onClick={(e) => handleRenderQuickEditor(task)}
+            onClick={(e) => handleRenderQuickEditor(e, task)}
           >
             ✎
           </span>

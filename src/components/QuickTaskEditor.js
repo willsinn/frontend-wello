@@ -5,7 +5,12 @@ import { connect } from "react-redux";
 import LabelMenu from "../containers/LabelMenu";
 
 const initialState = { note: "" };
-const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
+const QuickTaskEditor = ({
+  task,
+  editTask,
+  handleCloseQuickEditor,
+  dispatch,
+}) => {
   const [renderMenu, setRenderMenu] = useState(false);
   const [note, setNote] = useState(editTask.note);
   const clearState = (e) => {
@@ -30,8 +35,12 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
   return (
     <div className="quick-edit-task">
       <div
-        className="quick-edit-details"
-        style={{ position: "relative", zIndex: "10" }}
+        className="task-details"
+        style={
+          task.id === editTask.id
+            ? { position: "relative", zIndex: "10" }
+            : { position: "relative", zIndex: "0" }
+        }
       >
         <form
           onSubmit={handleSubmitTask}
@@ -39,15 +48,21 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
             position: "relative",
             height: "100%",
             width: "100%",
+            overflowWrap: "anywhere",
+            minHeight: "90px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <textarea
-            dir="auto"
             style={{
               overflowWrap: "anywhere",
-              resize: "none",
               height: "100%",
               minHeight: "90px",
+              display: "flex",
+              flexWrap: "wrap",
             }}
             className="quick-edit-textarea"
             type="text"

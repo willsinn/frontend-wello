@@ -13,17 +13,21 @@ const TaskList = ({ card, checklists }) => {
   const handleUpdateEditTask = (note) => {
     setEditTask({ ...editTask, note });
   };
-  const handleRenderQuickEditor = (task) => {
-    setEditTask(task);
-    setEditor(true);
+  const handleRenderQuickEditor = (e, task) => {
+    if (e) {
+      setEditTask(task);
+      setEditor(true);
+    }
   };
   const handleCloseQuickEditor = () => {
     setEditTask({});
     setEditor(false);
   };
-  const handleRenderTaskWindow = (task) => {
-    setEditTask(task);
-    setWindow(true);
+  const handleRenderTaskWindow = (e, task) => {
+    if (e) {
+      setEditTask(task);
+      setWindow(true);
+    }
   };
   const handleCloseWindow = () => {
     setEditTask({});
@@ -80,7 +84,8 @@ const TaskList = ({ card, checklists }) => {
   };
   return (
     <div className="task-list">
-      {window && !editor ? (
+      {renderTasks()}
+      {window && !editor && editTask ? (
         <TaskWindow
           cardGoal={card.goal}
           editTask={editTask}
@@ -88,7 +93,6 @@ const TaskList = ({ card, checklists }) => {
           handleUpdateEditTask={handleUpdateEditTask}
         />
       ) : null}
-      {renderTasks()}
       {addTask ? (
         <AddTask card={card} handleCloseAddTask={handleCloseAddTask} />
       ) : (
