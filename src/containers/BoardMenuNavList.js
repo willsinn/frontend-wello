@@ -63,7 +63,7 @@ const BoardMenuNavList = (props) => {
             </li>
             <li
               className="board-menu-nav-item"
-              onClick={(e) => props.setContent("bg")}
+              onClick={() => props.setContent("bg")}
             >
               <span className="board-menu-nav-btn">
                 <div
@@ -78,7 +78,7 @@ const BoardMenuNavList = (props) => {
             </li>
             <li
               className="board-menu-nav-item"
-              onClick={(e) => props.setContent("more")}
+              onClick={() => props.setContent("more")}
             >
               <span className="board-menu-nav-btn">
                 <div className="dots-icon-gray menu-icon">...</div>

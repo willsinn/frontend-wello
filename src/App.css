@@ -145,6 +145,8 @@ button {
   font-weight: 900;
   position: relative;
   cursor: pointer;
+  box-sizing: border-box;
+  display: inline-block;
 }
 .board-item.opa {
   opacity: 0.9;
