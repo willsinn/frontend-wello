@@ -1723,9 +1723,8 @@ button {
 
 .task-item-details {
   overflow: hidden;
-  padding: 6px 8px 2px;
+  padding: 6px 8px 6px;
   position: relative;
-  min-height: 60px;
   z-index: 0;
   height: 100%;
 }
@@ -1820,8 +1819,8 @@ button {
   position: absolute;
   display: flex;
   align-self: flex-start;
-  left: 0;
-  bottom: -68px;
+  left: 2px;
+  bottom: -64px;
 }
 .save-task-note:hover {
   background-color: #61bd4f;
@@ -1878,7 +1877,7 @@ button {
   flex-wrap: wrap;
   overflow-wrap: anywhere;
   height: fit-content;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .quick-task-editor-wrapper {
   position: absolute;

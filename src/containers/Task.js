@@ -59,12 +59,13 @@ const Task = ({
         <div
           className="open-task-window"
           onClick={(e) => handleRenderTaskWindow(e, task)}
+          style={todos === 0 ? { margin: "0" } : {}}
         >
           {task.note}
           <div
             className="todo-tracker"
             style={
-              finishedTodos === 0
+              todos === 0
                 ? { display: "none" }
                 : {
                     backgroundColor:
