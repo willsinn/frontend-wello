@@ -24,22 +24,24 @@ const NavBar = ({ user }) => {
     setModal(true);
   };
   const renderInitials = () => {
-    let initials = "";
-    const nameSplit = user.name.split(" ");
-    if (nameSplit) {
-      nameSplit.forEach((letter) => {
-        const first = letter[0].toUpperCase();
-        initials += first;
-      });
+    if (user) {
+      let initials = "";
+      const nameSplit = user.name.split(" ");
+      if (nameSplit) {
+        nameSplit.forEach((letter) => {
+          const first = letter[0].toUpperCase();
+          initials += first;
+        });
+      }
+      if (initials.length === 1) {
+        initials += initials;
+      }
+      if (initials.length > 2) {
+        const limit = initials.slice(0, 1);
+        initials = limit;
+      }
+      return initials;
     }
-    if (initials.length === 1) {
-      initials += initials;
-    }
-    if (initials.length > 2) {
-      const limit = initials.slice(0, 1);
-      initials = limit;
-    }
-    return initials;
   };
   return (
     <div id="navbar">
