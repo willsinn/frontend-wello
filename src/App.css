@@ -1779,11 +1779,11 @@ button {
 }
 
 .quick-edit-task {
-  display: flex;
   width: 256px;
   height: 124px;
   background: white;
   border-radius: 3px;
+  position: fixed;
 }
 .quick-edit-details {
   overflow: hidden;
@@ -1798,7 +1798,7 @@ button {
   overflow-wrap: break-word;
   resize: none;
   height: 90px;
-  width: 100%;
+  width: 92.5%;
   background-color: #fff;
   border: 1px solid transparent;
   box-shadow: none;
@@ -3131,9 +3131,5 @@ button {
   margin-bottom: 40px;
 }
 .quick-edit-cont {
-  height: 124px;
-  /* max-height: 124px; */
-  /* min-width: 256px; */
-  width: 256px;
-  position: fixed;
+  position: relative;
 }

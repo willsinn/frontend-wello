@@ -28,33 +28,28 @@ const Task = ({
       onMouseEnter={(e) => setVisible(true)}
       onMouseLeave={(e) => setVisible(false)}
     >
-      {editor && !window ? <div className="quick-task-editor" /> : null}
-      <div className="quick-task-editor-wrapper">
-        {editor && !window ? (
-          <div style={{ position: "relative" }}>
-            <div
-              className="close-quick-editor-icon"
-              onClick={(e) => handleCloseQuickEditor()}
-            >
-              ✕
-            </div>
-            <div className="quick-edit-cont">
-              <QuickTaskEditor
-                editTask={editTask}
-                handleCloseQuickEditor={handleCloseQuickEditor}
-              />
-            </div>
-          </div>
-        ) : null}
-      </div>
-
-      {window && !editor ? (
-        <TaskWindow
-          cardGoal={card.goal}
-          editTask={editTask}
-          handleCloseWindow={handleCloseWindow}
-          handleUpdateEditTask={handleUpdateEditTask}
-        />
+      {editor && !window && editTask.id === task.id ? (
+        <div className="quick-task-editor" />
+      ) : null}
+      {editor && !window ? (
+        <div className="quick-task-editor-wrapper">
+          {editTask.id === task.id ? (
+            <>
+              <div
+                className="close-quick-editor-icon"
+                onClick={(e) => handleCloseQuickEditor()}
+              >
+                ✕
+              </div>
+              <div className="quick-edit-cont">
+                <QuickTaskEditor
+                  editTask={editTask}
+                  handleCloseQuickEditor={handleCloseQuickEditor}
+                />
+              </div>
+            </>
+          ) : null}
+        </div>
       ) : null}
       <div className="task-item-note">
         <LabelsList tLabels={labels} taskedLabels={taskLabels} tId={task.id} />

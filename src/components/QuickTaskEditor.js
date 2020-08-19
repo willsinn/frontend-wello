@@ -34,10 +34,9 @@ const QuickTaskEditor = ({ editTask, handleCloseQuickEditor, dispatch }) => {
           <textarea
             dir="auto"
             style={{
-              overflow: "hidden",
-              overflowWrap: "break-word",
+              overflowWrap: "anywhere",
               resize: "none",
-              height: "90px",
+              height: "fit-content",
             }}
             className="quick-edit-textarea"
             type="text"

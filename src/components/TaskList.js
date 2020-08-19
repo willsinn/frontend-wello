@@ -80,31 +80,14 @@ const TaskList = ({ card, checklists }) => {
   };
   return (
     <div className="task-list">
-      {/* {editor && !window ? <div className="quick-task-editor" /> : null}
-
-      {editor && !window ? (
-        <div className="quick-task-editor-wrapper">
-          <div
-            className="close-quick-editor-icon"
-            onClick={(e) => handleCloseQuickEditor()}
-          >
-            ✕
-          </div>
-          <QuickTaskEditor
-            editTask={editTask}
-            handleCloseQuickEditor={handleCloseQuickEditor}
-          />
-        </div>
-      ) : null} */}
-
-      {/* {window && !editor ? (
+      {window && !editor ? (
         <TaskWindow
           cardGoal={card.goal}
           editTask={editTask}
           handleCloseWindow={handleCloseWindow}
           handleUpdateEditTask={handleUpdateEditTask}
         />
-      ) : null} */}
+      ) : null}
       {renderTasks()}
       {addTask ? (
         <AddTask card={card} handleCloseAddTask={handleCloseAddTask} />
