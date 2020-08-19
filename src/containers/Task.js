@@ -27,12 +27,14 @@ const Task = ({
           {task.note}
           <div
             className="todo-tracker"
-            style={{
-              backgroundColor:
-                finishedTodos === todos && todos !== 0
-                  ? "#61bd4f"
-                  : "transparent",
-            }}
+            style={
+              finishedTodos === 0
+                ? { display: "none" }
+                : {
+                    backgroundColor:
+                      finishedTodos === todos ? "#61bd4f" : "transparent",
+                  }
+            }
           >
             <i
               className="fa fa-check-square-o todo-tracker-icon"

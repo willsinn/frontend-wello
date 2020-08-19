@@ -166,10 +166,11 @@ button {
 .todo-tracker {
   display: flex;
   align-items: center;
+  width: -moz-fit-content;
   width: fit-content;
   position: absolute;
-  bottom: 4px;
-  left: 0;
+  bottom: -28px;
+  left: 0px;
   padding: 1px 5px 1px 3px;
   border-radius: 3px;
 }
@@ -1611,7 +1612,8 @@ button {
   border-radius: 3px;
   padding-top: 4px;
   padding-bottom: 4px;
-  margin: 0 4px 4px 4px;
+  margin: 0;
+  margin-top: 4px;
 }
 .close-add-btn {
   min-height: 32px;
@@ -1645,12 +1647,17 @@ button {
 }
 .card-text {
   font-weight: 600;
-  margin: 0 0 8px 12px;
+  margin: 0 0 8px 0;
   font-size: 1.32em;
-  line-height: 24px;
+  line-height: 28px;
   cursor: pointer;
-  overflow-x: hidden;
-  overflow-y: auto;
+  font-size: 1.7em;
+  /* min-height: 28px; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow-wrap: anywhere;
+  flex-wrap: wrap-reverse;
 }
 .edit-card-title {
   overflow: hidden;
@@ -1860,7 +1867,12 @@ button {
 }
 .open-task-window {
   width: 100%;
-  min-height: 60px;
+  /* min-height: 60px; */
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+  height: fit-content;
+  margin-bottom: 32px;
 }
 .quick-task-editor-wrapper {
   position: absolute;
@@ -1876,7 +1888,6 @@ button {
 .edit-input {
   position: relative;
   top: -2px;
-  height: 20px;
   font-size: 17px;
   border: 2px solid #6791d6;
   border-radius: 3px;
@@ -3108,4 +3119,9 @@ button {
 }
 .b-name {
   padding: 0 12px;
+}
+.checklist {
+  height: inherit;
+  width: 100%;
+  margin-bottom: 40px;
 }
