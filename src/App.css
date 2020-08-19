@@ -166,10 +166,11 @@ button {
 .todo-tracker {
   display: flex;
   align-items: center;
+  width: -moz-fit-content;
   width: fit-content;
   position: absolute;
-  bottom: 4px;
-  left: 0;
+  bottom: -28px;
+  left: 0px;
   padding: 1px 5px 1px 3px;
   border-radius: 3px;
 }
@@ -1866,7 +1867,12 @@ button {
 }
 .open-task-window {
   width: 100%;
-  min-height: 60px;
+  /* min-height: 60px; */
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+  height: fit-content;
+  margin-bottom: 32px;
 }
 .quick-task-editor-wrapper {
   position: absolute;
