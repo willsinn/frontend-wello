@@ -169,7 +169,7 @@ button {
   width: -moz-fit-content;
   width: fit-content;
   position: absolute;
-  bottom: -28px;
+  bottom: -24px;
   left: 0px;
   padding: 1px 5px 1px 3px;
   border-radius: 3px;
@@ -596,7 +596,6 @@ button {
   vertical-align: top;
   white-space: nowrap;
   position: relative;
-  z-index: -1;
 }
 .card-item {
   background-color: #ebecf0;
@@ -1822,6 +1821,7 @@ button {
   display: flex;
   align-self: flex-start;
   left: 0;
+  bottom: -68px;
 }
 .save-task-note:hover {
   background-color: #61bd4f;
@@ -1873,12 +1873,12 @@ button {
 }
 .open-task-window {
   width: 100%;
-  /* min-height: 60px; */
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   overflow-wrap: anywhere;
   height: fit-content;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 .quick-task-editor-wrapper {
   position: absolute;
@@ -1948,7 +1948,8 @@ button {
   background-color: rgba(9, 30, 66, 0.08);
   color: #42526e;
 }
-.task-detail-window {
+.task-details {
+  margin-top: 12px;
 }
 .edit-note-form {
   width: 98%;
@@ -3142,6 +3143,6 @@ button {
   width: fit-content;
   height: fit-content;
   right: -106px;
-  top: -91px;
+  top: -101px;
   z-index: 81;
 }

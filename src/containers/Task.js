@@ -54,15 +54,6 @@ const Task = ({
           </>
         ) : null}
       </div>
-
-      {window && !editor && editTask ? (
-        <TaskWindow
-          cardGoal={card.goal}
-          editTask={editTask}
-          handleCloseWindow={handleCloseWindow}
-          handleUpdateEditTask={handleUpdateEditTask}
-        />
-      ) : null}
       <div className="task-item-note">
         <LabelsList tLabels={labels} taskedLabels={taskLabels} tId={task.id} />
         <div

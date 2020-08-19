@@ -84,15 +84,15 @@ const TaskList = ({ card, checklists }) => {
   };
   return (
     <div className="task-list">
-      {renderTasks()}
-      {/* {window && !editor && editTask ? (
+      {window && !editor && editTask ? (
         <TaskWindow
           cardGoal={card.goal}
           editTask={editTask}
           handleCloseWindow={handleCloseWindow}
           handleUpdateEditTask={handleUpdateEditTask}
         />
-      ) : null} */}
+      ) : null}
+      {renderTasks()}
       {addTask ? (
         <AddTask card={card} handleCloseAddTask={handleCloseAddTask} />
       ) : (
