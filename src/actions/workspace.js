@@ -41,6 +41,9 @@ export const saveAddValue = (value) => ({
   type: "SAVE_ADD_VALUE",
   value,
 });
+export const closeAdding = () => ({
+  type: "CLOSE_ADDING",
+});
 export const fetchWorkspace = (data) => {
   return (dispatch) => {
     // dispatch(clearWorkspace());

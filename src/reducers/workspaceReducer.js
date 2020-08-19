@@ -83,6 +83,8 @@ const workspaceReducer = (state = defaultState, action) => {
       return { ...state, isAddingId: action.cardId };
     case "SAVE_ADD_VALUE":
       return { ...state, addValue: action.value };
+    case "CLOSE_ADDING":
+      return { ...state, isAddingId: null, addValue: "" };
     default:
       return state;
   }

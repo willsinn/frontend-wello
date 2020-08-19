@@ -1,17 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  postNewTask,
-  saveAddValue,
-  setCurrentAdding,
-} from "../actions/workspace";
+import { postNewTask, saveAddValue, closeAdding } from "../actions/workspace";
 
 const AddTask = ({ card, addValue, dispatch }) => {
-  const clearState = (e) => {
-    dispatch(setCurrentAdding(null));
-    dispatch(saveAddValue(""));
-    // e.target.firstElementChild.value = "";
-  };
   const handleChange = (e) => {
     e.persist();
     dispatch(saveAddValue(e.target.value));
@@ -21,7 +12,7 @@ const AddTask = ({ card, addValue, dispatch }) => {
       const note = addValue;
       e.preventDefault();
       dispatch(postNewTask({ note, card: card }));
-      clearState(e);
+      dispatch(closeAdding(""));
     }
   };
   console.log(addValue);
@@ -41,7 +32,7 @@ const AddTask = ({ card, addValue, dispatch }) => {
           Add Task
         </button>
         <button
-          onClick={() => dispatch(setCurrentAdding(null))}
+          onClick={() => dispatch(closeAdding())}
           className="close-add-btn"
         >
           ✕
