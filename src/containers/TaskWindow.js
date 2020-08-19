@@ -72,22 +72,13 @@ const TaskWindow = ({
               <span className="task-window-icon" />
               <div>
                 {task.id === undefined ? (
-                  <h1
-                    className="card-text"
-                    style={{
-                      fontSize: "1.70em",
-                      minHeight: "28px",
-                      height: "28px",
-                      margin: "0",
-                    }}
-                    onClick={(e) => handleNoteEdit()}
-                  >
+                  <h1 className="card-text" onClick={(e) => handleNoteEdit()}>
                     {editTask.note}
                   </h1>
                 ) : (
                   <form className="edit-note-form" onSubmit={handleSubmit}>
-                    <input
-                      className="edit-input"
+                    <textarea
+                      className="card-text edit-textarea"
                       style={{ fontSize: "1.7em" }}
                       type="text"
                       name="note"
