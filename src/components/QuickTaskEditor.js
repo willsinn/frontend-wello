@@ -70,35 +70,37 @@ const QuickTaskEditor = ({
         </form>
       </div>
       <div style={{ position: "relative" }}>
-        <div style={{ position: "absolute", top: "32px", right: "-224px" }}>
-          {renderMenu ? (
-            <LabelMenu
-              closePopup={closePopup}
-              taskId={editTask.id}
-              absLabel={"absLabel"}
-            />
-          ) : null}
-        </div>
+        <div className="task-btn-cont">
+          <div style={{ position: "absolute", top: "32px", right: "-224px" }}>
+            {renderMenu ? (
+              <LabelMenu
+                closePopup={closePopup}
+                taskId={editTask.id}
+                absLabel={"absLabel"}
+              />
+            ) : null}
+          </div>
 
-        <button
-          className="quick-task-edit-btn"
-          onClick={(e) => setRenderMenu(true)}
-        >
-          Edit Label
-        </button>
-        <button
-          onClick={(e) =>
-            dispatch(
-              archiveTask(
-                { id: editTask.id, date_archived: getCurrentDate() },
-                () => handleCloseQuickEditor(e)
+          <button
+            className="quick-task-edit-btn"
+            onClick={(e) => setRenderMenu(true)}
+          >
+            Edit Label
+          </button>
+          <button
+            onClick={(e) =>
+              dispatch(
+                archiveTask(
+                  { id: editTask.id, date_archived: getCurrentDate() },
+                  () => handleCloseQuickEditor(e)
+                )
               )
-            )
-          }
-          className="quick-task-edit-btn"
-        >
-          Archive
-        </button>
+            }
+            className="quick-task-edit-btn"
+          >
+            Archive
+          </button>
+        </div>
       </div>
     </div>
   );
