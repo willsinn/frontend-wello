@@ -37,6 +37,10 @@ export const setCurrentAdding = (cardId) => ({
   type: "SET_CURRENT_ADDING",
   cardId,
 });
+export const saveAddValue = (value) => ({
+  type: "SAVE_ADD_VALUE",
+  value,
+});
 export const fetchWorkspace = (data) => {
   return (dispatch) => {
     // dispatch(clearWorkspace());

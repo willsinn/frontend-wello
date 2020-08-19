@@ -81,7 +81,7 @@ const TaskList = ({ card, checklists, isAddingId, dispatch }) => {
       ) : null}
       {renderTasks()}
       {isAddingId && isAddingId === card.id ? (
-        <AddTask card={card} handleCloseAddTask={handleCloseAddTask} />
+        <AddTask card={card} />
       ) : (
         <div
           className="task-composer"
