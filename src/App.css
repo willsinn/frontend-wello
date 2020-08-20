@@ -66,13 +66,15 @@ button {
 #navbar {
   height: 32px;
   position: relative;
-  background: #026aa7;
+  background: #0079bf;
   overflow: hidden;
   padding: 4px;
   box-sizing: border-box;
   display: flex;
   min-height: 40px;
   justify-content: space-between;
+  box-shadow: 0 12px 24px -6px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
 }
 #board {
   height: 100%;
@@ -1751,8 +1753,8 @@ button {
 .edit-task-item-btn {
   position: absolute;
   color: black;
-  top: 0;
-  right: 0;
+  top: -4px;
+  right: -4px;
   background-color: #dedee2;
   transform: rotate(90deg);
   border-radius: 3px;
@@ -3029,7 +3031,7 @@ button {
   color: white;
   font-size: 22px;
   transform: rotate(45deg);
-  font-weight: 25;
+  font-weight: 100;
 }
 .sidelist-control {
   min-height: 20px;
