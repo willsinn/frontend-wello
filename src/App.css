@@ -703,20 +703,25 @@ button {
 }
 
 .close-btn {
-  position: absolute;
-  color: lightgray;
-  font-size: 16px;
-  font-weight: bold;
-  height: 25px;
-  background-color: inherit;
-  border-style: none;
+  border: 2px solid transparent;
+  border-radius: 8em;
+  color: rgb(85, 84, 84);
+  font-size: 15px;
+  height: 22px;
+  width: 100%;
+  font-weight: 235;
+  width: 22px;
+  margin-bottom: 8px;
+  background-color: rgb(235, 236, 240, 0.8);
   left: -5px;
   top: -5px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 .close-btn:hover {
-  border: 1px inset darkgray;
-  color: #fff;
-  border-style: none;
+  color: rgb(54, 54, 54);
+  background-color: rgb(211, 211, 211, 0.9);
 }
 .list-action-btn {
   width: 100%;
@@ -1215,9 +1220,9 @@ button {
   width: 109px;
   height: 32px;
   border-radius: 2px;
-  position: relative;
-  margin-top: 8px;
-  bottom: -38px;
+  position: absolute;
+  left: -24px;
+  bottom: -50px;
 }
 .submit-new-board-btn {
   background-color: #5aac44;
@@ -1225,9 +1230,9 @@ button {
   width: 109px;
   height: 32px;
   border-radius: 2px;
-  position: relative;
-  margin-top: 8px;
-  bottom: -38px;
+  position: absolute;
+  left: -24px;
+  bottom: -50px;
 }
 .submit-new-board-btn:hover {
   background-color: #61bd4f;
