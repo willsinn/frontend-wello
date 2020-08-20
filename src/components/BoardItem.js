@@ -78,9 +78,9 @@ const BoardItem = ({ board, user, itemContext, closeSidelist, dispatch }) => {
               >
                 <span
                   style={{
-                    color: "black",
-                    fontSize: "13px",
-                    fontWeight: "500",
+                    color: "rgb(79 79 79)",
+                    fontSize: "14px",
+                    fontWeight: "400",
                     marginLeft: "8px",
                     textTransform: "none",
                     letterSpacing: "0",

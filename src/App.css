@@ -73,8 +73,8 @@ button {
   display: flex;
   min-height: 40px;
   justify-content: space-between;
-  box-shadow: 0 12px 24px -6px rgba(9, 30, 66, 0.25),
-    0 0 0 1px rgba(9, 30, 66, 0.08);
+  box-shadow: 0 4px 20px -6px rgba(9, 30, 66, 0.25),
+    0 0 0px 1px rgba(9, 30, 66, 0.08);
 }
 #board {
   height: 100%;
@@ -184,7 +184,7 @@ button {
 .mid-nav-title {
   display: flex;
   align-items: center;
-  opacity: 0.3;
+  opacity: 0.65;
 }
 
 .right-navbar {
@@ -3029,7 +3029,7 @@ button {
 }
 .nav-btn-text {
   color: white;
-  font-size: 22px;
+  font-size: 18px;
   transform: rotate(45deg);
   font-weight: 100;
 }
