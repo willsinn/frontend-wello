@@ -9,6 +9,6 @@ export const getCurrentDate = () => {
   return currDate[0];
 };
 
-export const fetchUrl = "http://localhost:3000";
+export const fetchUrl = "https://server.mywellotask.com";
 
 //ask rob if theres a better way of exporting the fetch url.
