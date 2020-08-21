@@ -1172,8 +1172,9 @@ button {
 }
 .input {
   -webkit-writing-mode: horizontal-tb !important;
+  border: 1.5px solid darkgray;
+  border-radius: 2px;
   text-rendering: auto;
-  color: -internal-light-dark-color(black, white);
   letter-spacing: normal;
   word-spacing: normal;
   text-transform: none;
@@ -1182,6 +1183,9 @@ button {
   display: inline-block;
   text-align: start;
   width: inherit;
+}
+.input:hover {
+  border: 1.5px solid #0079bf;
 }
 .modal.close-btn {
   position: relative;
@@ -1843,6 +1847,7 @@ button {
   width: 238px;
   height: 48px;
   display: block;
+  resize: none;
 }
 .card-menu-modal {
   width: 304px;

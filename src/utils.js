@@ -9,7 +9,9 @@ export const getCurrentDate = () => {
   return currDate[0];
 };
 
-export const fetchUrl = "http://localhost:3000";
-// export const fetchUrl = "https://d3vw9845ifmtai.cloudfront.net.mywellotask.com";
-
-//ask rob if theres a better way of exporting the fetch url.
+function returnUrlContext() {
+  const context = window.location.hostname;
+  if (context === "localhost") return "http://localhost:3000";
+  if (context === "mywellotask") return "https://backend.mywellotask.com";
+}
+export const fetchUrl = returnUrlContext();
