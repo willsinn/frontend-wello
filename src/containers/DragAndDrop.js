@@ -52,8 +52,9 @@ const getListStyle = (isDraggingOver) => ({
   padding: grid,
   width: 250,
 });
+// const boardDragspace = document.getElementById("board");
 
-function QuoteApp() {
+const DragAndDrop = () => {
   const [state, setState] = useState([getItems(10), getItems(5, 10)]);
 
   function onDragEnd(result) {
@@ -158,7 +159,6 @@ function QuoteApp() {
       </div>
     </div>
   );
-}
-
-const boardDragspace = document.getElementById("board");
-ReactDOM.render(<QuoteApp />, boardDragspace);
+};
+export default DragAndDrop;
+// ReactDOM.render(<DragAndDrop />, boardDragspace);

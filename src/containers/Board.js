@@ -3,6 +3,7 @@ import CardList from "../components/CardList";
 import BoardMenu from "./BoardMenu";
 import NavBar from "./NavBar";
 import EditBoardTitle from "../components/EditBoardTitle";
+import DragAndDrop from "./DragAndDrop";
 
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
@@ -110,6 +111,7 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
     <>
       <NavBar />
       {updateDefaultLabels()}
+      <DragAndDrop />
       {!user ? (
         <Redirect to="/" />
       ) : (
