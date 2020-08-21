@@ -73,7 +73,7 @@ export const fetchCurrentUser = () => {
 export const userSignup = (user) => {
   return (dispatch) => {
     dispatch({ type: "AUTHENTICATING_USER" });
-    fetch(`${fetchUrl}/api/v1/users`, {
+    fetch(`${fetchUrl}/api/v1/user/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
