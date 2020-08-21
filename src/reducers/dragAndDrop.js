@@ -161,4 +161,4 @@ function QuoteApp() {
 }
 
 const boardDragspace = document.getElementById("board");
-ReactDOM.render(<QuoteApp />, rootElement);
+ReactDOM.render(<QuoteApp />, boardDragspace);
