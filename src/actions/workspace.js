@@ -59,9 +59,9 @@ export const fetchWorkspace = (data) => {
   };
 };
 
-export const postNewCard = (board, callback) => {
+export const postNewCard = (data, callback) => {
   return (dispatch) => {
-    fetch(`${fetchUrl}/api/v1/board/${board.workspace.id}/cards/new`, {
+    fetch(`${fetchUrl}/api/v1/board/${data.board_id}/cards/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,8 +69,8 @@ export const postNewCard = (board, callback) => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        board_id: board.workspace.id,
-        goal: board.goal,
+        board_id: data.board_id,
+        goal: data.goal,
         card_desc: "",
       }),
     })

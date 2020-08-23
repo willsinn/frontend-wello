@@ -3,14 +3,14 @@ import Card from "../containers/Card";
 import AddCard from "./AddCard";
 import { connect } from "react-redux";
 
-const CardList = ({ workspace }) => {
+const CardList = ({ cards, board_id }) => {
   const [addCard, setAddCard] = useState(false);
   const [cardMenu, setCardMenu] = useState(false);
   const [actionCard, setActionCard] = useState({});
-  const handleCloseCardForm = e => {
+  const handleCloseCardForm = (e) => {
     setAddCard(false);
   };
-  const handleCloseCardMenu = e => {
+  const handleCloseCardMenu = (e) => {
     setCardMenu(false);
   };
   const handleOpenCardMenu = (e, targCard) => {
@@ -18,14 +18,13 @@ const CardList = ({ workspace }) => {
     setCardMenu(true);
   };
   const renderCards = () => {
-    if (workspace && workspace.cards && workspace.cards.length > 0) {
-      return workspace.cards.map(card => {
+    if (cards && cards.length > 0) {
+      return cards.map((card) => {
         if (!card.archived) {
           return (
             <Card
-              key={`board-${workspace.id}-${card.id}`}
+              key={`board-${board_id}-${card.id}`}
               card={card}
-              workspace={workspace}
               cardMenu={cardMenu}
               actionCard={actionCard}
               handleCloseCardMenu={handleCloseCardMenu}
@@ -44,14 +43,14 @@ const CardList = ({ workspace }) => {
         <div className="board-cards">
           {renderCards()}
           {!addCard ? (
-            <div className="card-item-wrap" onClick={e => setAddCard(true)}>
+            <div className="card-item-wrap" onClick={(e) => setAddCard(true)}>
               <div className="card-item idle-add-card-item">
                 <span className="placeholder">
                   <span
                     style={{
                       fontSize: "22px",
                       fontWeight: "300",
-                      padding: "0 4px"
+                      padding: "0 4px",
                     }}
                   >
                     +
@@ -62,7 +61,7 @@ const CardList = ({ workspace }) => {
             </div>
           ) : (
             <AddCard
-              workspace={workspace}
+              boardId={board_id}
               handleCloseCardForm={handleCloseCardForm}
             />
           )}
@@ -72,16 +71,14 @@ const CardList = ({ workspace }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    cards: state.workspaceReducer.workspace.cards
+    cards: state.workspaceReducer.cards,
+    board_id: state.workspaceReducer.workspace.id,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CardList);
+export default connect(mapStateToProps, mapDispatchToProps)(CardList);

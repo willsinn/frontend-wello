@@ -167,12 +167,12 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
             </div>
           </div>
           <div className="board-body">
-            {/* <CardList key={workspace.id} workspace={workspace} /> */}
-            <DragAndDrop
+            <CardList key={workspace.id} workspace={workspace} />
+            {/* <DragAndDrop
               key={workspace.id}
               workspace={workspace}
               cards={workspace.cards}
-            />
+            /> */}
           </div>
         </div>
       )}
