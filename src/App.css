@@ -72,6 +72,7 @@ button {
   box-sizing: border-box;
   display: flex;
   min-height: 40px;
+  z-index: 2;
   justify-content: space-between;
   box-shadow: 0 4px 20px -6px rgba(9, 30, 66, 0.25),
     0 0 0px 1px rgba(9, 30, 66, 0.08);
@@ -338,12 +339,13 @@ button {
   text-align: center;
 }
 .board-header {
-  position: fixed;
+  position: relative;
   width: 100%;
   line-height: 20px;
   display: flex;
   justify-content: space-between;
   padding: 8px;
+  z-index: 1;
 }
 .board-header-wrap {
   height: 48px;
@@ -722,7 +724,7 @@ button {
   justify-content: space-between;
 }
 .close-btn:hover {
-  color: black;
+  color: rgb(54, 54, 54);
   background-color: rgb(211, 211, 211, 0.9);
 }
 .list-action-btn {

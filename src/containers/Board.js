@@ -111,62 +111,60 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
     <>
       <NavBar />
       {updateDefaultLabels()}
-      <DragAndDrop />
+      {/* <DragAndDrop /> */}
       {!user ? (
         <Redirect to="/" />
       ) : (
         <div id="board" style={renderBoardBg()}>
-          <div className="board-header-wrap">
-            <div className="board-header">
-              <div className="board-ops left">
-                <div className="board-ops title-top">
-                  <div
-                    className="board-title-cont"
-                    onClick={(e) => setEdit(true)}
-                  >
-                    {edit ? (
-                      <span>
-                        <EditBoardTitle
-                          workspace={workspace}
-                          handleCloseEdit={handleCloseEdit}
-                        />
-                      </span>
-                    ) : (
-                      <span>{workspace.title}</span>
-                    )}
-                  </div>
-
-                  <button
-                    className="navbar-btn"
-                    onClick={(e) => handleClick(e)}
-                    style={{ marginLeft: "4px" }}
-                  >
-                    {workspace.starred ? (
-                      <span
-                        style={{
-                          fontSize: "17px",
-                          fontWeight: "400",
-                          color: "#f2d600",
-                        }}
-                      >
-                        ☆
-                      </span>
-                    ) : (
-                      <span style={{ fontSize: "17px", fontWeight: "400" }}>
-                        ☆
-                      </span>
-                    )}
-                  </button>
+          <div className="board-header">
+            <div className="board-ops left">
+              <div className="board-ops title-top">
+                <div
+                  className="board-title-cont"
+                  onClick={(e) => setEdit(true)}
+                >
+                  {edit ? (
+                    <span>
+                      <EditBoardTitle
+                        workspace={workspace}
+                        handleCloseEdit={handleCloseEdit}
+                      />
+                    </span>
+                  ) : (
+                    <span>{workspace.title}</span>
+                  )}
                 </div>
+
+                <button
+                  className="navbar-btn"
+                  onClick={(e) => handleClick(e)}
+                  style={{ marginLeft: "4px" }}
+                >
+                  {workspace.starred ? (
+                    <span
+                      style={{
+                        fontSize: "17px",
+                        fontWeight: "400",
+                        color: "#f2d600",
+                      }}
+                    >
+                      ☆
+                    </span>
+                  ) : (
+                    <span style={{ fontSize: "17px", fontWeight: "400" }}>
+                      ☆
+                    </span>
+                  )}
+                </button>
               </div>
-              <div className="board-ops right">
-                <BoardMenu
-                  workspace={workspace}
-                  findBg={findBg}
-                  bgOptions={bgOptions}
-                  changeBackground={changeBackground}
-                />
-              </div>
+            </div>
+            <div className="board-ops right">
+              <BoardMenu
+                workspace={workspace}
+                findBg={findBg}
+                bgOptions={bgOptions}
+                changeBackground={changeBackground}
+              />
             </div>
           </div>
           <div className="board-body">

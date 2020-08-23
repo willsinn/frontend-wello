@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import CardList from "..CardList";
+import { connect } from "react-redux";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 // fake data generator
@@ -159,5 +161,9 @@ const DragAndDrop = () => {
     </div>
   );
 };
-export default DragAndDrop;
+
+const mapStateToprops = (state) => {
+  return { cards: state.workspaceReducer.workspace.cards };
+};
+export default connect(mapStateToprops)(DragAndDrop);
 // ReactDOM.render(<DragAndDrop />, boardDragspace);
