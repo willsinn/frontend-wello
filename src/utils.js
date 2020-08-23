@@ -10,9 +10,9 @@ export const getCurrentDate = () => {
 };
 
 export const fetchUrl = (() => {
-  if (document.location.host.includes("localhost"))
-    return "http://localhost:3000";
-  if (document.location.host.includes("mywellotask"))
+  const url = document.location;
+  if (url.host.includes("localhost")) return "http://localhost:3000";
+  if (url.host.includes("mywellotask"))
     return "https://backend.mywellotask.com";
   else console.log("No saved fetch url current developer build!!");
 })();

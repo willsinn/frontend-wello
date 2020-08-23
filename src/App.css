@@ -706,15 +706,15 @@ button {
 
 .close-btn {
   border: 2px solid transparent;
-  border-radius: 8em;
-  color: rgb(85, 84, 84);
+  border-radius: 2px;
+  color: white;
   font-size: 15px;
   height: 22px;
   width: 100%;
-  font-weight: 235;
-  width: 22px;
+  font-weight: 250;
+  width: 23px;
   margin-bottom: 8px;
-  background-color: rgb(235, 236, 240, 0.8);
+  background-color: rgb(76 76 76 / 25%);
   left: -5px;
   top: -5px;
   display: flex;
@@ -722,7 +722,7 @@ button {
   justify-content: space-between;
 }
 .close-btn:hover {
-  color: rgb(54, 54, 54);
+  color: black;
   background-color: rgb(211, 211, 211, 0.9);
 }
 .list-action-btn {
