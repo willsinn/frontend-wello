@@ -3,7 +3,6 @@ import CardList from "../components/CardList";
 import BoardMenu from "./BoardMenu";
 import NavBar from "./NavBar";
 import EditBoardTitle from "../components/EditBoardTitle";
-import DragAndDrop from "./DragAndDrop";
 
 import Lake from "../images/lake.jpg";
 import Mountians from "../images/mountians.jpg";
@@ -168,11 +167,7 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
           </div>
           <div className="board-body">
             <CardList key={workspace.id} workspace={workspace} />
-            {/* <DragAndDrop
-              key={workspace.id}
-              workspace={workspace}
-              cards={workspace.cards}
-            /> */}
+            {/* <DragAndDrop /> */}
           </div>
         </div>
       )}

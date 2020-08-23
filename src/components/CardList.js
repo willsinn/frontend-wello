@@ -23,7 +23,7 @@ const CardList = ({ cards, board_id }) => {
         if (!card.archived) {
           return (
             <Card
-              key={`board-${board_id}-${card.id}`}
+              key={`board-${card.board_id}-${card.id}`}
               card={card}
               cardMenu={cardMenu}
               actionCard={actionCard}
@@ -61,7 +61,7 @@ const CardList = ({ cards, board_id }) => {
             </div>
           ) : (
             <AddCard
-              boardId={board_id}
+              board_id={board_id}
               handleCloseCardForm={handleCloseCardForm}
             />
           )}
