@@ -111,7 +111,6 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
     <>
       <NavBar />
       {updateDefaultLabels()}
-      {/* <DragAndDrop /> */}
       {!user ? (
         <Redirect to="/" />
       ) : (
@@ -168,7 +167,12 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
             </div>
           </div>
           <div className="board-body">
-            <CardList key={workspace.id} workspace={workspace} />
+            {/* <CardList key={workspace.id} workspace={workspace} /> */}
+            <DragAndDrop
+              key={workspace.id}
+              workspace={workspace}
+              cards={workspace.cards}
+            />
           </div>
         </div>
       )}

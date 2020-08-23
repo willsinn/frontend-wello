@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import CardList from "..CardList";
+import CardList from "../components/CardList";
+import Card from "./Card";
+
 import { connect } from "react-redux";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 // fake data generator
-const getItems = (count, offset = 0) =>
+const getItems = (count, offset) => {
   Array.from({ length: count }, (v, k) => k).map((k) => ({
-    id: `item-${k + offset}-${new Date().getTime()}`,
-    content: `item ${k + offset}`,
+    id: `card-${k + offset}-${new Date().getTime()}`,
+    content: `card ${k + offset}`,
   }));
-
+};
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
@@ -17,6 +19,7 @@ const reorder = (list, startIndex, endIndex) => {
 
   return result;
 };
+// };
 
 /**
  * Moves an item from one list to another list.
@@ -55,8 +58,11 @@ const getListStyle = (isDraggingOver) => ({
 });
 // const boardDragspace = document.getElementById("board");
 
-const DragAndDrop = () => {
-  const [state, setState] = useState([getItems(10), getItems(5, 10)]);
+const DragAndDrop = ({ workspace, cards }) => {
+  const half = Math.floor(cards.length / 2);
+  console.log(half);
+
+  const [state, setState] = useState([cards, cards.slice(half)]);
 
   function onDragEnd(result) {
     const { source, destination } = result;
@@ -65,6 +71,7 @@ const DragAndDrop = () => {
     if (!destination) {
       return;
     }
+    debugger;
     const sInd = +source.droppableId;
     const dInd = +destination.droppableId;
 
@@ -85,36 +92,20 @@ const DragAndDrop = () => {
 
   return (
     <div>
-      <button
-        type="button"
-        onClick={() => {
-          setState([...state, []]);
-        }}
-      >
-        Add new group
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          setState([...state, getItems(1)]);
-        }}
-      >
-        Add new item
-      </button>
       <div style={{ display: "flex" }}>
         <DragDropContext onDragEnd={onDragEnd}>
-          {state.map((el, ind) => (
-            <Droppable key={ind} droppableId={`${ind}`}>
+          {state.map((workspace, ind) => (
+            <Droppable key={ind} droppableId={`${workspace.id}`}>
               {(provided, snapshot) => (
                 <div
                   ref={provided.innerRef}
                   style={getListStyle(snapshot.isDraggingOver)}
                   {...provided.droppableProps}
                 >
-                  {el.map((item, index) => (
+                  {cards.map((card, index) => (
                     <Draggable
-                      key={item.id}
-                      draggableId={item.id}
+                      key={card.id}
+                      draggableId={`${card.id}`}
                       index={index}
                     >
                       {(provided, snapshot) => (
@@ -133,7 +124,7 @@ const DragAndDrop = () => {
                               justifyContent: "space-around",
                             }}
                           >
-                            {item.content}
+                            {card.content}
                             <button
                               type="button"
                               onClick={() => {
@@ -162,8 +153,5 @@ const DragAndDrop = () => {
   );
 };
 
-const mapStateToprops = (state) => {
-  return { cards: state.workspaceReducer.workspace.cards };
-};
-export default connect(mapStateToprops)(DragAndDrop);
+export default connect()(DragAndDrop);
 // ReactDOM.render(<DragAndDrop />, boardDragspace);
