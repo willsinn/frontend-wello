@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import CardList from "../components/CardList";
-import Card from "./Card";
-
+import { setCurrentDroppable } from "../actions/workspace";
 import { connect } from "react-redux";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 // fake data generator
-const getItems = (count, offset) => {
-  Array.from({ length: count }, (v, k) => k).map((k) => ({
-    id: `card-${k + offset}-${new Date().getTime()}`,
-    content: `card ${k + offset}`,
-  }));
-};
+// const getItems = (count, offset) => {
+//   Array.from({ length: count }, (v, k) => k).map((k) => ({
+//     id: `card-${k + offset}-${new Date().getTime()}`,
+//     content: `card ${k + offset}`,
+//   }));
+// };
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
@@ -58,11 +57,11 @@ const getListStyle = (isDraggingOver) => ({
 });
 // const boardDragspace = document.getElementById("board");
 
-const DragAndDrop = ({ workspace, cards }) => {
-  const half = Math.floor(cards.length / 2);
-  console.log(half);
+const DragAndDrop = ({ board_id, cards, isDragging }) => {
+  // const half = Math.floor(cards.length / 2);
+  // console.log(half);
 
-  const [state, setState] = useState([cards, cards.slice(half)]);
+  // const [state, setState] = useState([cards, cards.slice(half)]);
 
   function onDragEnd(result) {
     const { source, destination } = result;
@@ -71,30 +70,29 @@ const DragAndDrop = ({ workspace, cards }) => {
     if (!destination) {
       return;
     }
-    debugger;
     const sInd = +source.droppableId;
     const dInd = +destination.droppableId;
 
-    if (sInd === dInd) {
-      const items = reorder(state[sInd], source.index, destination.index);
-      const newState = [...state];
-      newState[sInd] = items;
-      setState(newState);
-    } else {
-      const result = move(state[sInd], state[dInd], source, destination);
-      const newState = [...state];
-      newState[sInd] = result[sInd];
-      newState[dInd] = result[dInd];
+    // if (sInd === dInd) {
+    //   const items = reorder(state[sInd], source.index, destination.index);
+    //   const newState = [...state];
+    //   newState[sInd] = items;
+    //   setState(newState);
+    // } else {
+    //   const result = move(state[sInd], state[dInd], source, destination);
+    //   const newState = [...state];
+    //   newState[sInd] = result[sInd];
+    //   newState[dInd] = result[dInd];
 
-      setState(newState.filter((group) => group.length));
-    }
+    //   setState(newState.filter((group) => group.length));
+    // }
   }
-
+  const renderDroppableLists = () => ({});
   return (
     <div>
       <div style={{ display: "flex" }}>
         <DragDropContext onDragEnd={onDragEnd}>
-          {state.map((workspace, ind) => (
+          {cards.map((workspace, ind) => (
             <Droppable key={ind} droppableId={`${workspace.id}`}>
               {(provided, snapshot) => (
                 <div
@@ -125,18 +123,6 @@ const DragAndDrop = ({ workspace, cards }) => {
                             }}
                           >
                             {card.content}
-                            <button
-                              type="button"
-                              onClick={() => {
-                                const newState = [...state];
-                                newState[ind].splice(index, 1);
-                                setState(
-                                  newState.filter((group) => group.length)
-                                );
-                              }}
-                            >
-                              delete
-                            </button>
                           </div>
                         </div>
                       )}
@@ -152,6 +138,9 @@ const DragAndDrop = ({ workspace, cards }) => {
     </div>
   );
 };
-
-export default connect()(DragAndDrop);
-// ReactDOM.render(<DragAndDrop />, boardDragspace);
+const mapStateToProps = (state) => ({
+  board_id: state.workspaceReducer.workspace.id,
+  cards: state.workspaceReducer.cards,
+  isDragging: state.workspaceReducer.isDragging,
+});
+export default connect(mapStateToProps)(DragAndDrop);

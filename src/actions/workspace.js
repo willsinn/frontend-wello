@@ -44,6 +44,11 @@ export const saveAddValue = (value) => ({
 export const closeAdding = () => ({
   type: "CLOSE_ADDING",
 });
+export const setCurrentDroppable = (payload) => ({
+  type: "SET_CURRENT_DROPPABLE",
+  payload,
+});
+
 export const fetchWorkspace = (data) => {
   return (dispatch) => {
     // dispatch(clearWorkspace());

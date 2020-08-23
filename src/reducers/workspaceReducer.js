@@ -3,6 +3,7 @@ const defaultState = {
   cards: [],
   isAddingId: null,
   addValue: "",
+  isDragging: {},
 };
 
 const workspaceReducer = (state = defaultState, action) => {
@@ -84,6 +85,10 @@ const workspaceReducer = (state = defaultState, action) => {
       return { ...state, addValue: action.value };
     case "CLOSE_ADDING":
       return { ...state, isAddingId: null, addValue: "" };
+    case "SET_CURRENT_DROPPABLE":
+      console.log(action.payload);
+      debugger;
+      return { ...state, isDragging: action.payload };
     default:
       return state;
   }
