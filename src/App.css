@@ -3252,8 +3252,6 @@ body {
   color: #cdd5ee;
   font-size: 30px;
   user-select: none;
-
-  /* center align text */
   display: flex;
   justify-content: center;
   align-items: center;
