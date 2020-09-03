@@ -1,3 +1,4 @@
+import { connect } from "react-redux";
 export const getCurrentDate = () => {
   let newDate = new Date();
   newDate = newDate.toDateString();
@@ -18,6 +19,7 @@ export const fetchUrl = (() => {
 })();
 
 export const getInitialData = () => {
+  debugger;
   let uniqueId = 0;
   function getItems(count) {
     return Array.from({ length: count }, (v, k) => {
