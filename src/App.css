@@ -189,6 +189,7 @@ button {
   display: flex;
   align-items: center;
   opacity: 0.65;
+  cursor: default;
 }
 
 .right-navbar {
