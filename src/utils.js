@@ -1,4 +1,3 @@
-import { connect } from "react-redux";
 export const getCurrentDate = () => {
   let newDate = new Date();
   newDate = newDate.toDateString();
