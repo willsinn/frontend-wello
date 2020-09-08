@@ -3,6 +3,9 @@ import { fetchUrl } from "../utils.js";
 export const clearWorkspace = () => ({
   type: "CLEAR_WORKSPACE",
 });
+export const toggleModal = () => ({
+  type: "TOGGLE_MODAL",
+});
 export const setWorkspace = (workspace) => ({
   type: "SET_WORKSPACE",
   workspace,

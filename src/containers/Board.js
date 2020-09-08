@@ -33,7 +33,14 @@ const bgs = [
 ];
 const defaultLabels = ["green", "yellow", "orange", "red", "purple", "blue"];
 
-const Board = ({ workspace, labels, user, activePage, dispatch }) => {
+const Board = ({
+  workspace,
+  labels,
+  user,
+  activePage,
+  isModalOpen,
+  dispatch,
+}) => {
   const [background, setBackground] = useState("");
   const [edit, setEdit] = useState(false);
 
@@ -106,6 +113,9 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
         dispatch(newUserLabel({ userId: user.id, color: labelColor }))
       );
   };
+
+  console.log("This is the board body", isModalOpen);
+
   return (
     <>
       <NavBar />
@@ -165,9 +175,11 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
               />
             </div>
           </div>
-          <div className="board-body">
+          <div
+            className="board-body"
+            style={isModalOpen ? { zIndex: "2" } : { zIndex: "0" }}
+          >
             <CardList key={workspace.id} workspace={workspace} />
-            {/* <DragAndDrop /> */}
           </div>
         </div>
       )}
@@ -176,6 +188,7 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
 };
 const mapStateToProps = (state) => ({
   workspace: state.workspaceReducer.workspace,
+  isModalOpen: state.workspaceReducer.isModalOpen,
   labels: state.labelsReducer.labels,
   user: state.userReducer.user,
   activePage: state.userReducer.activePage,
