@@ -1180,6 +1180,8 @@ button {
   justify-content: center;
   align-items: flex-end;
   margin: 20px 0;
+  flex-wrap: wrap;
+  width: 100%;
 }
 .input {
   -webkit-writing-mode: horizontal-tb !important;
