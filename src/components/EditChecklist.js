@@ -17,7 +17,7 @@ const EditChecklist = ({ editChecklist, handleCloseEditing, dispatch }) => {
   };
   return (
     <div className="editing">
-      <div style={{ margin: "4px 0" }}>
+      <div>
         <form
           className="description-form"
           style={{ height: "54px" }}
@@ -32,7 +32,7 @@ const EditChecklist = ({ editChecklist, handleCloseEditing, dispatch }) => {
           />
         </form>
       </div>
-      <div>
+      <div style={{ marginBottom: "8px" }}>
         <button
           className="add-list-btn"
           style={{ paddingLeft: "12px", paddingRight: "12px", margin: "0" }}

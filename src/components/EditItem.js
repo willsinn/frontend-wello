@@ -15,7 +15,6 @@ const EditItem = ({ editItem, handleCloseEditing, dispatch }) => {
       handleCloseEditing();
     }
   };
-  console.log(editItem);
   return (
     <div className="editing-checklist-item">
       <div style={{ margin: "4px 0" }}>

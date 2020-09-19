@@ -80,11 +80,6 @@ const Item = ({
                 ✕
               </button>
               <div className="checklist-menu-body">
-                <div className="checklist-menu-item">
-                  <span className="checklist-menu-item-text">
-                    Convert to Card
-                  </span>
-                </div>
                 <div
                   className="checklist-menu-item"
                   onClick={(e) => handleDelete()}

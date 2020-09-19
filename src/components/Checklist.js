@@ -72,58 +72,59 @@ const Checklist = ({
           handleCloseEditing={handleCloseEditing}
         />
       ) : (
-        <div className="checklist-header">
-          <span className="check-mark-icon" />
+        <>
+          <div className="checklist-header">
+            <span className="check-mark-icon" />
 
-          <h3
-            className="checklist-title"
-            onClick={(e) => handleEditTitle(checklist)}
-          >
-            {checklist.title}
-          </h3>
-          <div className="checklist-btns">
-            {filter ? (
-              <button
-                className="sidebar-btn"
-                style={{ marginRight: "8px" }}
-                onClick={(e) => setFilter(!filter)}
-              >
-                Show Checked Items {renderCompleteCount()}
-              </button>
-            ) : (
-              <button
-                className="sidebar-btn"
-                style={{ marginRight: "8px" }}
-                onClick={(e) => setFilter(!filter)}
-              >
-                Hide Completed Items
-              </button>
-            )}
-            <button
-              className="sidebar-btn"
-              onClick={(e) => handleConfirmDelete(checklist)}
+            <h3
+              className="checklist-title"
+              onClick={(e) => handleEditTitle(checklist)}
             >
-              Delete
-            </button>
+              {checklist.title}
+            </h3>
+            <div className="checklist-btns">
+              {filter ? (
+                <button
+                  className="sidebar-btn"
+                  style={{ marginRight: "8px" }}
+                  onClick={(e) => setFilter(!filter)}
+                >
+                  Show Checked Items {renderCompleteCount()}
+                </button>
+              ) : (
+                <button
+                  className="sidebar-btn"
+                  style={{ marginRight: "8px" }}
+                  onClick={(e) => setFilter(!filter)}
+                >
+                  Hide Completed Items
+                </button>
+              )}
+              <button
+                className="sidebar-btn"
+                onClick={(e) => handleConfirmDelete(checklist)}
+              >
+                Delete
+              </button>
+            </div>
           </div>
-        </div>
+          <div className="checklist-progress">
+            <span className="checklist-progress-percentage">
+              {renderPercentage()}%
+            </span>
+            <div className="checklist-progress-bar">
+              {renderPercentage() === 100 ? (
+                <div className="finished-progress"></div>
+              ) : (
+                <div
+                  className="percentage-progress"
+                  style={{ width: `${renderPercentage()}%` }}
+                ></div>
+              )}
+            </div>
+          </div>
+        </>
       )}
-
-      <div className="checklist-progress">
-        <span className="checklist-progress-percentage">
-          {renderPercentage()}%
-        </span>
-        <div className="checklist-progress-bar">
-          {renderPercentage() === 100 ? (
-            <div className="finished-progress"></div>
-          ) : (
-            <div
-              className="percentage-progress"
-              style={{ width: `${renderPercentage()}%` }}
-            ></div>
-          )}
-        </div>
-      </div>
 
       {filter ? (
         <>{renderIncomplete()}</>

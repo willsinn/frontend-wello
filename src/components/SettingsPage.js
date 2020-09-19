@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { changeUserAttrs } from "../actions/user";
+import { changeUserAttrs, setPage } from "../actions/user";
 
 const SettingsPage = ({ user, dispatch }) => {
   const [chgName, setChgName] = useState(user.name);
@@ -38,6 +38,7 @@ const SettingsPage = ({ user, dispatch }) => {
       dispatch(
         changeUserAttrs({ id: user.id, name: chgName, email: chgEmail })
       );
+      dispatch(setPage("settings"));
     }
   };
   return (
@@ -80,6 +81,7 @@ const SettingsPage = ({ user, dispatch }) => {
 const mapStateToProps = (state) => {
   return {
     user: state.userReducer.user,
+    activePage: state.userReducer.activePage,
   };
 };
 export default connect(mapStateToProps)(SettingsPage);

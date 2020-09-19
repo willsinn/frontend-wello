@@ -825,6 +825,11 @@ button {
   display: block;
   color: #5e6c84;
   font-size: 14.5px;
+  /* flex-wrap: wrap;
+  height: fit-content;
+  display: flex;
+  width: 85%;
+  margin-left: 16px; */
 }
 .dropdown-title-close {
   position: absolute;
@@ -1175,6 +1180,8 @@ button {
   justify-content: center;
   align-items: flex-end;
   margin: 20px 0;
+  flex-wrap: wrap;
+  width: 100%;
 }
 .input {
   -webkit-writing-mode: horizontal-tb !important;
@@ -1630,10 +1637,8 @@ button {
   border: none;
   color: #fff;
   border-radius: 3px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin: 0;
-  margin-top: 4px;
+  padding: 4px 12px;
+  margin: 0 4px 0 0;
 }
 .close-add-btn {
   min-height: 32px;
@@ -1678,9 +1683,7 @@ button {
   flex-wrap: wrap-reverse;
 }
 .edit-card-title {
-  overflow: hidden;
 }
-
 .card-icon {
   height: 32px;
   font-size: 16px;
@@ -2405,7 +2408,7 @@ button {
     0 0 0 1px rgba(9, 30, 66, 0.08);
   overflow: hidden;
   width: 304px;
-  height: 124px;
+  height: 94px;
   background-color: white;
   position: absolute;
   z-index: 70;
@@ -3150,6 +3153,9 @@ button {
 .board-title-cont {
   max-width: fit-content;
   font-size: 20px;
+}
+.board-title {
+  white-space: nowrap;
 }
 .b-name {
   padding: 0 12px;

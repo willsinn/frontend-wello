@@ -83,7 +83,7 @@ const TaskWindow = ({
                   <form className="edit-note-form" onSubmit={handleSubmit}>
                     <textarea
                       className="card-text edit-textarea"
-                      // style={{ fontSize: "1.7em" }}
+                      style={{ margin: "0 0 8px 0" }}
                       type="text"
                       name="note"
                       onChange={handleChange}

@@ -14,7 +14,6 @@ const AddCard = ({ board_id, handleCloseCardForm, dispatch }) => {
     setGoal(e.target.value);
   };
   const handleSubmitCard = (e) => {
-    debugger;
     if (e) {
       e.preventDefault();
       dispatch(

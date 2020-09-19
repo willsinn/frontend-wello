@@ -132,14 +132,14 @@ const Board = ({
                   onClick={(e) => setEdit(true)}
                 >
                   {edit ? (
-                    <span>
+                    <span className="board-title">
                       <EditBoardTitle
                         workspace={workspace}
                         handleCloseEdit={handleCloseEdit}
                       />
                     </span>
                   ) : (
-                    <span>{workspace.title}</span>
+                    <span className="board-title">{workspace.title}</span>
                   )}
                 </div>
 
