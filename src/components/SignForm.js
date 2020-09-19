@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LandingPage from "./LandingPage";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { userSignup } from "../actions/user";
+import { userSignup, setError } from "../actions/user";
 
 const SignForm = ({ loggedIn, error, dispatch }) => {
   const [email, setEmail] = useState("");
@@ -75,7 +75,11 @@ const SignForm = ({ loggedIn, error, dispatch }) => {
               </button>
             </form>
             <hr />
-            <Link to="/login" className="signup-link">
+            <Link
+              to="/login"
+              className="signup-link"
+              onClick={() => dispatch(setError(null))}
+            >
               Already have an account? Log In
             </Link>
           </div>
