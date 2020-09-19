@@ -4,6 +4,7 @@ import HomePage from "./containers/HomePage";
 import LoginForm from "./components/LoginForm";
 import SignForm from "./components/SignForm";
 import Board from "./containers/Board";
+// import Dnd from "./containers/Dnd";
 
 import "./App.css";
 
@@ -16,6 +17,7 @@ const App = () => {
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignForm} />
         <Route exact path="/board" component={Board} />
+        {/* <Route exact path="/board" component={Dnd} /> */}
       </Switch>
     </>
   );

@@ -100,9 +100,8 @@ const AddBoardForm = ({ user, modal, closeModal, dispatch }) => {
             type="text"
             name="team"
             onChange={handleChange}
-            className="new-board input"
+            className="new-board  input"
             placeholder="add team name"
-            data-test-id="create-board-title-input"
             value={team.value}
           />
           {title.length === undefined || title.length === 0 ? (

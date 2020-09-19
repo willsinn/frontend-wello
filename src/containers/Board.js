@@ -33,7 +33,14 @@ const bgs = [
 ];
 const defaultLabels = ["green", "yellow", "orange", "red", "purple", "blue"];
 
-const Board = ({ workspace, labels, user, activePage, dispatch }) => {
+const Board = ({
+  workspace,
+  labels,
+  user,
+  activePage,
+  isModalOpen,
+  dispatch,
+}) => {
   const [background, setBackground] = useState("");
   const [edit, setEdit] = useState(false);
 
@@ -106,6 +113,9 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
         dispatch(newUserLabel({ userId: user.id, color: labelColor }))
       );
   };
+
+  console.log("This is the board body", isModalOpen);
+
   return (
     <>
       <NavBar />
@@ -114,60 +124,61 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
         <Redirect to="/" />
       ) : (
         <div id="board" style={renderBoardBg()}>
-          <div className="board-header-wrap">
-            <div className="board-header">
-              <div className="board-ops left">
-                <div className="board-ops title-top">
-                  <div
-                    className="board-title-cont"
-                    onClick={(e) => setEdit(true)}
-                  >
-                    {edit ? (
-                      <span>
-                        <EditBoardTitle
-                          workspace={workspace}
-                          handleCloseEdit={handleCloseEdit}
-                        />
-                      </span>
-                    ) : (
-                      <span>{workspace.title}</span>
-                    )}
-                  </div>
-
-                  <button
-                    className="navbar-btn"
-                    onClick={(e) => handleClick(e)}
-                    style={{ marginLeft: "4px" }}
-                  >
-                    {workspace.starred ? (
-                      <span
-                        style={{
-                          fontSize: "17px",
-                          fontWeight: "400",
-                          color: "#f2d600",
-                        }}
-                      >
-                        ☆
-                      </span>
-                    ) : (
-                      <span style={{ fontSize: "17px", fontWeight: "400" }}>
-                        ☆
-                      </span>
-                    )}
-                  </button>
+          <div className="board-header">
+            <div className="board-ops left">
+              <div className="board-ops title-top">
+                <div
+                  className="board-title-cont"
+                  onClick={(e) => setEdit(true)}
+                >
+                  {edit ? (
+                    <span>
+                      <EditBoardTitle
+                        workspace={workspace}
+                        handleCloseEdit={handleCloseEdit}
+                      />
+                    </span>
+                  ) : (
+                    <span>{workspace.title}</span>
+                  )}
                 </div>
-              </div>
-              <div className="board-ops right">
-                <BoardMenu
-                  workspace={workspace}
-                  findBg={findBg}
-                  bgOptions={bgOptions}
-                  changeBackground={changeBackground}
-                />
+
+                <button
+                  className="navbar-btn"
+                  onClick={(e) => handleClick(e)}
+                  style={{ marginLeft: "4px" }}
+                >
+                  {workspace.starred ? (
+                    <span
+                      style={{
+                        fontSize: "17px",
+                        fontWeight: "400",
+                        color: "#f2d600",
+                      }}
+                    >
+                      ☆
+                    </span>
+                  ) : (
+                    <span style={{ fontSize: "17px", fontWeight: "400" }}>
+                      ☆
+                    </span>
+                  )}
+                </button>
               </div>
             </div>
+            <div className="board-ops right">
+              <BoardMenu
+                workspace={workspace}
+                findBg={findBg}
+                bgOptions={bgOptions}
+                changeBackground={changeBackground}
+              />
+            </div>
           </div>
-          <div className="board-body">
+          <div
+            className="board-body"
+            style={isModalOpen ? { zIndex: "2" } : { zIndex: "0" }}
+          >
             <CardList key={workspace.id} workspace={workspace} />
           </div>
         </div>
@@ -177,6 +188,7 @@ const Board = ({ workspace, labels, user, activePage, dispatch }) => {
 };
 const mapStateToProps = (state) => ({
   workspace: state.workspaceReducer.workspace,
+  isModalOpen: state.workspaceReducer.isModalOpen,
   labels: state.labelsReducer.labels,
   user: state.userReducer.user,
   activePage: state.userReducer.activePage,

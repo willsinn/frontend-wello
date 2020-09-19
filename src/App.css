@@ -11,6 +11,9 @@ textarea {
   line-height: 20px;
   font-weight: 400;
 }
+textarea {
+  resize: none;
+}
 .center-col {
   display: flex;
   flex-direction: column;
@@ -72,6 +75,7 @@ button {
   box-sizing: border-box;
   display: flex;
   min-height: 40px;
+  z-index: 2;
   justify-content: space-between;
   box-shadow: 0 4px 20px -6px rgba(9, 30, 66, 0.25),
     0 0 0px 1px rgba(9, 30, 66, 0.08);
@@ -185,6 +189,7 @@ button {
   display: flex;
   align-items: center;
   opacity: 0.65;
+  cursor: default;
 }
 
 .right-navbar {
@@ -338,12 +343,13 @@ button {
   text-align: center;
 }
 .board-header {
-  position: fixed;
+  position: relative;
   width: 100%;
   line-height: 20px;
   display: flex;
   justify-content: space-between;
   padding: 8px;
+  z-index: 1;
 }
 .board-header-wrap {
   height: 48px;
@@ -706,15 +712,15 @@ button {
 
 .close-btn {
   border: 2px solid transparent;
-  border-radius: 8em;
-  color: rgb(85, 84, 84);
+  border-radius: 2px;
+  color: white;
   font-size: 15px;
   height: 22px;
   width: 100%;
-  font-weight: 235;
-  width: 22px;
+  font-weight: 250;
+  width: 23px;
   margin-bottom: 8px;
-  background-color: rgb(235, 236, 240, 0.8);
+  background-color: rgb(76 76 76 / 25%);
   left: -5px;
   top: -5px;
   display: flex;
@@ -1172,8 +1178,9 @@ button {
 }
 .input {
   -webkit-writing-mode: horizontal-tb !important;
+  border: 1.5px solid darkgray;
+  border-radius: 2px;
   text-rendering: auto;
-  color: -internal-light-dark-color(black, white);
   letter-spacing: normal;
   word-spacing: normal;
   text-transform: none;
@@ -1182,6 +1189,9 @@ button {
   display: inline-block;
   text-align: start;
   width: inherit;
+}
+.input:hover {
+  border: 1.5px solid #0079bf;
 }
 .modal.close-btn {
   position: relative;
@@ -1843,6 +1853,7 @@ button {
   width: 238px;
   height: 48px;
   display: block;
+  resize: none;
 }
 .card-menu-modal {
   width: 304px;
@@ -1918,7 +1929,6 @@ button {
 }
 .window-modal {
   position: fixed;
-
   top: 0;
   left: 0;
   right: 0;
@@ -1934,7 +1944,7 @@ button {
   border-radius: 2px;
   margin: 48px 8px 80px;
   min-height: 700px;
-  max-height: 2000px;
+  max-height: 100%;
   z-index: 25;
   overflow: hidden;
   position: relative;
@@ -3160,3 +3170,96 @@ button {
   top: -101px;
   z-index: 81;
 }
+
+/* DND satyling */
+/* @import url("https://fonts.googleapis.com/css?family=Vibur&display=swap");
+
+:root {
+  --grid: 8px;
+  --pink: #fd3afd;
+  --pinkDark: #690169;
+  --greyLight: #515b7d;
+  --black: #1d212e;
+  --borderWidth: 4px;
+  --borderRadius: 8px;
+}
+
+body {
+  background: var(--black);
+  font-family: "Vibur", cursive;
+  user-select: none;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.columns {
+  display: flex;
+}
+
+.column {
+  margin: calc(var(--grid) / 2);
+  border: var(--borderWidth) solid #0ff0fc;
+  border-radius: var(--borderRadius);
+  background-color: #2a2f41;
+}
+
+.column-title {
+  font-size: 40px;
+  color: var(--pink);
+  text-shadow: 0px 0px 2px var(--pinkDark),
+    0px 0px 15px rgba(255, 110, 255, 0.5);
+  text-align: center;
+  margin: 0;
+}
+
+.column-title:hover {
+  text-shadow: 0px 0px 2px var(--pinkDark),
+    0px 0px 15px rgba(255, 110, 255, 0.8);
+}
+
+.task-list {
+  padding-left: var(--grid);
+  padding-right: var(--grid);
+  scrollbar-color: dark;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 1em;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background-color: var(--greyLight);
+  borderradius: var(--borderRadius);
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background-color: var(--pink);
+}
+
+.item {
+  background: #333851;
+  border: var(--borderWidth) solid mediumpurple;
+  box-sizing: border-box;
+  border-radius: var(--borderRadius);
+  color: #cdd5ee;
+  font-size: 30px;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item.is-dragging {
+  background: #515b7d;
+  border-color: #08ff08;
+  box-shadow: 0px 0px 2px rgb(8, 58, 30), 0px 0px 10px MediumSeaGreen;
+} */

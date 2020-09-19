@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Task from "../containers/Task";
 import AddTask from "../components/AddTask";
 import TaskWindow from "../containers/TaskWindow";
-import { setCurrentAdding } from "../actions/workspace";
+import { setCurrentAdding, toggleModal } from "../actions/workspace";
 import { connect } from "react-redux";
 
 const TaskList = ({ card, checklists, isAddingId, dispatch }) => {
@@ -24,11 +24,13 @@ const TaskList = ({ card, checklists, isAddingId, dispatch }) => {
   };
   const handleRenderTaskWindow = (e, task) => {
     if (e) {
+      dispatch(toggleModal());
       setEditTask(task);
       setWindow(true);
     }
   };
   const handleCloseWindow = () => {
+    dispatch(toggleModal());
     setEditTask({});
     setWindow(false);
   };

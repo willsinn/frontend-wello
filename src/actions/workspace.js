@@ -3,6 +3,9 @@ import { fetchUrl } from "../utils.js";
 export const clearWorkspace = () => ({
   type: "CLEAR_WORKSPACE",
 });
+export const toggleModal = () => ({
+  type: "TOGGLE_MODAL",
+});
 export const setWorkspace = (workspace) => ({
   type: "SET_WORKSPACE",
   workspace,
@@ -44,6 +47,11 @@ export const saveAddValue = (value) => ({
 export const closeAdding = () => ({
   type: "CLOSE_ADDING",
 });
+export const setCurrentDroppable = (payload) => ({
+  type: "SET_CURRENT_DROPPABLE",
+  payload,
+});
+
 export const fetchWorkspace = (data) => {
   return (dispatch) => {
     // dispatch(clearWorkspace());
@@ -59,9 +67,9 @@ export const fetchWorkspace = (data) => {
   };
 };
 
-export const postNewCard = (board, callback) => {
+export const postNewCard = (data, callback) => {
   return (dispatch) => {
-    fetch(`${fetchUrl}/api/v1/board/${board.workspace.id}/cards/new`, {
+    fetch(`${fetchUrl}/api/v1/board/${data.board_id}/cards/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,8 +77,8 @@ export const postNewCard = (board, callback) => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        board_id: board.workspace.id,
-        goal: board.goal,
+        board_id: data.board_id,
+        goal: data.goal,
         card_desc: "",
       }),
     })

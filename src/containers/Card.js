@@ -7,7 +7,6 @@ import { updateCardGoal } from "../actions/workspace";
 const initialState = { goal: "" };
 const Card = ({
   card,
-  workspace,
   cardMenu,
   actionCard,
   handleCloseCardMenu,
@@ -15,7 +14,7 @@ const Card = ({
   dispatch,
 }) => {
   const [editCard, setEditCard] = useState({});
-  const [goal, setGoal] = useState(initialState);
+  const [goal, setGoal] = useState("");
   const handleCardGoalEdit = () => {
     setEditCard(card);
     setGoal(card.goal);
