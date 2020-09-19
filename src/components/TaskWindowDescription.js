@@ -19,7 +19,6 @@ const TaskWindowDescription = ({ editTask, dispatch }) => {
   };
   const handleExitEditable = (e) => {
     setEditable(false);
-    setDesc(editTask.task_desc);
   };
   return (
     <div className="task-window-desc">
