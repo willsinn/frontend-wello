@@ -1678,9 +1678,7 @@ button {
   flex-wrap: wrap-reverse;
 }
 .edit-card-title {
-  overflow: hidden;
 }
-
 .card-icon {
   height: 32px;
   font-size: 16px;
@@ -3150,6 +3148,9 @@ button {
 .board-title-cont {
   max-width: fit-content;
   font-size: 20px;
+}
+.board-title {
+  white-space: nowrap;
 }
 .b-name {
   padding: 0 12px;
