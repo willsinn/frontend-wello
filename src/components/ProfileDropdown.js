@@ -27,9 +27,16 @@ const ProfileDropdown = ({ user, closeRightnav, activePage, dispatch }) => {
   return (
     <div className="new-board right-modal">
       <div className="dropdown-title ">
-        <div className="dropdown-label">{`${renderCapsName()} (${
-          user.email
-        })`}</div>
+        <div
+          className="dropdown-label"
+          style={{
+            flexWrap: "wrap",
+            height: "fit-content",
+            display: "flex",
+            width: "85%",
+            marginLeft: "16px",
+          }}
+        >{`${renderCapsName()} (${user.email})`}</div>
         <hr />
         <div className="dropdown-title-close">
           <button>

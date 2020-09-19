@@ -9,11 +9,6 @@ const defaultState = {
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_USER":
-      // console.log(
-      //   `%c USER-LOGIN-PAYLOAD, userReducer`,
-      //   "color: red",
-      //   action.payload
-      // );
       return {
         ...state,
         user: action.payload.user,

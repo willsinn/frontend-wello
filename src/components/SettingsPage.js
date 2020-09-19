@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { changeUserAttrs } from "../actions/user";
 
-const SettingsPage = ({ user, dispatch }) => {
+const SettingsPage = ({ user, activePage, dispatch }) => {
   const [chgName, setChgName] = useState(user.name);
   const [chgEmail, setChgEmail] = useState(user.email);
   const nameSplit = user.name.split(" ");
@@ -35,6 +35,8 @@ const SettingsPage = ({ user, dispatch }) => {
   };
   const handleSubmit = (e) => {
     if (e) {
+      console.log(activePage, user);
+
       dispatch(
         changeUserAttrs({ id: user.id, name: chgName, email: chgEmail })
       );
@@ -80,6 +82,7 @@ const SettingsPage = ({ user, dispatch }) => {
 const mapStateToProps = (state) => {
   return {
     user: state.userReducer.user,
+    activePage: state.userReducer.activePage,
   };
 };
 export default connect(mapStateToProps)(SettingsPage);

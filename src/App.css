@@ -825,6 +825,11 @@ button {
   display: block;
   color: #5e6c84;
   font-size: 14.5px;
+  /* flex-wrap: wrap;
+  height: fit-content;
+  display: flex;
+  width: 85%;
+  margin-left: 16px; */
 }
 .dropdown-title-close {
   position: absolute;
