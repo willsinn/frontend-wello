@@ -18,7 +18,7 @@ const AddItem = ({ checklist, handleCloseAdd, dispatch }) => {
   };
   return (
     <div className="editing">
-      <div style={{ margin: "4px 0" }}>
+      <div>
         <form
           className="description-form"
           style={{ height: "54px" }}
@@ -32,20 +32,22 @@ const AddItem = ({ checklist, handleCloseAdd, dispatch }) => {
             value={itemDetail.value}
             placeholder="Add an item."
           />
-          <button
-            className="add-list-btn"
-            type="submit"
-            style={{ paddingLeft: "12px", paddingRight: "12px", margin: "0" }}
-          >
-            Add
-          </button>
-          <button
-            className="close-add-btn"
-            style={{ paddingLeft: "12px" }}
-            onClick={(e) => handleCloseAdd(e)}
-          >
-            ✕
-          </button>
+          <div style={{ margin: "4px 0" }}>
+            <button
+              className="add-list-btn"
+              type="submit"
+              style={{ paddingLeft: "12px", paddingRight: "12px", margin: "0" }}
+            >
+              Add
+            </button>
+            <button
+              className="close-add-btn"
+              style={{ paddingLeft: "12px" }}
+              onClick={(e) => handleCloseAdd(e)}
+            >
+              ✕
+            </button>
+          </div>
         </form>
       </div>
     </div>

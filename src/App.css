@@ -1630,10 +1630,8 @@ button {
   border: none;
   color: #fff;
   border-radius: 3px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin: 0;
-  margin-top: 4px;
+  padding: 4px 12px;
+  margin: 0 4px 0 0;
 }
 .close-add-btn {
   min-height: 32px;
