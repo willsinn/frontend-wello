@@ -14,7 +14,7 @@ export const fetchUrl = (() => {
   if (url.host.includes("localhost")) return "http://localhost:3000";
 
   if (url.host.includes("compute-1.amazonaws.com:3000"))
-    return "http://ec2-54-92-207-170.compute-1.amazonaws.com:3000/";
+    return "http://ec2-54-92-207-170.compute-1.amazonaws.com:3000";
 
   if (url.host.includes("mywellotask"))
     return "https://backend.mywellotask.com";
