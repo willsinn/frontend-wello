@@ -2552,6 +2552,8 @@ button {
 }
 .edit-label-name {
   height: 190px;
+  position: absolute;
+  top: 8px;
 }
 .label-popover-list {
   width: 100%;
