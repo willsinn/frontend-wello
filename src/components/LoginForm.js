@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { userLogin, setError } from "../actions/user";
 
 const LoginForm = ({ loggedIn, error, dispatch }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("DEMO_ME@email.com");
+  const [password, setPassword] = useState("password");
   const handleUnChange = (e) => {
     e.persist();
     setEmail(e.target.value);
