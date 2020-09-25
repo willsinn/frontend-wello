@@ -114,8 +114,6 @@ const Board = ({
       );
   };
 
-  console.log(user);
-
   return (
     <>
       <NavBar />
