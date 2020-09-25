@@ -11,8 +11,10 @@ const ArchiveItemTask = ({ taskArchive, dispatch }) => {
 
   return (
     <li className="archives-list-item">
-      <div className="main-archive">
-        <span className="archive-item-label">TASK:</span>
+      <div className="main-archive" style={{ height: "100%", display: "flex" }}>
+        <span className="archive-item-label" style={{ alignSelf: "center" }}>
+          TASK:
+        </span>
         <span className="archive-title-text archive-item-info">{`${taskArchive.note}`}</span>
       </div>
       <div className="archive-status">
