@@ -634,6 +634,7 @@ button {
   display: flex;
   padding: 6px 8px;
   display: flex;
+  text-shadow: 2px #12181b;
 }
 .card-item-wrap:first-child {
   margin-left: 8px;
@@ -1347,6 +1348,7 @@ button {
   position: relative;
   top: 8px;
   left: 12px;
+  text-shadow: 1px 1px 2px #12181b;
 }
 .board-cards {
   display: flex;
@@ -3158,6 +3160,7 @@ button {
 }
 .board-title {
   white-space: nowrap;
+  text-shadow: 2px #12181b;
 }
 .b-name {
   padding: 0 12px;
