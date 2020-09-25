@@ -114,7 +114,7 @@ const Board = ({
       );
   };
 
-  console.log("This is the board body", isModalOpen);
+  console.log(user);
 
   return (
     <>
